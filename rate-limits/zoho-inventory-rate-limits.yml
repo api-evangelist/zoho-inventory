@@ -1,0 +1,51 @@
+name: Zoho Inventory API Rate Limits
+description: Rate limiting policies for the Zoho Inventory REST API. Limits are enforced per organization and vary by subscription plan for daily call quotas.
+url: https://www.zoho.com/inventory/api/v1/introduction/
+limits:
+  - type: per_minute
+    scope: organization
+    value: 100
+    unit: requests
+    description: Maximum of 100 API requests per minute per organization. Exceeding this returns HTTP 429.
+    error_code: 429
+
+  - type: concurrent
+    scope: organization
+    value: 5
+    unit: simultaneous_requests
+    plan: Free
+    description: Maximum simultaneous active API calls for Free plan organizations.
+
+  - type: concurrent
+    scope: organization
+    value: 10
+    unit: simultaneous_requests
+    plan: Paid
+    description: Maximum simultaneous active API calls for all paid plan organizations.
+
+daily_limits_by_plan:
+  - plan: Free
+    daily_calls: 1000
+    description: Free plan organizations are limited to 1,000 API calls per day.
+
+  - plan: Standard
+    daily_calls: 2500
+    description: Standard plan organizations are limited to 2,500 API calls per day.
+
+  - plan: Professional
+    daily_calls: 5000
+    description: Professional plan organizations are limited to 5,000 API calls per day.
+
+  - plan: Premium
+    daily_calls: 75000
+    description: Premium plan organizations are limited to 75,000 API calls per day.
+
+  - plan: Enterprise
+    daily_calls: 10000
+    description: Enterprise plan organizations are limited to 10,000 API calls per day.
+
+notes:
+  - Limits are enforced per organization, not per API key or user.
+  - HTTP 429 (Too Many Requests) is returned when the per-minute rate limit is exceeded.
+  - The API supports 8 datacenter domains (.com, .eu, .in, .com.au, .jp, .ca, .com.cn, .sa); rate limits apply independently per datacenter.
+  - OAuth 2.0 tokens are used for authentication; token generation calls may count toward limits.

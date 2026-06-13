@@ -1,0 +1,53 @@
+name: Zoho Inventory FinOps
+description: Financial operations guidance for managing Zoho Inventory API costs, optimizing plan selection, and controlling spend across subscription tiers.
+url: https://www.zoho.com/us/inventory/pricing/
+considerations:
+  - title: Plan Selection Based on API Volume
+    description: >
+      Daily API call limits vary significantly across plans. The Premium plan offers the highest
+      daily limit (75,000 calls/day) at $129/month, while Enterprise provides only 10,000 calls/day
+      at $249/month. Organizations with high API throughput needs should carefully evaluate
+      Premium vs Enterprise based on call volume rather than assuming Enterprise provides more API capacity.
+
+  - title: Annual Billing Savings
+    description: >
+      Zoho Inventory plans are listed at monthly rates but billed annually. Committing to annual
+      billing locks in the advertised rate. Evaluate projected order volume growth before
+      committing to a tier for a full year.
+
+  - title: Order Volume vs API Volume
+    description: >
+      Plan tiers are primarily gated by orders per month (50 to 15,000) and locations, not API calls.
+      Organizations with moderate operational volume but high API integration needs may need to upgrade
+      plans for API headroom even if their order count is within a lower tier.
+
+  - title: Add-On Cost Management
+    description: >
+      Add-ons (users, orders, locations) are billed monthly at $7.50–$124.17 each. Audit add-on
+      usage quarterly to avoid accumulating unused capacity. Compare add-on stacking cost against
+      upgrading to the next plan tier.
+
+  - title: Caching to Reduce API Calls
+    description: >
+      Implement client-side caching for frequently-read resources (items, contacts, price lists,
+      warehouses) to reduce daily API call consumption. This is particularly important on Free
+      (1,000/day) and Standard (2,500/day) tiers.
+
+  - title: Multi-Datacenter Cost Isolation
+    description: >
+      Organizations operating across multiple Zoho datacenters (.com, .eu, .in, .com.au, .jp, .ca,
+      .com.cn, .sa) maintain separate organizations per region. Each organization has its own plan
+      and API limits, meaning costs scale with the number of regional organizations.
+
+  - title: Rate Limit Monitoring
+    description: >
+      Monitor for HTTP 429 responses to detect rate limit pressure. Sustained 429 errors on the
+      per-minute limit (100 req/min) indicate a need for request throttling, queuing, or plan
+      upgrade. Daily limit exhaustion signals a need to upgrade the plan tier.
+
+optimization_tips:
+  - Use bulk/list endpoints instead of individual GET calls where possible to minimize API call count.
+  - Paginate results and cache pages rather than re-fetching on every request.
+  - Use webhooks for event-driven integrations instead of polling inventory state changes via API.
+  - Batch write operations during off-peak windows if operating near the daily limit.
+  - Audit which integrations consume the most API calls using logging middleware.
