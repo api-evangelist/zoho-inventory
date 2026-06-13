@@ -1,0 +1,215 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Serial Numbers",
+  "description": "Serial numbers help you track individual units of inventory items by assigning a unique identifier to each unit.",
+  "definitions": {
+    "gendoc-attributes-schema": {
+      "$ref": "#/components/schemas/serial-number-response"
+    },
+    "serialnumber_id": {
+      "description": "Unique identifier of the serial number.",
+      "type": "string",
+      "example": "6780203000000176190"
+    },
+    "serialnumber": {
+      "description": "Serial number assigned to the unit.",
+      "type": "string",
+      "example": "SN-LAP-001"
+    },
+    "code": {
+      "description": "Code of the serial number. Same value as <code>serialnumber</code>.",
+      "type": "string",
+      "example": "SN-LAP-001"
+    },
+    "status": {
+      "description": "Status of the serial number. Allowed values <code>active</code> and <code>inactive</code>.",
+      "type": "string",
+      "example": "active"
+    },
+    "is_transacted_out": {
+      "description": "Indicates whether the serial number has been transacted out and is no longer available in stock.",
+      "type": "boolean",
+      "example": false
+    },
+    "item_id": {
+      "description": "Unique identifier of the item the serial number belongs to.",
+      "type": "string",
+      "example": "6780203000000167467"
+    },
+    "price": {
+      "description": "Price of the item associated with the serial number.",
+      "type": "number",
+      "format": "float",
+      "example": 1500
+    },
+    "batch_id": {
+      "description": "Unique identifier of the batch the serial number belongs to.",
+      "type": "string",
+      "example": "6780203000000176162",
+      "x-node_available_in": [
+        "Serial with Batch tracked items"
+      ]
+    },
+    "batch_number": {
+      "description": "Batch number the serial number belongs to.",
+      "type": "string",
+      "example": "BATCH-001",
+      "x-node_available_in": [
+        "Serial with Batch tracked items"
+      ]
+    },
+    "custom_field_id": {
+      "description": "Unique identifier of the custom field.",
+      "type": "string",
+      "example": "6780203000000176175"
+    },
+    "label": {
+      "description": "Label of the custom field.",
+      "type": "string",
+      "example": "Warranty Period"
+    },
+    "value": {
+      "description": "Value of the custom field.",
+      "type": "string",
+      "example": "2 Years"
+    },
+    "custom_fields": {
+      "description": "Custom fields configured for the serial number.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "$ref": "#/components/schemas/custom_field_id"
+          },
+          "label": {
+            "$ref": "#/components/schemas/label"
+          },
+          "value": {
+            "$ref": "#/components/schemas/value"
+          }
+        }
+      }
+    },
+    "batch_custom_fields": {
+      "description": "Custom fields configured for the batch the serial number belongs to.",
+      "type": "array",
+      "x-node_available_in": [
+        "Serial with Batch tracked items"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_field_id": {
+            "$ref": "#/components/schemas/custom_field_id"
+          },
+          "label": {
+            "$ref": "#/components/schemas/label"
+          },
+          "value": {
+            "$ref": "#/components/schemas/value"
+          }
+        }
+      }
+    },
+    "serial-number-response": {
+      "description": "Details of a serial number.",
+      "type": "object",
+      "properties": {
+        "serialnumber_id": {
+          "$ref": "#/components/schemas/serialnumber_id"
+        },
+        "serialnumber": {
+          "$ref": "#/components/schemas/serialnumber"
+        },
+        "code": {
+          "$ref": "#/components/schemas/code"
+        },
+        "status": {
+          "$ref": "#/components/schemas/status"
+        },
+        "is_transacted_out": {
+          "$ref": "#/components/schemas/is_transacted_out"
+        },
+        "item_id": {
+          "$ref": "#/components/schemas/item_id"
+        },
+        "price": {
+          "$ref": "#/components/schemas/price"
+        },
+        "custom_fields": {
+          "$ref": "#/components/schemas/custom_fields"
+        }
+      }
+    },
+    "list-serial-numbers-item": {
+      "description": "Details of a serial number as returned in the list serial numbers response.",
+      "type": "object",
+      "properties": {
+        "serialnumber_id": {
+          "$ref": "#/components/schemas/serialnumber_id"
+        },
+        "serialnumber": {
+          "$ref": "#/components/schemas/serialnumber"
+        },
+        "status": {
+          "$ref": "#/components/schemas/status"
+        },
+        "is_transacted_out": {
+          "$ref": "#/components/schemas/is_transacted_out"
+        },
+        "batch_id": {
+          "$ref": "#/components/schemas/batch_id"
+        },
+        "batch_number": {
+          "$ref": "#/components/schemas/batch_number"
+        },
+        "batch_custom_fields": {
+          "$ref": "#/components/schemas/batch_custom_fields"
+        },
+        "custom_fields": {
+          "$ref": "#/components/schemas/custom_fields"
+        }
+      }
+    },
+    "list-all-serial-numbers-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "success",
+          "readOnly": true
+        },
+        "serial_numbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/list-serial-numbers-item"
+          }
+        }
+      }
+    },
+    "retrieve-a-serial-number-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "success",
+          "readOnly": true
+        },
+        "serial_number": {
+          "$ref": "#/components/schemas/serial-number-response"
+        }
+      }
+    }
+  }
+}

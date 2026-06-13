@@ -1,0 +1,678 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Move Orders",
+  "description": "Move orders track stock movement between storage locations within a warehouse. Use these APIs to create, update, list, delete, and change the status of move orders in Zoho Inventory.",
+  "definitions": {
+    "gendoc-attributes-schema": {
+      "$ref": "#/components/schemas/move-order-response"
+    },
+    "move-order-settings": {
+      "type": "object",
+      "properties": {
+        "auto_generate": {
+          "type": "boolean",
+          "description": "Whether move order numbers are auto-generated."
+        },
+        "prefix_string": {
+          "type": "string",
+          "description": "Prefix for auto-generated move order numbers."
+        },
+        "next_number": {
+          "type": "string",
+          "description": "Next number in the auto-number sequence."
+        }
+      }
+    },
+    "move-order-line-batch-node": {
+      "type": "object",
+      "description": "One batch allocation on a move-order line. Use either an existing batch_id or new batch attributes as required by your org and item settings (see server BatchNumberCreate / BatchNumberEdit).",
+      "properties": {
+        "batch_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Existing inventory batch ID when selecting stock from an existing batch."
+        },
+        "batch_in_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Batch-in row reference when supplied by the client."
+        },
+        "batch_number": {
+          "type": "string",
+          "description": "Batch number for a new batch line when not using an existing batch_id."
+        },
+        "manufacturer_batch_number": {
+          "type": "string",
+          "description": "Manufacturer or external batch reference."
+        },
+        "manufactured_date": {
+          "type": "string",
+          "description": "Manufacturing date (yyyy-mm-dd)."
+        },
+        "expiry_date": {
+          "type": "string",
+          "description": "Expiry date (yyyy-mm-dd)."
+        },
+        "in_quantity": {
+          "type": "number",
+          "format": "double",
+          "description": "Quantity for this batch when the line quantity is split across batches."
+        },
+        "sales_rate": {
+          "type": "number",
+          "format": "double",
+          "description": "Selling rate for the batch when batch pricing is enabled."
+        },
+        "label_rate": {
+          "type": "number",
+          "format": "double",
+          "description": "Label (MRP) rate for the batch when applicable."
+        },
+        "balance_quantity": {
+          "type": "number",
+          "format": "double",
+          "readOnly": true,
+          "description": "On read, returns the remaining quantity in the batch."
+        },
+        "status": {
+          "type": "string",
+          "readOnly": true,
+          "description": "On read, batch status when returned by the service."
+        }
+      }
+    },
+    "move-order-line-storage-node": {
+      "type": "object",
+      "description": "Storage-bin allocation for source (from_storages) or destination (to_storages) on a line when storage tracking is enabled.",
+      "properties": {
+        "storage_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Storage location ID."
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double",
+          "description": "Quantity moved from or into this storage for the line."
+        }
+      }
+    },
+    "move-order-line-serial-node": {
+      "type": "object",
+      "description": "Serial number row returned on a line when serial tracking is enabled.",
+      "properties": {
+        "serialnumber_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Serial number master record ID."
+        },
+        "serial_number": {
+          "type": "string",
+          "description": "Serial code."
+        },
+        "status": {
+          "type": "string",
+          "description": "Serial status when returned by the service."
+        }
+      }
+    },
+    "move-order-document-attachment": {
+      "type": "object",
+      "description": "File attached to a move order (DocumentDetailsForEntity).",
+      "properties": {
+        "document_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Attachment document ID; use with GET/DELETE `/moveorders/{moveorder_id}/documents/{document_id}`."
+        },
+        "file_name": {
+          "type": "string",
+          "description": "Original file name."
+        },
+        "file_type": {
+          "type": "string",
+          "description": "MIME or file type classification."
+        },
+        "file_size": {
+          "type": "integer",
+          "format": "int64",
+          "description": "File size in bytes."
+        },
+        "file_size_formatted": {
+          "type": "string",
+          "description": "Human-readable file size."
+        }
+      }
+    },
+    "move-order-line-item-request": {
+      "type": "object",
+      "required": [
+        "item_id",
+        "quantity_transferred"
+      ],
+      "properties": {
+        "line_item_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Line item ID returned by the server. Required on update when modifying existing line items."
+        },
+        "item_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Item (product) ID for this line. Required for every line item (same role as <code>item_id</code> on transfer order line items)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Line-level description or notes for the item. Optional."
+        },
+        "quantity_transferred": {
+          "type": "number",
+          "format": "double",
+          "description": "Quantity to move for this line. Required for every line item (same role as <code>quantity_transfer</code> on transfer orders)."
+        },
+        "batches": {
+          "type": "array",
+          "description": "Batch details when batch tracking is enabled.",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-batch-node"
+          }
+        },
+        "from_storages": {
+          "type": "array",
+          "description": "Source storage allocations when storage tracking is enabled.",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-storage-node"
+          }
+        },
+        "to_storages": {
+          "type": "array",
+          "description": "Destination storage allocations when storage tracking is enabled.",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-storage-node"
+          }
+        }
+      }
+    },
+    "create-a-move-order-request": {
+      "type": "object",
+      "required": [
+        "date",
+        "line_items"
+      ],
+      "properties": {
+        "moveorder_number": {
+          "type": "string",
+          "description": "Move order number; optional when auto-generation is enabled."
+        },
+        "date": {
+          "type": "string",
+          "description": "Transaction date (yyyy-mm-dd)."
+        },
+        "completed_date": {
+          "type": "string",
+          "description": "Completed date when applicable (yyyy-mm-dd)."
+        },
+        "assignee_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "User ID of the assignee for this move order."
+        },
+        "warehouse_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Warehouse ID when warehouses are enabled."
+        },
+        "location_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Location (branch) ID when locations are enabled."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Internal notes for the move order."
+        },
+        "status": {
+          "type": "string",
+          "description": "Move order status when supplied on create or update."
+        },
+        "line_items": {
+          "type": "array",
+          "description": "A move order can contain multiple line items. Each object must include <code>item_id</code> and <code>quantity_transferred</code>. Optional fields: <code>line_item_id</code> (required on update for existing lines), <code>description</code>, <code>batches</code>, <code>from_storages</code>, and <code>to_storages</code> when batch or bin storage tracking applies in your organization.",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-item-request"
+          }
+        }
+      }
+    },
+    "update-a-move-order-request": {
+      "$ref": "#/components/schemas/create-a-move-order-request"
+    },
+    "move-order-comment": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "moveorder_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "description": {
+          "type": "string"
+        },
+        "commented_by_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "commented_by": {
+          "type": "string"
+        },
+        "comment_type": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "date_description": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "operation_type": {
+          "type": "string"
+        }
+      }
+    },
+    "move-order-line-item-response": {
+      "type": "object",
+      "properties": {
+        "line_item_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "item_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "unit_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "image_document_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "description": {
+          "type": "string"
+        },
+        "quantity_transferred": {
+          "type": "number",
+          "format": "double"
+        },
+        "track_serial_number": {
+          "type": "boolean"
+        },
+        "track_batch_number": {
+          "type": "boolean"
+        },
+        "serial_numbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-serial-node"
+          }
+        },
+        "batches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-batch-node"
+          }
+        },
+        "is_combo_product": {
+          "type": "boolean"
+        },
+        "from_storages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-storage-node"
+          }
+        },
+        "to_storages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-storage-node"
+          }
+        },
+        "is_storage_location_enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "move-order-response": {
+      "type": "object",
+      "properties": {
+        "moveorder_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "moveorder_number": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "completed_date": {
+          "type": "string"
+        },
+        "assignee_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "assignee_name": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "created_by_name": {
+          "type": "string"
+        },
+        "warehouse_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "warehouse_name": {
+          "type": "string"
+        },
+        "location_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "location_name": {
+          "type": "string"
+        },
+        "html_string": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-comment"
+          }
+        },
+        "line_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-line-item-response"
+          }
+        },
+        "documents": {
+          "type": "array",
+          "description": "Attachments on the move order when returned by the service.",
+          "items": {
+            "$ref": "#/components/schemas/move-order-document-attachment"
+          }
+        }
+      }
+    },
+    "move-order-list-row": {
+      "type": "object",
+      "properties": {
+        "moveorder_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "moveorder_number": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "assignee_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "assignee_name": {
+          "type": "string"
+        },
+        "warehouse_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "warehouse_name": {
+          "type": "string"
+        },
+        "location_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "location_name": {
+          "type": "string"
+        },
+        "has_attachment": {
+          "type": "boolean"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "last_modified_time": {
+          "type": "string"
+        }
+      }
+    },
+    "page_context": {
+      "type": "object",
+      "description": "Pagination and list context for the current result set.",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "example": 1
+        },
+        "per_page": {
+          "type": "integer",
+          "example": 200
+        },
+        "has_more_page": {
+          "type": "boolean"
+        },
+        "report_name": {
+          "type": "string"
+        },
+        "applied_filter": {
+          "type": "string"
+        },
+        "sort_column": {
+          "type": "string"
+        },
+        "sort_order": {
+          "type": "string"
+        }
+      }
+    },
+    "create-a-move-order-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "moveorder": {
+          "$ref": "#/components/schemas/move-order-response"
+        }
+      }
+    },
+    "list-move-orders-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "success",
+          "readOnly": true
+        },
+        "moveorders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-list-row"
+          }
+        },
+        "page_context": {
+          "$ref": "#/components/schemas/page_context"
+        }
+      }
+    },
+    "get-a-move-order-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "success",
+          "readOnly": true
+        },
+        "moveorder": {
+          "$ref": "#/components/schemas/move-order-response"
+        }
+      }
+    },
+    "update-a-move-order-response": {
+      "$ref": "#/components/schemas/get-a-move-order-response"
+    },
+    "delete-a-move-order-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Move Order deleted successfully.",
+          "readOnly": true
+        }
+      }
+    },
+    "delete-a-move-order-document-response": {
+      "type": "object",
+      "description": "Returned when a document is removed from a move order.",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Your file is no longer attached to the Move Order.",
+          "readOnly": true
+        }
+      }
+    },
+    "list-move-order-comments-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/move-order-comment"
+          }
+        }
+      }
+    },
+    "move-order-status-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Move Order status updated successfully.",
+          "readOnly": true
+        }
+      }
+    },
+    "move-order-attachment-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "document": {
+          "$ref": "#/components/schemas/move-order-document-attachment"
+        }
+      }
+    },
+    "get-move-order-settings-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "moveorder_settings": {
+          "$ref": "#/components/schemas/move-order-settings"
+        }
+      }
+    }
+  }
+}

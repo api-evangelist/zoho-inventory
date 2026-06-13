@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "zoho": "https://www.zoho.com/inventory/api/v1/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+
+    "ZohoInventoryAPI": {
+      "@id": "zoho:ZohoInventoryAPI",
+      "@type": "@id"
+    },
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+
+    "Organization": "schema:Organization",
+    "Item": "schema:Product",
+    "Contact": "schema:Person",
+    "SalesOrder": "schema:Order",
+    "Invoice": "schema:Invoice",
+    "PurchaseOrder": "schema:Order",
+    "Warehouse": "schema:Place",
+    "Shipment": "schema:ParcelDelivery",
+    "Package": "schema:ParcelDelivery",
+    "CreditNote": "schema:Invoice",
+    "Bill": "schema:Invoice",
+    "Tax": "schema:Tax",
+    "Currency": "schema:PriceSpecification",
+    "PriceList": "schema:PriceSpecification",
+    "User": "schema:Person",
+    "Task": "schema:Action",
+
+    "item_id": { "@id": "zoho:item_id", "@type": "xsd:string" },
+    "item_name": { "@id": "zoho:item_name", "@type": "xsd:string" },
+    "sku": { "@id": "schema:sku", "@type": "xsd:string" },
+    "unit": { "@id": "zoho:unit", "@type": "xsd:string" },
+    "rate": { "@id": "schema:price", "@type": "xsd:decimal" },
+    "purchase_rate": { "@id": "zoho:purchase_rate", "@type": "xsd:decimal" },
+    "stock_on_hand": { "@id": "zoho:stock_on_hand", "@type": "xsd:decimal" },
+    "available_stock": { "@id": "zoho:available_stock", "@type": "xsd:decimal" },
+    "committed_stock": { "@id": "zoho:committed_stock", "@type": "xsd:decimal" },
+    "reorder_level": { "@id": "zoho:reorder_level", "@type": "xsd:decimal" },
+
+    "salesorder_id": { "@id": "zoho:salesorder_id", "@type": "xsd:string" },
+    "salesorder_number": { "@id": "zoho:salesorder_number", "@type": "xsd:string" },
+    "customer_id": { "@id": "zoho:customer_id", "@type": "xsd:string" },
+    "customer_name": { "@id": "zoho:customer_name", "@type": "xsd:string" },
+    "date": { "@id": "schema:dateCreated", "@type": "xsd:date" },
+    "due_date": { "@id": "schema:paymentDueDate", "@type": "xsd:date" },
+    "status": { "@id": "schema:status", "@type": "xsd:string" },
+    "total": { "@id": "schema:totalPrice", "@type": "xsd:decimal" },
+    "sub_total": { "@id": "zoho:sub_total", "@type": "xsd:decimal" },
+    "tax_total": { "@id": "zoho:tax_total", "@type": "xsd:decimal" },
+    "currency_code": { "@id": "schema:currency", "@type": "xsd:string" },
+
+    "invoice_id": { "@id": "zoho:invoice_id", "@type": "xsd:string" },
+    "invoice_number": { "@id": "zoho:invoice_number", "@type": "xsd:string" },
+    "balance": { "@id": "zoho:balance", "@type": "xsd:decimal" },
+    "payment_terms": { "@id": "zoho:payment_terms", "@type": "xsd:integer" },
+
+    "purchaseorder_id": { "@id": "zoho:purchaseorder_id", "@type": "xsd:string" },
+    "purchaseorder_number": { "@id": "zoho:purchaseorder_number", "@type": "xsd:string" },
+    "vendor_id": { "@id": "zoho:vendor_id", "@type": "xsd:string" },
+    "vendor_name": { "@id": "zoho:vendor_name", "@type": "xsd:string" },
+
+    "contact_id": { "@id": "zoho:contact_id", "@type": "xsd:string" },
+    "contact_name": { "@id": "zoho:contact_name", "@type": "xsd:string" },
+    "email": { "@id": "schema:email", "@type": "xsd:string" },
+    "phone": { "@id": "schema:telephone", "@type": "xsd:string" },
+
+    "warehouse_id": { "@id": "zoho:warehouse_id", "@type": "xsd:string" },
+    "warehouse_name": { "@id": "zoho:warehouse_name", "@type": "xsd:string" },
+    "location_id": { "@id": "zoho:location_id", "@type": "xsd:string" },
+
+    "shipment_id": { "@id": "zoho:shipment_id", "@type": "xsd:string" },
+    "tracking_number": { "@id": "schema:trackingNumber", "@type": "xsd:string" },
+    "carrier": { "@id": "zoho:carrier", "@type": "xsd:string" },
+
+    "batch_id": { "@id": "zoho:batch_id", "@type": "xsd:string" },
+    "batch_number": { "@id": "zoho:batch_number", "@type": "xsd:string" },
+    "serial_number": { "@id": "zoho:serial_number", "@type": "xsd:string" },
+    "expiry_date": { "@id": "zoho:expiry_date", "@type": "xsd:date" },
+
+    "organization_id": { "@id": "zoho:organization_id", "@type": "xsd:string" },
+    "user_id": { "@id": "zoho:user_id", "@type": "xsd:string" },
+
+    "line_items": { "@id": "zoho:line_items", "@type": "@json" },
+    "custom_fields": { "@id": "zoho:custom_fields", "@type": "@json" },
+    "addresses": { "@id": "schema:address", "@type": "@json" },
+
+    "created_time": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+    "last_modified_time": { "@id": "schema:dateModified", "@type": "xsd:dateTime" }
+  },
+  "@graph": [
+    {
+      "@type": "owl:Ontology",
+      "@id": "https://www.zoho.com/inventory/api/v1/",
+      "rdfs:label": "Zoho Inventory API Ontology",
+      "rdfs:comment": "JSON-LD context and ontology for the Zoho Inventory REST API v1, covering items, contacts, orders, invoices, warehouses, shipments, batches, and more.",
+      "owl:versionInfo": "1.0.0",
+      "schema:url": "https://www.zoho.com/inventory/api/v1/introduction/"
+    }
+  ]
+}

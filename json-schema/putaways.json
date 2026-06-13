@@ -1,0 +1,618 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Putaways",
+  "description": "Putaways let you record stock moved into storage locations after inbound operations. Use these APIs to create, update, list, and delete putaway transactions in Zoho Inventory.",
+  "definitions": {
+    "gendoc-attributes-schema": {
+      "$ref": "#/components/schemas/putaway-response"
+    },
+    "putaway-settings": {
+      "type": "object",
+      "properties": {
+        "auto_generate": {
+          "type": "boolean",
+          "description": "Whether putaway numbers are auto-generated."
+        },
+        "prefix_string": {
+          "type": "string",
+          "description": "Prefix for auto-generated putaway numbers."
+        },
+        "next_number": {
+          "type": "string",
+          "description": "Next number in the auto-number sequence."
+        }
+      }
+    },
+    "putaway-line-batch-node": {
+      "type": "object",
+      "description": "One batch allocation on a putaway line when batch tracking is enabled (see server BatchNumberCreate / BatchNumberEdit).",
+      "properties": {
+        "batch_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Existing inventory batch ID when selecting stock from an existing batch."
+        },
+        "batch_in_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Batch-in row reference when supplied by the client."
+        },
+        "batch_number": {
+          "type": "string",
+          "description": "Batch number for a new batch line when not using an existing batch_id."
+        },
+        "manufacturer_batch_number": {
+          "type": "string",
+          "description": "Manufacturer or external batch reference."
+        },
+        "manufactured_date": {
+          "type": "string",
+          "description": "Manufacturing date (yyyy-mm-dd)."
+        },
+        "expiry_date": {
+          "type": "string",
+          "description": "Expiry date (yyyy-mm-dd)."
+        },
+        "in_quantity": {
+          "type": "number",
+          "format": "double",
+          "description": "Quantity for this batch when the line quantity is split across batches."
+        },
+        "sales_rate": {
+          "type": "number",
+          "format": "double",
+          "description": "Selling rate for the batch when batch pricing is enabled."
+        },
+        "label_rate": {
+          "type": "number",
+          "format": "double",
+          "description": "Label (MRP) rate for the batch when applicable."
+        },
+        "balance_quantity": {
+          "type": "number",
+          "format": "double",
+          "readOnly": true,
+          "description": "On read, returns the remaining quantity in the batch."
+        },
+        "status": {
+          "type": "string",
+          "readOnly": true,
+          "description": "On read, batch status when returned by the service."
+        }
+      }
+    },
+    "putaway-line-serial-node": {
+      "type": "object",
+      "description": "Serial number row for a putaway line when serial tracking is enabled.",
+      "properties": {
+        "serialnumber_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Serial number master record ID."
+        },
+        "serial_number": {
+          "type": "string",
+          "description": "Serial code."
+        },
+        "status": {
+          "type": "string",
+          "description": "Serial status when returned by the service."
+        }
+      }
+    },
+    "putaway-line-storage-node": {
+      "type": "object",
+      "description": "Storage-bin allocation for a putaway line when storage tracking is enabled.",
+      "properties": {
+        "storage_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Storage location ID."
+        },
+        "quantity": {
+          "type": "number",
+          "format": "double",
+          "description": "Quantity put away into this storage for the line."
+        }
+      }
+    },
+    "putaway-document-attachment": {
+      "type": "object",
+      "description": "File attached to a putaway (DocumentDetailsForEntity).",
+      "properties": {
+        "document_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Attachment document ID; use with GET/DELETE `/putaways/{putaway_id}/documents/{document_id}`."
+        },
+        "file_name": {
+          "type": "string",
+          "description": "Original file name."
+        },
+        "file_type": {
+          "type": "string",
+          "description": "MIME or file type classification."
+        },
+        "file_size": {
+          "type": "integer",
+          "format": "int64",
+          "description": "File size in bytes."
+        },
+        "file_size_formatted": {
+          "type": "string",
+          "description": "Human-readable file size."
+        }
+      }
+    },
+    "putaway-line-item-request": {
+      "type": "object",
+      "required": [
+        "item_id",
+        "quantity_transferred"
+      ],
+      "properties": {
+        "line_item_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Line item ID returned by the server. Required on update when modifying existing line items."
+        },
+        "item_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Item (product) ID for the line. Required for every line item (same role as <code>item_id</code> on transfer order line items)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Line-level description or notes for the item. Optional."
+        },
+        "quantity_transferred": {
+          "type": "number",
+          "format": "double",
+          "description": "Quantity put away for this line. Required for every line item (same role as <code>quantity_transfer</code> on transfer orders)."
+        },
+        "serial_numbers": {
+          "type": "array",
+          "description": "Serial number details when serial tracking is enabled.",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-serial-node"
+          }
+        },
+        "batches": {
+          "type": "array",
+          "description": "Batch details when batch tracking is enabled.",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-batch-node"
+          }
+        },
+        "storages": {
+          "type": "array",
+          "description": "Storage bin allocations when storage tracking is enabled.",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-storage-node"
+          }
+        }
+      }
+    },
+    "create-a-putaway-request": {
+      "type": "object",
+      "required": [
+        "date",
+        "line_items"
+      ],
+      "properties": {
+        "putaway_number": {
+          "type": "string",
+          "description": "Putaway number; optional when auto-generation is enabled."
+        },
+        "date": {
+          "type": "string",
+          "description": "Transaction date (yyyy-mm-dd)."
+        },
+        "warehouse_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Warehouse ID when warehouses are enabled."
+        },
+        "location_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Location (branch) ID when locations are enabled."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Internal notes for the putaway."
+        },
+        "line_items": {
+          "type": "array",
+          "description": "A putaway can contain multiple line items. Each object must include <code>item_id</code> and <code>quantity_transferred</code>. Optional fields: <code>line_item_id</code> (required on update for existing lines), <code>description</code>, <code>serial_numbers</code>, <code>batches</code>, and <code>storages</code> when serial, batch, or bin storage tracking applies in your organization.",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-item-request"
+          }
+        }
+      }
+    },
+    "update-a-putaway-request": {
+      "$ref": "#/components/schemas/create-a-putaway-request"
+    },
+    "putaway-comment": {
+      "type": "object",
+      "properties": {
+        "comment_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "putaway_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "description": {
+          "type": "string"
+        },
+        "commented_by_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "commented_by": {
+          "type": "string"
+        },
+        "comment_type": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "date_description": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "operation_type": {
+          "type": "string"
+        }
+      }
+    },
+    "putaway-line-item-response": {
+      "type": "object",
+      "properties": {
+        "line_item_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "item_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "image_document_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "description": {
+          "type": "string"
+        },
+        "quantity_transferred": {
+          "type": "number",
+          "format": "double"
+        },
+        "track_serial_number": {
+          "type": "boolean"
+        },
+        "track_batch_number": {
+          "type": "boolean"
+        },
+        "serial_numbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-serial-node"
+          }
+        },
+        "batches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-batch-node"
+          }
+        },
+        "is_combo_product": {
+          "type": "boolean"
+        },
+        "storages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-storage-node"
+          }
+        },
+        "is_storage_location_enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "putaway-response": {
+      "type": "object",
+      "properties": {
+        "putaway_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "putaway_number": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "created_by_name": {
+          "type": "string"
+        },
+        "warehouse_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "warehouse_name": {
+          "type": "string"
+        },
+        "location_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "location_name": {
+          "type": "string"
+        },
+        "html_string": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/putaway-comment"
+          }
+        },
+        "line_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/putaway-line-item-response"
+          }
+        },
+        "documents": {
+          "type": "array",
+          "description": "Attachments on the putaway when returned by the service.",
+          "items": {
+            "$ref": "#/components/schemas/putaway-document-attachment"
+          }
+        }
+      }
+    },
+    "putaway-list-row": {
+      "type": "object",
+      "properties": {
+        "putaway_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "putaway_number": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "warehouse_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "warehouse_name": {
+          "type": "string"
+        },
+        "location_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "location_name": {
+          "type": "string"
+        },
+        "has_attachment": {
+          "type": "boolean"
+        },
+        "created_time": {
+          "type": "string"
+        },
+        "last_modified_time": {
+          "type": "string"
+        }
+      }
+    },
+    "page_context": {
+      "type": "object",
+      "description": "Pagination and list context for the current result set.",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "example": 1
+        },
+        "per_page": {
+          "type": "integer",
+          "example": 200
+        },
+        "has_more_page": {
+          "type": "boolean"
+        },
+        "report_name": {
+          "type": "string"
+        },
+        "applied_filter": {
+          "type": "string"
+        },
+        "sort_column": {
+          "type": "string"
+        },
+        "sort_order": {
+          "type": "string"
+        }
+      }
+    },
+    "create-a-putaway-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "putaway": {
+          "$ref": "#/components/schemas/putaway-response"
+        }
+      }
+    },
+    "list-putaways-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "success",
+          "readOnly": true
+        },
+        "putaways": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/putaway-list-row"
+          }
+        },
+        "page_context": {
+          "$ref": "#/components/schemas/page_context"
+        }
+      }
+    },
+    "get-a-putaway-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "success",
+          "readOnly": true
+        },
+        "putaway": {
+          "$ref": "#/components/schemas/putaway-response"
+        }
+      }
+    },
+    "update-a-putaway-response": {
+      "$ref": "#/components/schemas/get-a-putaway-response"
+    },
+    "delete-a-putaway-response": {
+      "type": "object",
+      "description": "Returned when a putaway is deleted.",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Putaway deleted successfully.",
+          "readOnly": true
+        }
+      }
+    },
+    "delete-a-putaway-document-response": {
+      "type": "object",
+      "description": "Returned when a document is removed from a putaway.",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Your file is no longer attached to the Putaway.",
+          "readOnly": true
+        }
+      }
+    },
+    "list-putaway-comments-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/putaway-comment"
+          }
+        }
+      }
+    },
+    "putaway-attachment-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "document": {
+          "$ref": "#/components/schemas/putaway-document-attachment"
+        }
+      }
+    },
+    "get-putaway-settings-response": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "example": 0,
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "readOnly": true
+        },
+        "putaway_settings": {
+          "$ref": "#/components/schemas/putaway-settings"
+        }
+      }
+    }
+  }
+}
