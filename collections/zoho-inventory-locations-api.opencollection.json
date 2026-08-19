@@ -1,0 +1,362 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches locations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Enable Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/settings/locations/enable",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Enable Locations for an organisation."
+        },
+        {
+          "info": {
+            "name": "List all locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/locations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "is_hierarchical_response",
+                "value": "false",
+                "type": "query",
+                "description": "When set to <code>true</code>, returns the locations in a parent-child hierarchical structure instead of a flat list."
+              },
+              {
+                "name": "location_type",
+                "value": "general",
+                "type": "query",
+                "description": "Filter locations by type. Allowed Values: <code>general</code> and <code>line_item_only</code>."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all the available locations in your zoho inventory."
+        },
+        {
+          "info": {
+            "name": "Create a location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/locations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a location."
+        },
+        {
+          "info": {
+            "name": "Get a location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the details of a location."
+        },
+        {
+          "info": {
+            "name": "Update location",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update location"
+        },
+        {
+          "info": {
+            "name": "Delete a location",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a location."
+        },
+        {
+          "info": {
+            "name": "Mark as Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id/active",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark location as Active."
+        },
+        {
+          "info": {
+            "name": "Mark as Inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id/inactive",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark location as Inactive."
+        },
+        {
+          "info": {
+            "name": "Mark as Primary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id/markasprimary",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark location as primary."
+        },
+        {
+          "info": {
+            "name": "List users of a location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id/users",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number for paginated results."
+              },
+              {
+                "name": "per_page",
+                "value": "50",
+                "type": "query",
+                "description": "Number of records to return per page."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List the users associated with a location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

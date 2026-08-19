@@ -1,0 +1,850 @@
+{
+  "item": [
+    {
+      "id": "229c216b-d505-44db-b080-528a49e40539",
+      "name": "contact-persons",
+      "description": {
+        "content": "Contact-Persons Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13849f4c-4c39-40d0-bb40-29fb84a2a8ba",
+          "name": "Create a contact person",
+          "request": {
+            "name": "Create a contact person",
+            "description": {
+              "content": "Create a contact person for contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "contactpersons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"contact_id\": \"<string>\",\n  \"salutation\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"mobile\": \"<string>\",\n  \"skype\": \"<string>\",\n  \"designation\": \"<string>\",\n  \"department\": \"<string>\",\n  \"enable_portal\": \"<boolean>\",\n  \"communication_preference\": {\n    \"is_sms_enabled\": \"<boolean>\",\n    \"is_whatsapp_enabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a900b9e7-ee7d-4e15-9cc5-04a4fbb85393",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "contactpersons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Will\",\n  \"contact_id\": \"<string>\",\n  \"salutation\": \"Mr\",\n  \"last_name\": \"Smith\",\n  \"email\": \"willsmith@bowmanfurniture.com\",\n  \"phone\": \"+1-925-921-9201\",\n  \"mobile\": \"+1-4054439562\",\n  \"skype\": \"zoho\",\n  \"designation\": \"Sales Engineer\",\n  \"department\": \"Sales\",\n  \"enable_portal\": true,\n  \"communication_preference\": {\n    \"is_sms_enabled\": true,\n    \"is_whatsapp_enabled\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The contact person has been Created\",\n  \"contact_person\": [\n    {\n      \"contact_id\": \"<string>\",\n      \"contact_person_id\": \"string\",\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"skype\": \"zoho\",\n      \"designation\": \"Sales Engineer\",\n      \"department\": \"Sales\",\n      \"is_added_in_portal\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"contact_id\": \"<string>\",\n      \"contact_person_id\": \"string\",\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"skype\": \"zoho\",\n      \"designation\": \"Sales Engineer\",\n      \"department\": \"Sales\",\n      \"is_added_in_portal\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6796911e-f42f-48c0-aa3d-aad8775c2895",
+          "name": "Update a contact person",
+          "request": {
+            "name": "Update a contact person",
+            "description": {
+              "content": "Update details of an existing contact person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "contactpersons",
+                ":contact_person_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_person_id",
+                  "description": "(Required) Unique identifier of the contact person."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"salutation\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"mobile\": \"<string>\",\n  \"skype\": \"<string>\",\n  \"designation\": \"<string>\",\n  \"department\": \"<string>\",\n  \"enable_portal\": \"<boolean>\",\n  \"communication_preference\": {\n    \"is_sms_enabled\": \"<boolean>\",\n    \"is_whatsapp_enabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c03a22a3-b924-4d7b-a765-7a980ea62af6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "contactpersons",
+                    ":contact_person_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_person_id",
+                      "description": "(Required) Unique identifier of the contact person."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact_id\": \"<string>\",\n  \"first_name\": \"Will\",\n  \"salutation\": \"Mr\",\n  \"last_name\": \"Smith\",\n  \"email\": \"willsmith@bowmanfurniture.com\",\n  \"phone\": \"+1-925-921-9201\",\n  \"mobile\": \"+1-4054439562\",\n  \"skype\": \"zoho\",\n  \"designation\": \"Sales Engineer\",\n  \"department\": \"Sales\",\n  \"enable_portal\": true,\n  \"communication_preference\": {\n    \"is_sms_enabled\": true,\n    \"is_whatsapp_enabled\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The contactperson details has been updated.\",\n  \"contact_person\": [\n    {\n      \"contact_id\": \"<string>\",\n      \"contact_person_id\": \"string\",\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"skype\": \"zoho\",\n      \"designation\": \"Sales Engineer\",\n      \"department\": \"Sales\",\n      \"is_added_in_portal\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"contact_id\": \"<string>\",\n      \"contact_person_id\": \"string\",\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"skype\": \"zoho\",\n      \"designation\": \"Sales Engineer\",\n      \"department\": \"Sales\",\n      \"is_added_in_portal\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75822679-1f39-48fc-b2af-f3f94ba5a780",
+          "name": "Delete a contact person",
+          "request": {
+            "name": "Delete a contact person",
+            "description": {
+              "content": "Delete an existing contact person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "contactpersons",
+                ":contact_person_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_person_id",
+                  "description": "(Required) Unique identifier of the contact person."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "862769de-529f-4da6-b470-e9c0050e42f6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "contactpersons",
+                    ":contact_person_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_person_id",
+                      "description": "(Required) Unique identifier of the contact person."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The contact person has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6633a3e5-d3e4-476f-aa1f-668156d13f55",
+          "name": "List contact persons",
+          "request": {
+            "name": "List contact persons",
+            "description": {
+              "content": "List all contacts with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "contactpersons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04624e95-1b99-4eef-9c04-e81bc253706a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "contactpersons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"contact_persons\": [\n    {\n      \"contact_id\": \"<string>\",\n      \"contact_person_id\": \"string\",\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      },\n      \"skype\": \"zoho\",\n      \"designation\": \"Sales Engineer\",\n      \"department\": \"Sales\",\n      \"is_added_in_portal\": true\n    },\n    {\n      \"contact_id\": \"<string>\",\n      \"contact_person_id\": \"string\",\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      },\n      \"skype\": \"zoho\",\n      \"designation\": \"Sales Engineer\",\n      \"department\": \"Sales\",\n      \"is_added_in_portal\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3202c2b0-842b-41f2-9016-a5a030eb85f8",
+          "name": "Get a contact person",
+          "request": {
+            "name": "Get a contact person",
+            "description": {
+              "content": "Get the details of a contact person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "contactpersons",
+                ":contact_person_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_person_id",
+                  "description": "(Required) Unique identifier of the contact person."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50eb14a9-c87e-4dbd-a531-0f837ac62aa1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "contactpersons",
+                    ":contact_person_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_person_id",
+                      "description": "(Required) Unique identifier of the contact person."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"contact_person\": {\n    \"contact_id\": \"<string>\",\n    \"contact_person_id\": \"string\",\n    \"salutation\": \"Mr\",\n    \"first_name\": \"Will\",\n    \"last_name\": \"Smith\",\n    \"email\": \"willsmith@bowmanfurniture.com\",\n    \"phone\": \"+1-925-921-9201\",\n    \"mobile\": \"+1-4054439562\",\n    \"is_primary_contact\": true,\n    \"skype\": \"zoho\",\n    \"designation\": \"Sales Engineer\",\n    \"department\": \"Sales\",\n    \"is_added_in_portal\": true,\n    \"communication_preference\": {\n      \"is_sms_enabled\": true,\n      \"is_whatsapp_enabled\": true\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "584bd562-2628-4a75-b9ae-7ae7d42427b9",
+          "name": "Mark as primary contact person",
+          "request": {
+            "name": "Mark as primary contact person",
+            "description": {
+              "content": "Mark a contact person as primary for contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "contactpersons",
+                ":contact_person_id",
+                "primary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_person_id",
+                  "description": "(Required) Unique identifier of the contact person."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d78ea521-9d96-49ce-840c-a739691b1f06",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "contactpersons",
+                    ":contact_person_id",
+                    "primary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_person_id",
+                      "description": "(Required) Unique identifier of the contact person."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"This contact person has been marked as your primary contact person.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ded8461b-1e14-4a2a-ad2e-ceff3f8d360e",
+    "name": "batches contact-persons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

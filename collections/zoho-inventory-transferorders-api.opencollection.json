@@ -1,0 +1,624 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches transferorders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transferorders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all the transfer orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Column used to sort the list. Allowed values are <code>date</code>, <code>created_time</code>, and <code>last_modified_time</code>."
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "Sort order. Allowed values are <code>A</code> for ascending and <code>D</code> for descending."
+              },
+              {
+                "name": "filter_by",
+                "value": "TransferDate.All",
+                "type": "query",
+                "description": "Filter using built-in views. Max-length 100. Examples: <code>TransferDate.All</code>, <code>TransferDate.ThisMonth</code>, <code>TransferStatus.InTransit</code>, <code>TransferStatus.Transferred</code>, <code>MissingAdvancedTrackingDetails</code>."
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search text applied across supported columns for the list."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by transfer order status. Allowed values are <code>in_transit</code>, <code>transferred</code>, <code>partially_transferred</code>, <code>draft</code>, <code>pending_approval</code>, <code>approved</code>, and <code>void</code>."
+              },
+              {
+                "name": "item_id",
+                "value": "4815000000044100",
+                "type": "query",
+                "description": "Filter by item ID."
+              },
+              {
+                "name": "item_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by item name."
+              },
+              {
+                "name": "project_id",
+                "value": "460000000039050",
+                "type": "query",
+                "description": "Filter by project ID."
+              },
+              {
+                "name": "from_warehouse_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by source warehouse ID."
+              },
+              {
+                "name": "from_warehouse_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by source warehouse name."
+              },
+              {
+                "name": "to_warehouse_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by destination warehouse ID."
+              },
+              {
+                "name": "to_warehouse_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by destination warehouse name."
+              },
+              {
+                "name": "from_location_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by source location ID."
+              },
+              {
+                "name": "from_location_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by source location name."
+              },
+              {
+                "name": "to_location_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by destination location ID."
+              },
+              {
+                "name": "to_location_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by destination location name."
+              },
+              {
+                "name": "customview_id",
+                "value": "",
+                "type": "query",
+                "description": "Custom view ID to apply."
+              },
+              {
+                "name": "serial_number",
+                "value": "",
+                "type": "query",
+                "description": "Filter by serial number."
+              },
+              {
+                "name": "transfer_order_number",
+                "value": "",
+                "type": "query",
+                "description": "Filter by transfer order number."
+              },
+              {
+                "name": "transfer_order_number_startswith",
+                "value": "",
+                "type": "query",
+                "description": "Filter by transfer order numbers that start with the given value."
+              },
+              {
+                "name": "transfer_order_number_contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter by transfer order numbers that contain the given value."
+              },
+              {
+                "name": "reason",
+                "value": "",
+                "type": "query",
+                "description": "Filter by reason text (same family of search operators as transfer order number)."
+              },
+              {
+                "name": "reference_number_contains",
+                "value": "",
+                "type": "query",
+                "description": "Filter by reference number contains."
+              },
+              {
+                "name": "date",
+                "value": "2018-03-23",
+                "type": "query",
+                "description": "Filter by exact transfer date. Format <code>yyyy-mm-dd</code>."
+              },
+              {
+                "name": "date_start",
+                "value": "",
+                "type": "query",
+                "description": "Filter from this date (inclusive). Format <code>yyyy-mm-dd</code>."
+              },
+              {
+                "name": "date_end",
+                "value": "",
+                "type": "query",
+                "description": "Filter up to this date (inclusive). Format <code>yyyy-mm-dd</code>."
+              },
+              {
+                "name": "date_before",
+                "value": "",
+                "type": "query",
+                "description": "Filter by dates before this date. Format <code>yyyy-mm-dd</code>."
+              },
+              {
+                "name": "date_after",
+                "value": "",
+                "type": "query",
+                "description": "Filter by dates after this date. Format <code>yyyy-mm-dd</code>."
+              },
+              {
+                "name": "tracking_number",
+                "value": "",
+                "type": "query",
+                "description": "Filter by tracking number."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists transfer orders in the Organization. Supports pagination, sort, quick search, custom view, and filters such as status, date range, warehouse or location, item, and transfer order number."
+        },
+        {
+          "info": {
+            "name": "Create a transfer order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "When auto number generation is enabled in transfer order, this node states whether the auto generated transfer order number should be used or not. The default value is false."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new transfer order in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Bulk delete transfer orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "transfer_order_ids",
+                "value": "4815000000044895,4815000000044896",
+                "type": "query",
+                "description": "Comma-separated list of transfer order IDs to delete. Minimum 1 and maximum 25 IDs."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes up to 25 transfer orders in one request. Pass comma-separated transfer order IDs."
+        },
+        {
+          "info": {
+            "name": "Retrieve a transfer order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details for an existing transfer order."
+        },
+        {
+          "info": {
+            "name": "Update a transfer order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "When auto number generation is enabled for transfer orders, set to <code>true</code> to supply your own transfer order number. Allowed values are <code>true</code> and <code>false</code>."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing transfer order from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Delete a transfer order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing transfer order from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Mark as Received",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id/markastransferred",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the transfer order."
+              },
+              {
+                "name": "date",
+                "value": "2018-03-23",
+                "type": "query",
+                "description": "Date when the transfer was completed. Format <code>yyyy-mm-dd</code>."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks the transfer order as transferred for the Organization. You must pass the transferred date."
+        },
+        {
+          "info": {
+            "name": "Mark transfer order as in transit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id/intransit",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "is_tax_inclusive",
+                "value": "false",
+                "type": "query",
+                "description": "Whether prices are inclusive of tax. Allowed values are <code>true</code> and <code>false</code>. This need to be passed only for IN edition org when marking inter GSTIN transfer order as in transit."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks the transfer order as in transit. Optionally specify whether prices are tax inclusive."
+        },
+        {
+          "info": {
+            "name": "Submit a transfer order for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id/submit",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique ID of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit a transfer order for approval workflow."
+        },
+        {
+          "info": {
+            "name": "Approve a transfer order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id/approve",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique ID of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a submitted transfer order."
+        },
+        {
+          "info": {
+            "name": "Final approval of a transfer order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id/approve/final",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique ID of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Perform the final approval of a transfer order (admin only)."
+        },
+        {
+          "info": {
+            "name": "Reject a transfer order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/transferorders/:transfer_order_id/reject",
+            "params": [
+              {
+                "name": "transfer_order_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique ID of the transfer order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Reject a submitted transfer order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

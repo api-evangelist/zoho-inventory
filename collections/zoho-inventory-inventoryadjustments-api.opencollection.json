@@ -1,0 +1,327 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches inventoryadjustments API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "inventoryadjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all the inventory adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the inventory adjustments present in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Create an inventory adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new inventory adjustment in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Retrieve an inventory adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments/:inventory_adjustment_id",
+            "params": [
+              {
+                "name": "inventory_adjustment_id",
+                "value": "4815000000044100",
+                "type": "path",
+                "description": "Unique identifier of the inventory adjustment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details for an existing inventory adjustment."
+        },
+        {
+          "info": {
+            "name": "Update an inventory adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments/:inventory_adjustment_id",
+            "params": [
+              {
+                "name": "inventory_adjustment_id",
+                "value": "4815000000044100",
+                "type": "path",
+                "description": "Unique identifier of the inventory adjustment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the details of an existing inventory adjustment by quantity."
+        },
+        {
+          "info": {
+            "name": "Delete an inventory adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments/:inventory_adjustment_id",
+            "params": [
+              {
+                "name": "inventory_adjustment_id",
+                "value": "4815000000044100",
+                "type": "path",
+                "description": "Unique identifier of the inventory adjustment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing inventory adjustment from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Submit an inventory adjustment for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments/:inventory_adjustment_id/submit",
+            "params": [
+              {
+                "name": "inventory_adjustment_id",
+                "value": "4815000000044100",
+                "type": "path",
+                "description": "Unique ID of the inventory adjustment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit an inventory adjustment for approval workflow."
+        },
+        {
+          "info": {
+            "name": "Approve an inventory adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments/:inventory_adjustment_id/approve",
+            "params": [
+              {
+                "name": "inventory_adjustment_id",
+                "value": "4815000000044100",
+                "type": "path",
+                "description": "Unique ID of the inventory adjustment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a submitted inventory adjustment."
+        },
+        {
+          "info": {
+            "name": "Final approval of an inventory adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments/:inventory_adjustment_id/approve/final",
+            "params": [
+              {
+                "name": "inventory_adjustment_id",
+                "value": "4815000000044100",
+                "type": "path",
+                "description": "Unique ID of the inventory adjustment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Perform the final approval of an inventory adjustment (admin only)."
+        },
+        {
+          "info": {
+            "name": "Reject an inventory adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/inventoryadjustments/:inventory_adjustment_id/reject",
+            "params": [
+              {
+                "name": "inventory_adjustment_id",
+                "value": "4815000000044100",
+                "type": "path",
+                "description": "Unique ID of the inventory adjustment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Reject a submitted inventory adjustment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,257 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches itemgroups API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "itemgroups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Item Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/itemgroups",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the Item Groups that are present in the Zoho Inventory organization."
+        },
+        {
+          "info": {
+            "name": "Create an Item Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/itemgroups",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "A new Item Group can a be created. While creating items, user can attach image for product group by passing form-data parameter <code>image</code> i.e., <code>-F image=bag_s.jpg</code>."
+        },
+        {
+          "info": {
+            "name": "Retrieve an Item Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/itemgroups/:itemgroup_id",
+            "params": [
+              {
+                "name": "itemgroup_id",
+                "value": "4815000000044220",
+                "type": "path",
+                "description": "Unique identifier of the item group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details for an existing Item Group."
+        },
+        {
+          "info": {
+            "name": "Update an Item Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/itemgroups/:itemgroup_id",
+            "params": [
+              {
+                "name": "itemgroup_id",
+                "value": "4815000000044220",
+                "type": "path",
+                "description": "Unique identifier of the item group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the details of an existing Item Group."
+        },
+        {
+          "info": {
+            "name": "Delete an Item Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/itemgroups/:itemgroup_id",
+            "params": [
+              {
+                "name": "itemgroup_id",
+                "value": "4815000000044220",
+                "type": "path",
+                "description": "Unique identifier of the item group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing Item Group from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Mark as Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/itemgroups/:itemgroup_id/active",
+            "params": [
+              {
+                "name": "itemgroup_id",
+                "value": "4815000000044220",
+                "type": "path",
+                "description": "Unique identifier of the item group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks an Item group as Active."
+        },
+        {
+          "info": {
+            "name": "Mark as Inactive.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/itemgroups/:itemgroup_id/inactive",
+            "params": [
+              {
+                "name": "itemgroup_id",
+                "value": "4815000000044220",
+                "type": "path",
+                "description": "Unique identifier of the item group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks as Item Group as Inactive."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

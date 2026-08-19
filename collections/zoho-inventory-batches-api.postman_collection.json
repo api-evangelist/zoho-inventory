@@ -1,0 +1,1402 @@
+{
+  "item": [
+    {
+      "id": "f55a93bb-be1f-48b7-81d6-2f2c806c0288",
+      "name": "batches",
+      "description": {
+        "content": "Batches Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7bd85faf-3136-4f79-ba73-ec55d827b2d6",
+          "name": "Create a batch",
+          "request": {
+            "name": "Create a batch",
+            "description": {
+              "content": "Create a new batch for an item that has batch tracking enabled.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_id\": \"<string>\",\n  \"batch_number\": \"<string>\",\n  \"manufacturer_batch_number\": \"<string>\",\n  \"manufactured_date\": \"<string>\",\n  \"expiry_date\": \"<string>\",\n  \"sales_rate\": \"<float>\",\n  \"label_rate\": \"<float>\",\n  \"batch_custom_fields\": [\n    {\n      \"custom_field_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"custom_field_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1453e315-4082-4a45-9f9a-5689622ce934",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item_id\": \"6780203000001003147\",\n  \"batch_number\": \"BTC-8900\",\n  \"manufacturer_batch_number\": \"MFR-BTC-8900\",\n  \"manufactured_date\": \"2026-05-12\",\n  \"expiry_date\": \"2026-10-15\",\n  \"sales_rate\": 50.4,\n  \"label_rate\": 50,\n  \"batch_custom_fields\": [\n    {\n      \"custom_field_id\": \"6780203000000176175\",\n      \"label\": \"Lot Code\",\n      \"value\": \"LC-001\"\n    },\n    {\n      \"custom_field_id\": \"6780203000000176175\",\n      \"label\": \"Lot Code\",\n      \"value\": \"LC-001\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The batch has been created.\",\n  \"batch\": {\n    \"batch_id\": \"6780203000001066694\",\n    \"item_id\": \"6780203000001003147\",\n    \"batch_number\": \"BTC-8900\",\n    \"manufacturer_batch_number\": \"MFR-BTC-8900\",\n    \"manufactured_date\": \"2026-05-12\",\n    \"expiry_date\": \"2026-10-15\",\n    \"balance_quantity\": 0,\n    \"status\": \"active\",\n    \"batch_custom_fields\": [\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Lot Code\",\n        \"value\": \"LC-001\"\n      },\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Lot Code\",\n        \"value\": \"LC-001\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "483fbdb7-e218-4389-806c-0585f50eb393",
+          "name": "List all batches",
+          "request": {
+            "name": "List all batches",
+            "description": {
+              "content": "List all batches available for a given item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_id",
+                  "value": "<string>",
+                  "description": "(Required) Unique identifier of the item to fetch batches for."
+                },
+                {
+                  "disabled": false,
+                  "key": "include_empty_batches",
+                  "value": "<boolean>",
+                  "description": "Include batches that have zero quantity. Allowed values <code>true</code> and <code>false</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouse_id",
+                  "value": "<string>",
+                  "description": "Filter batches by warehouse ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter batches by location ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "batch_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of batch IDs to filter the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Search batches by batch number or manufacturer batch number."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter batches by status. Allowed values <code>active</code> and <code>inactive</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter batches by status, expiry, type, or stock. For example <code>Status.All</code>, <code>Expiry.Expired</code>, <code>Stock.Empty</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "batch_number",
+                  "description": "Column to sort the response by. Allowed values <code>batch_number</code>, <code>external_batch_number</code>, <code>manufacturer_batch_number</code>, <code>manufactured_date</code>, <code>expiry_date</code>, <code>sales_rate</code>, and <code>label_rate</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "A",
+                  "description": "Order of sorting. Allowed values <code>A</code> for ascending and <code>D</code> for descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cfed3982-e2e1-4853-9c1c-faab65e2a485",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_id",
+                      "value": "6780203000000167467"
+                    },
+                    {
+                      "key": "include_empty_batches",
+                      "value": "false"
+                    },
+                    {
+                      "key": "warehouse_id",
+                      "value": "6780203000000093215"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "6780203000000093215"
+                    },
+                    {
+                      "key": "batch_ids",
+                      "value": "6780203000000176162,6780203000000176163"
+                    },
+                    {
+                      "key": "search_text",
+                      "value": "BATCH"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": "Status.All"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "batch_number"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "A"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"batches\": [\n    {\n      \"batch_id\": \"6780203000001066694\",\n      \"batch_in_id\": \"6780203000001003281\",\n      \"batch_number\": \"BTC-8900\",\n      \"internal_batch_number\": \"\",\n      \"external_batch_number\": \"MFR-BTC-8900\",\n      \"manufacturer_batch_number\": \"MFR-BTC-8900\",\n      \"manufacturer_date\": \"2026-05-12\",\n      \"manufactured_date\": \"2026-05-12\",\n      \"expiry_date\": \"2026-10-15\",\n      \"in_quantity\": 0,\n      \"balance_quantity\": 0,\n      \"balance_quantity_unit\": \"\",\n      \"location_id\": \"6780203000000093215\",\n      \"associated_locations\": [\n        {\n          \"location_id\": \"6780203000000093215\",\n          \"in_quantity\": 0,\n          \"balance_quantity\": 0\n        },\n        {\n          \"location_id\": \"6780203000000093215\",\n          \"in_quantity\": 0,\n          \"balance_quantity\": 0\n        }\n      ],\n      \"batch_custom_fields\": [\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Lot Code\",\n          \"value\": \"LC-001\"\n        },\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Lot Code\",\n          \"value\": \"LC-001\"\n        }\n      ],\n      \"status\": \"active\"\n    },\n    {\n      \"batch_id\": \"6780203000001066694\",\n      \"batch_in_id\": \"6780203000001003281\",\n      \"batch_number\": \"BTC-8900\",\n      \"internal_batch_number\": \"\",\n      \"external_batch_number\": \"MFR-BTC-8900\",\n      \"manufacturer_batch_number\": \"MFR-BTC-8900\",\n      \"manufacturer_date\": \"2026-05-12\",\n      \"manufactured_date\": \"2026-05-12\",\n      \"expiry_date\": \"2026-10-15\",\n      \"in_quantity\": 0,\n      \"balance_quantity\": 0,\n      \"balance_quantity_unit\": \"\",\n      \"location_id\": \"6780203000000093215\",\n      \"associated_locations\": [\n        {\n          \"location_id\": \"6780203000000093215\",\n          \"in_quantity\": 0,\n          \"balance_quantity\": 0\n        },\n        {\n          \"location_id\": \"6780203000000093215\",\n          \"in_quantity\": 0,\n          \"balance_quantity\": 0\n        }\n      ],\n      \"batch_custom_fields\": [\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Lot Code\",\n          \"value\": \"LC-001\"\n        },\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Lot Code\",\n          \"value\": \"LC-001\"\n        }\n      ],\n      \"status\": \"active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b8d803b-67b1-4b6d-b4a1-440f9085f82b",
+          "name": "Bulk delete batches",
+          "request": {
+            "name": "Bulk delete batches",
+            "description": {
+              "content": "Delete multiple batches in a single request. Batches with associated transactions cannot be deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "batch_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of batch IDs to delete."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e3350cf4-ac22-4b73-b897-10840619ec37",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "batch_ids",
+                      "value": "6780203000000176162,6780203000000176163"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The selected batches have been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20cccefd-86f5-40f1-98c4-19a365e9dcb8",
+          "name": "Retrieve a batch",
+          "request": {
+            "name": "Retrieve a batch",
+            "description": {
+              "content": "Fetch the details of a specific batch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches",
+                ":batch_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batch_id",
+                  "description": "(Required) Unique identifier of the batch."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a34cb887-74c2-459b-aeae-ff59706c7045",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches",
+                    ":batch_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batch_id",
+                      "description": "(Required) Unique identifier of the batch."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"batch\": {\n    \"batch_id\": \"6780203000001066694\",\n    \"item_id\": \"6780203000001003147\",\n    \"batch_number\": \"BTC-8900\",\n    \"manufacturer_batch_number\": \"MFR-BTC-8900\",\n    \"manufactured_date\": \"2026-05-12\",\n    \"expiry_date\": \"2026-10-15\",\n    \"balance_quantity\": 0,\n    \"status\": \"active\",\n    \"batch_custom_fields\": [\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Lot Code\",\n        \"value\": \"LC-001\"\n      },\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Lot Code\",\n        \"value\": \"LC-001\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44ef9606-5cc1-40ee-955e-e9449a811459",
+          "name": "Update a batch",
+          "request": {
+            "name": "Update a batch",
+            "description": {
+              "content": "Update the details of an existing batch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches",
+                ":batch_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batch_id",
+                  "description": "(Required) Unique identifier of the batch."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"batch_number\": \"<string>\",\n  \"manufacturer_batch_number\": \"<string>\",\n  \"manufactured_date\": \"<string>\",\n  \"expiry_date\": \"<string>\",\n  \"sales_rate\": \"<float>\",\n  \"label_rate\": \"<float>\",\n  \"batch_custom_fields\": [\n    {\n      \"custom_field_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"custom_field_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b38d03fc-c2c1-4ced-b370-afc7d35092ce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches",
+                    ":batch_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batch_id",
+                      "description": "(Required) Unique identifier of the batch."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"batch_number\": \"BTC-8900\",\n  \"manufacturer_batch_number\": \"MFR-BTC-8900\",\n  \"manufactured_date\": \"2026-05-12\",\n  \"expiry_date\": \"2026-10-15\",\n  \"sales_rate\": 50.4,\n  \"label_rate\": 50,\n  \"batch_custom_fields\": [\n    {\n      \"custom_field_id\": \"6780203000000176175\",\n      \"label\": \"Lot Code\",\n      \"value\": \"LC-001\"\n    },\n    {\n      \"custom_field_id\": \"6780203000000176175\",\n      \"label\": \"Lot Code\",\n      \"value\": \"LC-001\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The batch has been updated.\",\n  \"batch\": {\n    \"batch_id\": \"6780203000001066694\",\n    \"item_id\": \"6780203000001003147\",\n    \"batch_number\": \"BTC-8900\",\n    \"manufacturer_batch_number\": \"MFR-BTC-8900\",\n    \"manufactured_date\": \"2026-05-12\",\n    \"expiry_date\": \"2026-10-15\",\n    \"balance_quantity\": 0,\n    \"status\": \"active\",\n    \"batch_custom_fields\": [\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Lot Code\",\n        \"value\": \"LC-001\"\n      },\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Lot Code\",\n        \"value\": \"LC-001\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c20212ff-2a66-48c5-b8b2-8d9f2f7387f9",
+          "name": "Delete a batch",
+          "request": {
+            "name": "Delete a batch",
+            "description": {
+              "content": "Delete a single batch. The batch must not have any associated transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches",
+                ":batch_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batch_id",
+                  "description": "(Required) Unique identifier of the batch."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "09d8be4e-3b90-4d06-b28c-626fd4a2be68",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches",
+                    ":batch_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batch_id",
+                      "description": "(Required) Unique identifier of the batch."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The batch has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33df91ba-640b-436e-ac2c-dadd75a9fce1",
+          "name": "Mark a batch as active",
+          "request": {
+            "name": "Mark a batch as active",
+            "description": {
+              "content": "Mark a specific batch as active.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches",
+                ":batch_id",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batch_id",
+                  "description": "(Required) Unique identifier of the batch."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "37c890d0-b2c7-48a2-af7a-383e03af1c20",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches",
+                    ":batch_id",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batch_id",
+                      "description": "(Required) Unique identifier of the batch."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The batch has been marked as active.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5bb9d69-5066-4e5e-9070-e435992c2db7",
+          "name": "Mark a batch as inactive",
+          "request": {
+            "name": "Mark a batch as inactive",
+            "description": {
+              "content": "Mark a specific batch as inactive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches",
+                ":batch_id",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "batch_id",
+                  "description": "(Required) Unique identifier of the batch."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "867dc32e-7bdc-4265-8afa-717067c7f678",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches",
+                    ":batch_id",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "batch_id",
+                      "description": "(Required) Unique identifier of the batch."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The batch has been marked as inactive.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9bb67e7-90c2-4d53-ae0a-3ff26466076d",
+          "name": "Mark batches as active",
+          "request": {
+            "name": "Mark batches as active",
+            "description": {
+              "content": "Mark multiple batches as active in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "batch_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of batch IDs to mark as active."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3351cc6-f08e-4f41-b01a-0930a7313afc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "batch_ids",
+                      "value": "6780203000000176162,6780203000000176163"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The selected batches have been marked as active.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9710c782-4c64-467f-968f-7bb5a03bea1b",
+          "name": "Mark batches as inactive",
+          "request": {
+            "name": "Mark batches as inactive",
+            "description": {
+              "content": "Mark multiple batches as inactive in a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "batches",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "batch_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of batch IDs to mark as inactive."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9562b5cf-acd1-4069-b7f1-61fbb7b0c72c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "batches",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "batch_ids",
+                      "value": "6780203000000176162,6780203000000176163"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The selected batches have been marked as inactive.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "67ddf9f2-753f-4f83-99b9-ebb76fa2a2c0",
+    "name": "batches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

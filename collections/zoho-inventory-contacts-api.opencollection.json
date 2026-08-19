@@ -1,0 +1,538 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches contacts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "contact_name",
+                "value": "Bowman and Co",
+                "type": "query",
+                "description": "Search contacts by contact name. Maximum length [100] Variants: <code>contact_name_startswith</code> and <code>contact_name_contains</code>. Maximum length [100]"
+              },
+              {
+                "name": "company_name",
+                "value": "Bowman and Co",
+                "type": "query",
+                "description": "Search contacts by company name. Maximum length [100] Variants: <code>company_name_startswith</code> and <code>company_name_contains</code>"
+              },
+              {
+                "name": "first_name",
+                "value": "Will",
+                "type": "query",
+                "description": "Search contacts by first name of the contact person. Maximum length [100] Variants: <code>first_name_startswith</code> and <code>first_name_contains</code>"
+              },
+              {
+                "name": "last_name",
+                "value": "Smith",
+                "type": "query",
+                "description": "Search contacts by last name of the contact person. Maximum length [100] Variants: <code>last_name_startswith</code> and <code>last_name_contains</code>"
+              },
+              {
+                "name": "address",
+                "value": "4900 Hopyard Rd",
+                "type": "query",
+                "description": "Search contacts by any of the address fields. Maximum length [100] Variants: <code>address_startswith</code> and <code>address_contains</code>"
+              },
+              {
+                "name": "email",
+                "value": "willsmith@bowmanfurniture.com",
+                "type": "query",
+                "description": "Search contacts by email of the contact person. Maximum length [100] Variants: <code>email_startswith</code> and <code>email_contains</code>"
+              },
+              {
+                "name": "phone",
+                "value": "+1-925-921-9201",
+                "type": "query",
+                "description": "Search contacts by phone number of the contact person. Maximum length [100] Variants: <code>phone_startswith</code> and <code>phone_contains</code>"
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter contacts by status. Allowed Values: <code>Status.All, Status.Active, Status.Inactive, Status.Duplicate and Status.Crm</code>"
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search contacts by contact name or notes. Maximum length [100]"
+              },
+              {
+                "name": "sort_column",
+                "value": "contact_name",
+                "type": "query",
+                "description": "Sort contacts. Allowed Values: <code>contact_name, first_name, last_name, email, outstanding_receivable_amount, created_time and last_modified_time</code>"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all contacts with pagination."
+        },
+        {
+          "info": {
+            "name": "Create a Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a contact with given information."
+        },
+        {
+          "info": {
+            "name": "Get contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get details of a contact."
+        },
+        {
+          "info": {
+            "name": "Update a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing contact. To delete a contact person remove it from the contact_persons list."
+        },
+        {
+          "info": {
+            "name": "Delete a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing contact."
+        },
+        {
+          "info": {
+            "name": "Get contact address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/address",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the billing and shipping address of an existing contact"
+        },
+        {
+          "info": {
+            "name": "Mark as active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/active",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a contact as active."
+        },
+        {
+          "info": {
+            "name": "Mark as Inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/inactive",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a contact as inactive."
+        },
+        {
+          "info": {
+            "name": "Get Statement mail content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/statements/email",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "If start_date and end_date are not given, current month's statement will be sent to contact. Date format [yyyy-mm-dd]"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date for the statement. Date format [yyyy-mm-dd]"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the mail content of a contacts billing statement."
+        },
+        {
+          "info": {
+            "name": "Email statement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/statements/email",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "If start_date and end_date are not given, current month's statement will be sent to contact. Date format [yyyy-mm-dd]"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date for the statement. Date format [yyyy-mm-dd]"
+              },
+              {
+                "name": "multipart_or_formdata",
+                "value": "file",
+                "type": "query",
+                "description": "Files to be attached along with the statement."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Email statement to the contact. If JSONString is not inputted, mail will be sent with the default mail content."
+        },
+        {
+          "info": {
+            "name": "Email contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/email",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "send_customer_statement",
+                "value": "",
+                "type": "query",
+                "description": "Send customer statement pdf with email."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Send email to contact."
+        },
+        {
+          "info": {
+            "name": "List Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/comments",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List recent activities of a contact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

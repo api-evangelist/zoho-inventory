@@ -1,0 +1,2467 @@
+{
+  "item": [
+    {
+      "id": "892df9c0-5861-417d-9935-d65a378bc3a7",
+      "name": "compositeitems",
+      "description": {
+        "content": "CompositeItems Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "929fb358-8d52-4c75-95d2-acfb07898f12",
+          "name": "Creating a Composite Item",
+          "request": {
+            "name": "Creating a Composite Item",
+            "description": {
+              "content": "A new composite item can be created after creating items that we want to associcate with composite item. User can attach image for composite item by calling Different API 'https://www.zohoapis.com/inventory/v1/compositeitems/{composite_item_id}/image', passing form-data parameter image i.e. -F image=bag_s.jpg",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"mapped_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"quantity\": \"<double>\",\n      \"line_item_id\": \"<string>\",\n      \"item_order\": \"<integer>\"\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"quantity\": \"<double>\",\n      \"line_item_id\": \"<string>\",\n      \"item_order\": \"<integer>\"\n    }\n  ],\n  \"rate\": \"<double>\",\n  \"item_type\": \"<string>\",\n  \"product_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"is_combo_product\": \"<boolean>\",\n  \"vendor_id\": \"<string>\",\n  \"purchase_rate\": \"<double>\",\n  \"purchase_description\": \"<string>\",\n  \"initial_stock\": \"<double>\",\n  \"initial_stock_rate\": \"<double>\",\n  \"tax_id\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"ean\": \"<string>\",\n  \"part_number\": \"<string>\",\n  \"reorder_level\": \"<double>\",\n  \"unit\": \"<string>\",\n  \"upc\": \"<string>\",\n  \"label_rate\": \"<double>\",\n  \"is_taxable\": \"<boolean>\",\n  \"tax_exemption_id\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"alias_name\": \"<string>\",\n  \"category_id\": \"<string>\",\n  \"can_be_sold\": \"<boolean>\",\n  \"can_be_purchased\": \"<boolean>\",\n  \"is_returnable\": \"<boolean>\",\n  \"minimum_order_quantity\": \"<double>\",\n  \"maximum_order_quantity\": \"<double>\",\n  \"track_serial_number\": \"<boolean>\",\n  \"track_batch_number\": \"<boolean>\",\n  \"package_details\": {\n    \"length\": \"<double>\",\n    \"width\": \"<double>\",\n    \"height\": \"<double>\",\n    \"weight\": \"<double>\",\n    \"weight_unit\": \"<string>\",\n    \"dimension_unit\": \"<string>\"\n  },\n  \"tags\": [\n    {\n      \"tag_id\": \"<string>\",\n      \"tag_option_id\": \"<string>\"\n    },\n    {\n      \"tag_id\": \"<string>\",\n      \"tag_option_id\": \"<string>\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  ],\n  \"account_id\": \"<string>\",\n  \"purchase_account_id\": \"<string>\",\n  \"inventory_account_id\": \"<string>\",\n  \"item_tax_preferences\": [\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"<string>\"\n    },\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"<string>\"\n    }\n  ],\n  \"hsn_or_sac\": \"<string>\",\n  \"combo_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5d45615-7be7-4a73-91df-537fda787e0f",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Combo of Apple IPhone and Smartwatch\",\n  \"sku\": \"SKUIS\",\n  \"mapped_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"quantity\": 1,\n      \"line_item_id\": \"<string>\",\n      \"item_order\": 1\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"quantity\": 1,\n      \"line_item_id\": \"<string>\",\n      \"item_order\": 1\n    }\n  ],\n  \"rate\": 85000,\n  \"item_type\": \"inventory\",\n  \"product_type\": \"goods\",\n  \"description\": \"Just a sample description\",\n  \"is_combo_product\": true,\n  \"vendor_id\": \"<string>\",\n  \"purchase_rate\": 30000,\n  \"purchase_description\": \"Composite item purchase description\",\n  \"initial_stock\": 2,\n  \"initial_stock_rate\": 30000,\n  \"tax_id\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"ean\": \"<string>\",\n  \"part_number\": \"JHFKE7GK7\",\n  \"reorder_level\": 1,\n  \"unit\": \"units\",\n  \"upc\": \"<string>\",\n  \"label_rate\": 90000,\n  \"is_taxable\": true,\n  \"tax_exemption_id\": \"<string>\",\n  \"brand\": \"Acme Corp\",\n  \"manufacturer\": \"Acme Manufacturing\",\n  \"alias_name\": \"Combo Phone+Watch\",\n  \"category_id\": \"<string>\",\n  \"can_be_sold\": true,\n  \"can_be_purchased\": true,\n  \"is_returnable\": true,\n  \"minimum_order_quantity\": 1,\n  \"maximum_order_quantity\": 100,\n  \"track_serial_number\": false,\n  \"track_batch_number\": false,\n  \"package_details\": {\n    \"length\": 10,\n    \"width\": 5,\n    \"height\": 3,\n    \"weight\": 0.5,\n    \"weight_unit\": \"kg\",\n    \"dimension_unit\": \"cm\"\n  },\n  \"tags\": [\n    {\n      \"tag_id\": \"<string>\",\n      \"tag_option_id\": \"<string>\"\n    },\n    {\n      \"tag_id\": \"<string>\",\n      \"tag_option_id\": \"<string>\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    }\n  ],\n  \"account_id\": \"<string>\",\n  \"purchase_account_id\": \"<string>\",\n  \"inventory_account_id\": \"<string>\",\n  \"item_tax_preferences\": [\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"intra\"\n    },\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"intra\"\n    }\n  ],\n  \"hsn_or_sac\": \"<string>\",\n  \"combo_type\": \"assembly\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The item has been added.\",\n  \"composite_item\": {\n    \"composite_item_id\": \"string\",\n    \"name\": \"Combo of Apple IPhone and Smartwatch\",\n    \"unit\": \"units\",\n    \"tax_id\": \"<string>\",\n    \"description\": \"Just a sample description\",\n    \"tax_name\": \"VAT\",\n    \"tax_percentage\": 13,\n    \"tax_type\": \"tax\",\n    \"purchase_account_id\": \"<string>\",\n    \"purchase_account_name\": \"Cost of Goods Sold\",\n    \"account_id\": \"<string>\",\n    \"account_name\": \"sales\",\n    \"inventory_account_id\": \"<string>\",\n    \"inventory_account_name\": \"Inventory Asset\",\n    \"status\": \"active\",\n    \"source\": \"user\",\n    \"is_combo_product\": true,\n    \"item_type\": \"inventory\",\n    \"rate\": 85000,\n    \"pricebook_rate\": 85000,\n    \"purchase_rate\": 30000,\n    \"reorder_level\": 1,\n    \"initial_stock\": 2,\n    \"initial_stock_rate\": 30000,\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Mr. vendor combo\",\n    \"stock_on_hand\": 2,\n    \"asset_value\": 5403.295874565498,\n    \"available_stock\": 2,\n    \"actual_available_stock\": 2,\n    \"sku\": \"SKUIS\",\n    \"upc\": \"<string>\",\n    \"ean\": \"<string>\",\n    \"isbn\": \"<string>\",\n    \"part_number\": \"JHFKE7GK7\",\n    \"image_id\": \"string\",\n    \"image_name\": \"img1.jpg\",\n    \"image_type\": \"jpg\",\n    \"is_taxable\": true,\n    \"product_type\": \"goods\",\n    \"purchase_description\": \"Composite item purchase description\",\n    \"category_id\": \"string\",\n    \"category_name\": \"Hardware\",\n    \"combo_type\": \"assembly\",\n    \"brand\": \"Acme Corp\",\n    \"manufacturer\": \"Acme Manufacturing\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"mapped_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"rate\": 85000,\n        \"purchase_rate\": 30000,\n        \"sku\": \"SKUIS\",\n        \"image_id\": \"string\",\n        \"image_name\": \"img1.jpg\",\n        \"purchase_description\": \"Composite item purchase description\",\n        \"image_type\": \"jpg\",\n        \"unit\": \"units\",\n        \"is_combo_product\": true,\n        \"description\": \"Just a sample description\",\n        \"quantity\": 1,\n        \"stock_on_hand\": 2,\n        \"available_stock\": 2,\n        \"actual_available_stock\": 2\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"rate\": 85000,\n        \"purchase_rate\": 30000,\n        \"sku\": \"SKUIS\",\n        \"image_id\": \"string\",\n        \"image_name\": \"img1.jpg\",\n        \"purchase_description\": \"Composite item purchase description\",\n        \"image_type\": \"jpg\",\n        \"unit\": \"units\",\n        \"is_combo_product\": true,\n        \"description\": \"Just a sample description\",\n        \"quantity\": 1,\n        \"stock_on_hand\": 2,\n        \"available_stock\": 2,\n        \"actual_available_stock\": 2\n      }\n    ],\n    \"item_tax_preferences\": [\n      {\n        \"tax_id\": \"<string>\",\n        \"tax_specification\": \"intra\"\n      },\n      {\n        \"tax_id\": \"<string>\",\n        \"tax_specification\": \"intra\"\n      }\n    ],\n    \"hsn_or_sac\": \"<string>\",\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da2a149a-b392-4325-8e73-b79026f5949e",
+          "name": "List All Composite Items",
+          "request": {
+            "name": "List All Composite Items",
+            "description": {
+              "content": "List of all composite items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page Number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>",
+                  "description": "Items to be displayed per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "column to be used for sorting. Allowed values: <code>name</code>,<code>sku</code>,<code>rate</code>,<code>tax_name</code>,<code>purchase_rate</code>,<code>created_time</code>,<code>last_modified_time</code>,<code>reorder_level</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "order used for sorting"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter items by status. Allowed values: <code>Status.All</code>,<code>Status.Active</code>,<code>Status.Inactive</code>,<code>Status.Lowstock</code>,<code>Status.Unmapped</code>,<code>Source.Crm</code>,<code>ComboType.Assembly</code>,<code>ComboType.Kit</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "usestate",
+                  "value": "<boolean>",
+                  "description": "Whether current filter needs to be saved"
+                },
+                {
+                  "disabled": false,
+                  "key": "response_option",
+                  "value": "<integer>",
+                  "description": "response format number"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Search composite items by name or other attributes."
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Search composite items by exact name."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_contains",
+                  "value": "<string>",
+                  "description": "Search composite items where name contains the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "name_startswith",
+                  "value": "<string>",
+                  "description": "Search composite items where name starts with the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "sku",
+                  "value": "<string>",
+                  "description": "Search composite items by exact SKU."
+                },
+                {
+                  "disabled": false,
+                  "key": "sku_contains",
+                  "value": "<string>",
+                  "description": "Search composite items where SKU contains the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by status. Allowed values: <code>all</code>, <code>active</code>, <code>inactive</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "category_id",
+                  "value": "<string>",
+                  "description": "Filter composite items by category ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouse_id",
+                  "value": "<string>",
+                  "description": "Filter composite items by warehouse ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "tax_id",
+                  "value": "<string>",
+                  "description": "Filter composite items by tax ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_modified_time",
+                  "value": "<string>",
+                  "description": "Filter composite items modified after the given date and time in UTC format."
+                },
+                {
+                  "disabled": false,
+                  "key": "combo_type",
+                  "value": "<string>",
+                  "description": "Filter by composite item type. Allowed values: <code>assembly</code>, <code>kit</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "account_id",
+                  "value": "<string>",
+                  "description": "Filter composite items by sales account ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchase_account_id",
+                  "value": "<string>",
+                  "description": "Filter composite items by purchase account ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter composite items by location ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b1072d93-2cce-4090-ae70-9f9788fd1e90",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": ""
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "A"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": ""
+                    },
+                    {
+                      "key": "usestate",
+                      "value": "true"
+                    },
+                    {
+                      "key": "response_option",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_text",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name_startswith",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sku",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sku_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "warehouse_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tax_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_modified_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "combo_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchase_account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"composite_items\": [\n    {\n      \"composite_item_id\": \"string\",\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"status\": \"active\",\n      \"source\": \"user\",\n      \"description\": \"Just a sample description\",\n      \"rate\": 85000,\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"VAT\",\n      \"tax_percentage\": 13,\n      \"purchase_description\": \"Composite item purchase description\",\n      \"purchase_rate\": 30000,\n      \"is_combo_product\": true,\n      \"item_type\": \"inventory\",\n      \"product_type\": \"goods\",\n      \"is_taxable\": true,\n      \"stock_on_hand\": 2,\n      \"available_stock\": 2,\n      \"actual_available_stock\": 2,\n      \"sku\": \"SKUIS\",\n      \"upc\": \"<string>\",\n      \"ean\": \"<string>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"JHFKE7GK7\",\n      \"reorder_level\": 1,\n      \"image_id\": \"string\",\n      \"image_name\": \"img1.jpg\",\n      \"image_type\": \"jpg\",\n      \"unit\": \"units\",\n      \"category_id\": \"string\",\n      \"category_name\": \"Hardware\",\n      \"combo_type\": \"assembly\",\n      \"brand\": \"Acme Corp\",\n      \"manufacturer\": \"Acme Manufacturing\",\n      \"purchase_account_id\": \"<string>\",\n      \"purchase_account_name\": \"Cost of Goods Sold\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"sales\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        }\n      ],\n      \"created_time\": \"2013-08-05\",\n      \"last_modified_time\": \"string\"\n    },\n    {\n      \"composite_item_id\": \"string\",\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"status\": \"active\",\n      \"source\": \"user\",\n      \"description\": \"Just a sample description\",\n      \"rate\": 85000,\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"VAT\",\n      \"tax_percentage\": 13,\n      \"purchase_description\": \"Composite item purchase description\",\n      \"purchase_rate\": 30000,\n      \"is_combo_product\": true,\n      \"item_type\": \"inventory\",\n      \"product_type\": \"goods\",\n      \"is_taxable\": true,\n      \"stock_on_hand\": 2,\n      \"available_stock\": 2,\n      \"actual_available_stock\": 2,\n      \"sku\": \"SKUIS\",\n      \"upc\": \"<string>\",\n      \"ean\": \"<string>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"JHFKE7GK7\",\n      \"reorder_level\": 1,\n      \"image_id\": \"string\",\n      \"image_name\": \"img1.jpg\",\n      \"image_type\": \"jpg\",\n      \"unit\": \"units\",\n      \"category_id\": \"string\",\n      \"category_name\": \"Hardware\",\n      \"combo_type\": \"assembly\",\n      \"brand\": \"Acme Corp\",\n      \"manufacturer\": \"Acme Manufacturing\",\n      \"purchase_account_id\": \"<string>\",\n      \"purchase_account_name\": \"Cost of Goods Sold\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"sales\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        }\n      ],\n      \"created_time\": \"2013-08-05\",\n      \"last_modified_time\": \"string\"\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 10,\n    \"has_more_page\": true,\n    \"report_name\": \"Composite Items\",\n    \"applied_filter\": \"Status.All\",\n    \"sort_column\": \"name\",\n    \"sort_order\": \"A\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38f63e8f-ddb3-4b21-b7ff-ea54787f0dc9",
+          "name": "Retrieving a Composite Item",
+          "request": {
+            "name": "Retrieving a Composite Item",
+            "description": {
+              "content": "Retrieving details of an existing compostie item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems",
+                ":composite_item_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "composite_item_id",
+                  "description": "(Required) Unique identifier of the composite item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "25d40dab-df6a-494e-bc83-5871ac762c6e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems",
+                    ":composite_item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "composite_item_id",
+                      "description": "(Required) Unique identifier of the composite item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"composite_item_id\": \"string\",\n  \"name\": \"Combo of Apple IPhone and Smartwatch\",\n  \"status\": \"active\",\n  \"source\": \"user\",\n  \"unit\": \"units\",\n  \"tax_id\": \"<string>\",\n  \"description\": \"Just a sample description\",\n  \"tax_name\": \"VAT\",\n  \"tax_percentage\": 13,\n  \"tax_type\": \"tax\",\n  \"purchase_account_id\": \"<string>\",\n  \"purchase_account_name\": \"Cost of Goods Sold\",\n  \"account_id\": \"<string>\",\n  \"account_name\": \"sales\",\n  \"inventory_account_id\": \"<string>\",\n  \"inventory_account_name\": \"Inventory Asset\",\n  \"is_combo_product\": true,\n  \"item_type\": \"inventory\",\n  \"rate\": 85000,\n  \"pricebook_rate\": 85000,\n  \"purchase_rate\": 30000,\n  \"reorder_level\": 1,\n  \"initial_stock\": 2,\n  \"initial_stock_rate\": 30000,\n  \"vendor_id\": \"<string>\",\n  \"vendor_name\": \"Mr. vendor combo\",\n  \"stock_on_hand\": 2,\n  \"asset_value\": 5162.474528161783,\n  \"available_stock\": 2,\n  \"actual_available_stock\": 2,\n  \"sku\": \"SKUIS\",\n  \"upc\": \"<string>\",\n  \"ean\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"part_number\": \"JHFKE7GK7\",\n  \"image_id\": \"string\",\n  \"image_name\": \"img1.jpg\",\n  \"purchase_description\": \"Composite item purchase description\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    }\n  ],\n  \"mapped_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"item_order\": 1,\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"rate\": 85000,\n      \"purchase_rate\": 30000,\n      \"sku\": \"SKUIS\",\n      \"image_id\": \"string\",\n      \"image_name\": \"img1.jpg\",\n      \"purchase_description\": \"Composite item purchase description\",\n      \"image_type\": \"jpg\",\n      \"unit\": \"units\",\n      \"is_combo_product\": true,\n      \"description\": \"Just a sample description\",\n      \"quantity\": 1,\n      \"stock_on_hand\": 2,\n      \"available_stock\": 2,\n      \"actual_available_stock\": 2\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"item_order\": 1,\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"rate\": 85000,\n      \"purchase_rate\": 30000,\n      \"sku\": \"SKUIS\",\n      \"image_id\": \"string\",\n      \"image_name\": \"img1.jpg\",\n      \"purchase_description\": \"Composite item purchase description\",\n      \"image_type\": \"jpg\",\n      \"unit\": \"units\",\n      \"is_combo_product\": true,\n      \"description\": \"Just a sample description\",\n      \"quantity\": 1,\n      \"stock_on_hand\": 2,\n      \"available_stock\": 2,\n      \"actual_available_stock\": 2\n    }\n  ],\n  \"is_taxable\": true,\n  \"product_type\": \"goods\",\n  \"image_type\": \"jpg\",\n  \"category_id\": \"string\",\n  \"category_name\": \"Hardware\",\n  \"combo_type\": \"assembly\",\n  \"brand\": \"Acme Corp\",\n  \"manufacturer\": \"Acme Manufacturing\",\n  \"alias_name\": \"Combo Phone+Watch\",\n  \"assembly_type\": \"stock\",\n  \"label_rate\": 90000,\n  \"sales_rate\": 85000,\n  \"can_be_sold\": true,\n  \"can_be_purchased\": true,\n  \"track_inventory\": true,\n  \"is_returnable\": true,\n  \"tax_exemption_id\": \"string\",\n  \"tax_exemption_code\": \"GST_FREE\",\n  \"minimum_order_quantity\": 1,\n  \"maximum_order_quantity\": 100,\n  \"committed_stock\": 0,\n  \"available_for_sale_stock\": 2,\n  \"track_serial_number\": false,\n  \"track_batch_number\": false,\n  \"is_linked_with_zohocrm\": false,\n  \"package_details\": {\n    \"length\": 10,\n    \"width\": 5,\n    \"height\": 3,\n    \"weight\": 0.5,\n    \"weight_unit\": \"kg\",\n    \"dimension_unit\": \"cm\"\n  },\n  \"tags\": [\n    {\n      \"tag_id\": \"string\",\n      \"tag_option_id\": \"string\",\n      \"tag_option_name\": \"Region A\"\n    },\n    {\n      \"tag_id\": \"string\",\n      \"tag_option_id\": \"string\",\n      \"tag_option_name\": \"Region A\"\n    }\n  ],\n  \"item_tax_preferences\": [\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"intra\"\n    },\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"intra\"\n    }\n  ],\n  \"hsn_or_sac\": \"<string>\",\n  \"created_time\": \"2013-08-05\",\n  \"last_modified_time\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd27665a-fc66-4bd3-942a-ee660ea13398",
+          "name": "Updating a composite item",
+          "request": {
+            "name": "Updating a composite item",
+            "description": {
+              "content": "Updating details of an existing composite item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems",
+                ":composite_item_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "composite_item_id",
+                  "description": "(Required) Unique identifier of the composite item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"mapped_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"sku\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"image_name\": \"<string>\",\n      \"purchase_description\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"is_combo_product\": \"<boolean>\",\n      \"description\": \"<string>\",\n      \"quantity\": \"<double>\",\n      \"stock_on_hand\": \"<double>\",\n      \"available_stock\": \"<double>\",\n      \"actual_available_stock\": \"<double>\"\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"sku\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"image_name\": \"<string>\",\n      \"purchase_description\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"is_combo_product\": \"<boolean>\",\n      \"description\": \"<string>\",\n      \"quantity\": \"<double>\",\n      \"stock_on_hand\": \"<double>\",\n      \"available_stock\": \"<double>\",\n      \"actual_available_stock\": \"<double>\"\n    }\n  ],\n  \"rate\": \"<double>\",\n  \"item_type\": \"<string>\",\n  \"product_type\": \"<string>\",\n  \"composite_item_id\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"tax_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tax_name\": \"<string>\",\n  \"tax_percentage\": \"<double>\",\n  \"tax_type\": \"<string>\",\n  \"purchase_account_id\": \"<string>\",\n  \"purchase_account_name\": \"<string>\",\n  \"account_id\": \"<string>\",\n  \"account_name\": \"<string>\",\n  \"inventory_account_id\": \"<string>\",\n  \"inventory_account_name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"source\": \"<string>\",\n  \"is_combo_product\": \"<boolean>\",\n  \"pricebook_rate\": \"<double>\",\n  \"purchase_rate\": \"<double>\",\n  \"reorder_level\": \"<double>\",\n  \"initial_stock\": \"<double>\",\n  \"initial_stock_rate\": \"<double>\",\n  \"vendor_id\": \"<string>\",\n  \"vendor_name\": \"<string>\",\n  \"stock_on_hand\": \"<double>\",\n  \"asset_value\": \"<double>\",\n  \"available_stock\": \"<double>\",\n  \"actual_available_stock\": \"<double>\",\n  \"upc\": \"<string>\",\n  \"ean\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"part_number\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"image_name\": \"<string>\",\n  \"purchase_description\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  ],\n  \"item_tax_preferences\": [\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"<string>\"\n    },\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"<string>\"\n    }\n  ],\n  \"hsn_or_sac\": \"<string>\",\n  \"combo_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f86c4e7d-334d-496b-a6ba-64772d696177",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems",
+                    ":composite_item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "composite_item_id",
+                      "description": "(Required) Unique identifier of the composite item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Combo of Apple IPhone and Smartwatch\",\n  \"sku\": \"SKUIS\",\n  \"mapped_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"item_order\": 1,\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"rate\": 85000,\n      \"purchase_rate\": 30000,\n      \"sku\": \"SKUIS\",\n      \"image_id\": \"<string>\",\n      \"image_name\": \"img1.jpg\",\n      \"purchase_description\": \"Composite item purchase description\",\n      \"image_type\": \"jpg\",\n      \"unit\": \"units\",\n      \"is_combo_product\": true,\n      \"description\": \"Just a sample description\",\n      \"quantity\": 1,\n      \"stock_on_hand\": 2,\n      \"available_stock\": 2,\n      \"actual_available_stock\": 2\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"item_order\": 1,\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"rate\": 85000,\n      \"purchase_rate\": 30000,\n      \"sku\": \"SKUIS\",\n      \"image_id\": \"<string>\",\n      \"image_name\": \"img1.jpg\",\n      \"purchase_description\": \"Composite item purchase description\",\n      \"image_type\": \"jpg\",\n      \"unit\": \"units\",\n      \"is_combo_product\": true,\n      \"description\": \"Just a sample description\",\n      \"quantity\": 1,\n      \"stock_on_hand\": 2,\n      \"available_stock\": 2,\n      \"actual_available_stock\": 2\n    }\n  ],\n  \"rate\": 85000,\n  \"item_type\": \"inventory\",\n  \"product_type\": \"goods\",\n  \"composite_item_id\": \"<string>\",\n  \"unit\": \"units\",\n  \"tax_id\": \"<string>\",\n  \"description\": \"Just a sample description\",\n  \"tax_name\": \"VAT\",\n  \"tax_percentage\": 13,\n  \"tax_type\": \"tax\",\n  \"purchase_account_id\": \"<string>\",\n  \"purchase_account_name\": \"Cost of Goods Sold\",\n  \"account_id\": \"<string>\",\n  \"account_name\": \"sales\",\n  \"inventory_account_id\": \"<string>\",\n  \"inventory_account_name\": \"Inventory Asset\",\n  \"status\": \"active\",\n  \"source\": \"user\",\n  \"is_combo_product\": true,\n  \"pricebook_rate\": 85000,\n  \"purchase_rate\": 30000,\n  \"reorder_level\": 1,\n  \"initial_stock\": 2,\n  \"initial_stock_rate\": 30000,\n  \"vendor_id\": \"<string>\",\n  \"vendor_name\": \"Mr. vendor combo\",\n  \"stock_on_hand\": 2,\n  \"asset_value\": \"<double>\",\n  \"available_stock\": 2,\n  \"actual_available_stock\": 2,\n  \"upc\": \"<string>\",\n  \"ean\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"part_number\": \"JHFKE7GK7\",\n  \"image_id\": \"<string>\",\n  \"image_name\": \"img1.jpg\",\n  \"purchase_description\": \"Composite item purchase description\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    }\n  ],\n  \"item_tax_preferences\": [\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"intra\"\n    },\n    {\n      \"tax_id\": \"<string>\",\n      \"tax_specification\": \"intra\"\n    }\n  ],\n  \"hsn_or_sac\": \"<string>\",\n  \"combo_type\": \"assembly\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Item details have been saved.\",\n  \"composite_item\": {\n    \"composite_item_id\": \"<string>\",\n    \"name\": \"Combo of Apple IPhone and Smartwatch\",\n    \"unit\": \"units\",\n    \"tax_id\": \"<string>\",\n    \"description\": \"Just a sample description\",\n    \"tax_name\": \"VAT\",\n    \"tax_percentage\": 13,\n    \"tax_type\": \"tax\",\n    \"purchase_account_id\": \"<string>\",\n    \"purchase_account_name\": \"Cost of Goods Sold\",\n    \"account_id\": \"<string>\",\n    \"account_name\": \"sales\",\n    \"inventory_account_id\": \"<string>\",\n    \"inventory_account_name\": \"Inventory Asset\",\n    \"status\": \"active\",\n    \"source\": \"user\",\n    \"is_combo_product\": true,\n    \"item_type\": \"inventory\",\n    \"rate\": 85000,\n    \"pricebook_rate\": 85000,\n    \"purchase_rate\": 30000,\n    \"reorder_level\": 1,\n    \"initial_stock\": 2,\n    \"initial_stock_rate\": 30000,\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Mr. vendor combo\",\n    \"stock_on_hand\": 2,\n    \"asset_value\": \"<double>\",\n    \"available_stock\": 2,\n    \"actual_available_stock\": 2,\n    \"sku\": \"SKUIS\",\n    \"upc\": \"<string>\",\n    \"ean\": \"<string>\",\n    \"isbn\": \"<string>\",\n    \"part_number\": \"JHFKE7GK7\",\n    \"image_id\": \"<string>\",\n    \"image_name\": \"img1.jpg\",\n    \"image_type\": \"jpg\",\n    \"is_taxable\": true,\n    \"product_type\": \"goods\",\n    \"purchase_description\": \"Composite item purchase description\",\n    \"category_id\": \"string\",\n    \"category_name\": \"Hardware\",\n    \"combo_type\": \"assembly\",\n    \"brand\": \"Acme Corp\",\n    \"manufacturer\": \"Acme Manufacturing\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"mapped_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"rate\": 85000,\n        \"purchase_rate\": 30000,\n        \"sku\": \"SKUIS\",\n        \"image_id\": \"<string>\",\n        \"image_name\": \"img1.jpg\",\n        \"purchase_description\": \"Composite item purchase description\",\n        \"image_type\": \"jpg\",\n        \"unit\": \"units\",\n        \"is_combo_product\": true,\n        \"description\": \"Just a sample description\",\n        \"quantity\": 1,\n        \"stock_on_hand\": 2,\n        \"available_stock\": 2,\n        \"actual_available_stock\": 2\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"rate\": 85000,\n        \"purchase_rate\": 30000,\n        \"sku\": \"SKUIS\",\n        \"image_id\": \"<string>\",\n        \"image_name\": \"img1.jpg\",\n        \"purchase_description\": \"Composite item purchase description\",\n        \"image_type\": \"jpg\",\n        \"unit\": \"units\",\n        \"is_combo_product\": true,\n        \"description\": \"Just a sample description\",\n        \"quantity\": 1,\n        \"stock_on_hand\": 2,\n        \"available_stock\": 2,\n        \"actual_available_stock\": 2\n      }\n    ],\n    \"item_tax_preferences\": [\n      {\n        \"tax_id\": \"<string>\",\n        \"tax_specification\": \"intra\"\n      },\n      {\n        \"tax_id\": \"<string>\",\n        \"tax_specification\": \"intra\"\n      }\n    ],\n    \"hsn_or_sac\": \"<string>\",\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "643dbd27-6063-4afa-a48a-65cbaf4598e5",
+          "name": "Deleting a Composite Item",
+          "request": {
+            "name": "Deleting a Composite Item",
+            "description": {
+              "content": "Deleting an existing Composite Item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems",
+                ":composite_item_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "composite_item_id",
+                  "description": "(Required) Unique identifier of the composite item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c04e8687-8884-41ed-9121-3504c3f22726",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems",
+                    ":composite_item_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "composite_item_id",
+                      "description": "(Required) Unique identifier of the composite item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The item has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec2c7851-4180-4404-b42a-2b8f8d1abf01",
+          "name": "Mark as Active",
+          "request": {
+            "name": "Mark as Active",
+            "description": {
+              "content": "Changing status of an existing composite item to active.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems",
+                ":composite_item_id",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "composite_item_id",
+                  "description": "(Required) Unique identifier of the composite item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "de4b94ef-2a2f-46f9-b479-930e10894be7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems",
+                    ":composite_item_id",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "composite_item_id",
+                      "description": "(Required) Unique identifier of the composite item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Re-activation complete! The item is back in business!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b71a656-cf6c-49a6-8656-17ed3caf3ff5",
+          "name": "Mark as Inactive",
+          "request": {
+            "name": "Mark as Inactive",
+            "description": {
+              "content": "Changing status of an existing composite item to inactive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems",
+                ":composite_item_id",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "composite_item_id",
+                  "description": "(Required) Unique identifier of the composite item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0991255a-250b-430c-a2a0-aa88ed3c3896",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems",
+                    ":composite_item_id",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "composite_item_id",
+                      "description": "(Required) Unique identifier of the composite item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The item has been marked as inactive.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1d74da7-f428-49b3-8650-a10002b56242",
+          "name": "Upload Composite Item Images",
+          "request": {
+            "name": "Upload Composite Item Images",
+            "description": {
+              "content": "Uploads an image for a composite item. Accepted image formats: <code>gif</code>, <code>png</code>, <code>jpeg</code>, <code>jpg</code>, <code>bmp</code>, <code>webp</code>. Maximum file size is 7 MB.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems",
+                ":composite_item_id",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "composite_item_id",
+                  "description": "(Required) Unique identifier of the composite item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "description": "Image file to upload."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7cd9e253-33fa-4c34-b4f2-a14f4a6733e9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems",
+                    ":composite_item_id",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "composite_item_id",
+                      "description": "(Required) Unique identifier of the composite item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Image file to upload.",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The composite item image has been uploaded.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e11d5fa3-abee-460e-a8f4-bf08cf707a7b",
+          "name": "Delete Composite Item Image",
+          "request": {
+            "name": "Delete Composite Item Image",
+            "description": {
+              "content": "Deletes the images associated with a composite item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "compositeitems",
+                ":composite_item_id",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "composite_item_id",
+                  "description": "(Required) Unique identifier of the composite item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "92cceacf-b70d-499b-9ae7-a5a9f044b648",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "compositeitems",
+                    ":composite_item_id",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "composite_item_id",
+                      "description": "(Required) Unique identifier of the composite item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The composite item image has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2ce801e-fdcf-471c-96a3-f1ab3a32e5ce",
+          "name": "Create Assemblies",
+          "request": {
+            "name": "Create Assemblies",
+            "description": {
+              "content": "Assemblies is the technique of putting together different components in desired quantities to produce a single commodity. These components could be goods, services and other non-inventory items of your choice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Ignore auto-generation of reference number. If <code>true</code>, the reference number provided in the request body is used as-is."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_number\": \"<string>\",\n  \"date\": \"<date>\",\n  \"composite_item_id\": \"<string>\",\n  \"composite_item_name\": \"<string>\",\n  \"quantity_to_bundle\": \"<double>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity_consumed\": \"<double>\",\n      \"account_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"description\": \"<string>\",\n      \"total_quantity_consumed\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"account_name\": \"<string>\",\n      \"location_name\": \"<string>\",\n      \"warehouse_id\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity_consumed\": \"<double>\",\n      \"account_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"description\": \"<string>\",\n      \"total_quantity_consumed\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"account_name\": \"<string>\",\n      \"location_name\": \"<string>\",\n      \"warehouse_id\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"is_completed\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"composite_item_sku\": \"<string>\",\n  \"status\": \"<string>\",\n  \"warehouse_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"finished_product_serial_numbers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"finished_product_batches\": [\n    {\n      \"batch_number\": \"<string>\",\n      \"in_quantity\": \"<float>\",\n      \"external_batch_number\": \"<string>\",\n      \"manufacturer_date\": \"<string>\",\n      \"expiry_date\": \"<string>\",\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\"\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\"\n        }\n      ]\n    },\n    {\n      \"batch_number\": \"<string>\",\n      \"in_quantity\": \"<float>\",\n      \"external_batch_number\": \"<string>\",\n      \"manufacturer_date\": \"<string>\",\n      \"expiry_date\": \"<string>\",\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\"\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\"\n        }\n      ]\n    }\n  ],\n  \"finished_product_storages\": [\n    {\n      \"storage_id\": \"<string>\",\n      \"in_quantity\": \"<float>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"storage_id\": \"<string>\",\n      \"in_quantity\": \"<float>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3efb6977-b7d5-48b5-9c58-fb59a5b421e3",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reference_number\": \"REF-B-00005\",\n  \"date\": \"2017-01-05\",\n  \"composite_item_id\": \"<string>\",\n  \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n  \"quantity_to_bundle\": 1,\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"quantity_consumed\": 1,\n      \"account_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"sku\": \"SK123\",\n      \"description\": \"Just a sample description\",\n      \"total_quantity_consumed\": 2,\n      \"unit\": \"units\",\n      \"rate\": 85000,\n      \"account_name\": \"sales\",\n      \"location_name\": \"Head Office\",\n      \"warehouse_id\": \"460000000038080\",\n      \"item_order\": 1,\n      \"serial_numbers\": [\n        \"PKG-003\",\n        \"PKG-003\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"quantity_consumed\": 1,\n      \"account_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"sku\": \"SK123\",\n      \"description\": \"Just a sample description\",\n      \"total_quantity_consumed\": 2,\n      \"unit\": \"units\",\n      \"rate\": 85000,\n      \"account_name\": \"sales\",\n      \"location_name\": \"Head Office\",\n      \"warehouse_id\": \"460000000038080\",\n      \"item_order\": 1,\n      \"serial_numbers\": [\n        \"PKG-003\",\n        \"PKG-003\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"out_quantity\": 1\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"is_completed\": true,\n  \"description\": \"Just a sample description\",\n  \"composite_item_sku\": \"SKUIS\",\n  \"status\": \"draft\",\n  \"warehouse_id\": \"460000000038080\",\n  \"location_id\": \"460000000038080\",\n  \"finished_product_serial_numbers\": [\n    \"ASM-001\",\n    \"ASM-001\"\n  ],\n  \"finished_product_batches\": [\n    {\n      \"batch_number\": \"ASMBA-001\",\n      \"in_quantity\": 1,\n      \"external_batch_number\": \"MFR-ASMBA-001\",\n      \"manufacturer_date\": \"2026-05-12\",\n      \"expiry_date\": \"2026-12-24\",\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        }\n      ]\n    },\n    {\n      \"batch_number\": \"ASMBA-001\",\n      \"in_quantity\": 1,\n      \"external_batch_number\": \"MFR-ASMBA-001\",\n      \"manufacturer_date\": \"2026-05-12\",\n      \"expiry_date\": \"2026-12-24\",\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        }\n      ]\n    }\n  ],\n  \"finished_product_storages\": [\n    {\n      \"storage_id\": \"6780203000000093225\",\n      \"in_quantity\": 1,\n      \"serial_numbers\": [\n        \"ASM-001\",\n        \"ASM-001\"\n      ]\n    },\n    {\n      \"storage_id\": \"6780203000000093225\",\n      \"in_quantity\": 1,\n      \"serial_numbers\": [\n        \"ASM-001\",\n        \"ASM-001\"\n      ]\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"VAT ID\",\n      \"value\": \"GBGD078\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"VAT ID\",\n      \"value\": \"GBGD078\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Assembly has been created.\",\n  \"bundle_id\": \"string\",\n  \"reference_number\": \"REF-B-00005\",\n  \"transaction_number\": \"WO-00001\",\n  \"date\": \"2017-01-05\",\n  \"description\": \"Just a sample description\",\n  \"composite_item_id\": \"<string>\",\n  \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n  \"composite_item_sku\": \"SKUIS\",\n  \"quantity_to_bundle\": 1,\n  \"status\": \"pending\",\n  \"total\": 85000,\n  \"warehouse_id\": \"460000000038080\",\n  \"warehouse_name\": \"Main Warehouse\",\n  \"is_completed\": true,\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"item_order\": 1,\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"description\": \"Just a sample description\",\n      \"quantity_consumed\": 1,\n      \"unit\": \"units\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"sales\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"Head Office\",\n      \"rate\": 85000\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"item_order\": 1,\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"description\": \"Just a sample description\",\n      \"quantity_consumed\": 1,\n      \"unit\": \"units\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"sales\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"Head Office\",\n      \"rate\": 85000\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"value\": \"GBGD078\",\n      \"label\": \"VAT ID\"\n    }\n  ],\n  \"created_time\": \"2013-08-05\",\n  \"last_modified_time\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02681bdc-1708-42d8-b1b7-72f0a1259879",
+          "name": "Assemblies History",
+          "request": {
+            "name": "Assemblies History",
+            "description": {
+              "content": "List of all Assemblies of a given composite item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "composite_item_id",
+                  "value": "<string>",
+                  "description": "(Required) Unique ID generated for the composite item by the server. This is used as identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "item_id",
+                  "value": "<string>",
+                  "description": "Filter assemblies by item ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouse_id",
+                  "value": "<string>",
+                  "description": "Filter assemblies by warehouse ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter assemblies by date or status. Allowed values: <code>WorkOrderDate.All</code>, <code>WorkOrderDate.Today</code>, <code>WorkOrderDate.ThisWeek</code>, <code>WorkOrderDate.ThisMonth</code>, <code>WorkOrderDate.ThisQuarter</code>, <code>WorkOrderDate.ThisYear</code>, <code>Status.All</code>, <code>Status.Pending</code>, <code>Status.Built</code>, <code>Status.Confirmed</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Column used for sorting. Allowed values: <code>date</code>, <code>total</code>, <code>created_time</code>, <code>last_modified_time</code>, <code>reference_number</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "Order used for sorting. Allowed values: <code>A</code> for ascending, <code>D</code> for descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Search assemblies by keyword."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter assemblies by location ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Filter assemblies by project ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "reference_number",
+                  "value": "<string>",
+                  "description": "Search assemblies by exact reference number."
+                },
+                {
+                  "disabled": false,
+                  "key": "reference_number_contains",
+                  "value": "<string>",
+                  "description": "Search assemblies where reference number contains the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_start",
+                  "value": "<date>",
+                  "description": "Filter assemblies with date on or after the given date (yyyy-mm-dd)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_end",
+                  "value": "<date>",
+                  "description": "Filter assemblies with date on or before the given date (yyyy-mm-dd)."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter assemblies by status. Allowed values: <code>draft</code>, <code>confirmed</code>, <code>bundled</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "17499194-2f90-47dc-8e61-a93beae88cba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "composite_item_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "warehouse_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": "Status.All"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "D"
+                    },
+                    {
+                      "key": "search_text",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reference_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reference_number_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"bundles\": [\n    {\n      \"bundle_id\": \"string\",\n      \"reference_number\": \"REF-B-00005\",\n      \"date\": \"2017-01-05\",\n      \"description\": \"Just a sample description\",\n      \"composite_item_id\": \"<string>\",\n      \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"composite_item_sku\": \"SKUIS\",\n      \"quantity_to_bundle\": 1,\n      \"status\": \"pending\",\n      \"total\": 85000,\n      \"transaction_number\": \"WO-00001\",\n      \"warehouse_id\": \"460000000038080\",\n      \"warehouse_name\": \"Main Warehouse\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"Head Office\",\n      \"line_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": 1,\n          \"name\": \"Combo of Apple IPhone and Smartwatch\",\n          \"description\": \"Just a sample description\",\n          \"quantity_consumed\": 1,\n          \"unit\": \"units\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"sales\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"Head Office\",\n          \"rate\": 85000\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": 1,\n          \"name\": \"Combo of Apple IPhone and Smartwatch\",\n          \"description\": \"Just a sample description\",\n          \"quantity_consumed\": 1,\n          \"unit\": \"units\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"sales\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"Head Office\",\n          \"rate\": 85000\n        }\n      ],\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        }\n      ],\n      \"created_time\": \"2013-08-05\",\n      \"last_modified_time\": \"string\",\n      \"created_by_id\": \"string\"\n    },\n    {\n      \"bundle_id\": \"string\",\n      \"reference_number\": \"REF-B-00005\",\n      \"date\": \"2017-01-05\",\n      \"description\": \"Just a sample description\",\n      \"composite_item_id\": \"<string>\",\n      \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"composite_item_sku\": \"SKUIS\",\n      \"quantity_to_bundle\": 1,\n      \"status\": \"pending\",\n      \"total\": 85000,\n      \"transaction_number\": \"WO-00001\",\n      \"warehouse_id\": \"460000000038080\",\n      \"warehouse_name\": \"Main Warehouse\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"Head Office\",\n      \"line_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": 1,\n          \"name\": \"Combo of Apple IPhone and Smartwatch\",\n          \"description\": \"Just a sample description\",\n          \"quantity_consumed\": 1,\n          \"unit\": \"units\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"sales\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"Head Office\",\n          \"rate\": 85000\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": 1,\n          \"name\": \"Combo of Apple IPhone and Smartwatch\",\n          \"description\": \"Just a sample description\",\n          \"quantity_consumed\": 1,\n          \"unit\": \"units\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"sales\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"Head Office\",\n          \"rate\": 85000\n        }\n      ],\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"value\": \"GBGD078\",\n          \"label\": \"VAT ID\"\n        }\n      ],\n      \"created_time\": \"2013-08-05\",\n      \"last_modified_time\": \"string\",\n      \"created_by_id\": \"string\"\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 10,\n    \"has_more_page\": true,\n    \"report_name\": \"Composite Items\",\n    \"applied_filter\": \"Status.All\",\n    \"sort_column\": \"name\",\n    \"sort_order\": \"A\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b69ed25-2df7-4dd6-87f7-0c80175c3a52",
+          "name": "Retrieve Assemblies",
+          "request": {
+            "name": "Retrieve Assemblies",
+            "description": {
+              "content": "Fetches the details for an existing Assemblies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bundle_id",
+                  "description": "(Required) Unique identifier of the bundle."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4fc4e537-70cb-4ec1-9b9b-226ccd67eaff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bundle_id",
+                      "description": "(Required) Unique identifier of the bundle."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"bundle\": {\n    \"bundle_id\": \"string\",\n    \"reference_number\": \"REF-B-00005\",\n    \"transaction_number\": \"WO-00001\",\n    \"date\": \"2017-01-05\",\n    \"description\": \"Just a sample description\",\n    \"composite_item_id\": \"<string>\",\n    \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n    \"composite_item_sku\": \"SKUIS\",\n    \"quantity_to_bundle\": 1,\n    \"status\": \"pending\",\n    \"total\": 85000,\n    \"warehouse_id\": \"460000000038080\",\n    \"warehouse_name\": \"Main Warehouse\",\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"Head Office\",\n    \"project_id\": \"string\",\n    \"project_name\": \"Assembly Project\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      }\n    ],\n    \"is_completed\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"string\",\n    \"created_by_id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c8b4a5e-4f19-4a13-8e51-f089e14421f6",
+          "name": "Update an Assembly",
+          "request": {
+            "name": "Update an Assembly",
+            "description": {
+              "content": "Updates the details of an existing assembly.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Ignore auto-generation of reference number. If <code>true</code>, the reference number provided in the request body is used as-is."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bundle_id",
+                  "description": "(Required) Unique identifier of the bundle."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7606e85c-71d3-47f3-8a93-30961b7a3029",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bundle_id",
+                      "description": "(Required) Unique identifier of the bundle."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reference_number\": \"REF-B-00005\",\n  \"date\": \"2017-01-05\",\n  \"composite_item_id\": \"<string>\",\n  \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n  \"quantity_to_bundle\": 1,\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"quantity_consumed\": 1,\n      \"account_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"sku\": \"SK123\",\n      \"description\": \"Just a sample description\",\n      \"total_quantity_consumed\": 2,\n      \"unit\": \"units\",\n      \"rate\": 85000,\n      \"account_name\": \"sales\",\n      \"location_name\": \"Head Office\",\n      \"warehouse_id\": \"460000000038080\",\n      \"item_order\": 1,\n      \"serial_numbers\": [\n        \"PKG-003\",\n        \"PKG-003\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Combo of Apple IPhone and Smartwatch\",\n      \"quantity_consumed\": 1,\n      \"account_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"sku\": \"SK123\",\n      \"description\": \"Just a sample description\",\n      \"total_quantity_consumed\": 2,\n      \"unit\": \"units\",\n      \"rate\": 85000,\n      \"account_name\": \"sales\",\n      \"location_name\": \"Head Office\",\n      \"warehouse_id\": \"460000000038080\",\n      \"item_order\": 1,\n      \"serial_numbers\": [\n        \"PKG-003\",\n        \"PKG-003\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"6780203000000176162\",\n          \"out_quantity\": 1,\n          \"storages\": [\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"storage_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"out_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093227\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"is_completed\": true,\n  \"description\": \"Just a sample description\",\n  \"composite_item_sku\": \"SKUIS\",\n  \"status\": \"draft\",\n  \"warehouse_id\": \"460000000038080\",\n  \"location_id\": \"460000000038080\",\n  \"finished_product_serial_numbers\": [\n    \"ASM-001\",\n    \"ASM-001\"\n  ],\n  \"finished_product_batches\": [\n    {\n      \"batch_number\": \"ASMBA-001\",\n      \"in_quantity\": 1,\n      \"external_batch_number\": \"MFR-ASMBA-001\",\n      \"manufacturer_date\": \"2026-05-12\",\n      \"expiry_date\": \"2026-12-24\",\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        }\n      ]\n    },\n    {\n      \"batch_number\": \"ASMBA-001\",\n      \"in_quantity\": 1,\n      \"external_batch_number\": \"MFR-ASMBA-001\",\n      \"manufacturer_date\": \"2026-05-12\",\n      \"expiry_date\": \"2026-12-24\",\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"in_quantity\": 1\n        }\n      ]\n    }\n  ],\n  \"finished_product_storages\": [\n    {\n      \"storage_id\": \"6780203000000093225\",\n      \"in_quantity\": 1,\n      \"serial_numbers\": [\n        \"ASM-001\",\n        \"ASM-001\"\n      ]\n    },\n    {\n      \"storage_id\": \"6780203000000093225\",\n      \"in_quantity\": 1,\n      \"serial_numbers\": [\n        \"ASM-001\",\n        \"ASM-001\"\n      ]\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"VAT ID\",\n      \"value\": \"GBGD078\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"VAT ID\",\n      \"value\": \"GBGD078\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Assembly has been updated.\",\n  \"bundle\": {\n    \"bundle_id\": \"string\",\n    \"reference_number\": \"REF-B-00005\",\n    \"transaction_number\": \"WO-00001\",\n    \"date\": \"2017-01-05\",\n    \"description\": \"Just a sample description\",\n    \"composite_item_id\": \"<string>\",\n    \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n    \"composite_item_sku\": \"SKUIS\",\n    \"quantity_to_bundle\": 1,\n    \"status\": \"pending\",\n    \"total\": 85000,\n    \"warehouse_id\": \"460000000038080\",\n    \"warehouse_name\": \"Main Warehouse\",\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"Head Office\",\n    \"project_id\": \"string\",\n    \"project_name\": \"Assembly Project\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      }\n    ],\n    \"is_completed\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"string\",\n    \"created_by_id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6db9544d-5fd5-484e-9ec6-122e6447dee4",
+          "name": "Delete Assemblies",
+          "request": {
+            "name": "Delete Assemblies",
+            "description": {
+              "content": "Deletes an existing Assemblies from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bundle_id",
+                  "description": "(Required) Unique identifier of the bundle."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fb1c8be4-6a0c-47d8-b25b-3aef480dcce0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bundle_id",
+                      "description": "(Required) Unique identifier of the bundle."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Assembly has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72bc0165-e320-4f68-ae79-604b7eb136b2",
+          "name": "Mark Assembly as Assembled",
+          "request": {
+            "name": "Mark Assembly as Assembled",
+            "description": {
+              "content": "Marks an existing assembly as built, indicating that the composite item has been assembled from its components.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id",
+                "bundled"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bundle_id",
+                  "description": "(Required) Unique identifier of the bundle."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f3bf899a-1237-4f35-918e-ab420c2359f5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "bundled"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bundle_id",
+                      "description": "(Required) Unique identifier of the bundle."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The assembly has been marked as built.\",\n  \"bundle\": {\n    \"bundle_id\": \"string\",\n    \"reference_number\": \"REF-B-00005\",\n    \"transaction_number\": \"WO-00001\",\n    \"date\": \"2017-01-05\",\n    \"description\": \"Just a sample description\",\n    \"composite_item_id\": \"<string>\",\n    \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n    \"composite_item_sku\": \"SKUIS\",\n    \"quantity_to_bundle\": 1,\n    \"status\": \"built\",\n    \"total\": 85000,\n    \"warehouse_id\": \"460000000038080\",\n    \"warehouse_name\": \"Main Warehouse\",\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"Head Office\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      }\n    ],\n    \"is_completed\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a872a35-1dc4-4d2b-99ee-f2de671ae9c0",
+          "name": "Mark Assembly as Confirmed",
+          "request": {
+            "name": "Mark Assembly as Confirmed",
+            "description": {
+              "content": "Marks an existing assembly as confirmed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundle_id",
+                "confirmed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bundle_id",
+                  "description": "(Required) Unique identifier of the bundle."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dbad05d1-d487-486c-a7d2-e5c9e9d8311f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundle_id",
+                    "confirmed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bundle_id",
+                      "description": "(Required) Unique identifier of the bundle."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The assembly has been marked as confirmed.\",\n  \"bundle\": {\n    \"bundle_id\": \"string\",\n    \"reference_number\": \"REF-B-00005\",\n    \"transaction_number\": \"WO-00001\",\n    \"date\": \"2017-01-05\",\n    \"description\": \"Just a sample description\",\n    \"composite_item_id\": \"<string>\",\n    \"composite_item_name\": \"Combo of Apple IPhone and Smartwatch\",\n    \"composite_item_sku\": \"SKUIS\",\n    \"quantity_to_bundle\": 1,\n    \"status\": \"confirmed\",\n    \"total\": 85000,\n    \"warehouse_id\": \"460000000038080\",\n    \"warehouse_name\": \"Main Warehouse\",\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"Head Office\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"item_order\": 1,\n        \"name\": \"Combo of Apple IPhone and Smartwatch\",\n        \"description\": \"Just a sample description\",\n        \"quantity_consumed\": 1,\n        \"unit\": \"units\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"sales\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"Head Office\",\n        \"rate\": 85000\n      }\n    ],\n    \"is_completed\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"value\": \"GBGD078\",\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b9b1455b-ea18-4e0f-b69b-e15584b91336",
+    "name": "batches compositeitems API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

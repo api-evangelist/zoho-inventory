@@ -1,0 +1,826 @@
+{
+  "item": [
+    {
+      "id": "d3afd764-e143-4aaa-bfc4-16041fb47c96",
+      "name": "pricelists",
+      "description": {
+        "content": "PriceLists Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c6dae52-bcfd-43d2-b507-fbad171b8cf1",
+          "name": "Create a pricebook",
+          "request": {
+            "name": "Create a pricebook",
+            "description": {
+              "content": "create a new pricebook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricebooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pricebook_type\": \"<string>\",\n  \"sales_or_purchase_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"currency_id\": \"<string>\",\n  \"percentage\": \"<double>\",\n  \"pricebook_rate\": \"<double>\",\n  \"pricing_scheme\": \"<string>\",\n  \"is_increase\": \"<boolean>\",\n  \"rounding_type\": \"<string>\",\n  \"decimal_place\": \"<integer>\",\n  \"pricebook_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": \"<double>\",\n      \"pricebook_discount\": \"<string>\",\n      \"pricing_scheme\": \"<string>\",\n      \"price_brackets\": [\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        },\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": \"<double>\",\n      \"pricebook_discount\": \"<string>\",\n      \"pricing_scheme\": \"<string>\",\n      \"price_brackets\": [\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        },\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc7275a6-cddf-4e86-a156-3bf6a9fc41c0",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricebooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Price List 1\",\n  \"pricebook_type\": \"fixed_percentage\",\n  \"sales_or_purchase_type\": \"sales\",\n  \"description\": \"Flash sale\",\n  \"currency_id\": \"<string>\",\n  \"percentage\": 4,\n  \"pricebook_rate\": 22,\n  \"pricing_scheme\": \"unit\",\n  \"is_increase\": true,\n  \"rounding_type\": \"round_to_dollar_minus_01\",\n  \"decimal_place\": 2,\n  \"pricebook_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": 22,\n      \"pricebook_discount\": \"5%\",\n      \"pricing_scheme\": \"unit\",\n      \"price_brackets\": [\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        },\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": 22,\n      \"pricebook_discount\": \"5%\",\n      \"pricing_scheme\": \"unit\",\n      \"price_brackets\": [\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        },\n        {\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Price list has been created.\",\n  \"pricebook\": {\n    \"currency_code\": \"string\",\n    \"currency_id\": \"<string>\",\n    \"decimal_place\": 2,\n    \"description\": \"Flash sale\",\n    \"is_default\": true,\n    \"is_increase\": true,\n    \"name\": \"Price List 1\",\n    \"percentage\": 4,\n    \"pricebook_rate\": 22,\n    \"pricebook_id\": \"string\",\n    \"pricebook_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"pricebook_rate\": 22,\n        \"pricebook_item_id\": \"string\",\n        \"pricebook_discount\": \"5%\",\n        \"pricing_scheme\": \"unit\",\n        \"price_brackets\": [\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"pricebook_rate\": 22,\n        \"pricebook_item_id\": \"string\",\n        \"pricebook_discount\": \"5%\",\n        \"pricing_scheme\": \"unit\",\n        \"price_brackets\": [\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"pricebook_type\": \"fixed_percentage\",\n    \"pricing_scheme\": \"unit\",\n    \"rounding_type\": \"round_to_dollar_minus_01\",\n    \"sales_or_purchase_type\": \"sales\",\n    \"status\": \"active\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04395b9c-d8f7-4a13-97f7-062671e85b6f",
+          "name": "List all pricebooks",
+          "request": {
+            "name": "List all pricebooks",
+            "description": {
+              "content": "List all the available pricebooks in your zoho inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricebooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter by sales or purchase type. Allowed values: SalesOrPurchaseType.All, SalesOrPurchaseType.Sales, SalesOrPurchaseType.Purchases."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Text to search in the price list (price book name)."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "30480b7c-0ec6-46c9-8ebb-7281b7502a19",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricebooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_text",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"pricebooks\": [\n    {\n      \"currency_code\": \"string\",\n      \"currency_id\": \"<string>\",\n      \"decimal_place\": 2,\n      \"description\": \"Flash sale\",\n      \"is_default\": true,\n      \"is_increase\": true,\n      \"name\": \"Price List 1\",\n      \"percentage\": 4,\n      \"pricebook_id\": \"string\",\n      \"pricebook_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_item_id\": \"string\",\n          \"pricebook_discount\": \"5%\",\n          \"pricing_scheme\": \"unit\",\n          \"price_brackets\": [\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_item_id\": \"string\",\n          \"pricebook_discount\": \"5%\",\n          \"pricing_scheme\": \"unit\",\n          \"price_brackets\": [\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"pricebook_type\": \"fixed_percentage\",\n      \"pricing_scheme\": \"unit\",\n      \"rounding_type\": \"round_to_dollar_minus_01\",\n      \"sales_or_purchase_type\": \"sales\",\n      \"status\": \"active\"\n    },\n    {\n      \"currency_code\": \"string\",\n      \"currency_id\": \"<string>\",\n      \"decimal_place\": 2,\n      \"description\": \"Flash sale\",\n      \"is_default\": true,\n      \"is_increase\": true,\n      \"name\": \"Price List 1\",\n      \"percentage\": 4,\n      \"pricebook_id\": \"string\",\n      \"pricebook_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_item_id\": \"string\",\n          \"pricebook_discount\": \"5%\",\n          \"pricing_scheme\": \"unit\",\n          \"price_brackets\": [\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_item_id\": \"string\",\n          \"pricebook_discount\": \"5%\",\n          \"pricing_scheme\": \"unit\",\n          \"price_brackets\": [\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"pricebook_item_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"start_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"end_quantity\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_rate\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"pricebook_discount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"pricebook_type\": \"fixed_percentage\",\n      \"pricing_scheme\": \"unit\",\n      \"rounding_type\": \"round_to_dollar_minus_01\",\n      \"sales_or_purchase_type\": \"sales\",\n      \"status\": \"active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc4e303f-94b0-43df-b04f-68ce6f066b05",
+          "name": "Update pricebook",
+          "request": {
+            "name": "Update pricebook",
+            "description": {
+              "content": "update existing pricebook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricebooks",
+                ":pricebook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pricebook_id",
+                  "description": "(Required) Unique identifier of the pricebook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"pricebook_type\": \"<string>\",\n  \"sales_or_purchase_type\": \"<string>\",\n  \"description\": \"<string>\",\n  \"currency_id\": \"<string>\",\n  \"percentage\": \"<double>\",\n  \"pricebook_rate\": \"<double>\",\n  \"pricing_scheme\": \"<string>\",\n  \"is_increase\": \"<boolean>\",\n  \"rounding_type\": \"<string>\",\n  \"decimal_place\": \"<integer>\",\n  \"pricebook_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": \"<double>\",\n      \"pricebook_item_id\": \"<string>\",\n      \"pricebook_discount\": \"<string>\",\n      \"pricing_scheme\": \"<string>\",\n      \"price_brackets\": [\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        },\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": \"<double>\",\n      \"pricebook_item_id\": \"<string>\",\n      \"pricebook_discount\": \"<string>\",\n      \"pricing_scheme\": \"<string>\",\n      \"price_brackets\": [\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        },\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": \"<double>\",\n          \"pricebook_discount\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9f19577-8d69-4b4c-b225-6e4b29d7191f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricebooks",
+                    ":pricebook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pricebook_id",
+                      "description": "(Required) Unique identifier of the pricebook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Price List 1\",\n  \"pricebook_type\": \"fixed_percentage\",\n  \"sales_or_purchase_type\": \"sales\",\n  \"description\": \"Flash sale\",\n  \"currency_id\": \"<string>\",\n  \"percentage\": 4,\n  \"pricebook_rate\": 22,\n  \"pricing_scheme\": \"unit\",\n  \"is_increase\": true,\n  \"rounding_type\": \"round_to_dollar_minus_01\",\n  \"decimal_place\": 2,\n  \"pricebook_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": 22,\n      \"pricebook_item_id\": \"<string>\",\n      \"pricebook_discount\": \"5%\",\n      \"pricing_scheme\": \"unit\",\n      \"price_brackets\": [\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        },\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"pricebook_rate\": 22,\n      \"pricebook_item_id\": \"<string>\",\n      \"pricebook_discount\": \"5%\",\n      \"pricing_scheme\": \"unit\",\n      \"price_brackets\": [\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        },\n        {\n          \"pricebook_item_id\": \"<string>\",\n          \"start_quantity\": \"<double>\",\n          \"end_quantity\": \"<double>\",\n          \"pricebook_rate\": 22,\n          \"pricebook_discount\": \"5%\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Price list has been updated.\",\n  \"pricebook\": {\n    \"currency_code\": \"string\",\n    \"currency_id\": \"<string>\",\n    \"decimal_place\": 2,\n    \"description\": \"Flash sale\",\n    \"is_default\": true,\n    \"is_increase\": true,\n    \"name\": \"Price List 1\",\n    \"percentage\": 4,\n    \"pricebook_rate\": 22,\n    \"pricebook_id\": \"string\",\n    \"pricebook_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"pricebook_rate\": 22,\n        \"pricebook_item_id\": \"<string>\",\n        \"pricebook_discount\": \"5%\",\n        \"pricing_scheme\": \"unit\",\n        \"price_brackets\": [\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"pricebook_rate\": 22,\n        \"pricebook_item_id\": \"<string>\",\n        \"pricebook_discount\": \"5%\",\n        \"pricing_scheme\": \"unit\",\n        \"price_brackets\": [\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"pricebook_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"end_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pricebook_discount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"pricebook_type\": \"fixed_percentage\",\n    \"pricing_scheme\": \"unit\",\n    \"rounding_type\": \"round_to_dollar_minus_01\",\n    \"sales_or_purchase_type\": \"sales\",\n    \"status\": \"active\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e438f24-ee62-417c-9472-1f05fe28f301",
+          "name": "Delete the pricebook",
+          "request": {
+            "name": "Delete the pricebook",
+            "description": {
+              "content": "Delete the pricebook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricebooks",
+                ":pricebook_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pricebook_id",
+                  "description": "(Required) Unique identifier of the pricebook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "20a58c0c-861d-49fb-9fd4-0385fd40a222",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricebooks",
+                    ":pricebook_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pricebook_id",
+                      "description": "(Required) Unique identifier of the pricebook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Price list has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "123de58a-1434-4a1e-a985-13dface59768",
+          "name": "Mark as Active",
+          "request": {
+            "name": "Mark as Active",
+            "description": {
+              "content": "Mark the pricebook as Active.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricebooks",
+                ":pricebook_id",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pricebook_id",
+                  "description": "(Required) Unique identifier of the pricebook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2fbb2e22-50c6-4297-a0ce-6d7f87691a89",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricebooks",
+                    ":pricebook_id",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pricebook_id",
+                      "description": "(Required) Unique identifier of the pricebook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The price list has been marked active.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a90402f-07f6-4f32-ab89-592d893bf65d",
+          "name": "Mark as Inactive",
+          "request": {
+            "name": "Mark as Inactive",
+            "description": {
+              "content": "Mark the pricebook as Inactive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricebooks",
+                ":pricebook_id",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pricebook_id",
+                  "description": "(Required) Unique identifier of the pricebook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2e67e472-6480-47e7-b4f2-374032e4ea39",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricebooks",
+                    ":pricebook_id",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pricebook_id",
+                      "description": "(Required) Unique identifier of the pricebook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The price list has been marked inactive.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f9ac597d-d6e5-4276-9503-fa3b3f3b7942",
+    "name": "batches pricelists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

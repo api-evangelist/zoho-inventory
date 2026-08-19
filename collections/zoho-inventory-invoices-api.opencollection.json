@@ -1,0 +1,1654 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches invoices API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_number",
+                "value": "INV-00003",
+                "type": "query",
+                "description": "An unique number given to the invoice. Maximum length [100]"
+              },
+              {
+                "name": "item_name",
+                "value": "Desktop Units",
+                "type": "query",
+                "description": "item name.Variants: <code>item_name_startswith</code> and <code>item_name_contains</code>. Maximum length [100]"
+              },
+              {
+                "name": "item_id",
+                "value": "982000000030049",
+                "type": "query",
+                "description": "Unique item id."
+              },
+              {
+                "name": "item_description",
+                "value": "",
+                "type": "query",
+                "description": "Search invoices by item description.Variants: <code>item_description_startswith</code> and <code>item_description_contains</code>. Maximum length [100]"
+              },
+              {
+                "name": "reference_number",
+                "value": "",
+                "type": "query",
+                "description": "The reference number of the invoice"
+              },
+              {
+                "name": "customer_name",
+                "value": "Bowman & Co",
+                "type": "query",
+                "description": "The name of the customer. Maximum length [100]"
+              },
+              {
+                "name": "recurring_invoice_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the recurring invoice from which the invoice is created."
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "contact's email id. Maximum length [100]"
+              },
+              {
+                "name": "total",
+                "value": "40.6",
+                "type": "query",
+                "description": "The total amount to be paid"
+              },
+              {
+                "name": "balance",
+                "value": "40.6",
+                "type": "query",
+                "description": "The unpaid amount"
+              },
+              {
+                "name": "custom_field",
+                "value": "",
+                "type": "query",
+                "description": "custom fields for invoice. Variants: <code>custom_field_startswith</code> and <code>custom_field_contains</code>"
+              },
+              {
+                "name": "date",
+                "value": "2013-11-17",
+                "type": "query",
+                "description": "invoice date. Default date format is yyyy-mm-dd.<code> Variants: due_date_start, due_date_end, due_date_before and due_date_after</code>."
+              },
+              {
+                "name": "due_date",
+                "value": "2013-12-03",
+                "type": "query",
+                "description": "due date of the invoices. Default date format is yyyy-mm-dd. <code> Variants: due_date_start, due_date_end, due_date_before and due_date_after </code>"
+              },
+              {
+                "name": "status",
+                "value": "draft",
+                "type": "query",
+                "description": "Search invoices by invoice status.Allowed Values: <code>sent</code>, <code>draft</code>, <code>overdue</code>, <code>paid</code>, <code>void</code>, <code>unpaid</code>, <code>partially_paid</code> and <code>viewed</code>"
+              },
+              {
+                "name": "customer_id",
+                "value": "982000000567001",
+                "type": "query",
+                "description": "ID of the customer the invoice has to be created."
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter invoices by any status or payment expected date.Allowed Values: <code> Status.All</code>, <code>Status.Sent</code>, <code> Status.Draft</code>, <code>Status.OverDue</code>, <code>Status.Paid</code>, <code>Status.Void</code>, <code>Status.Unpaid</code>, <code>Status.PartiallyPaid</code>,<code> Status.Viewed</code> and <code>Date.PaymentExpectedDate</code>"
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search invoices by invoice number or purchase order or customer name. Maximum length [100]"
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort invoices.Allowed Values: <code>customer_name</code>, <code>invoice_number</code>, <code>date</code>, <code> due_date</code>, <code>total</code>, <code>balance</code> and  <code>created_time</code>"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all invoices with pagination."
+        },
+        {
+          "info": {
+            "name": "Create an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "send",
+                "value": "",
+                "type": "query",
+                "description": "Send the invoice to the contact person(s) associated with the invoice. Allowed values <code>true</code> and <code>false</code>."
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "",
+                "type": "query",
+                "description": "Ignore auto invoice number generation for this invoice. This mandates the invoice number. Allowed values <code>true</code> and <code>false</code>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create an invoice for your customer."
+        },
+        {
+          "info": {
+            "name": "Get an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "print",
+                "value": "",
+                "type": "query",
+                "description": "Print the exported pdf."
+              },
+              {
+                "name": "accept",
+                "value": "",
+                "type": "query",
+                "description": "Get the details of a particular invoice in formats such as json/ pdf/ html. Default format is json. Allowed values <code>json</code> <code>pdf</code> and <code>html</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the details of an invoice."
+        },
+        {
+          "info": {
+            "name": "Update an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "",
+                "type": "query",
+                "description": "Ignore auto invoice number generation for this invoice. This mandates the invoice number. Allowed values <code>true</code> and <code>false</code>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing invoice. To delete a line item just remove it from the line_items list."
+        },
+        {
+          "info": {
+            "name": "Delete an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing invoice. Invoices which have payment or credits note applied cannot be deleted."
+        },
+        {
+          "info": {
+            "name": "Update custom field in existing invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/invoice/:invoice_id/customfields",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the value of the custom field in existing invoices."
+        },
+        {
+          "info": {
+            "name": "Mark an invoice as sent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/status/sent",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a draft invoice as sent."
+        },
+        {
+          "info": {
+            "name": "Void an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/status/void",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark an invoice status as void. Upon voiding, the payments and credits associated with the invoices will be unassociated and will be under customer credits."
+        },
+        {
+          "info": {
+            "name": "Mark as draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/status/draft",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a voided invoice as draft."
+        },
+        {
+          "info": {
+            "name": "Get invoice email content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/email",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "email_template_id",
+                "value": "",
+                "type": "query",
+                "description": "Get the email content based on a specific email template. If this param is not inputted, then the content will be based on the email template associated with the customer. If no template is associated with the customer, then default template will be used."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the email content of an invoice."
+        },
+        {
+          "info": {
+            "name": "Email an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/email",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "send_customer_statement",
+                "value": " ",
+                "type": "query",
+                "description": "Send customer statement pdf a with email."
+              },
+              {
+                "name": "send_attachment",
+                "value": " ",
+                "type": "query",
+                "description": "Send the invoice attachment a with the email."
+              },
+              {
+                "name": "attachments",
+                "value": "",
+                "type": "query",
+                "description": "Files to be attached to the email"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Email an invoice to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content."
+        },
+        {
+          "info": {
+            "name": "Email invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/email",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated invoice ids which are to be emailed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Send invoices to your customers by email. Maximum of 10 invoices can be sent at once."
+        },
+        {
+          "info": {
+            "name": "Get payment reminder mail content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/paymentreminder",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the mail content of the payment reminder."
+        },
+        {
+          "info": {
+            "name": "Bulk export Invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/pdf",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated invoice ids which are to be export as pdf."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Maximum of 25 invoices can be exported in a single pdf."
+        },
+        {
+          "info": {
+            "name": "Bulk print invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/print",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_ids",
+                "value": "",
+                "type": "query",
+                "description": "Export invoices as pdf and print them. Maximum of 25 invoices can be printed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Export invoices as pdf and print them. Maximum of 25 invoices can be printed."
+        },
+        {
+          "info": {
+            "name": "Disable payment reminder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/paymentreminder/disable",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Disable automated payment reminders for an invoice."
+        },
+        {
+          "info": {
+            "name": "Enable payment reminder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/paymentreminder/enable",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Enable automated payment reminders for an invoice."
+        },
+        {
+          "info": {
+            "name": "Write off invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/writeoff",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Write off the invoice balance amount of an invoice."
+        },
+        {
+          "info": {
+            "name": "Cancel write off",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/writeoff/cancel",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Cancel the write off amount of an invoice."
+        },
+        {
+          "info": {
+            "name": "Update billing address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/address/billing",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the billing address for this invoice alone."
+        },
+        {
+          "info": {
+            "name": "Update shipping address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/address/shipping",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the shipping address for this invoice alone."
+        },
+        {
+          "info": {
+            "name": "List invoice templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/templates",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get all invoice pdf templates."
+        },
+        {
+          "info": {
+            "name": "Update invoice template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/templates/:template_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "template_id",
+                "value": "982000000000143",
+                "type": "path",
+                "description": "Unique identifier of the invoice template."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the pdf template associated with the invoice."
+        },
+        {
+          "info": {
+            "name": "List invoice payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/payments",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the list of payments made for an invoice."
+        },
+        {
+          "info": {
+            "name": "List credits applied",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/creditsapplied",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the list of credits applied for an invoice."
+        },
+        {
+          "info": {
+            "name": "Apply credits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/credits",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Apply the customer credits either from credit notes or excess customer payments to an invoice. Multiple credits can be applied at once."
+        },
+        {
+          "info": {
+            "name": "Delete a payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/payments/:invoice_payment_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_payment_id",
+                "value": "982000000567192",
+                "type": "path",
+                "description": "Unique identifier of the invoice payment."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a payment made to an invoice."
+        },
+        {
+          "info": {
+            "name": "Delete  applied credit",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/creditsapplied/:creditnotes_invoice_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "creditnotes_invoice_id",
+                "value": "982000000567172",
+                "type": "path",
+                "description": "Unique identifier of the credit note invoice."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a particular credit applied to an invoice."
+        },
+        {
+          "info": {
+            "name": "Get an invoice attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/attachment",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query",
+                "description": "Get the thumbnail of the attachment."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns the file attached to the invoice."
+        },
+        {
+          "info": {
+            "name": "Add attachment to an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/attachment",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "can_send_in_mail",
+                "value": "true",
+                "type": "query",
+                "description": "True to send the attachment with the invoice when emailed."
+              },
+              {
+                "name": "attachment",
+                "value": "",
+                "type": "query",
+                "description": "The file to be attached.Allowed Extensions: <code>gif</code>, <code>png</code>, <code>jpeg</code>, <code>jpg</code>, <code>bmp</code> and <code>pdf</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Attach a file to an invoice."
+        },
+        {
+          "info": {
+            "name": "Update attachment preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/attachment",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "can_send_in_mail",
+                "value": "true",
+                "type": "query",
+                "description": "Boolean to send the attachment with the invoice when emailed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Set whether you want to send the attached file while emailing the invoice."
+        },
+        {
+          "info": {
+            "name": "Delete an attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/attachment",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete the file attached to the invoice."
+        },
+        {
+          "info": {
+            "name": "List invoice comments & history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/comments",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the complete history and comments of an invoice."
+        },
+        {
+          "info": {
+            "name": "Add comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/comments",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Add a comment for an invoice."
+        },
+        {
+          "info": {
+            "name": "Update comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/comments/:comment_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "comment_id",
+                "value": "982000000567019",
+                "type": "path",
+                "description": "Unique identifier of the comment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing comment of an invoice."
+        },
+        {
+          "info": {
+            "name": "Delete a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/comments/:comment_id",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the invoice."
+              },
+              {
+                "name": "comment_id",
+                "value": "982000000567019",
+                "type": "path",
+                "description": "Unique identifier of the comment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an invoice comment."
+        },
+        {
+          "info": {
+            "name": "Submit an invoice for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/submit",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique ID of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit an invoice for approval workflow."
+        },
+        {
+          "info": {
+            "name": "Approve an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/approve",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique ID of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a submitted invoice."
+        },
+        {
+          "info": {
+            "name": "Final approval of an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/approve/final",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique ID of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Perform the final approval of an invoice (admin only)."
+        },
+        {
+          "info": {
+            "name": "Reject an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/:invoice_id/reject",
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique ID of the invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Reject a submitted invoice."
+        },
+        {
+          "info": {
+            "name": "Bulk submit invoices for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/submit",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_ids",
+                "value": "982000000567114,982000000567120",
+                "type": "query",
+                "description": "Comma-separated list of invoice IDs to submit for approval."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit multiple invoices for approval workflow at once."
+        },
+        {
+          "info": {
+            "name": "Bulk approve invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/invoices/approve",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_ids",
+                "value": "982000000567114,982000000567120",
+                "type": "query",
+                "description": "Comma-separated list of invoice IDs to approve."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve multiple submitted invoices at once."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

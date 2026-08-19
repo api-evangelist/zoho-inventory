@@ -1,0 +1,2488 @@
+{
+  "item": [
+    {
+      "id": "cc1dab37-27bf-4efe-b175-d4de37ec8fa5",
+      "name": "taxes",
+      "description": {
+        "content": "Taxes Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c355392-fab0-4c39-bf10-caeb6a302121",
+          "name": "Create a tax",
+          "request": {
+            "name": "Create a tax",
+            "description": {
+              "content": "Create a tax which can be associated with an item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_name\": \"<string>\",\n  \"tax_percentage\": \"<double>\",\n  \"tax_type\": \"<string>\",\n  \"tax_factor\": \"<string>\",\n  \"tax_specific_type\": \"<string>\",\n  \"tax_authority_name\": \"<string>\",\n  \"tax_authority_id\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"purchase_tax_expense_account_id\": \"<string>\",\n  \"is_value_added\": \"<boolean>\",\n  \"update_draft_invoice\": \"<boolean>\",\n  \"update_draft_so\": \"<boolean>\",\n  \"is_editable\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ad314d2-31b0-4421-b53a-8245a2c00a26",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_name\": \"Sales Group\",\n  \"tax_percentage\": 10.5,\n  \"tax_type\": \"tax\",\n  \"tax_factor\": \"rate\",\n  \"tax_specific_type\": \"<string>\",\n  \"tax_authority_name\": \"Illinois Department of Revenue\",\n  \"tax_authority_id\": \"6863420423859038\",\n  \"country_code\": \"UK\",\n  \"purchase_tax_expense_account_id\": \"<string>\",\n  \"is_value_added\": false,\n  \"update_draft_invoice\": false,\n  \"update_draft_so\": false,\n  \"is_editable\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The tax has been added.\",\n  \"tax\": [\n    {\n      \"tax_id\": \"982000000566009\",\n      \"tax_name\": \"Sales Group\",\n      \"tax_percentage\": 10.5,\n      \"tax_type\": \"tax\",\n      \"tax_factor\": \"rate\",\n      \"tds_payable_account_id\": \"132086000000107337\",\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"is_value_added\": false,\n      \"tax_specific_type\": \"<string>\",\n      \"country\": \"string\",\n      \"country_code\": \"UK\",\n      \"purchase_tax_expense_account_id\": \"<string>\"\n    },\n    {\n      \"tax_id\": \"982000000566009\",\n      \"tax_name\": \"Sales Group\",\n      \"tax_percentage\": 10.5,\n      \"tax_type\": \"tax\",\n      \"tax_factor\": \"rate\",\n      \"tds_payable_account_id\": \"132086000000107337\",\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"is_value_added\": false,\n      \"tax_specific_type\": \"<string>\",\n      \"country\": \"string\",\n      \"country_code\": \"UK\",\n      \"purchase_tax_expense_account_id\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9380e91-d41e-4a74-82cc-6890d418306e",
+          "name": "List taxes",
+          "request": {
+            "name": "List taxes",
+            "description": {
+              "content": "List of simple and compound taxes with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "787effba-e7a2-474f-be65-2ced349bd4b5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"taxes\": [\n    {\n      \"tax_id\": \"982000000566009\",\n      \"tax_name\": \"Sales Group\",\n      \"tax_percentage\": 10.5,\n      \"tax_type\": \"tax\",\n      \"tax_factor\": \"rate\",\n      \"tax_specific_type\": \"<string>\",\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"is_value_added\": false,\n      \"is_default_tax\": true,\n      \"is_editable\": true,\n      \"output_tax_account_name\": \"string\",\n      \"purchase_tax_account_name\": \"string\",\n      \"tax_account_id\": \"132086000000107333\",\n      \"purchase_tax_account_id\": \"132086000000107337\"\n    },\n    {\n      \"tax_id\": \"982000000566009\",\n      \"tax_name\": \"Sales Group\",\n      \"tax_percentage\": 10.5,\n      \"tax_type\": \"tax\",\n      \"tax_factor\": \"rate\",\n      \"tax_specific_type\": \"<string>\",\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"is_value_added\": false,\n      \"is_default_tax\": true,\n      \"is_editable\": true,\n      \"output_tax_account_name\": \"string\",\n      \"purchase_tax_account_name\": \"string\",\n      \"tax_account_id\": \"132086000000107333\",\n      \"purchase_tax_account_id\": \"132086000000107337\"\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 200,\n    \"has_more_page\": false,\n    \"report_name\": \"Taxes\",\n    \"applied_filter\": \"Status.All\",\n    \"sort_column\": \"created_time\",\n    \"sort_order\": \"D\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a35f31ca-687e-4c4f-8c49-a3951246ae29",
+          "name": "Update a tax",
+          "request": {
+            "name": "Update a tax",
+            "description": {
+              "content": "Update the details of a simple or compound tax.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxes",
+                ":tax_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_id",
+                  "description": "(Required) Unique identifier of the tax."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_name\": \"<string>\",\n  \"tax_percentage\": \"<double>\",\n  \"tax_type\": \"<string>\",\n  \"tax_factor\": \"<string>\",\n  \"tax_specific_type\": \"<string>\",\n  \"tax_authority_name\": \"<string>\",\n  \"tax_authority_id\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"purchase_tax_expense_account_id\": \"<string>\",\n  \"is_value_added\": \"<boolean>\",\n  \"update_draft_invoice\": \"<boolean>\",\n  \"update_draft_so\": \"<boolean>\",\n  \"is_editable\": \"<boolean>\",\n  \"tds_payable_account_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10b92d81-c881-47a8-884e-b0f56d25cf99",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxes",
+                    ":tax_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_id",
+                      "description": "(Required) Unique identifier of the tax."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_name\": \"Sales Group\",\n  \"tax_percentage\": 10.5,\n  \"tax_type\": \"tax\",\n  \"tax_factor\": \"rate\",\n  \"tax_specific_type\": \"<string>\",\n  \"tax_authority_name\": \"Illinois Department of Revenue\",\n  \"tax_authority_id\": \"6863420423859038\",\n  \"country_code\": \"UK\",\n  \"purchase_tax_expense_account_id\": \"<string>\",\n  \"is_value_added\": false,\n  \"update_draft_invoice\": false,\n  \"update_draft_so\": false,\n  \"is_editable\": true,\n  \"tds_payable_account_id\": \"132086000000107337\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Tax information has been saved.\",\n  \"tax\": {\n    \"tax_id\": \"982000000566009\",\n    \"tax_name\": \"Sales Group\",\n    \"tax_percentage\": 10.5,\n    \"tax_type\": \"tax\",\n    \"tax_authority_id\": \"6863420423859038\",\n    \"tax_authority_name\": \"Illinois Department of Revenue\",\n    \"is_value_added\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c81b95ed-6497-4c50-8411-35290c321951",
+          "name": "Get a tax",
+          "request": {
+            "name": "Get a tax",
+            "description": {
+              "content": "Get the details of a simple or compound tax.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxes",
+                ":tax_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_id",
+                  "description": "(Required) Unique identifier of the tax."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b0bb4d20-4e3b-41d6-8fc4-1acc82af7d79",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxes",
+                    ":tax_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_id",
+                      "description": "(Required) Unique identifier of the tax."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax\": [\n    {\n      \"tax_id\": \"982000000566009\",\n      \"tax_name\": \"Sales Group\",\n      \"tax_percentage\": 10.5,\n      \"tax_type\": \"tax\",\n      \"tax_factor\": \"rate\",\n      \"tds_payable_account_id\": \"132086000000107337\",\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"is_value_added\": false,\n      \"tax_specific_type\": \"<string>\",\n      \"country\": \"string\",\n      \"country_code\": \"UK\",\n      \"purchase_tax_expense_account_id\": \"<string>\"\n    },\n    {\n      \"tax_id\": \"982000000566009\",\n      \"tax_name\": \"Sales Group\",\n      \"tax_percentage\": 10.5,\n      \"tax_type\": \"tax\",\n      \"tax_factor\": \"rate\",\n      \"tds_payable_account_id\": \"132086000000107337\",\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"is_value_added\": false,\n      \"tax_specific_type\": \"<string>\",\n      \"country\": \"string\",\n      \"country_code\": \"UK\",\n      \"purchase_tax_expense_account_id\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9daae22a-58d6-400f-ac32-c79bf9d98d88",
+          "name": "Delete a tax",
+          "request": {
+            "name": "Delete a tax",
+            "description": {
+              "content": "Delete a simple or compound tax.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxes",
+                ":tax_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_id",
+                  "description": "(Required) Unique identifier of the tax."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf5d01ad-852f-404e-9ef4-ebb3595b3ef9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxes",
+                    ":tax_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_id",
+                      "description": "(Required) Unique identifier of the tax."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The record has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "155b9484-ed3c-48ff-968c-bf2bc5733631",
+          "name": "Get a tax group",
+          "request": {
+            "name": "Get a tax group",
+            "description": {
+              "content": "Get the details of a tax group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxgroups",
+                ":tax_group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_group_id",
+                  "description": "(Required) Unique identifier of the tax group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ab033f42-c73c-4225-b379-edc362448492",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxgroups",
+                    ":tax_group_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_group_id",
+                      "description": "(Required) Unique identifier of the tax group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax_group\": {\n    \"tax_group_id\": \"982000000566009\",\n    \"tax_group_name\": \"Sales Group\",\n    \"tax_group_percentage\": 10.5,\n    \"taxes\": [\n      {\n        \"tax_id\": \"982000000566009\",\n        \"tax_name\": \"Sales Group\",\n        \"tax_percentage\": 10.5,\n        \"tax_type\": \"tax\",\n        \"tax_factor\": \"rate\",\n        \"tax_authority_id\": \"6863420423859038\",\n        \"tax_authority_name\": \"Illinois Department of Revenue\"\n      },\n      {\n        \"tax_id\": \"982000000566009\",\n        \"tax_name\": \"Sales Group\",\n        \"tax_percentage\": 10.5,\n        \"tax_type\": \"tax\",\n        \"tax_factor\": \"rate\",\n        \"tax_authority_id\": \"6863420423859038\",\n        \"tax_authority_name\": \"Illinois Department of Revenue\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f43dfdd5-9479-4a54-92c4-dfc3d41a0163",
+          "name": "Update a tax group",
+          "request": {
+            "name": "Update a tax group",
+            "description": {
+              "content": "Update the details of the tax group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxgroups",
+                ":tax_group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_group_id",
+                  "description": "(Required) Unique identifier of the tax group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_group_name\": \"<string>\",\n  \"taxes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62855136-7e6e-4d69-86cd-6aea3890facf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxgroups",
+                    ":tax_group_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_group_id",
+                      "description": "(Required) Unique identifier of the tax group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_group_name\": \"Sales Group\",\n  \"taxes\": \"982000000566009\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax_group\": {\n    \"tax_group_id\": \"982000000566009\",\n    \"tax_group_name\": \"Sales Group\",\n    \"tax_group_percentage\": 10.5,\n    \"taxes\": [\n      {\n        \"tax_id\": \"982000000566009\",\n        \"tax_name\": \"Sales Group\",\n        \"tax_percentage\": 10.5,\n        \"tax_type\": \"tax\",\n        \"tax_factor\": \"rate\",\n        \"tax_authority_id\": \"6863420423859038\",\n        \"tax_authority_name\": \"Illinois Department of Revenue\"\n      },\n      {\n        \"tax_id\": \"982000000566009\",\n        \"tax_name\": \"Sales Group\",\n        \"tax_percentage\": 10.5,\n        \"tax_type\": \"tax\",\n        \"tax_factor\": \"rate\",\n        \"tax_authority_id\": \"6863420423859038\",\n        \"tax_authority_name\": \"Illinois Department of Revenue\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "011e8918-49d4-48d5-b525-b037b3c16f95",
+          "name": "Delete a tax group",
+          "request": {
+            "name": "Delete a tax group",
+            "description": {
+              "content": "Delete a tax group. Tax group that is associated to transactions cannot be deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxgroups",
+                ":tax_group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_group_id",
+                  "description": "(Required) Unique identifier of the tax group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "859aadc8-8693-4f39-abea-9233ed472a39",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxgroups",
+                    ":tax_group_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_group_id",
+                      "description": "(Required) Unique identifier of the tax group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The tax group has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95cba7ec-589b-4e45-820f-862233a94dc1",
+          "name": "Create a tax group",
+          "request": {
+            "name": "Create a tax group",
+            "description": {
+              "content": "Create a tax group associating multiple taxes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxgroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_group_name\": \"<string>\",\n  \"taxes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "16e80987-ecac-421e-86af-2216009d2dcd",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxgroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_group_name\": \"Sales Group\",\n  \"taxes\": \"982000000566009\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax_group\": {\n    \"tax_group_id\": \"982000000566009\",\n    \"tax_group_name\": \"Sales Group\",\n    \"tax_group_percentage\": 10.5,\n    \"taxes\": [\n      {\n        \"tax_id\": \"982000000566009\",\n        \"tax_name\": \"Sales Group\",\n        \"tax_percentage\": 10.5,\n        \"tax_type\": \"tax\",\n        \"tax_factor\": \"rate\",\n        \"tax_authority_id\": \"6863420423859038\",\n        \"tax_authority_name\": \"Illinois Department of Revenue\"\n      },\n      {\n        \"tax_id\": \"982000000566009\",\n        \"tax_name\": \"Sales Group\",\n        \"tax_percentage\": 10.5,\n        \"tax_type\": \"tax\",\n        \"tax_factor\": \"rate\",\n        \"tax_authority_id\": \"6863420423859038\",\n        \"tax_authority_name\": \"Illinois Department of Revenue\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14851528-0b33-43dd-ba2d-8c559d2a8b23",
+          "name": "Create a tax authority [US and CA Edition only]",
+          "request": {
+            "name": "Create a tax authority [US and CA Edition only]",
+            "description": {
+              "content": "Create a tax authority.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxauthorities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_authority_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"registration_number\": \"<string>\",\n  \"registration_number_label\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e93eeacd-9ac1-4cc3-9e9a-c05dd522575a",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxauthorities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_authority_name\": \"Illinois Department of Revenue\",\n  \"description\": \"The New York State Department of  Taxation and Finance\",\n  \"registration_number\": \"<string>\",\n  \"registration_number_label\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Tax Authority has been added.\",\n  \"tax_authority\": {\n    \"tax_authority_id\": \"6863420423859038\",\n    \"tax_authority_name\": \"Illinois Department of Revenue\",\n    \"description\": \"The New York State Department of  Taxation and Finance\",\n    \"registration_number\": \"<string>\",\n    \"registration_number_label\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3eb6b7a-00e8-4410-ac00-498cc15bea35",
+          "name": "List tax authorities [US Edition only]",
+          "request": {
+            "name": "List tax authorities [US Edition only]",
+            "description": {
+              "content": "List of tax authorities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxauthorities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c3826bd9-4eb5-4eec-bde0-a4431ba88fc9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxauthorities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax_authorities\": [\n    {\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"description\": \"The New York State Department of  Taxation and Finance\",\n      \"registration_number\": \"<string>\",\n      \"registration_number_label\": \"<string>\"\n    },\n    {\n      \"tax_authority_id\": \"6863420423859038\",\n      \"tax_authority_name\": \"Illinois Department of Revenue\",\n      \"description\": \"The New York State Department of  Taxation and Finance\",\n      \"registration_number\": \"<string>\",\n      \"registration_number_label\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92b69428-2ddc-43b9-8d08-f7509ba103dc",
+          "name": "Update a tax authority [US and CA Edition only]",
+          "request": {
+            "name": "Update a tax authority [US and CA Edition only]",
+            "description": {
+              "content": "Update the details of a tax authority.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxauthorities",
+                ":tax_authority_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_authority_id",
+                  "description": "(Required) Unique identifier of the tax authority."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_authority_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"registration_number\": \"<string>\",\n  \"registration_number_label\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "684ab9ae-66cc-40c8-9974-7268a39ae131",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxauthorities",
+                    ":tax_authority_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_authority_id",
+                      "description": "(Required) Unique identifier of the tax authority."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_authority_name\": \"Illinois Department of Revenue\",\n  \"description\": \"The New York State Department of  Taxation and Finance\",\n  \"registration_number\": \"<string>\",\n  \"registration_number_label\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Tax Authority information has been updated.\",\n  \"tax_authority\": {\n    \"tax_authority_id\": \"6863420423859038\",\n    \"tax_authority_name\": \"Illinois Department of Revenue\",\n    \"description\": \"The New York State Department of  Taxation and Finance\",\n    \"registration_number\": \"<string>\",\n    \"registration_number_label\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41b3de96-f485-4bc0-86b2-4149e1945614",
+          "name": "Get a tax authority [US and CA Edition only]",
+          "request": {
+            "name": "Get a tax authority [US and CA Edition only]",
+            "description": {
+              "content": "Get the details of a tax authority.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxauthorities",
+                ":tax_authority_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_authority_id",
+                  "description": "(Required) Unique identifier of the tax authority."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7efab304-09a5-420d-93bf-fdf0865696b6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxauthorities",
+                    ":tax_authority_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_authority_id",
+                      "description": "(Required) Unique identifier of the tax authority."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax_authority\": {\n    \"tax_authority_id\": \"6863420423859038\",\n    \"tax_authority_name\": \"Illinois Department of Revenue\",\n    \"description\": \"The New York State Department of  Taxation and Finance\",\n    \"registration_number\": \"<string>\",\n    \"registration_number_label\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c906771-819f-45e9-a0fc-fbf9826dc90f",
+          "name": "Delete a tax authority [US and CA Edition only]",
+          "request": {
+            "name": "Delete a tax authority [US and CA Edition only]",
+            "description": {
+              "content": "Delete a tax authority.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxauthorities",
+                ":tax_authority_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_authority_id",
+                  "description": "(Required) Unique identifier of the tax authority."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "799f89fd-ba69-4ae2-90f7-52758e04fbdb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxauthorities",
+                    ":tax_authority_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_authority_id",
+                      "description": "(Required) Unique identifier of the tax authority."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Tax authority has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b864a2b-a631-428e-a44c-533fca5d7d46",
+          "name": "Create a tax exemption [US Edition only]",
+          "request": {
+            "name": "Create a tax exemption [US Edition only]",
+            "description": {
+              "content": "Create a tax exemption.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxexemptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_exemption_code\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "347ab674-7d14-4606-a31d-894ff875a964",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxexemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_exemption_code\": \"RESELLER\",\n  \"type\": \"customer\",\n  \"description\": \"Tax exempted because the contact is a reseller.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Tax Exemption has been added.\",\n  \"tax_exemption\": {\n    \"tax_exemption_id\": \"460000000076002\",\n    \"tax_exemption_code\": \"RESELLER\",\n    \"description\": \"Tax exempted because the contact is a reseller.\",\n    \"type\": \"customer\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d71e2aaa-1f29-42a7-b093-f797203bb937",
+          "name": "List tax exemptions [US Edition only]",
+          "request": {
+            "name": "List tax exemptions [US Edition only]",
+            "description": {
+              "content": "List of tax exemptions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxexemptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac1ea261-6757-47ac-8318-cc7b872c4dc4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxexemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax_exemptions\": [\n    {\n      \"tax_exemption_id\": \"460000000076002\",\n      \"tax_exemption_code\": \"RESELLER\",\n      \"description\": \"Tax exempted because the contact is a reseller.\",\n      \"type\": \"customer\"\n    },\n    {\n      \"tax_exemption_id\": \"460000000076002\",\n      \"tax_exemption_code\": \"RESELLER\",\n      \"description\": \"Tax exempted because the contact is a reseller.\",\n      \"type\": \"customer\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7c4d931-ecb7-446f-a4ae-ab2db603f007",
+          "name": "Update a tax exemption [US Edition only]",
+          "request": {
+            "name": "Update a tax exemption [US Edition only]",
+            "description": {
+              "content": "Update the details of a tax exemption.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxexemptions",
+                ":tax_exemption_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_exemption_id",
+                  "description": "(Required) Unique identifier of the tax exemption."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tax_exemption_code\": \"<string>\",\n  \"type\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4758e20-d011-403f-8605-0efe4aa8ad88",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxexemptions",
+                    ":tax_exemption_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_exemption_id",
+                      "description": "(Required) Unique identifier of the tax exemption."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tax_exemption_code\": \"RESELLER\",\n  \"type\": \"customer\",\n  \"description\": \"Tax exempted because the contact is a reseller.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Tax Exemption has been updated.\",\n  \"tax_exemption\": {\n    \"tax_exemption_id\": \"460000000076002\",\n    \"tax_exemption_code\": \"RESELLER\",\n    \"description\": \"Tax exempted because the contact is a reseller.\",\n    \"type\": \"customer\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb8b32b6-cbe4-4205-a611-11ddf4806b12",
+          "name": "Get a tax exemption [US Edition only]",
+          "request": {
+            "name": "Get a tax exemption [US Edition only]",
+            "description": {
+              "content": "Get the details of a tax exemption.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxexemptions",
+                ":tax_exemption_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_exemption_id",
+                  "description": "(Required) Unique identifier of the tax exemption."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "01ab5615-9d99-4550-89b9-f80e7123de5a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxexemptions",
+                    ":tax_exemption_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_exemption_id",
+                      "description": "(Required) Unique identifier of the tax exemption."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"tax_exemption\": {\n    \"tax_exemption_id\": \"460000000076002\",\n    \"tax_exemption_code\": \"RESELLER\",\n    \"description\": \"Tax exempted because the contact is a reseller.\",\n    \"type\": \"customer\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a153f0eb-11dd-4bc8-95cd-b8dd870d303c",
+          "name": "Delete a tax exemption [US Edition only]",
+          "request": {
+            "name": "Delete a tax exemption [US Edition only]",
+            "description": {
+              "content": "Delete a tax exemption.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "taxexemptions",
+                ":tax_exemption_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tax_exemption_id",
+                  "description": "(Required) Unique identifier of the tax exemption."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fc17b250-f1f1-4969-ae1b-fe2a6347b0fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "taxexemptions",
+                    ":tax_exemption_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tax_exemption_id",
+                      "description": "(Required) Unique identifier of the tax exemption."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Tax exemption has been deleted successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "48715247-c681-4b7f-96ee-940866c808d1",
+    "name": "batches taxes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

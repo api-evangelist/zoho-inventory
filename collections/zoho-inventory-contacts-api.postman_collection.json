@@ -1,0 +1,1786 @@
+{
+  "item": [
+    {
+      "id": "c75a9d4b-6b34-49ab-b1e7-ea499134e850",
+      "name": "contacts",
+      "description": {
+        "content": "Contacts Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "444d65e3-1249-48fb-aff4-b2c7022dfcf6",
+          "name": "Create a Contact",
+          "request": {
+            "name": "Create a Contact",
+            "description": {
+              "content": "Create a contact with given information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact_name\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"payment_terms\": \"<integer>\",\n  \"currency_id\": \"<string>\",\n  \"website\": \"<string>\",\n  \"contact_type\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"value\": \"<string>\",\n      \"index\": \"<integer>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"index\": \"<integer>\"\n    }\n  ],\n  \"opening_balances\": [\n    {\n      \"location_id\": \"<string>\",\n      \"exchange_rate\": \"<double>\",\n      \"opening_balance_amount\": \"<double>\"\n    },\n    {\n      \"location_id\": \"<string>\",\n      \"exchange_rate\": \"<double>\",\n      \"opening_balance_amount\": \"<double>\"\n    }\n  ],\n  \"billing_address\": {\n    \"attention\": \"<string>\",\n    \"address\": \"<string>\",\n    \"street2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"shipping_address\": {\n    \"attention\": \"<string>\",\n    \"address\": \"<string>\",\n    \"street2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"contact_persons\": [\n    {\n      \"salutation\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"is_primary_contact\": \"<boolean>\",\n      \"communication_preference\": {\n        \"is_sms_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"salutation\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"is_primary_contact\": \"<boolean>\",\n      \"communication_preference\": {\n        \"is_sms_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"default_templates\": {\n    \"invoice_template_id\": \"<string>\",\n    \"invoice_template_name\": \"<string>\",\n    \"estimate_template_id\": \"<string>\",\n    \"estimate_template_name\": \"<string>\",\n    \"creditnote_template_id\": \"<string>\",\n    \"creditnote_template_name\": \"<string>\",\n    \"invoice_email_template_id\": \"<string>\",\n    \"invoice_email_template_name\": \"<string>\",\n    \"estimate_email_template_id\": \"<string>\",\n    \"estimate_email_template_name\": \"<string>\",\n    \"creditnote_email_template_id\": \"<string>\",\n    \"creditnote_email_template_name\": \"<string>\"\n  },\n  \"language_code\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"vat_reg_no\": \"<string>\",\n  \"tax_reg_no\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"vat_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"tax_regime\": \"<string>\",\n  \"legal_name\": \"<string>\",\n  \"is_tds_registered\": \"<boolean>\",\n  \"avatax_exempt_no\": \"<string>\",\n  \"avatax_use_code\": \"<string>\",\n  \"tax_exemption_id\": \"<string>\",\n  \"tax_authority_id\": \"<string>\",\n  \"tax_id\": \"<boolean>\",\n  \"is_taxable\": \"<boolean>\",\n  \"facebook\": \"<string>\",\n  \"twitter\": \"<string>\",\n  \"place_of_contact\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_authority_name\": \"<string>\",\n  \"tax_exemption_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3725a5a-5818-4bbc-b8c3-e5927580972e",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact_name\": \"Bowman and Co\",\n  \"company_name\": \"Bowman and Co\",\n  \"payment_terms\": 15,\n  \"currency_id\": \"<string>\",\n  \"website\": \"www.bowmanfurniture.com\",\n  \"contact_type\": \"customer\",\n  \"custom_fields\": [\n    {\n      \"value\": \"GBGD078\",\n      \"index\": 1\n    },\n    {\n      \"value\": \"GBGD078\",\n      \"index\": 1\n    }\n  ],\n  \"opening_balances\": [\n    {\n      \"location_id\": \"460000000038080\",\n      \"exchange_rate\": 1,\n      \"opening_balance_amount\": 1200\n    },\n    {\n      \"location_id\": \"460000000038080\",\n      \"exchange_rate\": 1,\n      \"opening_balance_amount\": 1200\n    }\n  ],\n  \"billing_address\": {\n    \"attention\": \"Mr.John\",\n    \"address\": \"4900 Hopyard Rd\",\n    \"street2\": \"Suit 310\",\n    \"city\": \"Pleasanton\",\n    \"state\": \"California\",\n    \"zip\": \"<string>\",\n    \"country\": \"U.S.A\"\n  },\n  \"shipping_address\": {\n    \"attention\": \"Mr.John\",\n    \"address\": \"4900 Hopyard Rd\",\n    \"street2\": \"Suit 310\",\n    \"city\": \"Pleasanton\",\n    \"state\": \"California\",\n    \"zip\": \"<string>\",\n    \"country\": \"U.S.A\"\n  },\n  \"contact_persons\": [\n    {\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ],\n  \"default_templates\": {\n    \"invoice_template_id\": \"<string>\",\n    \"invoice_template_name\": \"Custom Classic\",\n    \"estimate_template_id\": \"<string>\",\n    \"estimate_template_name\": \"Service - Professional\",\n    \"creditnote_template_id\": \"<string>\",\n    \"creditnote_template_name\": \"Fixed Cost - Professional\",\n    \"invoice_email_template_id\": \"<string>\",\n    \"invoice_email_template_name\": \"Custom Invoice Notification\",\n    \"estimate_email_template_id\": \"<string>\",\n    \"estimate_email_template_name\": \"Custom Estimate Notification\",\n    \"creditnote_email_template_id\": \"<string>\",\n    \"creditnote_email_template_name\": \"Custom Credit Note Notification\"\n  },\n  \"language_code\": \"en\",\n  \"notes\": \"Payment option : Through check\",\n  \"vat_reg_no\": \"<string>\",\n  \"tax_reg_no\": \"<string>\",\n  \"country_code\": \"US\",\n  \"vat_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"tax_regime\": \"general_legal_person\",\n  \"legal_name\": \"ESCUELA KEMPER URGATE\",\n  \"is_tds_registered\": \"<boolean>\",\n  \"avatax_exempt_no\": \"<string>\",\n  \"avatax_use_code\": \"<string>\",\n  \"tax_exemption_id\": \"<string>\",\n  \"tax_authority_id\": \"<string>\",\n  \"tax_id\": \"<boolean>\",\n  \"is_taxable\": true,\n  \"facebook\": \"zoho\",\n  \"twitter\": \"zoho\",\n  \"place_of_contact\": \"TN\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"gst_treatment\": \"business_gst\",\n  \"tax_authority_name\": \"<string>\",\n  \"tax_exemption_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The contact has been created\",\n  \"contact\": {\n    \"contact_id\": \"string\",\n    \"contact_name\": \"Bowman and Co\",\n    \"company_name\": \"Bowman and Co\",\n    \"has_transaction\": true,\n    \"contact_type\": \"customer\",\n    \"is_linked_with_zohocrm\": false,\n    \"website\": \"www.bowmanfurniture.com\",\n    \"primary_contact_id\": \"string\",\n    \"payment_terms\": 15,\n    \"payment_terms_label\": \"Net 15\",\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"language_code\": \"en\",\n    \"outstanding_receivable_amount\": 250,\n    \"outstanding_receivable_amount_bcy\": 250,\n    \"unused_credits_receivable_amount\": 5918,\n    \"unused_credits_receivable_amount_bcy\": 1532,\n    \"status\": \"active\",\n    \"payment_reminder_enabled\": true,\n    \"custom_fields\": [\n      {\n        \"value\": \"GBGD078\",\n        \"index\": 1,\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"value\": \"GBGD078\",\n        \"index\": 1,\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"opening_balances\": [\n      {\n        \"location_id\": \"460000000038080\",\n        \"exchange_rate\": 1,\n        \"opening_balance_amount\": 1200\n      },\n      {\n        \"location_id\": \"460000000038080\",\n        \"exchange_rate\": 1,\n        \"opening_balance_amount\": 1200\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"billing_address\": {\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\"\n    },\n    \"shipping_address\": {\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\"\n    },\n    \"facebook\": \"zoho\",\n    \"twitter\": \"zoho\",\n    \"contact_persons\": [\n      {\n        \"salutation\": \"Mr\",\n        \"first_name\": \"Will\",\n        \"last_name\": \"Smith\",\n        \"email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"is_primary_contact\": true,\n        \"communication_preference\": {\n          \"is_sms_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"salutation\": \"Mr\",\n        \"first_name\": \"Will\",\n        \"last_name\": \"Smith\",\n        \"email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"is_primary_contact\": true,\n        \"communication_preference\": {\n          \"is_sms_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"default_templates\": {\n      \"invoice_template_id\": \"<string>\",\n      \"invoice_template_name\": \"Custom Classic\",\n      \"estimate_template_id\": \"<string>\",\n      \"estimate_template_name\": \"Service - Professional\",\n      \"creditnote_template_id\": \"<string>\",\n      \"creditnote_template_name\": \"Fixed Cost - Professional\",\n      \"invoice_email_template_id\": \"<string>\",\n      \"invoice_email_template_name\": \"Custom Invoice Notification\",\n      \"estimate_email_template_id\": \"<string>\",\n      \"estimate_email_template_name\": \"Custom Estimate Notification\",\n      \"creditnote_email_template_id\": \"<string>\",\n      \"creditnote_email_template_name\": \"Custom Credit Note Notification\"\n    },\n    \"notes\": \"Payment option : Through check\",\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"2013-10-07\",\n    \"is_taxable\": true,\n    \"tax_id\": \"<boolean>\",\n    \"tax_name\": \"CGST\",\n    \"tax_percentage\": 12,\n    \"tax_authority_id\": \"<string>\",\n    \"tax_exemption_id\": \"<string>\",\n    \"tax_authority_name\": \"<string>\",\n    \"tax_exemption_code\": \"<string>\",\n    \"place_of_contact\": \"TN\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"vat_treatment\": \"<string>\",\n    \"tax_treatment\": \"<string>\",\n    \"tax_regime\": \"general_legal_person\",\n    \"legal_name\": \"ESCUELA KEMPER URGATE\",\n    \"is_tds_registered\": \"<boolean>\",\n    \"gst_treatment\": \"business_gst\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "966c278a-4f03-4388-9316-754b8ad19652",
+          "name": "List contacts",
+          "request": {
+            "name": "List contacts",
+            "description": {
+              "content": "List all contacts with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contact_name",
+                  "value": "<string>",
+                  "description": "Search contacts by contact name. Maximum length [100] Variants: <code>contact_name_startswith</code> and <code>contact_name_contains</code>. Maximum length [100]"
+                },
+                {
+                  "disabled": false,
+                  "key": "company_name",
+                  "value": "<string>",
+                  "description": "Search contacts by company name. Maximum length [100] Variants: <code>company_name_startswith</code> and <code>company_name_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "first_name",
+                  "value": "<string>",
+                  "description": "Search contacts by first name of the contact person. Maximum length [100] Variants: <code>first_name_startswith</code> and <code>first_name_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_name",
+                  "value": "<string>",
+                  "description": "Search contacts by last name of the contact person. Maximum length [100] Variants: <code>last_name_startswith</code> and <code>last_name_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Search contacts by any of the address fields. Maximum length [100] Variants: <code>address_startswith</code> and <code>address_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Search contacts by email of the contact person. Maximum length [100] Variants: <code>email_startswith</code> and <code>email_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "Search contacts by phone number of the contact person. Maximum length [100] Variants: <code>phone_startswith</code> and <code>phone_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter contacts by status. Allowed Values: <code>Status.All, Status.Active, Status.Inactive, Status.Duplicate and Status.Crm</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Search contacts by contact name or notes. Maximum length [100]"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Sort contacts. Allowed Values: <code>contact_name, first_name, last_name, email, outstanding_receivable_amount, created_time and last_modified_time</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fe9f10bf-772c-4e56-b73d-4d008935050d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_name",
+                      "value": "Bowman and Co"
+                    },
+                    {
+                      "key": "company_name",
+                      "value": "Bowman and Co"
+                    },
+                    {
+                      "key": "first_name",
+                      "value": "Will"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "Smith"
+                    },
+                    {
+                      "key": "address",
+                      "value": "4900 Hopyard Rd"
+                    },
+                    {
+                      "key": "email",
+                      "value": "willsmith@bowmanfurniture.com"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "+1-925-921-9201"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": ""
+                    },
+                    {
+                      "key": "search_text",
+                      "value": ""
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "contact_name"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"contacts\": [\n    {\n      \"contact_id\": \"string\",\n      \"contact_name\": \"Bowman and Co\",\n      \"company_name\": \"Bowman and Co\",\n      \"contact_type\": \"customer\",\n      \"status\": \"active\",\n      \"payment_terms\": 15,\n      \"payment_terms_label\": \"Net 15\",\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"USD\",\n      \"outstanding_receivable_amount\": 250,\n      \"unused_credits_receivable_amount\": 8706,\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"created_time\": \"2013-08-05\",\n      \"last_modified_time\": \"2013-10-07\"\n    },\n    {\n      \"contact_id\": \"string\",\n      \"contact_name\": \"Bowman and Co\",\n      \"company_name\": \"Bowman and Co\",\n      \"contact_type\": \"customer\",\n      \"status\": \"active\",\n      \"payment_terms\": 15,\n      \"payment_terms_label\": \"Net 15\",\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"USD\",\n      \"outstanding_receivable_amount\": 250,\n      \"unused_credits_receivable_amount\": 5225,\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"created_time\": \"2013-08-05\",\n      \"last_modified_time\": \"2013-10-07\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7659a5f3-59b1-4062-834a-07478a0b106e",
+          "name": "Update a contact",
+          "request": {
+            "name": "Update a contact",
+            "description": {
+              "content": "Update an existing contact. To delete a contact person remove it from the contact_persons list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact_name\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"payment_terms\": \"<integer>\",\n  \"currency_id\": \"<string>\",\n  \"contact_type\": \"<string>\",\n  \"website\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"value\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"label\": \"<string>\"\n    }\n  ],\n  \"opening_balances\": [\n    {\n      \"location_id\": \"<string>\",\n      \"exchange_rate\": \"<double>\",\n      \"opening_balance_amount\": \"<double>\"\n    },\n    {\n      \"location_id\": \"<string>\",\n      \"exchange_rate\": \"<double>\",\n      \"opening_balance_amount\": \"<double>\"\n    }\n  ],\n  \"billing_address\": {\n    \"attention\": \"<string>\",\n    \"address\": \"<string>\",\n    \"street2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"shipping_address\": {\n    \"attention\": \"<string>\",\n    \"address\": \"<string>\",\n    \"street2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"contact_persons\": [\n    {\n      \"salutation\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"is_primary_contact\": \"<boolean>\",\n      \"communication_preference\": {\n        \"is_sms_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"salutation\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"is_primary_contact\": \"<boolean>\",\n      \"communication_preference\": {\n        \"is_sms_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"default_templates\": {\n    \"invoice_template_id\": \"<string>\",\n    \"invoice_template_name\": \"<string>\",\n    \"estimate_template_id\": \"<string>\",\n    \"estimate_template_name\": \"<string>\",\n    \"creditnote_template_id\": \"<string>\",\n    \"creditnote_template_name\": \"<string>\",\n    \"invoice_email_template_id\": \"<string>\",\n    \"invoice_email_template_name\": \"<string>\",\n    \"estimate_email_template_id\": \"<string>\",\n    \"estimate_email_template_name\": \"<string>\",\n    \"creditnote_email_template_id\": \"<string>\",\n    \"creditnote_email_template_name\": \"<string>\"\n  },\n  \"language_code\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"vat_reg_no\": \"<string>\",\n  \"tax_reg_no\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"tax_regime\": \"<string>\",\n  \"legal_name\": \"<string>\",\n  \"is_tds_registered\": \"<boolean>\",\n  \"vat_treatment\": \"<string>\",\n  \"avatax_exempt_no\": \"<string>\",\n  \"avatax_use_code\": \"<string>\",\n  \"tax_exemption_id\": \"<string>\",\n  \"tax_authority_id\": \"<string>\",\n  \"tax_id\": \"<boolean>\",\n  \"is_taxable\": \"<boolean>\",\n  \"facebook\": \"<string>\",\n  \"twitter\": \"<string>\",\n  \"place_of_contact\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_authority_name\": \"<string>\",\n  \"tax_exemption_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91aec413-d04a-416f-aa77-a3d90d349bb9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact_name\": \"Bowman and Co\",\n  \"company_name\": \"Bowman and Co\",\n  \"payment_terms\": 15,\n  \"currency_id\": \"<string>\",\n  \"contact_type\": \"customer\",\n  \"website\": \"www.bowmanfurniture.com\",\n  \"custom_fields\": [\n    {\n      \"value\": \"GBGD078\",\n      \"index\": 1,\n      \"label\": \"VAT ID\"\n    },\n    {\n      \"value\": \"GBGD078\",\n      \"index\": 1,\n      \"label\": \"VAT ID\"\n    }\n  ],\n  \"opening_balances\": [\n    {\n      \"location_id\": \"460000000038080\",\n      \"exchange_rate\": 1,\n      \"opening_balance_amount\": 1200\n    },\n    {\n      \"location_id\": \"460000000038080\",\n      \"exchange_rate\": 1,\n      \"opening_balance_amount\": 1200\n    }\n  ],\n  \"billing_address\": {\n    \"attention\": \"Mr.John\",\n    \"address\": \"4900 Hopyard Rd\",\n    \"street2\": \"Suit 310\",\n    \"city\": \"Pleasanton\",\n    \"state\": \"California\",\n    \"zip\": \"<string>\",\n    \"country\": \"U.S.A\"\n  },\n  \"shipping_address\": {\n    \"attention\": \"Mr.John\",\n    \"address\": \"4900 Hopyard Rd\",\n    \"street2\": \"Suit 310\",\n    \"city\": \"Pleasanton\",\n    \"state\": \"California\",\n    \"zip\": \"<string>\",\n    \"country\": \"U.S.A\"\n  },\n  \"contact_persons\": [\n    {\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"salutation\": \"Mr\",\n      \"first_name\": \"Will\",\n      \"last_name\": \"Smith\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"mobile\": \"+1-4054439562\",\n      \"is_primary_contact\": true,\n      \"communication_preference\": {\n        \"is_sms_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ],\n  \"default_templates\": {\n    \"invoice_template_id\": \"<string>\",\n    \"invoice_template_name\": \"Custom Classic\",\n    \"estimate_template_id\": \"<string>\",\n    \"estimate_template_name\": \"Service - Professional\",\n    \"creditnote_template_id\": \"<string>\",\n    \"creditnote_template_name\": \"Fixed Cost - Professional\",\n    \"invoice_email_template_id\": \"<string>\",\n    \"invoice_email_template_name\": \"Custom Invoice Notification\",\n    \"estimate_email_template_id\": \"<string>\",\n    \"estimate_email_template_name\": \"Custom Estimate Notification\",\n    \"creditnote_email_template_id\": \"<string>\",\n    \"creditnote_email_template_name\": \"Custom Credit Note Notification\"\n  },\n  \"language_code\": \"en\",\n  \"notes\": \"Payment option : Through check\",\n  \"vat_reg_no\": \"<string>\",\n  \"tax_reg_no\": \"<string>\",\n  \"country_code\": \"US\",\n  \"tax_treatment\": \"<string>\",\n  \"tax_regime\": \"general_legal_person\",\n  \"legal_name\": \"ESCUELA KEMPER URGATE\",\n  \"is_tds_registered\": \"<boolean>\",\n  \"vat_treatment\": \"<string>\",\n  \"avatax_exempt_no\": \"<string>\",\n  \"avatax_use_code\": \"<string>\",\n  \"tax_exemption_id\": \"<string>\",\n  \"tax_authority_id\": \"<string>\",\n  \"tax_id\": \"<boolean>\",\n  \"is_taxable\": true,\n  \"facebook\": \"zoho\",\n  \"twitter\": \"zoho\",\n  \"place_of_contact\": \"TN\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"gst_treatment\": \"business_gst\",\n  \"tax_authority_name\": \"<string>\",\n  \"tax_exemption_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Contact has been updated successfully\",\n  \"contact\": {\n    \"contact_id\": \"string\",\n    \"contact_name\": \"Bowman and Co\",\n    \"company_name\": \"Bowman and Co\",\n    \"has_transaction\": true,\n    \"contact_type\": \"customer\",\n    \"is_linked_with_zohocrm\": false,\n    \"website\": \"www.bowmanfurniture.com\",\n    \"primary_contact_id\": \"string\",\n    \"payment_terms\": 15,\n    \"payment_terms_label\": \"Net 15\",\n    \"opening_balances\": [\n      {\n        \"location_id\": \"460000000038080\",\n        \"exchange_rate\": 1,\n        \"opening_balance_amount\": 1200\n      },\n      {\n        \"location_id\": \"460000000038080\",\n        \"exchange_rate\": 1,\n        \"opening_balance_amount\": 1200\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"language_code\": \"en\",\n    \"outstanding_receivable_amount\": 250,\n    \"outstanding_receivable_amount_bcy\": 250,\n    \"unused_credits_receivable_amount\": 9912,\n    \"unused_credits_receivable_amount_bcy\": 6499,\n    \"status\": \"active\",\n    \"payment_reminder_enabled\": true,\n    \"custom_fields\": [\n      {\n        \"value\": \"GBGD078\",\n        \"index\": 1,\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"value\": \"GBGD078\",\n        \"index\": 1,\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"billing_address\": {\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\"\n    },\n    \"shipping_address\": {\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\"\n    },\n    \"facebook\": \"zoho\",\n    \"twitter\": \"zoho\",\n    \"contact_persons\": [\n      {\n        \"salutation\": \"Mr\",\n        \"first_name\": \"Will\",\n        \"last_name\": \"Smith\",\n        \"email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"is_primary_contact\": true,\n        \"communication_preference\": {\n          \"is_sms_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"salutation\": \"Mr\",\n        \"first_name\": \"Will\",\n        \"last_name\": \"Smith\",\n        \"email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"is_primary_contact\": true,\n        \"communication_preference\": {\n          \"is_sms_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"default_templates\": {\n      \"invoice_template_id\": \"<string>\",\n      \"invoice_template_name\": \"Custom Classic\",\n      \"estimate_template_id\": \"<string>\",\n      \"estimate_template_name\": \"Service - Professional\",\n      \"creditnote_template_id\": \"<string>\",\n      \"creditnote_template_name\": \"Fixed Cost - Professional\",\n      \"invoice_email_template_id\": \"<string>\",\n      \"invoice_email_template_name\": \"Custom Invoice Notification\",\n      \"estimate_email_template_id\": \"<string>\",\n      \"estimate_email_template_name\": \"Custom Estimate Notification\",\n      \"creditnote_email_template_id\": \"<string>\",\n      \"creditnote_email_template_name\": \"Custom Credit Note Notification\"\n    },\n    \"notes\": \"Payment option : Through check\",\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"2013-10-07\",\n    \"is_taxable\": true,\n    \"tax_id\": \"<boolean>\",\n    \"tax_name\": \"CGST\",\n    \"tax_percentage\": 12,\n    \"tax_authority_id\": \"<string>\",\n    \"tax_exemption_id\": \"<string>\",\n    \"tax_authority_name\": \"<string>\",\n    \"tax_exemption_code\": \"<string>\",\n    \"place_of_contact\": \"TN\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"tax_treatment\": \"<string>\",\n    \"tax_regime\": \"general_legal_person\",\n    \"legal_name\": \"ESCUELA KEMPER URGATE\",\n    \"is_tds_registered\": \"<boolean>\",\n    \"vat_treatment\": \"<string>\",\n    \"gst_treatment\": \"business_gst\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9d1e9a9-b813-424c-a1b2-b96c7a542d90",
+          "name": "Get contact",
+          "request": {
+            "name": "Get contact",
+            "description": {
+              "content": "Get details of a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ddfd42cb-6e07-455f-8907-96d383c3307f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"contact\": {\n    \"contact_id\": \"string\",\n    \"contact_name\": \"Bowman and Co\",\n    \"company_name\": \"Bowman and Co\",\n    \"has_transaction\": true,\n    \"contact_type\": \"customer\",\n    \"is_linked_with_zohocrm\": false,\n    \"website\": \"www.bowmanfurniture.com\",\n    \"opening_balances\": [\n      {\n        \"location_id\": \"460000000038080\",\n        \"exchange_rate\": 1,\n        \"opening_balance_amount\": 1200\n      },\n      {\n        \"location_id\": \"460000000038080\",\n        \"exchange_rate\": 1,\n        \"opening_balance_amount\": 1200\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"primary_contact_id\": \"string\",\n    \"payment_terms\": 15,\n    \"payment_terms_label\": \"Net 15\",\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"outstanding_receivable_amount\": 250,\n    \"outstanding_receivable_amount_bcy\": 250,\n    \"unused_credits_receivable_amount\": 3788,\n    \"unused_credits_receivable_amount_bcy\": 4172,\n    \"status\": \"active\",\n    \"facebook\": \"zoho\",\n    \"twitter\": \"zoho\",\n    \"payment_reminder_enabled\": true,\n    \"custom_fields\": [\n      {\n        \"value\": \"GBGD078\",\n        \"index\": 1,\n        \"label\": \"VAT ID\"\n      },\n      {\n        \"value\": \"GBGD078\",\n        \"index\": 1,\n        \"label\": \"VAT ID\"\n      }\n    ],\n    \"billing_address\": {\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\"\n    },\n    \"shipping_address\": {\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\"\n    },\n    \"contact_persons\": [\n      {\n        \"salutation\": \"Mr\",\n        \"first_name\": \"Will\",\n        \"last_name\": \"Smith\",\n        \"email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"is_primary_contact\": true,\n        \"communication_preference\": {\n          \"is_sms_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"salutation\": \"Mr\",\n        \"first_name\": \"Will\",\n        \"last_name\": \"Smith\",\n        \"email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"is_primary_contact\": true,\n        \"communication_preference\": {\n          \"is_sms_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"default_templates\": {\n      \"invoice_template_id\": \"<string>\",\n      \"invoice_template_name\": \"Custom Classic\",\n      \"estimate_template_id\": \"<string>\",\n      \"estimate_template_name\": \"Service - Professional\",\n      \"creditnote_template_id\": \"<string>\",\n      \"creditnote_template_name\": \"Fixed Cost - Professional\",\n      \"invoice_email_template_id\": \"<string>\",\n      \"invoice_email_template_name\": \"Custom Invoice Notification\",\n      \"estimate_email_template_id\": \"<string>\",\n      \"estimate_email_template_name\": \"Custom Estimate Notification\",\n      \"creditnote_email_template_id\": \"<string>\",\n      \"creditnote_email_template_name\": \"Custom Credit Note Notification\"\n    },\n    \"notes\": \"Payment option : Through check\",\n    \"created_time\": \"2013-08-05\",\n    \"last_modified_time\": \"2013-10-07\",\n    \"is_taxable\": true,\n    \"tax_id\": \"<boolean>\",\n    \"tax_name\": \"CGST\",\n    \"tax_percentage\": 12,\n    \"tax_authority_id\": \"<string>\",\n    \"tax_exemption_id\": \"<string>\",\n    \"tax_authority_name\": \"<string>\",\n    \"tax_exemption_code\": \"<string>\",\n    \"place_of_contact\": \"TN\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"tax_treatment\": \"<string>\",\n    \"tax_regime\": \"general_legal_person\",\n    \"legal_name\": \"ESCUELA KEMPER URGATE\",\n    \"is_tds_registered\": \"<boolean>\",\n    \"vat_treatment\": \"<string>\",\n    \"gst_treatment\": \"business_gst\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2afdf7c7-b68d-4899-a3a0-2ed9b5c9914e",
+          "name": "Delete a contact",
+          "request": {
+            "name": "Delete a contact",
+            "description": {
+              "content": "Delete an existing contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "53409a1e-ff72-4d65-a652-b209d5c9bcc8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The contact has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed0d4f8c-2f66-4753-aa57-264ae45bd889",
+          "name": "Get contact address",
+          "request": {
+            "name": "Get contact address",
+            "description": {
+              "content": "Get the billing and shipping address of an existing contact",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "619b2201-6ebd-464f-8c3c-9572715de53f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"addresses\": [\n    {\n      \"address_id\": \"string\",\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"state_code\": \"CA\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\",\n      \"country_code\": \"US\",\n      \"phone\": \"+1-925-921-9201\",\n      \"fax\": \"+1-925-924-9600\"\n    },\n    {\n      \"address_id\": \"string\",\n      \"attention\": \"Mr.John\",\n      \"address\": \"4900 Hopyard Rd\",\n      \"street2\": \"Suit 310\",\n      \"city\": \"Pleasanton\",\n      \"state\": \"California\",\n      \"state_code\": \"CA\",\n      \"zip\": \"<string>\",\n      \"country\": \"U.S.A\",\n      \"country_code\": \"US\",\n      \"phone\": \"+1-925-921-9201\",\n      \"fax\": \"+1-925-924-9600\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89fe8044-268f-4bf9-8942-fb8961bc54ee",
+          "name": "Mark as active",
+          "request": {
+            "name": "Mark as active",
+            "description": {
+              "content": "Mark a contact as active.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27af7701-5948-40d6-b839-be11891e61f5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The contact has been marked as active.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b04ee3a8-91ad-403c-8df9-63c08c44c3c0",
+          "name": "Mark as Inactive",
+          "request": {
+            "name": "Mark as Inactive",
+            "description": {
+              "content": "Mark a contact as inactive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c49645f-8cb0-406b-a3ec-a350090ad9ca",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The contact has been marked as inactive.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f0b5459-1a66-422a-8d6c-1935d36e4d43",
+          "name": "Email statement",
+          "request": {
+            "name": "Email statement",
+            "description": {
+              "content": "Email statement to the contact. If JSONString is not inputted, mail will be sent with the default mail content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "statements",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "If start_date and end_date are not given, current month's statement will be sent to contact. Date format [yyyy-mm-dd]"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "End date for the statement. Date format [yyyy-mm-dd]"
+                },
+                {
+                  "disabled": false,
+                  "key": "multipart_or_formdata",
+                  "value": "<string>",
+                  "description": "Files to be attached along with the statement."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to_mail_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subject\": \"<string>\",\n  \"body\": \"<string>\",\n  \"send_from_org_email_id\": \"<boolean>\",\n  \"cc_mail_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "20b54388-454b-4f7f-b87b-923e1db90248",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "statements",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": ""
+                    },
+                    {
+                      "key": "end_date",
+                      "value": ""
+                    },
+                    {
+                      "key": "multipart_or_formdata",
+                      "value": "file"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_mail_ids\": [\n    \"willsmith@bowmanfurniture.com\"\n  ],\n  \"subject\": \"Statement of transactions with Zillium Inc\",\n  \"body\": \"Dear Customer,     <br/>We have attached with this email a list of all your transactions with us for the period 01 Sep 2013 to 30 Sep 2013. You can write to us or call us if you need any assistance or clarifications.     <br/>Thanks for your business.<br/>Regards<br/>Zillium Inc\",\n  \"send_from_org_email_id\": true,\n  \"cc_mail_ids\": [\n    \"peterparker@bowmanfurniture.com\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Statement has been sent to the customer.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "163c387b-7266-47ab-b12b-4b2410c3fee0",
+          "name": "Get Statement mail content",
+          "request": {
+            "name": "Get Statement mail content",
+            "description": {
+              "content": "Get the mail content of a contacts billing statement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "statements",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "If start_date and end_date are not given, current month's statement will be sent to contact. Date format [yyyy-mm-dd]"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "End date for the statement. Date format [yyyy-mm-dd]"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2cbf4f43-fc95-40da-8732-0086d5dd6f8b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "statements",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": ""
+                    },
+                    {
+                      "key": "end_date",
+                      "value": ""
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"body\": \"Dear Customer,     <br/>We have attached with this email a list of all your transactions with us for the period 01 Sep 2013 to 30 Sep 2013. You can write to us or call us if you need any assistance or clarifications.     <br/>Thanks for your business.<br/>Regards<br/>Zillium Inc\",\n  \"subject\": \"Statement of transactions with Zillium Inc\",\n  \"to_contacts\": [\n    {\n      \"first_name\": \"Will\",\n      \"selected\": true,\n      \"phone\": \"+1-925-921-9201\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"contact_person_id\": \"string\",\n      \"last_name\": \"Smith\",\n      \"salutation\": \"Mr\",\n      \"mobile\": \"+1-4054439562\"\n    },\n    {\n      \"first_name\": \"Will\",\n      \"selected\": true,\n      \"phone\": \"+1-925-921-9201\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"contact_person_id\": \"string\",\n      \"last_name\": \"Smith\",\n      \"salutation\": \"Mr\",\n      \"mobile\": \"+1-4054439562\"\n    }\n  ],\n  \"file_name\": \"statement_BowmanandCo.pdf\",\n  \"from_emails\": [\n    {\n      \"user_name\": \"John Smith\",\n      \"selected\": true,\n      \"email\": \"willsmith@bowmanfurniture.com\"\n    },\n    {\n      \"user_name\": \"John Smith\",\n      \"selected\": true,\n      \"email\": \"willsmith@bowmanfurniture.com\"\n    }\n  ],\n  \"contact_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1eee20d-9059-4676-8c12-6ab8ac2d8c39",
+          "name": "Email contact",
+          "request": {
+            "name": "Email contact",
+            "description": {
+              "content": "Send email to contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "send_customer_statement",
+                  "value": "<boolean>",
+                  "description": "Send customer statement pdf with email."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to_mail_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subject\": \"<string>\",\n  \"body\": \"<string>\",\n  \"attachments\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b411e0a7-7e4c-4e1d-a7b9-4691e38d71e0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "send_customer_statement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_mail_ids\": [\n    \"willsmith@bowmanfurniture.com\"\n  ],\n  \"subject\": \"Welcome to Zillium Inc .\",\n  \"body\": \"Dear Customer,     <br/>We have attached with this email a list of all your transactions with us for the period 01 Sep 2013 to 30 Sep 2013. You can write to us or call us if you need any assistance or clarifications.     <br/>Thanks for your business.<br/>Regards<br/>Zillium Inc\",\n  \"attachments\": \"<binary>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Email has been sent.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0df57078-7183-4e3a-913c-6b1143460d46",
+          "name": "List Comments",
+          "request": {
+            "name": "List Comments",
+            "description": {
+              "content": "List recent activities of a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":contact_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contact_id",
+                  "description": "(Required) Unique identifier of the contact."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3b4a7d52-394b-4ba4-940e-eabe385f3335",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":contact_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contact_id",
+                      "description": "(Required) Unique identifier of the contact."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"contact_comments\": [\n    {\n      \"comment_id\": \"string\",\n      \"contact_id\": \"string\",\n      \"contact_name\": \"Bowman and Co\",\n      \"description\": \"\",\n      \"commented_by_id\": \"string\",\n      \"commented_by\": \"David John\",\n      \"date\": \"2013-11-19\",\n      \"date_description\": \"4 days ago\",\n      \"time\": \"6:03 PM\",\n      \"transaction_id\": \"string\",\n      \"transaction_type\": \"customer_payment\",\n      \"is_entity_deleted\": false,\n      \"operation_type\": \"added\"\n    },\n    {\n      \"comment_id\": \"string\",\n      \"contact_id\": \"string\",\n      \"contact_name\": \"Bowman and Co\",\n      \"description\": \"\",\n      \"commented_by_id\": \"string\",\n      \"commented_by\": \"David John\",\n      \"date\": \"2013-11-19\",\n      \"date_description\": \"4 days ago\",\n      \"time\": \"6:03 PM\",\n      \"transaction_id\": \"string\",\n      \"transaction_type\": \"customer_payment\",\n      \"is_entity_deleted\": false,\n      \"operation_type\": \"added\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6b816db1-c142-4735-aca0-40b49a3ad634",
+    "name": "batches contacts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

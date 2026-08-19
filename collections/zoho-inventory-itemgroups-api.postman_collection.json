@@ -1,0 +1,930 @@
+{
+  "item": [
+    {
+      "id": "6017d96a-7400-41f0-9a41-e23638c04b30",
+      "name": "itemgroups",
+      "description": {
+        "content": "ItemGroups Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "688cc152-2031-4e3d-a2ed-578a44456b32",
+          "name": "Create an Item Group",
+          "request": {
+            "name": "Create an Item Group",
+            "description": {
+              "content": "A new Item Group can a be created. While creating items, user can attach image for product group by passing form-data parameter <code>image</code> i.e., <code>-F image=bag_s.jpg</code>.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "itemgroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"group_name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"reorder_level\": \"<double>\",\n      \"initial_stock\": \"<double>\",\n      \"initial_stock_rate\": \"<double>\",\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"upc\": \"<long>\",\n      \"ean\": \"<long>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"reorder_level\": \"<double>\",\n      \"initial_stock\": \"<double>\",\n      \"initial_stock_rate\": \"<double>\",\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"upc\": \"<long>\",\n      \"ean\": \"<long>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"attributes\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3392ac4c-9ffd-424c-99fd-8591faa17604",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "itemgroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group_name\": \"Bags\",\n  \"unit\": \"qty\",\n  \"brand\": \"Brand\",\n  \"manufacturer\": \"Bagstore\",\n  \"description\": \"description\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"Small\",\n  \"items\": [\n    {\n      \"name\": \"Bags-small\",\n      \"rate\": 6,\n      \"purchase_rate\": 6,\n      \"reorder_level\": 5,\n      \"initial_stock\": 50,\n      \"initial_stock_rate\": 500,\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"SK1234\",\n      \"upc\": 111111111111,\n      \"ean\": 111111111112,\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Bags-small\",\n      \"rate\": 6,\n      \"purchase_rate\": 6,\n      \"reorder_level\": 5,\n      \"initial_stock\": 50,\n      \"initial_stock_rate\": 500,\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"SK1234\",\n      \"upc\": 111111111111,\n      \"ean\": 111111111112,\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    }\n  ],\n  \"attributes\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"Bags-small\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"Bags-small\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"Bags-small\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"Bags-small\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"Bags-small\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"Bags-small\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The Item Group has been created.\",\n  \"group_id\": \"string\",\n  \"group_name\": \"Bags\",\n  \"documents\": [\n    \"string\",\n    \"string\"\n  ],\n  \"brand\": \"Brand\",\n  \"manufacturer\": \"Bagstore\",\n  \"unit\": \"qty\",\n  \"description\": \"description\",\n  \"is_taxable\": true,\n  \"tax_id\": \"<string>\",\n  \"tax_name\": \"Sales\",\n  \"tax_percentage\": 12,\n  \"tax_type\": \"Service Tax\",\n  \"attribute_id1\": \"string\",\n  \"attribute_name1\": \"Small\",\n  \"status\": \"active\",\n  \"source\": \"string\",\n  \"image_id\": \"string\",\n  \"image_name\": \"bag_s.jpg\",\n  \"image_type\": \"jpg\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ],\n  \"items\": {\n    \"item_id\": \"string\",\n    \"name\": \"Bags-small\",\n    \"status\": \"active\",\n    \"rate\": 6,\n    \"purchase_rate\": 6,\n    \"reorder_level\": 5,\n    \"initial_stock\": 50,\n    \"initial_stock_rate\": 500,\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"stock_on_hand\": 50,\n    \"sku\": \"SK1234\",\n    \"upc\": 111111111111,\n    \"ean\": 111111111112,\n    \"isbn\": \"<string>\",\n    \"part_number\": \"<string>\",\n    \"attribute_option_id1\": \"string\",\n    \"attribute_option_name1\": \"<long>\",\n    \"image_id\": \"string\",\n    \"image_name\": \"bag_s.jpg\",\n    \"image_type\": \"jpg\",\n    \"actual_available_stock\": 2,\n    \"available_stock\": 2\n  },\n  \"attributes\": {\n    \"id\": \"<string>\",\n    \"name\": \"Bags-small\",\n    \"options\": {\n      \"id\": \"<string>\",\n      \"name\": \"Bags-small\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e8cc05c-7ea4-4864-b0df-abd299356683",
+          "name": "List all Item Groups",
+          "request": {
+            "name": "List all Item Groups",
+            "description": {
+              "content": "Lists all the Item Groups that are present in the Zoho Inventory organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "itemgroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb3bdbe5-ed80-4bf9-9436-1ea8af96acb0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "itemgroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"itemgroups\": [\n    {\n      \"group_id\": \"string\",\n      \"group_name\": \"Bags\",\n      \"product_type\": \"goods\",\n      \"brand\": \"Brand\",\n      \"manufacturer\": \"Bagstore\",\n      \"unit\": \"qty\",\n      \"description\": \"description\",\n      \"is_taxable\": true,\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"Sales\",\n      \"tax_percentage\": 12,\n      \"tax_type\": \"Service Tax\",\n      \"tax_exemption_id\": \"string\",\n      \"attribute_id1\": \"string\",\n      \"attribute_name1\": \"Small\",\n      \"status\": \"active\",\n      \"source\": \"string\",\n      \"image_id\": \"string\",\n      \"image_name\": \"bag_s.jpg\",\n      \"image_type\": \"jpg\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ],\n      \"items\": {\n        \"item_id\": \"string\",\n        \"name\": \"Bags-small\",\n        \"status\": \"active\",\n        \"rate\": 6,\n        \"purchase_rate\": 6,\n        \"reorder_level\": 5,\n        \"initial_stock\": 50,\n        \"initial_stock_rate\": 500,\n        \"vendor_id\": \"<string>\",\n        \"vendor_name\": \"Molly\",\n        \"stock_on_hand\": 50,\n        \"sku\": \"SK1234\",\n        \"upc\": 111111111111,\n        \"ean\": 111111111112,\n        \"isbn\": \"<string>\",\n        \"part_number\": \"<string>\",\n        \"attribute_option_id1\": \"string\",\n        \"attribute_option_name1\": \"<long>\",\n        \"image_id\": \"string\",\n        \"image_name\": \"bag_s.jpg\",\n        \"image_type\": \"jpg\",\n        \"available_stock\": 2,\n        \"actual_available_stock\": 2\n      },\n      \"created_time\": \"2013-01-24\",\n      \"last_modified_time\": \"2013-01-24\"\n    },\n    {\n      \"group_id\": \"string\",\n      \"group_name\": \"Bags\",\n      \"product_type\": \"goods\",\n      \"brand\": \"Brand\",\n      \"manufacturer\": \"Bagstore\",\n      \"unit\": \"qty\",\n      \"description\": \"description\",\n      \"is_taxable\": true,\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"Sales\",\n      \"tax_percentage\": 12,\n      \"tax_type\": \"Service Tax\",\n      \"tax_exemption_id\": \"string\",\n      \"attribute_id1\": \"string\",\n      \"attribute_name1\": \"Small\",\n      \"status\": \"active\",\n      \"source\": \"string\",\n      \"image_id\": \"string\",\n      \"image_name\": \"bag_s.jpg\",\n      \"image_type\": \"jpg\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ],\n      \"items\": {\n        \"item_id\": \"string\",\n        \"name\": \"Bags-small\",\n        \"status\": \"active\",\n        \"rate\": 6,\n        \"purchase_rate\": 6,\n        \"reorder_level\": 5,\n        \"initial_stock\": 50,\n        \"initial_stock_rate\": 500,\n        \"vendor_id\": \"<string>\",\n        \"vendor_name\": \"Molly\",\n        \"stock_on_hand\": 50,\n        \"sku\": \"SK1234\",\n        \"upc\": 111111111111,\n        \"ean\": 111111111112,\n        \"isbn\": \"<string>\",\n        \"part_number\": \"<string>\",\n        \"attribute_option_id1\": \"string\",\n        \"attribute_option_name1\": \"<long>\",\n        \"image_id\": \"string\",\n        \"image_name\": \"bag_s.jpg\",\n        \"image_type\": \"jpg\",\n        \"available_stock\": 2,\n        \"actual_available_stock\": 2\n      },\n      \"created_time\": \"2013-01-24\",\n      \"last_modified_time\": \"2013-01-24\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4f78aab-c3de-4832-a1fb-be00db28a9aa",
+          "name": "Retrieve an Item Group",
+          "request": {
+            "name": "Retrieve an Item Group",
+            "description": {
+              "content": "Fetches the details for an existing Item Group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "itemgroups",
+                ":itemgroup_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemgroup_id",
+                  "description": "(Required) Unique identifier of the item group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b3dacdf6-cb25-4b44-8940-f9765064dc6b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemgroup_id",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"group_id\": \"string\",\n  \"group_name\": \"Bags\",\n  \"brand\": \"Brand\",\n  \"manufacturer\": \"Bagstore\",\n  \"unit\": \"qty\",\n  \"description\": \"description\",\n  \"is_taxable\": true,\n  \"tax_id\": \"<string>\",\n  \"tax_name\": \"Sales\",\n  \"tax_percentage\": 12,\n  \"tax_type\": \"Service Tax\",\n  \"attribute_id1\": \"string\",\n  \"attribute_name1\": \"Small\",\n  \"status\": \"active\",\n  \"source\": \"string\",\n  \"image_id\": \"string\",\n  \"image_name\": \"bag_s.jpg\",\n  \"image_type\": \"jpg\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ],\n  \"items\": {\n    \"item_id\": \"string\",\n    \"name\": \"Bags-small\",\n    \"status\": \"active\",\n    \"rate\": 6,\n    \"purchase_rate\": 6,\n    \"reorder_level\": 5,\n    \"initial_stock\": 50,\n    \"initial_stock_rate\": 500,\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"stock_on_hand\": 50,\n    \"sku\": \"SK1234\",\n    \"upc\": 111111111111,\n    \"ean\": 111111111112,\n    \"isbn\": \"<string>\",\n    \"part_number\": \"<string>\",\n    \"attribute_option_id1\": \"string\",\n    \"attribute_option_name1\": \"<long>\",\n    \"image_id\": \"string\",\n    \"image_name\": \"bag_s.jpg\",\n    \"image_type\": \"jpg\"\n  },\n  \"attributes\": {\n    \"id\": \"<string>\",\n    \"name\": \"Bags-small\",\n    \"options\": {\n      \"id\": \"<string>\",\n      \"name\": \"Bags-small\"\n    }\n  },\n  \"options\": {\n    \"id\": \"<string>\",\n    \"name\": \"Bags-small\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b4c1485-b24c-47ce-9c6b-5430608a3ede",
+          "name": "Update an Item Group",
+          "request": {
+            "name": "Update an Item Group",
+            "description": {
+              "content": "Updates the details of an existing Item Group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "itemgroups",
+                ":itemgroup_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemgroup_id",
+                  "description": "(Required) Unique identifier of the item group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"group_name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rate\": \"<double>\",\n  \"purchase_rate\": \"<double>\",\n  \"sku\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "33c5e166-5c6a-43c2-8b25-9b53dc477ffa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemgroup_id",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group_name\": \"Bags\",\n  \"unit\": \"qty\",\n  \"name\": \"Bags-small\",\n  \"rate\": 6,\n  \"purchase_rate\": 6,\n  \"sku\": \"SK1234\",\n  \"brand\": \"Brand\",\n  \"manufacturer\": \"Bagstore\",\n  \"description\": \"description\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"Small\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The Item Group details have been updated.\",\n  \"group_id\": \"string\",\n  \"group_name\": \"Bags\",\n  \"brand\": \"Brand\",\n  \"manufacturer\": \"Bagstore\",\n  \"unit\": \"qty\",\n  \"description\": \"description\",\n  \"is_taxable\": true,\n  \"tax_id\": \"<string>\",\n  \"tax_name\": \"Sales\",\n  \"tax_percentage\": 12,\n  \"tax_type\": \"Service Tax\",\n  \"attribute_id1\": \"string\",\n  \"attribute_name1\": \"Small\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ],\n  \"status\": \"active\",\n  \"source\": \"string\",\n  \"image_id\": \"string\",\n  \"image_name\": \"bag_s.jpg\",\n  \"image_type\": \"jpg\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a048e9c9-b61d-45df-b6f7-4f97c6866895",
+          "name": "Delete an Item Group",
+          "request": {
+            "name": "Delete an Item Group",
+            "description": {
+              "content": "Deletes an existing Item Group from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "itemgroups",
+                ":itemgroup_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemgroup_id",
+                  "description": "(Required) Unique identifier of the item group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9399aaf-441f-48b4-aed1-b519fe5b03d8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemgroup_id",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Whooooosh! The item group and all its items have been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f35fb667-b6ac-4449-b9a7-82e54333a816",
+          "name": "Mark as Active",
+          "request": {
+            "name": "Mark as Active",
+            "description": {
+              "content": "Marks an Item group as Active.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "itemgroups",
+                ":itemgroup_id",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemgroup_id",
+                  "description": "(Required) Unique identifier of the item group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "059d9fb6-5c4e-4baf-9055-fbf5b69fd169",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemgroup_id",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Back to business! The item group and all its items have been marked as active.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3e81171-dff9-40af-a1b7-fe6264cb0d41",
+          "name": "Mark as Inactive.",
+          "request": {
+            "name": "Mark as Inactive.",
+            "description": {
+              "content": "Marks as Item Group as Inactive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "itemgroups",
+                ":itemgroup_id",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemgroup_id",
+                  "description": "(Required) Unique identifier of the item group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bbca7ca5-1fd3-4f65-a1bb-6208e21bc448",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemgroup_id",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The item group and all its items have been marked as inactive.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e9054bd9-c823-4e36-8249-62ee4a66e287",
+    "name": "batches itemgroups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

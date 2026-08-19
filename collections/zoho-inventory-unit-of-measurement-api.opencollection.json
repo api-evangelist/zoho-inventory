@@ -1,0 +1,477 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches unit_of_measurement API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "unit_of_measurement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all unit groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/unitgroups",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "50",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 50."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the unit groups configured in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Create a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/unitgroups",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new unit group in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Retrieve a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/unitgroups/:unit_group_id",
+            "params": [
+              {
+                "name": "unit_group_id",
+                "value": "4815000000044350",
+                "type": "path",
+                "description": "Unique identifier of the unit group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details of an existing unit group."
+        },
+        {
+          "info": {
+            "name": "Update a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/unitgroups/:unit_group_id",
+            "params": [
+              {
+                "name": "unit_group_id",
+                "value": "4815000000044350",
+                "type": "path",
+                "description": "Unique identifier of the unit group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the details of an existing unit group."
+        },
+        {
+          "info": {
+            "name": "Delete a unit group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/unitgroups/:unit_group_id",
+            "params": [
+              {
+                "name": "unit_group_id",
+                "value": "4815000000044350",
+                "type": "path",
+                "description": "Unique identifier of the unit group."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing unit group from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "List all units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/units",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "include_unit_conversions",
+                "value": "false",
+                "type": "query",
+                "description": "If <code>true</code>, includes the unit conversions for each unit in the response."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the units configured in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Create a unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/units",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new unit in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Update a unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/units/:unit_id",
+            "params": [
+              {
+                "name": "unit_id",
+                "value": "4815000000044400",
+                "type": "path",
+                "description": "Unique identifier of the unit."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the details of an existing unit."
+        },
+        {
+          "info": {
+            "name": "Delete a unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/units/:unit_id",
+            "params": [
+              {
+                "name": "unit_id",
+                "value": "4815000000044400",
+                "type": "path",
+                "description": "Unique identifier of the unit."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing unit from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "List unit conversions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/units/:unit_id/unitconversions",
+            "params": [
+              {
+                "name": "unit_id",
+                "value": "4815000000044400",
+                "type": "path",
+                "description": "Unique identifier of the unit."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the unit conversions for a unit."
+        },
+        {
+          "info": {
+            "name": "Create a unit conversion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/units/:unit_id/unitconversions",
+            "params": [
+              {
+                "name": "unit_id",
+                "value": "4815000000044400",
+                "type": "path",
+                "description": "Unique identifier of the unit."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new unit conversion for a unit."
+        },
+        {
+          "info": {
+            "name": "Update a unit conversion",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/units/:unit_id/unitconversions/:unit_conversion_id",
+            "params": [
+              {
+                "name": "unit_id",
+                "value": "4815000000044400",
+                "type": "path",
+                "description": "Unique identifier of the unit."
+              },
+              {
+                "name": "unit_conversion_id",
+                "value": "4815000000044354",
+                "type": "path",
+                "description": "Unique identifier of the unit conversion."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates an existing unit conversion for a unit."
+        },
+        {
+          "info": {
+            "name": "Delete a unit conversion",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/units/:unit_id/unitconversions/:unit_conversion_id",
+            "params": [
+              {
+                "name": "unit_id",
+                "value": "4815000000044400",
+                "type": "path",
+                "description": "Unique identifier of the unit."
+              },
+              {
+                "name": "unit_conversion_id",
+                "value": "4815000000044354",
+                "type": "path",
+                "description": "Unique identifier of the unit conversion."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing unit conversion from a unit."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1554 @@
+{
+  "item": [
+    {
+      "id": "c51e00b6-59a7-44c9-8636-64fbf73e4a83",
+      "name": "putaways",
+      "description": {
+        "content": "Putaways Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bec10f53-1cf3-451e-8a69-09dd35b93dbd",
+          "name": "Create a putaway",
+          "request": {
+            "name": "Create a putaway",
+            "description": {
+              "content": "Creates a new putaway transaction in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "When auto number generation is enabled for putaways, set to true to supply your own putaway number instead of using the auto-generated value. Default is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    }\n  ],\n  \"putaway_number\": \"<string>\",\n  \"warehouse_id\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84a10849-bdd2-4085-8b50-2b2928f297ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    }\n  ],\n  \"putaway_number\": \"<string>\",\n  \"warehouse_id\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"string\",\n  \"putaway\": {\n    \"putaway_id\": 7177,\n    \"putaway_number\": \"string\",\n    \"date\": \"string\",\n    \"notes\": \"string\",\n    \"created_by_id\": 8947,\n    \"created_by_name\": \"string\",\n    \"warehouse_id\": 8825,\n    \"warehouse_name\": \"string\",\n    \"location_id\": 9510,\n    \"location_name\": \"string\",\n    \"html_string\": \"string\",\n    \"comments\": [\n      {\n        \"comment_id\": 1657,\n        \"putaway_id\": 9411,\n        \"description\": \"string\",\n        \"commented_by_id\": 6751,\n        \"commented_by\": \"string\",\n        \"comment_type\": \"string\",\n        \"date\": \"string\",\n        \"date_description\": \"string\",\n        \"time\": \"string\",\n        \"operation_type\": \"string\"\n      },\n      {\n        \"comment_id\": 8357,\n        \"putaway_id\": 2079,\n        \"description\": \"string\",\n        \"commented_by_id\": 4802,\n        \"commented_by\": \"string\",\n        \"comment_type\": \"string\",\n        \"date\": \"string\",\n        \"date_description\": \"string\",\n        \"time\": \"string\",\n        \"operation_type\": \"string\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": 8516,\n        \"item_id\": 9791,\n        \"name\": \"string\",\n        \"sku\": \"string\",\n        \"unit\": \"string\",\n        \"image_document_id\": 5758,\n        \"description\": \"string\",\n        \"quantity_transferred\": 2780.7392564982124,\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"serial_numbers\": [\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          },\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          }\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 5755.261172873275,\n            \"status\": \"string\"\n          },\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 7424.810657041021,\n            \"status\": \"string\"\n          }\n        ],\n        \"is_combo_product\": false,\n        \"storages\": [\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          },\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          }\n        ],\n        \"is_storage_location_enabled\": true\n      },\n      {\n        \"line_item_id\": 1643,\n        \"item_id\": 5469,\n        \"name\": \"string\",\n        \"sku\": \"string\",\n        \"unit\": \"string\",\n        \"image_document_id\": 288,\n        \"description\": \"string\",\n        \"quantity_transferred\": 7752.89636066846,\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"serial_numbers\": [\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          },\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          }\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 5303.932898816792,\n            \"status\": \"string\"\n          },\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 5465.627134133936,\n            \"status\": \"string\"\n          }\n        ],\n        \"is_combo_product\": false,\n        \"storages\": [\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          },\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          }\n        ],\n        \"is_storage_location_enabled\": true\n      }\n    ],\n    \"documents\": [\n      {\n        \"document_id\": 277,\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"file_size\": 1300,\n        \"file_size_formatted\": \"string\"\n      },\n      {\n        \"document_id\": 3787,\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"file_size\": 2472,\n        \"file_size_formatted\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6755972-2efb-450e-a708-483a38179ca2",
+          "name": "List all putaways",
+          "request": {
+            "name": "List all putaways",
+            "description": {
+              "content": "Lists putaway transactions with optional filters and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to fetch. Default is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records per page. Default is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Column used for sorting the list."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "Sort order. A for ascending, D for descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter expression supported by the putaway list view."
+                },
+                {
+                  "disabled": false,
+                  "key": "customview_id",
+                  "value": "<long>",
+                  "description": "Custom view ID to apply."
+                },
+                {
+                  "disabled": false,
+                  "key": "putaway_number",
+                  "value": "<string>",
+                  "description": "Search by putaway number."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Filter by putaway date (yyyy-mm-dd)."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouse_id",
+                  "value": "<long>",
+                  "description": "Filter by warehouse ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<long>",
+                  "description": "Filter by location (branch) ID when locations are enabled."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd4cf41d-1faa-4db1-ae28-47e3034adadb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "D"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customview_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "putaway_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "warehouse_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"putaways\": [\n    {\n      \"putaway_id\": 8402,\n      \"putaway_number\": \"string\",\n      \"date\": \"string\",\n      \"notes\": \"string\",\n      \"warehouse_id\": 3778,\n      \"warehouse_name\": \"string\",\n      \"location_id\": 5103,\n      \"location_name\": \"string\",\n      \"has_attachment\": false,\n      \"created_time\": \"string\",\n      \"last_modified_time\": \"string\"\n    },\n    {\n      \"putaway_id\": 1981,\n      \"putaway_number\": \"string\",\n      \"date\": \"string\",\n      \"notes\": \"string\",\n      \"warehouse_id\": 4874,\n      \"warehouse_name\": \"string\",\n      \"location_id\": 6727,\n      \"location_name\": \"string\",\n      \"has_attachment\": false,\n      \"created_time\": \"string\",\n      \"last_modified_time\": \"string\"\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 200,\n    \"has_more_page\": false,\n    \"report_name\": \"string\",\n    \"applied_filter\": \"string\",\n    \"sort_column\": \"string\",\n    \"sort_order\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bff1effb-6f14-45f8-ae3a-20cb1b6c2bb3",
+          "name": "Retrieve a putaway",
+          "request": {
+            "name": "Retrieve a putaway",
+            "description": {
+              "content": "Fetches details of an existing putaway, including line items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways",
+                ":putaway_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "When set to HTML, additional HTML content may be included in the response when supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "print",
+                  "value": "<boolean>",
+                  "description": "Export putaway pdf with default print option. Allowed Values: <code>true</code>, <code>false</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "putaway_id",
+                  "description": "(Required) Unique identifier of the putaway."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "205103f8-88e5-4aa0-bdd4-c254fe4aae3c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways",
+                    ":putaway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "putaway_id",
+                      "description": "(Required) Unique identifier of the putaway."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"putaway\": {\n    \"putaway_id\": 9397,\n    \"putaway_number\": \"string\",\n    \"date\": \"string\",\n    \"notes\": \"string\",\n    \"created_by_id\": 210,\n    \"created_by_name\": \"string\",\n    \"warehouse_id\": 4405,\n    \"warehouse_name\": \"string\",\n    \"location_id\": 9750,\n    \"location_name\": \"string\",\n    \"html_string\": \"string\",\n    \"comments\": [\n      {\n        \"comment_id\": 7317,\n        \"putaway_id\": 4992,\n        \"description\": \"string\",\n        \"commented_by_id\": 5755,\n        \"commented_by\": \"string\",\n        \"comment_type\": \"string\",\n        \"date\": \"string\",\n        \"date_description\": \"string\",\n        \"time\": \"string\",\n        \"operation_type\": \"string\"\n      },\n      {\n        \"comment_id\": 8339,\n        \"putaway_id\": 8009,\n        \"description\": \"string\",\n        \"commented_by_id\": 7558,\n        \"commented_by\": \"string\",\n        \"comment_type\": \"string\",\n        \"date\": \"string\",\n        \"date_description\": \"string\",\n        \"time\": \"string\",\n        \"operation_type\": \"string\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": 4469,\n        \"item_id\": 8458,\n        \"name\": \"string\",\n        \"sku\": \"string\",\n        \"unit\": \"string\",\n        \"image_document_id\": 1366,\n        \"description\": \"string\",\n        \"quantity_transferred\": 4606.849533135261,\n        \"track_serial_number\": true,\n        \"track_batch_number\": false,\n        \"serial_numbers\": [\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          },\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          }\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 3641.3798264847974,\n            \"status\": \"string\"\n          },\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 5571.910455428346,\n            \"status\": \"string\"\n          }\n        ],\n        \"is_combo_product\": false,\n        \"storages\": [\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          },\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          }\n        ],\n        \"is_storage_location_enabled\": false\n      },\n      {\n        \"line_item_id\": 448,\n        \"item_id\": 7100,\n        \"name\": \"string\",\n        \"sku\": \"string\",\n        \"unit\": \"string\",\n        \"image_document_id\": 8090,\n        \"description\": \"string\",\n        \"quantity_transferred\": 2622.3264761915434,\n        \"track_serial_number\": true,\n        \"track_batch_number\": true,\n        \"serial_numbers\": [\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          },\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          }\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 2964.2669888998175,\n            \"status\": \"string\"\n          },\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 698.8868169528639,\n            \"status\": \"string\"\n          }\n        ],\n        \"is_combo_product\": false,\n        \"storages\": [\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          },\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          }\n        ],\n        \"is_storage_location_enabled\": false\n      }\n    ],\n    \"documents\": [\n      {\n        \"document_id\": 7105,\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"file_size\": 3165,\n        \"file_size_formatted\": \"string\"\n      },\n      {\n        \"document_id\": 5938,\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"file_size\": 7076,\n        \"file_size_formatted\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e4c1313-1697-4783-bb5a-7be67caf06f5",
+          "name": "Update a putaway",
+          "request": {
+            "name": "Update a putaway",
+            "description": {
+              "content": "Updates an existing putaway transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways",
+                ":putaway_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "When auto number generation is enabled for putaways, set to true to keep a manually supplied putaway number. Default is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "putaway_id",
+                  "description": "(Required) Unique identifier of the putaway."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    }\n  ],\n  \"putaway_number\": \"<string>\",\n  \"warehouse_id\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6c88bbe5-61f6-4ca2-b1e6-3cdd831ab322",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways",
+                    ":putaway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "putaway_id",
+                      "description": "(Required) Unique identifier of the putaway."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<long>\",\n      \"quantity_transferred\": \"<double>\",\n      \"line_item_id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"serial_numbers\": [\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        },\n        {\n          \"serialnumber_id\": \"<long>\",\n          \"serial_number\": \"<string>\",\n          \"status\": \"<string>\"\n        }\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        },\n        {\n          \"batch_id\": \"<long>\",\n          \"batch_in_id\": \"<long>\",\n          \"batch_number\": \"<string>\",\n          \"manufacturer_batch_number\": \"<string>\",\n          \"manufactured_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"in_quantity\": \"<double>\",\n          \"sales_rate\": \"<double>\",\n          \"label_rate\": \"<double>\"\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        },\n        {\n          \"storage_id\": \"<long>\",\n          \"quantity\": \"<double>\"\n        }\n      ]\n    }\n  ],\n  \"putaway_number\": \"<string>\",\n  \"warehouse_id\": \"<long>\",\n  \"location_id\": \"<long>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"putaway\": {\n    \"putaway_id\": 9397,\n    \"putaway_number\": \"string\",\n    \"date\": \"string\",\n    \"notes\": \"string\",\n    \"created_by_id\": 210,\n    \"created_by_name\": \"string\",\n    \"warehouse_id\": 4405,\n    \"warehouse_name\": \"string\",\n    \"location_id\": 9750,\n    \"location_name\": \"string\",\n    \"html_string\": \"string\",\n    \"comments\": [\n      {\n        \"comment_id\": 7317,\n        \"putaway_id\": 4992,\n        \"description\": \"string\",\n        \"commented_by_id\": 5755,\n        \"commented_by\": \"string\",\n        \"comment_type\": \"string\",\n        \"date\": \"string\",\n        \"date_description\": \"string\",\n        \"time\": \"string\",\n        \"operation_type\": \"string\"\n      },\n      {\n        \"comment_id\": 8339,\n        \"putaway_id\": 8009,\n        \"description\": \"string\",\n        \"commented_by_id\": 7558,\n        \"commented_by\": \"string\",\n        \"comment_type\": \"string\",\n        \"date\": \"string\",\n        \"date_description\": \"string\",\n        \"time\": \"string\",\n        \"operation_type\": \"string\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": 4469,\n        \"item_id\": 8458,\n        \"name\": \"string\",\n        \"sku\": \"string\",\n        \"unit\": \"string\",\n        \"image_document_id\": 1366,\n        \"description\": \"string\",\n        \"quantity_transferred\": 4606.849533135261,\n        \"track_serial_number\": true,\n        \"track_batch_number\": false,\n        \"serial_numbers\": [\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          },\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          }\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 3641.3798264847974,\n            \"status\": \"string\"\n          },\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 5571.910455428346,\n            \"status\": \"string\"\n          }\n        ],\n        \"is_combo_product\": false,\n        \"storages\": [\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          },\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          }\n        ],\n        \"is_storage_location_enabled\": false\n      },\n      {\n        \"line_item_id\": 448,\n        \"item_id\": 7100,\n        \"name\": \"string\",\n        \"sku\": \"string\",\n        \"unit\": \"string\",\n        \"image_document_id\": 8090,\n        \"description\": \"string\",\n        \"quantity_transferred\": 2622.3264761915434,\n        \"track_serial_number\": true,\n        \"track_batch_number\": true,\n        \"serial_numbers\": [\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          },\n          {\n            \"serialnumber_id\": \"<long>\",\n            \"serial_number\": \"<string>\",\n            \"status\": \"<string>\"\n          }\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 2964.2669888998175,\n            \"status\": \"string\"\n          },\n          {\n            \"batch_id\": \"<long>\",\n            \"batch_in_id\": \"<long>\",\n            \"batch_number\": \"<string>\",\n            \"manufacturer_batch_number\": \"<string>\",\n            \"manufactured_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<double>\",\n            \"sales_rate\": \"<double>\",\n            \"label_rate\": \"<double>\",\n            \"balance_quantity\": 698.8868169528639,\n            \"status\": \"string\"\n          }\n        ],\n        \"is_combo_product\": false,\n        \"storages\": [\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          },\n          {\n            \"storage_id\": \"<long>\",\n            \"quantity\": \"<double>\"\n          }\n        ],\n        \"is_storage_location_enabled\": false\n      }\n    ],\n    \"documents\": [\n      {\n        \"document_id\": 7105,\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"file_size\": 3165,\n        \"file_size_formatted\": \"string\"\n      },\n      {\n        \"document_id\": 5938,\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"file_size\": 7076,\n        \"file_size_formatted\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9862750-a772-41f1-8e8f-bbcbd7bbc3c9",
+          "name": "Delete a putaway",
+          "request": {
+            "name": "Delete a putaway",
+            "description": {
+              "content": "Deletes an existing putaway transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways",
+                ":putaway_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "putaway_id",
+                  "description": "(Required) Unique identifier of the putaway."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6e2138c2-758a-448a-99c0-7ac21cacf8c3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways",
+                    ":putaway_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "putaway_id",
+                      "description": "(Required) Unique identifier of the putaway."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Putaway deleted successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d577d09-f4c4-4ab3-97c4-354f7a72baa6",
+          "name": "List comments for a putaway",
+          "request": {
+            "name": "List comments for a putaway",
+            "description": {
+              "content": "Returns all comments recorded on a putaway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways",
+                ":putaway_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "putaway_id",
+                  "description": "(Required) Unique identifier of the putaway."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f6951b9f-53c6-476f-8433-c0892c86e9f9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways",
+                    ":putaway_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "putaway_id",
+                      "description": "(Required) Unique identifier of the putaway."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"string\",\n  \"comments\": [\n    {\n      \"comment_id\": 4548,\n      \"putaway_id\": 1402,\n      \"description\": \"string\",\n      \"commented_by_id\": 1426,\n      \"commented_by\": \"string\",\n      \"comment_type\": \"string\",\n      \"date\": \"string\",\n      \"date_description\": \"string\",\n      \"time\": \"string\",\n      \"operation_type\": \"string\"\n    },\n    {\n      \"comment_id\": 5036,\n      \"putaway_id\": 4413,\n      \"description\": \"string\",\n      \"commented_by_id\": 232,\n      \"commented_by\": \"string\",\n      \"comment_type\": \"string\",\n      \"date\": \"string\",\n      \"date_description\": \"string\",\n      \"time\": \"string\",\n      \"operation_type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a526ced-6e0f-4343-943b-eb6406d147c6",
+          "name": "Attach files to a putaway",
+          "request": {
+            "name": "Attach files to a putaway",
+            "description": {
+              "content": "Uploads one or more files and associates them with the putaway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways",
+                ":putaway_id",
+                "attachment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "putaway_id",
+                  "description": "(Required) Unique identifier of the putaway."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "attachment",
+                  "type": "file",
+                  "description": "File to attach."
+                },
+                {
+                  "key": "doc",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Optional JSON metadata for the document."
+                },
+                {
+                  "key": "totalFiles",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": "Number of file parts included in this multipart request when the client sends multiple attachments."
+                },
+                {
+                  "key": "document_ids",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Comma-separated existing document IDs when applicable."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff9b2461-d0ba-4ca3-b8c3-1cc50c9b1262",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways",
+                    ":putaway_id",
+                    "attachment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "putaway_id",
+                      "description": "(Required) Unique identifier of the putaway."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "File to attach.",
+                        "type": "text/plain"
+                      },
+                      "key": "attachment",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON metadata for the document.",
+                        "type": "text/plain"
+                      },
+                      "key": "doc",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Number of file parts included in this multipart request when the client sends multiple attachments.",
+                        "type": "text/plain"
+                      },
+                      "key": "totalFiles",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Comma-separated existing document IDs when applicable.",
+                        "type": "text/plain"
+                      },
+                      "key": "document_ids",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"string\",\n  \"document\": {\n    \"document_id\": 8730,\n    \"file_name\": \"string\",\n    \"file_type\": \"string\",\n    \"file_size\": 7760,\n    \"file_size_formatted\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e15bc3cc-0f29-406f-a92d-6f0999afba8a",
+          "name": "Download a putaway document",
+          "request": {
+            "name": "Download a putaway document",
+            "description": {
+              "content": "Returns the binary content of an attached document (image or PDF).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways",
+                ":putaway_id",
+                "documents",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "image_size",
+                  "value": "<string>",
+                  "description": "Preferred image size when the service returns a rasterized preview."
+                },
+                {
+                  "disabled": false,
+                  "key": "print",
+                  "value": "<boolean>",
+                  "description": "Allowed Values: <code>true</code>, <code>false</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "inline",
+                  "value": "<boolean>",
+                  "description": "When true, the response may be suitable for inline display in a browser when supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "putaway_id",
+                  "description": "(Required) Unique identifier of the putaway."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6f3608e1-c379-433e-a884-b3886b833e92",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways",
+                    ":putaway_id",
+                    "documents",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "image_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "inline",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "putaway_id",
+                      "description": "(Required) Unique identifier of the putaway."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/pdf"
+                }
+              ],
+              "body": "<< binary body >>",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25ab1cb3-7a34-4a82-8ca2-b1f3ef9624c4",
+          "name": "Remove an attachment from a putaway",
+          "request": {
+            "name": "Remove an attachment from a putaway",
+            "description": {
+              "content": "Deletes or unlinks a document from the putaway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "putaways",
+                ":putaway_id",
+                "documents",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "un_associate",
+                  "value": "<boolean>",
+                  "description": "When true, only dissociates the file without deleting the underlying document when supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "putaway_id",
+                  "description": "(Required) Unique identifier of the putaway."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) Unique identifier of the document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "129a9582-3141-4816-80ed-902d2e61a9bd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "putaways",
+                    ":putaway_id",
+                    "documents",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "un_associate",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "putaway_id",
+                      "description": "(Required) Unique identifier of the putaway."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) Unique identifier of the document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Your file is no longer attached to the Putaway.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6aafbe7-0ab8-4484-8e75-35d19f96d2e3",
+          "name": "Get putaway auto number generation settings",
+          "request": {
+            "name": "Get putaway auto number generation settings",
+            "description": {
+              "content": "Returns auto number generation preferences for putaways.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settings",
+                "putaways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8ca709a3-a43a-47da-b720-cdfb2a93bd77",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settings",
+                    "putaways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"string\",\n  \"putaway_settings\": {\n    \"auto_generate\": false,\n    \"prefix_string\": \"string\",\n    \"next_number\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3a9a0302-76af-4090-a1fc-0fbb7a822629",
+    "name": "batches putaways API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,2344 @@
+{
+  "item": [
+    {
+      "id": "26fa82b1-eff8-4863-b205-b27b20a16dca",
+      "name": "picklists",
+      "description": {
+        "content": "Picklists Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6bc2afdd-6f05-4e85-9e44-b183888b2e54",
+          "name": "List Picklists",
+          "request": {
+            "name": "List Picklists",
+            "description": {
+              "content": "Retrieve the list of all picklists in the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Column by which the list is sorted."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "Sort order. `A` for ascending, `D` for descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Search text to filter picklists by name or number."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter picklists by status. Example: `Status.All`, `Status.YetToStart`, `Status.InProgress`, `Status.OnHold`, `Status.Completed`, or `MissingAdvancedTrackingDetails`."
+                },
+                {
+                  "disabled": false,
+                  "key": "salesorder_number",
+                  "value": "<string>",
+                  "description": "Filter by sales order number."
+                },
+                {
+                  "disabled": false,
+                  "key": "salesorder_number_startswith",
+                  "value": "<string>",
+                  "description": "Filter picklists where the associated sales order number starts with the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "salesorder_number_contains",
+                  "value": "<string>",
+                  "description": "Filter picklists where the associated sales order number contains the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchase_return_number",
+                  "value": "<string>",
+                  "description": "Filter by purchase return number."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchase_return_number_startswith",
+                  "value": "<string>",
+                  "description": "Filter picklists where the associated purchase return number starts with the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchase_return_number_contains",
+                  "value": "<string>",
+                  "description": "Filter picklists where the associated purchase return number contains the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "picklist_number",
+                  "value": "<string>",
+                  "description": "Filter by picklist number."
+                },
+                {
+                  "disabled": false,
+                  "key": "picklist_number_startswith",
+                  "value": "<string>",
+                  "description": "Filter picklists where the picklist number starts with the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "picklist_number_contains",
+                  "value": "<string>",
+                  "description": "Filter picklists where the picklist number contains the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "item_id",
+                  "value": "<string>",
+                  "description": "Filter picklists that contain the specified item."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter picklists by location."
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_id",
+                  "value": "<string>",
+                  "description": "Filter picklists by customer."
+                },
+                {
+                  "disabled": false,
+                  "key": "assignee_id",
+                  "value": "<string>",
+                  "description": "Filter picklists by the assigned user."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "Filter picklists by a specific date (yyyy-mm-dd)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_start",
+                  "value": "<date>",
+                  "description": "Filter picklists from this start date (yyyy-mm-dd)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_end",
+                  "value": "<date>",
+                  "description": "Filter picklists up to this end date (yyyy-mm-dd)."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter picklists by status."
+                },
+                {
+                  "disabled": false,
+                  "key": "customview_id",
+                  "value": "<string>",
+                  "description": "ID of a custom view to apply."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Number of records per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9733f72-33e6-41f1-b19b-19b2407967a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "date"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "D"
+                    },
+                    {
+                      "key": "search_text",
+                      "value": "Pick-00001"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": "Status.InProgress"
+                    },
+                    {
+                      "key": "salesorder_number",
+                      "value": "SO-00001"
+                    },
+                    {
+                      "key": "salesorder_number_startswith",
+                      "value": "SO-0"
+                    },
+                    {
+                      "key": "salesorder_number_contains",
+                      "value": "0001"
+                    },
+                    {
+                      "key": "purchase_return_number",
+                      "value": "PR-00001"
+                    },
+                    {
+                      "key": "purchase_return_number_startswith",
+                      "value": "PR-0"
+                    },
+                    {
+                      "key": "purchase_return_number_contains",
+                      "value": "0001"
+                    },
+                    {
+                      "key": "picklist_number",
+                      "value": "Pick-00001"
+                    },
+                    {
+                      "key": "picklist_number_startswith",
+                      "value": "Pick-0"
+                    },
+                    {
+                      "key": "picklist_number_contains",
+                      "value": "0001"
+                    },
+                    {
+                      "key": "item_id",
+                      "value": "130426000000664040"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "130426000000664030"
+                    },
+                    {
+                      "key": "customer_id",
+                      "value": "130426000000664050"
+                    },
+                    {
+                      "key": "assignee_id",
+                      "value": "130426000000664060"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2024-01-15"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "2024-01-31"
+                    },
+                    {
+                      "key": "status",
+                      "value": "inprogress"
+                    },
+                    {
+                      "key": "customview_id",
+                      "value": "130426000000664070"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"picklists\": [\n    {\n      \"picklist_id\": \"130426000000810001\",\n      \"picklist_number\": \"Pick-00001\",\n      \"date\": \"2024-01-15\",\n      \"notes\": \"Fragile items - handle with care.\",\n      \"assignee_id\": \"130426000000664060\",\n      \"assignee_name\": \"John Doe\",\n      \"location_id\": \"130426000000664030\",\n      \"location_name\": \"New York\",\n      \"status\": \"inprogress\",\n      \"created_time\": \"2024-01-15T10:30:00+05:30\",\n      \"last_modified_time\": \"2024-01-15T11:00:00+05:30\",\n      \"salesorder_numbers\": [\n        \"SO-00001\",\n        \"SO-00002\"\n      ],\n      \"purchase_return_numbers\": [\n        \"PR-00001\"\n      ],\n      \"customer_names\": [\n        \"Acme Corp\"\n      ]\n    },\n    {\n      \"picklist_id\": \"130426000000810001\",\n      \"picklist_number\": \"Pick-00001\",\n      \"date\": \"2024-01-15\",\n      \"notes\": \"Fragile items - handle with care.\",\n      \"assignee_id\": \"130426000000664060\",\n      \"assignee_name\": \"John Doe\",\n      \"location_id\": \"130426000000664030\",\n      \"location_name\": \"New York\",\n      \"status\": \"inprogress\",\n      \"created_time\": \"2024-01-15T10:30:00+05:30\",\n      \"last_modified_time\": \"2024-01-15T11:00:00+05:30\",\n      \"salesorder_numbers\": [\n        \"SO-00001\",\n        \"SO-00002\"\n      ],\n      \"purchase_return_numbers\": [\n        \"PR-00001\"\n      ],\n      \"customer_names\": [\n        \"Acme Corp\"\n      ]\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 10,\n    \"has_more_page\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "109409a8-f6b7-4159-850d-c0467bfce96a",
+          "name": "Create a Picklist",
+          "request": {
+            "name": "Create a Picklist",
+            "description": {
+              "content": "Create a new picklist for picking items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Set to `true` to use a custom picklist number instead of the auto-generated one."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"salesorder_id\": \"<string>\",\n      \"parent_entity_id\": \"<string>\",\n      \"so_line_item_id\": \"<string>\",\n      \"pr_line_item_id\": \"<string>\",\n      \"parent_line_item_id\": \"<string>\",\n      \"quantity_to_be_picked\": \"<number>\",\n      \"quantity_picked\": \"<number>\",\n      \"status\": \"<string>\",\n      \"preferred_storage_id\": \"<string>\",\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        }\n      ],\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"assignee_id\": \"<string>\",\n      \"mapping_entity_details\": [\n        {\n          \"mapping_line_item_id\": \"<string>\",\n          \"mapping_entity_item_id\": \"<string>\",\n          \"quantity_to_be_picked\": \"<number>\",\n          \"quantity_picked\": \"<number>\",\n          \"status\": \"<string>\",\n          \"preferred_storage_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ],\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"mapping_line_item_id\": \"<string>\",\n          \"mapping_entity_item_id\": \"<string>\",\n          \"quantity_to_be_picked\": \"<number>\",\n          \"quantity_picked\": \"<number>\",\n          \"status\": \"<string>\",\n          \"preferred_storage_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ],\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"picklist_number\": \"<string>\",\n  \"date\": \"<date>\",\n  \"parent_entity\": \"<string>\",\n  \"group_by\": \"<string>\",\n  \"assignee_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5dabc19-88ab-4f96-ab61-8e92dfd056a6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"line_items\": [\n    {\n      \"line_item_id\": \"130426000000810011\",\n      \"salesorder_id\": \"130426000000700001\",\n      \"parent_entity_id\": \"130426000000700001\",\n      \"so_line_item_id\": \"130426000000700011\",\n      \"pr_line_item_id\": \"130426000000720011\",\n      \"parent_line_item_id\": \"130426000000700011\",\n      \"quantity_to_be_picked\": 5,\n      \"quantity_picked\": 3,\n      \"status\": \"inprogress\",\n      \"preferred_storage_id\": \"130426000000801001\",\n      \"storages\": [\n        {\n          \"storage_id\": \"130426000000801001\",\n          \"out_quantity\": 5\n        },\n        {\n          \"storage_id\": \"130426000000801001\",\n          \"out_quantity\": 5\n        }\n      ],\n      \"serial_numbers\": [\n        \"SN-001\",\n        \"SN-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5,\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5,\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"Zone\",\n          \"value\": \"Zone A\"\n        },\n        {\n          \"label\": \"Zone\",\n          \"value\": \"Zone A\"\n        }\n      ],\n      \"assignee_id\": \"130426000000664060\",\n      \"mapping_entity_details\": [\n        {\n          \"mapping_line_item_id\": \"130426000000810031\",\n          \"mapping_entity_item_id\": \"130426000000700011\",\n          \"quantity_to_be_picked\": 5,\n          \"quantity_picked\": 3,\n          \"status\": \"inprogress\",\n          \"preferred_storage_id\": \"130426000000801001\",\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ],\n          \"serial_numbers\": [\n            \"SN-001\",\n            \"SN-002\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            },\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            }\n          ]\n        },\n        {\n          \"mapping_line_item_id\": \"130426000000810031\",\n          \"mapping_entity_item_id\": \"130426000000700011\",\n          \"quantity_to_be_picked\": 5,\n          \"quantity_picked\": 3,\n          \"status\": \"inprogress\",\n          \"preferred_storage_id\": \"130426000000801001\",\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ],\n          \"serial_numbers\": [\n            \"SN-001\",\n            \"SN-002\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            },\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"location_id\": \"130426000000664030\",\n  \"picklist_number\": \"Pick-00001\",\n  \"date\": \"2024-01-15\",\n  \"parent_entity\": \"salesorder\",\n  \"group_by\": \"none\",\n  \"assignee_id\": \"130426000000664060\",\n  \"notes\": \"Fragile items - handle with care.\",\n  \"custom_fields\": [\n    {\n      \"label\": \"Zone\",\n      \"value\": \"Zone A\"\n    },\n    {\n      \"label\": \"Zone\",\n      \"value\": \"Zone A\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Picklist has been created.\",\n  \"picklist\": {\n    \"picklist_id\": \"130426000000810001\",\n    \"picklist_number\": \"Pick-00001\",\n    \"date\": \"2024-01-15\",\n    \"notes\": \"Fragile items - handle with care.\",\n    \"assignee_id\": \"130426000000664060\",\n    \"assignee_name\": \"John Doe\",\n    \"location_id\": \"130426000000664030\",\n    \"location_name\": \"New York\",\n    \"status\": \"inprogress\",\n    \"created_time\": \"2024-01-15T10:30:00+05:30\",\n    \"last_modified_time\": \"2024-01-15T11:00:00+05:30\",\n    \"salesorder_numbers\": [\n      \"SO-00001\",\n      \"SO-00002\"\n    ],\n    \"purchase_return_numbers\": [\n      \"PR-00001\"\n    ],\n    \"customer_names\": [\n      \"Acme Corp\"\n    ],\n    \"group_by\": \"none\",\n    \"group_by_formatted\": \"None\",\n    \"total_picking_quantity\": 25,\n    \"parent_entity\": \"salesorder\",\n    \"line_items\": [\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"parent_id\": \"130426000000664040\",\n        \"parent_name\": \"Office Chair\",\n        \"customer_name\": \"Acme Corp\",\n        \"order_date\": \"2024-01-12\",\n        \"shipment_date\": \"2024-01-18\",\n        \"delivery_method\": \"FedEx\",\n        \"assignee_id\": \"130426000000664060\",\n        \"assignee_name\": \"John Doe\",\n        \"mapping_entity_details\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"salesorder_id\": \"130426000000700001\",\n        \"salesorder_number\": \"SO-00001\",\n        \"purchasereturn_id\": \"130426000000720001\",\n        \"purchasereturn_number\": \"PR-00001\",\n        \"so_line_item_id\": \"130426000000700011\",\n        \"pr_line_item_id\": \"130426000000720011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"sku\": \"CHAIR-001\",\n        \"is_storage_location_enabled\": true,\n        \"is_combo_product\": false,\n        \"unit\": \"pcs\",\n        \"base_unit\": \"pcs\",\n        \"base_unit_id\": \"130426000000900020\",\n        \"unit_conversion_id\": \"130426000000900001\",\n        \"conversion_rate\": 1,\n        \"quantity_decimal_place\": 2,\n        \"description\": \"Ergonomic mesh office chair.\",\n        \"image_name\": \"chair.png\",\n        \"image_type\": \"png\",\n        \"image_document_id\": \"130426000000910001\",\n        \"quantity_ordered\": 10,\n        \"quantity_returned\": 5,\n        \"so_quantity_ordered\": 10,\n        \"pr_quantity_returned\": 5,\n        \"so_quantity_picked\": 3,\n        \"pr_quantity_picked\": 2,\n        \"quantity_to_be_picked\": 5,\n        \"quantity_picked\": 3,\n        \"quantity_picked_remaining\": 2,\n        \"quantity_packed\": 3,\n        \"quantity_manually_fulfilled\": 0,\n        \"rate\": 199.99,\n        \"status\": \"inprogress\",\n        \"preferred_storage_id\": \"130426000000801001\",\n        \"preferred_storage_name\": \"A-R1-B01\",\n        \"storages\": [\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"track_serial_for_package\": false,\n        \"track_batch_for_package\": false,\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"available_stock_for_picking\": 25,\n        \"advanced_tracking_missing_quantity\": 0,\n        \"upc\": \"string\",\n        \"ean\": \"4006381333931\",\n        \"isbn\": \"978-3-16-148410-0\"\n      },\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"parent_id\": \"130426000000664040\",\n        \"parent_name\": \"Office Chair\",\n        \"customer_name\": \"Acme Corp\",\n        \"order_date\": \"2024-01-12\",\n        \"shipment_date\": \"2024-01-18\",\n        \"delivery_method\": \"FedEx\",\n        \"assignee_id\": \"130426000000664060\",\n        \"assignee_name\": \"John Doe\",\n        \"mapping_entity_details\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"salesorder_id\": \"130426000000700001\",\n        \"salesorder_number\": \"SO-00001\",\n        \"purchasereturn_id\": \"130426000000720001\",\n        \"purchasereturn_number\": \"PR-00001\",\n        \"so_line_item_id\": \"130426000000700011\",\n        \"pr_line_item_id\": \"130426000000720011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"sku\": \"CHAIR-001\",\n        \"is_storage_location_enabled\": true,\n        \"is_combo_product\": false,\n        \"unit\": \"pcs\",\n        \"base_unit\": \"pcs\",\n        \"base_unit_id\": \"130426000000900020\",\n        \"unit_conversion_id\": \"130426000000900001\",\n        \"conversion_rate\": 1,\n        \"quantity_decimal_place\": 2,\n        \"description\": \"Ergonomic mesh office chair.\",\n        \"image_name\": \"chair.png\",\n        \"image_type\": \"png\",\n        \"image_document_id\": \"130426000000910001\",\n        \"quantity_ordered\": 10,\n        \"quantity_returned\": 5,\n        \"so_quantity_ordered\": 10,\n        \"pr_quantity_returned\": 5,\n        \"so_quantity_picked\": 3,\n        \"pr_quantity_picked\": 2,\n        \"quantity_to_be_picked\": 5,\n        \"quantity_picked\": 3,\n        \"quantity_picked_remaining\": 2,\n        \"quantity_packed\": 3,\n        \"quantity_manually_fulfilled\": 0,\n        \"rate\": 199.99,\n        \"status\": \"inprogress\",\n        \"preferred_storage_id\": \"130426000000801001\",\n        \"preferred_storage_name\": \"A-R1-B01\",\n        \"storages\": [\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"track_serial_for_package\": false,\n        \"track_batch_for_package\": false,\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"available_stock_for_picking\": 25,\n        \"advanced_tracking_missing_quantity\": 0,\n        \"upc\": \"string\",\n        \"ean\": \"4006381333931\",\n        \"isbn\": \"978-3-16-148410-0\"\n      }\n    ],\n    \"comments\": [\n      {\n        \"comment_id\": \"130426000000810021\",\n        \"description\": \"Items checked and ready for dispatch.\",\n        \"commented_by\": \"John Doe\",\n        \"date\": \"2024-01-15\"\n      },\n      {\n        \"comment_id\": \"130426000000810021\",\n        \"description\": \"Items checked and ready for dispatch.\",\n        \"commented_by\": \"John Doe\",\n        \"date\": \"2024-01-15\"\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"label\": \"Zone\",\n        \"value\": \"Zone A\"\n      },\n      {\n        \"label\": \"Zone\",\n        \"value\": \"Zone A\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47a476b1-5175-45d0-86ad-88757c5db2d7",
+          "name": "Bulk Delete Picklists",
+          "request": {
+            "name": "Bulk Delete Picklists",
+            "description": {
+              "content": "Delete multiple picklists at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "picklist_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of picklist IDs to delete. Maximum 200 IDs."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7414aeba-9cc7-4183-b6e6-2054652eb7f7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "picklist_ids",
+                      "value": "130426000000810001,130426000000810002"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The picklist has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3f7be2b-6bd7-4f91-8f3a-fc1c6c56bf27",
+          "name": "Get a Picklist",
+          "request": {
+            "name": "Get a Picklist",
+            "description": {
+              "content": "Retrieve the details of an existing picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "print",
+                  "value": "<boolean>",
+                  "description": "Set to `true` to return print-friendly content."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b7dd7097-7dc2-4989-bf76-21ae10fa12dd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "print",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Picklist has been created.\",\n  \"picklist\": {\n    \"picklist_id\": \"130426000000810001\",\n    \"picklist_number\": \"Pick-00001\",\n    \"date\": \"2024-01-15\",\n    \"notes\": \"Fragile items - handle with care.\",\n    \"assignee_id\": \"130426000000664060\",\n    \"assignee_name\": \"John Doe\",\n    \"location_id\": \"130426000000664030\",\n    \"location_name\": \"New York\",\n    \"status\": \"inprogress\",\n    \"created_time\": \"2024-01-15T10:30:00+05:30\",\n    \"last_modified_time\": \"2024-01-15T11:00:00+05:30\",\n    \"salesorder_numbers\": [\n      \"SO-00001\",\n      \"SO-00002\"\n    ],\n    \"purchase_return_numbers\": [\n      \"PR-00001\"\n    ],\n    \"customer_names\": [\n      \"Acme Corp\"\n    ],\n    \"group_by\": \"none\",\n    \"group_by_formatted\": \"None\",\n    \"total_picking_quantity\": 25,\n    \"parent_entity\": \"salesorder\",\n    \"line_items\": [\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"parent_id\": \"130426000000664040\",\n        \"parent_name\": \"Office Chair\",\n        \"customer_name\": \"Acme Corp\",\n        \"order_date\": \"2024-01-12\",\n        \"shipment_date\": \"2024-01-18\",\n        \"delivery_method\": \"FedEx\",\n        \"assignee_id\": \"130426000000664060\",\n        \"assignee_name\": \"John Doe\",\n        \"mapping_entity_details\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"salesorder_id\": \"130426000000700001\",\n        \"salesorder_number\": \"SO-00001\",\n        \"purchasereturn_id\": \"130426000000720001\",\n        \"purchasereturn_number\": \"PR-00001\",\n        \"so_line_item_id\": \"130426000000700011\",\n        \"pr_line_item_id\": \"130426000000720011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"sku\": \"CHAIR-001\",\n        \"is_storage_location_enabled\": true,\n        \"is_combo_product\": false,\n        \"unit\": \"pcs\",\n        \"base_unit\": \"pcs\",\n        \"base_unit_id\": \"130426000000900020\",\n        \"unit_conversion_id\": \"130426000000900001\",\n        \"conversion_rate\": 1,\n        \"quantity_decimal_place\": 2,\n        \"description\": \"Ergonomic mesh office chair.\",\n        \"image_name\": \"chair.png\",\n        \"image_type\": \"png\",\n        \"image_document_id\": \"130426000000910001\",\n        \"quantity_ordered\": 10,\n        \"quantity_returned\": 5,\n        \"so_quantity_ordered\": 10,\n        \"pr_quantity_returned\": 5,\n        \"so_quantity_picked\": 3,\n        \"pr_quantity_picked\": 2,\n        \"quantity_to_be_picked\": 5,\n        \"quantity_picked\": 3,\n        \"quantity_picked_remaining\": 2,\n        \"quantity_packed\": 3,\n        \"quantity_manually_fulfilled\": 0,\n        \"rate\": 199.99,\n        \"status\": \"inprogress\",\n        \"preferred_storage_id\": \"130426000000801001\",\n        \"preferred_storage_name\": \"A-R1-B01\",\n        \"storages\": [\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"track_serial_for_package\": false,\n        \"track_batch_for_package\": false,\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"available_stock_for_picking\": 25,\n        \"advanced_tracking_missing_quantity\": 0,\n        \"upc\": \"string\",\n        \"ean\": \"4006381333931\",\n        \"isbn\": \"978-3-16-148410-0\"\n      },\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"parent_id\": \"130426000000664040\",\n        \"parent_name\": \"Office Chair\",\n        \"customer_name\": \"Acme Corp\",\n        \"order_date\": \"2024-01-12\",\n        \"shipment_date\": \"2024-01-18\",\n        \"delivery_method\": \"FedEx\",\n        \"assignee_id\": \"130426000000664060\",\n        \"assignee_name\": \"John Doe\",\n        \"mapping_entity_details\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"salesorder_id\": \"130426000000700001\",\n        \"salesorder_number\": \"SO-00001\",\n        \"purchasereturn_id\": \"130426000000720001\",\n        \"purchasereturn_number\": \"PR-00001\",\n        \"so_line_item_id\": \"130426000000700011\",\n        \"pr_line_item_id\": \"130426000000720011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"sku\": \"CHAIR-001\",\n        \"is_storage_location_enabled\": true,\n        \"is_combo_product\": false,\n        \"unit\": \"pcs\",\n        \"base_unit\": \"pcs\",\n        \"base_unit_id\": \"130426000000900020\",\n        \"unit_conversion_id\": \"130426000000900001\",\n        \"conversion_rate\": 1,\n        \"quantity_decimal_place\": 2,\n        \"description\": \"Ergonomic mesh office chair.\",\n        \"image_name\": \"chair.png\",\n        \"image_type\": \"png\",\n        \"image_document_id\": \"130426000000910001\",\n        \"quantity_ordered\": 10,\n        \"quantity_returned\": 5,\n        \"so_quantity_ordered\": 10,\n        \"pr_quantity_returned\": 5,\n        \"so_quantity_picked\": 3,\n        \"pr_quantity_picked\": 2,\n        \"quantity_to_be_picked\": 5,\n        \"quantity_picked\": 3,\n        \"quantity_picked_remaining\": 2,\n        \"quantity_packed\": 3,\n        \"quantity_manually_fulfilled\": 0,\n        \"rate\": 199.99,\n        \"status\": \"inprogress\",\n        \"preferred_storage_id\": \"130426000000801001\",\n        \"preferred_storage_name\": \"A-R1-B01\",\n        \"storages\": [\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"track_serial_for_package\": false,\n        \"track_batch_for_package\": false,\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"available_stock_for_picking\": 25,\n        \"advanced_tracking_missing_quantity\": 0,\n        \"upc\": \"string\",\n        \"ean\": \"4006381333931\",\n        \"isbn\": \"978-3-16-148410-0\"\n      }\n    ],\n    \"comments\": [\n      {\n        \"comment_id\": \"130426000000810021\",\n        \"description\": \"Items checked and ready for dispatch.\",\n        \"commented_by\": \"John Doe\",\n        \"date\": \"2024-01-15\"\n      },\n      {\n        \"comment_id\": \"130426000000810021\",\n        \"description\": \"Items checked and ready for dispatch.\",\n        \"commented_by\": \"John Doe\",\n        \"date\": \"2024-01-15\"\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"label\": \"Zone\",\n        \"value\": \"Zone A\"\n      },\n      {\n        \"label\": \"Zone\",\n        \"value\": \"Zone A\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fff3491-899d-44a8-9665-e50d52c09e82",
+          "name": "Update a Picklist",
+          "request": {
+            "name": "Update a Picklist",
+            "description": {
+              "content": "Update the details of an existing picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Set to `true` to use a custom picklist number instead of the auto-generated one."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"<date>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"salesorder_id\": \"<string>\",\n      \"parent_entity_id\": \"<string>\",\n      \"so_line_item_id\": \"<string>\",\n      \"pr_line_item_id\": \"<string>\",\n      \"parent_line_item_id\": \"<string>\",\n      \"quantity_to_be_picked\": \"<number>\",\n      \"quantity_picked\": \"<number>\",\n      \"status\": \"<string>\",\n      \"preferred_storage_id\": \"<string>\",\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        }\n      ],\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"assignee_id\": \"<string>\",\n      \"mapping_entity_details\": [\n        {\n          \"mapping_line_item_id\": \"<string>\",\n          \"mapping_entity_item_id\": \"<string>\",\n          \"quantity_to_be_picked\": \"<number>\",\n          \"quantity_picked\": \"<number>\",\n          \"status\": \"<string>\",\n          \"preferred_storage_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ],\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"mapping_line_item_id\": \"<string>\",\n          \"mapping_entity_item_id\": \"<string>\",\n          \"quantity_to_be_picked\": \"<number>\",\n          \"quantity_picked\": \"<number>\",\n          \"status\": \"<string>\",\n          \"preferred_storage_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<number>\"\n            }\n          ],\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"<string>\",\n              \"out_quantity\": \"<number>\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"picklist_number\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"parent_entity\": \"<string>\",\n  \"group_by\": \"<string>\",\n  \"assignee_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4db57d35-d354-423b-a49e-1523c0a42de6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2024-01-15\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"130426000000810011\",\n      \"salesorder_id\": \"130426000000700001\",\n      \"parent_entity_id\": \"130426000000700001\",\n      \"so_line_item_id\": \"130426000000700011\",\n      \"pr_line_item_id\": \"130426000000720011\",\n      \"parent_line_item_id\": \"130426000000700011\",\n      \"quantity_to_be_picked\": 5,\n      \"quantity_picked\": 3,\n      \"status\": \"inprogress\",\n      \"preferred_storage_id\": \"130426000000801001\",\n      \"storages\": [\n        {\n          \"storage_id\": \"130426000000801001\",\n          \"out_quantity\": 5\n        },\n        {\n          \"storage_id\": \"130426000000801001\",\n          \"out_quantity\": 5\n        }\n      ],\n      \"serial_numbers\": [\n        \"SN-001\",\n        \"SN-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5,\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ]\n        },\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5,\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"Zone\",\n          \"value\": \"Zone A\"\n        },\n        {\n          \"label\": \"Zone\",\n          \"value\": \"Zone A\"\n        }\n      ],\n      \"assignee_id\": \"130426000000664060\",\n      \"mapping_entity_details\": [\n        {\n          \"mapping_line_item_id\": \"130426000000810031\",\n          \"mapping_entity_item_id\": \"130426000000700011\",\n          \"quantity_to_be_picked\": 5,\n          \"quantity_picked\": 3,\n          \"status\": \"inprogress\",\n          \"preferred_storage_id\": \"130426000000801001\",\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ],\n          \"serial_numbers\": [\n            \"SN-001\",\n            \"SN-002\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            },\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            }\n          ]\n        },\n        {\n          \"mapping_line_item_id\": \"130426000000810031\",\n          \"mapping_entity_item_id\": \"130426000000700011\",\n          \"quantity_to_be_picked\": 5,\n          \"quantity_picked\": 3,\n          \"status\": \"inprogress\",\n          \"preferred_storage_id\": \"130426000000801001\",\n          \"storages\": [\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            },\n            {\n              \"storage_id\": \"130426000000801001\",\n              \"out_quantity\": 5\n            }\n          ],\n          \"serial_numbers\": [\n            \"SN-001\",\n            \"SN-002\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"130426000000810031\",\n              \"out_quantity\": 5,\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            },\n            {\n              \"label\": \"Lot\",\n              \"value\": \"L-2024-01\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"picklist_number\": \"Pick-00001\",\n  \"location_id\": \"130426000000664030\",\n  \"parent_entity\": \"salesorder\",\n  \"group_by\": \"none\",\n  \"assignee_id\": \"130426000000664060\",\n  \"notes\": \"Fragile items - handle with care.\",\n  \"custom_fields\": [\n    {\n      \"label\": \"Zone\",\n      \"value\": \"Zone A\"\n    },\n    {\n      \"label\": \"Zone\",\n      \"value\": \"Zone A\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Picklist has been created.\",\n  \"picklist\": {\n    \"picklist_id\": \"130426000000810001\",\n    \"picklist_number\": \"Pick-00001\",\n    \"date\": \"2024-01-15\",\n    \"notes\": \"Fragile items - handle with care.\",\n    \"assignee_id\": \"130426000000664060\",\n    \"assignee_name\": \"John Doe\",\n    \"location_id\": \"130426000000664030\",\n    \"location_name\": \"New York\",\n    \"status\": \"inprogress\",\n    \"created_time\": \"2024-01-15T10:30:00+05:30\",\n    \"last_modified_time\": \"2024-01-15T11:00:00+05:30\",\n    \"salesorder_numbers\": [\n      \"SO-00001\",\n      \"SO-00002\"\n    ],\n    \"purchase_return_numbers\": [\n      \"PR-00001\"\n    ],\n    \"customer_names\": [\n      \"Acme Corp\"\n    ],\n    \"group_by\": \"none\",\n    \"group_by_formatted\": \"None\",\n    \"total_picking_quantity\": 25,\n    \"parent_entity\": \"salesorder\",\n    \"line_items\": [\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"parent_id\": \"130426000000664040\",\n        \"parent_name\": \"Office Chair\",\n        \"customer_name\": \"Acme Corp\",\n        \"order_date\": \"2024-01-12\",\n        \"shipment_date\": \"2024-01-18\",\n        \"delivery_method\": \"FedEx\",\n        \"assignee_id\": \"130426000000664060\",\n        \"assignee_name\": \"John Doe\",\n        \"mapping_entity_details\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"salesorder_id\": \"130426000000700001\",\n        \"salesorder_number\": \"SO-00001\",\n        \"purchasereturn_id\": \"130426000000720001\",\n        \"purchasereturn_number\": \"PR-00001\",\n        \"so_line_item_id\": \"130426000000700011\",\n        \"pr_line_item_id\": \"130426000000720011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"sku\": \"CHAIR-001\",\n        \"is_storage_location_enabled\": true,\n        \"is_combo_product\": false,\n        \"unit\": \"pcs\",\n        \"base_unit\": \"pcs\",\n        \"base_unit_id\": \"130426000000900020\",\n        \"unit_conversion_id\": \"130426000000900001\",\n        \"conversion_rate\": 1,\n        \"quantity_decimal_place\": 2,\n        \"description\": \"Ergonomic mesh office chair.\",\n        \"image_name\": \"chair.png\",\n        \"image_type\": \"png\",\n        \"image_document_id\": \"130426000000910001\",\n        \"quantity_ordered\": 10,\n        \"quantity_returned\": 5,\n        \"so_quantity_ordered\": 10,\n        \"pr_quantity_returned\": 5,\n        \"so_quantity_picked\": 3,\n        \"pr_quantity_picked\": 2,\n        \"quantity_to_be_picked\": 5,\n        \"quantity_picked\": 3,\n        \"quantity_picked_remaining\": 2,\n        \"quantity_packed\": 3,\n        \"quantity_manually_fulfilled\": 0,\n        \"rate\": 199.99,\n        \"status\": \"inprogress\",\n        \"preferred_storage_id\": \"130426000000801001\",\n        \"preferred_storage_name\": \"A-R1-B01\",\n        \"storages\": [\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"track_serial_for_package\": false,\n        \"track_batch_for_package\": false,\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"available_stock_for_picking\": 25,\n        \"advanced_tracking_missing_quantity\": 0,\n        \"upc\": \"string\",\n        \"ean\": \"4006381333931\",\n        \"isbn\": \"978-3-16-148410-0\"\n      },\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"parent_id\": \"130426000000664040\",\n        \"parent_name\": \"Office Chair\",\n        \"customer_name\": \"Acme Corp\",\n        \"order_date\": \"2024-01-12\",\n        \"shipment_date\": \"2024-01-18\",\n        \"delivery_method\": \"FedEx\",\n        \"assignee_id\": \"130426000000664060\",\n        \"assignee_name\": \"John Doe\",\n        \"mapping_entity_details\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"salesorder_id\": \"130426000000700001\",\n        \"salesorder_number\": \"SO-00001\",\n        \"purchasereturn_id\": \"130426000000720001\",\n        \"purchasereturn_number\": \"PR-00001\",\n        \"so_line_item_id\": \"130426000000700011\",\n        \"pr_line_item_id\": \"130426000000720011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"sku\": \"CHAIR-001\",\n        \"is_storage_location_enabled\": true,\n        \"is_combo_product\": false,\n        \"unit\": \"pcs\",\n        \"base_unit\": \"pcs\",\n        \"base_unit_id\": \"130426000000900020\",\n        \"unit_conversion_id\": \"130426000000900001\",\n        \"conversion_rate\": 1,\n        \"quantity_decimal_place\": 2,\n        \"description\": \"Ergonomic mesh office chair.\",\n        \"image_name\": \"chair.png\",\n        \"image_type\": \"png\",\n        \"image_document_id\": \"130426000000910001\",\n        \"quantity_ordered\": 10,\n        \"quantity_returned\": 5,\n        \"so_quantity_ordered\": 10,\n        \"pr_quantity_returned\": 5,\n        \"so_quantity_picked\": 3,\n        \"pr_quantity_picked\": 2,\n        \"quantity_to_be_picked\": 5,\n        \"quantity_picked\": 3,\n        \"quantity_picked_remaining\": 2,\n        \"quantity_packed\": 3,\n        \"quantity_manually_fulfilled\": 0,\n        \"rate\": 199.99,\n        \"status\": \"inprogress\",\n        \"preferred_storage_id\": \"130426000000801001\",\n        \"preferred_storage_name\": \"A-R1-B01\",\n        \"storages\": [\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"storage_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"batch_number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"out_quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"track_serial_number\": false,\n        \"track_batch_number\": false,\n        \"track_serial_for_package\": false,\n        \"track_batch_for_package\": false,\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"available_stock_for_picking\": 25,\n        \"advanced_tracking_missing_quantity\": 0,\n        \"upc\": \"string\",\n        \"ean\": \"4006381333931\",\n        \"isbn\": \"978-3-16-148410-0\"\n      }\n    ],\n    \"comments\": [\n      {\n        \"comment_id\": \"130426000000810021\",\n        \"description\": \"Items checked and ready for dispatch.\",\n        \"commented_by\": \"John Doe\",\n        \"date\": \"2024-01-15\"\n      },\n      {\n        \"comment_id\": \"130426000000810021\",\n        \"description\": \"Items checked and ready for dispatch.\",\n        \"commented_by\": \"John Doe\",\n        \"date\": \"2024-01-15\"\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"label\": \"Zone\",\n        \"value\": \"Zone A\"\n      },\n      {\n        \"label\": \"Zone\",\n        \"value\": \"Zone A\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5479b46f-c8c0-4907-845f-4fd3a45ef780",
+          "name": "Delete a Picklist",
+          "request": {
+            "name": "Delete a Picklist",
+            "description": {
+              "content": "Delete an existing picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "714fb3dc-abcc-4e73-8b65-97995ecb2ea5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The picklist has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41acb290-a1c8-481b-a7ac-7028238346a3",
+          "name": "Set Status of a Picklist",
+          "request": {
+            "name": "Set Status of a Picklist",
+            "description": {
+              "content": "Update the status of a specific picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id",
+                "setstatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) The new status to set for the picklist."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "baa405e6-b81c-4b45-941b-b533a3b0fd6b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id",
+                    "setstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "completed"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The picklist has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e3287da-cb0a-4ce5-b1a9-0280b096ae26",
+          "name": "Bulk Set Status of Picklists",
+          "request": {
+            "name": "Bulk Set Status of Picklists",
+            "description": {
+              "content": "Update the status of multiple picklists at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                "setstatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "picklist_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of picklist IDs. Maximum 25 IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "picklist_item_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of picklist item IDs to update. Maximum 50 IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) The new status to assign to the specified picklists."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d14ecdca-82d0-46e9-951f-40ed802149b4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    "setstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "picklist_ids",
+                      "value": "130426000000810001,130426000000810002"
+                    },
+                    {
+                      "key": "picklist_item_ids",
+                      "value": "130426000000810011,130426000000810012"
+                    },
+                    {
+                      "key": "status",
+                      "value": "completed"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The picklist has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6303dede-3096-4adc-a097-ce16ac66f6e8",
+          "name": "Add a Comment to a Picklist",
+          "request": {
+            "name": "Add a Comment to a Picklist",
+            "description": {
+              "content": "Add a comment or note to an existing picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e346381e-8b6e-496e-a8dd-05c8ce49245a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"Items checked and ready for dispatch.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Comment has been added.\",\n  \"comment\": {\n    \"comment_id\": \"130426000000810021\",\n    \"description\": \"Items checked and ready for dispatch.\",\n    \"commented_by\": \"John Doe\",\n    \"date\": \"2024-01-15\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41b1bb2e-527e-45c4-a131-31032e462ad1",
+          "name": "Delete a Comment on a Picklist",
+          "request": {
+            "name": "Delete a Comment on a Picklist",
+            "description": {
+              "content": "Delete a comment from an existing picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id",
+                "comments",
+                ":comment_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "comment_id",
+                  "description": "(Required) Unique identifier of the comment."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e1fd52dc-812a-44ab-a14e-a786944007db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id",
+                    "comments",
+                    ":comment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "comment_id",
+                      "description": "(Required) Unique identifier of the comment."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The picklist has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4cceabba-9c9f-45b2-9614-d4b152ab157a",
+          "name": "Get Advanced Tracking Details for a Picklist",
+          "request": {
+            "name": "Get Advanced Tracking Details for a Picklist",
+            "description": {
+              "content": "Retrieve the serial number and batch tracking details for a picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id",
+                "advancedtrackingdetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a7a20dab-b194-4727-90b4-9fa8bc8f6c87",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id",
+                    "advancedtrackingdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"transaction\": {\n    \"transaction_id\": \"130426000000810001\",\n    \"line_items\": [\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": \"BATCH-001\",\n            \"out_quantity\": 5\n          },\n          {\n            \"batch_number\": \"BATCH-001\",\n            \"out_quantity\": 5\n          }\n        ]\n      },\n      {\n        \"line_item_id\": \"130426000000810011\",\n        \"item_id\": \"130426000000664040\",\n        \"name\": \"Office Chair\",\n        \"serial_numbers\": [\n          \"SN-001\",\n          \"SN-002\"\n        ],\n        \"batches\": [\n          {\n            \"batch_number\": \"BATCH-001\",\n            \"out_quantity\": 5\n          },\n          {\n            \"batch_number\": \"BATCH-001\",\n            \"out_quantity\": 5\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1efb748-ace1-4287-ad6e-ad92e7a30282",
+          "name": "Update Advanced Tracking Details for a Picklist",
+          "request": {
+            "name": "Update Advanced Tracking Details for a Picklist",
+            "description": {
+              "content": "Update serial number and batch tracking details for items in a picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                ":picklist_id",
+                "advancedtrackingdetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "picklist_id",
+                  "description": "(Required) Unique identifier of the picklist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<number>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58e11b59-dc5e-4b08-b0db-9f14fddc8d5f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    ":picklist_id",
+                    "advancedtrackingdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "picklist_id",
+                      "description": "(Required) Unique identifier of the picklist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"line_items\": [\n    {\n      \"line_item_id\": \"130426000000810011\",\n      \"serial_numbers\": [\n        \"SN-001\",\n        \"SN-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5\n        },\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"130426000000810011\",\n      \"serial_numbers\": [\n        \"SN-001\",\n        \"SN-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5\n        },\n        {\n          \"batch_id\": \"130426000000810031\",\n          \"out_quantity\": 5\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The picklist has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51b8a0b0-49b9-4f24-94eb-fabf68adeed4",
+          "name": "Search Sales Order Line Items",
+          "request": {
+            "name": "Search Sales Order Line Items",
+            "description": {
+              "content": "Search for sales order line items that can be added to a picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                "searchsolineitems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_ids_in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of customer IDs to filter by. Maximum 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "salesorder_ids_in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of sales order IDs to filter by. Maximum 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "item_ids_in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of item IDs to filter by. Maximum 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter by location."
+                },
+                {
+                  "disabled": false,
+                  "key": "line_item_location_id",
+                  "value": "<string>",
+                  "description": "Filter by the location associated with the line item."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Column by which the results are sorted."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "da0f37f2-f5a1-4820-90f3-d4aafc46eccc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    "searchsolineitems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "customer_ids_in",
+                      "value": "130426000000664050,130426000000664051"
+                    },
+                    {
+                      "key": "salesorder_ids_in",
+                      "value": "130426000000700001,130426000000700002"
+                    },
+                    {
+                      "key": "item_ids_in",
+                      "value": "130426000000664040,130426000000664041"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "130426000000664030"
+                    },
+                    {
+                      "key": "line_item_location_id",
+                      "value": "130426000000664031"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "salesorder_number"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"so_line_items\": [\n    {\n      \"so_line_item_id\": \"130426000000700011\",\n      \"salesorder_id\": \"130426000000700001\",\n      \"salesorder_number\": \"SO-00001\",\n      \"item_id\": \"130426000000664040\",\n      \"name\": \"Office Chair\",\n      \"customer_id\": \"130426000000664040\",\n      \"customer_name\": \"alan\",\n      \"sku\": \"CHAIR-001\",\n      \"quantity\": 10,\n      \"quantity_picked\": 3,\n      \"quantity_to_be_picked\": 7,\n      \"available_stock_for_picking\": 25,\n      \"unit\": \"pcs\",\n      \"base_unit\": \"pcs\",\n      \"quantity_decimal_place\": 2,\n      \"unit_conversion_id\": \"130426000000900001\",\n      \"conversion_rate\": 1,\n      \"unit_group_id\": \"130426000000900010\",\n      \"description\": \"Ergonomic mesh office chair.\",\n      \"image_name\": \"chair.png\",\n      \"image_type\": \"png\",\n      \"image_document_id\": \"130426000000910001\",\n      \"is_storage_location_enabled\": true,\n      \"location_id\": \"130426000000664030\",\n      \"location_name\": \"New York\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        },\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        }\n      ],\n      \"track_serial_number\": false,\n      \"track_batch_number\": false,\n      \"track_serial_for_package\": false,\n      \"track_batch_for_package\": false\n    },\n    {\n      \"so_line_item_id\": \"130426000000700011\",\n      \"salesorder_id\": \"130426000000700001\",\n      \"salesorder_number\": \"SO-00001\",\n      \"item_id\": \"130426000000664040\",\n      \"name\": \"Office Chair\",\n      \"customer_id\": \"130426000000664040\",\n      \"customer_name\": \"alan\",\n      \"sku\": \"CHAIR-001\",\n      \"quantity\": 10,\n      \"quantity_picked\": 3,\n      \"quantity_to_be_picked\": 7,\n      \"available_stock_for_picking\": 25,\n      \"unit\": \"pcs\",\n      \"base_unit\": \"pcs\",\n      \"quantity_decimal_place\": 2,\n      \"unit_conversion_id\": \"130426000000900001\",\n      \"conversion_rate\": 1,\n      \"unit_group_id\": \"130426000000900010\",\n      \"description\": \"Ergonomic mesh office chair.\",\n      \"image_name\": \"chair.png\",\n      \"image_type\": \"png\",\n      \"image_document_id\": \"130426000000910001\",\n      \"is_storage_location_enabled\": true,\n      \"location_id\": \"130426000000664030\",\n      \"location_name\": \"New York\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        },\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        }\n      ],\n      \"track_serial_number\": false,\n      \"track_batch_number\": false,\n      \"track_serial_for_package\": false,\n      \"track_batch_for_package\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80bb4788-06ce-4afd-842a-ae5f7140fb07",
+          "name": "Search Sales Orders",
+          "request": {
+            "name": "Search Sales Orders",
+            "description": {
+              "content": "Search for sales orders that can be used when creating a picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                "searchso"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_ids_in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of customer IDs to filter by. Maximum 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter by location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "38b05b56-9fc3-4613-a806-e0135dc0b3c0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    "searchso"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "customer_ids_in",
+                      "value": "130426000000664050,130426000000664051"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "130426000000664030"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"salesorders\": [\n    {\n      \"salesorder_id\": \"130426000000700001\",\n      \"salesorder_number\": \"SO-00001\",\n      \"customer_id\": \"130426000000664050\",\n      \"customer_name\": \"Acme Corp\",\n      \"sales_channel\": \"direct_sales\",\n      \"shipment_date\": \"2024-01-20\",\n      \"date\": \"2024-01-15\",\n      \"delivery_method_id\": \"130426000000750001\",\n      \"delivery_method\": \"FedEx\"\n    },\n    {\n      \"salesorder_id\": \"130426000000700001\",\n      \"salesorder_number\": \"SO-00001\",\n      \"customer_id\": \"130426000000664050\",\n      \"customer_name\": \"Acme Corp\",\n      \"sales_channel\": \"direct_sales\",\n      \"shipment_date\": \"2024-01-20\",\n      \"date\": \"2024-01-15\",\n      \"delivery_method_id\": \"130426000000750001\",\n      \"delivery_method\": \"FedEx\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "406275d8-1c2b-4144-acd7-2b1f543c33a6",
+          "name": "Search Purchase Return Line Items",
+          "request": {
+            "name": "Search Purchase Return Line Items",
+            "description": {
+              "content": "Search for purchase return line items that can be added to a picklist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picklists",
+                "searchprlineitems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "vendor_ids_in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of vendor IDs to filter by. Maximum 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchasereturn_ids_in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of purchase return IDs to filter by. Maximum 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "item_ids_in",
+                  "value": "<string>",
+                  "description": "Comma-separated list of item IDs to filter by. Maximum 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter by location."
+                },
+                {
+                  "disabled": false,
+                  "key": "line_item_location_id",
+                  "value": "<string>",
+                  "description": "Filter by the location associated with the line item."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Column by which the results are sorted."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fdbe3f8f-5de5-4f86-8e82-61a5da47a1c4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "picklists",
+                    "searchprlineitems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "vendor_ids_in",
+                      "value": "130426000000664055,130426000000664056"
+                    },
+                    {
+                      "key": "purchasereturn_ids_in",
+                      "value": "130426000000720001,130426000000720002"
+                    },
+                    {
+                      "key": "item_ids_in",
+                      "value": "130426000000664040,130426000000664041"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "130426000000664030"
+                    },
+                    {
+                      "key": "line_item_location_id",
+                      "value": "130426000000664031"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "purchasereturn_number"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"pr_line_items\": [\n    {\n      \"pr_line_item_id\": \"130426000000720011\",\n      \"purchasereturn_id\": \"130426000000720001\",\n      \"purchasereturn_number\": \"PR-00001\",\n      \"item_id\": \"130426000000664040\",\n      \"name\": \"Office Chair\",\n      \"sku\": \"CHAIR-001\",\n      \"quantity\": 5,\n      \"quantity_picked\": 2,\n      \"quantity_to_be_picked\": 3,\n      \"available_stock_for_picking\": 25,\n      \"unit\": \"pcs\",\n      \"base_unit\": \"pcs\",\n      \"quantity_decimal_place\": 2,\n      \"unit_conversion_id\": \"130426000000900001\",\n      \"conversion_rate\": 1,\n      \"unit_group_id\": \"130426000000900010\",\n      \"description\": \"Ergonomic mesh office chair.\",\n      \"image_name\": \"chair.png\",\n      \"image_type\": \"png\",\n      \"image_document_id\": \"130426000000910001\",\n      \"is_storage_location_enabled\": true,\n      \"location_id\": \"130426000000664030\",\n      \"location_name\": \"New York\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        },\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        }\n      ],\n      \"track_serial_number\": false,\n      \"track_batch_number\": false,\n      \"track_serial_for_package\": false,\n      \"track_batch_for_package\": false\n    },\n    {\n      \"pr_line_item_id\": \"130426000000720011\",\n      \"purchasereturn_id\": \"130426000000720001\",\n      \"purchasereturn_number\": \"PR-00001\",\n      \"item_id\": \"130426000000664040\",\n      \"name\": \"Office Chair\",\n      \"sku\": \"CHAIR-001\",\n      \"quantity\": 5,\n      \"quantity_picked\": 2,\n      \"quantity_to_be_picked\": 3,\n      \"available_stock_for_picking\": 25,\n      \"unit\": \"pcs\",\n      \"base_unit\": \"pcs\",\n      \"quantity_decimal_place\": 2,\n      \"unit_conversion_id\": \"130426000000900001\",\n      \"conversion_rate\": 1,\n      \"unit_group_id\": \"130426000000900010\",\n      \"description\": \"Ergonomic mesh office chair.\",\n      \"image_name\": \"chair.png\",\n      \"image_type\": \"png\",\n      \"image_document_id\": \"130426000000910001\",\n      \"is_storage_location_enabled\": true,\n      \"location_id\": \"130426000000664030\",\n      \"location_name\": \"New York\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        },\n        {\n          \"label\": \"Color\",\n          \"value\": \"Black\"\n        }\n      ],\n      \"track_serial_number\": false,\n      \"track_batch_number\": false,\n      \"track_serial_for_package\": false,\n      \"track_batch_for_package\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "10caa14d-ffbd-484c-9b17-8f05242ac7fb",
+    "name": "batches picklists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

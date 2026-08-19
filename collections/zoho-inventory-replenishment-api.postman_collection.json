@@ -1,0 +1,2607 @@
+{
+  "item": [
+    {
+      "id": "38c2a6d8-9045-4834-abae-08b12f227d23",
+      "name": "replenishment",
+      "description": {
+        "content": "Replenishment Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9e0398a2-8c48-40e1-a16c-27098dd68713",
+          "name": "Retrieve replenishment configurations for associated locations",
+          "request": {
+            "name": "Retrieve replenishment configurations for associated locations",
+            "description": {
+              "content": "Fetches the replenishment configurations of the associated locations for an item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                ":item_id",
+                "locations",
+                "replenishments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item_id",
+                  "description": "(Required) Unique identifier of the item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5ed439cc-5462-4828-86cf-5bc59598fcf0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":item_id",
+                    "locations",
+                    "replenishments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) Unique identifier of the item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment details fetched successfully.\",\n  \"replenishment_configurations\": {\n    \"item_id\": \"string\",\n    \"name\": \"HDMI Cable\",\n    \"sku\": \"HDMI-001\",\n    \"vendor_id\": \"string\",\n    \"vendor_name\": \"Zylker Supplies\",\n    \"locations\": [\n      {\n        \"location_id\": \"string\",\n        \"location_name\": \"New York\",\n        \"replenishment_configuration\": {\n          \"replenishment_configuration_id\": \"string\",\n          \"item_id\": \"string\",\n          \"item_name\": \"HDMI Cable\",\n          \"unit\": \"pcs\",\n          \"item_status\": \"active\",\n          \"location_id\": \"string\",\n          \"location_name\": \"New York\",\n          \"location_status\": \"active\",\n          \"status\": \"active\",\n          \"pause_till_date\": \"2026-05-01\",\n          \"type\": \"auto\",\n          \"order_type\": \"purchase_order\",\n          \"trigger\": \"daily\",\n          \"trigger_frequency\": \"1\",\n          \"trigger_frequency_period\": \"day\",\n          \"reorder_level\": 10,\n          \"max_stock_level\": 50,\n          \"order_multiple\": 5,\n          \"max_order_quantity\": 200,\n          \"min_order_quantity\": 1,\n          \"preferred_vendor_id\": \"string\",\n          \"preferred_vendor_name\": \"Zylker Supplies\",\n          \"preferred_vendor_status\": \"active\",\n          \"preferred_location_id\": \"string\",\n          \"preferred_location_name\": \"Los Angeles\",\n          \"preferred_location_status\": \"active\"\n        }\n      },\n      {\n        \"location_id\": \"string\",\n        \"location_name\": \"New York\",\n        \"replenishment_configuration\": {\n          \"replenishment_configuration_id\": \"string\",\n          \"item_id\": \"string\",\n          \"item_name\": \"HDMI Cable\",\n          \"unit\": \"pcs\",\n          \"item_status\": \"active\",\n          \"location_id\": \"string\",\n          \"location_name\": \"New York\",\n          \"location_status\": \"active\",\n          \"status\": \"active\",\n          \"pause_till_date\": \"2026-05-01\",\n          \"type\": \"auto\",\n          \"order_type\": \"purchase_order\",\n          \"trigger\": \"daily\",\n          \"trigger_frequency\": \"1\",\n          \"trigger_frequency_period\": \"day\",\n          \"reorder_level\": 10,\n          \"max_stock_level\": 50,\n          \"order_multiple\": 5,\n          \"max_order_quantity\": 200,\n          \"min_order_quantity\": 1,\n          \"preferred_vendor_id\": \"string\",\n          \"preferred_vendor_name\": \"Zylker Supplies\",\n          \"preferred_vendor_status\": \"active\",\n          \"preferred_location_id\": \"string\",\n          \"preferred_location_name\": \"Los Angeles\",\n          \"preferred_location_status\": \"active\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef915f0f-b0be-4db9-ab4c-de67683863cb",
+          "name": "Retrieve replenishment configurations for associated warehouses",
+          "request": {
+            "name": "Retrieve replenishment configurations for associated warehouses",
+            "description": {
+              "content": "Fetches the replenishment configurations of the associated warehouses for an item. Applicable only when multi-warehouse is enabled for the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                ":item_id",
+                "warehouses",
+                "replenishments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item_id",
+                  "description": "(Required) Unique identifier of the item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1ab25705-9494-4696-90c7-685f86e4488f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":item_id",
+                    "warehouses",
+                    "replenishments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item_id",
+                      "description": "(Required) Unique identifier of the item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment details fetched successfully.\",\n  \"replenishment_configurations\": {\n    \"item_id\": \"string\",\n    \"name\": \"HDMI Cable\",\n    \"sku\": \"HDMI-001\",\n    \"vendor_id\": \"string\",\n    \"vendor_name\": \"Zylker Supplies\",\n    \"locations\": [\n      {\n        \"location_id\": \"string\",\n        \"location_name\": \"New York\",\n        \"replenishment_configuration\": {\n          \"replenishment_configuration_id\": \"string\",\n          \"item_id\": \"string\",\n          \"item_name\": \"HDMI Cable\",\n          \"unit\": \"pcs\",\n          \"item_status\": \"active\",\n          \"location_id\": \"string\",\n          \"location_name\": \"New York\",\n          \"location_status\": \"active\",\n          \"status\": \"active\",\n          \"pause_till_date\": \"2026-05-01\",\n          \"type\": \"auto\",\n          \"order_type\": \"purchase_order\",\n          \"trigger\": \"daily\",\n          \"trigger_frequency\": \"1\",\n          \"trigger_frequency_period\": \"day\",\n          \"reorder_level\": 10,\n          \"max_stock_level\": 50,\n          \"order_multiple\": 5,\n          \"max_order_quantity\": 200,\n          \"min_order_quantity\": 1,\n          \"preferred_vendor_id\": \"string\",\n          \"preferred_vendor_name\": \"Zylker Supplies\",\n          \"preferred_vendor_status\": \"active\",\n          \"preferred_location_id\": \"string\",\n          \"preferred_location_name\": \"Los Angeles\",\n          \"preferred_location_status\": \"active\"\n        }\n      },\n      {\n        \"location_id\": \"string\",\n        \"location_name\": \"New York\",\n        \"replenishment_configuration\": {\n          \"replenishment_configuration_id\": \"string\",\n          \"item_id\": \"string\",\n          \"item_name\": \"HDMI Cable\",\n          \"unit\": \"pcs\",\n          \"item_status\": \"active\",\n          \"location_id\": \"string\",\n          \"location_name\": \"New York\",\n          \"location_status\": \"active\",\n          \"status\": \"active\",\n          \"pause_till_date\": \"2026-05-01\",\n          \"type\": \"auto\",\n          \"order_type\": \"purchase_order\",\n          \"trigger\": \"daily\",\n          \"trigger_frequency\": \"1\",\n          \"trigger_frequency_period\": \"day\",\n          \"reorder_level\": 10,\n          \"max_stock_level\": 50,\n          \"order_multiple\": 5,\n          \"max_order_quantity\": 200,\n          \"min_order_quantity\": 1,\n          \"preferred_vendor_id\": \"string\",\n          \"preferred_vendor_name\": \"Zylker Supplies\",\n          \"preferred_vendor_status\": \"active\",\n          \"preferred_location_id\": \"string\",\n          \"preferred_location_name\": \"Los Angeles\",\n          \"preferred_location_status\": \"active\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f20a047-3789-4acf-ba8f-dba90ba146df",
+          "name": "Retrieve a replenishment configuration",
+          "request": {
+            "name": "Retrieve a replenishment configuration",
+            "description": {
+              "content": "Fetches the details of a replenishment configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                ":replenishment_configuration_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "replenishment_configuration_id",
+                  "description": "(Required) Unique identifier of the replenishment configuration."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "64718eb4-eb0c-4839-9024-f005deb9d7c8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    ":replenishment_configuration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "replenishment_configuration_id",
+                      "description": "(Required) Unique identifier of the replenishment configuration."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment details fetched successfully.\",\n  \"replenishment_configuration\": {\n    \"replenishment_configuration_id\": \"string\",\n    \"item_id\": \"string\",\n    \"item_name\": \"HDMI Cable\",\n    \"unit\": \"pcs\",\n    \"item_status\": \"active\",\n    \"location_id\": \"string\",\n    \"location_name\": \"New York\",\n    \"location_status\": \"active\",\n    \"status\": \"active\",\n    \"pause_till_date\": \"2026-05-01\",\n    \"type\": \"auto\",\n    \"order_type\": \"purchase_order\",\n    \"trigger\": \"daily\",\n    \"trigger_frequency\": \"1\",\n    \"trigger_frequency_period\": \"day\",\n    \"reorder_level\": 10,\n    \"max_stock_level\": 50,\n    \"order_multiple\": 5,\n    \"max_order_quantity\": 200,\n    \"min_order_quantity\": 1,\n    \"preferred_vendor_id\": \"string\",\n    \"preferred_vendor_name\": \"Zylker Supplies\",\n    \"preferred_vendor_status\": \"active\",\n    \"preferred_location_id\": \"string\",\n    \"preferred_location_name\": \"Los Angeles\",\n    \"preferred_location_status\": \"active\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04c75438-69ab-42b8-bdf6-3c4f496b06f7",
+          "name": "Update a replenishment configuration",
+          "request": {
+            "name": "Update a replenishment configuration",
+            "description": {
+              "content": "Updates an existing replenishment configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                ":replenishment_configuration_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "replenishment_configuration_id",
+                  "description": "(Required) Unique identifier of the replenishment configuration."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5cedbd4-dfa1-4002-ab80-fc4fc8e02b42",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    ":replenishment_configuration_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "replenishment_configuration_id",
+                      "description": "(Required) Unique identifier of the replenishment configuration."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"replenishment_configuration_id\": \"<string>\",\n  \"item_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"warehouse_id\": \"<string>\",\n  \"status\": \"active\",\n  \"type\": \"auto\",\n  \"order_type\": \"purchase_order\",\n  \"trigger\": \"daily\",\n  \"trigger_frequency\": \"1\",\n  \"reorder_level\": 10,\n  \"max_stock_level\": 50,\n  \"order_multiple\": 5,\n  \"max_order_quantity\": 200,\n  \"min_order_quantity\": 1,\n  \"preferred_vendor_id\": \"<string>\",\n  \"preferred_location_id\": \"<string>\",\n  \"preferred_warehouse_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment configuration updated.\",\n  \"replenishment_configuration\": {\n    \"replenishment_configuration_id\": \"string\",\n    \"item_id\": \"string\",\n    \"item_name\": \"HDMI Cable\",\n    \"unit\": \"pcs\",\n    \"item_status\": \"active\",\n    \"location_id\": \"string\",\n    \"location_name\": \"New York\",\n    \"location_status\": \"active\",\n    \"status\": \"active\",\n    \"pause_till_date\": \"2026-05-01\",\n    \"type\": \"auto\",\n    \"order_type\": \"purchase_order\",\n    \"trigger\": \"daily\",\n    \"trigger_frequency\": \"1\",\n    \"trigger_frequency_period\": \"day\",\n    \"reorder_level\": 10,\n    \"max_stock_level\": 50,\n    \"order_multiple\": 5,\n    \"max_order_quantity\": 200,\n    \"min_order_quantity\": 1,\n    \"preferred_vendor_id\": \"string\",\n    \"preferred_vendor_name\": \"Zylker Supplies\",\n    \"preferred_vendor_status\": \"active\",\n    \"preferred_location_id\": \"string\",\n    \"preferred_location_name\": \"Los Angeles\",\n    \"preferred_location_status\": \"active\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3df5725d-bec2-4570-894f-6a745a24589e",
+          "name": "Create a replenishment configuration",
+          "request": {
+            "name": "Create a replenishment configuration",
+            "description": {
+              "content": "Creates a replenishment configuration for an item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"replenishment_configuration_id\": \"<string>\",\n  \"item_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"warehouse_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"order_type\": \"<string>\",\n  \"trigger\": \"<string>\",\n  \"trigger_frequency\": \"<string>\",\n  \"reorder_level\": \"<double>\",\n  \"max_stock_level\": \"<double>\",\n  \"order_multiple\": \"<double>\",\n  \"max_order_quantity\": \"<double>\",\n  \"min_order_quantity\": \"<double>\",\n  \"preferred_vendor_id\": \"<string>\",\n  \"preferred_location_id\": \"<string>\",\n  \"preferred_warehouse_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab2ef7d2-1619-4360-b142-bf09cb77456b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"replenishment_configuration_id\": \"<string>\",\n  \"item_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"warehouse_id\": \"<string>\",\n  \"status\": \"active\",\n  \"type\": \"auto\",\n  \"order_type\": \"purchase_order\",\n  \"trigger\": \"daily\",\n  \"trigger_frequency\": \"1\",\n  \"reorder_level\": 10,\n  \"max_stock_level\": 50,\n  \"order_multiple\": 5,\n  \"max_order_quantity\": 200,\n  \"min_order_quantity\": 1,\n  \"preferred_vendor_id\": \"<string>\",\n  \"preferred_location_id\": \"<string>\",\n  \"preferred_warehouse_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment configuration created.\",\n  \"replenishment_configuration\": {\n    \"replenishment_configuration_id\": \"string\",\n    \"item_id\": \"string\",\n    \"item_name\": \"HDMI Cable\",\n    \"unit\": \"pcs\",\n    \"item_status\": \"active\",\n    \"location_id\": \"string\",\n    \"location_name\": \"New York\",\n    \"location_status\": \"active\",\n    \"status\": \"active\",\n    \"pause_till_date\": \"2026-05-01\",\n    \"type\": \"auto\",\n    \"order_type\": \"purchase_order\",\n    \"trigger\": \"daily\",\n    \"trigger_frequency\": \"1\",\n    \"trigger_frequency_period\": \"day\",\n    \"reorder_level\": 10,\n    \"max_stock_level\": 50,\n    \"order_multiple\": 5,\n    \"max_order_quantity\": 200,\n    \"min_order_quantity\": 1,\n    \"preferred_vendor_id\": \"string\",\n    \"preferred_vendor_name\": \"Zylker Supplies\",\n    \"preferred_vendor_status\": \"active\",\n    \"preferred_location_id\": \"string\",\n    \"preferred_location_name\": \"Los Angeles\",\n    \"preferred_location_status\": \"active\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22ee660f-f935-4d30-b6e2-0ee650064f7c",
+          "name": "Bulk update replenishment configurations",
+          "request": {
+            "name": "Bulk update replenishment configurations",
+            "description": {
+              "content": "Updates replenishment configurations for the specified item and location combinations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_ids",
+                  "value": "<string>",
+                  "description": "(Required) <code>List of item ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "<code>List of location ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"replenishment_configurations\": [\n    {\n      \"replenishment_configuration_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"warehouse_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"order_type\": \"<string>\",\n      \"trigger\": \"<string>\",\n      \"trigger_frequency\": \"<string>\",\n      \"reorder_level\": \"<double>\",\n      \"max_stock_level\": \"<double>\",\n      \"order_multiple\": \"<double>\",\n      \"max_order_quantity\": \"<double>\",\n      \"min_order_quantity\": \"<double>\",\n      \"preferred_vendor_id\": \"<string>\",\n      \"preferred_location_id\": \"<string>\",\n      \"preferred_warehouse_id\": \"<string>\"\n    },\n    {\n      \"replenishment_configuration_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"warehouse_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"order_type\": \"<string>\",\n      \"trigger\": \"<string>\",\n      \"trigger_frequency\": \"<string>\",\n      \"reorder_level\": \"<double>\",\n      \"max_stock_level\": \"<double>\",\n      \"order_multiple\": \"<double>\",\n      \"max_order_quantity\": \"<double>\",\n      \"min_order_quantity\": \"<double>\",\n      \"preferred_vendor_id\": \"<string>\",\n      \"preferred_location_id\": \"<string>\",\n      \"preferred_warehouse_id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "785de090-5dda-4897-9504-4a234f1b6d56",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_ids",
+                      "value": "4815000000044208,4815000000044274"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "4815000000033001,4815000000033002"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"replenishment_configurations\": [\n    {\n      \"replenishment_configuration_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"warehouse_id\": \"<string>\",\n      \"status\": \"active\",\n      \"type\": \"auto\",\n      \"order_type\": \"purchase_order\",\n      \"trigger\": \"daily\",\n      \"trigger_frequency\": \"1\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"preferred_vendor_id\": \"<string>\",\n      \"preferred_location_id\": \"<string>\",\n      \"preferred_warehouse_id\": \"<string>\"\n    },\n    {\n      \"replenishment_configuration_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"warehouse_id\": \"<string>\",\n      \"status\": \"active\",\n      \"type\": \"auto\",\n      \"order_type\": \"purchase_order\",\n      \"trigger\": \"daily\",\n      \"trigger_frequency\": \"1\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"preferred_vendor_id\": \"<string>\",\n      \"preferred_location_id\": \"<string>\",\n      \"preferred_warehouse_id\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"replenishment_configurations\": [\n    {\n      \"replenishment_configuration_id\": \"string\",\n      \"item_id\": \"string\",\n      \"item_name\": \"HDMI Cable\",\n      \"unit\": \"pcs\",\n      \"item_status\": \"active\",\n      \"location_id\": \"string\",\n      \"location_name\": \"New York\",\n      \"location_status\": \"active\",\n      \"status\": \"active\",\n      \"pause_till_date\": \"2026-05-01\",\n      \"type\": \"auto\",\n      \"order_type\": \"purchase_order\",\n      \"trigger\": \"daily\",\n      \"trigger_frequency\": \"1\",\n      \"trigger_frequency_period\": \"day\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"preferred_vendor_id\": \"string\",\n      \"preferred_vendor_name\": \"Zylker Supplies\",\n      \"preferred_vendor_status\": \"active\",\n      \"preferred_location_id\": \"string\",\n      \"preferred_location_name\": \"Los Angeles\",\n      \"preferred_location_status\": \"active\"\n    },\n    {\n      \"replenishment_configuration_id\": \"string\",\n      \"item_id\": \"string\",\n      \"item_name\": \"HDMI Cable\",\n      \"unit\": \"pcs\",\n      \"item_status\": \"active\",\n      \"location_id\": \"string\",\n      \"location_name\": \"New York\",\n      \"location_status\": \"active\",\n      \"status\": \"active\",\n      \"pause_till_date\": \"2026-05-01\",\n      \"type\": \"auto\",\n      \"order_type\": \"purchase_order\",\n      \"trigger\": \"daily\",\n      \"trigger_frequency\": \"1\",\n      \"trigger_frequency_period\": \"day\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"preferred_vendor_id\": \"string\",\n      \"preferred_vendor_name\": \"Zylker Supplies\",\n      \"preferred_vendor_status\": \"active\",\n      \"preferred_location_id\": \"string\",\n      \"preferred_location_name\": \"Los Angeles\",\n      \"preferred_location_status\": \"active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6c2394d-14ae-4da2-8488-0d9948fb120e",
+          "name": "List all replenishment tasks",
+          "request": {
+            "name": "List all replenishment tasks",
+            "description": {
+              "content": "Lists replenishment tasks in your organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_ids",
+                  "value": "<string>",
+                  "description": "<code>List of item ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "<code>List of location ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "vendor_ids",
+                  "value": "<string>",
+                  "description": "<code>List of vendor ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_location_ids",
+                  "value": "<string>",
+                  "description": "<code>List of source location ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_type",
+                  "value": "<string>",
+                  "description": "Order type."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter tasks by status. Allowed values: <code>Status.All</code>, <code>Status.Pending</code>, <code>Status.Replenished</code>, <code>Status.Completed</code>, and <code>Status.Dismissed</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Sort tasks based on the following columns: <code>item_name</code>, <code>sku</code>, <code>entry_number</code>, and <code>created_time</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "D",
+                  "description": "Sort order of the tasks. Allowed values: <code>A</code> and <code>D</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9cb536b5-9bbd-49dc-9e4e-71245443efc3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_ids",
+                      "value": "4815000000044208,4815000000044274"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "4815000000033001,4815000000033002"
+                    },
+                    {
+                      "key": "vendor_ids",
+                      "value": "4815000000009901,4815000000009902"
+                    },
+                    {
+                      "key": "from_location_ids",
+                      "value": "4815000000034001,4815000000034002"
+                    },
+                    {
+                      "key": "order_type",
+                      "value": "purchase_order"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": "Status.Pending"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "D"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"replenishment_tasks\": [\n    {\n      \"replenishment_task_id\": \"string\",\n      \"entry_number\": \"RT-00001\",\n      \"item_id\": \"string\",\n      \"item_name\": \"HDMI Cable\",\n      \"item_status\": \"active\",\n      \"unit\": \"pcs\",\n      \"location_id\": \"string\",\n      \"location_name\": \"New York\",\n      \"location_status\": \"active\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"stock_available_for_sale\": 12,\n      \"stock_yet_to_be_received\": 0,\n      \"stock_in_transit\": 0,\n      \"total_available_stock\": 12,\n      \"quantity_to_replenish\": 38,\n      \"task_status\": \"pending\",\n      \"sku\": \"HDMI-001\",\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"order_type\": \"purchase_order\",\n      \"preferred_vendor_id\": \"string\",\n      \"preferred_vendor_name\": \"Zylker Supplies\",\n      \"preferred_vendor_status\": \"active\",\n      \"source_location_id\": \"string\",\n      \"source_location_name\": \"Los Angeles\",\n      \"source_location_status\": \"active\",\n      \"source_warehouse_id\": \"string\",\n      \"source_warehouse_name\": \"Los Angeles Warehouse\",\n      \"source_warehouse_status\": \"active\",\n      \"current_stock_available_for_sale\": 12,\n      \"current_stock_yet_to_be_received\": 0,\n      \"current_stock_in_transit\": 0,\n      \"stock_from_draft_replenishment_purchase_orders\": 0,\n      \"stock_from_draft_replenishment_transfer_orders\": 0,\n      \"is_stock_updated\": true\n    },\n    {\n      \"replenishment_task_id\": \"string\",\n      \"entry_number\": \"RT-00001\",\n      \"item_id\": \"string\",\n      \"item_name\": \"HDMI Cable\",\n      \"item_status\": \"active\",\n      \"unit\": \"pcs\",\n      \"location_id\": \"string\",\n      \"location_name\": \"New York\",\n      \"location_status\": \"active\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"stock_available_for_sale\": 12,\n      \"stock_yet_to_be_received\": 0,\n      \"stock_in_transit\": 0,\n      \"total_available_stock\": 12,\n      \"quantity_to_replenish\": 38,\n      \"task_status\": \"pending\",\n      \"sku\": \"HDMI-001\",\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"order_type\": \"purchase_order\",\n      \"preferred_vendor_id\": \"string\",\n      \"preferred_vendor_name\": \"Zylker Supplies\",\n      \"preferred_vendor_status\": \"active\",\n      \"source_location_id\": \"string\",\n      \"source_location_name\": \"Los Angeles\",\n      \"source_location_status\": \"active\",\n      \"source_warehouse_id\": \"string\",\n      \"source_warehouse_name\": \"Los Angeles Warehouse\",\n      \"source_warehouse_status\": \"active\",\n      \"current_stock_available_for_sale\": 12,\n      \"current_stock_yet_to_be_received\": 0,\n      \"current_stock_in_transit\": 0,\n      \"stock_from_draft_replenishment_purchase_orders\": 0,\n      \"stock_from_draft_replenishment_transfer_orders\": 0,\n      \"is_stock_updated\": true\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 200,\n    \"has_more_page\": false,\n    \"report_name\": \"Replenishment Tasks\",\n    \"applied_filter\": \"Status.Pending\",\n    \"sort_column\": \"created_time\",\n    \"sort_order\": \"D\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcc36918-cdab-4a87-ba63-824cc302ca7b",
+          "name": "Retrieve a replenishment task",
+          "request": {
+            "name": "Retrieve a replenishment task",
+            "description": {
+              "content": "Fetches the details of a replenishment task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "tasks",
+                ":task_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "task_id",
+                  "description": "(Required) Unique identifier of the replenishment task."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b12bc6f8-de92-4ef9-a01f-971e6ff0a571",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "tasks",
+                    ":task_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "task_id",
+                      "description": "(Required) Unique identifier of the replenishment task."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"task_details\": {\n    \"replenishment_task_id\": \"string\",\n    \"entry_number\": \"RT-00001\",\n    \"item_id\": \"string\",\n    \"item_name\": \"HDMI Cable\",\n    \"sku\": \"HDMI-001\",\n    \"item_status\": \"active\",\n    \"unit\": \"pcs\",\n    \"location_id\": \"string\",\n    \"location_name\": \"New York\",\n    \"location_status\": \"active\",\n    \"status\": \"pending\",\n    \"order_type\": \"purchase_order\",\n    \"reorder_level\": 10,\n    \"max_stock_level\": 50,\n    \"order_multiple\": 5,\n    \"max_order_quantity\": 200,\n    \"min_order_quantity\": 1,\n    \"preferred_vendor_id\": \"string\",\n    \"preferred_vendor_name\": \"Zylker Supplies\",\n    \"preferred_vendor_status\": \"active\",\n    \"preferred_location_id\": \"string\",\n    \"preferred_location_name\": \"Los Angeles\",\n    \"preferred_location_status\": \"active\",\n    \"stock_available_for_sale\": 12,\n    \"quantity_to_replenish\": 38,\n    \"date\": \"2026-04-20\",\n    \"date_with_time\": \"2026-04-20T10:30:00Z\",\n    \"comments\": [\n      {\n        \"comment_id\": \"string\",\n        \"description\": \"Replenishment task created.\",\n        \"commented_by_id\": \"string\",\n        \"commented_by\": \"Patricia Boyle\",\n        \"comment_type\": \"system\",\n        \"date\": \"2026-04-20\",\n        \"date_with_time\": \"2026-04-20T10:30:00Z\",\n        \"date_description\": \"10:30 AM\",\n        \"time\": \"10:30 AM\",\n        \"operation_type\": \"create\"\n      },\n      {\n        \"comment_id\": \"string\",\n        \"description\": \"Replenishment task created.\",\n        \"commented_by_id\": \"string\",\n        \"commented_by\": \"Patricia Boyle\",\n        \"comment_type\": \"system\",\n        \"date\": \"2026-04-20\",\n        \"date_with_time\": \"2026-04-20T10:30:00Z\",\n        \"date_description\": \"10:30 AM\",\n        \"time\": \"10:30 AM\",\n        \"operation_type\": \"create\"\n      }\n    ],\n    \"purchase_orders\": [\n      {\n        \"purchase_order_id\": \"string\",\n        \"purchase_order_number\": \"PO-00001\",\n        \"date\": \"2026-04-20\",\n        \"vendor_name\": \"Zylker Supplies\",\n        \"order_status\": \"draft\"\n      },\n      {\n        \"purchase_order_id\": \"string\",\n        \"purchase_order_number\": \"PO-00001\",\n        \"date\": \"2026-04-20\",\n        \"vendor_name\": \"Zylker Supplies\",\n        \"order_status\": \"draft\"\n      }\n    ],\n    \"transfer_orders\": [\n      {\n        \"transfer_order_id\": \"string\",\n        \"transfer_order_number\": \"TO-00001\",\n        \"date\": \"2026-04-20\",\n        \"to_location_name\": \"New York\",\n        \"from_location_name\": \"Los Angeles\",\n        \"status\": \"draft\"\n      },\n      {\n        \"transfer_order_id\": \"string\",\n        \"transfer_order_number\": \"TO-00001\",\n        \"date\": \"2026-04-20\",\n        \"to_location_name\": \"New York\",\n        \"from_location_name\": \"Los Angeles\",\n        \"status\": \"draft\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e246f617-13a8-4545-9b20-63822797b827",
+          "name": "Dismiss a replenishment task",
+          "request": {
+            "name": "Dismiss a replenishment task",
+            "description": {
+              "content": "Dismisses a replenishment task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "tasks",
+                ":task_id",
+                "dismiss"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "task_id",
+                  "description": "(Required) Unique identifier of the replenishment task."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "78b4e1a5-7efb-4f7b-b380-9f2bbaa328e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "tasks",
+                    ":task_id",
+                    "dismiss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "task_id",
+                      "description": "(Required) Unique identifier of the replenishment task."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment tasks dismissed successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "553b26aa-3305-4690-a2b6-6b022658dd37",
+          "name": "Retrieve replenishment task details for an item",
+          "request": {
+            "name": "Retrieve replenishment task details for an item",
+            "description": {
+              "content": "Fetches the replenishment task details for the specified item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "tasks",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_id",
+                  "value": "<string>",
+                  "description": "(Required) Unique identifier of the item."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c4a7c694-d9a7-422c-a06c-b27a379fbc73",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "tasks",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"task_details\": {\n    \"replenishment_task_id\": \"string\",\n    \"entry_number\": \"RT-00001\",\n    \"item_id\": \"string\",\n    \"item_name\": \"HDMI Cable\",\n    \"sku\": \"HDMI-001\",\n    \"item_status\": \"active\",\n    \"unit\": \"pcs\",\n    \"location_id\": \"string\",\n    \"location_name\": \"New York\",\n    \"location_status\": \"active\",\n    \"status\": \"pending\",\n    \"order_type\": \"purchase_order\",\n    \"reorder_level\": 10,\n    \"max_stock_level\": 50,\n    \"order_multiple\": 5,\n    \"max_order_quantity\": 200,\n    \"min_order_quantity\": 1,\n    \"preferred_vendor_id\": \"string\",\n    \"preferred_vendor_name\": \"Zylker Supplies\",\n    \"preferred_vendor_status\": \"active\",\n    \"preferred_location_id\": \"string\",\n    \"preferred_location_name\": \"Los Angeles\",\n    \"preferred_location_status\": \"active\",\n    \"stock_available_for_sale\": 12,\n    \"quantity_to_replenish\": 38,\n    \"date\": \"2026-04-20\",\n    \"date_with_time\": \"2026-04-20T10:30:00Z\",\n    \"comments\": [\n      {\n        \"comment_id\": \"string\",\n        \"description\": \"Replenishment task created.\",\n        \"commented_by_id\": \"string\",\n        \"commented_by\": \"Patricia Boyle\",\n        \"comment_type\": \"system\",\n        \"date\": \"2026-04-20\",\n        \"date_with_time\": \"2026-04-20T10:30:00Z\",\n        \"date_description\": \"10:30 AM\",\n        \"time\": \"10:30 AM\",\n        \"operation_type\": \"create\"\n      },\n      {\n        \"comment_id\": \"string\",\n        \"description\": \"Replenishment task created.\",\n        \"commented_by_id\": \"string\",\n        \"commented_by\": \"Patricia Boyle\",\n        \"comment_type\": \"system\",\n        \"date\": \"2026-04-20\",\n        \"date_with_time\": \"2026-04-20T10:30:00Z\",\n        \"date_description\": \"10:30 AM\",\n        \"time\": \"10:30 AM\",\n        \"operation_type\": \"create\"\n      }\n    ],\n    \"purchase_orders\": [\n      {\n        \"purchase_order_id\": \"string\",\n        \"purchase_order_number\": \"PO-00001\",\n        \"date\": \"2026-04-20\",\n        \"vendor_name\": \"Zylker Supplies\",\n        \"order_status\": \"draft\"\n      },\n      {\n        \"purchase_order_id\": \"string\",\n        \"purchase_order_number\": \"PO-00001\",\n        \"date\": \"2026-04-20\",\n        \"vendor_name\": \"Zylker Supplies\",\n        \"order_status\": \"draft\"\n      }\n    ],\n    \"transfer_orders\": [\n      {\n        \"transfer_order_id\": \"string\",\n        \"transfer_order_number\": \"TO-00001\",\n        \"date\": \"2026-04-20\",\n        \"to_location_name\": \"New York\",\n        \"from_location_name\": \"Los Angeles\",\n        \"status\": \"draft\"\n      },\n      {\n        \"transfer_order_id\": \"string\",\n        \"transfer_order_number\": \"TO-00001\",\n        \"date\": \"2026-04-20\",\n        \"to_location_name\": \"New York\",\n        \"from_location_name\": \"Los Angeles\",\n        \"status\": \"draft\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8eb3c15-afd5-472e-aab0-e91cb592ea86",
+          "name": "Retrieve replenishment order details",
+          "request": {
+            "name": "Retrieve replenishment order details",
+            "description": {
+              "content": "Fetches the order details for a replenishment configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "replenishment_configuration_id",
+                  "value": "<string>",
+                  "description": "(Required) Unique identifier of the replenishment configuration."
+                },
+                {
+                  "disabled": false,
+                  "key": "order_type",
+                  "value": "<string>",
+                  "description": "(Required) Order type."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "676d44f9-9e97-45c3-9b8c-d232a7ac7049",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "replenishment_configuration_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_type",
+                      "value": "purchase_order"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment order details fetched successfully.\",\n  \"replenishment_order_details\": [\n    {\n      \"order_id\": \"string\",\n      \"order_number\": \"PO-00001\",\n      \"order_date\": \"2026-04-20\",\n      \"order_status\": \"draft\",\n      \"order_type\": \"purchase_order\"\n    },\n    {\n      \"order_id\": \"string\",\n      \"order_number\": \"PO-00001\",\n      \"order_date\": \"2026-04-20\",\n      \"order_status\": \"draft\",\n      \"order_type\": \"purchase_order\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a2a02ed-a757-472e-926c-52559e928028",
+          "name": "Pause a replenishment configuration",
+          "request": {
+            "name": "Pause a replenishment configuration",
+            "description": {
+              "content": "Pauses a replenishment configuration until the specified date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                ":replenishment_configuration_id",
+                "pause"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pause_till_date",
+                  "value": "<date>",
+                  "description": "Date until which the replenishment configuration is paused."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "replenishment_configuration_id",
+                  "description": "(Required) Unique identifier of the replenishment configuration."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9fc035a9-ce38-4d17-a81b-10be1771d75d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    ":replenishment_configuration_id",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pause_till_date",
+                      "value": "2026-05-01"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "replenishment_configuration_id",
+                      "description": "(Required) Unique identifier of the replenishment configuration."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment paused successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01dcd56b-277e-409d-867f-e0a56a45ae36",
+          "name": "Bulk pause replenishment configurations",
+          "request": {
+            "name": "Bulk pause replenishment configurations",
+            "description": {
+              "content": "Pauses replenishment configurations for the specified item and location combinations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "pause"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_ids",
+                  "value": "<string>",
+                  "description": "(Required) <code>List of item ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "<code>List of location ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pause_till_date",
+                  "value": "<date>",
+                  "description": "Date until which the replenishment configurations are paused."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "29560231-5910-4eaa-953f-e35aae391bb9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "pause"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_ids",
+                      "value": "4815000000044208,4815000000044274"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "4815000000033001,4815000000033002"
+                    },
+                    {
+                      "key": "pause_till_date",
+                      "value": "2026-05-01"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment paused successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdb39dc2-1eb7-49a5-b6ef-4ef905174742",
+          "name": "Resume a replenishment configuration",
+          "request": {
+            "name": "Resume a replenishment configuration",
+            "description": {
+              "content": "Resumes a paused replenishment configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                ":replenishment_configuration_id",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "replenishment_configuration_id",
+                  "description": "(Required) Unique identifier of the replenishment configuration."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf4c8a75-de41-41e2-835f-98d33e7a8446",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    ":replenishment_configuration_id",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "replenishment_configuration_id",
+                      "description": "(Required) Unique identifier of the replenishment configuration."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment resumed successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cb6e6d6-a504-4cbb-ab3e-a5e6a5f1487d",
+          "name": "Bulk resume replenishment configurations",
+          "request": {
+            "name": "Bulk resume replenishment configurations",
+            "description": {
+              "content": "Resumes paused replenishment configurations for the specified item and location combinations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_ids",
+                  "value": "<string>",
+                  "description": "(Required) <code>List of item ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "<code>List of location ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "40a68c82-cc43-430e-90d8-c1178fdc0d1c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_ids",
+                      "value": "4815000000044208,4815000000044274"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "4815000000033001,4815000000033002"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment resumed successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bce249e1-20c0-4b1f-a826-96927cadd92a",
+          "name": "Bulk dismiss replenishment tasks",
+          "request": {
+            "name": "Bulk dismiss replenishment tasks",
+            "description": {
+              "content": "Dismisses the specified replenishment tasks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "tasks",
+                "dismiss"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "replenishment_task_ids",
+                  "value": "<string>",
+                  "description": "(Required) <code>List of replenishment task ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4d57c4e3-f505-498d-94bb-24268d87fc84",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "tasks",
+                    "dismiss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "replenishment_task_ids",
+                      "value": "4815000000099001,4815000000099002"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment tasks dismissed successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "249214d1-f660-4ab7-ba7a-94c10927f196",
+          "name": "Generate a replenishment task",
+          "request": {
+            "name": "Generate a replenishment task",
+            "description": {
+              "content": "Generates a replenishment task for a replenishment configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                ":replenishment_configuration_id",
+                "tasks",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "replenishment_configuration_id",
+                  "description": "(Required) Unique identifier of the replenishment configuration."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e79cd747-87f2-43ae-8bc1-8c015303d3d2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    ":replenishment_configuration_id",
+                    "tasks",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "replenishment_configuration_id",
+                      "description": "(Required) Unique identifier of the replenishment configuration."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment tasks generated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c4521c3-fe1f-4fab-a671-4f80addb5810",
+          "name": "Bulk generate replenishment tasks",
+          "request": {
+            "name": "Bulk generate replenishment tasks",
+            "description": {
+              "content": "Generates replenishment tasks for the specified items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "replenishments",
+                "tasks",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_ids",
+                  "value": "<string>",
+                  "description": "(Required) <code>List of item ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<string>",
+                  "description": "<code>List of location ids separated by comma</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3e438c0f-f902-4417-9a2a-442572108ccc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "replenishments",
+                    "tasks",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_ids",
+                      "value": "4815000000044208,4815000000044274"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "4815000000033001,4815000000033002"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Replenishment tasks generated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0888a621-0c3c-4cc0-a5d0-d037b15dbb33",
+          "name": "Retrieve replenishment task details report",
+          "request": {
+            "name": "Retrieve replenishment task details report",
+            "description": {
+              "content": "Fetches the replenishment task details report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "replenishments",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter the report by task date. Allowed values: <code>TaskDate.ThisMonth</code>, <code>TaskDate.ThisWeek</code>, <code>TaskDate.Today</code>, <code>TaskDate.ThisQuarter</code>, <code>TaskDate.ThisYear</code>, <code>TaskDate.PreviousDay</code>, <code>TaskDate.PreviousWeek</code>, <code>TaskDate.PreviousMonth</code>, <code>TaskDate.PreviousQuarter</code>, <code>TaskDate.PreviousYear</code>, and <code>TaskDate.CustomDate</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Sort the report based on the following columns: <code>item_name</code>, <code>sku</code>, <code>entry_number</code>, <code>warehouse</code> (applicable only when multi-warehouse is enabled for the organization), <code>location</code>, <code>created_time</code>, and <code>last_modified_time</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "A",
+                  "description": "Sort order of the report. Allowed values: <code>A</code> and <code>D</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7b36ee8b-6b54-4299-bcf2-19cae6e40ed7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "replenishments",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter_by",
+                      "value": "TaskDate.ThisMonth"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "A"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"replenishment_tasks\": [\n    {\n      \"entry_number\": \"RT-00001\",\n      \"item_id\": \"string\",\n      \"item_name\": \"HDMI Cable\",\n      \"sku\": \"HDMI-001\",\n      \"warehouse_id\": \"string\",\n      \"warehouse\": \"New York Warehouse\",\n      \"location_id\": \"string\",\n      \"location\": \"New York\",\n      \"status\": \"pending\",\n      \"order_type\": \"purchase_order\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"preferred_vendor_id\": \"string\",\n      \"preferred_vendor_name\": \"Zylker Supplies\",\n      \"source_warehouse_id\": \"string\",\n      \"source_warehouse_name\": \"Los Angeles Warehouse\",\n      \"source_location_id\": \"string\",\n      \"source_location_name\": \"Los Angeles\",\n      \"stock_available_for_sale\": 12,\n      \"quantity_to_replenish\": 38,\n      \"created_time\": \"2026-04-20\",\n      \"last_modified_time\": \"2026-04-20\"\n    },\n    {\n      \"entry_number\": \"RT-00001\",\n      \"item_id\": \"string\",\n      \"item_name\": \"HDMI Cable\",\n      \"sku\": \"HDMI-001\",\n      \"warehouse_id\": \"string\",\n      \"warehouse\": \"New York Warehouse\",\n      \"location_id\": \"string\",\n      \"location\": \"New York\",\n      \"status\": \"pending\",\n      \"order_type\": \"purchase_order\",\n      \"reorder_level\": 10,\n      \"max_stock_level\": 50,\n      \"order_multiple\": 5,\n      \"max_order_quantity\": 200,\n      \"min_order_quantity\": 1,\n      \"preferred_vendor_id\": \"string\",\n      \"preferred_vendor_name\": \"Zylker Supplies\",\n      \"source_warehouse_id\": \"string\",\n      \"source_warehouse_name\": \"Los Angeles Warehouse\",\n      \"source_location_id\": \"string\",\n      \"source_location_name\": \"Los Angeles\",\n      \"stock_available_for_sale\": 12,\n      \"quantity_to_replenish\": 38,\n      \"created_time\": \"2026-04-20\",\n      \"last_modified_time\": \"2026-04-20\"\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 200,\n    \"has_more_page\": false,\n    \"report_name\": \"Replenishment Tasks\",\n    \"applied_filter\": \"Status.Pending\",\n    \"sort_column\": \"created_time\",\n    \"sort_order\": \"D\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5e345648-f690-40e0-9f52-638f45347bd9",
+    "name": "batches replenishment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

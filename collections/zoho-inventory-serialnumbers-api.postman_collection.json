@@ -1,0 +1,366 @@
+{
+  "item": [
+    {
+      "id": "93820bf9-db38-4d80-9561-56419db8c4bc",
+      "name": "serialnumbers",
+      "description": {
+        "content": "Serial Numbers Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d0f181c-f3c9-4560-a0a9-b61f36cd318f",
+          "name": "List all serial numbers",
+          "request": {
+            "name": "List all serial numbers",
+            "description": {
+              "content": "List all serial numbers available for a given item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "serialnumbers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "item_id",
+                  "value": "<string>",
+                  "description": "(Required) Unique identifier of the item to fetch serial numbers for."
+                },
+                {
+                  "disabled": false,
+                  "key": "show_transacted_out",
+                  "value": "<boolean>",
+                  "description": "Include serial numbers that have already been transacted out. Allowed values <code>true</code> and <code>false</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouse_id",
+                  "value": "<string>",
+                  "description": "Filter serial numbers by warehouse ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_id",
+                  "value": "<string>",
+                  "description": "Filter serial numbers by location ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "batch_id",
+                  "value": "<string>",
+                  "description": "Filter serial numbers by batch ID. Use for items with both serial and batch tracking enabled."
+                },
+                {
+                  "disabled": false,
+                  "key": "item_name",
+                  "value": "<string>",
+                  "description": "Search serial numbers by item name."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "serialnumber",
+                  "description": "Column to sort the response by. Allowed value <code>serialnumber</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "A",
+                  "description": "Order of sorting. Allowed values <code>A</code> for ascending and <code>D</code> for descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "75a69b44-3ab8-480a-98ff-4721c2ac6710",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "serialnumbers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_id",
+                      "value": "6780203000000167467"
+                    },
+                    {
+                      "key": "show_transacted_out",
+                      "value": "false"
+                    },
+                    {
+                      "key": "warehouse_id",
+                      "value": "6780203000000093215"
+                    },
+                    {
+                      "key": "location_id",
+                      "value": "6780203000000093215"
+                    },
+                    {
+                      "key": "batch_id",
+                      "value": "6780203000000176162"
+                    },
+                    {
+                      "key": "item_name",
+                      "value": "Laptop"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "serialnumber"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "A"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"serial_numbers\": [\n    {\n      \"serialnumber_id\": \"6780203000000176190\",\n      \"serialnumber\": \"SN-LAP-001\",\n      \"status\": \"active\",\n      \"is_transacted_out\": false,\n      \"batch_id\": \"6780203000000176162\",\n      \"batch_number\": \"BATCH-001\",\n      \"batch_custom_fields\": [\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        },\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        }\n      ],\n      \"custom_fields\": [\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        },\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        }\n      ]\n    },\n    {\n      \"serialnumber_id\": \"6780203000000176190\",\n      \"serialnumber\": \"SN-LAP-001\",\n      \"status\": \"active\",\n      \"is_transacted_out\": false,\n      \"batch_id\": \"6780203000000176162\",\n      \"batch_number\": \"BATCH-001\",\n      \"batch_custom_fields\": [\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        },\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        }\n      ],\n      \"custom_fields\": [\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        },\n        {\n          \"custom_field_id\": \"6780203000000176175\",\n          \"label\": \"Warranty Period\",\n          \"value\": \"2 Years\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8c4215a-f37e-4d0a-b929-051a67985953",
+          "name": "Retrieve a serial number",
+          "request": {
+            "name": "Retrieve a serial number",
+            "description": {
+              "content": "Fetch the details of a specific serial number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                "serialnumbers",
+                ":serial_number_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serial_number_id",
+                  "description": "(Required) Unique identifier of the serial number."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1d98c4b5-d9ab-47c1-bb44-873f426846ab",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    "serialnumbers",
+                    ":serial_number_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "serial_number_id",
+                      "description": "(Required) Unique identifier of the serial number."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"serial_number\": {\n    \"serialnumber_id\": \"6780203000000176190\",\n    \"serialnumber\": \"SN-LAP-001\",\n    \"code\": \"SN-LAP-001\",\n    \"status\": \"active\",\n    \"is_transacted_out\": false,\n    \"item_id\": \"6780203000000167467\",\n    \"price\": 1500,\n    \"custom_fields\": [\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Warranty Period\",\n        \"value\": \"2 Years\"\n      },\n      {\n        \"custom_field_id\": \"6780203000000176175\",\n        \"label\": \"Warranty Period\",\n        \"value\": \"2 Years\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "de2b2bac-1725-46ee-acfe-aac29a4dc708",
+    "name": "batches serialnumbers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

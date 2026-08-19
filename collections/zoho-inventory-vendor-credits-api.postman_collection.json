@@ -1,0 +1,3134 @@
+{
+  "item": [
+    {
+      "id": "0d37a9b6-7558-41da-a06b-3feb98a171ea",
+      "name": "vendor-credits",
+      "description": {
+        "content": "Vendor-Credits Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e581361d-eb7d-4eba-a172-8eb1d81ac069",
+          "name": "Create a vendor credit",
+          "request": {
+            "name": "Create a vendor credit",
+            "description": {
+              "content": "Create a vendor credit for a vendor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Ignore auto number generation for this vendor credit only. On enabling this option vendor credit number is mandatory."
+                },
+                {
+                  "disabled": false,
+                  "key": "bill_id",
+                  "value": "<string>",
+                  "description": "Bill Associated with the Vendor Credit"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendor_id\": \"<string>\",\n  \"vat_treatment\": \"<string>\",\n  \"vendor_credit_number\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\",\n  \"place_of_supply\": \"<string>\",\n  \"pricebook_id\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"is_update_customer\": \"<boolean>\",\n  \"date\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"location_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"<string>\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"<string>\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"documents\": [\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71811da9-8719-462d-90e2-e3a550807b79",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "bill_id",
+                      "value": "460000000057075"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_id\": \"460000000020029\",\n  \"vat_treatment\": \"<string>\",\n  \"vendor_credit_number\": \"DN-00002\",\n  \"gst_treatment\": \"business_gst\",\n  \"tax_treatment\": \"vat_registered\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"source_of_supply\": \"TN\",\n  \"destination_of_supply\": \"TN\",\n  \"place_of_supply\": \"DU\",\n  \"pricebook_id\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"is_update_customer\": false,\n  \"date\": \"2014-08-28\",\n  \"exchange_rate\": 1,\n  \"is_inclusive_tax\": false,\n  \"location_id\": \"460000000038080\",\n  \"line_items\": [\n    {\n      \"item_id\": \"460000000020071\",\n      \"line_item_id\": \"460000000020077\",\n      \"account_id\": \"460000000020097\",\n      \"name\": \"Premium Plan - Web hosting\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"description\": \"<string>\",\n      \"item_order\": 0,\n      \"quantity\": 1,\n      \"unit\": \"Nos\",\n      \"rate\": 30,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"uae_others\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"Sample Project\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"item_id\": \"460000000020071\",\n      \"line_item_id\": \"460000000020077\",\n      \"account_id\": \"460000000020097\",\n      \"name\": \"Premium Plan - Web hosting\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"description\": \"<string>\",\n      \"item_order\": 0,\n      \"quantity\": 1,\n      \"unit\": \"Nos\",\n      \"rate\": 30,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"uae_others\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"Sample Project\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"documents\": [\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Vendor credit has been created.\",\n  \"vendor_credit\": {\n    \"vendor_credit_id\": \"3000000002075\",\n    \"vendor_credit_number\": \"DN-00002\",\n    \"date\": \"2014-08-28\",\n    \"source_of_supply\": \"TN\",\n    \"destination_of_supply\": \"TN\",\n    \"place_of_supply\": \"DU\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"gst_treatment\": \"business_gst\",\n    \"tax_treatment\": \"vat_registered\",\n    \"pricebook_id\": \"<string>\",\n    \"is_reverse_charge_applied\": true,\n    \"status\": \"open\",\n    \"reference_number\": \"<string>\",\n    \"vendor_id\": \"460000000020029\",\n    \"vendor_name\": \"Bowman and Co\",\n    \"currency_id\": \"3000000000083\",\n    \"currency_code\": \"USD\",\n    \"exchange_rate\": 1,\n    \"price_precision\": 2,\n    \"vat_treatment\": \"<string>\",\n    \"filed_in_vat_return_id\": \"string\",\n    \"filed_in_vat_return_name\": \"string\",\n    \"filed_in_vat_return_type\": \"string\",\n    \"is_inclusive_tax\": false,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"line_items\": {\n      \"item_id\": \"460000000020071\",\n      \"line_item_id\": \"460000000020077\",\n      \"sku\": \"string\",\n      \"account_id\": \"460000000020097\",\n      \"product_type\": \"string\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"string\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"reverse_charge_tax_name\": \"intra\",\n      \"reverse_charge_tax_percentage\": 10,\n      \"reverse_charge_tax_amount\": 100,\n      \"account_name\": \"IT and Internet Expenses\",\n      \"name\": \"Premium Plan - Web hosting\",\n      \"description\": \"<string>\",\n      \"item_order\": 0,\n      \"quantity\": 1,\n      \"unit\": \"Nos\",\n      \"bcy_rate\": 30,\n      \"rate\": 30,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"uae_others\",\n      \"tax_exemption_id\": \"string\",\n      \"tax_exemption_code\": \"string\",\n      \"tax_name\": \"string\",\n      \"tax_type\": \"string\",\n      \"tax_percentage\": 5604.409287659287,\n      \"item_total\": 30,\n      \"item_total_inclusive_of_tax\": 30,\n      \"hsn_or_sac\": \"<string>\",\n      \"acquisition_vat_id\": \"string\",\n      \"acquisition_vat_name\": \"string\",\n      \"acquisition_vat_percentage\": \"string\",\n      \"acquisition_vat_amount\": \"string\",\n      \"reverse_charge_vat_id\": \"string\",\n      \"reverse_charge_vat_name\": \"string\",\n      \"reverse_charge_vat_percentage\": \"string\",\n      \"reverse_charge_vat_amount\": \"string\",\n      \"stock_on_hand\": \"string\",\n      \"tags\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"acquisition_vat_summary\": [\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"acquisition_vat_total\": 5082.46486424397,\n    \"reverse_charge_vat_summary\": [\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"reverse_charge_vat_total\": 4573.605515484334,\n    \"documents\": [\n      {\n        \"document_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"file_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"document_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"file_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"customfield_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"label\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"customfield_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"label\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"sub_total\": 30,\n    \"total\": 30,\n    \"total_credits_used\": 0,\n    \"total_refunded_amount\": 0,\n    \"balance\": 30,\n    \"notes\": \"<string>\",\n    \"comments\": [\n      {\n        \"comment_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date_description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"time\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"operation_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"comment_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date_description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"time\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"operation_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"vendor_credit_refunds\": [\n      {\n        \"vendor_credit_refund_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refund_mode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_bcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_fcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"vendor_credit_refund_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refund_mode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_bcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_fcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"bills_credited\": [\n      {\n        \"bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"bill_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"bill_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"created_time\": \"2014-08-28T22:53:31-0700\",\n    \"last_modified_time\": \"2014-08-28T22:53:31-0700\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6f8d720-f22a-4f72-9017-bf5b1c4bd0c4",
+          "name": "List vendor credits",
+          "request": {
+            "name": "List vendor credits",
+            "description": {
+              "content": "List vendor credits with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vendor_credit_number",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit number. Variants: <code>vendor_credit_number_startswith</code> and <code>vendor_credit_number_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "General Format: yyyy-mm-dd. Search vendor credits by date. Variants: <code>date.start</code>, <code>date.end</code>, <code>date.before</code> and <code>date.after</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit status. Allowed statuses are open, closed and void. Allowed Values: <code>open</code>, <code>closed</code> and <code>void</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "total",
+                  "value": "<string>",
+                  "description": "Search vendor credits by total amount. Variants: <code>total_start</code>, <code>total_end</code>, <code>total_less_than</code>, <code>total_less_equals</code>, <code>total_greater_than</code> and <code>total_greater_equals</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference_number",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit reference number. Variants: <code>reference_number_startswith</code> and <code>reference_number_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_name",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor name. Variants: <code>customer_name_startswith</code> and <code>customer_name_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "item_name",
+                  "value": "<string>",
+                  "description": "Search vendor credits by item name. Variants: <code>item_name_startswith</code> and <code>item_name_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "item_description",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit item description. Variants: <code>item_description_startswith</code> and <code>item_description_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit notes. Variants: <code>notes_startswith</code> and <code>notes_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "custom_field",
+                  "value": "<string>",
+                  "description": "Search vendor credits by custom field. Variants : <code>custom_field_startswith</code> and <code>custom_field_contains</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_modified_time",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit last modfified time"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_id",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit customer ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "line_item_id",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit line item ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "item_id",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit item ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "tax_id",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit tax ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter vendor credits by statuses. Allowed Values: <code>Status.All</code>, <code>Status.Open</code>, <code>Status.Draft</code>, <code>Status.Closed</code> and <code>Status.Void</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit number or vendor name or vendor credit reference number."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Sort vendor credits by following columns vendor_name, vendorcredit_number, balance, total, date and created_time. Allowed Values: <code>vendor_name</code>, <code>vendor_credit_number</code>, <code>balance</code>, <code>total</code>, <code>date</code>, <code>created_time</code>, <code>last_modified_time</code> and <code>reference_number</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "16bfe2fd-ea12-4c9c-8195-a3f2eaf32d8a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vendor_credit_number",
+                      "value": "DN-00002"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2014-08-28"
+                    },
+                    {
+                      "key": "status",
+                      "value": "open"
+                    },
+                    {
+                      "key": "total",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reference_number",
+                      "value": ""
+                    },
+                    {
+                      "key": "customer_name",
+                      "value": "Bowman and Co"
+                    },
+                    {
+                      "key": "item_name",
+                      "value": ""
+                    },
+                    {
+                      "key": "item_description",
+                      "value": ""
+                    },
+                    {
+                      "key": "notes",
+                      "value": ""
+                    },
+                    {
+                      "key": "custom_field",
+                      "value": ""
+                    },
+                    {
+                      "key": "last_modified_time",
+                      "value": "2014-08-28T22:53:31-0700"
+                    },
+                    {
+                      "key": "customer_id",
+                      "value": ""
+                    },
+                    {
+                      "key": "line_item_id",
+                      "value": "460000000020077"
+                    },
+                    {
+                      "key": "item_id",
+                      "value": "460000000020071"
+                    },
+                    {
+                      "key": "tax_id",
+                      "value": ""
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": ""
+                    },
+                    {
+                      "key": "search_text",
+                      "value": ""
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"vendorcredits\": [\n    {\n      \"vendor_credit_id\": \"3000000002075\",\n      \"vendor_credit_number\": \"DN-00002\",\n      \"status\": \"open\",\n      \"reference_number\": \"<string>\",\n      \"date\": \"2014-08-28\",\n      \"total\": 30,\n      \"balance\": 30,\n      \"vendor_id\": \"460000000020029\",\n      \"vendor_name\": \"Bowman and Co\",\n      \"currency_id\": \"3000000000083\",\n      \"currency_code\": \"USD\",\n      \"created_time\": \"2014-08-28T22:53:31-0700\",\n      \"last_modified_time\": \"2014-08-28T22:53:31-0700\",\n      \"has_attachment\": false,\n      \"exchange_rate\": 1\n    },\n    {\n      \"vendor_credit_id\": \"3000000002075\",\n      \"vendor_credit_number\": \"DN-00002\",\n      \"status\": \"open\",\n      \"reference_number\": \"<string>\",\n      \"date\": \"2014-08-28\",\n      \"total\": 30,\n      \"balance\": 30,\n      \"vendor_id\": \"460000000020029\",\n      \"vendor_name\": \"Bowman and Co\",\n      \"currency_id\": \"3000000000083\",\n      \"currency_code\": \"USD\",\n      \"created_time\": \"2014-08-28T22:53:31-0700\",\n      \"last_modified_time\": \"2014-08-28T22:53:31-0700\",\n      \"has_attachment\": false,\n      \"exchange_rate\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf760722-adf0-49a0-bbe5-1c6dbb8325e3",
+          "name": "Update vendor credit",
+          "request": {
+            "name": "Update vendor credit",
+            "description": {
+              "content": "Update an existing vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendor_id\": \"<string>\",\n  \"vat_treatment\": \"<string>\",\n  \"vendor_credit_number\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\",\n  \"place_of_supply\": \"<string>\",\n  \"pricebook_id\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"is_update_customer\": \"<boolean>\",\n  \"date\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"location_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"<string>\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"<string>\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"documents\": [\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7a3d331-7f13-4896-8e17-d4bf87fbec54",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_id\": \"460000000020029\",\n  \"vat_treatment\": \"<string>\",\n  \"vendor_credit_number\": \"DN-00002\",\n  \"gst_treatment\": \"business_gst\",\n  \"tax_treatment\": \"vat_registered\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"source_of_supply\": \"TN\",\n  \"destination_of_supply\": \"TN\",\n  \"place_of_supply\": \"DU\",\n  \"pricebook_id\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"is_update_customer\": false,\n  \"date\": \"2014-08-28\",\n  \"exchange_rate\": 1,\n  \"is_inclusive_tax\": false,\n  \"location_id\": \"460000000038080\",\n  \"line_items\": [\n    {\n      \"item_id\": \"460000000020071\",\n      \"line_item_id\": \"460000000020077\",\n      \"account_id\": \"460000000020097\",\n      \"name\": \"Premium Plan - Web hosting\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"description\": \"<string>\",\n      \"item_order\": 0,\n      \"quantity\": 1,\n      \"unit\": \"Nos\",\n      \"rate\": 30,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"uae_others\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"Sample Project\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"item_id\": \"460000000020071\",\n      \"line_item_id\": \"460000000020077\",\n      \"account_id\": \"460000000020097\",\n      \"name\": \"Premium Plan - Web hosting\",\n      \"hsn_or_sac\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"description\": \"<string>\",\n      \"item_order\": 0,\n      \"quantity\": 1,\n      \"unit\": \"Nos\",\n      \"rate\": 30,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"uae_others\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"Sample Project\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"batch_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storages\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"storage_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"out_quantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"storage_out_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"serial_numbers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"documents\": [\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    {\n      \"document_id\": \"<string>\",\n      \"file_name\": \"<string>\"\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Vendor credit information has been updated.\",\n  \"vendor_credit\": {\n    \"vendor_credit_id\": \"3000000002075\",\n    \"vendor_credit_number\": \"DN-00002\",\n    \"date\": \"2014-08-28\",\n    \"source_of_supply\": \"TN\",\n    \"destination_of_supply\": \"TN\",\n    \"place_of_supply\": \"DU\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"gst_treatment\": \"business_gst\",\n    \"tax_treatment\": \"vat_registered\",\n    \"pricebook_id\": \"<string>\",\n    \"is_reverse_charge_applied\": true,\n    \"status\": \"open\",\n    \"reference_number\": \"<string>\",\n    \"vendor_id\": \"460000000020029\",\n    \"vendor_name\": \"Bowman and Co\",\n    \"currency_id\": \"3000000000083\",\n    \"currency_code\": \"USD\",\n    \"exchange_rate\": 1,\n    \"price_precision\": 2,\n    \"vat_treatment\": \"<string>\",\n    \"taxes\": [\n      {\n        \"tax_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tax_amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"tax_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tax_amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"is_inclusive_tax\": false,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"line_items\": {\n      \"item_id\": \"460000000020071\",\n      \"line_item_id\": \"460000000020077\",\n      \"sku\": \"string\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"string\",\n      \"account_id\": \"460000000020097\",\n      \"product_type\": \"string\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"reverse_charge_tax_name\": \"intra\",\n      \"reverse_charge_tax_percentage\": 10,\n      \"reverse_charge_tax_amount\": 100,\n      \"account_name\": \"IT and Internet Expenses\",\n      \"name\": \"Premium Plan - Web hosting\",\n      \"description\": \"<string>\",\n      \"item_order\": 0,\n      \"quantity\": 1,\n      \"unit\": \"Nos\",\n      \"bcy_rate\": 30,\n      \"rate\": 30,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"uae_others\",\n      \"tax_exemption_id\": \"string\",\n      \"tax_exemption_code\": \"string\",\n      \"tax_name\": \"string\",\n      \"tax_type\": \"string\",\n      \"tax_percentage\": 6058.10944023153,\n      \"item_total\": 30,\n      \"item_total_inclusive_of_tax\": 30,\n      \"hsn_or_sac\": \"<string>\",\n      \"acquisition_vat_id\": \"string\",\n      \"acquisition_vat_name\": \"string\",\n      \"acquisition_vat_percentage\": \"string\",\n      \"acquisition_vat_amount\": \"string\",\n      \"reverse_charge_vat_id\": \"string\",\n      \"reverse_charge_vat_name\": \"string\",\n      \"reverse_charge_vat_percentage\": \"string\",\n      \"reverse_charge_vat_amount\": \"string\",\n      \"stock_on_hand\": \"string\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"acquisition_vat_summary\": [\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"acquisition_vat_total\": 2572.3910191647583,\n    \"reverse_charge_vat_summary\": [\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"reverse_charge_vat_total\": 6383.411102665355,\n    \"documents\": [\n      {\n        \"document_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"file_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"document_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"file_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"customfield_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"label\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"customfield_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"label\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"sub_total\": 30,\n    \"total\": 30,\n    \"total_credits_used\": 0,\n    \"total_refunded_amount\": 0,\n    \"balance\": 30,\n    \"notes\": \"<string>\",\n    \"comments\": [\n      {\n        \"comment_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date_description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"time\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"operation_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"comment_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date_description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"time\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"operation_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"vendor_credit_refunds\": [\n      {\n        \"vendor_credit_refund_id\": \"3000000003151\",\n        \"vendor_credit_id\": \"3000000002075\",\n        \"date\": \"string\",\n        \"refund_mode\": \"cash\",\n        \"reference_number\": \"<string>\",\n        \"description\": \"<string>\",\n        \"amount_bcy\": 13,\n        \"amount_fcy\": 13\n      },\n      {\n        \"vendor_credit_refund_id\": \"3000000003151\",\n        \"vendor_credit_id\": \"3000000002075\",\n        \"date\": \"string\",\n        \"refund_mode\": \"cash\",\n        \"reference_number\": \"<string>\",\n        \"description\": \"<string>\",\n        \"amount_bcy\": 13,\n        \"amount_fcy\": 13\n      }\n    ],\n    \"bills_credited\": [\n      {\n        \"bill_id\": \"460000000057075\",\n        \"vendor_credit_bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": \"2014-08-30\",\n        \"bill_number\": \"string\",\n        \"amount\": 13\n      },\n      {\n        \"bill_id\": \"460000000057075\",\n        \"vendor_credit_bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": \"2014-08-30\",\n        \"bill_number\": \"string\",\n        \"amount\": 13\n      }\n    ],\n    \"created_time\": \"2014-08-28T22:53:31-0700\",\n    \"last_modified_time\": \"2014-08-28T22:53:31-0700\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e10e6f5-ba5b-4bda-8779-55080cfbf42b",
+          "name": "Get vendor credit",
+          "request": {
+            "name": "Get vendor credit",
+            "description": {
+              "content": "Get details of a vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "print",
+                  "value": "<boolean>",
+                  "description": "Export vendor credit pdf with default print option. Allowed Values: <code>true</code>, <code>false</code>, <code>on</code> and <code>off</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "accept",
+                  "value": "<string>",
+                  "description": "You can get vendor credit details as json/pdf/html. Default format is html. Allowed Values: <code>json</code>, <code>xml</code>, <code>csv</code>, <code>xls</code>, <code>pdf</code>, <code>html</code> and <code>jhtml</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "acb5fa00-8bed-4b1c-89d6-fbb6ca8b249e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "print",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "accept",
+                      "value": ""
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"vendor_credit\": {\n    \"vendor_credit_id\": \"3000000002075\",\n    \"vendor_credit_number\": \"DN-00002\",\n    \"date\": \"2014-08-28\",\n    \"status\": \"open\",\n    \"reference_number\": \"<string>\",\n    \"source_of_supply\": \"TN\",\n    \"destination_of_supply\": \"TN\",\n    \"place_of_supply\": \"DU\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"gst_treatment\": \"business_gst\",\n    \"tax_treatment\": \"vat_registered\",\n    \"pricebook_id\": \"<string>\",\n    \"is_reverse_charge_applied\": true,\n    \"vendor_id\": \"460000000020029\",\n    \"vendor_name\": \"Bowman and Co\",\n    \"currency_id\": \"3000000000083\",\n    \"currency_code\": \"USD\",\n    \"exchange_rate\": 1,\n    \"price_precision\": 2,\n    \"vat_treatment\": \"<string>\",\n    \"filed_in_vat_return_id\": \"string\",\n    \"filed_in_vat_return_name\": \"string\",\n    \"filed_in_vat_return_type\": \"string\",\n    \"is_inclusive_tax\": false,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"line_items\": {\n      \"item_id\": \"460000000020071\",\n      \"line_item_id\": \"460000000020077\",\n      \"sku\": \"string\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"string\",\n      \"account_id\": \"460000000020097\",\n      \"product_type\": \"string\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"reverse_charge_tax_name\": \"intra\",\n      \"reverse_charge_tax_percentage\": 10,\n      \"reverse_charge_tax_amount\": 100,\n      \"account_name\": \"IT and Internet Expenses\",\n      \"name\": \"Premium Plan - Web hosting\",\n      \"description\": \"<string>\",\n      \"item_order\": 0,\n      \"quantity\": 1,\n      \"unit\": \"Nos\",\n      \"bcy_rate\": 30,\n      \"rate\": 30,\n      \"tax_id\": \"<string>\",\n      \"tax_treatment_code\": \"uae_others\",\n      \"tax_exemption_id\": \"string\",\n      \"tax_exemption_code\": \"string\",\n      \"tax_name\": \"string\",\n      \"tax_type\": \"string\",\n      \"tax_percentage\": 4612.754881708697,\n      \"item_total\": 30,\n      \"item_total_inclusive_of_tax\": 30,\n      \"hsn_or_sac\": \"<string>\",\n      \"acquisition_vat_id\": \"string\",\n      \"acquisition_vat_name\": \"string\",\n      \"acquisition_vat_percentage\": \"string\",\n      \"acquisition_vat_amount\": \"string\",\n      \"reverse_charge_vat_id\": \"string\",\n      \"reverse_charge_vat_name\": \"string\",\n      \"reverse_charge_vat_percentage\": \"string\",\n      \"reverse_charge_vat_amount\": \"string\",\n      \"stock_on_hand\": \"string\",\n      \"tags\": [\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"tag_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"tag_option_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"label\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"project_id\": \"<string>\",\n      \"project_name\": \"Sample Project\"\n    },\n    \"acquisition_vat_summary\": [\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"acquisition_vat_total\": 7477.0133099190825,\n    \"reverse_charge_vat_summary\": [\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"tax\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"reverse_charge_vat_total\": 4606.250661024724,\n    \"documents\": [\n      {\n        \"document_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"file_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"document_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"file_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"custom_fields\": [\n      {\n        \"customfield_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"label\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"customfield_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"label\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"sub_total\": 30,\n    \"total\": 30,\n    \"total_credits_used\": 0,\n    \"total_refunded_amount\": 0,\n    \"balance\": 30,\n    \"notes\": \"<string>\",\n    \"comments\": [\n      {\n        \"comment_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date_description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"time\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"operation_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"comment_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"commented_by\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date_description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"time\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"operation_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transaction_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"vendor_credit_refunds\": [\n      {\n        \"vendor_credit_refund_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refund_mode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_bcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_fcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"vendor_credit_refund_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"vendor_credit_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"refund_mode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_bcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount_fcy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"filed_in_vat_return_type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"bills_credited\": [\n      {\n        \"bill_id\": \"460000000057075\",\n        \"vendor_credit_bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": \"2014-08-30\",\n        \"bill_number\": \"string\",\n        \"amount\": 13\n      },\n      {\n        \"bill_id\": \"460000000057075\",\n        \"vendor_credit_bill_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": \"2014-08-30\",\n        \"bill_number\": \"string\",\n        \"amount\": 13\n      }\n    ],\n    \"created_time\": \"2014-08-28T22:53:31-0700\",\n    \"last_modified_time\": \"2014-08-28T22:53:31-0700\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb519d62-f089-4183-b1b8-be1c1bbe13d7",
+          "name": "Delete vendor credit",
+          "request": {
+            "name": "Delete vendor credit",
+            "description": {
+              "content": "Delete a vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "76e96f7e-f895-4830-b5c6-5b5ec4a438b1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The vendor credit has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bc27629-708f-4921-a6d1-ba0ce7e4c377",
+          "name": "Convert to open",
+          "request": {
+            "name": "Convert to open",
+            "description": {
+              "content": "Change an existing vendor credit status to open.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "status",
+                "open"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e2160baa-b5ce-4e5b-899d-4afea69cce7a",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "status",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The status of the vendor credit has been changed to open.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ddcd83b-b2a3-4121-9b2d-d616a02d2266",
+          "name": "Void vendor credit",
+          "request": {
+            "name": "Void vendor credit",
+            "description": {
+              "content": "Mark an existing vendor credit as void.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "status",
+                "void"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3901ecd6-fe3e-4c71-8a7d-7b344fd07116",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "status",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The vendor credit has been voided.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3908110e-05c9-45ba-8bc4-5047f705c3a8",
+          "name": "Submit a Vendor credit for approval",
+          "request": {
+            "name": "Submit a Vendor credit for approval",
+            "description": {
+              "content": "Submit a Vendor credit for approval.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "93310735-c7c2-476e-b84b-0cd4af9e84c7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The vendor credit has been submitted for approval successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b93d8fc7-1cd0-473d-b13d-c533b8dc5609",
+          "name": "Approve a Vendor credit",
+          "request": {
+            "name": "Approve a Vendor credit",
+            "description": {
+              "content": "Approve a Vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "53b166e2-2e3e-49fe-8368-f3c197ff55dc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"You have approved the vendor credit.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84963943-2e45-41aa-be52-348f46232dd1",
+          "name": "List bills credited",
+          "request": {
+            "name": "List bills credited",
+            "description": {
+              "content": "List bills to which the vendor credit is applied.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "78acd668-a1a0-49bf-af1e-bf9e04be492e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"bills_credited\": [\n    {\n      \"vendor_credit_id\": \"3000000002075\",\n      \"bill_id\": \"460000000057075\",\n      \"vendor_credit_bill_id\": \"string\",\n      \"date\": \"2014-08-28\",\n      \"bill_number\": \"string\"\n    },\n    {\n      \"vendor_credit_id\": \"3000000002075\",\n      \"bill_id\": \"460000000057075\",\n      \"vendor_credit_bill_id\": \"string\",\n      \"date\": \"2014-08-28\",\n      \"bill_number\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "319054d6-7ef8-4ef7-93f4-6e06904eea6c",
+          "name": "Apply credits to a bill",
+          "request": {
+            "name": "Apply credits to a bill",
+            "description": {
+              "content": "Apply vendor credit to existing bills.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bills\": [\n    {\n      \"bill_id\": \"<string>\",\n      \"amount_applied\": \"<double>\"\n    },\n    {\n      \"bill_id\": \"<string>\",\n      \"amount_applied\": \"<double>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b44fe6c5-454f-4169-8454-db9d1d04c1a4",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bills\": [\n    {\n      \"bill_id\": \"460000000057075\",\n      \"amount_applied\": 10\n    },\n    {\n      \"bill_id\": \"460000000057075\",\n      \"amount_applied\": 10\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Credits have been applied to the bill(s).\",\n  \"bills\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca243ac1-126f-476a-a0c9-81632e83fe65",
+          "name": "Delete bills credited",
+          "request": {
+            "name": "Delete bills credited",
+            "description": {
+              "content": "Delete the credits applied to a bill.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "bills",
+                ":vendor_credit_bill_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_bill_id",
+                  "description": "(Required) Unique identifier of the vendor credit bill."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "efc92aee-8499-47fa-87b4-792728f83b7f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "bills",
+                    ":vendor_credit_bill_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_bill_id",
+                      "description": "(Required) Unique identifier of the vendor credit bill."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Credits applied to the bill have been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4501412d-c8e6-4821-955f-754716d11f35",
+          "name": "Refund a vendor credit",
+          "request": {
+            "name": "Refund a vendor credit",
+            "description": {
+              "content": "Refund vendor credit amount.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"account_id\": \"<string>\",\n  \"refund_mode\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a297cbd2-5d9a-46cc-aaaf-afbc793402c3",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2014-08-30\",\n  \"amount\": 13,\n  \"account_id\": \"460000000020097\",\n  \"refund_mode\": \"cash\",\n  \"reference_number\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The refund information for this vendor credit has been saved.\",\n  \"vendor_credit_refund\": {\n    \"vendor_credit_refund_id\": \"3000000003151\",\n    \"vendor_credit_id\": \"3000000002075\",\n    \"date\": \"2014-08-28\",\n    \"refund_mode\": \"cash\",\n    \"reference_number\": \"<string>\",\n    \"amount\": 13,\n    \"exchange_rate\": 1,\n    \"account_id\": \"460000000020097\",\n    \"account_name\": \"IT and Internet Expenses\",\n    \"description\": \"<string>\",\n    \"imported_transactions\": [\n      {\n        \"imported_transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"payee\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"imported_transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"payee\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d54a2620-e3b4-4507-b94b-a77af6de1db2",
+          "name": "List refunds of a vendor credit",
+          "request": {
+            "name": "List refunds of a vendor credit",
+            "description": {
+              "content": "List all refunds of an existing vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "63997ef1-32d5-401e-abdf-85d6afadb3cd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"vendor_credit_refunds\": [\n    {\n      \"vendor_credit_refund_id\": \"3000000003151\",\n      \"vendor_credit_id\": \"3000000002075\",\n      \"date\": \"2017-01-22\",\n      \"refund_mode\": \"cash\",\n      \"reference_number\": \"<string>\",\n      \"amount\": 13,\n      \"vendor_credit_number\": \"DN-00002\",\n      \"customer_name\": \"Bowman and Co\",\n      \"description\": \"Cheque deposit\",\n      \"amount_bcy\": 13,\n      \"amount_fcy\": 13\n    },\n    {\n      \"vendor_credit_refund_id\": \"3000000003151\",\n      \"vendor_credit_id\": \"3000000002075\",\n      \"date\": \"2017-01-22\",\n      \"refund_mode\": \"cash\",\n      \"reference_number\": \"<string>\",\n      \"amount\": 13,\n      \"vendor_credit_number\": \"DN-00002\",\n      \"customer_name\": \"Bowman and Co\",\n      \"description\": \"Cheque deposit\",\n      \"amount_bcy\": 13,\n      \"amount_fcy\": 13\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c3a8bcd-e522-4900-a338-82663734c319",
+          "name": "Update vendor credit refund",
+          "request": {
+            "name": "Update vendor credit refund",
+            "description": {
+              "content": "Update the refunded transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "refunds",
+                ":vendor_credit_refund_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_refund_id",
+                  "description": "(Required) Unique identifier of the vendor credit refund."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"account_id\": \"<string>\",\n  \"refund_mode\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e63c973-e8f4-4752-8ce3-dcd8e939b498",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "refunds",
+                    ":vendor_credit_refund_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_refund_id",
+                      "description": "(Required) Unique identifier of the vendor credit refund."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2014-08-28\",\n  \"amount\": 13,\n  \"account_id\": \"460000000020097\",\n  \"refund_mode\": \"cash\",\n  \"reference_number\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The refund information has been saved.\",\n  \"vendor_credit_refund\": {\n    \"vendor_credit_refund_id\": \"3000000003151\",\n    \"vendor_credit_id\": \"3000000002075\",\n    \"date\": \"2014-08-28\",\n    \"refund_mode\": \"cash\",\n    \"reference_number\": \"<string>\",\n    \"amount\": 13,\n    \"exchange_rate\": 1,\n    \"account_id\": \"460000000020097\",\n    \"account_name\": \"IT and Internet Expenses\",\n    \"description\": \"<string>\",\n    \"imported_transactions\": [\n      {\n        \"imported_transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"payee\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"imported_transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"payee\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "712c0efb-83bc-452c-9f5d-89fd2c656cfd",
+          "name": "Get vendor credit refund",
+          "request": {
+            "name": "Get vendor credit refund",
+            "description": {
+              "content": "Get refund of a particular vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "refunds",
+                ":vendor_credit_refund_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_refund_id",
+                  "description": "(Required) Unique identifier of the vendor credit refund."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "72481943-7cec-43ca-820b-8b204fdba988",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "refunds",
+                    ":vendor_credit_refund_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_refund_id",
+                      "description": "(Required) Unique identifier of the vendor credit refund."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"vendor_credit_refund\": {\n    \"vendor_credit_refund_id\": \"3000000003151\",\n    \"vendor_credit_id\": \"3000000002075\",\n    \"date\": \"2014-08-28\",\n    \"refund_mode\": \"cash\",\n    \"reference_number\": \"<string>\",\n    \"amount\": 13,\n    \"exchange_rate\": 1,\n    \"account_id\": \"460000000020097\",\n    \"account_name\": \"IT and Internet Expenses\",\n    \"description\": \"<string>\",\n    \"imported_transactions\": [\n      {\n        \"imported_transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"payee\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"imported_transaction_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"date\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"payee\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reference_number\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"account_id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5666cdc-6669-409f-bdaa-01e7fb42ff06",
+          "name": "Delete vendor credit refund",
+          "request": {
+            "name": "Delete vendor credit refund",
+            "description": {
+              "content": "Delete a vendor credit refund.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "refunds",
+                ":vendor_credit_refund_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_refund_id",
+                  "description": "(Required) Unique identifier of the vendor credit refund."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3620739f-8389-42f0-8c83-9918daa9071f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "refunds",
+                    ":vendor_credit_refund_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_refund_id",
+                      "description": "(Required) Unique identifier of the vendor credit refund."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The refund has been successfully deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b088198a-df3d-46c1-9a31-bcdfbe2eb2cb",
+          "name": "List vendor credit refunds",
+          "request": {
+            "name": "List vendor credit refunds",
+            "description": {
+              "content": "List all refunds with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "customer_id",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit customer ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_modified_time",
+                  "value": "<string>",
+                  "description": "Search vendor credits by vendor credit last modfified time"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Sort vendor credits by following columns vendor_name, vendorcredit_number, balance, total, date and created_time. Allowed Values: <code>vendor_name</code>, <code>vendor_credit_number</code>, <code>balance</code>, <code>total</code>, <code>date</code>, <code>created_time</code>, <code>last_modified_time</code> and <code>reference_number</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "72809fd9-b9af-4336-81d8-49155d15d5a1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customer_id",
+                      "value": ""
+                    },
+                    {
+                      "key": "last_modified_time",
+                      "value": "2014-08-28T22:53:31-0700"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"vendor_credit_refunds\": [\n    {\n      \"vendor_credit_refund_id\": \"3000000003151\",\n      \"vendor_credit_id\": \"3000000002075\",\n      \"date\": \"2017-01-22\",\n      \"refund_mode\": \"cash\",\n      \"reference_number\": \"<string>\",\n      \"amount\": 13,\n      \"vendor_credit_number\": \"DN-00002\",\n      \"customer_name\": \"Bowman and Co\",\n      \"description\": \"Cheque deposit\",\n      \"amount_bcy\": 13,\n      \"amount_fcy\": 13\n    },\n    {\n      \"vendor_credit_refund_id\": \"3000000003151\",\n      \"vendor_credit_id\": \"3000000002075\",\n      \"date\": \"2017-01-22\",\n      \"refund_mode\": \"cash\",\n      \"reference_number\": \"<string>\",\n      \"amount\": 13,\n      \"vendor_credit_number\": \"DN-00002\",\n      \"customer_name\": \"Bowman and Co\",\n      \"description\": \"Cheque deposit\",\n      \"amount_bcy\": 13,\n      \"amount_fcy\": 13\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f22f2f3b-e9b0-4138-8043-7083d7115ac1",
+          "name": "Add a comment",
+          "request": {
+            "name": "Add a comment",
+            "description": {
+              "content": "Add a comment to an existing vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2bb9865-1914-47a5-aae0-0004e620906d",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"Credits applied to Bill 1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Comments added.\",\n  \"comment\": {\n    \"comment_id\": \"3000000002089\",\n    \"vendor_credit_id\": \"3000000002075\",\n    \"description\": \"Credits applied to Bill 1\",\n    \"commented_by_id\": \"3000000000741\",\n    \"commented_by\": \"rajdeep.a\",\n    \"date\": \"2017-01-18\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33d13612-7d00-456a-ba2a-c36f5529e1bf",
+          "name": "List vendor credit comments & history",
+          "request": {
+            "name": "List vendor credit comments & history",
+            "description": {
+              "content": "Get history and comments of a vendor credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0c1e8655-1fe6-4e7a-89ae-f70b3432e5da",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"comments\": [\n    {\n      \"comment_id\": \"3000000002089\",\n      \"vendor_credit_id\": \"3000000002075\",\n      \"description\": \"Credits applied to Bill 1\",\n      \"commented_by_id\": \"3000000000741\",\n      \"commented_by\": \"rajdeep.a\",\n      \"comment_type\": \"system\",\n      \"date\": \"2017-01-18\",\n      \"date_description\": \"32 minutes ago\",\n      \"time\": \"10:52 PM\",\n      \"operation_type\": \"Added\",\n      \"transaction_id\": \"460000000069087\",\n      \"transaction_type\": \"vendor_credit\"\n    },\n    {\n      \"comment_id\": \"3000000002089\",\n      \"vendor_credit_id\": \"3000000002075\",\n      \"description\": \"Credits applied to Bill 1\",\n      \"commented_by_id\": \"3000000000741\",\n      \"commented_by\": \"rajdeep.a\",\n      \"comment_type\": \"system\",\n      \"date\": \"2017-01-18\",\n      \"date_description\": \"32 minutes ago\",\n      \"time\": \"10:52 PM\",\n      \"operation_type\": \"Added\",\n      \"transaction_id\": \"460000000069087\",\n      \"transaction_type\": \"vendor_credit\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da77057d-f767-411d-838b-70a975b95a92",
+          "name": "Delete a comment",
+          "request": {
+            "name": "Delete a comment",
+            "description": {
+              "content": "Delete a vendor credit comment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendorcredits",
+                ":vendor_credit_id",
+                "comments",
+                ":comment_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "comment_id",
+                  "description": "(Required) Unique identifier of the comment."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor_credit_id",
+                  "description": "(Required) Unique identifier of the vendor credit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6de4bdfe-2e59-476d-8a8a-3935f46dbf4f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendorcredits",
+                    ":vendor_credit_id",
+                    "comments",
+                    ":comment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "comment_id",
+                      "description": "(Required) Unique identifier of the comment."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor_credit_id",
+                      "description": "(Required) Unique identifier of the vendor credit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The comment has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "64aeb529-6adb-4abb-a684-728c696e918b",
+    "name": "batches vendor-credits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

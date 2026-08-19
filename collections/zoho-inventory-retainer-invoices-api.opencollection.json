@@ -1,0 +1,838 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches retainer-invoices API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "retainer-invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List a retainer invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "print",
+                "value": "",
+                "type": "query",
+                "description": "Print the exported pdf."
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort retainer invoices.Allowed Values: <code>customer_name</code>, <code>retainer invoice_number</code>, <code>date</code>, <code> due_date</code>, <code>total</code>, <code>balance</code> and  <code>created_time</code>"
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter invoices by any status or payment expected date.Allowed Values: <code> Status.All</code>, <code>Status.Sent</code>, <code> Status.Draft</code>, <code>Status.OverDue</code>, <code>Status.Paid</code>, <code>Status.Void</code>, <code>Status.Unpaid</code>, <code>Status.PartiallyPaid</code>,<code> Status.Viewed</code> and <code>Date.PaymentExpectedDate</code>"
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "The order for sorting"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Number of pages"
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all retainer invoices with pagination."
+        },
+        {
+          "info": {
+            "name": "Create a retainerinvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "",
+                "type": "query",
+                "description": "Ignore auto invoice number generation for this invoice. This mandates the invoice number. Allowed values <code>true</code> and <code>false</code>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a retainer invoice for your customer."
+        },
+        {
+          "info": {
+            "name": "Get a retainer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the details of a retainer invoice."
+        },
+        {
+          "info": {
+            "name": "update a retainerinvoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing invoice."
+        },
+        {
+          "info": {
+            "name": "Delete a retainer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing retainer invoice. Invoices which have payment or credits note applied cannot be deleted."
+        },
+        {
+          "info": {
+            "name": "Mark a retainer invoice as sent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/status/sent",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a draft retainer invoice as sent."
+        },
+        {
+          "info": {
+            "name": "Update retainer invoice template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/templates/:template_id",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "template_id",
+                "value": "982000000000143",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice template."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the pdf template associated with the retainer invoice."
+        },
+        {
+          "info": {
+            "name": "Void a retainer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/status/void",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark an invoice status as void. Upon voiding, the payments and credits associated with the retainer invoices will be unassociated and will be under customer credits."
+        },
+        {
+          "info": {
+            "name": "Mark as draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:reatinerinvoice_id/status/draft",
+            "params": [
+              {
+                "name": "reatinerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a voided retainer invoice as draft. "
+        },
+        {
+          "info": {
+            "name": "Submit a retainer invoice for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:reatinerinvoice_id/submit",
+            "params": [
+              {
+                "name": "reatinerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit a retainer invoice for approval."
+        },
+        {
+          "info": {
+            "name": "Approve a retainer invoice.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:reatinerinvoice_id/approve",
+            "params": [
+              {
+                "name": "reatinerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a retainer invoice."
+        },
+        {
+          "info": {
+            "name": "Get retainer invoice email content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/email",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the email content of a retainer invoice."
+        },
+        {
+          "info": {
+            "name": "Email a retainer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/email",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "send_customer_statement",
+                "value": " ",
+                "type": "query",
+                "description": "Send customer statement pdf a with email."
+              },
+              {
+                "name": "send_attachment",
+                "value": " ",
+                "type": "query",
+                "description": "Send the retainer invoice attachment a with the email."
+              },
+              {
+                "name": "attachments",
+                "value": "",
+                "type": "query",
+                "description": "Files to be attached to the email"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Email a retainer invoice to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content."
+        },
+        {
+          "info": {
+            "name": "Update billing address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/address/billing",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the billing address for this retainer invoice alone."
+        },
+        {
+          "info": {
+            "name": "List retainer invoice templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/templates",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get all retainer invoice pdf templates."
+        },
+        {
+          "info": {
+            "name": "Get a retainer invoice attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/attachment",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns the file attached to the retainer invoice."
+        },
+        {
+          "info": {
+            "name": "Add attachment to a retainer invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/attachment",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Attach a file to an invoice."
+        },
+        {
+          "info": {
+            "name": "Delete an attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/documents/:document_id",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "document_id",
+                "value": "982000000562114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice document."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete the file attached to the retainer invoice."
+        },
+        {
+          "info": {
+            "name": "List retainer invoice comments & history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/comments",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the complete history and comments of a retainer invoice."
+        },
+        {
+          "info": {
+            "name": "Add comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/comments",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Add a comment for a retainer invoice."
+        },
+        {
+          "info": {
+            "name": "Update comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/comments/:comment_id",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "comment_id",
+                "value": "982000000567019",
+                "type": "path",
+                "description": "Unique identifier of the comment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing comment of a retainer invoice."
+        },
+        {
+          "info": {
+            "name": "Delete a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/retainerinvoices/:retainerinvoice_id/comments/:comment_id",
+            "params": [
+              {
+                "name": "retainerinvoice_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "Unique identifier of the retainer invoice."
+              },
+              {
+                "name": "comment_id",
+                "value": "982000000567019",
+                "type": "path",
+                "description": "Unique identifier of the comment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a retainer invoice comment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

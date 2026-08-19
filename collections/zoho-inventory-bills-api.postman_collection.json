@@ -1,0 +1,1844 @@
+{
+  "item": [
+    {
+      "id": "2355286f-427d-4b3e-ac18-8edd1627822e",
+      "name": "bills",
+      "description": {
+        "content": "Bills Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4befd76-6fa6-464e-8b37-d03e8b982613",
+          "name": "Create a Bill",
+          "request": {
+            "name": "Create a Bill",
+            "description": {
+              "content": "Creates a Bill in Zoho Inventory. Description about the extra parameter <code>attachment</code> Allowed extensions are gif, png, jpeg, jpg, bmp and pdf.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendor_id\": \"<string>\",\n  \"bill_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"due_date\": \"<string>\",\n  \"line_items\": [\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"bcy_rate\": \"<double>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"item_order\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"bcy_rate\": \"<double>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"item_order\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"purchaseorder_id\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"currency_id\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"is_item_level_tax_calc\": \"<boolean>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98c361d1-71be-4ac6-8da6-c0487321a2f5",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_id\": \"<string>\",\n  \"bill_number\": \"BL-00002\",\n  \"date\": \"2015-05-29\",\n  \"due_date\": \"2015-05-29\",\n  \"line_items\": [\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"Inventory Asset\",\n      \"description\": \"Sample Description\",\n      \"bcy_rate\": 122,\n      \"rate\": 6,\n      \"quantity\": 5,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"460000000027009\",\n      \"tax_name\": \"Purchase tax\",\n      \"tax_type\": \"Tax group\",\n      \"tax_percentage\": 12,\n      \"item_total\": 290,\n      \"item_order\": 0,\n      \"unit\": \"qty\",\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    },\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"Inventory Asset\",\n      \"description\": \"Sample Description\",\n      \"bcy_rate\": 122,\n      \"rate\": 6,\n      \"quantity\": 5,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"460000000027009\",\n      \"tax_name\": \"Purchase tax\",\n      \"tax_type\": \"Tax group\",\n      \"tax_percentage\": 12,\n      \"item_total\": 290,\n      \"item_order\": 0,\n      \"unit\": \"qty\",\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    }\n  ],\n  \"purchaseorder_id\": \"<string>\",\n  \"reference_number\": \"PO-00003\",\n  \"currency_id\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"is_item_level_tax_calc\": true,\n  \"notes\": \"Sample Note\",\n  \"terms\": \"Term & Conditions\",\n  \"is_inclusive_tax\": false,\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ],\n  \"location_id\": \"460000000038080\",\n  \"gst_treatment\": \"business_gst\",\n  \"tax_treatment\": \"vat_registered\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"source_of_supply\": \"AP\",\n  \"destination_of_supply\": \"TN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The Bill has been created.\",\n  \"bill\": {\n    \"bill_id\": \"string\",\n    \"purchaseorder_id\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"unused_credits_payable_amount\": 0,\n    \"status\": \"paid\",\n    \"bill_number\": \"BL-00002\",\n    \"date\": \"2015-05-29\",\n    \"due_date\": \"2015-05-29\",\n    \"reference_number\": \"PO-00003\",\n    \"due_by_days\": 69,\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"price_precision\": 2,\n    \"exchange_rate\": 1,\n    \"is_item_level_tax_calc\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"purchaseorder_item_id\": \"<string>\",\n        \"receive_item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"Inventory Asset\",\n        \"description\": \"Sample Description\",\n        \"bcy_rate\": 122,\n        \"rate\": 6,\n        \"quantity\": 5,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"460000000027009\",\n        \"tax_name\": \"Purchase tax\",\n        \"tax_type\": \"Tax group\",\n        \"tax_percentage\": 12,\n        \"item_total\": 290,\n        \"item_order\": 0,\n        \"unit\": \"qty\",\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"serial_numbers\": [\n          \"ARMP-0078\",\n          \"ARMP-0078\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"purchaseorder_item_id\": \"<string>\",\n        \"receive_item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"Inventory Asset\",\n        \"description\": \"Sample Description\",\n        \"bcy_rate\": 122,\n        \"rate\": 6,\n        \"quantity\": 5,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"460000000027009\",\n        \"tax_name\": \"Purchase tax\",\n        \"tax_type\": \"Tax group\",\n        \"tax_percentage\": 12,\n        \"item_total\": 290,\n        \"item_order\": 0,\n        \"unit\": \"qty\",\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"serial_numbers\": [\n          \"ARMP-0078\",\n          \"ARMP-0078\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"Purchase tax\",\n        \"tax_amount\": 29\n      },\n      {\n        \"tax_name\": \"Purchase tax\",\n        \"tax_amount\": 29\n      }\n    ],\n    \"vendor_credits_applied\": 24,\n    \"sub_total\": 30,\n    \"tax_total\": 2,\n    \"balance\": 0,\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"payment_id\": \"string\",\n        \"bill_id\": \"string\",\n        \"bill_payment_id\": \"string\",\n        \"payment_mode\": \"Cash\",\n        \"payment_number\": \"string\",\n        \"description\": \"Sample Description\",\n        \"date\": \"2015-05-29\",\n        \"reference_number\": \"PO-00003\",\n        \"exchange_rate\": 1,\n        \"amount\": 234,\n        \"paid_through_account_id\": \"string\",\n        \"paid_through_account_name\": \"Petty Cash\",\n        \"is_single_bill_payment\": true\n      },\n      {\n        \"payment_id\": \"string\",\n        \"bill_id\": \"string\",\n        \"bill_payment_id\": \"string\",\n        \"payment_mode\": \"Cash\",\n        \"payment_number\": \"string\",\n        \"description\": \"Sample Description\",\n        \"date\": \"2015-05-29\",\n        \"reference_number\": \"PO-00003\",\n        \"exchange_rate\": 1,\n        \"amount\": 234,\n        \"paid_through_account_id\": \"string\",\n        \"paid_through_account_name\": \"Petty Cash\",\n        \"is_single_bill_payment\": true\n      }\n    ],\n    \"vendor_credits\": [\n      {\n        \"vendor_credit_id\": \"string\",\n        \"vendor_credit_bill_id\": \"string\",\n        \"vendor_credit_number\": 67258,\n        \"date\": \"2015-05-29\",\n        \"amount\": 234\n      },\n      {\n        \"vendor_credit_id\": \"string\",\n        \"vendor_credit_bill_id\": \"string\",\n        \"vendor_credit_number\": 67258,\n        \"date\": \"2015-05-29\",\n        \"amount\": 234\n      }\n    ],\n    \"created_time\": \"2015-05-29 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-29 00:00:00+00:00\",\n    \"reference_id\": \"string\",\n    \"notes\": \"Sample Note\",\n    \"terms\": \"Term & Conditions\",\n    \"attachment_name\": \"sample-attachments\",\n    \"open_purchaseorders_count\": 4,\n    \"gst_treatment\": \"business_gst\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"source_of_supply\": \"AP\",\n    \"destination_of_supply\": \"TN\",\n    \"is_pre_gst\": false,\n    \"is_reverse_charge_applied\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88a3025f-ec0e-4216-a6ee-92e425be7cb7",
+          "name": "List all Bills.",
+          "request": {
+            "name": "List all Bills.",
+            "description": {
+              "content": "Lists all the Bills in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87b69c9b-e049-4461-a931-67e19d2db831",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"bills\": [\n    {\n      \"bill_id\": \"string\",\n      \"purchaseorder_id\": \"<string>\",\n      \"vendor_id\": \"<string>\",\n      \"vendor_name\": \"Molly\",\n      \"unused_credits_payable_amount\": 0,\n      \"status\": \"paid\",\n      \"bill_number\": \"BL-00002\",\n      \"date\": \"2015-05-29\",\n      \"due_date\": \"2015-05-29\",\n      \"reference_number\": \"PO-00003\",\n      \"due_by_days\": 69,\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"USD\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"exchange_rate\": 1,\n      \"is_item_level_tax_calc\": true,\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ],\n      \"line_items\": [\n        {\n          \"purchaseorder_item_id\": \"<string>\",\n          \"receive_item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"Inventory Asset\",\n          \"description\": \"Sample Description\",\n          \"bcy_rate\": 122,\n          \"rate\": 6,\n          \"quantity\": 5,\n          \"tax_id\": \"<string>\",\n          \"tds_tax_id\": \"460000000027009\",\n          \"tax_name\": \"Purchase tax\",\n          \"tax_type\": \"Tax group\",\n          \"tax_percentage\": 12,\n          \"item_total\": 290,\n          \"item_order\": 0,\n          \"unit\": \"qty\",\n          \"image_id\": 2077500000000002000,\n          \"image_name\": \"dell.jpg\",\n          \"image_type\": \"jpg\",\n          \"reverse_charge_tax_id\": \"<string>\",\n          \"reverse_charge_tax_name\": \"inter\",\n          \"reverse_charge_tax_percentage\": 10,\n          \"reverse_charge_tax_amount\": 100,\n          \"hsn_or_sac\": \"<string>\",\n          \"tax_exemption_code\": \"<string>\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"string\",\n          \"tax_exemption_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"ARMP-0078\",\n            \"ARMP-0078\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"purchaseorder_item_id\": \"<string>\",\n          \"receive_item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"Inventory Asset\",\n          \"description\": \"Sample Description\",\n          \"bcy_rate\": 122,\n          \"rate\": 6,\n          \"quantity\": 5,\n          \"tax_id\": \"<string>\",\n          \"tds_tax_id\": \"460000000027009\",\n          \"tax_name\": \"Purchase tax\",\n          \"tax_type\": \"Tax group\",\n          \"tax_percentage\": 12,\n          \"item_total\": 290,\n          \"item_order\": 0,\n          \"unit\": \"qty\",\n          \"image_id\": 2077500000000002000,\n          \"image_name\": \"dell.jpg\",\n          \"image_type\": \"jpg\",\n          \"reverse_charge_tax_id\": \"<string>\",\n          \"reverse_charge_tax_name\": \"inter\",\n          \"reverse_charge_tax_percentage\": 10,\n          \"reverse_charge_tax_amount\": 100,\n          \"hsn_or_sac\": \"<string>\",\n          \"tax_exemption_code\": \"<string>\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"string\",\n          \"tax_exemption_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"ARMP-0078\",\n            \"ARMP-0078\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"string\",\n      \"taxes\": [\n        {\n          \"tax_name\": \"Purchase tax\",\n          \"tax_amount\": 29\n        },\n        {\n          \"tax_name\": \"Purchase tax\",\n          \"tax_amount\": 29\n        }\n      ],\n      \"vendor_credits_applied\": 24,\n      \"sub_total\": 30,\n      \"tax_total\": 2,\n      \"balance\": 0,\n      \"billing_address\": [\n        {\n          \"address\": \"No:234,90 Church Street\",\n          \"city\": \"New York City\",\n          \"state\": \"New York\",\n          \"zip\": \"string\",\n          \"country\": \"U.S.A\",\n          \"fax\": \"324-524242\"\n        },\n        {\n          \"address\": \"No:234,90 Church Street\",\n          \"city\": \"New York City\",\n          \"state\": \"New York\",\n          \"zip\": \"string\",\n          \"country\": \"U.S.A\",\n          \"fax\": \"324-524242\"\n        }\n      ],\n      \"payments\": [\n        {\n          \"payment_id\": \"string\",\n          \"bill_id\": \"string\",\n          \"bill_payment_id\": \"string\",\n          \"payment_mode\": \"Cash\",\n          \"payment_number\": \"string\",\n          \"description\": \"Sample Description\",\n          \"date\": \"2015-05-29\",\n          \"reference_number\": \"PO-00003\",\n          \"exchange_rate\": 1,\n          \"amount\": 234,\n          \"paid_through_account_id\": \"string\",\n          \"paid_through_account_name\": \"Petty Cash\",\n          \"is_single_bill_payment\": true\n        },\n        {\n          \"payment_id\": \"string\",\n          \"bill_id\": \"string\",\n          \"bill_payment_id\": \"string\",\n          \"payment_mode\": \"Cash\",\n          \"payment_number\": \"string\",\n          \"description\": \"Sample Description\",\n          \"date\": \"2015-05-29\",\n          \"reference_number\": \"PO-00003\",\n          \"exchange_rate\": 1,\n          \"amount\": 234,\n          \"paid_through_account_id\": \"string\",\n          \"paid_through_account_name\": \"Petty Cash\",\n          \"is_single_bill_payment\": true\n        }\n      ],\n      \"vendor_credits\": [\n        {\n          \"vendor_credit_id\": \"string\",\n          \"vendor_credit_bill_id\": \"string\",\n          \"vendor_credit_number\": 67258,\n          \"date\": \"2015-05-29\",\n          \"amount\": 234\n        },\n        {\n          \"vendor_credit_id\": \"string\",\n          \"vendor_credit_bill_id\": \"string\",\n          \"vendor_credit_number\": 67258,\n          \"date\": \"2015-05-29\",\n          \"amount\": 234\n        }\n      ],\n      \"created_time\": \"2015-05-29 00:00:00+00:00\",\n      \"last_modified_time\": \"2015-05-29 00:00:00+00:00\",\n      \"reference_id\": \"string\",\n      \"notes\": \"Sample Note\",\n      \"terms\": \"Term & Conditions\",\n      \"attachment_name\": \"sample-attachments\",\n      \"open_purchaseorders_count\": 4\n    },\n    {\n      \"bill_id\": \"string\",\n      \"purchaseorder_id\": \"<string>\",\n      \"vendor_id\": \"<string>\",\n      \"vendor_name\": \"Molly\",\n      \"unused_credits_payable_amount\": 0,\n      \"status\": \"paid\",\n      \"bill_number\": \"BL-00002\",\n      \"date\": \"2015-05-29\",\n      \"due_date\": \"2015-05-29\",\n      \"reference_number\": \"PO-00003\",\n      \"due_by_days\": 69,\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"USD\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"exchange_rate\": 1,\n      \"is_item_level_tax_calc\": true,\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ],\n      \"line_items\": [\n        {\n          \"purchaseorder_item_id\": \"<string>\",\n          \"receive_item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"Inventory Asset\",\n          \"description\": \"Sample Description\",\n          \"bcy_rate\": 122,\n          \"rate\": 6,\n          \"quantity\": 5,\n          \"tax_id\": \"<string>\",\n          \"tds_tax_id\": \"460000000027009\",\n          \"tax_name\": \"Purchase tax\",\n          \"tax_type\": \"Tax group\",\n          \"tax_percentage\": 12,\n          \"item_total\": 290,\n          \"item_order\": 0,\n          \"unit\": \"qty\",\n          \"image_id\": 2077500000000002000,\n          \"image_name\": \"dell.jpg\",\n          \"image_type\": \"jpg\",\n          \"reverse_charge_tax_id\": \"<string>\",\n          \"reverse_charge_tax_name\": \"inter\",\n          \"reverse_charge_tax_percentage\": 10,\n          \"reverse_charge_tax_amount\": 100,\n          \"hsn_or_sac\": \"<string>\",\n          \"tax_exemption_code\": \"<string>\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"string\",\n          \"tax_exemption_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"ARMP-0078\",\n            \"ARMP-0078\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"purchaseorder_item_id\": \"<string>\",\n          \"receive_item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"account_id\": \"<string>\",\n          \"account_name\": \"Inventory Asset\",\n          \"description\": \"Sample Description\",\n          \"bcy_rate\": 122,\n          \"rate\": 6,\n          \"quantity\": 5,\n          \"tax_id\": \"<string>\",\n          \"tds_tax_id\": \"460000000027009\",\n          \"tax_name\": \"Purchase tax\",\n          \"tax_type\": \"Tax group\",\n          \"tax_percentage\": 12,\n          \"item_total\": 290,\n          \"item_order\": 0,\n          \"unit\": \"qty\",\n          \"image_id\": 2077500000000002000,\n          \"image_name\": \"dell.jpg\",\n          \"image_type\": \"jpg\",\n          \"reverse_charge_tax_id\": \"<string>\",\n          \"reverse_charge_tax_name\": \"inter\",\n          \"reverse_charge_tax_percentage\": 10,\n          \"reverse_charge_tax_amount\": 100,\n          \"hsn_or_sac\": \"<string>\",\n          \"tax_exemption_code\": \"<string>\",\n          \"location_id\": \"460000000038080\",\n          \"location_name\": \"string\",\n          \"tax_exemption_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"ARMP-0078\",\n            \"ARMP-0078\"\n          ],\n          \"batches\": [\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"batch_id\": \"6780203000001066789\",\n              \"batch_number\": \"BTC-TL-890\",\n              \"external_batch_number\": \"MFR-TL-890\",\n              \"manufacturer_date\": \"2026-05-12\",\n              \"expiry_date\": \"2026-12-24\",\n              \"in_quantity\": 2,\n              \"batch_in_id\": \"6780203000001066797\",\n              \"storages\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"storage_id\": \"6780203000000093226\",\n              \"storage_name\": \"Bin A2\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066795\",\n              \"serial_numbers\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          \"item_custom_fields\": [\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"label\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"string\",\n      \"taxes\": [\n        {\n          \"tax_name\": \"Purchase tax\",\n          \"tax_amount\": 29\n        },\n        {\n          \"tax_name\": \"Purchase tax\",\n          \"tax_amount\": 29\n        }\n      ],\n      \"vendor_credits_applied\": 24,\n      \"sub_total\": 30,\n      \"tax_total\": 2,\n      \"balance\": 0,\n      \"billing_address\": [\n        {\n          \"address\": \"No:234,90 Church Street\",\n          \"city\": \"New York City\",\n          \"state\": \"New York\",\n          \"zip\": \"string\",\n          \"country\": \"U.S.A\",\n          \"fax\": \"324-524242\"\n        },\n        {\n          \"address\": \"No:234,90 Church Street\",\n          \"city\": \"New York City\",\n          \"state\": \"New York\",\n          \"zip\": \"string\",\n          \"country\": \"U.S.A\",\n          \"fax\": \"324-524242\"\n        }\n      ],\n      \"payments\": [\n        {\n          \"payment_id\": \"string\",\n          \"bill_id\": \"string\",\n          \"bill_payment_id\": \"string\",\n          \"payment_mode\": \"Cash\",\n          \"payment_number\": \"string\",\n          \"description\": \"Sample Description\",\n          \"date\": \"2015-05-29\",\n          \"reference_number\": \"PO-00003\",\n          \"exchange_rate\": 1,\n          \"amount\": 234,\n          \"paid_through_account_id\": \"string\",\n          \"paid_through_account_name\": \"Petty Cash\",\n          \"is_single_bill_payment\": true\n        },\n        {\n          \"payment_id\": \"string\",\n          \"bill_id\": \"string\",\n          \"bill_payment_id\": \"string\",\n          \"payment_mode\": \"Cash\",\n          \"payment_number\": \"string\",\n          \"description\": \"Sample Description\",\n          \"date\": \"2015-05-29\",\n          \"reference_number\": \"PO-00003\",\n          \"exchange_rate\": 1,\n          \"amount\": 234,\n          \"paid_through_account_id\": \"string\",\n          \"paid_through_account_name\": \"Petty Cash\",\n          \"is_single_bill_payment\": true\n        }\n      ],\n      \"vendor_credits\": [\n        {\n          \"vendor_credit_id\": \"string\",\n          \"vendor_credit_bill_id\": \"string\",\n          \"vendor_credit_number\": 67258,\n          \"date\": \"2015-05-29\",\n          \"amount\": 234\n        },\n        {\n          \"vendor_credit_id\": \"string\",\n          \"vendor_credit_bill_id\": \"string\",\n          \"vendor_credit_number\": 67258,\n          \"date\": \"2015-05-29\",\n          \"amount\": 234\n        }\n      ],\n      \"created_time\": \"2015-05-29 00:00:00+00:00\",\n      \"last_modified_time\": \"2015-05-29 00:00:00+00:00\",\n      \"reference_id\": \"string\",\n      \"notes\": \"Sample Note\",\n      \"terms\": \"Term & Conditions\",\n      \"attachment_name\": \"sample-attachments\",\n      \"open_purchaseorders_count\": 4\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d96562f-2693-4e2b-a010-fa617771620b",
+          "name": "Retrieve a Bill",
+          "request": {
+            "name": "Retrieve a Bill",
+            "description": {
+              "content": "Fetches the details of a Bill.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ebd79e03-3141-4d9d-b4b3-1ac83041a057",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"bill\": {\n    \"bill_id\": \"string\",\n    \"purchaseorder_id\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"unused_credits_payable_amount\": 0,\n    \"status\": \"paid\",\n    \"bill_number\": \"BL-00002\",\n    \"date\": \"2015-05-29\",\n    \"due_date\": \"2015-05-29\",\n    \"reference_number\": \"PO-00003\",\n    \"due_by_days\": 69,\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"price_precision\": 2,\n    \"exchange_rate\": 1,\n    \"is_item_level_tax_calc\": true,\n    \"line_items\": [\n      {\n        \"purchaseorder_item_id\": \"<string>\",\n        \"receive_item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"Inventory Asset\",\n        \"description\": \"Sample Description\",\n        \"bcy_rate\": 122,\n        \"rate\": 6,\n        \"quantity\": 5,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"460000000027009\",\n        \"tax_name\": \"Purchase tax\",\n        \"tax_type\": \"Tax group\",\n        \"tax_percentage\": 12,\n        \"item_total\": 290,\n        \"item_order\": 0,\n        \"unit\": \"qty\",\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"serial_numbers\": [\n          \"ARMP-0078\",\n          \"ARMP-0078\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          }\n        ],\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      },\n      {\n        \"purchaseorder_item_id\": \"<string>\",\n        \"receive_item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"Inventory Asset\",\n        \"description\": \"Sample Description\",\n        \"bcy_rate\": 122,\n        \"rate\": 6,\n        \"quantity\": 5,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"460000000027009\",\n        \"tax_name\": \"Purchase tax\",\n        \"tax_type\": \"Tax group\",\n        \"tax_percentage\": 12,\n        \"item_total\": 290,\n        \"item_order\": 0,\n        \"unit\": \"qty\",\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"serial_numbers\": [\n          \"ARMP-0078\",\n          \"ARMP-0078\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          }\n        ],\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"Purchase tax\",\n        \"tax_amount\": 29\n      },\n      {\n        \"tax_name\": \"Purchase tax\",\n        \"tax_amount\": 29\n      }\n    ],\n    \"vendor_credits_applied\": 24,\n    \"sub_total\": 30,\n    \"tax_total\": 2,\n    \"balance\": 0,\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"payment_id\": \"string\",\n        \"bill_id\": \"string\",\n        \"bill_payment_id\": \"string\",\n        \"payment_mode\": \"Cash\",\n        \"payment_number\": \"string\",\n        \"description\": \"Sample Description\",\n        \"date\": \"2015-05-29\",\n        \"reference_number\": \"PO-00003\",\n        \"exchange_rate\": 1,\n        \"amount\": 234,\n        \"paid_through_account_id\": \"string\",\n        \"paid_through_account_name\": \"Petty Cash\",\n        \"is_single_bill_payment\": true\n      },\n      {\n        \"payment_id\": \"string\",\n        \"bill_id\": \"string\",\n        \"bill_payment_id\": \"string\",\n        \"payment_mode\": \"Cash\",\n        \"payment_number\": \"string\",\n        \"description\": \"Sample Description\",\n        \"date\": \"2015-05-29\",\n        \"reference_number\": \"PO-00003\",\n        \"exchange_rate\": 1,\n        \"amount\": 234,\n        \"paid_through_account_id\": \"string\",\n        \"paid_through_account_name\": \"Petty Cash\",\n        \"is_single_bill_payment\": true\n      }\n    ],\n    \"vendor_credits\": [\n      {\n        \"vendor_credit_id\": \"string\",\n        \"vendor_credit_bill_id\": \"string\",\n        \"vendor_credit_number\": 67258,\n        \"date\": \"2015-05-29\",\n        \"amount\": 234\n      },\n      {\n        \"vendor_credit_id\": \"string\",\n        \"vendor_credit_bill_id\": \"string\",\n        \"vendor_credit_number\": 67258,\n        \"date\": \"2015-05-29\",\n        \"amount\": 234\n      }\n    ],\n    \"created_time\": \"2015-05-29 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-29 00:00:00+00:00\",\n    \"reference_id\": \"string\",\n    \"notes\": \"Sample Note\",\n    \"terms\": \"Term & Conditions\",\n    \"attachment_name\": \"sample-attachments\",\n    \"open_purchaseorders_count\": 4,\n    \"gst_treatment\": \"business_gst\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"source_of_supply\": \"AP\",\n    \"destination_of_supply\": \"TN\",\n    \"is_pre_gst\": false,\n    \"is_reverse_charge_applied\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a2b174a-33a8-442f-9ea3-c0fe7700b3bc",
+          "name": "Update a Bill",
+          "request": {
+            "name": "Update a Bill",
+            "description": {
+              "content": "Updates the details of an existing Bill.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendor_id\": \"<string>\",\n  \"bill_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"due_date\": \"<string>\",\n  \"line_items\": [\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"bcy_rate\": \"<double>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"item_order\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"bcy_rate\": \"<double>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"item_order\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"purchaseorder_id\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"currency_id\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"is_item_level_tax_calc\": \"<boolean>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\",\n  \"is_pre_gst\": \"<boolean>\",\n  \"is_reverse_charge_applied\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "06929a8b-f17b-420a-a5a4-4a3b068cccb2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_id\": \"<string>\",\n  \"bill_number\": \"BL-00002\",\n  \"date\": \"2015-05-29\",\n  \"due_date\": \"2015-05-29\",\n  \"line_items\": [\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"Inventory Asset\",\n      \"description\": \"Sample Description\",\n      \"bcy_rate\": 122,\n      \"rate\": 6,\n      \"quantity\": 5,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"460000000027009\",\n      \"tax_name\": \"Purchase tax\",\n      \"tax_type\": \"Tax group\",\n      \"tax_percentage\": 12,\n      \"item_total\": 290,\n      \"item_order\": 0,\n      \"unit\": \"qty\",\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    },\n    {\n      \"purchaseorder_item_id\": \"<string>\",\n      \"receive_item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"Inventory Asset\",\n      \"description\": \"Sample Description\",\n      \"bcy_rate\": 122,\n      \"rate\": 6,\n      \"quantity\": 5,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"460000000027009\",\n      \"tax_name\": \"Purchase tax\",\n      \"tax_type\": \"Tax group\",\n      \"tax_percentage\": 12,\n      \"item_total\": 290,\n      \"item_order\": 0,\n      \"unit\": \"qty\",\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"serial_numbers\": [\n        \"ARMP-0078\",\n        \"ARMP-0078\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ],\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    }\n  ],\n  \"purchaseorder_id\": \"<string>\",\n  \"reference_number\": \"PO-00003\",\n  \"currency_id\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"is_item_level_tax_calc\": true,\n  \"notes\": \"Sample Note\",\n  \"terms\": \"Term & Conditions\",\n  \"is_inclusive_tax\": false,\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ],\n  \"location_id\": \"460000000038080\",\n  \"gst_treatment\": \"business_gst\",\n  \"tax_treatment\": \"vat_registered\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"source_of_supply\": \"AP\",\n  \"destination_of_supply\": \"TN\",\n  \"is_pre_gst\": false,\n  \"is_reverse_charge_applied\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The Bill has been updated.\",\n  \"bill\": {\n    \"bill_id\": \"string\",\n    \"purchaseorder_id\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"unused_credits_payable_amount\": 0,\n    \"status\": \"paid\",\n    \"bill_number\": \"BL-00002\",\n    \"date\": \"2015-05-29\",\n    \"due_date\": \"2015-05-29\",\n    \"reference_number\": \"PO-00003\",\n    \"due_by_days\": 69,\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"price_precision\": 2,\n    \"exchange_rate\": 1,\n    \"is_item_level_tax_calc\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"purchaseorder_item_id\": \"<string>\",\n        \"receive_item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"Inventory Asset\",\n        \"description\": \"Sample Description\",\n        \"bcy_rate\": 122,\n        \"rate\": 6,\n        \"quantity\": 5,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"460000000027009\",\n        \"tax_name\": \"Purchase tax\",\n        \"tax_type\": \"Tax group\",\n        \"tax_percentage\": 12,\n        \"item_total\": 290,\n        \"item_order\": 0,\n        \"unit\": \"qty\",\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"serial_numbers\": [\n          \"ARMP-0078\",\n          \"ARMP-0078\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          }\n        ],\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      },\n      {\n        \"purchaseorder_item_id\": \"<string>\",\n        \"receive_item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"account_id\": \"<string>\",\n        \"account_name\": \"Inventory Asset\",\n        \"description\": \"Sample Description\",\n        \"bcy_rate\": 122,\n        \"rate\": 6,\n        \"quantity\": 5,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"460000000027009\",\n        \"tax_name\": \"Purchase tax\",\n        \"tax_type\": \"Tax group\",\n        \"tax_percentage\": 12,\n        \"item_total\": 290,\n        \"item_order\": 0,\n        \"unit\": \"qty\",\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"serial_numbers\": [\n          \"ARMP-0078\",\n          \"ARMP-0078\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ]\n          }\n        ],\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"Purchase tax\",\n        \"tax_amount\": 29\n      },\n      {\n        \"tax_name\": \"Purchase tax\",\n        \"tax_amount\": 29\n      }\n    ],\n    \"vendor_credits_applied\": 24,\n    \"sub_total\": 30,\n    \"tax_total\": 2,\n    \"balance\": 0,\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"payment_id\": \"string\",\n        \"bill_id\": \"string\",\n        \"bill_payment_id\": \"string\",\n        \"payment_mode\": \"Cash\",\n        \"payment_number\": \"string\",\n        \"description\": \"Sample Description\",\n        \"date\": \"2015-05-29\",\n        \"reference_number\": \"PO-00003\",\n        \"exchange_rate\": 1,\n        \"amount\": 234,\n        \"paid_through_account_id\": \"string\",\n        \"paid_through_account_name\": \"Petty Cash\",\n        \"is_single_bill_payment\": true\n      },\n      {\n        \"payment_id\": \"string\",\n        \"bill_id\": \"string\",\n        \"bill_payment_id\": \"string\",\n        \"payment_mode\": \"Cash\",\n        \"payment_number\": \"string\",\n        \"description\": \"Sample Description\",\n        \"date\": \"2015-05-29\",\n        \"reference_number\": \"PO-00003\",\n        \"exchange_rate\": 1,\n        \"amount\": 234,\n        \"paid_through_account_id\": \"string\",\n        \"paid_through_account_name\": \"Petty Cash\",\n        \"is_single_bill_payment\": true\n      }\n    ],\n    \"vendor_credits\": [\n      {\n        \"vendor_credit_id\": \"string\",\n        \"vendor_credit_bill_id\": \"string\",\n        \"vendor_credit_number\": 67258,\n        \"date\": \"2015-05-29\",\n        \"amount\": 234\n      },\n      {\n        \"vendor_credit_id\": \"string\",\n        \"vendor_credit_bill_id\": \"string\",\n        \"vendor_credit_number\": 67258,\n        \"date\": \"2015-05-29\",\n        \"amount\": 234\n      }\n    ],\n    \"created_time\": \"2015-05-29 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-29 00:00:00+00:00\",\n    \"reference_id\": \"string\",\n    \"notes\": \"Sample Note\",\n    \"terms\": \"Term & Conditions\",\n    \"attachment_name\": \"sample-attachments\",\n    \"open_purchaseorders_count\": 4,\n    \"gst_treatment\": \"business_gst\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"source_of_supply\": \"AP\",\n    \"destination_of_supply\": \"TN\",\n    \"is_pre_gst\": false,\n    \"is_reverse_charge_applied\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acc9fa86-5c9e-478b-9c67-16dbf601e372",
+          "name": "Delete a Bill.",
+          "request": {
+            "name": "Delete a Bill.",
+            "description": {
+              "content": "Deletes a Bill from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ee779cee-d05f-4d4d-8a5e-f45a6719c2e1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The Bill has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0100458-762b-4400-94e4-cd1dd6c4e2e8",
+          "name": "Update custom field in existing bills",
+          "request": {
+            "name": "Update custom field in existing bills",
+            "description": {
+              "content": "Update the value of the custom field in existing bills.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill",
+                ":bill_id",
+                "customfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"customfield_id\": \"<string>\",\n    \"label\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"customfield_id\": \"<string>\",\n    \"label\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4c2eb86-f03e-4275-864c-97c4c0eb92ac",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill",
+                    ":bill_id",
+                    "customfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"customfield_id\": \"46000000012845\",\n    \"label\": \"<string>\",\n    \"value\": \"Normal\"\n  },\n  {\n    \"customfield_id\": \"46000000012845\",\n    \"label\": \"<string>\",\n    \"value\": \"Normal\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Custom Fields Updated Successfully\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b3cfc7c-2916-4103-92f9-e124a58371db",
+          "name": "Mark as Open",
+          "request": {
+            "name": "Mark as Open",
+            "description": {
+              "content": "Marks a Bill as Open.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "status",
+                "open"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "764ca701-26c9-4242-82cb-c2e4fb23de09",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "status",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The bill has been marked as open.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1434430-9f3b-4b34-87d3-0857445267e0",
+          "name": "Mark as Void",
+          "request": {
+            "name": "Mark as Void",
+            "description": {
+              "content": "Marks a Bill as Void.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "status",
+                "void"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "95977c53-e1e2-4a4f-8271-bbf6505ec240",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "status",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The bill has been marked as Void.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b3d6028-565e-405d-9941-060540e949af",
+          "name": "Submit a bill for approval",
+          "request": {
+            "name": "Submit a bill for approval",
+            "description": {
+              "content": "Submit a bill for approval workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique ID of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ba2be5d7-b176-4382-99f4-61f134706a7e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique ID of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e76b567b-172d-4dd6-8743-1c519e0919de",
+          "name": "Approve a bill",
+          "request": {
+            "name": "Approve a bill",
+            "description": {
+              "content": "Approve a submitted bill.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique ID of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "086bd7a2-3e32-4691-ab1e-8ae1c6406a5f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique ID of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4bf23e6-2790-4a68-b87c-fb63b08cfc3e",
+          "name": "Final approval of a bill",
+          "request": {
+            "name": "Final approval of a bill",
+            "description": {
+              "content": "Perform the final approval of a bill (admin only).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "approve",
+                "final"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique ID of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3aae7592-9fe5-4e78-a3d9-c670fe544302",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "approve",
+                    "final"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique ID of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9c7cb60-8620-4403-847d-d229691d6940",
+          "name": "Reject a bill",
+          "request": {
+            "name": "Reject a bill",
+            "description": {
+              "content": "Reject a submitted bill.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique ID of the bill."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27b60f55-d6e9-4229-bb63-1b8181462b06",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique ID of the bill."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"Incorrect vendor details.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "345b30b3-1c4f-43d3-94d1-9182c11e73a4",
+          "name": "Bulk submit bills for approval",
+          "request": {
+            "name": "Bulk submit bills for approval",
+            "description": {
+              "content": "Submit multiple bills for approval workflow at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "bill_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of bill IDs to submit for approval."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "15dcbcae-f932-4d04-aedf-dca39c7e1808",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "bill_ids",
+                      "value": "4815000000045067,4815000000045090"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c46701b1-477e-4654-9854-5fc91b7c3576",
+          "name": "Bulk approve bills",
+          "request": {
+            "name": "Bulk approve bills",
+            "description": {
+              "content": "Approve multiple submitted bills at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "bill_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of bill IDs to approve."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f76471c9-a794-475b-9b88-bb896763dfe3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "bill_ids",
+                      "value": "4815000000045067,4815000000045090"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a8fa36c2-d99c-4cf9-9cef-8eadd8793426",
+    "name": "batches bills API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1903 @@
+{
+  "item": [
+    {
+      "id": "6dad613c-3e0f-425d-8efc-a2a5e0734fcc",
+      "name": "transferorders",
+      "description": {
+        "content": "TransferOrders Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e5d9924a-458f-4324-a3e8-73095ab62b8e",
+          "name": "Create a transfer order",
+          "request": {
+            "name": "Create a transfer order",
+            "description": {
+              "content": "Creates a new transfer order in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "When auto number generation is enabled in transfer order, this node states whether the auto generated transfer order number should be used or not. The default value is false."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transfer_order_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"from_location_id\": \"<string>\",\n  \"to_location_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity_transfer\": \"<double>\",\n      \"description\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity_transfer\": \"<double>\",\n      \"description\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"description\": \"<string>\",\n  \"from_warehouse_id\": \"<string>\",\n  \"to_warehouse_id\": \"<string>\",\n  \"is_intransit_order\": \"<boolean>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c7da044d-0c8d-467c-b3d1-560696f8c43c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transfer_order_number\": \"TO-00001\",\n  \"date\": \"2018-03-23\",\n  \"from_location_id\": \"460000000038080\",\n  \"to_location_id\": \"460000000039090\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"quantity_transfer\": 2,\n      \"description\": \"Just a sample description.\",\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"PKG-002\",\n        \"PKG-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            }\n          ],\n          \"batch_in_number\": \"\"\n        },\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            }\n          ],\n          \"batch_in_number\": \"\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"quantity_transfer\": 2,\n      \"description\": \"Just a sample description.\",\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"PKG-002\",\n        \"PKG-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            }\n          ],\n          \"batch_in_number\": \"\"\n        },\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2\n            }\n          ],\n          \"batch_in_number\": \"\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"description\": \"Quarterly warehouse reshuffle\",\n  \"from_warehouse_id\": \"460000000038075\",\n  \"to_warehouse_id\": \"460000000038076\",\n  \"is_intransit_order\": false,\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Transfer Order added successfully.\",\n  \"transfer_order\": {\n    \"transfer_order_id\": \"string\",\n    \"transfer_order_number\": \"TO-00001\",\n    \"date\": \"2018-03-23\",\n    \"from_location_id\": \"460000000038080\",\n    \"from_location_name\": \"string\",\n    \"to_location_id\": \"460000000039090\",\n    \"to_location_name\": \"string\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity_transfer\": 2,\n        \"unit\": \"qty\"\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity_transfer\": 2,\n        \"unit\": \"qty\"\n      }\n    ],\n    \"is_intransit_order\": false,\n    \"description\": \"Quarterly warehouse reshuffle\",\n    \"status\": \"in_transit\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af586259-83cd-4d59-a285-b435d89e7813",
+          "name": "List all the transfer orders",
+          "request": {
+            "name": "List all the transfer orders",
+            "description": {
+              "content": "Lists transfer orders in the Organization. Supports pagination, sort, quick search, custom view, and filters such as status, date range, warehouse or location, item, and transfer order number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Column used to sort the list. Allowed values are <code>date</code>, <code>created_time</code>, and <code>last_modified_time</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "Sort order. Allowed values are <code>A</code> for ascending and <code>D</code> for descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter using built-in views. Max-length 100. Examples: <code>TransferDate.All</code>, <code>TransferDate.ThisMonth</code>, <code>TransferStatus.InTransit</code>, <code>TransferStatus.Transferred</code>, <code>MissingAdvancedTrackingDetails</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_text",
+                  "value": "<string>",
+                  "description": "Search text applied across supported columns for the list."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by transfer order status. Allowed values are <code>in_transit</code>, <code>transferred</code>, <code>partially_transferred</code>, <code>draft</code>, <code>pending_approval</code>, <code>approved</code>, and <code>void</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "item_id",
+                  "value": "<string>",
+                  "description": "Filter by item ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "item_name",
+                  "value": "<string>",
+                  "description": "Filter by item name."
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Filter by project ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "from_warehouse_id",
+                  "value": "<string>",
+                  "description": "Filter by source warehouse ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "from_warehouse_name",
+                  "value": "<string>",
+                  "description": "Filter by source warehouse name."
+                },
+                {
+                  "disabled": false,
+                  "key": "to_warehouse_id",
+                  "value": "<string>",
+                  "description": "Filter by destination warehouse ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "to_warehouse_name",
+                  "value": "<string>",
+                  "description": "Filter by destination warehouse name."
+                },
+                {
+                  "disabled": false,
+                  "key": "from_location_id",
+                  "value": "<string>",
+                  "description": "Filter by source location ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "from_location_name",
+                  "value": "<string>",
+                  "description": "Filter by source location name."
+                },
+                {
+                  "disabled": false,
+                  "key": "to_location_id",
+                  "value": "<string>",
+                  "description": "Filter by destination location ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "to_location_name",
+                  "value": "<string>",
+                  "description": "Filter by destination location name."
+                },
+                {
+                  "disabled": false,
+                  "key": "customview_id",
+                  "value": "<string>",
+                  "description": "Custom view ID to apply."
+                },
+                {
+                  "disabled": false,
+                  "key": "serial_number",
+                  "value": "<string>",
+                  "description": "Filter by serial number."
+                },
+                {
+                  "disabled": false,
+                  "key": "transfer_order_number",
+                  "value": "<string>",
+                  "description": "Filter by transfer order number."
+                },
+                {
+                  "disabled": false,
+                  "key": "transfer_order_number_startswith",
+                  "value": "<string>",
+                  "description": "Filter by transfer order numbers that start with the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "transfer_order_number_contains",
+                  "value": "<string>",
+                  "description": "Filter by transfer order numbers that contain the given value."
+                },
+                {
+                  "disabled": false,
+                  "key": "reason",
+                  "value": "<string>",
+                  "description": "Filter by reason text (same family of search operators as transfer order number)."
+                },
+                {
+                  "disabled": false,
+                  "key": "reference_number_contains",
+                  "value": "<string>",
+                  "description": "Filter by reference number contains."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Filter by exact transfer date. Format <code>yyyy-mm-dd</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_start",
+                  "value": "<string>",
+                  "description": "Filter from this date (inclusive). Format <code>yyyy-mm-dd</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_end",
+                  "value": "<string>",
+                  "description": "Filter up to this date (inclusive). Format <code>yyyy-mm-dd</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_before",
+                  "value": "<string>",
+                  "description": "Filter by dates before this date. Format <code>yyyy-mm-dd</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_after",
+                  "value": "<string>",
+                  "description": "Filter by dates after this date. Format <code>yyyy-mm-dd</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "tracking_number",
+                  "value": "<string>",
+                  "description": "Filter by tracking number."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3f7cf253-e6bc-4726-aae6-b8dd0e412564",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "D"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": "TransferDate.All"
+                    },
+                    {
+                      "key": "search_text",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_id",
+                      "value": "4815000000044100"
+                    },
+                    {
+                      "key": "item_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "460000000039050"
+                    },
+                    {
+                      "key": "from_warehouse_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_warehouse_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to_warehouse_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to_warehouse_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_location_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to_location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to_location_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customview_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transfer_order_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transfer_order_number_startswith",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transfer_order_number_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reference_number_contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2018-03-23"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tracking_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 200,\n    \"has_more_page\": false,\n    \"applied_filter\": \"TransferDate.All\",\n    \"sort_column\": \"created_time\",\n    \"sort_order\": \"D\",\n    \"report_name\": \"zb.transfer.order.title\"\n  },\n  \"transfer_orders\": [\n    {\n      \"transfer_order_id\": \"string\",\n      \"transfer_order_number\": \"TO-00001\",\n      \"date\": \"2018-03-23\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"from_location_id\": \"460000000038080\",\n      \"from_location_name\": \"string\",\n      \"to_location_id\": \"460000000039090\",\n      \"to_location_name\": \"string\",\n      \"is_intransit_order\": false,\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"transfer_order_id\": \"string\",\n      \"transfer_order_number\": \"TO-00001\",\n      \"date\": \"2018-03-23\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"from_location_id\": \"460000000038080\",\n      \"from_location_name\": \"string\",\n      \"to_location_id\": \"460000000039090\",\n      \"to_location_name\": \"string\",\n      \"is_intransit_order\": false,\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6251bc02-3b23-440f-9857-7e87132792f3",
+          "name": "Bulk delete transfer orders",
+          "request": {
+            "name": "Bulk delete transfer orders",
+            "description": {
+              "content": "Deletes up to 25 transfer orders in one request. Pass comma-separated transfer order IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "transfer_order_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of transfer order IDs to delete. Minimum 1 and maximum 25 IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9175136-120d-4e8c-beb1-8705dbb48362",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transfer_order_ids",
+                      "value": "4815000000044895,4815000000044896"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Transfer Order(s) has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59338b2c-67a2-4e6f-9340-7d5d2fccd143",
+          "name": "Retrieve a transfer order",
+          "request": {
+            "name": "Retrieve a transfer order",
+            "description": {
+              "content": "Fetches the details for an existing transfer order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique identifier of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eead62bf-2fec-4024-aaa8-237a095c82a3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique identifier of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"transfer_order\": {\n    \"transfer_order_id\": \"string\",\n    \"transfer_order_number\": \"TO-00001\",\n    \"date\": \"2018-03-23\",\n    \"from_location_id\": \"460000000038080\",\n    \"from_location_name\": \"string\",\n    \"to_location_id\": \"460000000039090\",\n    \"to_location_name\": \"string\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity_transfer\": 2,\n        \"unit\": \"qty\"\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity_transfer\": 2,\n        \"unit\": \"qty\"\n      }\n    ],\n    \"is_intransit_order\": false,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"locations\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4510b00f-6b64-439c-82f0-2bf29f2f3537",
+          "name": "Update a transfer order",
+          "request": {
+            "name": "Update a transfer order",
+            "description": {
+              "content": "Update an existing transfer order from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "When auto number generation is enabled for transfer orders, set to <code>true</code> to supply your own transfer order number. Allowed values are <code>true</code> and <code>false</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique identifier of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transfer_order_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"from_location_id\": \"<string>\",\n  \"to_location_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity_transfer\": \"<double>\",\n      \"line_item_id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"batch_in_number_id\": \"<string>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"batch_in_number_id\": \"<string>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storage_out_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storage_out_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"quantity_transfer\": \"<double>\",\n      \"line_item_id\": \"<string>\",\n      \"description\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"batch_in_number_id\": \"<string>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        },\n        {\n          \"batch_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"batch_in_number_id\": \"<string>\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"out_quantity\": \"<float>\",\n              \"storage_out_id\": \"<string>\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ],\n          \"batch_in_number\": \"<string>\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storage_out_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"out_quantity\": \"<float>\",\n          \"storage_out_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"description\": \"<string>\",\n  \"from_warehouse_id\": \"<string>\",\n  \"to_warehouse_id\": \"<string>\",\n  \"is_intransit_order\": \"<boolean>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c97e606-fa53-4894-9c6c-c39601c5a2fd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique identifier of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transfer_order_number\": \"TO-00001\",\n  \"date\": \"2018-03-23\",\n  \"from_location_id\": \"460000000038080\",\n  \"to_location_id\": \"460000000039090\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"quantity_transfer\": 2,\n      \"line_item_id\": \"<string>\",\n      \"description\": \"Just a sample description.\",\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"PKG-002\",\n        \"PKG-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"batch_in_number_id\": \"6780203000001106137\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            }\n          ],\n          \"batch_in_number\": \"\"\n        },\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"batch_in_number_id\": \"6780203000001106137\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            }\n          ],\n          \"batch_in_number\": \"\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"storage_out_id\": \"6780203000001106135\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"storage_out_id\": \"6780203000001106135\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"storage_in_id\": \"6780203000001106133\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"storage_in_id\": \"6780203000001106133\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"quantity_transfer\": 2,\n      \"line_item_id\": \"<string>\",\n      \"description\": \"Just a sample description.\",\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"PKG-002\",\n        \"PKG-002\"\n      ],\n      \"batches\": [\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"batch_in_number_id\": \"6780203000001106137\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            }\n          ],\n          \"batch_in_number\": \"\"\n        },\n        {\n          \"batch_id\": \"6780203000000162236\",\n          \"out_quantity\": 2,\n          \"batch_in_number_id\": \"6780203000001106137\",\n          \"from_storages\": [\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            },\n            {\n              \"storage_id\": \"6780203000000093227\",\n              \"out_quantity\": 2,\n              \"storage_out_id\": \"6780203000001106131\"\n            }\n          ],\n          \"to_storages\": [\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            },\n            {\n              \"storage_id\": \"6780203000000206981\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001106128\"\n            }\n          ],\n          \"batch_in_number\": \"\"\n        }\n      ],\n      \"from_storages\": [\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"storage_out_id\": \"6780203000001106135\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093225\",\n          \"out_quantity\": 1,\n          \"storage_out_id\": \"6780203000001106135\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ],\n      \"to_storages\": [\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"storage_in_id\": \"6780203000001106133\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000206981\",\n          \"in_quantity\": 1,\n          \"storage_in_id\": \"6780203000001106133\",\n          \"serial_numbers\": [\n            \"PKG-002\",\n            \"PKG-002\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"description\": \"Quarterly warehouse reshuffle\",\n  \"from_warehouse_id\": \"460000000038075\",\n  \"to_warehouse_id\": \"460000000038076\",\n  \"is_intransit_order\": false,\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"transfer_order\": {\n    \"transfer_order_id\": \"string\",\n    \"transfer_order_number\": \"TO-00001\",\n    \"date\": \"2018-03-23\",\n    \"from_location_id\": \"460000000038080\",\n    \"from_location_name\": \"string\",\n    \"to_location_id\": \"460000000039090\",\n    \"to_location_name\": \"string\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity_transfer\": 2,\n        \"unit\": \"qty\"\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity_transfer\": 2,\n        \"unit\": \"qty\"\n      }\n    ],\n    \"is_intransit_order\": false,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"locations\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9135d4fe-8d4f-42b7-9693-63de487ec870",
+          "name": "Delete a transfer order",
+          "request": {
+            "name": "Delete a transfer order",
+            "description": {
+              "content": "Deletes an existing transfer order from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique identifier of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd559ce7-d18f-4cc8-a5fd-29022df17fd2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique identifier of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Transfer Order(s) has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e46d2ad3-6a45-473d-bf38-b48a56db1341",
+          "name": "Mark as Received",
+          "request": {
+            "name": "Mark as Received",
+            "description": {
+              "content": "Marks the transfer order as transferred for the Organization. You must pass the transferred date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id",
+                "markastransferred"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "(Required) Date when the transfer was completed. Format <code>yyyy-mm-dd</code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique identifier of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "066154b7-203d-4d95-b826-6cb0bfc0a797",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id",
+                    "markastransferred"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "2018-03-23"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique identifier of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The status of the Transfer Order has been updated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1184b4a-1761-41c8-a968-6f592e74ec19",
+          "name": "Mark transfer order as in transit",
+          "request": {
+            "name": "Mark transfer order as in transit",
+            "description": {
+              "content": "Marks the transfer order as in transit. Optionally specify whether prices are tax inclusive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id",
+                "intransit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "is_tax_inclusive",
+                  "value": "<boolean>",
+                  "description": "Whether prices are inclusive of tax. Allowed values are <code>true</code> and <code>false</code>. This need to be passed only for IN edition org when marking inter GSTIN transfer order as in transit."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique identifier of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5478f898-7296-4281-abbf-4f1c7fd41fe7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id",
+                    "intransit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_tax_inclusive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique identifier of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9de7bc8-49d6-4f95-b308-0e2b50b58a6f",
+          "name": "Submit a transfer order for approval",
+          "request": {
+            "name": "Submit a transfer order for approval",
+            "description": {
+              "content": "Submit a transfer order for approval workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique ID of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c4be082f-fdef-412f-a2ea-e4a8c0ab14ef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique ID of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce571e29-47f4-4a3c-86fd-cde8e6bbaecd",
+          "name": "Approve a transfer order",
+          "request": {
+            "name": "Approve a transfer order",
+            "description": {
+              "content": "Approve a submitted transfer order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique ID of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13313c51-840d-4da4-b3d5-3fc2d6c587ce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique ID of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe5b9a1b-86ee-4d23-bfec-064438e39d48",
+          "name": "Final approval of a transfer order",
+          "request": {
+            "name": "Final approval of a transfer order",
+            "description": {
+              "content": "Perform the final approval of a transfer order (admin only).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id",
+                "approve",
+                "final"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique ID of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7d7390bc-7755-48b8-8881-18cfca6060c5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id",
+                    "approve",
+                    "final"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique ID of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efb4fd17-fa2c-4ae2-84be-360d16fe8b95",
+          "name": "Reject a transfer order",
+          "request": {
+            "name": "Reject a transfer order",
+            "description": {
+              "content": "Reject a submitted transfer order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transferorders",
+                ":transfer_order_id",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transfer_order_id",
+                  "description": "(Required) Unique ID of the transfer order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ebac115-75dc-45ce-975e-7d2ee8c9464e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferorders",
+                    ":transfer_order_id",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transfer_order_id",
+                      "description": "(Required) Unique ID of the transfer order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"Insufficient stock at the source warehouse.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9548c673-8d50-48fb-94fb-14a555f199d2",
+    "name": "batches transferorders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

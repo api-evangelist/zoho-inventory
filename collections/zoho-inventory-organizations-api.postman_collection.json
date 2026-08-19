@@ -1,0 +1,486 @@
+{
+  "item": [
+    {
+      "id": "ccb286fd-421b-405d-b8d6-698137a8a9a1",
+      "name": "organizations",
+      "description": {
+        "content": "Organizations Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "307a89e0-5401-408c-ad85-14cf137d1e69",
+          "name": "Create an organization",
+          "request": {
+            "name": "Create an organization",
+            "description": {
+              "content": "Create an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"currency_code\": \"<string>\",\n  \"time_zone\": \"<string>\",\n  \"portal_name\": \"<string>\",\n  \"fiscal_year_start_month\": \"<string>\",\n  \"date_format\": \"<string>\",\n  \"field_separator\": \"<string>\",\n  \"language_code\": \"<string>\",\n  \"industry_type\": \"<string>\",\n  \"industry_size\": \"<string>\",\n  \"org_address\": \"<string>\",\n  \"remit_to_address\": \"<string>\",\n  \"address\": {\n    \"street_address1\": \"<string>\",\n    \"street_address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"zip\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73b35d1a-5ac3-415f-83ad-87571420bf72",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Zillium Inc\",\n  \"currency_code\": \"USD\",\n  \"time_zone\": \"PST\",\n  \"portal_name\": \"zilluminc\",\n  \"fiscal_year_start_month\": \"january\",\n  \"date_format\": \"dd MMM yyyy\",\n  \"field_separator\": \" \",\n  \"language_code\": \"en\",\n  \"industry_type\": \"Services\",\n  \"industry_size\": \" \",\n  \"org_address\": \" \",\n  \"remit_to_address\": \" \",\n  \"address\": {\n    \"street_address1\": \" \",\n    \"street_address2\": \" \",\n    \"city\": \" \",\n    \"state\": \" \",\n    \"country\": \"U.S.A\",\n    \"zip\": \"U.S.A\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"organization\": {\n    \"organization_id\": \"10229182\",\n    \"name\": \"Zillium Inc\",\n    \"is_logo_uploaded\": \" \",\n    \"is_default_org\": false,\n    \"user_role\": \" \",\n    \"account_created_date\": \"2012-02-15\",\n    \"time_zone\": \"PST\",\n    \"language_code\": \"en\",\n    \"date_format\": \"dd MMM yyyy\",\n    \"field_separator\": \" \",\n    \"fiscal_year_start_month\": 0,\n    \"tax_group_enabled\": true,\n    \"user_status\": \" \",\n    \"contact_name\": \"John Smith\",\n    \"industry_type\": \"Services\",\n    \"address\": {\n      \"street_address1\": \" \",\n      \"street_address2\": \" \",\n      \"city\": \" \",\n      \"state\": \" \",\n      \"country\": \"U.S.A\",\n      \"zip\": \"U.S.A\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6652d36-0fcb-4654-b02e-e5f0d6ef14af",
+          "name": "List organizations",
+          "request": {
+            "name": "List organizations",
+            "description": {
+              "content": "Get the list of organizations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f9f9aa5e-e046-4242-add3-2bbfbb8961f5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"organizations\": [\n    {\n      \"organization_id\": \"10229182\",\n      \"name\": \"Zillium Inc\",\n      \"contact_name\": \"John Smith\",\n      \"email\": \"johndavid@zilliuminc.com\",\n      \"is_default_org\": false,\n      \"plan_type\": 130,\n      \"tax_group_enabled\": true,\n      \"zi_migration_status\": 0,\n      \"plan_name\": \"PROFESSIONAL\",\n      \"plan_period\": \"Monthly\",\n      \"language_code\": \"en\",\n      \"fiscal_year_start_month\": 0,\n      \"account_created_date\": \"2012-02-15\",\n      \"account_created_date_formatted\": \"15 Feb 2012\",\n      \"time_zone\": \"PST\",\n      \"is_org_active\": true,\n      \"currency_id\": \"982000000000190\",\n      \"currency_code\": \"USD\",\n      \"currency_symbol\": \"$\",\n      \"currency_format\": \"###,##0.00\",\n      \"price_precision\": 2\n    },\n    {\n      \"organization_id\": \"10229182\",\n      \"name\": \"Zillium Inc\",\n      \"contact_name\": \"John Smith\",\n      \"email\": \"johndavid@zilliuminc.com\",\n      \"is_default_org\": false,\n      \"plan_type\": 130,\n      \"tax_group_enabled\": true,\n      \"zi_migration_status\": 0,\n      \"plan_name\": \"PROFESSIONAL\",\n      \"plan_period\": \"Monthly\",\n      \"language_code\": \"en\",\n      \"fiscal_year_start_month\": 0,\n      \"account_created_date\": \"2012-02-15\",\n      \"account_created_date_formatted\": \"15 Feb 2012\",\n      \"time_zone\": \"PST\",\n      \"is_org_active\": true,\n      \"currency_id\": \"982000000000190\",\n      \"currency_code\": \"USD\",\n      \"currency_symbol\": \"$\",\n      \"currency_format\": \"###,##0.00\",\n      \"price_precision\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b218ac58-df98-4afd-8d9b-307987c04375",
+          "name": "Update an organization",
+          "request": {
+            "name": "Update an organization",
+            "description": {
+              "content": "Update the details of an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_id",
+                  "description": "(Required) Unique identifier of the organization."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fiscal_year_start_month\": \"<string>\",\n  \"is_logo_uploaded\": \"<boolean>\",\n  \"time_zone\": \"<string>\",\n  \"date_format\": \"<string>\",\n  \"field_separator\": \"<string>\",\n  \"language_code\": \"<string>\",\n  \"org_address\": \"<string>\",\n  \"remit_to_address\": \"<string>\",\n  \"address\": {\n    \"street_address1\": \"<string>\",\n    \"street_address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"contact_name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fax\": \"<string>\",\n  \"website\": \"<string>\",\n  \"email\": \"<string>\",\n  \"currency_id\": \"<string>\",\n  \"companyid_label\": \"<string>\",\n  \"companyid_value\": \"<string>\",\n  \"taxid_label\": \"<string>\",\n  \"taxid_value\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"index\": \"<double>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"index\": \"<double>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61752046-ae30-498e-95cf-ccbb5ac330e5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) Unique identifier of the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Zillium Inc\",\n  \"fiscal_year_start_month\": \"january\",\n  \"is_logo_uploaded\": true,\n  \"time_zone\": \"PST\",\n  \"date_format\": \"dd MMM yyyy\",\n  \"field_separator\": \" \",\n  \"language_code\": \"en\",\n  \"org_address\": \" \",\n  \"remit_to_address\": \" \",\n  \"address\": {\n    \"street_address1\": \" \",\n    \"street_address2\": \" \",\n    \"city\": \" \",\n    \"state\": \" \",\n    \"country\": \"U.S.A\",\n    \"zip\": \"U.S.A\"\n  },\n  \"contact_name\": \"John Smith\",\n  \"phone\": \" \",\n  \"fax\": \" \",\n  \"website\": \" \",\n  \"email\": \"johndavid@zilliuminc.com\",\n  \"currency_id\": \"982000000000190\",\n  \"companyid_label\": \" \",\n  \"companyid_value\": \" \",\n  \"taxid_label\": \" \",\n  \"taxid_value\": \" \",\n  \"custom_fields\": [\n    {\n      \"index\": 1,\n      \"value\": \" \",\n      \"label\": \" \"\n    },\n    {\n      \"index\": 1,\n      \"value\": \" \",\n      \"label\": \" \"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"organization\": {\n    \"organization_id\": \"10229182\",\n    \"name\": \"Zillium Inc\",\n    \"is_default_org\": false,\n    \"account_created_date\": \"2012-02-15\",\n    \"time_zone\": \"PST\",\n    \"language_code\": \"en\",\n    \"date_format\": \"dd MMM yyyy\",\n    \"field_separator\": \" \",\n    \"fiscal_year_start_month\": 0,\n    \"contact_name\": \"John Smith\",\n    \"industry_type\": \"Services\",\n    \"industry_size\": \" \",\n    \"company_id_label\": \"Company ID\",\n    \"company_id_value\": \" \",\n    \"tax_id_label\": \"Tax ID\",\n    \"tax_id_value\": \" \",\n    \"currency_id\": \"982000000000190\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"currency_format\": \"###,##0.00\",\n    \"price_precision\": 2,\n    \"org_address\": \" \",\n    \"remit_to_address\": \" \",\n    \"phone\": \" \",\n    \"fax\": \" \",\n    \"website\": \" \",\n    \"email\": \"johndavid@zilliuminc.com\",\n    \"is_org_active\": true,\n    \"address\": {\n      \"street_address1\": \" \",\n      \"street_address2\": \" \",\n      \"city\": \" \",\n      \"state\": \" \",\n      \"country\": \"U.S.A\",\n      \"zip\": \"U.S.A\"\n    },\n    \"custom_fields\": [\n      {\n        \"index\": 1,\n        \"value\": \" \",\n        \"label\": \" \"\n      },\n      {\n        \"index\": 1,\n        \"value\": \" \",\n        \"label\": \" \"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5998046c-cc0f-47f3-bbcb-facdbd54da6b",
+          "name": "Get an organization",
+          "request": {
+            "name": "Get an organization",
+            "description": {
+              "content": "Get the details of an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_id",
+                  "description": "(Required) Unique identifier of the organization."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c03ec8e-7c1b-4d73-bd7d-7fc330e19924",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) Unique identifier of the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"organization\": {\n    \"organization_id\": \"10229182\",\n    \"name\": \"Zillium Inc\",\n    \"is_default_org\": false,\n    \"account_created_date\": \"2012-02-15\",\n    \"time_zone\": \"PST\",\n    \"language_code\": \"en\",\n    \"date_format\": \"dd MMM yyyy\",\n    \"field_separator\": \" \",\n    \"fiscal_year_start_month\": 0,\n    \"contact_name\": \"John Smith\",\n    \"industry_type\": \"Services\",\n    \"industry_size\": \" \",\n    \"company_id_label\": \"Company ID\",\n    \"company_id_value\": \" \",\n    \"tax_id_label\": \"Tax ID\",\n    \"tax_id_value\": \" \",\n    \"currency_id\": \"982000000000190\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"currency_format\": \"###,##0.00\",\n    \"price_precision\": 2,\n    \"org_address\": \" \",\n    \"remit_to_address\": \" \",\n    \"phone\": \" \",\n    \"fax\": \" \",\n    \"website\": \" \",\n    \"email\": \"johndavid@zilliuminc.com\",\n    \"is_org_active\": true,\n    \"address\": {\n      \"street_address1\": \" \",\n      \"street_address2\": \" \",\n      \"city\": \" \",\n      \"state\": \" \",\n      \"country\": \"U.S.A\",\n      \"zip\": \"U.S.A\"\n    },\n    \"custom_fields\": [\n      {\n        \"index\": 1,\n        \"value\": \" \",\n        \"label\": \" \"\n      },\n      {\n        \"index\": 1,\n        \"value\": \" \",\n        \"label\": \" \"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "87c614e8-7a6e-4c8e-9169-010aaa83995e",
+    "name": "batches organizations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

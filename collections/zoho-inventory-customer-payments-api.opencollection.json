@@ -1,0 +1,282 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches customer-payments API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "customer-payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Customer Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/customerpayments",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "customer_name",
+                "value": "Bowman Furniture",
+                "type": "query",
+                "description": "Search payments by customer name. Variants: <code>customer_name_startswith</code> and <code>customer_name_contains</code>. Maximum length [100]"
+              },
+              {
+                "name": "reference_number",
+                "value": "INV-384",
+                "type": "query",
+                "description": "Search payments by reference number. Variants: <code>reference_number_startswith</code> and <code>reference_number_contains</code>. Maximum length [100]"
+              },
+              {
+                "name": "date",
+                "value": "2016-06-05",
+                "type": "query",
+                "description": "Date on which payment is made. Date Format [yyyy-mm-dd]"
+              },
+              {
+                "name": "amount",
+                "value": "450",
+                "type": "query",
+                "description": "Search payments by payment amount. Variants: <code>amount_less_than</code>, <code>amount_less_equals</code>, <code>amount_greater_than</code> and <code>amount_greater_equals</code>"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Search payments by customer notes. Variants: <code>notes_startswith</code> and <code>notes_contains</code>"
+              },
+              {
+                "name": "payment_mode",
+                "value": "cash",
+                "type": "query",
+                "description": "Search payments by payment mode. Variants: <code>payment_mode_startswith</code> and <code>payment_mode_contains</code>"
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments by mode.Allowed Values: <code>PaymentMode.All</code>, <code>PaymentMode.Check</code>, <code>PaymentMode.Cash</code>, <code>PaymentMode.BankTransfer</code>, <code>PaymentMode.Paypal</code>, <code>PaymentMode.CreditCard</code>, <code>PaymentMode.GoogleCheckout</code>, <code>PaymentMode.Credit</code>, <code>PaymentMode.Authorizenet</code>, <code>PaymentMode.BankRemittance</code>, <code>PaymentMode.Payflowpro</code>, <code>PaymentMode.Stripe</code>, <code>PaymentMode.TwoCheckout</code>, <code>PaymentMode.Braintree</code> and <code>PaymentMode.Others</code>"
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort based on selected column"
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search payments by reference number or customer name or payment description. Maximum length [100]"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all the payments made by your customer."
+        },
+        {
+          "info": {
+            "name": "Create a payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/customerpayments",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a new payment."
+        },
+        {
+          "info": {
+            "name": "Update custom field in existing customerpayments",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/customerpayment/:customer_payment_id/customfields",
+            "params": [
+              {
+                "name": "customer_payment_id",
+                "value": "9030000079467",
+                "type": "path",
+                "description": "Unique identifier of the customer payment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the value of the custom field in existing customerpayments."
+        },
+        {
+          "info": {
+            "name": "Retrieve a payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/customerpayments/:payment_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "9030000079467",
+                "type": "path",
+                "description": "Unique identifier of the payment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Details of an existing payment. "
+        },
+        {
+          "info": {
+            "name": "Update a payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/customerpayments/:payment_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "9030000079467",
+                "type": "path",
+                "description": "Unique identifier of the payment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing payment information. "
+        },
+        {
+          "info": {
+            "name": "Delete a payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/customerpayments/:payment_id",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "9030000079467",
+                "type": "path",
+                "description": "Unique identifier of the payment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing payment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

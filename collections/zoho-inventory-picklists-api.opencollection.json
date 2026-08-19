@@ -1,0 +1,769 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches picklists API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "picklists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Picklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "sort_column",
+                "value": "date",
+                "type": "query",
+                "description": "Column by which the list is sorted."
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "Sort order. `A` for ascending, `D` for descending."
+              },
+              {
+                "name": "search_text",
+                "value": "Pick-00001",
+                "type": "query",
+                "description": "Search text to filter picklists by name or number."
+              },
+              {
+                "name": "filter_by",
+                "value": "Status.InProgress",
+                "type": "query",
+                "description": "Filter picklists by status. Example: `Status.All`, `Status.YetToStart`, `Status.InProgress`, `Status.OnHold`, `Status.Completed`, or `MissingAdvancedTrackingDetails`."
+              },
+              {
+                "name": "salesorder_number",
+                "value": "SO-00001",
+                "type": "query",
+                "description": "Filter by sales order number."
+              },
+              {
+                "name": "salesorder_number_startswith",
+                "value": "SO-0",
+                "type": "query",
+                "description": "Filter picklists where the associated sales order number starts with the given value."
+              },
+              {
+                "name": "salesorder_number_contains",
+                "value": "0001",
+                "type": "query",
+                "description": "Filter picklists where the associated sales order number contains the given value."
+              },
+              {
+                "name": "purchase_return_number",
+                "value": "PR-00001",
+                "type": "query",
+                "description": "Filter by purchase return number."
+              },
+              {
+                "name": "purchase_return_number_startswith",
+                "value": "PR-0",
+                "type": "query",
+                "description": "Filter picklists where the associated purchase return number starts with the given value."
+              },
+              {
+                "name": "purchase_return_number_contains",
+                "value": "0001",
+                "type": "query",
+                "description": "Filter picklists where the associated purchase return number contains the given value."
+              },
+              {
+                "name": "picklist_number",
+                "value": "Pick-00001",
+                "type": "query",
+                "description": "Filter by picklist number."
+              },
+              {
+                "name": "picklist_number_startswith",
+                "value": "Pick-0",
+                "type": "query",
+                "description": "Filter picklists where the picklist number starts with the given value."
+              },
+              {
+                "name": "picklist_number_contains",
+                "value": "0001",
+                "type": "query",
+                "description": "Filter picklists where the picklist number contains the given value."
+              },
+              {
+                "name": "item_id",
+                "value": "130426000000664040",
+                "type": "query",
+                "description": "Filter picklists that contain the specified item."
+              },
+              {
+                "name": "location_id",
+                "value": "130426000000664030",
+                "type": "query",
+                "description": "Filter picklists by location."
+              },
+              {
+                "name": "customer_id",
+                "value": "130426000000664050",
+                "type": "query",
+                "description": "Filter picklists by customer."
+              },
+              {
+                "name": "assignee_id",
+                "value": "130426000000664060",
+                "type": "query",
+                "description": "Filter picklists by the assigned user."
+              },
+              {
+                "name": "date",
+                "value": "2024-01-15",
+                "type": "query",
+                "description": "Filter picklists by a specific date (yyyy-mm-dd)."
+              },
+              {
+                "name": "date_start",
+                "value": "2024-01-01",
+                "type": "query",
+                "description": "Filter picklists from this start date (yyyy-mm-dd)."
+              },
+              {
+                "name": "date_end",
+                "value": "2024-01-31",
+                "type": "query",
+                "description": "Filter picklists up to this end date (yyyy-mm-dd)."
+              },
+              {
+                "name": "status",
+                "value": "inprogress",
+                "type": "query",
+                "description": "Filter picklists by status."
+              },
+              {
+                "name": "customview_id",
+                "value": "130426000000664070",
+                "type": "query",
+                "description": "ID of a custom view to apply."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query",
+                "description": "Number of records per page."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the list of all picklists in the organization."
+        },
+        {
+          "info": {
+            "name": "Create a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Set to `true` to use a custom picklist number instead of the auto-generated one."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a new picklist for picking items."
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Picklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "picklist_ids",
+                "value": "130426000000810001,130426000000810002",
+                "type": "query",
+                "description": "Comma-separated list of picklist IDs to delete. Maximum 200 IDs."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete multiple picklists at once."
+        },
+        {
+          "info": {
+            "name": "Get a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "print",
+                "value": "false",
+                "type": "query",
+                "description": "Set to `true` to return print-friendly content."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the details of an existing picklist."
+        },
+        {
+          "info": {
+            "name": "Update a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Set to `true` to use a custom picklist number instead of the auto-generated one."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the details of an existing picklist."
+        },
+        {
+          "info": {
+            "name": "Delete a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing picklist."
+        },
+        {
+          "info": {
+            "name": "Set Status of a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id/setstatus",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "status",
+                "value": "completed",
+                "type": "query",
+                "description": "The new status to set for the picklist."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the status of a specific picklist."
+        },
+        {
+          "info": {
+            "name": "Bulk Set Status of Picklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/setstatus",
+            "params": [
+              {
+                "name": "picklist_ids",
+                "value": "130426000000810001,130426000000810002",
+                "type": "query",
+                "description": "Comma-separated list of picklist IDs. Maximum 25 IDs."
+              },
+              {
+                "name": "picklist_item_ids",
+                "value": "130426000000810011,130426000000810012",
+                "type": "query",
+                "description": "Comma-separated list of picklist item IDs to update. Maximum 50 IDs."
+              },
+              {
+                "name": "status",
+                "value": "completed",
+                "type": "query",
+                "description": "The new status to assign to the specified picklists."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the status of multiple picklists at once."
+        },
+        {
+          "info": {
+            "name": "Add a Comment to a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id/comments",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Add a comment or note to an existing picklist."
+        },
+        {
+          "info": {
+            "name": "Delete a Comment on a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id/comments/:comment_id",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "comment_id",
+                "value": "130426000000810021",
+                "type": "path",
+                "description": "Unique identifier of the comment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a comment from an existing picklist."
+        },
+        {
+          "info": {
+            "name": "Get Advanced Tracking Details for a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id/advancedtrackingdetails",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the serial number and batch tracking details for a picklist."
+        },
+        {
+          "info": {
+            "name": "Update Advanced Tracking Details for a Picklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/:picklist_id/advancedtrackingdetails",
+            "params": [
+              {
+                "name": "picklist_id",
+                "value": "130426000000810001",
+                "type": "path",
+                "description": "Unique identifier of the picklist."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update serial number and batch tracking details for items in a picklist."
+        },
+        {
+          "info": {
+            "name": "Search Sales Order Line Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/searchsolineitems",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "customer_ids_in",
+                "value": "130426000000664050,130426000000664051",
+                "type": "query",
+                "description": "Comma-separated list of customer IDs to filter by. Maximum 50."
+              },
+              {
+                "name": "salesorder_ids_in",
+                "value": "130426000000700001,130426000000700002",
+                "type": "query",
+                "description": "Comma-separated list of sales order IDs to filter by. Maximum 50."
+              },
+              {
+                "name": "item_ids_in",
+                "value": "130426000000664040,130426000000664041",
+                "type": "query",
+                "description": "Comma-separated list of item IDs to filter by. Maximum 50."
+              },
+              {
+                "name": "location_id",
+                "value": "130426000000664030",
+                "type": "query",
+                "description": "Filter by location."
+              },
+              {
+                "name": "line_item_location_id",
+                "value": "130426000000664031",
+                "type": "query",
+                "description": "Filter by the location associated with the line item."
+              },
+              {
+                "name": "sort_column",
+                "value": "salesorder_number",
+                "type": "query",
+                "description": "Column by which the results are sorted."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Search for sales order line items that can be added to a picklist."
+        },
+        {
+          "info": {
+            "name": "Search Sales Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/searchso",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "customer_ids_in",
+                "value": "130426000000664050,130426000000664051",
+                "type": "query",
+                "description": "Comma-separated list of customer IDs to filter by. Maximum 50."
+              },
+              {
+                "name": "location_id",
+                "value": "130426000000664030",
+                "type": "query",
+                "description": "Filter by location."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Search for sales orders that can be used when creating a picklist."
+        },
+        {
+          "info": {
+            "name": "Search Purchase Return Line Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/picklists/searchprlineitems",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "vendor_ids_in",
+                "value": "130426000000664055,130426000000664056",
+                "type": "query",
+                "description": "Comma-separated list of vendor IDs to filter by. Maximum 50."
+              },
+              {
+                "name": "purchasereturn_ids_in",
+                "value": "130426000000720001,130426000000720002",
+                "type": "query",
+                "description": "Comma-separated list of purchase return IDs to filter by. Maximum 50."
+              },
+              {
+                "name": "item_ids_in",
+                "value": "130426000000664040,130426000000664041",
+                "type": "query",
+                "description": "Comma-separated list of item IDs to filter by. Maximum 50."
+              },
+              {
+                "name": "location_id",
+                "value": "130426000000664030",
+                "type": "query",
+                "description": "Filter by location."
+              },
+              {
+                "name": "line_item_location_id",
+                "value": "130426000000664031",
+                "type": "query",
+                "description": "Filter by the location associated with the line item."
+              },
+              {
+                "name": "sort_column",
+                "value": "purchasereturn_number",
+                "type": "query",
+                "description": "Column by which the results are sorted."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Search for purchase return line items that can be added to a picklist."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

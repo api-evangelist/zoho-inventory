@@ -1,0 +1,1768 @@
+{
+  "item": [
+    {
+      "id": "e93ef117-1870-44ba-8252-68456d6062fb",
+      "name": "unit_of_measurement",
+      "description": {
+        "content": "Units of Measurement Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f61b91f-114c-419b-bd3c-dd6dbf712a96",
+          "name": "Create a unit group",
+          "request": {
+            "name": "Create a unit group",
+            "description": {
+              "content": "Creates a new unit group in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unitgroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"unit_group_name\": \"<string>\",\n  \"base_unit_id\": \"<string>\",\n  \"unit_conversions\": [\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    },\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c21998bc-2287-458e-bc2a-afd104fca8e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unitgroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"unit_group_name\": \"Weight\",\n  \"base_unit_id\": \"<string>\",\n  \"unit_conversions\": [\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    },\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Unit group has been added.\",\n  \"unit_group\": {\n    \"unit_group_id\": \"string\",\n    \"unit_group_name\": \"Weight\",\n    \"base_unit_id\": \"string\",\n    \"base_unit_name\": \"kilogram\",\n    \"base_unit\": \"kg\",\n    \"base_unit_decimal\": 2,\n    \"unit_conversions\": [\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"target_unit_name\": \"gram\",\n        \"target_unit\": \"g\",\n        \"quantity_decimal_place\": 0\n      },\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"target_unit_name\": \"gram\",\n        \"target_unit\": \"g\",\n        \"quantity_decimal_place\": 0\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95d5cb5e-22ce-4975-8c05-1f63e0587267",
+          "name": "List all unit groups",
+          "request": {
+            "name": "List all unit groups",
+            "description": {
+              "content": "Lists all the unit groups configured in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unitgroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "50",
+                  "description": "Number of records to be fetched per page. Default value is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "48ac93ca-0bc9-4041-aa88-2f4e83c126c6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unitgroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "50"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"unit_groups\": [\n    {\n      \"unit_group_id\": \"string\",\n      \"unit_group_name\": \"Weight\",\n      \"base_unit_id\": \"string\",\n      \"base_unit_name\": \"kilogram\",\n      \"base_unit\": \"kg\",\n      \"unit_conversion_count\": 2\n    },\n    {\n      \"unit_group_id\": \"string\",\n      \"unit_group_name\": \"Weight\",\n      \"base_unit_id\": \"string\",\n      \"base_unit_name\": \"kilogram\",\n      \"base_unit\": \"kg\",\n      \"unit_conversion_count\": 2\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"has_more_page\": false,\n    \"sort_column\": \"unit_group_name\",\n    \"sort_order\": \"A\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2eadcb2-9cdd-4673-8409-e3c43b175b87",
+          "name": "Retrieve a unit group",
+          "request": {
+            "name": "Retrieve a unit group",
+            "description": {
+              "content": "Fetches the details of an existing unit group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unitgroups",
+                ":unit_group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_group_id",
+                  "description": "(Required) Unique identifier of the unit group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7fa88986-6f2a-4b66-b50a-cfa92e90b1f4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unitgroups",
+                    ":unit_group_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_group_id",
+                      "description": "(Required) Unique identifier of the unit group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"unit_group\": {\n    \"unit_group_id\": \"string\",\n    \"unit_group_name\": \"Weight\",\n    \"base_unit_id\": \"string\",\n    \"base_unit_name\": \"kilogram\",\n    \"base_unit\": \"kg\",\n    \"base_unit_decimal\": 2,\n    \"unit_conversions\": [\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"target_unit_name\": \"gram\",\n        \"target_unit\": \"g\",\n        \"quantity_decimal_place\": 0\n      },\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"target_unit_name\": \"gram\",\n        \"target_unit\": \"g\",\n        \"quantity_decimal_place\": 0\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c317acc2-bcde-4d11-aca4-7391644a5af5",
+          "name": "Update a unit group",
+          "request": {
+            "name": "Update a unit group",
+            "description": {
+              "content": "Updates the details of an existing unit group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unitgroups",
+                ":unit_group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_group_id",
+                  "description": "(Required) Unique identifier of the unit group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"unit_group_name\": \"<string>\",\n  \"base_unit_id\": \"<string>\",\n  \"unit_conversions\": [\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    },\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e3205ae-c7c5-4ddd-8750-7c04ab9fb061",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unitgroups",
+                    ":unit_group_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_group_id",
+                      "description": "(Required) Unique identifier of the unit group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"unit_group_name\": \"Weight\",\n  \"base_unit_id\": \"<string>\",\n  \"unit_conversions\": [\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    },\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Unit group has been updated.\",\n  \"unit_group\": {\n    \"unit_group_id\": \"string\",\n    \"unit_group_name\": \"Weight\",\n    \"base_unit_id\": \"string\",\n    \"base_unit_name\": \"kilogram\",\n    \"base_unit\": \"kg\",\n    \"base_unit_decimal\": 2,\n    \"unit_conversions\": [\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"target_unit_name\": \"gram\",\n        \"target_unit\": \"g\",\n        \"quantity_decimal_place\": 0\n      },\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"target_unit_name\": \"gram\",\n        \"target_unit\": \"g\",\n        \"quantity_decimal_place\": 0\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "147a67eb-5700-4e6f-bf96-57c7fdcf9768",
+          "name": "Delete a unit group",
+          "request": {
+            "name": "Delete a unit group",
+            "description": {
+              "content": "Deletes an existing unit group from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unitgroups",
+                ":unit_group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_group_id",
+                  "description": "(Required) Unique identifier of the unit group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a57fb3d9-65a7-41df-9960-6c74fc50bef5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unitgroups",
+                    ":unit_group_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_group_id",
+                      "description": "(Required) Unique identifier of the unit group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The unit group has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d86bff84-00de-49dd-82c6-a2e185b70c2d",
+          "name": "Create a unit",
+          "request": {
+            "name": "Create a unit",
+            "description": {
+              "content": "Creates a new unit in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"uqc\": \"<string>\",\n  \"quantity_decimal_place\": \"<integer>\",\n  \"unit_conversions\": [\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    },\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a2b8aca-922f-49a3-85df-550bffd4d063",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"kilogram\",\n  \"unit\": \"kg\",\n  \"uqc\": \"<string>\",\n  \"quantity_decimal_place\": 2,\n  \"unit_conversions\": [\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    },\n    {\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Unit has been added.\",\n  \"unit\": {\n    \"unit_id\": \"string\",\n    \"name\": \"kilogram\",\n    \"unit\": \"kg\",\n    \"uqc\": \"string\",\n    \"quantity_decimal_place\": 2,\n    \"unit_conversions\": [\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"unit_group_id\": \"string\"\n      },\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"unit_group_id\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acc0074a-0219-4395-b899-7db279a63400",
+          "name": "List all units",
+          "request": {
+            "name": "List all units",
+            "description": {
+              "content": "Lists all the units configured in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include_unit_conversions",
+                  "value": "<boolean>",
+                  "description": "If <code>true</code>, includes the unit conversions for each unit in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3d403cee-ec65-4c53-8a64-e9a8e4dda5b2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_unit_conversions",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"units\": [\n    {\n      \"unit_id\": \"string\",\n      \"name\": \"kilogram\",\n      \"unit\": \"kg\",\n      \"uqc\": \"string\",\n      \"quantity_decimal_place\": 2,\n      \"unit_conversions\": [\n        {\n          \"unit_conversion_id\": \"string\",\n          \"target_unit_id\": \"string\",\n          \"conversion_rate\": 1000,\n          \"unit_group_id\": \"string\"\n        },\n        {\n          \"unit_conversion_id\": \"string\",\n          \"target_unit_id\": \"string\",\n          \"conversion_rate\": 1000,\n          \"unit_group_id\": \"string\"\n        }\n      ]\n    },\n    {\n      \"unit_id\": \"string\",\n      \"name\": \"kilogram\",\n      \"unit\": \"kg\",\n      \"uqc\": \"string\",\n      \"quantity_decimal_place\": 2,\n      \"unit_conversions\": [\n        {\n          \"unit_conversion_id\": \"string\",\n          \"target_unit_id\": \"string\",\n          \"conversion_rate\": 1000,\n          \"unit_group_id\": \"string\"\n        },\n        {\n          \"unit_conversion_id\": \"string\",\n          \"target_unit_id\": \"string\",\n          \"conversion_rate\": 1000,\n          \"unit_group_id\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e178ea5-aa60-440d-98ec-b58140910ed1",
+          "name": "Update a unit",
+          "request": {
+            "name": "Update a unit",
+            "description": {
+              "content": "Updates the details of an existing unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units",
+                ":unit_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_id",
+                  "description": "(Required) Unique identifier of the unit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"uqc\": \"<string>\",\n  \"quantity_decimal_place\": \"<integer>\",\n  \"unit_conversions\": [\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    },\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": \"<double>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a3c8147-5ff8-48bb-9afb-ba78ce5de2d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units",
+                    ":unit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_id",
+                      "description": "(Required) Unique identifier of the unit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"kilogram\",\n  \"unit\": \"kg\",\n  \"uqc\": \"<string>\",\n  \"quantity_decimal_place\": 2,\n  \"unit_conversions\": [\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    },\n    {\n      \"unit_conversion_id\": \"<string>\",\n      \"target_unit_id\": \"<string>\",\n      \"conversion_rate\": 1000\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Unit has been updated.\",\n  \"unit\": {\n    \"unit_id\": \"string\",\n    \"name\": \"kilogram\",\n    \"unit\": \"kg\",\n    \"uqc\": \"string\",\n    \"quantity_decimal_place\": 2,\n    \"unit_conversions\": [\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"unit_group_id\": \"string\"\n      },\n      {\n        \"unit_conversion_id\": \"string\",\n        \"target_unit_id\": \"string\",\n        \"conversion_rate\": 1000,\n        \"unit_group_id\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62228e3c-2a3c-4762-a987-786e881319eb",
+          "name": "Delete a unit",
+          "request": {
+            "name": "Delete a unit",
+            "description": {
+              "content": "Deletes an existing unit from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units",
+                ":unit_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_id",
+                  "description": "(Required) Unique identifier of the unit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "28746e34-0b5b-407a-a46f-dce9ece0898c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units",
+                    ":unit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_id",
+                      "description": "(Required) Unique identifier of the unit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The unit has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f559440c-eab1-4db8-b13d-83db7406fe32",
+          "name": "Create a unit conversion",
+          "request": {
+            "name": "Create a unit conversion",
+            "description": {
+              "content": "Creates a new unit conversion for a unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units",
+                ":unit_id",
+                "unitconversions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_id",
+                  "description": "(Required) Unique identifier of the unit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target_unit_id\": \"<string>\",\n  \"conversion_rate\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61d80821-8573-403e-a05b-29c64536b445",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units",
+                    ":unit_id",
+                    "unitconversions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_id",
+                      "description": "(Required) Unique identifier of the unit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"target_unit_id\": \"<string>\",\n  \"conversion_rate\": 1000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Unit conversion has been added.\",\n  \"unit_conversion\": {\n    \"unit_conversion_id\": \"string\",\n    \"target_unit_id\": \"string\",\n    \"conversion_rate\": 1000,\n    \"target_unit\": \"g\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "160679b9-fb8d-4c04-87c3-25809f817776",
+          "name": "List unit conversions",
+          "request": {
+            "name": "List unit conversions",
+            "description": {
+              "content": "Lists all the unit conversions for a unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units",
+                ":unit_id",
+                "unitconversions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_id",
+                  "description": "(Required) Unique identifier of the unit."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "02a499c1-8e3f-464a-99d3-d4c8244127e2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units",
+                    ":unit_id",
+                    "unitconversions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_id",
+                      "description": "(Required) Unique identifier of the unit."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"unit_conversions\": [\n    {\n      \"unit_conversion_id\": \"string\",\n      \"target_unit_id\": \"string\",\n      \"conversion_rate\": 1000,\n      \"target_unit\": \"g\"\n    },\n    {\n      \"unit_conversion_id\": \"string\",\n      \"target_unit_id\": \"string\",\n      \"conversion_rate\": 1000,\n      \"target_unit\": \"g\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08e196b1-b567-4f99-ba54-6baa3a08d4cf",
+          "name": "Update a unit conversion",
+          "request": {
+            "name": "Update a unit conversion",
+            "description": {
+              "content": "Updates an existing unit conversion for a unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units",
+                ":unit_id",
+                "unitconversions",
+                ":unit_conversion_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_id",
+                  "description": "(Required) Unique identifier of the unit."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_conversion_id",
+                  "description": "(Required) Unique identifier of the unit conversion."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"target_unit_id\": \"<string>\",\n  \"conversion_rate\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c4c2f15-fbca-4426-a878-e23fc59250c0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units",
+                    ":unit_id",
+                    "unitconversions",
+                    ":unit_conversion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_id",
+                      "description": "(Required) Unique identifier of the unit."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_conversion_id",
+                      "description": "(Required) Unique identifier of the unit conversion."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"target_unit_id\": \"<string>\",\n  \"conversion_rate\": 1000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Unit conversion has been updated.\",\n  \"unit_conversion\": {\n    \"unit_conversion_id\": \"string\",\n    \"target_unit_id\": \"string\",\n    \"conversion_rate\": 1000,\n    \"target_unit\": \"g\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "434d20db-7f66-444d-a161-8a2289e2328c",
+          "name": "Delete a unit conversion",
+          "request": {
+            "name": "Delete a unit conversion",
+            "description": {
+              "content": "Deletes an existing unit conversion from a unit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "units",
+                ":unit_id",
+                "unitconversions",
+                ":unit_conversion_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_id",
+                  "description": "(Required) Unique identifier of the unit."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unit_conversion_id",
+                  "description": "(Required) Unique identifier of the unit conversion."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5c9bc3fe-3d52-4d67-965e-84d57e03266f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "units",
+                    ":unit_id",
+                    "unitconversions",
+                    ":unit_conversion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_id",
+                      "description": "(Required) Unique identifier of the unit."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unit_conversion_id",
+                      "description": "(Required) Unique identifier of the unit conversion."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The unit conversion has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "71ba96e8-42d3-4588-9022-de71bd1d2440",
+    "name": "batches unit_of_measurement API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

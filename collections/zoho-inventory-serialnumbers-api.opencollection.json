@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches serialnumbers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "serialnumbers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all serial numbers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/items/serialnumbers",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "item_id",
+                "value": "6780203000000167467",
+                "type": "query",
+                "description": "Unique identifier of the item to fetch serial numbers for."
+              },
+              {
+                "name": "show_transacted_out",
+                "value": "false",
+                "type": "query",
+                "description": "Include serial numbers that have already been transacted out. Allowed values <code>true</code> and <code>false</code>."
+              },
+              {
+                "name": "warehouse_id",
+                "value": "6780203000000093215",
+                "type": "query",
+                "description": "Filter serial numbers by warehouse ID."
+              },
+              {
+                "name": "location_id",
+                "value": "6780203000000093215",
+                "type": "query",
+                "description": "Filter serial numbers by location ID."
+              },
+              {
+                "name": "batch_id",
+                "value": "6780203000000176162",
+                "type": "query",
+                "description": "Filter serial numbers by batch ID. Use for items with both serial and batch tracking enabled."
+              },
+              {
+                "name": "item_name",
+                "value": "Laptop",
+                "type": "query",
+                "description": "Search serial numbers by item name."
+              },
+              {
+                "name": "sort_column",
+                "value": "serialnumber",
+                "type": "query",
+                "description": "Column to sort the response by. Allowed value <code>serialnumber</code>."
+              },
+              {
+                "name": "sort_order",
+                "value": "A",
+                "type": "query",
+                "description": "Order of sorting. Allowed values <code>A</code> for ascending and <code>D</code> for descending."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all serial numbers available for a given item."
+        },
+        {
+          "info": {
+            "name": "Retrieve a serial number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/items/serialnumbers/:serial_number_id",
+            "params": [
+              {
+                "name": "serial_number_id",
+                "value": "6780203000000176190",
+                "type": "path",
+                "description": "Unique identifier of the serial number."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetch the details of a specific serial number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,483 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches putaways API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "putaways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all putaways",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to fetch. Default is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records per page. Default is 200."
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Column used for sorting the list."
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "Sort order. A for ascending, D for descending."
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter expression supported by the putaway list view."
+              },
+              {
+                "name": "customview_id",
+                "value": "",
+                "type": "query",
+                "description": "Custom view ID to apply."
+              },
+              {
+                "name": "putaway_number",
+                "value": "",
+                "type": "query",
+                "description": "Search by putaway number."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Filter by putaway date (yyyy-mm-dd)."
+              },
+              {
+                "name": "warehouse_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by warehouse ID."
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by location (branch) ID when locations are enabled."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists putaway transactions with optional filters and pagination."
+        },
+        {
+          "info": {
+            "name": "Create a putaway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "When auto number generation is enabled for putaways, set to true to supply your own putaway number instead of using the auto-generated value. Default is false."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new putaway transaction in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Retrieve a putaway",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways/:putaway_id",
+            "params": [
+              {
+                "name": "putaway_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the putaway."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "When set to HTML, additional HTML content may be included in the response when supported."
+              },
+              {
+                "name": "print",
+                "value": "",
+                "type": "query",
+                "description": "Export putaway pdf with default print option. Allowed Values: <code>true</code>, <code>false</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches details of an existing putaway, including line items."
+        },
+        {
+          "info": {
+            "name": "Update a putaway",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways/:putaway_id",
+            "params": [
+              {
+                "name": "putaway_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the putaway."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "When auto number generation is enabled for putaways, set to true to keep a manually supplied putaway number. Default is false."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates an existing putaway transaction."
+        },
+        {
+          "info": {
+            "name": "Delete a putaway",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways/:putaway_id",
+            "params": [
+              {
+                "name": "putaway_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the putaway."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing putaway transaction."
+        },
+        {
+          "info": {
+            "name": "List comments for a putaway",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways/:putaway_id/comments",
+            "params": [
+              {
+                "name": "putaway_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the putaway."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns all comments recorded on a putaway."
+        },
+        {
+          "info": {
+            "name": "Attach files to a putaway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways/:putaway_id/attachment",
+            "params": [
+              {
+                "name": "putaway_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the putaway."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "doc",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "totalFiles",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "document_ids",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Uploads one or more files and associates them with the putaway."
+        },
+        {
+          "info": {
+            "name": "Download a putaway document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways/:putaway_id/documents/:document_id",
+            "params": [
+              {
+                "name": "putaway_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the putaway."
+              },
+              {
+                "name": "document_id",
+                "value": "4815000000044897",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "image_size",
+                "value": "",
+                "type": "query",
+                "description": "Preferred image size when the service returns a rasterized preview."
+              },
+              {
+                "name": "print",
+                "value": "",
+                "type": "query",
+                "description": "Allowed Values: <code>true</code>, <code>false</code>"
+              },
+              {
+                "name": "inline",
+                "value": "",
+                "type": "query",
+                "description": "When true, the response may be suitable for inline display in a browser when supported."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns the binary content of an attached document (image or PDF)."
+        },
+        {
+          "info": {
+            "name": "Remove an attachment from a putaway",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/putaways/:putaway_id/documents/:document_id",
+            "params": [
+              {
+                "name": "putaway_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the putaway."
+              },
+              {
+                "name": "document_id",
+                "value": "4815000000044897",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "un_associate",
+                "value": "",
+                "type": "query",
+                "description": "When true, only dissociates the file without deleting the underlying document when supported."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes or unlinks a document from the putaway."
+        },
+        {
+          "info": {
+            "name": "Get putaway auto number generation settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/settings/putaways",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns auto number generation preferences for putaways."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

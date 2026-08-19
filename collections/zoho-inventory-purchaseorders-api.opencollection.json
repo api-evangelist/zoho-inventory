@@ -1,0 +1,471 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches purchaseorders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "purchaseorders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Purchase Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the Purchase Orders present in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Create a Purchase Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new Purchase Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto purchase order number generation for this Purchase order. This mandates the Purchase Order number to be entered. Allowed Values <code>true</code> and <code>false</code>."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Purchase Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique identifier of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieves the details for an existing Purchase Order."
+        },
+        {
+          "info": {
+            "name": "Update a Purchase Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique identifier of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates a new Purchase Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto Purchase order number generation for this Purchase Order. This mandates the Purchase Order number to be entered. Allowed Values <code>true</code> and <code>false</code>."
+        },
+        {
+          "info": {
+            "name": "Delete a Purchase Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique identifier of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes a Purchase Order from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Mark as Issued",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id/status/issued",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique identifier of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks a Purchase Order as Issued."
+        },
+        {
+          "info": {
+            "name": "Mark as Cancelled",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id/status/cancelled",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique identifier of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks a Purchase Order as Cancelled."
+        },
+        {
+          "info": {
+            "name": "Submit a purchase order for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id/submit",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique ID of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit a purchase order for approval workflow."
+        },
+        {
+          "info": {
+            "name": "Approve a purchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id/approve",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique ID of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a submitted purchase order."
+        },
+        {
+          "info": {
+            "name": "Reject a purchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id/reject",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique ID of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Reject a submitted purchase order."
+        },
+        {
+          "info": {
+            "name": "Final-approve a purchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/:purchaseorder_id/approve/final",
+            "params": [
+              {
+                "name": "purchaseorder_id",
+                "value": "4815000000044972",
+                "type": "path",
+                "description": "Unique ID of the purchase order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a submitted purchase order as final approved, bypassing the remaining approval sequence."
+        },
+        {
+          "info": {
+            "name": "Bulk submit purchase orders for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/submit",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "purchaseorder_ids",
+                "value": "4815000000044972,4815000000044990",
+                "type": "query",
+                "description": "Comma-separated list of purchase order IDs to submit for approval."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit multiple purchase orders for approval workflow at once."
+        },
+        {
+          "info": {
+            "name": "Bulk approve purchase orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/purchaseorders/approve",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "purchaseorder_ids",
+                "value": "4815000000044972,4815000000044990",
+                "type": "query",
+                "description": "Comma-separated list of purchase order IDs to approve."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve multiple submitted purchase orders at once."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

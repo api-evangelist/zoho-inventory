@@ -1,0 +1,1887 @@
+{
+  "item": [
+    {
+      "id": "697439d6-5278-4875-911e-a2d89d1458c1",
+      "name": "reporting-tags",
+      "description": {
+        "content": "Reporting Tags Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13b84715-a081-437e-b97d-2f36da801241",
+          "name": "List of all Reporting Tags",
+          "request": {
+            "name": "List of all Reporting Tags",
+            "description": {
+              "content": "Get a list of all reporting tags in the preferred order that you can set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "979b6358-4357-4d85-8995-2e71150af2c3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reporting_tags\": [\n    {\n      \"tag_id\": \"460000000038080\",\n      \"tag_name\": \"Business Unit\",\n      \"tag_order\": 1,\n      \"description\": \"Description of the reporting tag\",\n      \"is_active\": true,\n      \"is_mandatory\": false,\n      \"is_class\": false,\n      \"is_draft\": false\n    },\n    {\n      \"tag_id\": \"460000000038081\",\n      \"tag_name\": \"Sales Region\",\n      \"tag_order\": 2,\n      \"description\": \"Description of the reporting tag\",\n      \"is_active\": true,\n      \"is_mandatory\": false,\n      \"is_class\": true,\n      \"is_draft\": false\n    },\n    {\n      \"tag_id\": \"460000000038082\",\n      \"tag_name\": \"Department\",\n      \"tag_order\": 3,\n      \"description\": \"Description of the reporting tag\",\n      \"is_active\": false,\n      \"is_mandatory\": true,\n      \"is_class\": false,\n      \"is_draft\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2573ce67-ea91-4c0e-a9af-8d60a46cfcf4",
+          "name": "Create Reporting Tag",
+          "request": {
+            "name": "Create Reporting Tag",
+            "description": {
+              "content": "Create a reporting tag",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tag_name\": \"<string>\",\n  \"entities\": [\n    {\n      \"entity_name\": \"<string>\",\n      \"is_enabled\": \"<boolean>\"\n    },\n    {\n      \"entity_name\": \"<string>\",\n      \"is_enabled\": \"<boolean>\"\n    }\n  ],\n  \"multi_preference_entities\": {\n    \"preference\": \"<string>\",\n    \"entities\": [\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": \"<boolean>\"\n      },\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": \"<boolean>\"\n      }\n    ]\n  },\n  \"description\": \"<string>\",\n  \"is_mandatory\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0cadda79-5713-46d7-980b-46882ae0b714",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_name\": \"Business Unit\",\n  \"entities\": [\n    {\n      \"entity_name\": \"customers\",\n      \"is_enabled\": true\n    },\n    {\n      \"entity_name\": \"vendors\",\n      \"is_enabled\": true\n    },\n    {\n      \"entity_name\": \"items\",\n      \"is_enabled\": true\n    }\n  ],\n  \"multi_preference_entities\": {\n    \"preference\": \"line_item\",\n    \"entities\": [\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": true\n      },\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": true\n      }\n    ]\n  },\n  \"description\": \"Description of the reporting tag\",\n  \"is_mandatory\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tag\": {\n    \"tag_id\": \"460000000038080\",\n    \"tag_name\": \"Business Unit\",\n    \"description\": \"Description of the reporting tag\",\n    \"is_mandatory\": false,\n    \"entities\": [\n      {\n        \"entity_name\": \"customers\",\n        \"is_enabled\": true\n      },\n      {\n        \"entity_name\": \"vendors\",\n        \"is_enabled\": true\n      },\n      {\n        \"entity_name\": \"items\",\n        \"is_enabled\": true\n      }\n    ],\n    \"multi_preference_entities\": {\n      \"preference\": \"line_item\",\n      \"entities\": [\n        {\n          \"entity_name\": \"<string>\",\n          \"is_enabled\": true\n        },\n        {\n          \"entity_name\": \"<string>\",\n          \"is_enabled\": true\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8572f076-b1a4-4d3a-b644-4c872b0e9317",
+          "name": "Mark an option as default for a reporting tag",
+          "request": {
+            "name": "Mark an option as default for a reporting tag",
+            "description": {
+              "content": "Mark an option as the default option or clear default option for a reporting tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "default_option_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the option to be marked as default. If this parameter is not sent or sent empty, the current default option of the tag will be removed."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83257c5f-c090-4e27-8136-065b012808d5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "default_option_id",
+                      "value": "460000000038081"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The option has been marked as default.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe813522-e97f-413b-bb2a-e43e00c034a1",
+          "name": "Update Reporting Tag",
+          "request": {
+            "name": "Update Reporting Tag",
+            "description": {
+              "content": "Update a reporting tag",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tag_name\": \"<string>\",\n  \"entities\": [\n    {\n      \"entity_name\": \"<string>\",\n      \"is_enabled\": \"<boolean>\"\n    },\n    {\n      \"entity_name\": \"<string>\",\n      \"is_enabled\": \"<boolean>\"\n    }\n  ],\n  \"multi_preference_entities\": {\n    \"preference\": \"<string>\",\n    \"entities\": [\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": \"<boolean>\"\n      },\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": \"<boolean>\"\n      }\n    ]\n  },\n  \"description\": \"<string>\",\n  \"is_mandatory\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04c20ada-3e99-4d5f-a580-26dc4b444497",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_name\": \"Business Unit\",\n  \"entities\": [\n    {\n      \"entity_name\": \"customers\",\n      \"is_enabled\": true\n    },\n    {\n      \"entity_name\": \"vendors\",\n      \"is_enabled\": true\n    },\n    {\n      \"entity_name\": \"items\",\n      \"is_enabled\": true\n    }\n  ],\n  \"multi_preference_entities\": {\n    \"preference\": \"line_item\",\n    \"entities\": [\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": true\n      },\n      {\n        \"entity_name\": \"<string>\",\n        \"is_enabled\": true\n      }\n    ]\n  },\n  \"description\": \"Description of the reporting tag\",\n  \"is_mandatory\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tag\": {\n    \"tag_id\": \"460000000038080\",\n    \"tag_name\": \"Business Unit\",\n    \"description\": \"Description of the reporting tag\",\n    \"is_mandatory\": false,\n    \"entities\": [\n      {\n        \"entity_name\": \"customers\",\n        \"is_enabled\": true\n      },\n      {\n        \"entity_name\": \"vendors\",\n        \"is_enabled\": true\n      },\n      {\n        \"entity_name\": \"items\",\n        \"is_enabled\": true\n      }\n    ],\n    \"multi_preference_entities\": {\n      \"preference\": \"line_item\",\n      \"entities\": [\n        {\n          \"entity_name\": \"<string>\",\n          \"is_enabled\": true\n        },\n        {\n          \"entity_name\": \"<string>\",\n          \"is_enabled\": true\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0570309-7f37-4153-acd7-864f1a6264ba",
+          "name": "Delete a reporting tag",
+          "request": {
+            "name": "Delete a reporting tag",
+            "description": {
+              "content": "Delete a reporting tag. If there are any usages of the reporting tag in transactions,  custom views or workflows, you will not be able to delete the tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e414fa41-4994-4cad-bf4d-05980179d019",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The reporting tag has been deleted successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d50ff7cf-4d9d-41f9-9a52-4a6744ab665f",
+          "name": "Update Reporting Tag Options",
+          "request": {
+            "name": "Update Reporting Tag Options",
+            "description": {
+              "content": "Create, update or delete the options of a reporting tag. Reorder and arrange them in an hierarchical structure as per your organization requirements. <br><b>NOTE:</b> <br><ol> <li>An option cannot be a child option beyond five hierarchical level.</li> <li>The overall children of an option cannot exceed 500 options.</li></ol>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"options\": [\n    {\n      \"option_name\": \"<string>\",\n      \"option_id\": \"<string>\",\n      \"is_active\": \"<boolean>\",\n      \"is_default\": \"<boolean>\",\n      \"children\": [\n        {\n          \"option_id\": \"<string>\",\n          \"option_name\": \"<string>\",\n          \"is_active\": \"<boolean>\",\n          \"is_default\": \"<boolean>\"\n        },\n        {\n          \"option_id\": \"<string>\",\n          \"option_name\": \"<string>\",\n          \"is_active\": \"<boolean>\",\n          \"is_default\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"option_name\": \"<string>\",\n      \"option_id\": \"<string>\",\n      \"is_active\": \"<boolean>\",\n      \"is_default\": \"<boolean>\",\n      \"children\": [\n        {\n          \"option_id\": \"<string>\",\n          \"option_name\": \"<string>\",\n          \"is_active\": \"<boolean>\",\n          \"is_default\": \"<boolean>\"\n        },\n        {\n          \"option_id\": \"<string>\",\n          \"option_name\": \"<string>\",\n          \"is_active\": \"<boolean>\",\n          \"is_default\": \"<boolean>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "76e003c4-8b9b-4d1d-ad7a-84ac0894430f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"options\": [\n    {\n      \"option_name\": \"Sales\",\n      \"option_id\": \"460000000038081\",\n      \"is_active\": true,\n      \"is_default\": true,\n      \"children\": [\n        {\n          \"option_id\": \"460000000038082\",\n          \"option_name\": \"Sales - East\",\n          \"is_active\": true,\n          \"is_default\": true\n        },\n        {\n          \"option_id\": \"460000000038082\",\n          \"option_name\": \"Sales - East\",\n          \"is_active\": true,\n          \"is_default\": true\n        }\n      ]\n    },\n    {\n      \"option_name\": \"Sales\",\n      \"option_id\": \"460000000038081\",\n      \"is_active\": true,\n      \"is_default\": true,\n      \"children\": [\n        {\n          \"option_id\": \"460000000038082\",\n          \"option_name\": \"Sales - East\",\n          \"is_active\": true,\n          \"is_default\": true\n        },\n        {\n          \"option_id\": \"460000000038082\",\n          \"option_name\": \"Sales - East\",\n          \"is_active\": true,\n          \"is_default\": true\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Options updated successfully\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db87fd09-e2dc-46c8-bc27-08b117c9dfd5",
+          "name": "Update Reporting Tag - Visibility Conditions",
+          "request": {
+            "name": "Update Reporting Tag - Visibility Conditions",
+            "description": {
+              "content": "Update the visibility conditions (or filter in some places) of a reporting tag. You can set other tags or location as filters for a tag. Check our help document to know about the requirements of a tag to be associated as a filter to another tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id",
+                "criteria"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"criteria_tags\": [\n    {\n      \"tag_id\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"tag_id\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"options\": [\n    {\n      \"option_id\": \"<string>\",\n      \"criteria_options\": [\n        {\n          \"tag_id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"options\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"tag_id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"options\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"option_id\": \"<string>\",\n      \"criteria_options\": [\n        {\n          \"tag_id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"options\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"tag_id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"options\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "47326f7f-8636-4f05-9533-d91364dbfa57",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id",
+                    "criteria"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"criteria_tags\": [\n    {\n      \"tag_id\": \"460000000038081\",\n      \"type\": \"tag\"\n    },\n    {\n      \"tag_id\": \"460000000038081\",\n      \"type\": \"tag\"\n    }\n  ],\n  \"options\": [\n    {\n      \"option_id\": \"460000000038081\",\n      \"criteria_options\": [\n        {\n          \"tag_id\": \"460000000038081\",\n          \"type\": \"tag\",\n          \"options\": [\n            \"460000000038081\",\n            \"460000000038081\"\n          ]\n        },\n        {\n          \"tag_id\": \"460000000038081\",\n          \"type\": \"tag\",\n          \"options\": [\n            \"460000000038081\",\n            \"460000000038081\"\n          ]\n        }\n      ]\n    },\n    {\n      \"option_id\": \"460000000038081\",\n      \"criteria_options\": [\n        {\n          \"tag_id\": \"460000000038081\",\n          \"type\": \"tag\",\n          \"options\": [\n            \"460000000038081\",\n            \"460000000038081\"\n          ]\n        },\n        {\n          \"tag_id\": \"460000000038081\",\n          \"type\": \"tag\",\n          \"options\": [\n            \"460000000038081\",\n            \"460000000038081\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The criteria has been updated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e33f7f4b-8de4-46cf-bb13-2fdbf106cfcd",
+          "name": "Mark Reporting Tag as active",
+          "request": {
+            "name": "Mark Reporting Tag as active",
+            "description": {
+              "content": "Mark a reporting tag as active so that you can use it on entities which you allowed.  A newly created tag will be in draft state. Use this to mark that tag as ready.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "96637909-546c-4dd4-b33b-f6e4377a42f8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The reporting tag has been activated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f843ade2-450c-458e-ad2d-6c8f5b13df69",
+          "name": "Mark Reporting Tag as inactive",
+          "request": {
+            "name": "Mark Reporting Tag as inactive",
+            "description": {
+              "content": "Mark a reporting tag as inactive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4a3ece80-c48e-413b-8397-2571313dd6a3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The reporting tag has been deactivated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d1ef49c-57c6-45bd-9d10-5b7fe8a7fb5c",
+          "name": "Mark an option as active",
+          "request": {
+            "name": "Mark an option as active",
+            "description": {
+              "content": "Mark a reporting tag's option as active.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id",
+                "option",
+                "(",
+                "d+)",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "option_id",
+                  "description": "(Required) ID of a reporting tag's option"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8596d98b-3456-488b-8788-b28539df9c42",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id",
+                    "option",
+                    "(",
+                    "d+)",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "option_id",
+                      "description": "(Required) ID of a reporting tag's option"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The reporting tag option has been activated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c1b9d31-ced3-4751-8a1a-fbb1d9633179",
+          "name": "Mark an option as inactive",
+          "request": {
+            "name": "Mark an option as inactive",
+            "description": {
+              "content": "Mark a reporting tag's option as inactive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                ":tag_id",
+                "option",
+                "(",
+                "d+)",
+                "inactive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tag_id",
+                  "description": "(Required) ID of the reporting tag"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "option_id",
+                  "description": "(Required) ID of a reporting tag's option"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5803a55c-4e44-4c42-a3df-d499ca74d981",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    ":tag_id",
+                    "option",
+                    "(",
+                    "d+)",
+                    "inactive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tag_id",
+                      "description": "(Required) ID of the reporting tag"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "option_id",
+                      "description": "(Required) ID of a reporting tag's option"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The reporting tag option has been deactivated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f09656fd-b826-4dd6-9fe8-e4807e8ab8c0",
+          "name": "Get Reporting Tags Options Detail Page",
+          "request": {
+            "name": "Get Reporting Tags Options Detail Page",
+            "description": {
+              "content": "Get the options and its criteria details of a reporting tag. For each page, you can retrieve only 200 options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cecd981a-2146-4cef-bd57-edf781f58ab9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "tag_id",
+                      "value": "460000000038080"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"dependent_tags\": [\n    {\n      \"dependent_id\": \"string\",\n      \"dependent_name\": \"Sales\",\n      \"dependent_order\": 1,\n      \"dependent_type\": \"tag\",\n      \"dependent_options\": [\n        {\n          \"dependent_option_id\": \"string\",\n          \"dependent_option_name\": \"Sales - East\",\n          \"dependent_option_order\": 1\n        },\n        {\n          \"dependent_option_id\": \"string\",\n          \"dependent_option_name\": \"Sales - East\",\n          \"dependent_option_order\": 1\n        }\n      ],\n      \"tag_name\": \"Business Unit\"\n    },\n    {\n      \"dependent_id\": \"string\",\n      \"dependent_name\": \"Sales\",\n      \"dependent_order\": 1,\n      \"dependent_type\": \"tag\",\n      \"dependent_options\": [\n        {\n          \"dependent_option_id\": \"string\",\n          \"dependent_option_name\": \"Sales - East\",\n          \"dependent_option_order\": 1\n        },\n        {\n          \"dependent_option_id\": \"string\",\n          \"dependent_option_name\": \"Sales - East\",\n          \"dependent_option_order\": 1\n        }\n      ],\n      \"tag_name\": \"Business Unit\"\n    }\n  ],\n  \"description\": \"Description of the reporting tag\",\n  \"is_class\": false,\n  \"is_draft\": false,\n  \"tag_id\": \"460000000038080\",\n  \"tag_name\": \"Business Unit\",\n  \"options\": [\n    {\n      \"option_id\": \"460000000038081\",\n      \"option_name\": \"Sales\",\n      \"option_order\": 1,\n      \"parent_id\": \"460000000038081\",\n      \"parent_name\": \"Sales\",\n      \"is_active\": true,\n      \"is_default\": true,\n      \"criteria\": {\n        \"criteria_id\": \"460000000038084\",\n        \"tag_id\": \"460000000038081\",\n        \"type\": \"tag\",\n        \"options\": [\n          \"Sales\",\n          \"Sales\"\n        ]\n      },\n      \"children\": [\n        {\n          \"option_id\": \"460000000038081\",\n          \"option_name\": \"Sales\",\n          \"option_order\": 1,\n          \"parent_id\": \"460000000038081\",\n          \"parent_name\": \"Sales\",\n          \"is_active\": true,\n          \"is_default\": true,\n          \"criteria\": {\n            \"criteria_id\": \"460000000038084\",\n            \"tag_id\": \"460000000038081\",\n            \"type\": \"tag\",\n            \"options\": [\n              \"460000000038081\",\n              \"460000000038081\"\n            ]\n          }\n        },\n        {\n          \"option_id\": \"460000000038081\",\n          \"option_name\": \"Sales\",\n          \"option_order\": 1,\n          \"parent_id\": \"460000000038081\",\n          \"parent_name\": \"Sales\",\n          \"is_active\": true,\n          \"is_default\": true,\n          \"criteria\": {\n            \"criteria_id\": \"460000000038084\",\n            \"tag_id\": \"460000000038081\",\n            \"type\": \"tag\",\n            \"options\": [\n              \"460000000038081\",\n              \"460000000038081\"\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"option_id\": \"460000000038081\",\n      \"option_name\": \"Sales\",\n      \"option_order\": 1,\n      \"parent_id\": \"460000000038081\",\n      \"parent_name\": \"Sales\",\n      \"is_active\": true,\n      \"is_default\": true,\n      \"criteria\": {\n        \"criteria_id\": \"460000000038084\",\n        \"tag_id\": \"460000000038081\",\n        \"type\": \"tag\",\n        \"options\": [\n          \"Sales\",\n          \"Sales\"\n        ]\n      },\n      \"children\": [\n        {\n          \"option_id\": \"460000000038081\",\n          \"option_name\": \"Sales\",\n          \"option_order\": 1,\n          \"parent_id\": \"460000000038081\",\n          \"parent_name\": \"Sales\",\n          \"is_active\": true,\n          \"is_default\": true,\n          \"criteria\": {\n            \"criteria_id\": \"460000000038084\",\n            \"tag_id\": \"460000000038081\",\n            \"type\": \"tag\",\n            \"options\": [\n              \"460000000038081\",\n              \"460000000038081\"\n            ]\n          }\n        },\n        {\n          \"option_id\": \"460000000038081\",\n          \"option_name\": \"Sales\",\n          \"option_order\": 1,\n          \"parent_id\": \"460000000038081\",\n          \"parent_name\": \"Sales\",\n          \"is_active\": true,\n          \"is_default\": true,\n          \"criteria\": {\n            \"criteria_id\": \"460000000038084\",\n            \"tag_id\": \"460000000038081\",\n            \"type\": \"tag\",\n            \"options\": [\n              \"460000000038081\",\n              \"460000000038081\"\n            ]\n          }\n        }\n      ]\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 200,\n    \"has_more_page\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e2ac29e-49f0-43b8-abe0-ff33a6b9a84f",
+          "name": "Get all Options",
+          "request": {
+            "name": "Get all Options",
+            "description": {
+              "content": "Get all options for a reporting tag.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                "(",
+                "d+)",
+                "options",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_untagged",
+                  "value": "<boolean>",
+                  "description": "'untagged' will be included in the response if this parameter is set to true."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the reporting tag"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "56ce06d1-f401-4807-afad-2ba0bcea0b3a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    "(",
+                    "d+)",
+                    "options",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_untagged",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "tag_id",
+                      "value": "460000000038080"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"results\": [\n    {\n      \"option_id\": \"460000000038081\",\n      \"option_name\": \"Sales\",\n      \"depth\": 0\n    },\n    {\n      \"option_id\": \"460000000038083\",\n      \"option_name\": \"Sales - Central\",\n      \"depth\": 1\n    },\n    {\n      \"option_id\": \"untagged\",\n      \"option_name\": \"Untagged\",\n      \"depth\": 0\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "528fc7ae-9ad4-48e7-9893-071ce5b47d83",
+          "name": "Reorder Reporting Tags",
+          "request": {
+            "name": "Reorder Reporting Tags",
+            "description": {
+              "content": "Reorder the reporting tags in your organization. The order of tags will be followed in transactions and reports.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reportingtags",
+                "reorder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3bc66441-bdaa-45a2-b04d-ef7f039d0bc7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reportingtags",
+                    "reorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tag_ids\": [\n    \"460000000038080\",\n    \"460000000038081\",\n    \"460000000038082\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The reporting tags have been reordered successfully.\",\n  \"tags\": [\n    {\n      \"tag_id\": \"460000000038080\",\n      \"tag_name\": \"Business Unit\",\n      \"tag_order\": 1,\n      \"description\": \"Description of the reporting tag\",\n      \"is_active\": true,\n      \"is_mandatory\": false,\n      \"is_class\": false,\n      \"is_draft\": false\n    },\n    {\n      \"tag_id\": \"460000000038081\",\n      \"tag_name\": \"Sales Region\",\n      \"tag_order\": 2,\n      \"description\": \"Description of the reporting tag\",\n      \"is_active\": true,\n      \"is_mandatory\": false,\n      \"is_class\": true,\n      \"is_draft\": false\n    },\n    {\n      \"tag_id\": \"460000000038082\",\n      \"tag_name\": \"Department\",\n      \"tag_order\": 3,\n      \"description\": \"Description of the reporting tag\",\n      \"is_active\": false,\n      \"is_mandatory\": true,\n      \"is_class\": false,\n      \"is_draft\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c05a7c30-9c5b-4d94-a08c-59ad0811034e",
+    "name": "batches reporting-tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

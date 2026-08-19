@@ -1,0 +1,663 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches moveorders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "moveorders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all move orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to fetch. Default is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records per page. Default is 200."
+              },
+              {
+                "name": "sort_column",
+                "value": "",
+                "type": "query",
+                "description": "Column used for sorting. Allowed values include moveorder_number, date, created_time, last_modified_time."
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "Sort order. A for ascending, D for descending."
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search across supported move order fields."
+              },
+              {
+                "name": "filter_by",
+                "value": "Status.All",
+                "type": "query",
+                "description": "Filter expression. Examples include: Status.All, Status.YetToStart, Status.InProgress, Status.OnHold, Status.Completed, Status.Discarded, AssigneeState.Unassigned, AssigneeState.PartiallyAssigned, AssigneeState.MultipleAssignee, AssigneeState.SingleAssignee, and search filters supported by the list view."
+              },
+              {
+                "name": "moveorder_number",
+                "value": "",
+                "type": "query",
+                "description": "Search by move order number."
+              },
+              {
+                "name": "moveorder_number_startswith",
+                "value": "",
+                "type": "query",
+                "description": "Match move order numbers that start with this value."
+              },
+              {
+                "name": "moveorder_number_contains",
+                "value": "",
+                "type": "query",
+                "description": "Match move order numbers that contain this substring."
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by item (product) ID when supported by the list view."
+              },
+              {
+                "name": "warehouse_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by warehouse ID."
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by location (branch) ID when locations are enabled."
+              },
+              {
+                "name": "assignee_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by assignee user ID."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Filter by move order date (yyyy-mm-dd)."
+              },
+              {
+                "name": "date_start",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range filter (yyyy-mm-dd)."
+              },
+              {
+                "name": "date_end",
+                "value": "",
+                "type": "query",
+                "description": "End of date range filter (yyyy-mm-dd)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by move order status when supported by the list view."
+              },
+              {
+                "name": "customview_id",
+                "value": "",
+                "type": "query",
+                "description": "Custom view ID to apply."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists move orders with optional filters, search options, and pagination."
+        },
+        {
+          "info": {
+            "name": "Create a move order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "When auto number generation is enabled for move orders, set to true to supply your own move order number instead of using the auto-generated value. Default is false."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new move order in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Delete move orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes move orders."
+        },
+        {
+          "info": {
+            "name": "Retrieve a move order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "When set to HTML, additional HTML content may be included in the response when supported."
+              },
+              {
+                "name": "print",
+                "value": "",
+                "type": "query",
+                "description": "Export move order pdf with default print option. Allowed Values: <code>true</code>, <code>false</code>."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches details of an existing move order, including line items."
+        },
+        {
+          "info": {
+            "name": "Update a move order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "When auto number generation is enabled for move orders, set to true to keep a manually supplied move order number. Default is false."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates an existing move order."
+        },
+        {
+          "info": {
+            "name": "Delete a move order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes a single move order."
+        },
+        {
+          "info": {
+            "name": "List comments for a move order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id/comments",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns all comments recorded on a move order."
+        },
+        {
+          "info": {
+            "name": "Mark move order as confirmed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id/markasconfirmed",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the move order status to confirmed."
+        },
+        {
+          "info": {
+            "name": "Mark move order as in progress",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id/markasinprogress",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the move order status to in progress."
+        },
+        {
+          "info": {
+            "name": "Mark move order as completed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id/markascompleted",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "completed_date",
+                "value": "2026-04-15",
+                "type": "query",
+                "description": "Completion date (yyyy-mm-dd)."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the move order status to completed. A completion date is required."
+        },
+        {
+          "info": {
+            "name": "Attach files to a move order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id/attachment",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "doc",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "totalFiles",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "document_ids",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Uploads one or more files and associates them with the move order."
+        },
+        {
+          "info": {
+            "name": "Download a move order document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id/documents/:document_id",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "document_id",
+                "value": "4815000000044897",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "image_size",
+                "value": "",
+                "type": "query",
+                "description": "Preferred image size when the service returns a rasterized preview."
+              },
+              {
+                "name": "print",
+                "value": "",
+                "type": "query",
+                "description": "Allowed Values: <code>true</code>, <code>false</code>"
+              },
+              {
+                "name": "inline",
+                "value": "",
+                "type": "query",
+                "description": "When true, the response may be suitable for inline display in a browser when supported."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns the binary content of an attached document (image or PDF)."
+        },
+        {
+          "info": {
+            "name": "Remove an attachment from a move order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/moveorders/:moveorder_id/documents/:document_id",
+            "params": [
+              {
+                "name": "moveorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the move order."
+              },
+              {
+                "name": "document_id",
+                "value": "4815000000044897",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "un_associate",
+                "value": "",
+                "type": "query",
+                "description": "When true, only dissociates the file without deleting the underlying document when supported."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes or unlinks a document from the specified move order."
+        },
+        {
+          "info": {
+            "name": "Get move order auto number generation settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/settings/moveorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns auto number generation preferences for move orders."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

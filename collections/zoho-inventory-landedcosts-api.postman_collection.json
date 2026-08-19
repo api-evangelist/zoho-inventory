@@ -1,0 +1,873 @@
+{
+  "item": [
+    {
+      "id": "015dc79e-b5fa-42d3-bdc6-696101a0b25e",
+      "name": "landedcosts",
+      "description": {
+        "content": "LandedCosts Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "196cfb29-a1f8-49c7-91be-e4297b540679",
+          "name": "Creates a landed cost for a bill.",
+          "request": {
+            "name": "Creates a landed cost for a bill.",
+            "description": {
+              "content": "Create a landed cost for a bill. Use this to record additional charges such as shipping, customs, or handling against a bill, and allocate those charges across the line items of the bill using the chosen allocation method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "landedcosts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill to which the landed cost is added."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cost_allocations\": [\n    {\n      \"bill_item_id\": \"<string>\",\n      \"allocated_amount\": \"<double>\",\n      \"sales_rate\": \"<double>\",\n      \"label_rate\": \"<double>\"\n    },\n    {\n      \"bill_item_id\": \"<string>\",\n      \"allocated_amount\": \"<double>\",\n      \"sales_rate\": \"<double>\",\n      \"label_rate\": \"<double>\"\n    }\n  ],\n  \"vendor_id\": \"<string>\",\n  \"reference_entity_id\": \"<string>\",\n  \"reference_item_id\": \"<string>\",\n  \"reference_entity_type\": \"<string>\",\n  \"account_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allocation_method\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8234149a-a72d-4bf1-a199-3f0da989e502",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "landedcosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill to which the landed cost is added."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cost_allocations\": [\n    {\n      \"bill_item_id\": \"4815000000045071\",\n      \"allocated_amount\": 100,\n      \"sales_rate\": 0,\n      \"label_rate\": 0\n    },\n    {\n      \"bill_item_id\": \"4815000000045071\",\n      \"allocated_amount\": 100,\n      \"sales_rate\": 0,\n      \"label_rate\": 0\n    }\n  ],\n  \"vendor_id\": \"4815000000044080\",\n  \"reference_entity_id\": \"4815000000045067\",\n  \"reference_item_id\": \"4815000000045071\",\n  \"reference_entity_type\": \"bill\",\n  \"account_id\": \"4815000000035003\",\n  \"description\": \"Freight charges for the August shipment.\",\n  \"allocation_method\": \"quantity\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The landed cost has been added.\",\n  \"landed_cost\": {\n    \"bill_id\": \"4815000000045067\",\n    \"bill_number\": \"BILL-00045\",\n    \"landed_cost_id\": \"4815000000049011\",\n    \"vendor_id\": \"4815000000044080\",\n    \"vendor_name\": \"Molly\",\n    \"reference_entity_id\": \"4815000000045067\",\n    \"reference_item_id\": \"4815000000045071\",\n    \"reference_entity_type\": \"bill\",\n    \"reference_entity_number\": \"BILL-00045\",\n    \"price_precision\": 2,\n    \"amount\": 250,\n    \"currency_id\": \"4815000000044052\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"account_id\": \"4815000000035003\",\n    \"account_name\": \"Freight and Forwarding Charges\",\n    \"description\": \"Freight charges for the August shipment.\",\n    \"allocation_method\": \"quantity\",\n    \"cost_allocations\": [\n      {\n        \"bill_id\": \"4815000000045067\",\n        \"bill_item_id\": \"4815000000045071\",\n        \"allocated_amount\": 100,\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity\": 2,\n        \"rate\": 1200,\n        \"item_total\": 2400,\n        \"package_details\": {\n          \"length\": 15,\n          \"width\": 10,\n          \"height\": 2,\n          \"weight\": 1.5,\n          \"weight_unit\": \"kg\",\n          \"dimension_unit\": \"cm\"\n        },\n        \"sales_rate\": 0,\n        \"label_rate\": 0\n      },\n      {\n        \"bill_id\": \"4815000000045067\",\n        \"bill_item_id\": \"4815000000045071\",\n        \"allocated_amount\": 100,\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity\": 2,\n        \"rate\": 1200,\n        \"item_total\": 2400,\n        \"package_details\": {\n          \"length\": 15,\n          \"width\": 10,\n          \"height\": 2,\n          \"weight\": 1.5,\n          \"weight_unit\": \"kg\",\n          \"dimension_unit\": \"cm\"\n        },\n        \"sales_rate\": 0,\n        \"label_rate\": 0\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1424659-7fec-4019-8b0b-de8fa9398f6e",
+          "name": "Retrieves the details of a specific landed cost",
+          "request": {
+            "name": "Retrieves the details of a specific landed cost",
+            "description": {
+              "content": "Retrieve the details of a specific landed cost recorded against a bill, including the cost allocations across the bill line items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "landedcosts",
+                ":landed_cost_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill that the landed cost belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "landed_cost_id",
+                  "description": "(Required) Unique identifier of the landed cost."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3bfad9f6-025f-4f65-89e3-afb9870efefb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "landedcosts",
+                    ":landed_cost_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill that the landed cost belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "landed_cost_id",
+                      "description": "(Required) Unique identifier of the landed cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"landed_cost\": {\n    \"bill_id\": \"4815000000045067\",\n    \"bill_number\": \"BILL-00045\",\n    \"landed_cost_id\": \"4815000000049011\",\n    \"vendor_id\": \"4815000000044080\",\n    \"vendor_name\": \"Molly\",\n    \"reference_entity_id\": \"4815000000045067\",\n    \"reference_item_id\": \"4815000000045071\",\n    \"reference_entity_type\": \"bill\",\n    \"reference_entity_number\": \"BILL-00045\",\n    \"price_precision\": 2,\n    \"amount\": 250,\n    \"currency_id\": \"4815000000044052\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"account_id\": \"4815000000035003\",\n    \"account_name\": \"Freight and Forwarding Charges\",\n    \"description\": \"Freight charges for the August shipment.\",\n    \"allocation_method\": \"quantity\",\n    \"cost_allocations\": [\n      {\n        \"bill_id\": \"4815000000045067\",\n        \"bill_item_id\": \"4815000000045071\",\n        \"allocated_amount\": 100,\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity\": 2,\n        \"rate\": 1200,\n        \"item_total\": 2400,\n        \"package_details\": {\n          \"length\": 15,\n          \"width\": 10,\n          \"height\": 2,\n          \"weight\": 1.5,\n          \"weight_unit\": \"kg\",\n          \"dimension_unit\": \"cm\"\n        },\n        \"sales_rate\": 0,\n        \"label_rate\": 0\n      },\n      {\n        \"bill_id\": \"4815000000045067\",\n        \"bill_item_id\": \"4815000000045071\",\n        \"allocated_amount\": 100,\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity\": 2,\n        \"rate\": 1200,\n        \"item_total\": 2400,\n        \"package_details\": {\n          \"length\": 15,\n          \"width\": 10,\n          \"height\": 2,\n          \"weight\": 1.5,\n          \"weight_unit\": \"kg\",\n          \"dimension_unit\": \"cm\"\n        },\n        \"sales_rate\": 0,\n        \"label_rate\": 0\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaf3a035-b533-4fc3-970c-87add486a36d",
+          "name": "Updates an existing landed cost on a bill.",
+          "request": {
+            "name": "Updates an existing landed cost on a bill.",
+            "description": {
+              "content": "Update an existing landed cost on a bill. The full landed cost record, including its allocations across the bill line items, is replaced with the values provided in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "landedcosts",
+                ":landed_cost_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill that the landed cost belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "landed_cost_id",
+                  "description": "(Required) Unique identifier of the landed cost."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2140f233-6ea8-465d-9fa5-a83dd3c5d023",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "landedcosts",
+                    ":landed_cost_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill that the landed cost belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "landed_cost_id",
+                      "description": "(Required) Unique identifier of the landed cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cost_allocations\": [\n    {\n      \"bill_item_id\": \"4815000000045071\",\n      \"allocated_amount\": 100,\n      \"sales_rate\": 0,\n      \"label_rate\": 0\n    },\n    {\n      \"bill_item_id\": \"4815000000045071\",\n      \"allocated_amount\": 100,\n      \"sales_rate\": 0,\n      \"label_rate\": 0\n    }\n  ],\n  \"vendor_id\": \"4815000000044080\",\n  \"reference_entity_id\": \"4815000000045067\",\n  \"reference_item_id\": \"4815000000045071\",\n  \"reference_entity_type\": \"bill\",\n  \"account_id\": \"4815000000035003\",\n  \"description\": \"Freight charges for the August shipment.\",\n  \"allocation_method\": \"quantity\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The landed cost has been updated.\",\n  \"landed_cost\": {\n    \"bill_id\": \"4815000000045067\",\n    \"bill_number\": \"BILL-00045\",\n    \"landed_cost_id\": \"4815000000049011\",\n    \"vendor_id\": \"4815000000044080\",\n    \"vendor_name\": \"Molly\",\n    \"reference_entity_id\": \"4815000000045067\",\n    \"reference_item_id\": \"4815000000045071\",\n    \"reference_entity_type\": \"bill\",\n    \"reference_entity_number\": \"BILL-00045\",\n    \"price_precision\": 2,\n    \"amount\": 250,\n    \"currency_id\": \"4815000000044052\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"account_id\": \"4815000000035003\",\n    \"account_name\": \"Freight and Forwarding Charges\",\n    \"description\": \"Freight charges for the August shipment.\",\n    \"allocation_method\": \"quantity\",\n    \"cost_allocations\": [\n      {\n        \"bill_id\": \"4815000000045067\",\n        \"bill_item_id\": \"4815000000045071\",\n        \"allocated_amount\": 100,\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity\": 2,\n        \"rate\": 1200,\n        \"item_total\": 2400,\n        \"package_details\": {\n          \"length\": 15,\n          \"width\": 10,\n          \"height\": 2,\n          \"weight\": 1.5,\n          \"weight_unit\": \"kg\",\n          \"dimension_unit\": \"cm\"\n        },\n        \"sales_rate\": 0,\n        \"label_rate\": 0\n      },\n      {\n        \"bill_id\": \"4815000000045067\",\n        \"bill_item_id\": \"4815000000045071\",\n        \"allocated_amount\": 100,\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"quantity\": 2,\n        \"rate\": 1200,\n        \"item_total\": 2400,\n        \"package_details\": {\n          \"length\": 15,\n          \"width\": 10,\n          \"height\": 2,\n          \"weight\": 1.5,\n          \"weight_unit\": \"kg\",\n          \"dimension_unit\": \"cm\"\n        },\n        \"sales_rate\": 0,\n        \"label_rate\": 0\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1caa34f9-0a92-4ced-a406-9decd52798e4",
+          "name": "Deletes a landed cost from a bill.",
+          "request": {
+            "name": "Deletes a landed cost from a bill.",
+            "description": {
+              "content": "Delete a landed cost from a bill. The allocated amounts are removed from the bill line items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                ":bill_id",
+                "landedcosts",
+                ":landed_cost_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bill_id",
+                  "description": "(Required) Unique identifier of the bill that the landed cost belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "landed_cost_id",
+                  "description": "(Required) Unique identifier of the landed cost."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fcb6ce59-c02b-42b3-81f6-32aecb291131",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    ":bill_id",
+                    "landedcosts",
+                    ":landed_cost_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bill_id",
+                      "description": "(Required) Unique identifier of the bill that the landed cost belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "landed_cost_id",
+                      "description": "(Required) Unique identifier of the landed cost."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The landed cost has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7076ae93-8f72-45fb-927f-43f9c7a5b33e",
+          "name": "Create bulk landed costs",
+          "request": {
+            "name": "Create bulk landed costs",
+            "description": {
+              "content": "Create a landed cost from a single source transaction (such as a bill, bill of entry, or self-billed invoice) and allocate it across multiple bills in one call. Use this when a single charge, for example a freight invoice, needs to be distributed across more than one downstream bill.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bills",
+                "bulklandedcosts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_entity_id\": \"<string>\",\n  \"reference_item_id\": \"<string>\",\n  \"reference_entity_type\": \"<string>\",\n  \"account_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allocation_method\": \"<string>\",\n  \"bills\": [\n    {\n      \"bill_id\": \"<string>\",\n      \"vendor_id\": \"<string>\",\n      \"cost_allocations\": [\n        {\n          \"bill_item_id\": \"<string>\",\n          \"allocated_amount\": \"<double>\"\n        },\n        {\n          \"bill_item_id\": \"<string>\",\n          \"allocated_amount\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"bill_id\": \"<string>\",\n      \"vendor_id\": \"<string>\",\n      \"cost_allocations\": [\n        {\n          \"bill_item_id\": \"<string>\",\n          \"allocated_amount\": \"<double>\"\n        },\n        {\n          \"bill_item_id\": \"<string>\",\n          \"allocated_amount\": \"<double>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10137fba-6b78-497c-842f-92dd1c7d6d56",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bills",
+                    "bulklandedcosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reference_entity_id\": \"4815000000045067\",\n  \"reference_item_id\": \"4815000000045071\",\n  \"reference_entity_type\": \"bill\",\n  \"account_id\": \"4815000000035003\",\n  \"description\": \"Freight charges allocated across August shipments.\",\n  \"allocation_method\": \"quantity\",\n  \"bills\": [\n    {\n      \"bill_id\": \"4815000000045067\",\n      \"vendor_id\": \"4815000000044080\",\n      \"cost_allocations\": [\n        {\n          \"bill_item_id\": \"4815000000045071\",\n          \"allocated_amount\": 100\n        },\n        {\n          \"bill_item_id\": \"4815000000045071\",\n          \"allocated_amount\": 100\n        }\n      ]\n    },\n    {\n      \"bill_id\": \"4815000000045067\",\n      \"vendor_id\": \"4815000000044080\",\n      \"cost_allocations\": [\n        {\n          \"bill_item_id\": \"4815000000045071\",\n          \"allocated_amount\": 100\n        },\n        {\n          \"bill_item_id\": \"4815000000045071\",\n          \"allocated_amount\": 100\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The landed cost has been added.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7d22f32-1185-4c99-aed9-f6e0972ec72e",
+          "name": "Get bill details for bulk landed cost",
+          "request": {
+            "name": "Get bill details for bulk landed cost",
+            "description": {
+              "content": "Retrieve the bill and line item details for one or more bills. Use this before calling the bulk landed cost endpoint to fetch the bill items that the landed cost can be allocated against.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "landedcosts",
+                "billdetails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bill_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of bill IDs whose details are to be fetched. A maximum of 200 bill IDs can be passed in a single call."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization. Note: This value is a set of numeric characters."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3f69c23a-4dfe-4c7f-95c4-1c445d03e027",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landedcosts",
+                    "billdetails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bill_ids",
+                      "value": "4815000000045067,4815000000045079"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"bills\": [\n    {\n      \"bill_id\": \"4815000000045067\",\n      \"bill_number\": \"BILL-00045\",\n      \"date\": \"2015-05-28\",\n      \"vendor_id\": \"4815000000044080\",\n      \"vendor_name\": \"Molly\",\n      \"status\": \"open\",\n      \"total\": 2400,\n      \"currency_id\": \"4815000000044052\",\n      \"currency_code\": \"USD\",\n      \"currency_symbol\": \"$\",\n      \"exchange_rate\": 1,\n      \"price_precision\": 2,\n      \"line_items\": [\n        {\n          \"bill_id\": \"4815000000045067\",\n          \"bill_item_id\": \"4815000000045071\",\n          \"item_id\": \"4815000000044100\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"sku\": \"SKU-001\",\n          \"description\": \"Just a sample description.\",\n          \"quantity\": 2,\n          \"unit\": \"qty\",\n          \"item_total\": 2400,\n          \"package_details\": {\n            \"length\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"bill_id\": \"4815000000045067\",\n          \"bill_item_id\": \"4815000000045071\",\n          \"item_id\": \"4815000000044100\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"sku\": \"SKU-001\",\n          \"description\": \"Just a sample description.\",\n          \"quantity\": 2,\n          \"unit\": \"qty\",\n          \"item_total\": 2400,\n          \"package_details\": {\n            \"length\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"bill_id\": \"4815000000045067\",\n      \"bill_number\": \"BILL-00045\",\n      \"date\": \"2015-05-28\",\n      \"vendor_id\": \"4815000000044080\",\n      \"vendor_name\": \"Molly\",\n      \"status\": \"open\",\n      \"total\": 2400,\n      \"currency_id\": \"4815000000044052\",\n      \"currency_code\": \"USD\",\n      \"currency_symbol\": \"$\",\n      \"exchange_rate\": 1,\n      \"price_precision\": 2,\n      \"line_items\": [\n        {\n          \"bill_id\": \"4815000000045067\",\n          \"bill_item_id\": \"4815000000045071\",\n          \"item_id\": \"4815000000044100\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"sku\": \"SKU-001\",\n          \"description\": \"Just a sample description.\",\n          \"quantity\": 2,\n          \"unit\": \"qty\",\n          \"item_total\": 2400,\n          \"package_details\": {\n            \"length\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"bill_id\": \"4815000000045067\",\n          \"bill_item_id\": \"4815000000045071\",\n          \"item_id\": \"4815000000044100\",\n          \"name\": \"Laptop-white/15inch/dell\",\n          \"sku\": \"SKU-001\",\n          \"description\": \"Just a sample description.\",\n          \"quantity\": 2,\n          \"unit\": \"qty\",\n          \"item_total\": 2400,\n          \"package_details\": {\n            \"length\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"width\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"height\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"weight_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "81f6151e-a1c6-4604-a5f1-7df182936a07",
+    "name": "batches landedcosts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,788 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches compositeitems API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "compositeitems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Composite Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page Number"
+              },
+              {
+                "name": "per_page",
+                "value": "25",
+                "type": "query",
+                "description": "Items to be displayed per page"
+              },
+              {
+                "name": "sort_column",
+                "value": "",
+                "type": "query",
+                "description": "column to be used for sorting. Allowed values: <code>name</code>,<code>sku</code>,<code>rate</code>,<code>tax_name</code>,<code>purchase_rate</code>,<code>created_time</code>,<code>last_modified_time</code>,<code>reorder_level</code>"
+              },
+              {
+                "name": "sort_order",
+                "value": "A",
+                "type": "query",
+                "description": "order used for sorting"
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter items by status. Allowed values: <code>Status.All</code>,<code>Status.Active</code>,<code>Status.Inactive</code>,<code>Status.Lowstock</code>,<code>Status.Unmapped</code>,<code>Source.Crm</code>,<code>ComboType.Assembly</code>,<code>ComboType.Kit</code>"
+              },
+              {
+                "name": "usestate",
+                "value": "true",
+                "type": "query",
+                "description": "Whether current filter needs to be saved"
+              },
+              {
+                "name": "response_option",
+                "value": "0",
+                "type": "query",
+                "description": "response format number"
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search composite items by name or other attributes."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Search composite items by exact name."
+              },
+              {
+                "name": "name_contains",
+                "value": "",
+                "type": "query",
+                "description": "Search composite items where name contains the given value."
+              },
+              {
+                "name": "name_startswith",
+                "value": "",
+                "type": "query",
+                "description": "Search composite items where name starts with the given value."
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "query",
+                "description": "Search composite items by exact SKU."
+              },
+              {
+                "name": "sku_contains",
+                "value": "",
+                "type": "query",
+                "description": "Search composite items where SKU contains the given value."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by status. Allowed values: <code>all</code>, <code>active</code>, <code>inactive</code>."
+              },
+              {
+                "name": "category_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter composite items by category ID."
+              },
+              {
+                "name": "warehouse_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter composite items by warehouse ID."
+              },
+              {
+                "name": "tax_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter composite items by tax ID."
+              },
+              {
+                "name": "last_modified_time",
+                "value": "",
+                "type": "query",
+                "description": "Filter composite items modified after the given date and time in UTC format."
+              },
+              {
+                "name": "combo_type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by composite item type. Allowed values: <code>assembly</code>, <code>kit</code>."
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter composite items by sales account ID."
+              },
+              {
+                "name": "purchase_account_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter composite items by purchase account ID."
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter composite items by location ID."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List of all composite items."
+        },
+        {
+          "info": {
+            "name": "Creating a Composite Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "A new composite item can be created after creating items that we want to associcate with composite item. User can attach image for composite item by calling Different API 'https://www.zohoapis.com/inventory/v1/compositeitems/{composite_item_id}/image', passing form-data parameter image i.e. -F image=bag_s.jpg"
+        },
+        {
+          "info": {
+            "name": "Retrieving a Composite Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:composite_item_id",
+            "params": [
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieving details of an existing compostie item."
+        },
+        {
+          "info": {
+            "name": "Updating a composite item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:composite_item_id",
+            "params": [
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updating details of an existing composite item."
+        },
+        {
+          "info": {
+            "name": "Deleting a Composite Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:composite_item_id",
+            "params": [
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deleting an existing Composite Item."
+        },
+        {
+          "info": {
+            "name": "Mark as Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:composite_item_id/active",
+            "params": [
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Changing status of an existing composite item to active."
+        },
+        {
+          "info": {
+            "name": "Mark as Inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:composite_item_id/inactive",
+            "params": [
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Changing status of an existing composite item to inactive."
+        },
+        {
+          "info": {
+            "name": "Upload Composite Item Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:composite_item_id/image",
+            "params": [
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "image",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Uploads an image for a composite item. Accepted image formats: <code>gif</code>, <code>png</code>, <code>jpeg</code>, <code>jpg</code>, <code>bmp</code>, <code>webp</code>. Maximum file size is 7 MB."
+        },
+        {
+          "info": {
+            "name": "Delete Composite Item Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:composite_item_id/image",
+            "params": [
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes the images associated with a composite item."
+        },
+        {
+          "info": {
+            "name": "Assemblies History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/bundles",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "composite_item_id",
+                "value": "504366000000053250",
+                "type": "query",
+                "description": "Unique ID generated for the composite item by the server. This is used as identifier"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter assemblies by item ID."
+              },
+              {
+                "name": "warehouse_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter assemblies by warehouse ID."
+              },
+              {
+                "name": "filter_by",
+                "value": "Status.All",
+                "type": "query",
+                "description": "Filter assemblies by date or status. Allowed values: <code>WorkOrderDate.All</code>, <code>WorkOrderDate.Today</code>, <code>WorkOrderDate.ThisWeek</code>, <code>WorkOrderDate.ThisMonth</code>, <code>WorkOrderDate.ThisQuarter</code>, <code>WorkOrderDate.ThisYear</code>, <code>Status.All</code>, <code>Status.Pending</code>, <code>Status.Built</code>, <code>Status.Confirmed</code>."
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Column used for sorting. Allowed values: <code>date</code>, <code>total</code>, <code>created_time</code>, <code>last_modified_time</code>, <code>reference_number</code>."
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "Order used for sorting. Allowed values: <code>A</code> for ascending, <code>D</code> for descending."
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search assemblies by keyword."
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter assemblies by location ID."
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter assemblies by project ID."
+              },
+              {
+                "name": "reference_number",
+                "value": "",
+                "type": "query",
+                "description": "Search assemblies by exact reference number."
+              },
+              {
+                "name": "reference_number_contains",
+                "value": "",
+                "type": "query",
+                "description": "Search assemblies where reference number contains the given value."
+              },
+              {
+                "name": "date_start",
+                "value": "",
+                "type": "query",
+                "description": "Filter assemblies with date on or after the given date (yyyy-mm-dd)."
+              },
+              {
+                "name": "date_end",
+                "value": "",
+                "type": "query",
+                "description": "Filter assemblies with date on or before the given date (yyyy-mm-dd)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter assemblies by status. Allowed values: <code>draft</code>, <code>confirmed</code>, <code>bundled</code>."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List of all Assemblies of a given composite item."
+        },
+        {
+          "info": {
+            "name": "Create Assemblies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bundles",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Ignore auto-generation of reference number. If <code>true</code>, the reference number provided in the request body is used as-is."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Assemblies is the technique of putting together different components in desired quantities to produce a single commodity. These components could be goods, services and other non-inventory items of your choice."
+        },
+        {
+          "info": {
+            "name": "Retrieve Assemblies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/bundles/:bundle_id",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the bundle."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details for an existing Assemblies."
+        },
+        {
+          "info": {
+            "name": "Update an Assembly",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/bundles/:bundle_id",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the bundle."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Ignore auto-generation of reference number. If <code>true</code>, the reference number provided in the request body is used as-is."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the details of an existing assembly."
+        },
+        {
+          "info": {
+            "name": "Delete Assemblies",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/bundles/:bundle_id",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the bundle."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing Assemblies from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Mark Assembly as Assembled",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bundles/:bundle_id/bundled",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the bundle."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks an existing assembly as built, indicating that the composite item has been assembled from its components."
+        },
+        {
+          "info": {
+            "name": "Mark Assembly as Confirmed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bundles/:bundle_id/confirmed",
+            "params": [
+              {
+                "name": "bundle_id",
+                "value": "504366000000053250",
+                "type": "path",
+                "description": "Unique identifier of the bundle."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks an existing assembly as confirmed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

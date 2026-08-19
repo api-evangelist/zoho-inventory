@@ -1,0 +1,332 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches packages API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "packages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/packages",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "sort_column",
+                "value": "created_by",
+                "type": "query",
+                "description": "sorting column. it can have values as <code>tracking_number|salesorder_number|package_number|date|created_time|last_modified_time|customer_name|customer_id|shipment_date|quantity|delivery_method</code>"
+              },
+              {
+                "name": "search_text",
+                "value": "PK-00001",
+                "type": "query",
+                "description": "search the packages by text"
+              },
+              {
+                "name": "filter_by",
+                "value": "Status.All",
+                "type": "query",
+                "description": "filter the packages by status. Status can be <code>All|NotShipped|Shipped|Delivered</code> For example: Status.All"
+              },
+              {
+                "name": "packing_number_startswith",
+                "value": "504366",
+                "type": "query",
+                "description": "Used for searching package_id which starts with given number in advanced search option"
+              },
+              {
+                "name": "packing_number_contains",
+                "value": "66000",
+                "type": "query",
+                "description": "Used for searching package_id which contains given number in advanced search option"
+              },
+              {
+                "name": "salesorder_number_startswith",
+                "value": "504366",
+                "type": "query",
+                "description": "Used for searching salesorder_id which starts with given number in advanced search option"
+              },
+              {
+                "name": "salesorder_number_contains",
+                "value": "66000",
+                "type": "query",
+                "description": "Used for searching salesorder_id which contains given number in advanced search option"
+              },
+              {
+                "name": "date_start",
+                "value": "2017-01-10 00:00:00+00:00",
+                "type": "query",
+                "description": "Used for searching packages from specified date <code>Use the node as date_after if specified date is not to be considered</code>"
+              },
+              {
+                "name": "date_end",
+                "value": "2017-01-14 00:00:00+00:00",
+                "type": "query",
+                "description": "Used for searching packages till specified date <code>Use the node as date_before if specified date is not to be considered</code>"
+              },
+              {
+                "name": "shipment_date_start",
+                "value": "2017-01-10 00:00:00+00:00",
+                "type": "query",
+                "description": "Used for searching shipments from specified date <code>Use the node as shipment_date_after if specified date is not to be considered</code>"
+              },
+              {
+                "name": "shipment_date_end",
+                "value": "2017-01-14 00:00:00+00:00",
+                "type": "query",
+                "description": "Used for searching shipments till specified date <code>Use the node as shipment_date_before if specified date is not to be considered</code>"
+              },
+              {
+                "name": "customer_name_startswith",
+                "value": "sam",
+                "type": "query",
+                "description": "Used for searching salesorder_id which starts with given number in advanced search option"
+              },
+              {
+                "name": "customer_name_contains",
+                "value": "ethan",
+                "type": "query",
+                "description": "Used for searching salesorder_id which contains given number in advanced search option"
+              },
+              {
+                "name": "delivery_method_startswith",
+                "value": "sam",
+                "type": "query",
+                "description": "Used for searching delivery_method which starts with given string in advanced search option"
+              },
+              {
+                "name": "delivery_method_contains",
+                "value": "ethan",
+                "type": "query",
+                "description": "Used for searching delivery_method which contains given string in advanced search option"
+              },
+              {
+                "name": "status",
+                "value": "shipped",
+                "type": "query",
+                "description": "status of the shipment order"
+              },
+              {
+                "name": "customer_id",
+                "value": "504366000000062000",
+                "type": "query",
+                "description": "Unique ID generated by the for the customer"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all existing packages."
+        },
+        {
+          "info": {
+            "name": "Creating a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/packages",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "salesorder_id",
+                "value": "504366000000062000",
+                "type": "query",
+                "description": "Unique ID generated by the server for sales order"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "A new package can be created. To create package, URL parameter salesorder_id also needed."
+        },
+        {
+          "info": {
+            "name": "Retrieving a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/packages/:package_id",
+            "params": [
+              {
+                "name": "package_id",
+                "value": "504366000000062100",
+                "type": "path",
+                "description": "Unique identifier of the package."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieving details of existing package."
+        },
+        {
+          "info": {
+            "name": "Updating a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/packages/:package_id",
+            "params": [
+              {
+                "name": "package_id",
+                "value": "504366000000062100",
+                "type": "path",
+                "description": "Unique identifier of the package."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updating details of existing package."
+        },
+        {
+          "info": {
+            "name": "Deleting a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/packages/:package_id",
+            "params": [
+              {
+                "name": "package_id",
+                "value": "504366000000062100",
+                "type": "path",
+                "description": "Unique identifier of the package."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deleting an existing package."
+        },
+        {
+          "info": {
+            "name": "Bulk print packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/packages/print",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "package_ids",
+                "value": "5.0436600000006205e+35",
+                "type": "query",
+                "description": "Export packages as pdf and print them. <code>List of package ids separated by comma</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Print package slips."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,531 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches salesorders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "salesorders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Sales Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the available Sales Orders in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Create a Sales Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Ignore auto sales order number generation for this sales order. This mandates the sales order number. Allowed values are <code> true </code> , <code> false </code>."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a new Sales Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto sales order number generation for this sales order. This mandates the Sales Order number to be entered. Allowed Values <code>true</code> and <code>false</code>."
+        },
+        {
+          "info": {
+            "name": "Bulk delete Sales Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Bulk delete the selected Sales Orders."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Sales Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieves the details for an existing Sales Order."
+        },
+        {
+          "info": {
+            "name": "Update a Sales Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Ignore auto sales order number generation for this sales order. This mandates the sales order number. Allowed values are <code> true </code> , <code> false </code>."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates a new Sales Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto sales order number generation for this sales order. This mandates the Sales Order number to be entered. Allowed Values <code>true</code> and <code>false</code>."
+        },
+        {
+          "info": {
+            "name": "Delete a Sales Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing Sales Order from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Mark as Confirmed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id/status/confirmed",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Changes the status of a Sales Order to Confirmed."
+        },
+        {
+          "info": {
+            "name": "Mark as Void",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id/status/void",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000044895",
+                "type": "path",
+                "description": "Unique identifier of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Changes the status of a Sales Order to Void."
+        },
+        {
+          "info": {
+            "name": "Bulk confirm Sales Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/status/confirmed",
+            "params": [
+              {
+                "name": "salesorder_ids",
+                "value": "4815000000045208,4815000000045274,4815000000045340",
+                "type": "query",
+                "description": "<code>List of sales order ids separated by comma</code>"
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark existing Sales Orders as confirmed in Zoho Inventory"
+        },
+        {
+          "info": {
+            "name": "Submit a sales order for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id/submit",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000045208",
+                "type": "path",
+                "description": "Unique ID of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit a sales order for approval workflow."
+        },
+        {
+          "info": {
+            "name": "Approve a sales order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id/approve",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000045208",
+                "type": "path",
+                "description": "Unique ID of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a submitted sales order."
+        },
+        {
+          "info": {
+            "name": "Final approval of a sales order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id/approve/final",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000045208",
+                "type": "path",
+                "description": "Unique ID of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Perform the final approval of a sales order (admin only)."
+        },
+        {
+          "info": {
+            "name": "Reject a sales order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/:salesorder_id/reject",
+            "params": [
+              {
+                "name": "salesorder_id",
+                "value": "4815000000045208",
+                "type": "path",
+                "description": "Unique ID of the sales order."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Reject a submitted sales order."
+        },
+        {
+          "info": {
+            "name": "Bulk submit sales orders for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/submit",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "salesorder_ids",
+                "value": "4815000000045208,4815000000045274",
+                "type": "query",
+                "description": "Comma-separated list of sales order IDs to submit for approval."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit multiple sales orders for approval workflow at once."
+        },
+        {
+          "info": {
+            "name": "Bulk approve sales orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/salesorders/approve",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "salesorder_ids",
+                "value": "4815000000045208,4815000000045274",
+                "type": "query",
+                "description": "Comma-separated list of sales order IDs to approve."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve multiple submitted sales orders at once."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

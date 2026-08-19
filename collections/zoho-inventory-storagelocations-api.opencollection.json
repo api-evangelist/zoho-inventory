@@ -1,0 +1,955 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches storagelocations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "storagelocations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Enables bin locations for a specific warehouse",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/settings/warehouses/:warehouse_id/storagelocations/enable",
+            "params": [
+              {
+                "name": "warehouse_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the warehouse."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Enable bin locations for a specific warehouse so goods can be tracked."
+        },
+        {
+          "info": {
+            "name": "Disable Bin Locations for a Warehouse",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/settings/warehouses/:warehouse_id/storagelocations/disable",
+            "params": [
+              {
+                "name": "warehouse_id",
+                "value": "130426000000664020",
+                "type": "path",
+                "description": "Unique identifier of the warehouse."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Disable bin locations for a specific warehouse."
+        },
+        {
+          "info": {
+            "name": "Enable Bin Locations for a Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id/storagelocations/enable",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000054001",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Enable bin locations for a specific location so goods can be tracked."
+        },
+        {
+          "info": {
+            "name": "Disable Bin Locations for a Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/locations/:location_id/storagelocations/disable",
+            "params": [
+              {
+                "name": "location_id",
+                "value": "130426000000054001",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Disable bin locations for a specific location."
+        },
+        {
+          "info": {
+            "name": "List all Zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/storagezones",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "warehouse_id",
+                "value": "130426000000664020",
+                "type": "query",
+                "description": "Filter zones by warehouse ID."
+              },
+              {
+                "name": "location_id",
+                "value": "130426000000054001",
+                "type": "query",
+                "description": "Filter zones by location ID."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query",
+                "description": "Number of records returned per page."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all zones configured for warehouses and locations in your Zoho Inventory organization."
+        },
+        {
+          "info": {
+            "name": "Create a Zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/storagezones",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a zone for a specific location or warehouse."
+        },
+        {
+          "info": {
+            "name": "Mark Zones as Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/storagezones/active",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "storage_zone_ids",
+                "value": "130426000000798001,130426000000798003",
+                "type": "query",
+                "description": "Comma-separated list of zone IDs to mark as active."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Bulk mark zones as active."
+        },
+        {
+          "info": {
+            "name": "Mark Zones as Inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/storagezones/inactive",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "storage_zone_ids",
+                "value": "130426000000798001,130426000000798003",
+                "type": "query",
+                "description": "Comma-separated list of zone IDs to mark as inactive."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Bulk mark zones as inactive."
+        },
+        {
+          "info": {
+            "name": "Get a Zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/storagezones/:zone_id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "130426000000798001",
+                "type": "path",
+                "description": "Unique identifier of the zone."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the details of a specific zone and its bin hierarchy."
+        },
+        {
+          "info": {
+            "name": "Update a Zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/storagezones/:zone_id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "130426000000798001",
+                "type": "path",
+                "description": "Unique identifier of the zone."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update and manage an existing zone and the hierarchy used to create bins within it."
+        },
+        {
+          "info": {
+            "name": "Delete a Zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/storagezones/:zone_id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "130426000000798001",
+                "type": "path",
+                "description": "Unique identifier of the zone."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a specific zone when it is no longer needed."
+        },
+        {
+          "info": {
+            "name": "List all Bins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "warehouse_id",
+                "value": "130426000000664020",
+                "type": "query",
+                "description": "Filter bin locations by warehouse ID."
+              },
+              {
+                "name": "location_id",
+                "value": "130426000000054001",
+                "type": "query",
+                "description": "Filter bin locations by location ID."
+              },
+              {
+                "name": "storage_zone_id",
+                "value": "130426000000798001",
+                "type": "query",
+                "description": "Filter bin locations by zone ID."
+              },
+              {
+                "name": "item_id",
+                "value": "130426000000056001",
+                "type": "query",
+                "description": "Filter bin locations by item ID."
+              },
+              {
+                "name": "search_text",
+                "value": "A-R1",
+                "type": "query",
+                "description": "Search bin locations by name."
+              },
+              {
+                "name": "show_stock_only_bins",
+                "value": "true",
+                "type": "query",
+                "description": "When set to <code>true</code>, returns only bin locations that have stock."
+              },
+              {
+                "name": "show_batches",
+                "value": "false",
+                "type": "query",
+                "description": "When set to <code>true</code>, includes batch information in the response."
+              },
+              {
+                "name": "batch_id",
+                "value": "130426000000812001",
+                "type": "query",
+                "description": "Filter bin locations by batch ID."
+              },
+              {
+                "name": "exclude_zero_stock_bins",
+                "value": "false",
+                "type": "query",
+                "description": "When set to <code>true</code>, excludes bin locations with zero stock."
+              },
+              {
+                "name": "storage_ids",
+                "value": "130426000000801001,130426000000801003",
+                "type": "query",
+                "description": "Comma-separated list of bin location IDs to filter by."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records returned per page."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all bin locations available in your Zoho Inventory organization."
+        },
+        {
+          "info": {
+            "name": "Create a Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a bin within a zone so goods can be stored and tracked to the smallest unit space."
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Bins",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "storage_ids",
+                "value": "130426000000801001,130426000000801003",
+                "type": "query",
+                "description": "Comma-separated list of bin location IDs to delete."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete multiple bin locations in bulk."
+        },
+        {
+          "info": {
+            "name": "Mark Bins as Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations/active",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "storage_ids",
+                "value": "130426000000801001,130426000000801003",
+                "type": "query",
+                "description": "Comma-separated list of bin location IDs to mark as active."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark multiple bin locations as active."
+        },
+        {
+          "info": {
+            "name": "Mark Bins as Inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations/inactive",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "storage_ids",
+                "value": "130426000000801001,130426000000801003",
+                "type": "query",
+                "description": "Comma-separated list of bin location IDs to mark as inactive."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark multiple bin locations as inactive."
+        },
+        {
+          "info": {
+            "name": "Get a Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations/:storage_id",
+            "params": [
+              {
+                "name": "storage_id",
+                "value": "130426000000801001",
+                "type": "path",
+                "description": "Unique identifier of the bin location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the details of a specific bin location."
+        },
+        {
+          "info": {
+            "name": "Update a Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations/:storage_id",
+            "params": [
+              {
+                "name": "storage_id",
+                "value": "130426000000801001",
+                "type": "path",
+                "description": "Unique identifier of the bin location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the details of an existing bin location."
+        },
+        {
+          "info": {
+            "name": "Delete a Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/storagelocations/:storage_id",
+            "params": [
+              {
+                "name": "storage_id",
+                "value": "130426000000801001",
+                "type": "path",
+                "description": "Unique identifier of the bin location."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a specific bin location when it is no longer needed."
+        },
+        {
+          "info": {
+            "name": "Get Item Bin Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/items/:item_id/storagelocationsmapping",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "130426000000056001",
+                "type": "path",
+                "description": "Unique identifier of the item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "warehouse_id",
+                "value": "130426000000664020",
+                "type": "query",
+                "description": "Filter mappings by warehouse ID."
+              },
+              {
+                "name": "location_id",
+                "value": "130426000000054001",
+                "type": "query",
+                "description": "Filter mappings by location ID."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the bins mapped to a specific item."
+        },
+        {
+          "info": {
+            "name": "Update Item Bin Mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/items/:item_id/storagelocationsmapping",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "130426000000056001",
+                "type": "path",
+                "description": "Unique identifier of the item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the bin mappings for a specific item."
+        },
+        {
+          "info": {
+            "name": "Get Item Default Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/items/:item_id/defaultstoragemapping",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "130426000000056001",
+                "type": "path",
+                "description": "Unique identifier of the item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the default bin mapping for a specific item."
+        },
+        {
+          "info": {
+            "name": "Configure Item Default Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/items/:item_id/configure/defaultstorage",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "130426000000056001",
+                "type": "path",
+                "description": "Unique identifier of the item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Configure the default bin per location for a specific item."
+        },
+        {
+          "info": {
+            "name": "Get Composite Item Default Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:item_id/defaultstoragemapping",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "130426000000056005",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the default bin mapping for a specific composite item."
+        },
+        {
+          "info": {
+            "name": "Configure Composite Item Default Bin",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/compositeitems/:item_id/configure/defaultstorage",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "130426000000056005",
+                "type": "path",
+                "description": "Unique identifier of the composite item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Configure the default bin per location for a specific composite item."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

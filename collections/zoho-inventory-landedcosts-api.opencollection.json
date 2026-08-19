@@ -1,0 +1,240 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches landedcosts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "landedcosts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates a landed cost for a bill.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/landedcosts",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill to which the landed cost is added."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a landed cost for a bill. Use this to record additional charges such as shipping, customs, or handling against a bill, and allocate those charges across the line items of the bill using the chosen allocation method."
+        },
+        {
+          "info": {
+            "name": "Retrieves the details of a specific landed cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/landedcosts/:landed_cost_id",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill that the landed cost belongs to."
+              },
+              {
+                "name": "landed_cost_id",
+                "value": "4815000000049011",
+                "type": "path",
+                "description": "Unique identifier of the landed cost."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the details of a specific landed cost recorded against a bill, including the cost allocations across the bill line items."
+        },
+        {
+          "info": {
+            "name": "Updates an existing landed cost on a bill.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/landedcosts/:landed_cost_id",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill that the landed cost belongs to."
+              },
+              {
+                "name": "landed_cost_id",
+                "value": "4815000000049011",
+                "type": "path",
+                "description": "Unique identifier of the landed cost."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing landed cost on a bill. The full landed cost record, including its allocations across the bill line items, is replaced with the values provided in the request body."
+        },
+        {
+          "info": {
+            "name": "Deletes a landed cost from a bill.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/landedcosts/:landed_cost_id",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill that the landed cost belongs to."
+              },
+              {
+                "name": "landed_cost_id",
+                "value": "4815000000049011",
+                "type": "path",
+                "description": "Unique identifier of the landed cost."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a landed cost from a bill. The allocated amounts are removed from the bill line items."
+        },
+        {
+          "info": {
+            "name": "Create bulk landed costs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/bulklandedcosts",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a landed cost from a single source transaction (such as a bill, bill of entry, or self-billed invoice) and allocate it across multiple bills in one call. Use this when a single charge, for example a freight invoice, needs to be distributed across more than one downstream bill."
+        },
+        {
+          "info": {
+            "name": "Get bill details for bulk landed cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/landedcosts/billdetails",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "bill_ids",
+                "value": "4815000000045067,4815000000045079",
+                "type": "query",
+                "description": "Comma-separated list of bill IDs whose details are to be fetched. A maximum of 200 bill IDs can be passed in a single call."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the bill and line item details for one or more bills. Use this before calling the bulk landed cost endpoint to fetch the bill items that the landed cost can be allocated against."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

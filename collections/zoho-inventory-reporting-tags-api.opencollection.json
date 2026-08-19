@@ -1,0 +1,506 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches reporting-tags API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "reporting-tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of all Reporting Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get a list of all reporting tags in the preferred order that you can set."
+        },
+        {
+          "info": {
+            "name": "Create Reporting Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a reporting tag"
+        },
+        {
+          "info": {
+            "name": "Mark an option as default for a reporting tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              },
+              {
+                "name": "default_option_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the option to be marked as default. If this parameter is not sent or sent empty, the current default option of the tag will be removed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark an option as the default option or clear default option for a reporting tag."
+        },
+        {
+          "info": {
+            "name": "Update Reporting Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update a reporting tag"
+        },
+        {
+          "info": {
+            "name": "Delete a reporting tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a reporting tag. If there are any usages of the reporting tag in transactions,  custom views or workflows, you will not be able to delete the tag."
+        },
+        {
+          "info": {
+            "name": "Update Reporting Tag Options",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id/options",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create, update or delete the options of a reporting tag. Reorder and arrange them in an hierarchical structure as per your organization requirements. <br><b>NOTE:</b> <br><ol> <li>An option cannot be a child option beyond five hierarchical level.</li> <li>The overall children of an option cannot exceed 500 options.</li></ol>"
+        },
+        {
+          "info": {
+            "name": "Update Reporting Tag - Visibility Conditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id/criteria",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the visibility conditions (or filter in some places) of a reporting tag. You can set other tags or location as filters for a tag. Check our help document to know about the requirements of a tag to be associated as a filter to another tag."
+        },
+        {
+          "info": {
+            "name": "Mark Reporting Tag as active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id/active",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a reporting tag as active so that you can use it on entities which you allowed.  A newly created tag will be in draft state. Use this to mark that tag as ready."
+        },
+        {
+          "info": {
+            "name": "Mark Reporting Tag as inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id/inactive",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a reporting tag as inactive."
+        },
+        {
+          "info": {
+            "name": "Mark an option as active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id/option/(\\d+)/active",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              },
+              {
+                "name": "option_id",
+                "value": "460000000038081",
+                "type": "path",
+                "description": "ID of a reporting tag's option"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a reporting tag's option as active."
+        },
+        {
+          "info": {
+            "name": "Mark an option as inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/:tag_id/option/(\\d+)/inactive",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "path",
+                "description": "ID of the reporting tag"
+              },
+              {
+                "name": "option_id",
+                "value": "460000000038081",
+                "type": "path",
+                "description": "ID of a reporting tag's option"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a reporting tag's option as inactive."
+        },
+        {
+          "info": {
+            "name": "Get Reporting Tags Options Detail Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/options",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "query",
+                "description": "ID of the reporting tag"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the options and its criteria details of a reporting tag. For each page, you can retrieve only 200 options."
+        },
+        {
+          "info": {
+            "name": "Get all Options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/(\\d+)/options/all",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "tag_id",
+                "value": "460000000038080",
+                "type": "query",
+                "description": "ID of the reporting tag"
+              },
+              {
+                "name": "show_untagged",
+                "value": "",
+                "type": "query",
+                "description": "'untagged' will be included in the response if this parameter is set to true."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get all options for a reporting tag."
+        },
+        {
+          "info": {
+            "name": "Reorder Reporting Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/reportingtags/reorder",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Reorder the reporting tags in your organization. The order of tags will be followed in transactions and reports."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

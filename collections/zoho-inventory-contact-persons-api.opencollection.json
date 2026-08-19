@@ -1,0 +1,236 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches contact-persons API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "contact-persons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a contact person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/contactpersons",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a contact person for contact."
+        },
+        {
+          "info": {
+            "name": "Update a contact person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/contactpersons/:contact_person_id",
+            "params": [
+              {
+                "name": "contact_person_id",
+                "value": "460000000026051",
+                "type": "path",
+                "description": "Unique identifier of the contact person."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update details of an existing contact person."
+        },
+        {
+          "info": {
+            "name": "Delete a contact person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/contactpersons/:contact_person_id",
+            "params": [
+              {
+                "name": "contact_person_id",
+                "value": "460000000026051",
+                "type": "path",
+                "description": "Unique identifier of the contact person."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing contact person."
+        },
+        {
+          "info": {
+            "name": "List contact persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/contactpersons",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all contacts with pagination."
+        },
+        {
+          "info": {
+            "name": "Get a contact person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/:contact_id/contactpersons/:contact_person_id",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "460000000026049",
+                "type": "path",
+                "description": "Unique identifier of the contact."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "contact_person_id",
+                "value": "460000000026051",
+                "type": "path",
+                "description": "Unique identifier of the contact person."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get the details of a contact person."
+        },
+        {
+          "info": {
+            "name": "Mark as primary contact person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/contacts/contactpersons/:contact_person_id/primary",
+            "params": [
+              {
+                "name": "contact_person_id",
+                "value": "460000000026051",
+                "type": "path",
+                "description": "Unique identifier of the contact person."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a contact person as primary for contact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

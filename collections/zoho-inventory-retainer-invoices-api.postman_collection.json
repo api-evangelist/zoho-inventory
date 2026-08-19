@@ -1,0 +1,3059 @@
+{
+  "item": [
+    {
+      "id": "21c493d8-28d4-452f-83b9-14edb254e7a6",
+      "name": "retainer-invoices",
+      "description": {
+        "content": "Retainer-Invoices Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7564d619-01da-4edf-bd2f-7f1d21fe987f",
+          "name": "Create a retainerinvoice",
+          "request": {
+            "name": "Create a retainerinvoice",
+            "description": {
+              "content": "Create a retainer invoice for your customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Ignore auto invoice number generation for this invoice. This mandates the invoice number. Allowed values <code>true</code> and <code>false</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"rate\": \"<double>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"rate\": \"<double>\"\n    }\n  ],\n  \"reference_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": \"<boolean>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": \"<boolean>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"payment_options\": {\n    \"payment_gateways\": [\n      {\n        \"configured\": \"<boolean>\",\n        \"additional_field1\": \"<string>\",\n        \"gateway_name\": \"<string>\"\n      },\n      {\n        \"configured\": \"<boolean>\",\n        \"additional_field1\": \"<string>\",\n        \"gateway_name\": \"<string>\"\n      }\n    ]\n  },\n  \"template_id\": \"<string>\",\n  \"place_of_supply\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c7bbe316-b950-455c-adc6-f6a3054b8f95",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n      \"item_order\": 1,\n      \"rate\": 120\n    },\n    {\n      \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n      \"item_order\": 1,\n      \"rate\": 120\n    }\n  ],\n  \"reference_number\": \" \",\n  \"date\": \"2013-11-17\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": false,\n      \"value\": \"value1\",\n      \"label\": \"Delivery Date\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": false,\n      \"value\": \"value1\",\n      \"label\": \"Delivery Date\"\n    }\n  ],\n  \"notes\": \"Looking forward for your business.\",\n  \"terms\": \"Terms & Conditions apply\",\n  \"location_id\": \"460000000038080\",\n  \"payment_options\": {\n    \"payment_gateways\": [\n      {\n        \"configured\": true,\n        \"additional_field1\": \"standard\",\n        \"gateway_name\": \"paypal\"\n      },\n      {\n        \"configured\": true,\n        \"additional_field1\": \"standard\",\n        \"gateway_name\": \"paypal\"\n      }\n    ]\n  },\n  \"template_id\": \"<string>\",\n  \"place_of_supply\": \"TN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The retainer invoice has been created.\",\n  \"retainerinvoice\": {\n    \"retainerinvoice_id\": \"string\",\n    \"retainerinvoice_number\": \"RET-00003\",\n    \"date\": \"2013-11-17\",\n    \"status\": \"draft\",\n    \"is_pre_gst\": \"string\",\n    \"place_of_supply\": \"TN\",\n    \"project_id\": \"string\",\n    \"project_name\": \"string\",\n    \"last_payment_date\": \" \",\n    \"reference_number\": \" \",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"Bowman & Co\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"currency_id\": \"string\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"USD\",\n    \"exchange_rate\": 1,\n    \"is_viewed_by_client\": true,\n    \"client_viewed_time\": true,\n    \"is_inclusive_tax\": false,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"line_items\": [\n      {\n        \"line_item_id\": \"string\",\n        \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n        \"item_order\": 1,\n        \"rate\": 120,\n        \"bcy_rate\": 120,\n        \"tax_id\": \"string\",\n        \"tax_name\": \"VAT\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12.5,\n        \"item_total\": 120,\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\"\n      },\n      {\n        \"line_item_id\": \"string\",\n        \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n        \"item_order\": 1,\n        \"rate\": 120,\n        \"bcy_rate\": 120,\n        \"tax_id\": \"string\",\n        \"tax_name\": \"VAT\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12.5,\n        \"item_total\": 120,\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\"\n      }\n    ],\n    \"sub_total\": 153,\n    \"total\": \"string\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"VAT\",\n        \"tax_amount\": 19.13\n      },\n      {\n        \"tax_name\": \"VAT\",\n        \"tax_amount\": 19.13\n      }\n    ],\n    \"payment_made\": 26.91,\n    \"payment_drawn\": 26.91,\n    \"balance\": \"string\",\n    \"allow_partial_payments\": true,\n    \"price_precision\": 2,\n    \"payment_options\": {\n      \"payment_gateways\": [\n        {\n          \"configured\": true,\n          \"additional_field1\": \"standard\",\n          \"gateway_name\": \"paypal\"\n        },\n        {\n          \"configured\": true,\n          \"additional_field1\": \"standard\",\n          \"gateway_name\": \"paypal\"\n        }\n      ]\n    },\n    \"is_emailed\": \"string\",\n    \"billing_address\": {\n      \"address\": \"Suite 125, McMillan Avenue\",\n      \"street2\": \"McMillan Avenue\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"zip\": \"string\",\n      \"country\": \"U.S.A\",\n      \"fax\": \"+86-10-82637827\"\n    },\n    \"shipping_address\": {\n      \"address\": \"Suite 125, McMillan Avenue\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"zip\": \"string\",\n      \"country\": \"U.S.A\",\n      \"fax\": \"+86-10-82637827\"\n    },\n    \"notes\": \"Looking forward for your business.\",\n    \"terms\": \"Terms & Conditions apply\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"show_on_pdf\": false,\n        \"value\": \"value1\",\n        \"label\": \"Delivery Date\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"show_on_pdf\": false,\n        \"value\": \"value1\",\n        \"label\": \"Delivery Date\"\n      }\n    ],\n    \"template_id\": \"<string>\",\n    \"template_name\": \"Service - Classic\",\n    \"page_width\": \"8.27in\",\n    \"page_height\": \"11.69in\",\n    \"orientation\": \"portrait\",\n    \"template_type\": \"classic\",\n    \"created_time\": \"2013-11-18T02:31:51-0800\",\n    \"last_modified_time\": \"2013-11-18T02:31:51-0800\",\n    \"created_by_id\": \"string\",\n    \"attachment_name\": \"new file\",\n    \"can_send_in_mail\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cfd3558-7021-4817-b941-1a265af44635",
+          "name": "List a retainer invoices",
+          "request": {
+            "name": "List a retainer invoices",
+            "description": {
+              "content": "List all retainer invoices with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "print",
+                  "value": "<boolean>",
+                  "description": "Print the exported pdf."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_column",
+                  "value": "<string>",
+                  "description": "Sort retainer invoices.Allowed Values: <code>customer_name</code>, <code>retainer invoice_number</code>, <code>date</code>, <code> due_date</code>, <code>total</code>, <code>balance</code> and  <code>created_time</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter_by",
+                  "value": "<string>",
+                  "description": "Filter invoices by any status or payment expected date.Allowed Values: <code> Status.All</code>, <code>Status.Sent</code>, <code> Status.Draft</code>, <code>Status.OverDue</code>, <code>Status.Paid</code>, <code>Status.Void</code>, <code>Status.Unpaid</code>, <code>Status.PartiallyPaid</code>,<code> Status.Viewed</code> and <code>Date.PaymentExpectedDate</code>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "The order for sorting"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Number of pages"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "61414aa6-5d37-4227-8381-1f02976231bd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "print",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort_column",
+                      "value": "created_time"
+                    },
+                    {
+                      "key": "filter_by",
+                      "value": ""
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "D"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"retainerinvoices\": [\n    {\n      \"retainerinvoice_id\": \"string\",\n      \"customer_name\": \"Bowman & Co\",\n      \"retainerinvoice_number\": \"RET-00003\",\n      \"customer_id\": \"<string>\",\n      \"status\": \"draft\",\n      \"reference_number\": \" \",\n      \"project_or_estimate_name\": \"new project\",\n      \"date\": \"2013-11-17\",\n      \"currency_id\": \"string\",\n      \"currency_code\": \"USD\",\n      \"is_viewed_by_client\": true,\n      \"client_viewed_time\": true,\n      \"total\": \"string\",\n      \"balance\": \"string\",\n      \"created_time\": \"2013-11-18T02:31:51-0800\",\n      \"last_modified_time\": \"2013-11-18T02:31:51-0800\",\n      \"is_emailed\": \"string\",\n      \"last_payment_date\": \" \",\n      \"has_attachment\": true\n    },\n    {\n      \"retainerinvoice_id\": \"string\",\n      \"customer_name\": \"Bowman & Co\",\n      \"retainerinvoice_number\": \"RET-00003\",\n      \"customer_id\": \"<string>\",\n      \"status\": \"draft\",\n      \"reference_number\": \" \",\n      \"project_or_estimate_name\": \"new project\",\n      \"date\": \"2013-11-17\",\n      \"currency_id\": \"string\",\n      \"currency_code\": \"USD\",\n      \"is_viewed_by_client\": true,\n      \"client_viewed_time\": true,\n      \"total\": \"string\",\n      \"balance\": \"string\",\n      \"created_time\": \"2013-11-18T02:31:51-0800\",\n      \"last_modified_time\": \"2013-11-18T02:31:51-0800\",\n      \"is_emailed\": \"string\",\n      \"last_payment_date\": \" \",\n      \"has_attachment\": true\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 200,\n    \"has_more_page\": false,\n    \"report_name\": \"Retainer Invoices\",\n    \"applied_filter\": \"Status.All\",\n    \"sort_column\": \"created_time\",\n    \"sort_order\": \"D\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a8e0358-c4df-4c5a-88ab-6308042e23cf",
+          "name": "update a retainerinvoice",
+          "request": {
+            "name": "update a retainerinvoice",
+            "description": {
+              "content": "Update an existing invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"rate\": \"<double>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"rate\": \"<double>\"\n    }\n  ],\n  \"reference_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": \"<boolean>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": \"<boolean>\",\n      \"value\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"payment_options\": {\n    \"payment_gateways\": [\n      {\n        \"configured\": \"<boolean>\",\n        \"additional_field1\": \"<string>\",\n        \"gateway_name\": \"<string>\"\n      },\n      {\n        \"configured\": \"<boolean>\",\n        \"additional_field1\": \"<string>\",\n        \"gateway_name\": \"<string>\"\n      }\n    ]\n  },\n  \"template_id\": \"<string>\",\n  \"place_of_supply\": \"<string>\",\n  \"project_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ca51fb2-b270-4416-88b6-b4476c5bb459",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n      \"item_order\": 1,\n      \"rate\": 120\n    },\n    {\n      \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n      \"item_order\": 1,\n      \"rate\": 120\n    }\n  ],\n  \"reference_number\": \" \",\n  \"date\": \"2013-11-17\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ],\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": false,\n      \"value\": \"value1\",\n      \"label\": \"Delivery Date\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"show_on_pdf\": false,\n      \"value\": \"value1\",\n      \"label\": \"Delivery Date\"\n    }\n  ],\n  \"notes\": \"Looking forward for your business.\",\n  \"terms\": \"Terms & Conditions apply\",\n  \"location_id\": \"460000000038080\",\n  \"payment_options\": {\n    \"payment_gateways\": [\n      {\n        \"configured\": true,\n        \"additional_field1\": \"standard\",\n        \"gateway_name\": \"paypal\"\n      },\n      {\n        \"configured\": true,\n        \"additional_field1\": \"standard\",\n        \"gateway_name\": \"paypal\"\n      }\n    ]\n  },\n  \"template_id\": \"<string>\",\n  \"place_of_supply\": \"TN\",\n  \"project_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Retainer Invoice information has been updated.\",\n  \"retainerinvoice\": {\n    \"retainerinvoice_id\": \"string\",\n    \"retainerinvoice_number\": \"RET-00003\",\n    \"date\": \"2013-11-17\",\n    \"status\": \"draft\",\n    \"is_pre_gst\": \"string\",\n    \"place_of_supply\": \"TN\",\n    \"project_id\": \"<string>\",\n    \"project_name\": \"string\",\n    \"last_payment_date\": \" \",\n    \"reference_number\": \" \",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"Bowman & Co\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"currency_id\": \"string\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"USD\",\n    \"exchange_rate\": 1,\n    \"is_viewed_by_client\": true,\n    \"client_viewed_time\": true,\n    \"is_inclusive_tax\": false,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"line_items\": [\n      {\n        \"line_item_id\": \"string\",\n        \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n        \"item_order\": 1,\n        \"rate\": 120,\n        \"bcy_rate\": 120,\n        \"tax_id\": \"string\",\n        \"tax_name\": \"VAT\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12.5,\n        \"item_total\": 120,\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\"\n      },\n      {\n        \"line_item_id\": \"string\",\n        \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n        \"item_order\": 1,\n        \"rate\": 120,\n        \"bcy_rate\": 120,\n        \"tax_id\": \"string\",\n        \"tax_name\": \"VAT\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12.5,\n        \"item_total\": 120,\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\"\n      }\n    ],\n    \"sub_total\": 153,\n    \"total\": \"string\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"VAT\",\n        \"tax_amount\": 19.13\n      },\n      {\n        \"tax_name\": \"VAT\",\n        \"tax_amount\": 19.13\n      }\n    ],\n    \"payment_made\": 26.91,\n    \"payment_drawn\": 26.91,\n    \"balance\": \"string\",\n    \"allow_partial_payments\": true,\n    \"price_precision\": 2,\n    \"payment_options\": {\n      \"payment_gateways\": [\n        {\n          \"configured\": true,\n          \"additional_field1\": \"standard\",\n          \"gateway_name\": \"paypal\"\n        },\n        {\n          \"configured\": true,\n          \"additional_field1\": \"standard\",\n          \"gateway_name\": \"paypal\"\n        }\n      ]\n    },\n    \"is_emailed\": \"string\",\n    \"billing_address\": {\n      \"address\": \"Suite 125, McMillan Avenue\",\n      \"street2\": \"McMillan Avenue\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"zip\": \"string\",\n      \"country\": \"U.S.A\",\n      \"fax\": \"+86-10-82637827\"\n    },\n    \"shipping_address\": {\n      \"address\": \"Suite 125, McMillan Avenue\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"zip\": \"string\",\n      \"country\": \"U.S.A\",\n      \"fax\": \"+86-10-82637827\"\n    },\n    \"notes\": \"Looking forward for your business.\",\n    \"terms\": \"Terms & Conditions apply\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"show_on_pdf\": false,\n        \"value\": \"value1\",\n        \"label\": \"Delivery Date\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"show_on_pdf\": false,\n        \"value\": \"value1\",\n        \"label\": \"Delivery Date\"\n      }\n    ],\n    \"template_id\": \"<string>\",\n    \"template_name\": \"Service - Classic\",\n    \"page_width\": \"8.27in\",\n    \"page_height\": \"11.69in\",\n    \"orientation\": \"portrait\",\n    \"template_type\": \"classic\",\n    \"created_time\": \"2013-11-18T02:31:51-0800\",\n    \"last_modified_time\": \"2013-11-18T02:31:51-0800\",\n    \"created_by_id\": \"string\",\n    \"attachment_name\": \"new file\",\n    \"can_send_in_mail\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34ceb689-c6ca-4a1b-ac65-6b4c690b95fc",
+          "name": "Get a retainer invoice",
+          "request": {
+            "name": "Get a retainer invoice",
+            "description": {
+              "content": "Get the details of a retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "deaab907-b622-4fcb-a580-f7e54776f793",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"retainerinvoice\": {\n    \"retainerinvoice_id\": \"string\",\n    \"retainerinvoice_number\": \"RET-00003\",\n    \"date\": \"2013-11-17\",\n    \"status\": \"draft\",\n    \"is_pre_gst\": \"string\",\n    \"place_of_supply\": \"TN\",\n    \"project_id\": \"<string>\",\n    \"project_name\": \"string\",\n    \"last_payment_date\": \" \",\n    \"reference_number\": \" \",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"Bowman & Co\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"currency_id\": \"string\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"USD\",\n    \"exchange_rate\": 1,\n    \"is_viewed_by_client\": true,\n    \"client_viewed_time\": true,\n    \"is_inclusive_tax\": false,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"line_items\": [\n      {\n        \"line_item_id\": \"string\",\n        \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n        \"item_order\": 1,\n        \"rate\": 120,\n        \"bcy_rate\": 120,\n        \"tax_id\": \"string\",\n        \"tax_name\": \"VAT\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12.5,\n        \"item_total\": 120,\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\"\n      },\n      {\n        \"line_item_id\": \"string\",\n        \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n        \"item_order\": 1,\n        \"rate\": 120,\n        \"bcy_rate\": 120,\n        \"tax_id\": \"string\",\n        \"tax_name\": \"VAT\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12.5,\n        \"item_total\": 120,\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\"\n      }\n    ],\n    \"sub_total\": 153,\n    \"total\": \"string\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"VAT\",\n        \"tax_amount\": 19.13\n      },\n      {\n        \"tax_name\": \"VAT\",\n        \"tax_amount\": 19.13\n      }\n    ],\n    \"payment_made\": 26.91,\n    \"payment_drawn\": 26.91,\n    \"balance\": \"string\",\n    \"allow_partial_payments\": true,\n    \"price_precision\": 2,\n    \"payment_options\": {\n      \"payment_gateways\": [\n        {\n          \"configured\": true,\n          \"additional_field1\": \"standard\",\n          \"gateway_name\": \"paypal\"\n        },\n        {\n          \"configured\": true,\n          \"additional_field1\": \"standard\",\n          \"gateway_name\": \"paypal\"\n        }\n      ]\n    },\n    \"is_emailed\": \"string\",\n    \"billing_address\": {\n      \"address\": \"Suite 125, McMillan Avenue\",\n      \"street2\": \"McMillan Avenue\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"zip\": \"string\",\n      \"country\": \"U.S.A\",\n      \"fax\": \"+86-10-82637827\"\n    },\n    \"shipping_address\": {\n      \"address\": \"Suite 125, McMillan Avenue\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"zip\": \"string\",\n      \"country\": \"U.S.A\",\n      \"fax\": \"+86-10-82637827\"\n    },\n    \"notes\": \"Looking forward for your business.\",\n    \"terms\": \"Terms & Conditions apply\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"show_on_pdf\": false,\n        \"value\": \"value1\",\n        \"label\": \"Delivery Date\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"show_on_pdf\": false,\n        \"value\": \"value1\",\n        \"label\": \"Delivery Date\"\n      }\n    ],\n    \"template_id\": \"<string>\",\n    \"template_name\": \"Service - Classic\",\n    \"page_width\": \"8.27in\",\n    \"page_height\": \"11.69in\",\n    \"orientation\": \"portrait\",\n    \"template_type\": \"classic\",\n    \"created_time\": \"2013-11-18T02:31:51-0800\",\n    \"last_modified_time\": \"2013-11-18T02:31:51-0800\",\n    \"created_by_id\": \"string\",\n    \"attachment_name\": \"new file\",\n    \"can_send_in_mail\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f1e12b9-dabb-45ab-95b5-090460526cb7",
+          "name": "Delete a retainer invoice",
+          "request": {
+            "name": "Delete a retainer invoice",
+            "description": {
+              "content": "Delete an existing retainer invoice. Invoices which have payment or credits note applied cannot be deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5add9abb-db96-495c-a3c2-d54811e40859",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The retainer invoice has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7296e445-5042-4248-a5ac-ac391af59aec",
+          "name": "Mark a retainer invoice as sent",
+          "request": {
+            "name": "Mark a retainer invoice as sent",
+            "description": {
+              "content": "Mark a draft retainer invoice as sent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "status",
+                "sent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "88b3dcd1-3264-4ed8-9fe8-12bb7cc7a3cd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "status",
+                    "sent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Retainer Invoice status has been changed to Sent.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c4347ee-1297-4b98-90a7-7a2ff2753bb5",
+          "name": "Update retainer invoice template",
+          "request": {
+            "name": "Update retainer invoice template",
+            "description": {
+              "content": "Update the pdf template associated with the retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "templates",
+                ":template_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "template_id",
+                  "description": "(Required) Unique identifier of the retainer invoice template."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec6cc3a1-f36a-4c8e-829c-b0e75cc821ec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "templates",
+                    ":template_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "template_id",
+                      "description": "(Required) Unique identifier of the retainer invoice template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Retainer Invoice information has been updated.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0edb00d-ca68-418d-9fb2-091476758c93",
+          "name": "Void a retainer invoice",
+          "request": {
+            "name": "Void a retainer invoice",
+            "description": {
+              "content": "Mark an invoice status as void. Upon voiding, the payments and credits associated with the retainer invoices will be unassociated and will be under customer credits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "status",
+                "void"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6994e426-e697-4802-9b57-f7dc5d17536c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "status",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Retainer Invoice status has been changed to 'Void'.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9cfe753-7779-432b-bdd6-ac824127f8f8",
+          "name": "Mark as draft",
+          "request": {
+            "name": "Mark as draft",
+            "description": {
+              "content": "Mark a voided retainer invoice as draft. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":reatinerinvoice_id",
+                "status",
+                "draft"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reatinerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8f2c4c41-1c0b-457d-80a9-96cbb1f87990",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":reatinerinvoice_id",
+                    "status",
+                    "draft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reatinerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Status of retainer invoice changed from void to draft.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1e2c94e-80c9-44ae-b787-41a5c5105a31",
+          "name": "Submit a retainer invoice for approval",
+          "request": {
+            "name": "Submit a retainer invoice for approval",
+            "description": {
+              "content": "Submit a retainer invoice for approval.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":reatinerinvoice_id",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reatinerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c2b65df-a4e8-4917-981d-0b93741b8ae6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":reatinerinvoice_id",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reatinerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The Retainer Invoice has been successfully submitted for approval.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd6420c8-2ac0-423c-99b0-ad95b19f21c9",
+          "name": "Approve a retainer invoice.",
+          "request": {
+            "name": "Approve a retainer invoice.",
+            "description": {
+              "content": "Approve a retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":reatinerinvoice_id",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reatinerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4f14df89-537b-4500-8db3-4a4a3f5936ee",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":reatinerinvoice_id",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reatinerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"You have approved the Retainer Invoice.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b83f1af9-15fa-4599-9eb6-53c381cc51a7",
+          "name": "Email a retainer invoice",
+          "request": {
+            "name": "Email a retainer invoice",
+            "description": {
+              "content": "Email a retainer invoice to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "send_customer_statement",
+                  "value": "<boolean>",
+                  "description": "Send customer statement pdf a with email."
+                },
+                {
+                  "disabled": false,
+                  "key": "send_attachment",
+                  "value": "<boolean>",
+                  "description": "Send the retainer invoice attachment a with the email."
+                },
+                {
+                  "disabled": false,
+                  "key": "attachments",
+                  "value": "<binary>",
+                  "description": "Files to be attached to the email"
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to_mail_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"send_from_org_email_id\": \"<boolean>\",\n  \"cc_mail_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subject\": \"<string>\",\n  \"body\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbb00bcd-02bf-464c-b2b1-4e240c50aeaa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "send_customer_statement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "send_attachment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "attachments",
+                      "value": ""
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_mail_ids\": [\n    \"willsmith@bowmanfurniture.com\"\n  ],\n  \"send_from_org_email_id\": false,\n  \"cc_mail_ids\": [\n    \"peterparker@bowmanfurniture.com\"\n  ],\n  \"subject\": \"Retainer Invoice from Zillium Inc (Retainer Invoice#: RET-00001)\",\n  \"body\": \"Dear Customer,         <br><br><br><br>Thanks for your business.         <br><br><br><br>The retainer invoice RET-00001 is attached with this email.<br><br>Here's an overview of the invoice for your reference.         <br><br><br><br>Invoice Overview:         <br><br>Invoice  : INV-00001         <br><br>Date : 05 Aug 2013         <br><br>Amount : $541.82         <br><br><br><br>It was great working with you. Looking forward to working with you again.<br><br><br>\\\\nRegards<br>\\\\nZillium Inc<br>\\\\n\\\",\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Your retainer invoice has been sent.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1768ba1f-9b04-49c1-833b-12b76a38a6de",
+          "name": "Get retainer invoice email content",
+          "request": {
+            "name": "Get retainer invoice email content",
+            "description": {
+              "content": "Get the email content of a retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f9eee7c2-eb69-4bbd-a48a-9e26d610fe05",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"gateways_configured\": true,\n  \"body\": \"Dear Customer,         <br><br><br><br>Thanks for your business.         <br><br><br><br>The retainer invoice RET-00001 is attached with this email.<br><br>Here's an overview of the invoice for your reference.         <br><br><br><br>Invoice Overview:         <br><br>Invoice  : INV-00001         <br><br>Date : 05 Aug 2013         <br><br>Amount : $541.82         <br><br><br><br>It was great working with you. Looking forward to working with you again.<br><br><br>\\\\nRegards<br>\\\\nZillium Inc<br>\\\\n\\\",\",\n  \"subject\": \"Retainer Invoice from Zillium Inc (Retainer Invoice#: RET-00001)\",\n  \"to_contacts\": [\n    {\n      \"first_name\": \"David\",\n      \"selected\": \"string\",\n      \"phone\": \"+1-925-921-9201\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"last_name\": \"John\",\n      \"salutation\": \"Mr\",\n      \"contact_person_id\": \"<string>\",\n      \"mobile\": \"+1-4054439562\"\n    },\n    {\n      \"first_name\": \"David\",\n      \"selected\": \"string\",\n      \"phone\": \"+1-925-921-9201\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"last_name\": \"John\",\n      \"salutation\": \"Mr\",\n      \"contact_person_id\": \"<string>\",\n      \"mobile\": \"+1-4054439562\"\n    }\n  ],\n  \"attachment_name\": \"new file\",\n  \"email_template_id\": \"string\",\n  \"file_name\": \"RET-00001.pdf\",\n  \"from_emails\": [\n    {\n      \"user_name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"selected\": \"string\",\n      \"email\": \"willsmith@bowmanfurniture.com\"\n    },\n    {\n      \"user_name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"selected\": \"string\",\n      \"email\": \"willsmith@bowmanfurniture.com\"\n    }\n  ],\n  \"customer_id\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad83cf19-8048-4a0d-9e30-db2786491467",
+          "name": "Update billing address",
+          "request": {
+            "name": "Update billing address",
+            "description": {
+              "content": "Updates the billing address for this retainer invoice alone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "address",
+                "billing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"country\": \"<string>\",\n  \"fax\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b3eb6537-d5e8-4cdb-b75a-3910856b430f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "address",
+                    "billing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"B-1104, 11F, \\nHorizon International Tower, \\nNo. 6, ZhiChun Road, HaiDian District\",\n  \"city\": \"Beijing\",\n  \"state\": \"Beijing\",\n  \"zip\": \"<string>\",\n  \"country\": \"<string>\",\n  \"fax\": \"+86-10-82637827\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Billing address updated\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ab96813-b4c2-433b-b2ac-83cdc7c46a31",
+          "name": "List retainer invoice templates",
+          "request": {
+            "name": "List retainer invoice templates",
+            "description": {
+              "content": "Get all retainer invoice pdf templates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9fb33892-a6a4-4920-ae7e-9b10c47e0ed2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"templates\": [\n    {\n      \"template_name\": \"Service - Classic\",\n      \"template_id\": \"<string>\",\n      \"template_type\": \"classic\"\n    },\n    {\n      \"template_name\": \"Service - Classic\",\n      \"template_id\": \"<string>\",\n      \"template_type\": \"classic\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49862df8-e05d-4f9e-a5b0-af1b81761150",
+          "name": "Get a retainer invoice attachment",
+          "request": {
+            "name": "Get a retainer invoice attachment",
+            "description": {
+              "content": "Returns the file attached to the retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "attachment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8f789910-394a-4da1-b786-272817344022",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "attachment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a68ed779-324c-491b-9d82-7d7b8dc02687",
+          "name": "Add attachment to a retainer invoice",
+          "request": {
+            "name": "Add attachment to a retainer invoice",
+            "description": {
+              "content": "Attach a file to an invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "attachment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"can_send_in_mail\": \"<boolean>\",\n  \"attachment\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c0bfe69-6d69-4a73-aa53-64020e984bce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "attachment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"can_send_in_mail\": true,\n  \"attachment\": \"<binary>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Your file has been attached.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd48eeaa-4236-4422-9806-1db57c757417",
+          "name": "Delete an attachment",
+          "request": {
+            "name": "Delete an attachment",
+            "description": {
+              "content": "Delete the file attached to the retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "documents",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) Unique identifier of the retainer invoice document."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "47de8281-1f83-4c2e-8e68-c2810356df06",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "documents",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) Unique identifier of the retainer invoice document."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Your file is no longer attached to the invoice.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e052ca83-9b6f-42ce-9bbb-86085a90f983",
+          "name": "List retainer invoice comments & history",
+          "request": {
+            "name": "List retainer invoice comments & history",
+            "description": {
+              "content": "Get the complete history and comments of a retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "976c398c-fa06-4657-b760-7bbe034bd8c0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"comments\": [\n    {\n      \"comment_id\": \"string\",\n      \"retainerinvoice_id\": \"string\",\n      \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n      \"commented_by_id\": \"string\",\n      \"commented_by\": \"John David\",\n      \"comment_type\": \"system\",\n      \"operation_type\": \"Added\",\n      \"date\": \"2013-11-17\",\n      \"date_description\": \"yesterday\",\n      \"time\": \"2:38 AM\",\n      \"transaction_id\": \"982000000567204\",\n      \"transaction_type\": \"retainer_payment\"\n    },\n    {\n      \"comment_id\": \"string\",\n      \"retainerinvoice_id\": \"string\",\n      \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n      \"commented_by_id\": \"string\",\n      \"commented_by\": \"John David\",\n      \"comment_type\": \"system\",\n      \"operation_type\": \"Added\",\n      \"date\": \"2013-11-17\",\n      \"date_description\": \"yesterday\",\n      \"time\": \"2:38 AM\",\n      \"transaction_id\": \"982000000567204\",\n      \"transaction_type\": \"retainer_payment\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af888e74-1578-40a7-9e83-0200ccf62045",
+          "name": "Add comment",
+          "request": {
+            "name": "Add comment",
+            "description": {
+              "content": "Add a comment for a retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"payment_expected_date\": \"<string>\",\n  \"show_comment_to_clients\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3955618-6cca-44e7-b3cd-7958ead214e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"comment added\",\n  \"payment_expected_date\": \" \",\n  \"show_comment_to_clients\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"Comments added.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0556ea9d-ae08-4cda-8f99-873ce61e1bd2",
+          "name": "Delete a comment",
+          "request": {
+            "name": "Delete a comment",
+            "description": {
+              "content": "Delete a retainer invoice comment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "comments",
+                ":comment_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "comment_id",
+                  "description": "(Required) Unique identifier of the comment."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "44320ecb-f901-4b34-b689-7587e45ffdc0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "comments",
+                    ":comment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "comment_id",
+                      "description": "(Required) Unique identifier of the comment."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The comment has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62de1b94-d5da-4590-ad8d-53f593482574",
+          "name": "Update comment",
+          "request": {
+            "name": "Update comment",
+            "description": {
+              "content": "Update an existing comment of a retainer invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "retainerinvoices",
+                ":retainerinvoice_id",
+                "comments",
+                ":comment_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retainerinvoice_id",
+                  "description": "(Required) Unique identifier of the retainer invoice."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "comment_id",
+                  "description": "(Required) Unique identifier of the comment."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"show_comment_to_clients\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aa2e76c7-3e0a-43c5-a99d-e205fbbc2276",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "retainerinvoices",
+                    ":retainerinvoice_id",
+                    "comments",
+                    ":comment_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retainerinvoice_id",
+                      "description": "(Required) Unique identifier of the retainer invoice."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "comment_id",
+                      "description": "(Required) Unique identifier of the comment."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"This is a comment.\",\n  \"show_comment_to_clients\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The comment has been updated.\",\n  \"comment\": {\n    \"comment_id\": \"string\",\n    \"retainerinvoice_id\": \"string\",\n    \"description\": \"500GB, USB 2.0 interface 1400 rpm, protective hard case.\",\n    \"commented_by_id\": \"string\",\n    \"commented_by\": \"John David\",\n    \"date\": \"2013-11-17\",\n    \"date_description\": \"yesterday\",\n    \"time\": \"2:38 AM\",\n    \"comment_type\": \"system\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d3d2c5b-47b3-4f36-96e4-8326c07a0697",
+    "name": "batches retainer-invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

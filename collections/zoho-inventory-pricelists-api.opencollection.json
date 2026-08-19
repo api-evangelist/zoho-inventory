@@ -1,0 +1,236 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches pricelists API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "pricelists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all pricebooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/pricebooks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sales or purchase type. Allowed values: SalesOrPurchaseType.All, SalesOrPurchaseType.Sales, SalesOrPurchaseType.Purchases."
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Text to search in the price list (price book name)."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all the available pricebooks in your zoho inventory."
+        },
+        {
+          "info": {
+            "name": "Create a pricebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/pricebooks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "create a new pricebook."
+        },
+        {
+          "info": {
+            "name": "Update pricebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/pricebooks/:pricebook_id",
+            "params": [
+              {
+                "name": "pricebook_id",
+                "value": "130426000002924000",
+                "type": "path",
+                "description": "Unique identifier of the pricebook."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "update existing pricebook."
+        },
+        {
+          "info": {
+            "name": "Delete the pricebook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/pricebooks/:pricebook_id",
+            "params": [
+              {
+                "name": "pricebook_id",
+                "value": "130426000002924000",
+                "type": "path",
+                "description": "Unique identifier of the pricebook."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete the pricebook."
+        },
+        {
+          "info": {
+            "name": "Mark as Active",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/pricebooks/:pricebook_id/active",
+            "params": [
+              {
+                "name": "pricebook_id",
+                "value": "130426000002924000",
+                "type": "path",
+                "description": "Unique identifier of the pricebook."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark the pricebook as Active."
+        },
+        {
+          "info": {
+            "name": "Mark as Inactive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/pricebooks/:pricebook_id/inactive",
+            "params": [
+              {
+                "name": "pricebook_id",
+                "value": "130426000002924000",
+                "type": "path",
+                "description": "Unique identifier of the pricebook."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark the pricebook as Inactive."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

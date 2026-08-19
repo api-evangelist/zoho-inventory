@@ -1,0 +1,665 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches delivery-challans API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "delivery-challans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List delivery challans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort delivery challans. Allowed values <code>customer_name</code>, <code>deliverychallan_number</code>, <code>total</code>, <code>date</code>, <code>created_time</code>, <code>last_modified_time</code>."
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "Sort order. Allowed values <code>A</code> (ascending), <code>D</code> (descending)."
+              },
+              {
+                "name": "filter_by",
+                "value": "Status.All",
+                "type": "query",
+                "description": "Filter delivery challans by status. Allowed values <code>Status.All</code>, <code>Status.Draft</code>, <code>Status.Open</code>, <code>Status.Returned</code>, <code>Status.Delivered</code>, <code>Status.Invoiced</code>, <code>Status.PartiallyInvoiced</code>."
+              },
+              {
+                "name": "search_text",
+                "value": "DC-00001",
+                "type": "query",
+                "description": "Search delivery challans by challan number or customer name."
+              },
+              {
+                "name": "customer_id",
+                "value": "982000000567001",
+                "type": "query",
+                "description": "Filter by customer ID."
+              },
+              {
+                "name": "status",
+                "value": "open",
+                "type": "query",
+                "description": "Filter by status. Allowed values <code>draft</code>, <code>open</code>, <code>void</code>, <code>fulfilled</code>, <code>invoiced</code>, <code>partially_invoiced</code>."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched."
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query",
+                "description": "Number of records to be fetched per page."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve a list of delivery challans with pagination. Filter by status, customer, date, and more."
+        },
+        {
+          "info": {
+            "name": "Create a delivery challan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Ignore auto number generation for this delivery challan. Allowed values <code>true</code> and <code>false</code>."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Create a new delivery challan for a customer. The customer ID is required."
+        },
+        {
+          "info": {
+            "name": "Retrieve a delivery challan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "print",
+                "value": "false",
+                "type": "query",
+                "description": "Print the delivery challan in PDF format. Allowed values <code>true</code> and <code>false</code>."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve the details of an existing delivery challan."
+        },
+        {
+          "info": {
+            "name": "Update a delivery challan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update an existing delivery challan."
+        },
+        {
+          "info": {
+            "name": "Delete a delivery challan",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing delivery challan."
+        },
+        {
+          "info": {
+            "name": "Mark a delivery challan as open",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/status/open",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Change the status of a delivery challan to open."
+        },
+        {
+          "info": {
+            "name": "Mark a delivery challan as delivered",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/status/delivered",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Change the status of a delivery challan to delivered."
+        },
+        {
+          "info": {
+            "name": "Mark a delivery challan as returned",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/status/returned",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Change the status of a delivery challan to returned."
+        },
+        {
+          "info": {
+            "name": "Mark a delivery challan as undelivered",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/status/undelivered",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Change the status of a delivery challan to undelivered."
+        },
+        {
+          "info": {
+            "name": "Return delivery challans",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/return",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "deliverychallan_ids",
+                "value": "982000000567001",
+                "type": "query",
+                "description": "Comma-separated list of delivery challan IDs to return."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Partially return one or more delivery challans by specifying the line items and quantities to return."
+        },
+        {
+          "info": {
+            "name": "Undo return of delivery challans",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/undo/return",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "deliverychallan_ids",
+                "value": "982000000567001",
+                "type": "query",
+                "description": "Comma-separated list of delivery challan IDs to undo return."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Undo a previously applied return for one or more delivery challans."
+        },
+        {
+          "info": {
+            "name": "Add attachment to a delivery challan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/attachment",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "attachment",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Attach a file to an existing delivery challan. Maximum 20 files, 10 MB each."
+        },
+        {
+          "info": {
+            "name": "Get a delivery challan attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/documents/:document_id",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "document_id",
+                "value": "982000000567020",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Download or view an attachment of a delivery challan. Returns the file content directly."
+        },
+        {
+          "info": {
+            "name": "Delete a delivery challan attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/documents/:document_id",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "document_id",
+                "value": "982000000567020",
+                "type": "path",
+                "description": "Unique identifier of the document."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an attachment from a delivery challan."
+        },
+        {
+          "info": {
+            "name": "List delivery challan templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/templates",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieve a list of available templates for delivery challans."
+        },
+        {
+          "info": {
+            "name": "Update a delivery challan template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/templates/:template_id",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "template_id",
+                "value": "982000000567030",
+                "type": "path",
+                "description": "Unique identifier of the template."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Assign a different template to an existing delivery challan."
+        },
+        {
+          "info": {
+            "name": "Update shipping address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/deliverychallans/:deliverychallan_id/address/shipping",
+            "params": [
+              {
+                "name": "deliverychallan_id",
+                "value": "982000000567001",
+                "type": "path",
+                "description": "Unique identifier of the delivery challan."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the shipping address of an existing delivery challan."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

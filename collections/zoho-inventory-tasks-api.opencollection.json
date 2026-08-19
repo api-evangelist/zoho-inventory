@@ -1,0 +1,785 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches tasks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "entity_id",
+                "value": "982000000567114",
+                "type": "query",
+                "description": "Search tasks by entity ID."
+              },
+              {
+                "name": "sub_entity_id",
+                "value": "982000000567115",
+                "type": "query",
+                "description": "Search tasks by sub entity ID."
+              },
+              {
+                "name": "owner_id",
+                "value": "982000000567116",
+                "type": "query",
+                "description": "Search tasks by owner ID."
+              },
+              {
+                "name": "contact_id",
+                "value": "982000000567117",
+                "type": "query",
+                "description": "Search tasks by contact ID."
+              },
+              {
+                "name": "client_id",
+                "value": "982000000567118",
+                "type": "query",
+                "description": "Search tasks by client ID."
+              },
+              {
+                "name": "status",
+                "value": "open",
+                "type": "query",
+                "description": "Search tasks by status. Allowed values are <code>open</code>, <code>ongoing</code>, <code>yet_to_started</code>, <code>in_progress</code>, <code>completed</code>, <code>deferred</code>, <code>waiting_for_input</code> and <code>any custom status</code>"
+              },
+              {
+                "name": "parent_status",
+                "value": "open",
+                "type": "query",
+                "description": "Search tasks by parent status. Allowed formats are <code>parent_status</code>, <code>parent_status_equal</code> and <code>parent_status_not_equal</code>. Allowed values are <code>open</code>, <code>ongoing</code> and <code>completed</code>"
+              },
+              {
+                "name": "search_text",
+                "value": "sample",
+                "type": "query",
+                "description": "Search tasks based on a search text."
+              },
+              {
+                "name": "priority",
+                "value": "high",
+                "type": "query",
+                "description": "Search tasks by priority of the task. Allowed values are <code>normal</code>, <code>low</code>, <code>high</code>, <code>lowest</code> and <code>highest</code>."
+              },
+              {
+                "name": "entity_type",
+                "value": "invoice",
+                "type": "query",
+                "description": "Search tasks by entity type."
+              },
+              {
+                "name": "title",
+                "value": "Sample Task",
+                "type": "query",
+                "description": "Search tasks by their title."
+              },
+              {
+                "name": "task_description",
+                "value": "Sample Task Description",
+                "type": "query",
+                "description": "Search tasks their description."
+              },
+              {
+                "name": "is_overdue",
+                "value": "true",
+                "type": "query",
+                "description": "Filter overdue tasks."
+              },
+              {
+                "name": "created_by",
+                "value": "982000000567118",
+                "type": "query",
+                "description": "Search tasks by the person who created them."
+              },
+              {
+                "name": "is_accountant_task",
+                "value": "false",
+                "type": "query",
+                "description": "Filter accountant tasks."
+              },
+              {
+                "name": "contact_ids",
+                "value": "982000000567118,982000000567119,982000000567120",
+                "type": "query",
+                "description": "Search tasks by contact IDs separated by comma."
+              },
+              {
+                "name": "client_ids",
+                "value": "982000000567118,982000000567119,982000000567120",
+                "type": "query",
+                "description": "Search tasks by client IDs separated by comma."
+              },
+              {
+                "name": "owner_ids",
+                "value": "982000000567118,982000000567119,982000000567120",
+                "type": "query",
+                "description": "Search tasks by owner IDs separated by comma."
+              },
+              {
+                "name": "date_start",
+                "value": "2025-01-01",
+                "type": "query",
+                "description": "Search tasks by start date."
+              },
+              {
+                "name": "date_end",
+                "value": "2025-12-31",
+                "type": "query",
+                "description": "Search tasks by end date."
+              },
+              {
+                "name": "task_number",
+                "value": "T-001",
+                "type": "query",
+                "description": "Search tasks by task number."
+              },
+              {
+                "name": "sort_column",
+                "value": "owner_name",
+                "type": "query",
+                "description": "Sort tasks. Allowed values are <code>owner_name</code>, <code>contact_name</code>, <code>client_name</code>, <code>due_date</code>, <code>title</code>, <code>created_time</code>, <code>completion_percentage</code> and <code>task_number</code>"
+              },
+              {
+                "name": "filter_by",
+                "value": "open",
+                "type": "query",
+                "description": "Filter tasks by status. Allowed values are <code>TaskStatus.All</code>, <code>TaskStatus.Overdue</code>, <code>TaskStatus.InProgress</code>, <code>TaskStatus.Completed</code>, <code>TaskStatus.YetToStarted</code>, <code>TaskStatus.MyPending</code>, <code>TaskStatus.DueToday</code>, <code>TaskStatus.PriorityOverdue</code> and <code>TaskStatus.Unassigned</code> "
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List a task."
+        },
+        {
+          "info": {
+            "name": "Add a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Add a task."
+        },
+        {
+          "info": {
+            "name": "Update tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "bulk_update",
+                "value": "true",
+                "type": "query",
+                "description": "Indicate whether the request is for bulk update. Allowed values are <code>true</code> and <code>false</code>."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update tasks."
+        },
+        {
+          "info": {
+            "name": "Delete tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "task_ids",
+                "value": "982000000567114,982000000567115,982000000567116",
+                "type": "query",
+                "description": "Comma separated list of task IDs to be deleted."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete tasks."
+        },
+        {
+          "info": {
+            "name": "Get a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get a task."
+        },
+        {
+          "info": {
+            "name": "Update a tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update a tasks."
+        },
+        {
+          "info": {
+            "name": "Delete a tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a tasks."
+        },
+        {
+          "info": {
+            "name": "Update completed percentage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/percentage",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update completed percentage of a task."
+        },
+        {
+          "info": {
+            "name": "Mark task as open",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/markasopen",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a task as open."
+        },
+        {
+          "info": {
+            "name": "Mark task as ongoing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/markasongoing",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a task as ongoing."
+        },
+        {
+          "info": {
+            "name": "Mark task as completed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/markascompleted",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark a task as completed."
+        },
+        {
+          "info": {
+            "name": "List comments of task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/comments",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List comments of a task."
+        },
+        {
+          "info": {
+            "name": "Add comment to task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/comments",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Add comment to a task."
+        },
+        {
+          "info": {
+            "name": "Delete comment of task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/comments/:comment_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "comment_id",
+                "value": "982000000567116",
+                "type": "path",
+                "description": "ID of the comment on the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a comment of a task."
+        },
+        {
+          "info": {
+            "name": "Add attachment to task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/attachment",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "attachment",
+                "value": "",
+                "type": "query",
+                "description": "The file to be attached.Allowed Extensions: <code>gif</code>, <code>png</code>, <code>jpeg</code>, <code>jpg</code>, <code>bmp</code>, <code>pdf</code>, <code>xls</code>, <code>xlsx</code>, <code>doc</code>, <code>docx</code>, <code>xml</code>, <code>csv</code>, <code>txt</code>, <code>tif</code> and <code>tiff</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Add attachment to a task."
+        },
+        {
+          "info": {
+            "name": "Get document of task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/documents/:document_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "document_id",
+                "value": "982000000567118",
+                "type": "path",
+                "description": "ID of the document attached to the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "image_size",
+                "value": "large",
+                "type": "query",
+                "description": "Size of the image to be fetched. Allowed values are <code>xlarge</code>, <code>large</code>, <code>small</code> and <code>tiny</code>."
+              },
+              {
+                "name": "inline",
+                "value": "false",
+                "type": "query",
+                "description": "Indicate whether the document should be displayed inline. Allowed values are <code>true</code> and <code>false</code>."
+              },
+              {
+                "name": "print",
+                "value": "false",
+                "type": "query",
+                "description": "Indicates whether the document should be printed. Allowed values are <code>true</code> and <code>false</code>."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get a document of a task."
+        },
+        {
+          "info": {
+            "name": "Delete document of task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/tasks/:task_id/documents/:document_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "982000000567114",
+                "type": "path",
+                "description": "ID of the task."
+              },
+              {
+                "name": "document_id",
+                "value": "982000000567118",
+                "type": "path",
+                "description": "ID of the document attached to the task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "un_associate",
+                "value": "false",
+                "type": "query",
+                "description": "Indicates whether the document should be unassociated from the task. Allowed values are <code>true</code> and <code>false</code>."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a document of a task."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

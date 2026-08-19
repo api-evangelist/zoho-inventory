@@ -1,0 +1,1717 @@
+{
+  "item": [
+    {
+      "id": "6821bc84-9811-41a7-8543-c06e25b2bc8c",
+      "name": "purchaseorders",
+      "description": {
+        "content": "PurchaseOrders Module",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "44c7a1a1-cd2a-4d42-950b-85fa19c0b466",
+          "name": "Create a Purchase Order",
+          "request": {
+            "name": "Create a Purchase Order",
+            "description": {
+              "content": "Creates a new Purchase Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto purchase order number generation for this Purchase order. This mandates the Purchase Order number to be entered. Allowed Values <code>true</code> and <code>false</code>.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchaseorder_number\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"delivery_date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"ship_via\": \"<string>\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": \"<boolean>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"is_backorder\": \"<boolean>\",\n  \"template_id\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"attention\": \"<string>\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"documents\": [\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    },\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    }\n  ],\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da85e684-998d-4a90-948c-d7b72ea538d9",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"purchaseorder_number\": \"PO-00002\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"bcy_rate\": 122,\n      \"purchase_rate\": 122,\n      \"quantity\": 2,\n      \"quantity_received\": 2,\n      \"unit\": \"qty\",\n      \"item_total\": 244,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"Sales Tax\",\n      \"tax_type\": \"tax\",\n      \"tax_percentage\": 12,\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"bcy_rate\": 122,\n      \"purchase_rate\": 122,\n      \"quantity\": 2,\n      \"quantity_received\": 2,\n      \"unit\": \"qty\",\n      \"item_total\": 244,\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"Sales Tax\",\n      \"tax_type\": \"tax\",\n      \"tax_percentage\": 12,\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"2015-05-28\",\n  \"delivery_date\": \"2015-06-01\",\n  \"reference_number\": \"REF-P-00002\",\n  \"ship_via\": \"FedEx\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": true,\n  \"is_inclusive_tax\": false,\n  \"is_backorder\": false,\n  \"template_id\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ],\n  \"attention\": \"Tony\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"Sample Note\",\n  \"terms\": \"Terms and Conditions\",\n  \"exchange_rate\": 1,\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ],\n  \"location_id\": \"460000000038080\",\n  \"documents\": [\n    {\n      \"can_send_in_mail\": true,\n      \"file_name\": \"sample.pdf\",\n      \"file_type\": \"pdf\",\n      \"file_size_formatted\": \"116.8 KB\",\n      \"attachment_order\": 1,\n      \"document_id\": \"<string>\",\n      \"file_size\": 11957\n    },\n    {\n      \"can_send_in_mail\": true,\n      \"file_name\": \"sample.pdf\",\n      \"file_type\": \"pdf\",\n      \"file_size_formatted\": \"116.8 KB\",\n      \"attachment_order\": 1,\n      \"document_id\": \"<string>\",\n      \"file_size\": 11957\n    }\n  ],\n  \"gst_treatment\": \"business_gst\",\n  \"tax_treatment\": \"vat_registered\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"source_of_supply\": \"AP\",\n  \"destination_of_supply\": \"TN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"purchase_order\": {\n    \"purchaseorder_id\": \"string\",\n    \"documents\": [\n      {\n        \"can_send_in_mail\": true,\n        \"file_name\": \"sample.pdf\",\n        \"file_type\": \"pdf\",\n        \"file_size_formatted\": \"116.8 KB\",\n        \"attachment_order\": 1,\n        \"document_id\": \"<string>\",\n        \"file_size\": 11957\n      },\n      {\n        \"can_send_in_mail\": true,\n        \"file_name\": \"sample.pdf\",\n        \"file_type\": \"pdf\",\n        \"file_size_formatted\": \"116.8 KB\",\n        \"attachment_order\": 1,\n        \"document_id\": \"<string>\",\n        \"file_size\": 11957\n      }\n    ],\n    \"purchaseorder_number\": \"PO-00002\",\n    \"date\": \"2015-05-28\",\n    \"expected_delivery_date\": \"2015-05-28\",\n    \"date_formatted\": \"2015/05/28\",\n    \"expected_delivery_date_formatted\": \"2015/05/28\",\n    \"delivery_date_formatted\": \"2015/05/28\",\n    \"status_formatted\": \"Draft\",\n    \"billed_status\": 1,\n    \"is_emailed\": true,\n    \"is_inclusive_tax\": false,\n    \"is_backorder\": false,\n    \"reference_number\": \"REF-P-00002\",\n    \"status\": \"Partially_Received\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"comments\": [\n      {\n        \"comment_id\": \"string\",\n        \"purchaseorder_id\": \"string\",\n        \"commented_by\": \"John\",\n        \"comment_type\": \"string\",\n        \"date_description\": \"few seconds ago\",\n        \"time\": \"2:18 PM\",\n        \"operation_type\": \"Updated\",\n        \"transaction_id\": \"string\",\n        \"transaction_type\": \"purchaseorder\"\n      },\n      {\n        \"comment_id\": \"string\",\n        \"purchaseorder_id\": \"string\",\n        \"commented_by\": \"John\",\n        \"comment_type\": \"string\",\n        \"date_description\": \"few seconds ago\",\n        \"time\": \"2:18 PM\",\n        \"operation_type\": \"Updated\",\n        \"transaction_id\": \"string\",\n        \"transaction_type\": \"purchaseorder\"\n      }\n    ],\n    \"currency_id\": \"string\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"exchange_rate\": 1,\n    \"delivery_date\": \"2015-06-01\",\n    \"salesorder_id\": \"<string>\",\n    \"is_drop_shipment\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"account_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"bcy_rate\": 122,\n        \"purchase_rate\": 122,\n        \"quantity\": 2,\n        \"quantity_received\": 2,\n        \"unit\": \"qty\",\n        \"item_total\": 244,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"Sales Tax\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12,\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"account_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"bcy_rate\": 122,\n        \"purchase_rate\": 122,\n        \"quantity\": 2,\n        \"quantity_received\": 2,\n        \"unit\": \"qty\",\n        \"item_total\": 244,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"Sales Tax\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12,\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"sub_total\": 244,\n    \"sub_total_formatted\": \"string\",\n    \"tax_total\": 29,\n    \"total\": 350,\n    \"taxes\": [\n      {\n        \"tax_name\": \"Sales Tax\",\n        \"tax_amount\": 29\n      },\n      {\n        \"tax_name\": \"Sales Tax\",\n        \"tax_amount\": 29\n      }\n    ],\n    \"price_precision\": 2,\n    \"pricebook_id\": \"string\",\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"notes\": \"Sample Note\",\n    \"terms\": \"Terms and Conditions\",\n    \"ship_via\": \"FedEx\",\n    \"ship_via_id\": \"string\",\n    \"attention\": \"Tony\",\n    \"delivery_org_address_id\": \"<string>\",\n    \"delivery_customer_id\": \"<string>\",\n    \"delivery_customer_name\": \"Tony\",\n    \"delivery_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"attachment_name\": \"sample.pdf\",\n    \"can_send_in_mail\": true,\n    \"template_id\": \"<string>\",\n    \"template_name\": \"Standard\",\n    \"template_type\": \"standard\",\n    \"created_time\": \"2015-05-28 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-28 00:00:00+00:00\",\n    \"purchasereceives\": [\n      {\n        \"receive_id\": \"string\",\n        \"receive_number\": \"PR-00002\",\n        \"date\": \"2015-05-28\",\n        \"notes\": \"Sample Note\",\n        \"line_items\": [\n          {\n            \"item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"account_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_order\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bcy_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"purchase_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity_received\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tds_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hsn_or_sac\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"salesorder_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"account_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_order\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bcy_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"purchase_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity_received\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tds_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hsn_or_sac\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"salesorder_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"receive_id\": \"string\",\n        \"receive_number\": \"PR-00002\",\n        \"date\": \"2015-05-28\",\n        \"notes\": \"Sample Note\",\n        \"line_items\": [\n          {\n            \"item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"account_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_order\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bcy_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"purchase_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity_received\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tds_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hsn_or_sac\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"salesorder_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"line_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"account_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_order\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bcy_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"purchase_rate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"quantity_received\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tds_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reverse_charge_tax_amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"hsn_or_sac\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"location_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tax_exemption_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"salesorder_item_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"bills\": [\n      {\n        \"bill_id\": \"string\",\n        \"bill_number\": \"BL-00002\",\n        \"status\": \"Partially_Received\",\n        \"date\": \"2015-05-28\",\n        \"due_date\": \"2015-06-28\",\n        \"total\": 350,\n        \"balance\": 100\n      },\n      {\n        \"bill_id\": \"string\",\n        \"bill_number\": \"BL-00002\",\n        \"status\": \"Partially_Received\",\n        \"date\": \"2015-05-28\",\n        \"due_date\": \"2015-06-28\",\n        \"total\": 350,\n        \"balance\": 100\n      }\n    ],\n    \"gst_treatment\": \"business_gst\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"source_of_supply\": \"AP\",\n    \"destination_of_supply\": \"TN\",\n    \"is_pre_gst\": false,\n    \"is_reverse_charge_applied\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46a2b142-7736-4413-b0df-606b3130a48a",
+          "name": "List all Purchase Orders",
+          "request": {
+            "name": "List all Purchase Orders",
+            "description": {
+              "content": "Lists all the Purchase Orders present in Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number to be fetched. Default value is 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "200",
+                  "description": "Number of records to be fetched per page. Default value is 200."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0c09ca93-ef30-4b70-b5f1-90524819a7b4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"purchaseorders\": [\n    {\n      \"purchaseorder_id\": \"string\",\n      \"vendor_id\": \"<string>\",\n      \"vendor_name\": \"Molly\",\n      \"status\": \"Partially_Received\",\n      \"purchaseorder_number\": \"PO-00002\",\n      \"reference_number\": \"REF-P-00002\",\n      \"date\": \"2015-05-28\",\n      \"delivery_date\": \"2015-06-01\",\n      \"currency_id\": \"string\",\n      \"currency_code\": \"USD\",\n      \"price_precision\": 2,\n      \"total\": 350,\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ],\n      \"created_time\": \"2015-05-28 00:00:00+00:00\",\n      \"last_modified_time\": \"2015-05-28 00:00:00+00:00\",\n      \"is_drop_shipment\": true,\n      \"is_backorder\": false,\n      \"receives\": [\n        {\n          \"receive_id\": \"string\",\n          \"receive_number\": \"PR-00002\"\n        },\n        {\n          \"receive_id\": \"string\",\n          \"receive_number\": \"PR-00002\"\n        }\n      ]\n    },\n    {\n      \"purchaseorder_id\": \"string\",\n      \"vendor_id\": \"<string>\",\n      \"vendor_name\": \"Molly\",\n      \"status\": \"Partially_Received\",\n      \"purchaseorder_number\": \"PO-00002\",\n      \"reference_number\": \"REF-P-00002\",\n      \"date\": \"2015-05-28\",\n      \"delivery_date\": \"2015-06-01\",\n      \"currency_id\": \"string\",\n      \"currency_code\": \"USD\",\n      \"price_precision\": 2,\n      \"total\": 350,\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"customfield_id\": \"46000000012845\",\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ],\n      \"created_time\": \"2015-05-28 00:00:00+00:00\",\n      \"last_modified_time\": \"2015-05-28 00:00:00+00:00\",\n      \"is_drop_shipment\": true,\n      \"is_backorder\": false,\n      \"receives\": [\n        {\n          \"receive_id\": \"string\",\n          \"receive_number\": \"PR-00002\"\n        },\n        {\n          \"receive_id\": \"string\",\n          \"receive_number\": \"PR-00002\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4015cb5-64de-4d0d-8712-9fd32f89ccae",
+          "name": "Retrieve a Purchase Order",
+          "request": {
+            "name": "Retrieve a Purchase Order",
+            "description": {
+              "content": "Retrieves the details for an existing Purchase Order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique identifier of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3d89a307-e1d7-4cea-8034-b142dc85fa01",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"purchase_order\": {\n    \"purchaseorder_id\": \"string\",\n    \"purchaseorder_number\": \"PO-00002\",\n    \"date\": \"2015-05-28\",\n    \"expected_delivery_date\": \"2015-05-28\",\n    \"reference_number\": \"REF-P-00002\",\n    \"status\": \"Partially_Received\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"currency_id\": \"string\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"exchange_rate\": 1,\n    \"delivery_date\": \"2015-06-01\",\n    \"salesorder_id\": \"<string>\",\n    \"is_drop_shipment\": true,\n    \"is_backorder\": false,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"account_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"bcy_rate\": 122,\n        \"purchase_rate\": 122,\n        \"quantity\": 2,\n        \"quantity_received\": 2,\n        \"unit\": \"qty\",\n        \"item_total\": 244,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"Sales Tax\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12,\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"string\",\n        \"account_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"bcy_rate\": 122,\n        \"purchase_rate\": 122,\n        \"quantity\": 2,\n        \"quantity_received\": 2,\n        \"unit\": \"qty\",\n        \"item_total\": 244,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"Sales Tax\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12,\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"sub_total\": 244,\n    \"tax_total\": 29,\n    \"total\": 350,\n    \"taxes\": [\n      {\n        \"tax_name\": \"Sales Tax\",\n        \"tax_amount\": 29\n      },\n      {\n        \"tax_name\": \"Sales Tax\",\n        \"tax_amount\": 29\n      }\n    ],\n    \"price_precision\": 2,\n    \"pricebook_id\": \"string\",\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"notes\": \"Sample Note\",\n    \"terms\": \"Terms and Conditions\",\n    \"ship_via\": \"FedEx\",\n    \"ship_via_id\": \"string\",\n    \"attention\": \"Tony\",\n    \"delivery_org_address_id\": \"<string>\",\n    \"delivery_customer_id\": \"<string>\",\n    \"delivery_customer_name\": \"Tony\",\n    \"delivery_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"attachment_name\": \"sample.pdf\",\n    \"can_send_in_mail\": true,\n    \"template_id\": \"<string>\",\n    \"template_name\": \"Standard\",\n    \"template_type\": \"standard\",\n    \"created_time\": \"2015-05-28 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-28 00:00:00+00:00\",\n    \"purchasereceives\": [\n      {\n        \"receive_id\": \"string\",\n        \"receive_number\": \"PR-00002\",\n        \"date\": \"2015-05-28\",\n        \"notes\": \"Sample Note\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"string\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"string\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"receive_id\": \"string\",\n        \"receive_number\": \"PR-00002\",\n        \"date\": \"2015-05-28\",\n        \"notes\": \"Sample Note\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"string\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"string\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"bills\": [\n      {\n        \"bill_id\": \"string\",\n        \"bill_number\": \"BL-00002\",\n        \"status\": \"Partially_Received\",\n        \"date\": \"2015-05-28\",\n        \"due_date\": \"2015-06-28\",\n        \"total\": 350,\n        \"balance\": 100\n      },\n      {\n        \"bill_id\": \"string\",\n        \"bill_number\": \"BL-00002\",\n        \"status\": \"Partially_Received\",\n        \"date\": \"2015-05-28\",\n        \"due_date\": \"2015-06-28\",\n        \"total\": 350,\n        \"balance\": 100\n      }\n    ],\n    \"gst_treatment\": \"business_gst\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"source_of_supply\": \"AP\",\n    \"destination_of_supply\": \"TN\",\n    \"is_pre_gst\": false,\n    \"is_reverse_charge_applied\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8aeda7fd-e1c4-4cec-bd44-e5fd618a079e",
+          "name": "Update a Purchase Order",
+          "request": {
+            "name": "Update a Purchase Order",
+            "description": {
+              "content": "Updates a new Purchase Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto Purchase order number generation for this Purchase Order. This mandates the Purchase Order number to be entered. Allowed Values <code>true</code> and <code>false</code>.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>",
+                  "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>."
+                },
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique identifier of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchaseorder_number\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"expected_delivery_date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"ship_via\": \"<string>\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": \"<boolean>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"attention\": \"<string>\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce659741-67d2-45b1-ad11-523f37e3c0e1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ignore_auto_number_generation",
+                      "value": "false"
+                    },
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"purchaseorder_number\": \"PO-00002\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"bcy_rate\": 122,\n      \"purchase_rate\": 122,\n      \"quantity\": 2,\n      \"quantity_received\": 2,\n      \"unit\": \"qty\",\n      \"item_total\": 244,\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"Sales Tax\",\n      \"tax_type\": \"tax\",\n      \"tax_percentage\": 12,\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"bcy_rate\": 122,\n      \"purchase_rate\": 122,\n      \"quantity\": 2,\n      \"quantity_received\": 2,\n      \"unit\": \"qty\",\n      \"item_total\": 244,\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"Sales Tax\",\n      \"tax_type\": \"tax\",\n      \"tax_percentage\": 12,\n      \"image_id\": 2077500000000002000,\n      \"image_name\": \"dell.jpg\",\n      \"image_type\": \"jpg\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"460000000038080\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"Normal\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"2015-05-28\",\n  \"expected_delivery_date\": \"2015-05-28\",\n  \"reference_number\": \"REF-P-00002\",\n  \"ship_via\": \"FedEx\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": true,\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": true,\n        \"is_whatsapp_enabled\": true\n      }\n    }\n  ],\n  \"attention\": \"Tony\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"Sample Note\",\n  \"terms\": \"Terms and Conditions\",\n  \"exchange_rate\": 1,\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ],\n  \"location_id\": \"460000000038080\",\n  \"gst_treatment\": \"business_gst\",\n  \"tax_treatment\": \"vat_registered\",\n  \"gst_no\": \"22AAAAA0000A1Z5\",\n  \"source_of_supply\": \"AP\",\n  \"destination_of_supply\": \"TN\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"purchase_order\": {\n    \"purchaseorder_id\": \"string\",\n    \"purchaseorder_number\": \"PO-00002\",\n    \"date\": \"2015-05-28\",\n    \"expected_delivery_date\": \"2015-05-28\",\n    \"reference_number\": \"REF-P-00002\",\n    \"status\": \"Partially_Received\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"Molly\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"David\",\n        \"first_name\": \"David\",\n        \"last_name\": \"John\",\n        \"contact_person_email\": \"willsmith@bowmanfurniture.com\",\n        \"phone\": \"+1-925-921-9201\",\n        \"mobile\": \"+1-4054439562\",\n        \"communication_preference\": {\n          \"is_email_enabled\": true,\n          \"is_whatsapp_enabled\": true\n        }\n      }\n    ],\n    \"currency_id\": \"string\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"exchange_rate\": 1,\n    \"delivery_date\": \"2015-06-01\",\n    \"salesorder_id\": \"<string>\",\n    \"is_drop_shipment\": true,\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"bcy_rate\": 122,\n        \"purchase_rate\": 122,\n        \"quantity\": 2,\n        \"quantity_received\": 2,\n        \"unit\": \"qty\",\n        \"item_total\": 244,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"Sales Tax\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12,\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"bcy_rate\": 122,\n        \"purchase_rate\": 122,\n        \"quantity\": 2,\n        \"quantity_received\": 2,\n        \"unit\": \"qty\",\n        \"item_total\": 244,\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"Sales Tax\",\n        \"tax_type\": \"tax\",\n        \"tax_percentage\": 12,\n        \"image_id\": 2077500000000002000,\n        \"image_name\": \"dell.jpg\",\n        \"image_type\": \"jpg\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"inter\",\n        \"reverse_charge_tax_percentage\": 10,\n        \"reverse_charge_tax_amount\": 100,\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"460000000038080\",\n        \"location_name\": \"string\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"Normal\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"sub_total\": 244,\n    \"tax_total\": 29,\n    \"total\": 350,\n    \"taxes\": [\n      {\n        \"tax_name\": \"Sales Tax\",\n        \"tax_amount\": 29\n      },\n      {\n        \"tax_name\": \"Sales Tax\",\n        \"tax_amount\": 29\n      }\n    ],\n    \"price_precision\": 2,\n    \"pricebook_id\": \"string\",\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"notes\": \"Sample Note\",\n    \"terms\": \"Terms and Conditions\",\n    \"ship_via\": \"FedEx\",\n    \"ship_via_id\": \"string\",\n    \"attention\": \"Tony\",\n    \"delivery_org_address_id\": \"<string>\",\n    \"delivery_customer_id\": \"<string>\",\n    \"delivery_customer_name\": \"Tony\",\n    \"delivery_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"attachment_name\": \"sample.pdf\",\n    \"can_send_in_mail\": true,\n    \"template_id\": \"<string>\",\n    \"template_name\": \"Standard\",\n    \"template_type\": \"standard\",\n    \"created_time\": \"2015-05-28 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-28 00:00:00+00:00\",\n    \"purchasereceives\": [\n      {\n        \"receive_id\": \"string\",\n        \"receive_number\": \"PR-00002\",\n        \"date\": \"2015-05-28\",\n        \"notes\": \"Sample Note\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"receive_id\": \"string\",\n        \"receive_number\": \"PR-00002\",\n        \"date\": \"2015-05-28\",\n        \"notes\": \"Sample Note\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"Laptop-white/15inch/dell\",\n            \"description\": \"Just a sample description.\",\n            \"item_order\": 0,\n            \"bcy_rate\": 122,\n            \"purchase_rate\": 122,\n            \"quantity\": 2,\n            \"quantity_received\": 2,\n            \"unit\": \"qty\",\n            \"item_total\": 244,\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"Sales Tax\",\n            \"tax_type\": \"tax\",\n            \"tax_percentage\": 12,\n            \"image_id\": 2077500000000002000,\n            \"image_name\": \"dell.jpg\",\n            \"image_type\": \"jpg\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"inter\",\n            \"reverse_charge_tax_percentage\": 10,\n            \"reverse_charge_tax_amount\": 100,\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"460000000038080\",\n            \"location_name\": \"string\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"bills\": [\n      {\n        \"bill_id\": \"string\",\n        \"bill_number\": \"BL-00002\",\n        \"status\": \"Partially_Received\",\n        \"date\": \"2015-05-28\",\n        \"due_date\": \"2015-06-28\",\n        \"total\": 350,\n        \"balance\": 100\n      },\n      {\n        \"bill_id\": \"string\",\n        \"bill_number\": \"BL-00002\",\n        \"status\": \"Partially_Received\",\n        \"date\": \"2015-05-28\",\n        \"due_date\": \"2015-06-28\",\n        \"total\": 350,\n        \"balance\": 100\n      }\n    ],\n    \"gst_treatment\": \"business_gst\",\n    \"gst_no\": \"22AAAAA0000A1Z5\",\n    \"source_of_supply\": \"AP\",\n    \"destination_of_supply\": \"TN\",\n    \"is_pre_gst\": false,\n    \"is_reverse_charge_applied\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c766e9b-6f63-4295-aa61-68f479089e96",
+          "name": "Delete a Purchase Order",
+          "request": {
+            "name": "Delete a Purchase Order",
+            "description": {
+              "content": "Deletes a Purchase Order from Zoho Inventory.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique identifier of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3f2322b3-b581-4bc4-aafc-4d4d1e8260b7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The Purchase Order has been deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30691517-8383-4797-bf85-cdb8d8a2e4d9",
+          "name": "Mark as Issued",
+          "request": {
+            "name": "Mark as Issued",
+            "description": {
+              "content": "Marks a Purchase Order as Issued.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id",
+                "status",
+                "issued"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique identifier of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ab89f57c-1550-41f5-98ba-cd71c7c34cba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id",
+                    "status",
+                    "issued"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The purchase order has been marked as issued.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c23e6e9-0503-4946-870e-335e2bdf85a7",
+          "name": "Mark as Cancelled",
+          "request": {
+            "name": "Mark as Cancelled",
+            "description": {
+              "content": "Marks a Purchase Order as Cancelled.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id",
+                "status",
+                "cancelled"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique identifier of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "85569ae1-b5f3-41a7-b8de-e907bf965d38",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id",
+                    "status",
+                    "cancelled"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"The purchase order has been marked as cancelled.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93e8d4b1-d9e0-434f-811c-b8627218f6ac",
+          "name": "Submit a purchase order for approval",
+          "request": {
+            "name": "Submit a purchase order for approval",
+            "description": {
+              "content": "Submit a purchase order for approval workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique ID of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "90ef3171-40a5-463a-9475-e58436fbce83",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique ID of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d021fa58-bdd9-4f43-80dc-772dddc0db7b",
+          "name": "Approve a purchase order",
+          "request": {
+            "name": "Approve a purchase order",
+            "description": {
+              "content": "Approve a submitted purchase order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique ID of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1badcb71-d35c-4e8d-ac85-94e755d34c8c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique ID of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "550eb4b6-8dd9-4ee9-ba48-122944c1f95d",
+          "name": "Reject a purchase order",
+          "request": {
+            "name": "Reject a purchase order",
+            "description": {
+              "content": "Reject a submitted purchase order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id",
+                "reject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique ID of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "606db3ba-a34e-4567-9cc9-7ca7f5c06df7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id",
+                    "reject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique ID of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"Budget not approved for this quarter.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39ecaf87-1c0c-4984-af9e-72f3c6af9096",
+          "name": "Final-approve a purchase order",
+          "request": {
+            "name": "Final-approve a purchase order",
+            "description": {
+              "content": "Mark a submitted purchase order as final approved, bypassing the remaining approval sequence.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                ":purchaseorder_id",
+                "approve",
+                "final"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "purchaseorder_id",
+                  "description": "(Required) Unique ID of the purchase order."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7a558108-71d0-4459-81f5-6226a0ed3c9b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id",
+                    "approve",
+                    "final"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "purchaseorder_id",
+                      "description": "(Required) Unique ID of the purchase order."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e976f9c4-b792-4d48-87df-53d044cf5e4c",
+          "name": "Bulk submit purchase orders for approval",
+          "request": {
+            "name": "Bulk submit purchase orders for approval",
+            "description": {
+              "content": "Submit multiple purchase orders for approval workflow at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseorder_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of purchase order IDs to submit for approval."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c866f0b1-7c49-4c7d-8f86-9e835e15203e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "purchaseorder_ids",
+                      "value": "4815000000044972,4815000000044990"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ec1bb23-dfea-43cd-addf-6beb2fa9179c",
+          "name": "Bulk approve purchase orders",
+          "request": {
+            "name": "Bulk approve purchase orders",
+            "description": {
+              "content": "Approve multiple submitted purchase orders at once.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchaseorders",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization_id",
+                  "value": "<string>",
+                  "description": "(Required) ID of the organization"
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseorder_ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of purchase order IDs to approve."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3e19adbb-774b-42a2-bd49-de92f3016478",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchaseorders",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization_id",
+                      "value": "10234695"
+                    },
+                    {
+                      "key": "purchaseorder_ids",
+                      "value": "4815000000044972,4815000000044990"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zohoapis.com/inventory/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "73d3e5e6-5962-4f8b-9c32-1fe855bc7f31",
+    "name": "batches purchaseorders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
+      "type": "text/plain"
+    }
+  }
+}

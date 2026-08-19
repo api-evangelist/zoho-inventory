@@ -1,0 +1,771 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches replenishment API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "replenishment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve replenishment configurations for associated locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/items/:item_id/locations/replenishments",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "4815000000044208",
+                "type": "path",
+                "description": "Unique identifier of the item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the replenishment configurations of the associated locations for an item."
+        },
+        {
+          "info": {
+            "name": "Retrieve replenishment configurations for associated warehouses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/items/:item_id/warehouses/replenishments",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "4815000000044208",
+                "type": "path",
+                "description": "Unique identifier of the item."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the replenishment configurations of the associated warehouses for an item. Applicable only when multi-warehouse is enabled for the organization."
+        },
+        {
+          "info": {
+            "name": "Retrieve a replenishment configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/:replenishment_configuration_id",
+            "params": [
+              {
+                "name": "replenishment_configuration_id",
+                "value": "4815000000045001",
+                "type": "path",
+                "description": "Unique identifier of the replenishment configuration."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details of a replenishment configuration."
+        },
+        {
+          "info": {
+            "name": "Update a replenishment configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/:replenishment_configuration_id",
+            "params": [
+              {
+                "name": "replenishment_configuration_id",
+                "value": "4815000000045001",
+                "type": "path",
+                "description": "Unique identifier of the replenishment configuration."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates an existing replenishment configuration."
+        },
+        {
+          "info": {
+            "name": "Create a replenishment configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a replenishment configuration for an item."
+        },
+        {
+          "info": {
+            "name": "Bulk update replenishment configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "item_ids",
+                "value": "4815000000044208,4815000000044274",
+                "type": "query",
+                "description": "<code>List of item ids separated by comma</code>"
+              },
+              {
+                "name": "location_ids",
+                "value": "4815000000033001,4815000000033002",
+                "type": "query",
+                "description": "<code>List of location ids separated by comma</code>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates replenishment configurations for the specified item and location combinations."
+        },
+        {
+          "info": {
+            "name": "List all replenishment tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/tasks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "item_ids",
+                "value": "4815000000044208,4815000000044274",
+                "type": "query",
+                "description": "<code>List of item ids separated by comma</code>"
+              },
+              {
+                "name": "location_ids",
+                "value": "4815000000033001,4815000000033002",
+                "type": "query",
+                "description": "<code>List of location ids separated by comma</code>"
+              },
+              {
+                "name": "vendor_ids",
+                "value": "4815000000009901,4815000000009902",
+                "type": "query",
+                "description": "<code>List of vendor ids separated by comma</code>"
+              },
+              {
+                "name": "from_location_ids",
+                "value": "4815000000034001,4815000000034002",
+                "type": "query",
+                "description": "<code>List of source location ids separated by comma</code>"
+              },
+              {
+                "name": "order_type",
+                "value": "purchase_order",
+                "type": "query",
+                "description": "Order type."
+              },
+              {
+                "name": "filter_by",
+                "value": "Status.Pending",
+                "type": "query",
+                "description": "Filter tasks by status. Allowed values: <code>Status.All</code>, <code>Status.Pending</code>, <code>Status.Replenished</code>, <code>Status.Completed</code>, and <code>Status.Dismissed</code>."
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort tasks based on the following columns: <code>item_name</code>, <code>sku</code>, <code>entry_number</code>, and <code>created_time</code>."
+              },
+              {
+                "name": "sort_order",
+                "value": "D",
+                "type": "query",
+                "description": "Sort order of the tasks. Allowed values: <code>A</code> and <code>D</code>."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists replenishment tasks in your organization."
+        },
+        {
+          "info": {
+            "name": "Retrieve a replenishment task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/tasks/:task_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "4815000000099001",
+                "type": "path",
+                "description": "Unique identifier of the replenishment task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details of a replenishment task."
+        },
+        {
+          "info": {
+            "name": "Dismiss a replenishment task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/tasks/:task_id/dismiss",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "4815000000099001",
+                "type": "path",
+                "description": "Unique identifier of the replenishment task."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Dismisses a replenishment task."
+        },
+        {
+          "info": {
+            "name": "Retrieve replenishment task details for an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/tasks/details",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "item_id",
+                "value": "4815000000044208",
+                "type": "query",
+                "description": "Unique identifier of the item."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the replenishment task details for the specified item."
+        },
+        {
+          "info": {
+            "name": "Retrieve replenishment order details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/orders",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "replenishment_configuration_id",
+                "value": "4815000000045001",
+                "type": "query",
+                "description": "Unique identifier of the replenishment configuration."
+              },
+              {
+                "name": "order_type",
+                "value": "purchase_order",
+                "type": "query",
+                "description": "Order type."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the order details for a replenishment configuration."
+        },
+        {
+          "info": {
+            "name": "Pause a replenishment configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/:replenishment_configuration_id/pause",
+            "params": [
+              {
+                "name": "replenishment_configuration_id",
+                "value": "4815000000045001",
+                "type": "path",
+                "description": "Unique identifier of the replenishment configuration."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "pause_till_date",
+                "value": "2026-05-01",
+                "type": "query",
+                "description": "Date until which the replenishment configuration is paused."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Pauses a replenishment configuration until the specified date."
+        },
+        {
+          "info": {
+            "name": "Bulk pause replenishment configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/pause",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "item_ids",
+                "value": "4815000000044208,4815000000044274",
+                "type": "query",
+                "description": "<code>List of item ids separated by comma</code>"
+              },
+              {
+                "name": "location_ids",
+                "value": "4815000000033001,4815000000033002",
+                "type": "query",
+                "description": "<code>List of location ids separated by comma</code>"
+              },
+              {
+                "name": "pause_till_date",
+                "value": "2026-05-01",
+                "type": "query",
+                "description": "Date until which the replenishment configurations are paused."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Pauses replenishment configurations for the specified item and location combinations."
+        },
+        {
+          "info": {
+            "name": "Resume a replenishment configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/:replenishment_configuration_id/resume",
+            "params": [
+              {
+                "name": "replenishment_configuration_id",
+                "value": "4815000000045001",
+                "type": "path",
+                "description": "Unique identifier of the replenishment configuration."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Resumes a paused replenishment configuration."
+        },
+        {
+          "info": {
+            "name": "Bulk resume replenishment configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/resume",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "item_ids",
+                "value": "4815000000044208,4815000000044274",
+                "type": "query",
+                "description": "<code>List of item ids separated by comma</code>"
+              },
+              {
+                "name": "location_ids",
+                "value": "4815000000033001,4815000000033002",
+                "type": "query",
+                "description": "<code>List of location ids separated by comma</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Resumes paused replenishment configurations for the specified item and location combinations."
+        },
+        {
+          "info": {
+            "name": "Bulk dismiss replenishment tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/tasks/dismiss",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "replenishment_task_ids",
+                "value": "4815000000099001,4815000000099002",
+                "type": "query",
+                "description": "<code>List of replenishment task ids separated by comma</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Dismisses the specified replenishment tasks."
+        },
+        {
+          "info": {
+            "name": "Generate a replenishment task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/:replenishment_configuration_id/tasks/generate",
+            "params": [
+              {
+                "name": "replenishment_configuration_id",
+                "value": "4815000000045001",
+                "type": "path",
+                "description": "Unique identifier of the replenishment configuration."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Generates a replenishment task for a replenishment configuration."
+        },
+        {
+          "info": {
+            "name": "Bulk generate replenishment tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/replenishments/tasks/generate",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "item_ids",
+                "value": "4815000000044208,4815000000044274",
+                "type": "query",
+                "description": "<code>List of item ids separated by comma</code>"
+              },
+              {
+                "name": "location_ids",
+                "value": "4815000000033001,4815000000033002",
+                "type": "query",
+                "description": "<code>List of location ids separated by comma</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Generates replenishment tasks for the specified items."
+        },
+        {
+          "info": {
+            "name": "Retrieve replenishment task details report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/reports/replenishments/tasks",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization. Note: This value is a set of numeric characters."
+              },
+              {
+                "name": "filter_by",
+                "value": "TaskDate.ThisMonth",
+                "type": "query",
+                "description": "Filter the report by task date. Allowed values: <code>TaskDate.ThisMonth</code>, <code>TaskDate.ThisWeek</code>, <code>TaskDate.Today</code>, <code>TaskDate.ThisQuarter</code>, <code>TaskDate.ThisYear</code>, <code>TaskDate.PreviousDay</code>, <code>TaskDate.PreviousWeek</code>, <code>TaskDate.PreviousMonth</code>, <code>TaskDate.PreviousQuarter</code>, <code>TaskDate.PreviousYear</code>, and <code>TaskDate.CustomDate</code>."
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort the report based on the following columns: <code>item_name</code>, <code>sku</code>, <code>entry_number</code>, <code>warehouse</code> (applicable only when multi-warehouse is enabled for the organization), <code>location</code>, <code>created_time</code>, and <code>last_modified_time</code>."
+              },
+              {
+                "name": "sort_order",
+                "value": "A",
+                "type": "query",
+                "description": "Sort order of the report. Allowed values: <code>A</code> and <code>D</code>."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the replenishment task details report."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

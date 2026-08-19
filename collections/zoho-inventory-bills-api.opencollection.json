@@ -1,0 +1,496 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches bills API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bills",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Bills.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/bills",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Lists all the Bills in Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Create a Bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Creates a Bill in Zoho Inventory. Description about the extra parameter <code>attachment</code> Allowed extensions are gif, png, jpeg, jpg, bmp and pdf."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetches the details of a Bill."
+        },
+        {
+          "info": {
+            "name": "Update a Bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the details of an existing Bill."
+        },
+        {
+          "info": {
+            "name": "Delete a Bill.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Deletes a Bill from Zoho Inventory."
+        },
+        {
+          "info": {
+            "name": "Update custom field in existing bills",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/bill/:bill_id/customfields",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "460000000098765",
+                "type": "path",
+                "description": "Unique identifier of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the value of the custom field in existing bills."
+        },
+        {
+          "info": {
+            "name": "Mark as Open",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/status/open",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks a Bill as Open."
+        },
+        {
+          "info": {
+            "name": "Mark as Void",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/status/void",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique identifier of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Marks a Bill as Void."
+        },
+        {
+          "info": {
+            "name": "Submit a bill for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/submit",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique ID of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit a bill for approval workflow."
+        },
+        {
+          "info": {
+            "name": "Approve a bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/approve",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique ID of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a submitted bill."
+        },
+        {
+          "info": {
+            "name": "Final approval of a bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/approve/final",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique ID of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Perform the final approval of a bill (admin only)."
+        },
+        {
+          "info": {
+            "name": "Reject a bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/:bill_id/reject",
+            "params": [
+              {
+                "name": "bill_id",
+                "value": "4815000000045067",
+                "type": "path",
+                "description": "Unique ID of the bill."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Reject a submitted bill."
+        },
+        {
+          "info": {
+            "name": "Bulk submit bills for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/submit",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "bill_ids",
+                "value": "4815000000045067,4815000000045090",
+                "type": "query",
+                "description": "Comma-separated list of bill IDs to submit for approval."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit multiple bills for approval workflow at once."
+        },
+        {
+          "info": {
+            "name": "Bulk approve bills",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/bills/approve",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "bill_ids",
+                "value": "4815000000045067,4815000000045090",
+                "type": "query",
+                "description": "Comma-separated list of bill IDs to approve."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve multiple submitted bills at once."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

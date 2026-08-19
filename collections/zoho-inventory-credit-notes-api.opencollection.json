@@ -1,0 +1,1209 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "batches credit-notes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "credit-notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Credit Notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "creditnote_number",
+                "value": "CN-29",
+                "type": "query",
+                "description": "Unique number generated (starts with CN) which will be displayed in the interface and credit notes. Max-Length [100]"
+              },
+              {
+                "name": "date",
+                "value": "2016-06-05",
+                "type": "query",
+                "description": "The date on which the credit note was raised. Format [yyyy-mm-dd]"
+              },
+              {
+                "name": "status",
+                "value": "draft",
+                "type": "query",
+                "description": "Status of the credit note. This can be <code>open</code>, <code>closed</code> or <code>void</code>."
+              },
+              {
+                "name": "total",
+                "value": "450",
+                "type": "query",
+                "description": "Total credits raised in this credit note."
+              },
+              {
+                "name": "reference_number",
+                "value": "INV-384",
+                "type": "query",
+                "description": "Reference number generated for the payment. A string of your choice can also be used as the reference number. Max-Length [100]"
+              },
+              {
+                "name": "customer_name",
+                "value": "Bowman Furniture",
+                "type": "query",
+                "description": "Name of the customer to whom the credit note is raised. Max-Length [100]"
+              },
+              {
+                "name": "item_name",
+                "value": "kit",
+                "type": "query",
+                "description": "Search credit notes by item name.Max_length [100]"
+              },
+              {
+                "name": "customer_id",
+                "value": "903000000000099",
+                "type": "query",
+                "description": "Customer ID of the customer for whom the credit note is raised."
+              },
+              {
+                "name": "item_description",
+                "value": "",
+                "type": "query",
+                "description": "description for the item.Variants <code>item_description_startswith</code> and <code>item_description_contains</code>. Max-length [100]"
+              },
+              {
+                "name": "item_id",
+                "value": "90300000081501",
+                "type": "query",
+                "description": "Unique string generated for the item for which a refund has to be made."
+              },
+              {
+                "name": "line_item_id",
+                "value": "903000006245",
+                "type": "query",
+                "description": "Search credit notes by credit note line item id."
+              },
+              {
+                "name": "tax_id",
+                "value": "903000000000356",
+                "type": "query",
+                "description": "Unique ID to denote the tax associated with the credit note."
+              },
+              {
+                "name": "filter_by",
+                "value": "",
+                "type": "query",
+                "description": "Filter credit notes by statuses. Allowed values <code>Status.All</code> <code>Status.Open</code> <code>Status.Draft</code> <code>Status.Closed</code> and <code>Status.Void</code>"
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search credit notes by credit note number or customer name or credit note reference number. Max-length [100]"
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort the credit notes by the following columns - customer_name, creditnote_number, balance, total, date and created_time. Allowed Values <code>customer_name</code> <code>creditnote_number</code> <code>balance</code> <code>total</code> <code>date</code> and <code>created_time</code>"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all the Credit Notes."
+        },
+        {
+          "info": {
+            "name": "Create a credit note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "invoice_id",
+                "value": "90300000079426",
+                "type": "query",
+                "description": "Invoice ID of the required invoice."
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Set to true if you need to provide your own credit note number."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "To create a credit note for a customer."
+        },
+        {
+          "info": {
+            "name": "Get a credit note",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "print",
+                "value": "true",
+                "type": "query",
+                "description": "Export credit note PDF using the default print option. The allowed values are <code>true</code>, <code>false</code>, <code>on</code> and <code>off</code>"
+              },
+              {
+                "name": "accept",
+                "value": "",
+                "type": "query",
+                "description": "You can fetch the credit note details as json/pdf/html. The default format is html. The allowed values are <code>json</code>, <code>pdf</code> and <code>html</code>"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetch the details of an existing creditnote."
+        },
+        {
+          "info": {
+            "name": "Update a credit note",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "ignore_auto_number_generation",
+                "value": "false",
+                "type": "query",
+                "description": "Set to true if you need to provide your own credit note number."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "To update the details of an existing creditnote."
+        },
+        {
+          "info": {
+            "name": "Delete a credit note",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete an existing credit note."
+        },
+        {
+          "info": {
+            "name": "Get email content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/email",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "email_template_id",
+                "value": "",
+                "type": "query",
+                "description": "Get the email content based on a specific email template. If this param is not inputted, then the content will be based on the email template associated with the customer. If no template is associated with the customer, then default template will be used."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get email content of a credit note."
+        },
+        {
+          "info": {
+            "name": "Email a credit note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/email",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "customer_id",
+                "value": "903000000000099",
+                "type": "query",
+                "description": "Customer ID of the customer for whom the credit note is raised."
+              },
+              {
+                "name": "attachments",
+                "value": "",
+                "type": "query",
+                "description": "The files to be attached with the email."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Email a credit note."
+        },
+        {
+          "info": {
+            "name": "Void a Credit Note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/void",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Mark the credit note as Void."
+        },
+        {
+          "info": {
+            "name": "Convert Credit Note to Draft.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/draft",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Convert a voided credit note to Draft."
+        },
+        {
+          "info": {
+            "name": "Convert credit note to Open",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/converttoopen",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Convert a credit note in Draft status to Open."
+        },
+        {
+          "info": {
+            "name": "Submit a credit note for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/submit",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Submit a credit note for approval."
+        },
+        {
+          "info": {
+            "name": "Approve a credit note.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/approve",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Approve a credit note."
+        },
+        {
+          "info": {
+            "name": "Email history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/emailhistory",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get email history of a credit code."
+        },
+        {
+          "info": {
+            "name": "Update billing address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/address/billing",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the billing address for an existing credit note."
+        },
+        {
+          "info": {
+            "name": "Update Shipping address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/address/shipping",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Updates the shipping address for an existing credit note."
+        },
+        {
+          "info": {
+            "name": "List the credit note templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/templates",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get all credit note pdf templates."
+        },
+        {
+          "info": {
+            "name": "Update a credit note template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/templates/:template_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "template_id",
+                "value": "90300000001336",
+                "type": "path",
+                "description": "Unique identifier of the credit note template."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the pdf template associated with the credit note."
+        },
+        {
+          "info": {
+            "name": "List invoices credited",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/invoices",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List invoices to which the credit note is applied."
+        },
+        {
+          "info": {
+            "name": "Apply credits to invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/invoices",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Apply credit note to existing invoices."
+        },
+        {
+          "info": {
+            "name": "Delete credits applied to an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/invoices/:creditnote_invoice_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "creditnote_invoice_id",
+                "value": "982000000567172",
+                "type": "path",
+                "description": "Unique identifier of the credit note invoice."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete the credits applied to an invoice."
+        },
+        {
+          "info": {
+            "name": "List credit note comments & history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/comments",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get history and comments of a credit note."
+        },
+        {
+          "info": {
+            "name": "Add a comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/comments",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Add a comment to an existing credit note."
+        },
+        {
+          "info": {
+            "name": "Delete a Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/comments/:comment_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "comment_id",
+                "value": "982000000570001",
+                "type": "path",
+                "description": "Unique identifier of the comment."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a credit note comment."
+        },
+        {
+          "info": {
+            "name": "List credit note refunds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/refunds",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "customer_id",
+                "value": "903000000000099",
+                "type": "query",
+                "description": "Customer ID of the customer for whom the credit note is raised."
+              },
+              {
+                "name": "sort_column",
+                "value": "created_time",
+                "type": "query",
+                "description": "Sort refunds list. Allowed Values <code>refund_mode</code>, <code>reference_number</code>, <code>date</code>, <code>creditnote_number</code>, <code>customer_name</code>, <code>amount_bcy</code> and <code>amount_fcy</code>"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all refunds with pagination."
+        },
+        {
+          "info": {
+            "name": "List refunds of a credit note",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/refunds",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number to be fetched. Default value is 1."
+              },
+              {
+                "name": "per_page",
+                "value": "200",
+                "type": "query",
+                "description": "Number of records to be fetched per page. Default value is 200."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "List all refunds of an existing credit note."
+        },
+        {
+          "info": {
+            "name": "Refund credit note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/refunds",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Refund credit note amount."
+        },
+        {
+          "info": {
+            "name": "Get credit note refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/refunds/:creditnote_refund_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "creditnote_refund_id",
+                "value": "982000000567158",
+                "type": "path",
+                "description": "Unique identifier of the credit note refund."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Fetch the refund of a particular credit note."
+        },
+        {
+          "info": {
+            "name": "Update credit note refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/refunds/:creditnote_refund_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "creditnote_refund_id",
+                "value": "982000000567158",
+                "type": "path",
+                "description": "Unique identifier of the credit note refund."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Update the refunded transaction."
+        },
+        {
+          "info": {
+            "name": "Delete credit note refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zohoapis.com/inventory/v1/creditnotes/:creditnote_id/refunds/:creditnote_refund_id",
+            "params": [
+              {
+                "name": "creditnote_id",
+                "value": "90300000072369",
+                "type": "path",
+                "description": "Unique identifier of the credit note."
+              },
+              {
+                "name": "creditnote_refund_id",
+                "value": "982000000567158",
+                "type": "path",
+                "description": "Unique identifier of the credit note refund."
+              },
+              {
+                "name": "organization_id",
+                "value": "10234695",
+                "type": "query",
+                "description": "ID of the organization"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://accounts.zoho.com/oauth/v2/auth",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Delete a credit note refund."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
