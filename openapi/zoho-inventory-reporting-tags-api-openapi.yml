@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: batches reporting-tags API
+  title: batches Reporting Tags API
   description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
   contact: {}
   version: 1.0.0
@@ -398,6 +398,67 @@ paths:
         - ZohoInventory.settings.UPDATE
 components:
   schemas:
+    update-reporting-tag-request:
+      required:
+      - tag_name
+      - entities
+      - multi_preference_entities
+      type: object
+      properties:
+        tag_name:
+          $ref: '#/components/schemas/tag_name'
+        description:
+          $ref: '#/components/schemas/description'
+        is_mandatory:
+          $ref: '#/components/schemas/is_mandatory'
+        entities:
+          $ref: '#/components/schemas/entities'
+        multi_preference_entities:
+          $ref: '#/components/schemas/multi_preference_entities'
+    mark-default_option-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+        message:
+          type: string
+          example: The option has been marked as default.
+    all_options_response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+        message:
+          type: string
+          example: success
+        results:
+          type: array
+          description: List of all options under a reporting tag
+          items:
+            type: object
+            properties:
+              option_id:
+                type: string
+                description: Option ID or <code>untagged</code> for untagged option if the show_untagged is true
+                example: '460000000038082'
+              option_name:
+                type: string
+                description: Option's name or 'Untagged' for untagged option if the show_untagged is true
+                example: Sales
+              depth:
+                $ref: '#/components/schemas/depth'
+          example:
+          - option_id: '460000000038081'
+            option_name: Sales
+            depth: 0
+          - option_id: '460000000038083'
+            option_name: Sales - Central
+            depth: 1
+          - option_id: untagged
+            option_name: Untagged
+            depth: 0
     options_detail_page_response:
       type: object
       properties:
@@ -462,180 +523,10 @@ components:
             has_more_page:
               type: boolean
               example: false
-    update-options-request:
-      required:
-      - options
-      type: object
-      properties:
-        options:
-          type: array
-          description: Options selected for the criteria
-          items:
-            type: object
-            properties:
-              option_name:
-                $ref: '#/components/schemas/option_name'
-              option_id:
-                $ref: '#/components/schemas/option_id'
-              is_active:
-                $ref: '#/components/schemas/option_is_active'
-              is_default:
-                $ref: '#/components/schemas/option_is_default'
-              children:
-                type: array
-                description: Child options of the option.
-                items:
-                  type: object
-                  properties:
-                    option_id:
-                      description: Option ID
-                      type: string
-                      example: '460000000038082'
-                    option_name:
-                      description: Option Name
-                      type: string
-                      example: Sales - East
-                    is_active:
-                      $ref: '#/components/schemas/option_is_active'
-                    is_default:
-                      $ref: '#/components/schemas/option_is_default'
-      example:
-        options:
-        - option_id: '460000000038082'
-          option_name: ES-2003
-          is_active: true
-          is_default: true
-          children:
-          - option_id: '460000000038088'
-            children: []
-            option_name: ES-2003 Sec - B
-            is_active: true
-          - option_name: ES-2003 Sec - C
-            is_active: true
-            children:
-            - children: []
-              option_name: EES-2003
-              is_active: true
-        - option_id: '460000000038084'
-          option_name: ES-N-2016
-          is_active: true
-          is_default: false
-          children: []
-        - option_id: '460000000038086'
-          option_name: HS & ES-N
-          is_active: true
-          is_default: false
-          children: []
-    criteria_options:
-      description: Options for criteria
-      type: array
-      items:
-        type: object
-        properties:
-          option_id:
-            $ref: '#/components/schemas/option_id'
-          criteria_options:
-            description: List containing filter tags and location
-            type: array
-            items:
-              type: object
-              properties:
-                tag_id:
-                  $ref: '#/components/schemas/filter_tag_id'
-                type:
-                  $ref: '#/components/schemas/filter_type'
-                options:
-                  description: Options selected for the criteria
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/option_id'
-    update-reporting-tag-request:
-      required:
-      - tag_name
-      - entities
-      - multi_preference_entities
-      type: object
-      properties:
-        tag_name:
-          $ref: '#/components/schemas/tag_name'
-        description:
-          $ref: '#/components/schemas/description'
-        is_mandatory:
-          $ref: '#/components/schemas/is_mandatory'
-        entities:
-          $ref: '#/components/schemas/entities'
-        multi_preference_entities:
-          $ref: '#/components/schemas/multi_preference_entities'
-    update-criteria-response:
-      type: object
-      properties:
-        message:
-          type: string
-          example: The criteria has been updated.
-    filter_type:
-      description: 'Type of filter entity. <br>Allowed values: Tag <code>tag</code> and Location <code>location</code>. <br>'
-      type: string
-      example: tag
-    reporting-tags-response:
-      type: object
-      properties:
-        tag:
-          $ref: '#/components/schemas/tag_response'
-    is_draft:
-      description: Is tag still in draft state
-      type: boolean
-      example: false
-    tag_id:
-      description: Tag ID
-      type: string
-      example: '460000000038080'
-    entities:
-      description: Entities that can only be enabled or disabled which can also be called as mono-preference entities.
-      type: array
-      items:
-        type: object
-        properties:
-          entity_name:
-            description: 'Entity Name<br>Possible Values:  <br>Customer - <code>customers</code>,  <br>Vendor - <code>vendors</code>,  <br>Item - <code>items</code>'
-            type: string
-            enum:
-            - customers
-            - vendors
-            - items
-          is_enabled:
-            description: Is Enabled
-            type: boolean
-            example: true
-      example:
-      - entity_name: customers
-        is_enabled: true
-      - entity_name: vendors
-        is_enabled: true
-      - entity_name: items
-        is_enabled: true
-    tag_response:
-      type: object
-      properties:
-        tag_id:
-          $ref: '#/components/schemas/tag_id'
-        tag_name:
-          $ref: '#/components/schemas/tag_name'
-        description:
-          $ref: '#/components/schemas/description'
-        is_mandatory:
-          $ref: '#/components/schemas/is_mandatory'
-        entities:
-          $ref: '#/components/schemas/entities'
-        multi_preference_entities:
-          $ref: '#/components/schemas/multi_preference_entities'
     filter_option_name:
       description: 'Option Name for the filter. It can be an option name or flags.  <br>Allowed flags: <code>All</code> - Instead of selecting all options, you can send this flag to denote all options of the filter tag or location are selected for the filter to the respective tag. <code>Untagged</code> - When you want to show an option when no option is selected for the filter tag. <b>Note: This flag cannot be used for location filter.</b>'
       type: string
       example: Sales
-    depth:
-      description: Depth or how much indentation required of the option in the hierarchy
-      type: integer
-      example: 1
     dependent_tags:
       type: array
       description: The tags and location that is associated as filter for the tag
@@ -678,117 +569,47 @@ components:
                   example: 1
           tag_name:
             $ref: '#/components/schemas/tag_name'
-    multi_preference_entities:
-      type: object
-      properties:
-        preference:
-          description: Preference type. Currently, only <code>'transaction' and 'line_item'</code> is supported for this node
-          type: string
-          example: line_item
-        entities:
-          description: Entities that can only be enabled or disabled
-          type: array
-          items:
-            type: object
-            properties:
-              entity_name:
-                description: 'Entity Name. Possible Values:  <br>Sales - <code>sales</code>,  <br>Purchases - <code>purchases</code>,  <br>Inventory Adjustment - <code>inventory_adjustment</code>'
-                type: string
-                enum:
-                - Sales
-                - Purchases
-                - Inventory Adjustment
-              is_enabled:
-                description: Is Enabled
-                type: boolean
-                example: true
-      example:
-        preference: line_item
-        entities:
-        - entity_name: sales
-          is_enabled: true
-        - entity_name: purchases
-          is_enabled: true
-        - entity_name: inventory_adjustment
-          is_enabled: true
-    update-criteria-request:
-      required:
-      - criteria_tags
-      - options
-      type: object
-      properties:
-        criteria_tags:
-          $ref: '#/components/schemas/criteria_tags'
-        options:
-          $ref: '#/components/schemas/criteria_options'
+    filter_option_id:
+      description: 'Option ID for the filter. It can be an option ID or flags.  <br>Allowed flags: <code>all</code> - Instead of selecting all options, you can send this flag to denote all options of the filter tag or location are selected for the filter to the respective tag. <code>untagged</code> - When you want to show an option when no option is selected for the filter tag. <b>Note: This flag cannot be used for location filter.</b>'
+      type: string
+      example: '460000000038081'
     option_name:
       description: Option Name
       type: string
       example: Sales
-    list-reporting-tags-response:
-      type: array
-      items:
-        type: object
-        properties:
-          tag_id:
-            $ref: '#/components/schemas/tag_id'
-          tag_name:
-            $ref: '#/components/schemas/tag_name'
-          tag_order:
-            $ref: '#/components/schemas/tag_order'
-          description:
-            $ref: '#/components/schemas/description'
-          is_active:
-            $ref: '#/components/schemas/tag_is_active'
-          is_mandatory:
-            $ref: '#/components/schemas/is_mandatory'
-          is_class:
-            $ref: '#/components/schemas/is_class'
-          is_draft:
-            $ref: '#/components/schemas/is_draft'
-      example:
-      - tag_id: '460000000038080'
-        tag_name: Business Unit
-        tag_order: 1
-        description: Description of the reporting tag
-        is_active: true
-        is_mandatory: false
-        is_class: false
-        is_draft: false
-      - tag_id: '460000000038081'
-        tag_name: Sales Region
-        tag_order: 2
-        description: Description of the reporting tag
-        is_active: true
-        is_mandatory: false
-        is_class: true
-        is_draft: false
-      - tag_id: '460000000038082'
-        tag_name: Department
-        tag_order: 3
-        description: Description of the reporting tag
-        is_active: false
-        is_mandatory: true
-        is_class: false
-        is_draft: true
-    tag_name:
-      description: Tag Name
+    description:
+      description: Description
       type: string
-      example: Business Unit
+      example: Description of the reporting tag
     update-options-response:
       type: object
       properties:
         message:
           type: string
           example: Options updated successfully
-    filter_tag_id:
-      type: string
-      description: Filter tag ID. If the filter 'type' is location, <code>null</code> should be passed
-      example: '460000000038081'
-    filter_option_id:
-      description: 'Option ID for the filter. It can be an option ID or flags.  <br>Allowed flags: <code>all</code> - Instead of selecting all options, you can send this flag to denote all options of the filter tag or location are selected for the filter to the respective tag. <code>untagged</code> - When you want to show an option when no option is selected for the filter tag. <b>Note: This flag cannot be used for location filter.</b>'
+    option_id:
+      description: Option ID
       type: string
       example: '460000000038081'
+    filter_type:
+      description: 'Type of filter entity. <br>Allowed values: Tag <code>tag</code> and Location <code>location</code>. <br>'
+      type: string
+      example: tag
+    tag_response:
+      type: object
+      properties:
+        tag_id:
+          $ref: '#/components/schemas/tag_id'
+        tag_name:
+          $ref: '#/components/schemas/tag_name'
+        description:
+          $ref: '#/components/schemas/description'
+        is_mandatory:
+          $ref: '#/components/schemas/is_mandatory'
+        entities:
+          $ref: '#/components/schemas/entities'
+        multi_preference_entities:
+          $ref: '#/components/schemas/multi_preference_entities'
     criteria_options_response_for_details_page:
       type: array
       description: Options selected for the criteria
@@ -919,65 +740,6 @@ components:
             criteria_id: '460000000048083'
             tag_id: '460000000038078'
             type: tag
-    option_is_active:
-      type: boolean
-      description: Is the option active for the tag
-      example: true
-    is_mandatory:
-      description: Is Mandatory
-      type: boolean
-      example: false
-    tag_is_active:
-      type: boolean
-      description: Is the tag active
-      example: true
-    tag_order:
-      description: The order in which the tag appears
-      type: integer
-      example: 1
-    all_options_response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-        message:
-          type: string
-          example: success
-        results:
-          type: array
-          description: List of all options under a reporting tag
-          items:
-            type: object
-            properties:
-              option_id:
-                type: string
-                description: Option ID or <code>untagged</code> for untagged option if the show_untagged is true
-                example: '460000000038082'
-              option_name:
-                type: string
-                description: Option's name or 'Untagged' for untagged option if the show_untagged is true
-                example: Sales
-              depth:
-                $ref: '#/components/schemas/depth'
-          example:
-          - option_id: '460000000038081'
-            option_name: Sales
-            depth: 0
-          - option_id: '460000000038083'
-            option_name: Sales - Central
-            depth: 1
-          - option_id: untagged
-            option_name: Untagged
-            depth: 0
-    is_class:
-      description: Is segmentation enabled for the tag
-      type: boolean
-      example: false
-    description:
-      description: Description
-      type: string
-      example: Description of the reporting tag
     criteria_tags:
       description: Filter tags and location
       type: array
@@ -988,24 +750,270 @@ components:
             $ref: '#/components/schemas/filter_tag_id'
           type:
             $ref: '#/components/schemas/filter_type'
-    mark-default_option-response:
+    list-reporting-tags-response:
+      type: array
+      items:
+        type: object
+        properties:
+          tag_id:
+            $ref: '#/components/schemas/tag_id'
+          tag_name:
+            $ref: '#/components/schemas/tag_name'
+          tag_order:
+            $ref: '#/components/schemas/tag_order'
+          description:
+            $ref: '#/components/schemas/description'
+          is_active:
+            $ref: '#/components/schemas/tag_is_active'
+          is_mandatory:
+            $ref: '#/components/schemas/is_mandatory'
+          is_class:
+            $ref: '#/components/schemas/is_class'
+          is_draft:
+            $ref: '#/components/schemas/is_draft'
+      example:
+      - tag_id: '460000000038080'
+        tag_name: Business Unit
+        tag_order: 1
+        description: Description of the reporting tag
+        is_active: true
+        is_mandatory: false
+        is_class: false
+        is_draft: false
+      - tag_id: '460000000038081'
+        tag_name: Sales Region
+        tag_order: 2
+        description: Description of the reporting tag
+        is_active: true
+        is_mandatory: false
+        is_class: true
+        is_draft: false
+      - tag_id: '460000000038082'
+        tag_name: Department
+        tag_order: 3
+        description: Description of the reporting tag
+        is_active: false
+        is_mandatory: true
+        is_class: false
+        is_draft: true
+    is_draft:
+      description: Is tag still in draft state
+      type: boolean
+      example: false
+    reporting-tags-response:
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-        message:
+        tag:
+          $ref: '#/components/schemas/tag_response'
+    multi_preference_entities:
+      type: object
+      properties:
+        preference:
+          description: Preference type. Currently, only <code>'transaction' and 'line_item'</code> is supported for this node
           type: string
-          example: The option has been marked as default.
+          example: line_item
+        entities:
+          description: Entities that can only be enabled or disabled
+          type: array
+          items:
+            type: object
+            properties:
+              entity_name:
+                description: 'Entity Name. Possible Values:  <br>Sales - <code>sales</code>,  <br>Purchases - <code>purchases</code>,  <br>Inventory Adjustment - <code>inventory_adjustment</code>'
+                type: string
+                enum:
+                - Sales
+                - Purchases
+                - Inventory Adjustment
+              is_enabled:
+                description: Is Enabled
+                type: boolean
+                example: true
+      example:
+        preference: line_item
+        entities:
+        - entity_name: sales
+          is_enabled: true
+        - entity_name: purchases
+          is_enabled: true
+        - entity_name: inventory_adjustment
+          is_enabled: true
+    filter_tag_id:
+      type: string
+      description: Filter tag ID. If the filter 'type' is location, <code>null</code> should be passed
+      example: '460000000038081'
+    entities:
+      description: Entities that can only be enabled or disabled which can also be called as mono-preference entities.
+      type: array
+      items:
+        type: object
+        properties:
+          entity_name:
+            description: 'Entity Name<br>Possible Values:  <br>Customer - <code>customers</code>,  <br>Vendor - <code>vendors</code>,  <br>Item - <code>items</code>'
+            type: string
+            enum:
+            - customers
+            - vendors
+            - items
+          is_enabled:
+            description: Is Enabled
+            type: boolean
+            example: true
+      example:
+      - entity_name: customers
+        is_enabled: true
+      - entity_name: vendors
+        is_enabled: true
+      - entity_name: items
+        is_enabled: true
+    is_mandatory:
+      description: Is Mandatory
+      type: boolean
+      example: false
+    tag_id:
+      description: Tag ID
+      type: string
+      example: '460000000038080'
+    depth:
+      description: Depth or how much indentation required of the option in the hierarchy
+      type: integer
+      example: 1
+    option_is_active:
+      type: boolean
+      description: Is the option active for the tag
+      example: true
+    tag_is_active:
+      type: boolean
+      description: Is the tag active
+      example: true
+    is_class:
+      description: Is segmentation enabled for the tag
+      type: boolean
+      example: false
+    criteria_options:
+      description: Options for criteria
+      type: array
+      items:
+        type: object
+        properties:
+          option_id:
+            $ref: '#/components/schemas/option_id'
+          criteria_options:
+            description: List containing filter tags and location
+            type: array
+            items:
+              type: object
+              properties:
+                tag_id:
+                  $ref: '#/components/schemas/filter_tag_id'
+                type:
+                  $ref: '#/components/schemas/filter_type'
+                options:
+                  description: Options selected for the criteria
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/option_id'
+    update-options-request:
+      required:
+      - options
+      type: object
+      properties:
+        options:
+          type: array
+          description: Options selected for the criteria
+          items:
+            type: object
+            properties:
+              option_name:
+                $ref: '#/components/schemas/option_name'
+              option_id:
+                $ref: '#/components/schemas/option_id'
+              is_active:
+                $ref: '#/components/schemas/option_is_active'
+              is_default:
+                $ref: '#/components/schemas/option_is_default'
+              children:
+                type: array
+                description: Child options of the option.
+                items:
+                  type: object
+                  properties:
+                    option_id:
+                      description: Option ID
+                      type: string
+                      example: '460000000038082'
+                    option_name:
+                      description: Option Name
+                      type: string
+                      example: Sales - East
+                    is_active:
+                      $ref: '#/components/schemas/option_is_active'
+                    is_default:
+                      $ref: '#/components/schemas/option_is_default'
+      example:
+        options:
+        - option_id: '460000000038082'
+          option_name: ES-2003
+          is_active: true
+          is_default: true
+          children:
+          - option_id: '460000000038088'
+            children: []
+            option_name: ES-2003 Sec - B
+            is_active: true
+          - option_name: ES-2003 Sec - C
+            is_active: true
+            children:
+            - children: []
+              option_name: EES-2003
+              is_active: true
+        - option_id: '460000000038084'
+          option_name: ES-N-2016
+          is_active: true
+          is_default: false
+          children: []
+        - option_id: '460000000038086'
+          option_name: HS & ES-N
+          is_active: true
+          is_default: false
+          children: []
+    tag_order:
+      description: The order in which the tag appears
+      type: integer
+      example: 1
+    tag_name:
+      description: Tag Name
+      type: string
+      example: Business Unit
     option_is_default:
       type: boolean
       description: Is the option default for the tag
       example: true
-    option_id:
-      description: Option ID
-      type: string
-      example: '460000000038081'
+    update-criteria-response:
+      type: object
+      properties:
+        message:
+          type: string
+          example: The criteria has been updated.
+    update-criteria-request:
+      required:
+      - criteria_tags
+      - options
+      type: object
+      properties:
+        criteria_tags:
+          $ref: '#/components/schemas/criteria_tags'
+        options:
+          $ref: '#/components/schemas/criteria_options'
   parameters:
+    path_tag_id:
+      name: tag_id
+      in: path
+      description: ID of the reporting tag
+      required: true
+      schema:
+        type: string
+      example: '460000000038080'
     path_option_id:
       name: option_id
       in: path
@@ -1014,9 +1022,9 @@ components:
       schema:
         type: string
       example: '460000000038081'
-    path_tag_id:
+    query_tag_id:
       name: tag_id
-      in: path
+      in: query
       description: ID of the reporting tag
       required: true
       schema:
@@ -1030,14 +1038,6 @@ components:
       schema:
         type: string
       example: '10234695'
-    query_tag_id:
-      name: tag_id
-      in: query
-      description: ID of the reporting tag
-      required: true
-      schema:
-        type: string
-      example: '460000000038080'
   securitySchemes:
     Zoho_Auth:
       type: oauth2
