@@ -1,0 +1,204 @@
+slug: zoho-inventory
+provider: Zoho Inventory
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 19
+edges:
+- tag: purchaseorders
+  spec_file: zoho-inventory-purchaseorders-api-openapi.yml
+  capability_id: BC-500.30
+  capability_id_l1: BC-500
+  capability_name: Purchase Order Management
+  confidence: 0.9
+  evidence: POST /purchaseorders create_purchase_order 'Create a Purchase Order'; POST /purchaseorders/{id}/submit
+    'Submit a purchase order for approval'; POST /purchaseorders/{id}/approve
+  reason: Full purchase order lifecycle — creation, issue, cancellation, submission and multi-level approval
+    — which is exactly Purchase Order Management.
+- tag: customer-payments
+  spec_file: zoho-inventory-customer-payments-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.88
+  evidence: POST /customerpayments  create_customer_payment  Create a payment; schemas invoice_id, balance_amount,
+    bank_charges
+  reason: Recording and applying customer payments against invoices is cash application within Accounts
+    Receivable Management.
+- tag: invoices
+  spec_file: zoho-inventory-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.88
+  evidence: POST /invoices  create_invoice  Create an invoice; mark_invoice_as_sent; delete-applied-credit-response
+  reason: Customer invoice lifecycle — creation, sending, voiding, credit application — is Accounts Receivable
+    / customer invoicing.
+- tag: bills
+  spec_file: zoho-inventory-bills-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.85
+  evidence: POST /bills "Create a Bill"; POST /bills/{bill_id}/approve "Approve a bill"; schemas paid_through_account_id,
+    vendor_credits, due_by_days
+  reason: Despite the misleading title carrying the 'batches' tag name, the operations create, approve,
+    void and pay vendor bills with vendor credits and payment accounts — supplier invoice processing,
+    i.e. accounts payable.
+- tag: credit-notes
+  spec_file: zoho-inventory-credit-notes-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.85
+  evidence: POST /creditnotes  create_credit_note  Create a credit note; list-invoices-credited-response;
+    mark_credit_note_as_void
+  reason: Credit notes issued against customer invoices, with approval, voiding and credit application
+    to invoices — accounts receivable accounting.
+- tag: replenishment
+  spec_file: zoho-inventory-replenishment-api-openapi.yml
+  capability_id: BC-530.20
+  capability_id_l1: BC-530
+  capability_name: Replenishment Management
+  confidence: 0.85
+  evidence: POST /replenishments create_replenishment_configuration; GET /replenishments/tasks 'List all
+    replenishment tasks'; schemas 'purchase-order-summary-response', 'transfer-order-summary-response'
+  reason: Per-item, per-warehouse replenishment configurations that generate replenishment tasks and resulting
+    purchase/transfer orders — this is replenishment policy and automated replenishment.
+- tag: vendor-credits
+  spec_file: zoho-inventory-vendor-credits-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.85
+  evidence: POST /vendorcredits create_vendor_credit Create a vendor credit; POST /vendorcredits/{vendor_credit_id}/bills
+    apply_vendor_credit_to_bill Apply credits to a bill; vendor_credit_refund
+  reason: Creates, approves, voids and applies vendor credit notes against vendor bills including refunds
+    — supplier invoice and vendor accounting, i.e. Accounts Payable Management.
+- tag: inventoryadjustments
+  spec_file: zoho-inventory-inventoryadjustments-api-openapi.yml
+  capability_id: BC-530.40
+  capability_id_l1: BC-530
+  capability_name: Inventory Accuracy Management
+  confidence: 0.82
+  evidence: POST /inventoryadjustments  create_inventory_adjustment  Create an inventory adjustment; adjustment_type,
+    adjustment_account_id, reason_id
+  reason: Stock quantity/value adjustments with reasons and approval workflow correspond to inventory
+    discrepancy resolution and accuracy management.
+- tag: pricelists
+  spec_file: zoho-inventory-pricelists-api-openapi.yml
+  capability_id: BC-440.20
+  capability_id_l1: BC-440
+  capability_name: Price List Management
+  confidence: 0.82
+  evidence: POST /pricebooks create_pricebook 'Create a pricebook'; schemas 'pricebook_rate', 'currency_code',
+    'start_quantity', 'is_default'
+  reason: Operations maintain price books with per-item rates, currency and quantity breaks, and activate/deactivate
+    them — this is price list / price book maintenance.
+- tag: taxes
+  spec_file: zoho-inventory-taxes-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.8
+  evidence: POST /settings/taxes create_tax Create a tax; POST /settings/taxauthorities create_tax_authority
+    [US and CA Edition only]; list-tax-exemptions-us-edition-only-response
+  reason: Maintains tax rates, tax groups, tax authorities and exemptions used to charge transactional
+    tax on sales and purchases — indirect tax (VAT/GST/sales tax) setup and determination.
+- tag: putaways
+  spec_file: zoho-inventory-putaways-api-openapi.yml
+  capability_id: BC-2460.10
+  capability_id_l1: BC-2460
+  capability_name: Inbound Operations Management
+  confidence: 0.75
+  evidence: POST /putaways create_putaway 'Create a putaway'; schemas 'putaway-line-storage-node', 'putaway-line-batch-node'
+  reason: Putaway documents place received goods into storage locations within the warehouse, which the
+    capability definition names explicitly ('receipt, inspection, and putaway of goods entering the warehouse').
+- tag: retainer-invoices
+  spec_file: zoho-inventory-retainer-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.75
+  evidence: POST /retainerinvoices create_retainer_invoice 'Create a retainerinvoice'; 'Mark a retainer
+    invoice as sent'; 'Void a retainer invoice'; 'Email a retainer invoice'
+  reason: Issuance, approval, voiding and emailing of customer retainer (advance) invoices is customer
+    invoicing, i.e. Accounts Receivable Management.
+- tag: contact-persons
+  spec_file: zoho-inventory-contact-persons-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.72
+  evidence: POST /contacts/contactpersons  create_contact_person  Create a contact person; mark_contact_person_as_primary
+  reason: CRUD over contact-person records attached to customer/vendor contacts — master data about business
+    contacts. Best fits Customer Data Management, though the records may also cover vendors, so confidence
+    is moderate.
+- tag: batches
+  spec_file: zoho-inventory-batches-api-openapi.yml
+  capability_id: BC-530
+  capability_id_l1: BC-530
+  capability_name: Inventory Management
+  confidence: 0.7
+  evidence: '"Batches help you track inventory items by batch numbers, manufacturing dates, and expiration
+    dates."; POST /items/batches "Create a batch"; schemas balance_quantity, in_quantity, location_id'
+  reason: CRUD over inventory batches with balance and in quantities per location — lot/batch tracking
+    of stock. Clearly inventory management at L1, but no single L2 (stock levels, accuracy, allocation)
+    is named by the evidence, so L2 is left null.
+- tag: contacts
+  spec_file: zoho-inventory-contacts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /contacts  create_contact  Create a Contact; GET /contacts/{contact_id}/address; outstanding_receivable_amount
+  reason: Manages the customer/vendor master record including addresses, tax exemption and statement emailing.
+    Primarily customer master data (note outstanding_receivable_amount, statement email), so Customer
+    Data Management; ambiguity because contacts also cover vendors.
+- tag: items
+  spec_file: zoho-inventory-items-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: POST /items  create_item  Create an item; upc, isbn, track_inventory, location_stock_on_hand
+  reason: Item master maintenance (SKU identifiers, attributes, images, per-location stock settings) is
+    product master data management.
+- tag: landedcosts
+  spec_file: zoho-inventory-landedcosts-api-openapi.yml
+  capability_id: BC-200.50
+  capability_id_l1: BC-200
+  capability_name: Cost Accounting Management
+  confidence: 0.7
+  evidence: POST /bills/{bill_id}/landedcosts  create_landed_cost_for_bill; cost_allocations_for_bill,
+    allocated_amount
+  reason: Allocation of landed costs from vendor bills onto inventory items is cost allocation/costing
+    accounting.
+- tag: picklists
+  spec_file: zoho-inventory-picklists-api-openapi.yml
+  capability_id: BC-2460.30
+  capability_id_l1: BC-2460
+  capability_name: Outbound Operations Management
+  confidence: 0.7
+  evidence: POST /picklists create_picklist 'Create a Picklist'; POST /picklists/{picklist_id}/setstatus;
+    'picklist-line-item-mapping', 'search-so-line-items-response'
+  reason: Picklists drive the picking of sales-order line items in the warehouse, including advanced (batch/serial)
+    tracking details and status progression — picking is explicitly part of Outbound Operations Management.
+- tag: users
+  spec_file: zoho-inventory-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /users/{user_id}/invite invite_user Invite a user; POST /users/{user_id}/inactive mark_user_as_inactive;
+    schemas role_id, user_role, user_type
+  reason: Administers application user accounts, roles, invitations and active/inactive state — joiner-mover-leaver
+    style identity and access administration for the tenant.
