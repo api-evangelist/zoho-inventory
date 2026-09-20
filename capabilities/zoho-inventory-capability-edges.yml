@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 19
+edge_count: 25
 edges:
 - tag: purchaseorders
   spec_file: zoho-inventory-purchase-orders-api-openapi.yml
@@ -115,6 +115,29 @@ edges:
     [US and CA Edition only]; list-tax-exemptions-us-edition-only-response
   reason: Maintains tax rates, tax groups, tax authorities and exemptions used to charge transactional
     tax on sales and purchases — indirect tax (VAT/GST/sales tax) setup and determination.
+- tag: purchasereceives
+  spec_file: zoho-inventory-purchasereceives-api-openapi.yml
+  capability_id: BC-500.40
+  capability_id_l1: BC-500
+  capability_name: Procure-to-Pay Operations Management
+  confidence: 0.78
+  evidence: POST /purchasereceives "Create a purchase receive"; "Submit a purchase receive for approval";
+    schemas "vendor_id", "serial_numbers", "batches-response"
+  reason: Goods receipt against purchase orders with approval steps is day-to-day procure-to-pay operations
+    (receipts). Could alternatively be read as inventory receiving, hence not maximal confidence.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: shipmentorders
+  spec_file: zoho-inventory-shipment-orders-api-openapi.yml
+  capability_id: BC-520.50
+  capability_id_l1: BC-520
+  capability_name: Logistics Operations Management
+  confidence: 0.78
+  evidence: POST /shipmentorders "Create a Shipment Order"; "Mark as Delivered"; schemas "delivery_method_id",
+    "delivery_days", "delivery_guarantee", "salesorder_number"
+  reason: Creates and tracks shipment orders with carrier/delivery method and delivery confirmation —
+    transport execution within logistics operations. Overlap with order fulfilment keeps it below 0.9.
+  recovered_from: sweep-20260829T005356Z-edges.json
+  reanchored_from: zoho-inventory-shipmentorders-api-openapi.yml
 - tag: putaways
   spec_file: zoho-inventory-putaways-api-openapi.yml
   capability_id: BC-2460.10
@@ -165,6 +188,17 @@ edges:
   reason: Manages the customer/vendor master record including addresses, tax exemption and statement emailing.
     Primarily customer master data (note outstanding_receivable_amount, statement email), so Customer
     Data Management; ambiguity because contacts also cover vendors.
+- tag: delivery-challans
+  spec_file: zoho-inventory-delivery-challans-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.7
+  evidence: mark_delivery_challan_as_delivered 'Mark a delivery challan as delivered'; mark_delivery_challan_as_returned;
+    return_delivery_challans
+  reason: Delivery challans are goods-delivery documents whose lifecycle (open/delivered/undelivered/returned)
+    tracks outbound fulfilment of goods, i.e. order fulfilment execution.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: items
   spec_file: zoho-inventory-items-api-openapi.yml
   capability_id: BC-610.20
@@ -184,6 +218,28 @@ edges:
     allocated_amount
   reason: Allocation of landed costs from vendor bills onto inventory items is cost allocation/costing
     accounting.
+- tag: moveorders
+  spec_file: zoho-inventory-moveorders-api-openapi.yml
+  capability_id: BC-530
+  capability_id_l1: BC-530
+  capability_name: Inventory Management
+  confidence: 0.7
+  evidence: POST /moveorders create_move_order 'Create a move order'; mark_move_order_as_in_progress;
+    mark_move_order_as_completed; move-order-line-storage-node
+  reason: Move orders transfer stock between locations/storage nodes, an inventory management activity;
+    evidence does not clearly single out replenishment vs allocation, so only the L1 is asserted.
+  recovered_from: sweep-20260829T005356Z-edges.json
+- tag: packages
+  spec_file: zoho-inventory-packages-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.7
+  evidence: POST /packages create_package 'Creating a package'; salesorder_number, delivery_method_id,
+    is_invoiced, bulk_print_packages
+  reason: Packages assemble sales-order line items for despatch with delivery method and printing of package
+    slips — outbound order fulfilment execution.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: picklists
   spec_file: zoho-inventory-picklists-api-openapi.yml
   capability_id: BC-2460.30
@@ -194,6 +250,19 @@ edges:
     'picklist-line-item-mapping', 'search-so-line-items-response'
   reason: Picklists drive the picking of sales-order line items in the warehouse, including advanced (batch/serial)
     tracking details and status progression — picking is explicitly part of Outbound Operations Management.
+- tag: transferorders
+  spec_file: zoho-inventory-transfer-orders-api-openapi.yml
+  capability_id: BC-530
+  capability_id_l1: BC-530
+  capability_name: Inventory Management
+  confidence: 0.7
+  evidence: '"create_transfer_order  Create a transfer order", "mark_transfer_order_in_transit  Mark transfer
+    order as in transit", schema "to_location_id"'
+  reason: Transfer orders move stock between warehouses/locations with in-transit and received states
+    — inventory movement across the network. L1 inventory management is clear; which L2 (allocation vs
+    replenishment) is not determinable, so L2 left null.
+  recovered_from: sweep-20260829T005356Z-edges.json
+  reanchored_from: zoho-inventory-transferorders-api-openapi.yml
 - tag: users
   spec_file: zoho-inventory-users-api-openapi.yml
   capability_id: BC-620.20
