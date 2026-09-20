@@ -1,133 +1,84 @@
-name: Zoho Inventory Plans and Pricing
-description: Subscription plans for Zoho Inventory, an inventory management platform with REST API access included on all paid tiers.
-url: https://www.zoho.com/us/inventory/pricing/
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://www.zoho.com/us/inventory/pricing/
+sources:
+- https://www.zoho.com/us/inventory/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120317
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+published: true
+note: Prices shown in USD, billed annually; plan limits on orders/users/locations act as usage caps. Prices
+  exclusive of local taxes; 15% nonprofit discount mentioned; 14-day free trial.
+plan_count: 10
+currency: USD
 plans:
-  - name: Free
-    description: Entry-level plan for small businesses with basic inventory management needs.
-    price: 0
-    currency: USD
-    billing_period: monthly
-    features:
-      - 50 orders per month
-      - 1 user
-      - 2 locations
-      - Composite items
-      - Dropshipment
-      - Backordering
-      - Item groups
-    api_limits:
-      daily_calls: 1000
-      calls_per_minute: 100
-      concurrent_calls: 5
-
-  - name: Standard
-    description: Suitable for growing businesses with moderate order volumes and customer portal needs.
-    price: 29
-    currency: USD
-    billing_period: monthly
-    annual_price: 29
-    features:
-      - 500 orders per month
-      - 2 users
-      - 2 locations
-      - Composite items
-      - Dropshipment
-      - Backordering
-      - Item groups
-      - Customer portal
-    api_limits:
-      daily_calls: 2500
-      calls_per_minute: 100
-      concurrent_calls: 10
-
-  - name: Professional
-    description: For businesses requiring serial number and batch tracking with vendor portal access.
-    price: 79
-    currency: USD
-    billing_period: monthly
-    annual_price: 79
-    features:
-      - 3000 orders per month
-      - 2 users
-      - 4 locations
-      - Serial number tracking
-      - Batch tracking
-      - Vendor portal
-      - All Standard features
-    api_limits:
-      daily_calls: 5000
-      calls_per_minute: 100
-      concurrent_calls: 10
-
-  - name: Premium
-    description: For larger operations with advanced warehousing, automation, and barcode support.
-    price: 129
-    currency: USD
-    billing_period: monthly
-    annual_price: 129
-    features:
-      - 7500 orders per month
-      - 2 users
-      - 6 locations
-      - 2000 bins per location
-      - Contextual chat
-      - UoM conversion
-      - Customization and automation
-      - Barcode generation
-      - Stock counting
-      - Profit margin tracking
-      - All Professional features
-    api_limits:
-      daily_calls: 75000
-      calls_per_minute: 100
-      concurrent_calls: 10
-
-  - name: Enterprise
-    description: Full-featured plan for enterprise-scale inventory operations with analytics and multi-currency support.
-    price: 249
-    currency: USD
-    billing_period: monthly
-    annual_price: 249
-    features:
-      - 15000 orders per month
-      - 7 users
-      - 10 locations
-      - 5000 bins per location
-      - Zoho Analytics integration
-      - Multi-currency transactions per contact
-      - All Premium features
-    api_limits:
-      daily_calls: 10000
-      calls_per_minute: 100
-      concurrent_calls: 10
-
-addons:
-  - name: Additional Users
-    price: 7.50
-    currency: USD
-    billing_period: monthly
-    description: Per additional user beyond the plan's included users.
-
-  - name: Additional 500 Orders
-    price: 7.50
-    currency: USD
-    billing_period: monthly
-    description: Adds 500 additional orders per month.
-
-  - name: Additional Locations
-    price: 10.00
-    currency: USD
-    billing_period: monthly
-    description: Per additional warehouse or storage location.
-
-  - name: Advanced Autoscans
-    price: 8.00
-    currency: USD
-    billing_period: monthly
-    description: 50 advanced barcode autoscans per month.
-
-  - name: Advanced Warehousing
-    price: 124.17
-    currency: USD
-    billing_period: monthly
-    description: Advanced warehousing features including bin management.
+- name: Free plan
+  price_text: Free
+  currency: USD
+  period: month
+  unit: per organization
+  included_quota: 50 orders, 1 user, 1 location
+- name: STANDARD
+  price_text: $ 29
+  price: 29
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
+  included_quota: 500 orders / month, 3 users, 2 locations
+- name: PREMIUM
+  price_text: $ 79
+  price: 79
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
+  included_quota: 3000 orders / month, 5 users, 4 locations, 500 bins / location
+- name: PLUS
+  price_text: $ 129
+  price: 129
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
+  included_quota: 7500 orders / month, 10 users, 6 locations, 500 bins / location
+- name: ENTERPRISE
+  price_text: $ 249
+  price: 249
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
+  included_quota: 15000 orders / month, 10 users, 10 locations, 5000 bins / location
+- name: 'Add-on: Users'
+  price_text: $ 7.5
+  price: 7.5
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
+- name: 'Add-on: 500 Orders'
+  price_text: $ 7.5
+  price: 7.5
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
+  included_quota: 500 Orders
+- name: 'Add-on: Locations'
+  price_text: $ 10
+  price: 10
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
+- name: 'Add-on: Advanced autoscans'
+  price_text: $ 8
+  price: 8
+  currency: USD
+  period: month
+  unit: 50 scans per organization / month billed annually
+  included_quota: 50 scans
+- name: 'Add-on: Advanced warehousing'
+  price_text: $ 124.17
+  price: 124.17
+  currency: USD
+  period: month
+  unit: per organization / month billed annually
