@@ -1,14 +1,14 @@
 openapi: 3.2.0
 info:
-  title: batches Bills API
-  description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
+  title: Bills API
+  description: When your vendor supplies goods/services to you on credit, you're sent an invoice that details the amount of money you owe him. You can record this as a bill in Zoho Inventory and track it until it's paid.
   contact: {}
   version: 1.0.0
 servers:
 - url: https://www.zohoapis.com/inventory/v1
   description: API Endpoint
 tags:
-- name: bills
+- name: Bills
   description: Bills Module
 paths:
   /bills:
@@ -18,10 +18,10 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - bills
+      - Bills
       operationId: create_bill
       summary: Create a Bill
-      description: Creates a Bill in Zoho Inventory. Description about the extra parameter <code>attachment</code> Allowed extensions are gif, png, jpeg, jpg, bmp and pdf.
+      description: Creates a Bill in Zoho Inventory. Description about the extra parameter attachment Allowed extensions are gif, png, jpeg, jpg, bmp and pdf.
       requestBody:
         content:
           application/json:
@@ -40,9 +40,9 @@ paths:
         - ZohoInventory.bills.CREATE
     get:
       tags:
-      - bills
+      - Bills
       operationId: list_bills
-      summary: List all Bills.
+      summary: List all Bills
       description: Lists all the Bills in Zoho Inventory.
       parameters:
       - name: page
@@ -86,7 +86,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     get:
       tags:
-      - bills
+      - Bills
       operationId: get_bill
       summary: Retrieve a Bill
       description: Fetches the details of a Bill.
@@ -103,7 +103,7 @@ paths:
         - ZohoInventory.bills.READ
     put:
       tags:
-      - bills
+      - Bills
       operationId: update_bill
       summary: Update a Bill
       description: Updates the details of an existing Bill.
@@ -125,9 +125,9 @@ paths:
         - ZohoInventory.bills.UPDATE
     delete:
       tags:
-      - bills
+      - Bills
       operationId: delete_bill
-      summary: Delete a Bill.
+      summary: Delete a Bill
       description: Deletes a Bill from Zoho Inventory.
       responses:
         '200':
@@ -145,7 +145,7 @@ paths:
     - Bills
     put:
       tags:
-      - bills
+      - Bills
       operationId: update_custom_field_in_bill
       summary: Update custom field in existing bills
       description: Update the value of the custom field in existing bills.
@@ -188,7 +188,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - bills
+      - Bills
       operationId: mark_bill_as_open
       summary: Mark as Open
       description: Marks a Bill as Open.
@@ -217,7 +217,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - bills
+      - Bills
       operationId: mark_bill_as_void
       summary: Mark as Void
       description: Marks a Bill as Void.
@@ -237,7 +237,7 @@ paths:
     - Bills
     post:
       tags:
-      - bills
+      - Bills
       operationId: submit_bill
       summary: Submit a bill for approval
       description: Submit a bill for approval workflow.
@@ -266,7 +266,7 @@ paths:
     - Bills
     post:
       tags:
-      - bills
+      - Bills
       operationId: approve_bill
       summary: Approve a bill
       description: Approve a submitted bill.
@@ -295,7 +295,7 @@ paths:
     - Bills
     post:
       tags:
-      - bills
+      - Bills
       operationId: approve_bill_final
       summary: Final approval of a bill
       description: Perform the final approval of a bill (admin only).
@@ -324,7 +324,7 @@ paths:
     - Bills
     post:
       tags:
-      - bills
+      - Bills
       operationId: reject_bill
       summary: Reject a bill
       description: Reject a submitted bill.
@@ -358,7 +358,7 @@ paths:
     - Bills
     post:
       tags:
-      - bills
+      - Bills
       operationId: bulk_submit_bills
       summary: Bulk submit bills for approval
       description: Submit multiple bills for approval workflow at once.
@@ -387,7 +387,7 @@ paths:
     - Bills
     post:
       tags:
-      - bills
+      - Bills
       operationId: bulk_approve_bills
       summary: Bulk approve bills
       description: Approve multiple submitted bills at once.
@@ -413,138 +413,11 @@ paths:
         - ZohoInventory.bills.UPDATE
 components:
   schemas:
-    batches-response:
-      description: Batches tracked for the line item. Returned for items with batch tracking enabled.
-      type: array
-      items:
-        type: object
-        properties:
-          batch_id:
-            description: Unique identifier of the batch.
-            type: string
-            example: '6780203000001066789'
-          batch_number:
-            description: Batch number.
-            type: string
-            example: BTC-TL-890
-          external_batch_number:
-            description: External batch number from the manufacturer.
-            type: string
-            example: MFR-TL-890
-          manufacturer_date:
-            description: Manufacturing date of the batch.
-            type: string
-            example: '2026-05-12'
-          expiry_date:
-            description: Expiration date of the batch.
-            type: string
-            example: '2026-12-24'
-          in_quantity:
-            description: Inward quantity recorded for the batch.
-            type: number
-            format: float
-            example: 2
-          batch_in_id:
-            description: Unique identifier of the batch entry on the line item.
-            type: string
-            example: '6780203000001066797'
-          storages:
-            description: Bin/storage locations from which stock was received for this batch.
-            type: array
-            x-node_available_in:
-            - Batch with Bin tracked items
-            items:
-              type: object
-              properties:
-                storage_id:
-                  description: Unique identifier of the bin/storage location.
-                  type: string
-                  example: '6780203000001066003'
-                storage_name:
-                  description: Display name of the bin/storage location.
-                  type: string
-                  example: Bin A1
-                in_quantity:
-                  description: Inward quantity recorded against the bin.
-                  type: number
-                  format: float
-                  example: 2
-                storage_in_id:
-                  description: Unique identifier of the storage entry on the line item.
-                  type: string
-                  example: '6780203000001066792'
-    paid_through_account_id:
-      description: ID for the account through which the payment is made.
+    due_date:
+      description: Due date for the Bill.
       type: string
-      example: 4815000000000361
-    bill_number:
-      description: Bill number of Purchase Order.
-      type: string
-      example: BL-00002
-    account_id:
-      description: Account ID of the item.
-      type: string
-      example: 4815000000035003
-    location_id:
-      description: Location ID
-      type: string
-      example: '460000000038080'
-    tax_type:
-      description: Type of the tax
-      type: string
-      example: Tax group
-    vendor_credits:
-      description: The available Vendor Credits.
-      type: array
-      items:
-        type: object
-        properties:
-          vendor_credit_id:
-            $ref: '#/components/schemas/vendor_credit_id'
-          vendor_credit_bill_id:
-            $ref: '#/components/schemas/vendor_credit_bill_id'
-          vendor_credit_number:
-            $ref: '#/components/schemas/vendor_credit_number'
-          date:
-            $ref: '#/components/schemas/date'
-          amount:
-            $ref: '#/components/schemas/amount'
-    is_item_level_tax_calc:
-      description: Checks whether item level tax is calculated or not.
-      type: boolean
-      example: true
-    reverse_charge_tax_name:
-      description: Name of the reverse charge tax
-      type: string
-      example: inter
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    due_by_days:
-      description: Number of days by which the Bill is due.
-      type: integer
-      example: 69
-    open_purchaseorders_count:
-      description: Number of Purchase Orders that are associated with this Bill and open.
-      type: integer
-      example: 4
-    location_name:
-      description: Name of the location
-      type: string
-    notes:
-      description: Notes for the Bill.
-      type: string
-      example: Sample Note
-    tax_exemption_code:
-      description: Code of the Tax Exemption Applied
-      type: string
-      x-node_available_in:
-      - in
-      - au
-      - ca
-      - mx
-      x-node_unavailable_in: []
-    delete-a-bill-response:
+      example: '2015-05-29'
+    create-a-bill-response:
       type: object
       properties:
         code:
@@ -553,33 +426,21 @@ components:
           readOnly: true
         message:
           type: string
-          example: The Bill has been deleted.
+          example: The Bill has been created.
           readOnly: true
-    tax_name:
-      description: Name of the tax.
+        bill:
+          $ref: '#/components/schemas/bill-response'
+    city:
+      description: Name of the city of the customer's billing address.
       type: string
-      example: Purchase tax
-    bcy_rate:
-      description: Item rate in the organization's base currency.
-      type: number
-      format: double
-      example: 122
-    address:
-      description: Name of the street of the customer's billing address.
+      example: New York City
+    label:
+      description: Label of the Custom Field
       type: string
-      example: No:234,90 Church Street
-    reverse_charge_tax_amount:
-      description: Enter reverse charge amount
-      type: number
-      format: double
-      example: 100
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    image_type:
-      description: The type (file format) of the image.
+    value:
+      description: Value of the Custom Field
       type: string
-      example: jpg
+      example: Normal
     retrieve-a-bill-response:
       type: object
       properties:
@@ -676,15 +537,370 @@ components:
               $ref: '#/components/schemas/is_pre_gst'
             is_reverse_charge_applied:
               $ref: '#/components/schemas/is_reverse_charge_applied'
+    description:
+      description: Description for the line item.
+      type: string
+      example: Sample Description
+    vendor_credit_bill_id:
+      description: Unique ID generated by server for vendor credit bills
+      type: string
+      example: 4815000000768039
+    reject-request:
+      type: object
+      properties:
+        reason:
+          description: Reason for rejecting the bill. Max-length [500].
+          type: string
+          example: Incorrect vendor details.
+    tax_total:
+      description: The total of the Tax.
+      type: number
+      format: double
+      example: 2
+    tax_exemption_code:
+      description: Code of the Tax Exemption Applied
+      type: string
+      x-node_available_in:
+      - in
+      - au
+      - ca
+      - mx
+      x-node_unavailable_in: []
+    tds_tax_id:
+      description: TDS ID of the tax or tax group applied to the line item
+      type: string
+      example: '460000000027009'
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    address:
+      description: Name of the street of the customer's billing address.
+      type: string
+      example: No:234,90 Church Street
+    bill-response:
+      type: object
+      properties:
+        bill_id:
+          $ref: '#/components/schemas/bill_id'
+        purchaseorder_id:
+          $ref: '#/components/schemas/purchaseorder_id'
+        vendor_id:
+          $ref: '#/components/schemas/vendor_id'
+        vendor_name:
+          $ref: '#/components/schemas/vendor_name'
+        unused_credits_payable_amount:
+          $ref: '#/components/schemas/unused_credits_payable_amount'
+        status:
+          $ref: '#/components/schemas/status'
+        bill_number:
+          $ref: '#/components/schemas/bill_number'
+        date:
+          $ref: '#/components/schemas/date'
+        due_date:
+          $ref: '#/components/schemas/due_date'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        due_by_days:
+          $ref: '#/components/schemas/due_by_days'
+        currency_id:
+          $ref: '#/components/schemas/currency_id'
+        currency_code:
+          $ref: '#/components/schemas/currency_code'
+        currency_symbol:
+          $ref: '#/components/schemas/currency_symbol'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        exchange_rate:
+          $ref: '#/components/schemas/exchange_rate'
+        is_item_level_tax_calc:
+          $ref: '#/components/schemas/is_item_level_tax_calc'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        line_items:
+          $ref: '#/components/schemas/line_items'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        location_name:
+          $ref: '#/components/schemas/location_name'
+        taxes:
+          $ref: '#/components/schemas/taxes'
+        vendor_credits_applied:
+          $ref: '#/components/schemas/vendor_credits_applied'
+        sub_total:
+          $ref: '#/components/schemas/sub_total'
+        tax_total:
+          $ref: '#/components/schemas/tax_total'
+        balance:
+          $ref: '#/components/schemas/balance'
+        billing_address:
+          $ref: '#/components/schemas/billing_address'
+        payments:
+          $ref: '#/components/schemas/payments'
+        vendor_credits:
+          $ref: '#/components/schemas/vendor_credits'
+        created_time:
+          $ref: '#/components/schemas/created_time'
+        last_modified_time:
+          $ref: '#/components/schemas/last_modified_time'
+        reference_id:
+          $ref: '#/components/schemas/reference_id'
+        notes:
+          $ref: '#/components/schemas/notes'
+        terms:
+          $ref: '#/components/schemas/terms'
+        attachment_name:
+          $ref: '#/components/schemas/attachment_name'
+        open_purchaseorders_count:
+          $ref: '#/components/schemas/open_purchaseorders_count'
+        gst_treatment:
+          $ref: '#/components/schemas/gst_treatment'
+        gst_no:
+          $ref: '#/components/schemas/gst_no'
+        source_of_supply:
+          $ref: '#/components/schemas/source_of_supply'
+        destination_of_supply:
+          $ref: '#/components/schemas/destination_of_supply'
+        is_pre_gst:
+          $ref: '#/components/schemas/is_pre_gst'
+        is_reverse_charge_applied:
+          $ref: '#/components/schemas/is_reverse_charge_applied'
+    reference_id:
+      description: Unique ID generated by the server for the reference.
+      type: string
+      example: 4815000000000342
+    vendor_credits:
+      description: The available Vendor Credits.
+      type: array
+      items:
+        type: object
+        properties:
+          vendor_credit_id:
+            $ref: '#/components/schemas/vendor_credit_id'
+          vendor_credit_bill_id:
+            $ref: '#/components/schemas/vendor_credit_bill_id'
+          vendor_credit_number:
+            $ref: '#/components/schemas/vendor_credit_number'
+          date:
+            $ref: '#/components/schemas/date'
+          amount:
+            $ref: '#/components/schemas/amount'
+    update-a-bill-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The Bill has been updated.
+          readOnly: true
+        bill:
+          type: object
+          properties:
+            bill_id:
+              $ref: '#/components/schemas/bill_id'
+            purchaseorder_id:
+              $ref: '#/components/schemas/purchaseorder_id'
+            vendor_id:
+              $ref: '#/components/schemas/vendor_id'
+            vendor_name:
+              $ref: '#/components/schemas/vendor_name'
+            unused_credits_payable_amount:
+              $ref: '#/components/schemas/unused_credits_payable_amount'
+            status:
+              $ref: '#/components/schemas/status'
+            bill_number:
+              $ref: '#/components/schemas/bill_number'
+            date:
+              $ref: '#/components/schemas/date'
+            due_date:
+              $ref: '#/components/schemas/due_date'
+            reference_number:
+              $ref: '#/components/schemas/reference_number'
+            due_by_days:
+              $ref: '#/components/schemas/due_by_days'
+            currency_id:
+              $ref: '#/components/schemas/currency_id'
+            currency_code:
+              $ref: '#/components/schemas/currency_code'
+            currency_symbol:
+              $ref: '#/components/schemas/currency_symbol'
+            price_precision:
+              $ref: '#/components/schemas/price_precision'
+            exchange_rate:
+              $ref: '#/components/schemas/exchange_rate'
+            is_item_level_tax_calc:
+              $ref: '#/components/schemas/is_item_level_tax_calc'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            line_items:
+              $ref: '#/components/schemas/line_items'
+            location_id:
+              $ref: '#/components/schemas/location_id'
+            location_name:
+              $ref: '#/components/schemas/location_name'
+            taxes:
+              $ref: '#/components/schemas/taxes'
+            vendor_credits_applied:
+              $ref: '#/components/schemas/vendor_credits_applied'
+            sub_total:
+              $ref: '#/components/schemas/sub_total'
+            tax_total:
+              $ref: '#/components/schemas/tax_total'
+            balance:
+              $ref: '#/components/schemas/balance'
+            billing_address:
+              $ref: '#/components/schemas/billing_address'
+            payments:
+              $ref: '#/components/schemas/payments'
+            vendor_credits:
+              $ref: '#/components/schemas/vendor_credits'
+            created_time:
+              $ref: '#/components/schemas/created_time'
+            last_modified_time:
+              $ref: '#/components/schemas/last_modified_time'
+            reference_id:
+              $ref: '#/components/schemas/reference_id'
+            notes:
+              $ref: '#/components/schemas/notes'
+            terms:
+              $ref: '#/components/schemas/terms'
+            attachment_name:
+              $ref: '#/components/schemas/attachment_name'
+            open_purchaseorders_count:
+              $ref: '#/components/schemas/open_purchaseorders_count'
+            gst_treatment:
+              $ref: '#/components/schemas/gst_treatment'
+            gst_no:
+              $ref: '#/components/schemas/gst_no'
+            source_of_supply:
+              $ref: '#/components/schemas/source_of_supply'
+            destination_of_supply:
+              $ref: '#/components/schemas/destination_of_supply'
+            is_pre_gst:
+              $ref: '#/components/schemas/is_pre_gst'
+            is_reverse_charge_applied:
+              $ref: '#/components/schemas/is_reverse_charge_applied'
+    paid_through_account_id:
+      description: ID for the account through which the payment is made.
+      type: string
+      example: 4815000000000361
+    terms:
+      description: Terms and conditions.
+      type: string
+      example: Term & Conditions
     vendor_credit_number:
       type: integer
       format: int64
       example: 67258
-    payment_number:
-      description: Number of the payment.
+    bill_number:
+      description: Bill number of Purchase Order.
       type: string
-      example: 2
-    approval-action-response:
+      example: BL-00002
+    update-an-bill-customfield-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Custom Fields Updated Successfully
+          readOnly: true
+    bcy_rate:
+      description: Item rate in the organization's base currency.
+      type: number
+      format: double
+      example: 122
+    storages-update:
+      description: Bin/storage locations allocated for the line item. Applicable only for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - storage_id
+        - in_quantity
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093226'
+          storage_in_id:
+            description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
+            type: string
+            example: '6780203000001066795'
+          in_quantity:
+            description: Inward quantity into the bin.
+            type: number
+            format: float
+            example: 2
+          serial_numbers:
+            description: Serial numbers allocated to this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: TC-IO-09
+    reverse_charge_tax_percentage:
+      description: Enter reverse charge percentage
+      type: number
+      format: double
+      example: 10
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    serial_numbers:
+      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
+      type: array
+      items:
+        type: string
+        example: ARMP-0078
+    line_item_id:
+      description: Unique ID generated by the server for each line item. This is used as an identifier.
+      type: string
+      example: 4815000000044897
+    gst_treatment:
+      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
+      type: string
+      example: business_gst
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    currency_code:
+      description: Currency code.
+      type: string
+      example: USD
+    currency_id:
+      description: Unique ID generated by the server for the currency. This is used as an identifier.
+      type: string
+      example: 4815000000000097
+    bill_payment_id:
+      description: Bill payment ID
+      type: string
+      example: 4815000000046041
+    receive_item_id:
+      description: Unique ID generated by the server for the receive.
+      type: string
+      example: 4815000000044131
+    taxes:
+      description: 'Number of taxes applied on the Purchase Order. Each tax contains: <code>tax_name</code> and <code>tax_amount</code>.'
+      type: array
+      items:
+        type: object
+        properties:
+          tax_name:
+            $ref: '#/components/schemas/tax_name'
+          tax_amount:
+            $ref: '#/components/schemas/tax_amount'
+    balance:
+      description: Remaining balance of the Bill.
+      type: number
+      format: double
+      example: 0
+    list-all-bills-response:
       type: object
       properties:
         code:
@@ -695,87 +911,307 @@ components:
           type: string
           example: success
           readOnly: true
-    item_total:
-      description: The total for the items.
-      type: number
-      format: double
-      example: 290
-    bill_payment_id:
-      description: Bill payment ID
+        bills:
+          type: array
+          items:
+            type: object
+            properties:
+              bill_id:
+                $ref: '#/components/schemas/bill_id'
+              purchaseorder_id:
+                $ref: '#/components/schemas/purchaseorder_id'
+              vendor_id:
+                $ref: '#/components/schemas/vendor_id'
+              vendor_name:
+                $ref: '#/components/schemas/vendor_name'
+              unused_credits_payable_amount:
+                $ref: '#/components/schemas/unused_credits_payable_amount'
+              status:
+                $ref: '#/components/schemas/status'
+              bill_number:
+                $ref: '#/components/schemas/bill_number'
+              date:
+                $ref: '#/components/schemas/date'
+              due_date:
+                $ref: '#/components/schemas/due_date'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
+              due_by_days:
+                $ref: '#/components/schemas/due_by_days'
+              currency_id:
+                $ref: '#/components/schemas/currency_id'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              currency_symbol:
+                $ref: '#/components/schemas/currency_symbol'
+              price_precision:
+                $ref: '#/components/schemas/price_precision'
+              exchange_rate:
+                $ref: '#/components/schemas/exchange_rate'
+              is_item_level_tax_calc:
+                $ref: '#/components/schemas/is_item_level_tax_calc'
+              custom_fields:
+                $ref: '#/components/schemas/custom_fields'
+              line_items:
+                $ref: '#/components/schemas/line_items'
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              location_name:
+                $ref: '#/components/schemas/location_name'
+              taxes:
+                $ref: '#/components/schemas/taxes'
+              vendor_credits_applied:
+                $ref: '#/components/schemas/vendor_credits_applied'
+              sub_total:
+                $ref: '#/components/schemas/sub_total'
+              tax_total:
+                $ref: '#/components/schemas/tax_total'
+              balance:
+                $ref: '#/components/schemas/balance'
+              billing_address:
+                $ref: '#/components/schemas/billing_address'
+              payments:
+                $ref: '#/components/schemas/payments'
+              vendor_credits:
+                $ref: '#/components/schemas/vendor_credits'
+              created_time:
+                $ref: '#/components/schemas/created_time'
+              last_modified_time:
+                $ref: '#/components/schemas/last_modified_time'
+              reference_id:
+                $ref: '#/components/schemas/reference_id'
+              notes:
+                $ref: '#/components/schemas/notes'
+              terms:
+                $ref: '#/components/schemas/terms'
+              attachment_name:
+                $ref: '#/components/schemas/attachment_name'
+              open_purchaseorders_count:
+                $ref: '#/components/schemas/open_purchaseorders_count'
+    fax:
+      description: Fax number of the customer's billing address.
       type: string
-      example: 4815000000046041
-    currency_id:
-      description: Unique ID generated by the server for the currency. This is used as an identifier.
+      example: 324-524242
+    vendor_id:
+      description: Unique ID generated by the server for the vendor.
       type: string
-      example: 4815000000000097
-    description:
-      description: Description for the line item.
+      example: 4815000000044080
+    last_modified_time:
+      description: Time at which the bill details were last Modified.
       type: string
-      example: Sample Description
-    storages-response:
-      description: Bin/storage locations tracked for the line item. Returned for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093226'
-          storage_name:
-            description: Display name of the bin/storage location.
-            type: string
-            example: Bin A2
-          in_quantity:
-            description: Inward quantity recorded against the bin.
-            type: number
-            format: float
-            example: 2
-          storage_in_id:
-            description: Unique identifier of the storage entry on the line item.
-            type: string
-            example: '6780203000001066795'
-          serial_numbers:
-            description: Serial numbers allocated to this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: TC-IO-09
-    line_item_id:
-      description: Unique ID generated by the server for each line item. This is used as an identifier.
+      example: 2015-05-29 00:00:00+00:00
+    created_time:
+      description: Time at which the Bill details were last created.
       type: string
-      example: 4815000000044897
-    name:
-      description: Name of the line item.
-      type: string
-      example: Laptop-white/15inch/dell
+      example: 2015-05-29 00:00:00+00:00
     image_id:
       description: Unique ID generated by the server for the item image. This is used an identifier.
       type: number
       format: double
       example: 2077500000000002000
-    currency_code:
-      description: Currency code.
+    custom_fields:
+      description: Custom fields for a bill.
+      type: array
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    currency_symbol:
+      description: The symbol for the selected currency.
       type: string
-      example: USD
-    tax_total:
-      description: The total of the Tax.
+      example: $
+    location_id:
+      description: Location ID
+      type: string
+      example: '460000000038080'
+    vendor_name:
+      description: Name of the vendor.
+      type: string
+      example: Molly
+    account_id:
+      description: Account ID of the item.
+      type: string
+      example: 4815000000035003
+    customfield_id:
+      type: string
+      description: Unique identifier of the custom field
+      example: '46000000012845'
+    zip:
+      description: Zip code of the customer's billing address.
+      type: string
+      example: 10048
+    line_items:
+      description: The line items for a Bill.
+      type: array
+      items:
+        type: object
+        properties:
+          purchaseorder_item_id:
+            $ref: '#/components/schemas/purchaseorder_item_id'
+          receive_item_id:
+            $ref: '#/components/schemas/receive_item_id'
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          name:
+            $ref: '#/components/schemas/name'
+          account_id:
+            $ref: '#/components/schemas/account_id'
+          account_name:
+            $ref: '#/components/schemas/account_name'
+          description:
+            $ref: '#/components/schemas/description'
+          bcy_rate:
+            $ref: '#/components/schemas/bcy_rate'
+          rate:
+            $ref: '#/components/schemas/rate'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          tax_id:
+            $ref: '#/components/schemas/tax_id'
+          tds_tax_id:
+            $ref: '#/components/schemas/tds_tax_id'
+          tax_name:
+            $ref: '#/components/schemas/tax_name'
+          tax_type:
+            $ref: '#/components/schemas/tax_type'
+          tax_percentage:
+            $ref: '#/components/schemas/tax_percentage'
+          item_total:
+            $ref: '#/components/schemas/item_total'
+          item_order:
+            $ref: '#/components/schemas/item_order'
+          unit:
+            $ref: '#/components/schemas/unit'
+          image_id:
+            $ref: '#/components/schemas/image_id'
+          image_name:
+            $ref: '#/components/schemas/image_name'
+          image_type:
+            $ref: '#/components/schemas/image_type'
+          reverse_charge_tax_id:
+            $ref: '#/components/schemas/reverse_charge_tax_id'
+          reverse_charge_tax_name:
+            $ref: '#/components/schemas/reverse_charge_tax_name'
+          reverse_charge_tax_percentage:
+            $ref: '#/components/schemas/reverse_charge_tax_percentage'
+          reverse_charge_tax_amount:
+            $ref: '#/components/schemas/reverse_charge_tax_amount'
+          hsn_or_sac:
+            $ref: '#/components/schemas/hsn_or_sac'
+          tax_exemption_code:
+            $ref: '#/components/schemas/tax_exemption_code'
+          location_id:
+            $ref: '#/components/schemas/location_id'
+          location_name:
+            $ref: '#/components/schemas/location_name'
+          tax_exemption_id:
+            $ref: '#/components/schemas/tax_exemption_id'
+          serial_numbers:
+            $ref: '#/components/schemas/serial_numbers'
+          batches:
+            $ref: '#/components/schemas/batches-response'
+          storages:
+            $ref: '#/components/schemas/storages-response'
+          item_custom_fields:
+            $ref: '#/components/schemas/item_custom_fields'
+    source_of_supply:
+      description: Place from where the goods/services are supplied. (If not given, <code>place of contact</code> given for the contact will be taken)
+      type: string
+      example: AP
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    hsn_or_sac:
+      description: Add HSN/SAC code for your goods/services
+      type: string
+      example: 80540
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    is_reverse_charge_applied:
+      description: Applicable for transactions where you pay reverse charge
+      type: boolean
+      example: true
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    notes:
+      description: Notes for the Bill.
+      type: string
+      example: Sample Note
+    gst_no:
+      description: 15 digit GST identification number of the vendor.
+      type: string
+      example: 22AAAAA0000A1Z5
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    item_custom_fields:
+      type: array
+      description: List of custom fields associated with the line item
+      items:
+        type: object
+        properties:
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    is_pre_gst:
+      description: Applicable for transactions that fall before july 1, 2017
+      type: boolean
+      example: false
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    location_name:
+      description: Name of the location
+      type: string
+    rate:
+      description: Item's Puchase Price.
       type: number
       format: double
+      example: 6
+    destination_of_supply:
+      description: Place where the goods/services are supplied to. (If not given, organisation's home state will be taken)
+      type: string
+      example: TN
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    open_purchaseorders_count:
+      description: Number of Purchase Orders that are associated with this Bill and open.
+      type: integer
+      example: 4
+    country:
+      description: Name of the country of the customer's billing address.
+      type: string
+      example: U.S.A
+    payment_mode:
+      description: Mode of payment for the Bill.
+      type: string
+      example: Cash
+    price_precision:
+      description: The precision level for the price's decimal point in a Bill.
+      type: integer
       example: 2
-    mark-as-void-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The bill has been marked as Void.
-          readOnly: true
+    state:
+      description: Name of the state of the customer's billing address.
+      type: string
+      example: New York
+    image_type:
+      description: The type (file format) of the image.
+      type: string
+      example: jpg
+    amount:
+      description: Amount paid for the payment.
+      type: number
+      format: double
+      example: 234
     billing_address:
       description: Customer's billing address. It contains - <code>address</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code> and <code>fax</code>.
       type: array
@@ -794,25 +1230,23 @@ components:
             $ref: '#/components/schemas/country'
           fax:
             $ref: '#/components/schemas/fax'
-    gst_no:
-      description: 15 digit GST identification number of the vendor.
+    payment_id:
+      description: Unique ID generated by the server. This is used as identifier.
       type: string
-      example: 22AAAAA0000A1Z5
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    quantity:
-      description: Quantity of the Item.
+      example: 4815000000046039
+    due_by_days:
+      description: Number of days by which the Bill is due.
+      type: integer
+      example: 69
+    item_total:
+      description: The total for the items.
       type: number
       format: double
-      example: 5
-    destination_of_supply:
-      description: Place where the goods/services are supplied to. (If not given, organisation's home state will be taken)
+      example: 290
+    tax_name:
+      description: Name of the tax.
       type: string
-      example: TN
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
+      example: Purchase tax
     payments:
       description: Payment details for the Bill.
       type: array
@@ -845,13 +1279,258 @@ components:
             $ref: '#/components/schemas/paid_through_account_name'
           is_single_bill_payment:
             $ref: '#/components/schemas/is_single_bill_payment'
-    is_pre_gst:
-      description: Applicable for transactions that fall before july 1, 2017
+    status:
+      description: Status of the Bill.
+      type: string
+      example: paid
+    name:
+      description: Name of the line item.
+      type: string
+      example: Laptop-white/15inch/dell
+    unused_credits_payable_amount:
+      description: Unused credit payable amount.
+      type: number
+      format: double
+      example: 0
+    batches-update:
+      description: Batches for the line item. Create a new batch using <code>batch_number</code> or reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - in_quantity
+        properties:
+          batch_id:
+            description: Unique identifier of a batch. Use when adding inward quantity to an existing batch or updating a batch.
+            type: string
+            example: '6780203000001066789'
+          batch_number:
+            description: Batch number. Required when creating a new batch.
+            type: string
+            example: BTC-TL-890
+          external_batch_number:
+            description: External batch number from the manufacturer. Applicable when creating a new batch.
+            type: string
+            example: MFR-TL-890
+          manufacturer_date:
+            description: Manufacturing date of the batch. Applicable when creating a new batch.
+            type: string
+            example: '2026-05-12'
+          expiry_date:
+            description: Expiration date of the batch. Applicable when creating a new batch.
+            type: string
+            example: '2026-12-24'
+          in_quantity:
+            description: Inward quantity for the batch.
+            type: number
+            format: float
+            example: 2
+          batch_in_id:
+            description: Unique identifier of the batch record. Applicable only when updating an existing batch entry.
+            type: string
+            example: '6780203000001066797'
+          storages:
+            description: Bin/storage locations allocated for stock received against this batch.
+            type: array
+            x-node_available_in:
+            - Batch with Bin tracked items
+            items:
+              type: object
+              required:
+              - storage_id
+              - in_quantity
+              properties:
+                storage_id:
+                  description: Unique identifier of the bin/storage location.
+                  type: string
+                  example: '6780203000001066003'
+                storage_in_id:
+                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
+                  type: string
+                  example: '6780203000001066792'
+                in_quantity:
+                  description: Inward quantity into the bin.
+                  type: number
+                  format: float
+                  example: 2
+    mark-as-void-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The bill has been marked as Void.
+          readOnly: true
+    tax_id:
+      description: Unique ID of the tax applied on the line item.
+      type: string
+      example: 4815000000044043
+    delete-a-bill-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The Bill has been deleted.
+          readOnly: true
+    purchaseorder_item_id:
+      description: Unique ID generated for a line item in the Purchase Order.
+      type: string
+      example: 4815000000045245
+    purchaseorder_id:
+      description: Unique ID generated by the server for the Purchase Order.
+      type: string
+      example: 4815000000044972
+    vendor_credit_id:
+      description: Unique ID generated by server for vendor credits
+      type: string
+      example: 4815000000046039
+    batches-response:
+      description: Batches tracked for the line item. Returned for items with batch tracking enabled.
+      type: array
+      items:
+        type: object
+        properties:
+          batch_id:
+            description: Unique identifier of the batch.
+            type: string
+            example: '6780203000001066789'
+          batch_number:
+            description: Batch number.
+            type: string
+            example: BTC-TL-890
+          external_batch_number:
+            description: External batch number from the manufacturer.
+            type: string
+            example: MFR-TL-890
+          manufacturer_date:
+            description: Manufacturing date of the batch.
+            type: string
+            example: '2026-05-12'
+          expiry_date:
+            description: Expiration date of the batch.
+            type: string
+            example: '2026-12-24'
+          in_quantity:
+            description: Inward quantity recorded for the batch.
+            type: number
+            format: float
+            example: 2
+          batch_in_id:
+            description: Unique identifier of the batch entry on the line item.
+            type: string
+            example: '6780203000001066797'
+          storages:
+            description: Bin/storage locations from which stock was received for this batch.
+            type: array
+            x-node_available_in:
+            - Batch with Bin tracked items
+            items:
+              type: object
+              properties:
+                storage_id:
+                  description: Unique identifier of the bin/storage location.
+                  type: string
+                  example: '6780203000001066003'
+                storage_name:
+                  description: Display name of the bin/storage location.
+                  type: string
+                  example: Bin A1
+                in_quantity:
+                  description: Inward quantity recorded against the bin.
+                  type: number
+                  format: float
+                  example: 2
+                storage_in_id:
+                  description: Unique identifier of the storage entry on the line item.
+                  type: string
+                  example: '6780203000001066792'
+    storages-response:
+      description: Bin/storage locations tracked for the line item. Returned for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093226'
+          storage_name:
+            description: Display name of the bin/storage location.
+            type: string
+            example: Bin A2
+          in_quantity:
+            description: Inward quantity recorded against the bin.
+            type: number
+            format: float
+            example: 2
+          storage_in_id:
+            description: Unique identifier of the storage entry on the line item.
+            type: string
+            example: '6780203000001066795'
+          serial_numbers:
+            description: Serial numbers allocated to this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: TC-IO-09
+    sub_total:
+      description: Sub Total of the Bill.
+      type: number
+      format: double
+      example: 30
+    vendor_credits_applied:
+      description: Vendor credits applied to the Bill.
+      type: number
+      format: double
+      example: 24
+    mark-as-open-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The bill has been marked as open.
+          readOnly: true
+    is_inclusive_tax:
+      description: Indicates whether the item rates are tax inclusive or exclusive
       type: boolean
       example: false
+    tax_treatment:
+      description: 'VAT treatment for the bill. Choose whether the vendor falls under: <code>home_country_mexico</code>,<code>border_region_mexico</code>,<code>non_mexico</code> supported only for <b>MX</b>.'
+      type: string
+      example: vat_registered
       x-node_available_in:
-      - in
+      - mx
       x-node_unavailable_in: []
+    tax_type:
+      description: Type of the tax
+      type: string
+      example: Tax group
+    account_name:
+      description: Name of the account.
+      type: string
+      example: Inventory Asset
+    paid_through_account_name:
+      description: Name of the account.
+      type: string
+      example: Petty Cash
+    tax_amount:
+      description: Amount of the tax.
+      type: number
+      format: double
+      example: 29
     bill_id:
       description: Unique ID generated by the server. This is used as identifier.
       type: string
@@ -860,6 +1539,16 @@ components:
       description: Name of the image of the line item.
       type: string
       example: dell.jpg
+    item_order:
+      description: Order of the line item, starting from 0.
+      type: number
+      format: double
+      example: 0
+    exchange_rate:
+      description: Exchange rate of the currency, with respect to the base currency.
+      type: number
+      format: double
+      example: 1
     update-a-bill-request:
       required:
       - vendor_id
@@ -977,12 +1666,133 @@ components:
           $ref: '#/components/schemas/is_pre_gst'
         is_reverse_charge_applied:
           $ref: '#/components/schemas/is_reverse_charge_applied'
-    rate:
-      description: Item's Puchase Price.
+    quantity:
+      description: Quantity of the Item.
       type: number
       format: double
-      example: 6
-    list-all-bills-response:
+      example: 5
+    unit:
+      description: Unit of the item.
+      type: string
+      example: qty
+    reverse_charge_tax_name:
+      description: Name of the reverse charge tax
+      type: string
+      example: inter
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    date:
+      description: Date of the Bill.
+      type: string
+      example: '2015-05-29'
+    tax_exemption_id:
+      description: ID of the Tax Exemption Applied
+      type: string
+      x-node_available_in:
+      - in
+      - au
+      - ca
+      x-node_unavailable_in: []
+    storages:
+      description: Bin/storage locations allocated for the line item. Applicable only for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - storage_id
+        - in_quantity
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093226'
+          in_quantity:
+            description: Inward quantity into the bin.
+            type: number
+            format: float
+            example: 2
+          serial_numbers:
+            description: Serial numbers allocated to this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: TC-IO-09
+    reverse_charge_tax_amount:
+      description: Enter reverse charge amount
+      type: number
+      format: double
+      example: 100
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    batches:
+      description: Batches for the line item. Create a new batch using <code>batch_number</code> or reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - in_quantity
+        properties:
+          batch_id:
+            description: Unique identifier of a batch. Use when adding inward quantity to an existing batch or updating a batch.
+            type: string
+            example: '6780203000001066789'
+          batch_number:
+            description: Batch number. Required when creating a new batch.
+            type: string
+            example: BTC-TL-890
+          external_batch_number:
+            description: External batch number from the manufacturer. Applicable when creating a new batch.
+            type: string
+            example: MFR-TL-890
+          manufacturer_date:
+            description: Manufacturing date of the batch. Applicable when creating a new batch.
+            type: string
+            example: '2026-05-12'
+          expiry_date:
+            description: Expiration date of the batch. Applicable when creating a new batch.
+            type: string
+            example: '2026-12-24'
+          in_quantity:
+            description: Inward quantity for the batch.
+            type: number
+            format: float
+            example: 2
+          storages:
+            description: Bin/storage locations allocated for stock received against this batch.
+            type: array
+            x-node_available_in:
+            - Batch with Bin tracked items
+            items:
+              type: object
+              required:
+              - storage_id
+              - in_quantity
+              properties:
+                storage_id:
+                  description: Unique identifier of the bin/storage location.
+                  type: string
+                  example: '6780203000001066003'
+                in_quantity:
+                  description: Inward quantity into the bin.
+                  type: number
+                  format: float
+                  example: 2
+    reverse_charge_tax_id:
+      description: Reverse charge tax ID
+      type: string
+      example: 460000000038056
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    attachment_name:
+      description: Name of the attached file.
+      type: string
+      example: sample-attachments
+    approval-action-response:
       type: object
       properties:
         code:
@@ -993,226 +1803,6 @@ components:
           type: string
           example: success
           readOnly: true
-        bills:
-          type: array
-          items:
-            type: object
-            properties:
-              bill_id:
-                $ref: '#/components/schemas/bill_id'
-              purchaseorder_id:
-                $ref: '#/components/schemas/purchaseorder_id'
-              vendor_id:
-                $ref: '#/components/schemas/vendor_id'
-              vendor_name:
-                $ref: '#/components/schemas/vendor_name'
-              unused_credits_payable_amount:
-                $ref: '#/components/schemas/unused_credits_payable_amount'
-              status:
-                $ref: '#/components/schemas/status'
-              bill_number:
-                $ref: '#/components/schemas/bill_number'
-              date:
-                $ref: '#/components/schemas/date'
-              due_date:
-                $ref: '#/components/schemas/due_date'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
-              due_by_days:
-                $ref: '#/components/schemas/due_by_days'
-              currency_id:
-                $ref: '#/components/schemas/currency_id'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              currency_symbol:
-                $ref: '#/components/schemas/currency_symbol'
-              price_precision:
-                $ref: '#/components/schemas/price_precision'
-              exchange_rate:
-                $ref: '#/components/schemas/exchange_rate'
-              is_item_level_tax_calc:
-                $ref: '#/components/schemas/is_item_level_tax_calc'
-              custom_fields:
-                $ref: '#/components/schemas/custom_fields'
-              line_items:
-                $ref: '#/components/schemas/line_items'
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              location_name:
-                $ref: '#/components/schemas/location_name'
-              taxes:
-                $ref: '#/components/schemas/taxes'
-              vendor_credits_applied:
-                $ref: '#/components/schemas/vendor_credits_applied'
-              sub_total:
-                $ref: '#/components/schemas/sub_total'
-              tax_total:
-                $ref: '#/components/schemas/tax_total'
-              balance:
-                $ref: '#/components/schemas/balance'
-              billing_address:
-                $ref: '#/components/schemas/billing_address'
-              payments:
-                $ref: '#/components/schemas/payments'
-              vendor_credits:
-                $ref: '#/components/schemas/vendor_credits'
-              created_time:
-                $ref: '#/components/schemas/created_time'
-              last_modified_time:
-                $ref: '#/components/schemas/last_modified_time'
-              reference_id:
-                $ref: '#/components/schemas/reference_id'
-              notes:
-                $ref: '#/components/schemas/notes'
-              terms:
-                $ref: '#/components/schemas/terms'
-              attachment_name:
-                $ref: '#/components/schemas/attachment_name'
-              open_purchaseorders_count:
-                $ref: '#/components/schemas/open_purchaseorders_count'
-    payment_mode:
-      description: Mode of payment for the Bill.
-      type: string
-      example: Cash
-    purchaseorder_item_id:
-      description: Unique ID generated for a line item in the Purchase Order.
-      type: string
-      example: 4815000000045245
-    tax_treatment:
-      description: 'VAT treatment for the bill. Choose whether the vendor falls under: <code>home_country_mexico</code>,<code>border_region_mexico</code>,<code>non_mexico</code> supported only for <b>MX</b>.'
-      type: string
-      example: vat_registered
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    source_of_supply:
-      description: Place from where the goods/services are supplied. (If not given, <code>place of contact</code> given for the contact will be taken)
-      type: string
-      example: AP
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    mark-as-open-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The bill has been marked as open.
-          readOnly: true
-    tds_tax_id:
-      description: TDS ID of the tax or tax group applied to the line item
-      type: string
-      example: '460000000027009'
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    tax_exemption_id:
-      description: ID of the Tax Exemption Applied
-      type: string
-      x-node_available_in:
-      - in
-      - au
-      - ca
-      x-node_unavailable_in: []
-    custom_fields:
-      description: Custom fields for a bill.
-      type: array
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    currency_symbol:
-      description: The symbol for the selected currency.
-      type: string
-      example: $
-    update-an-bill-customfield-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Custom Fields Updated Successfully
-          readOnly: true
-    fax:
-      description: Fax number of the customer's billing address.
-      type: string
-      example: 324-524242
-    vendor_id:
-      description: Unique ID generated by the server for the vendor.
-      type: string
-      example: 4815000000044080
-    vendor_credit_bill_id:
-      description: Unique ID generated by server for vendor credit bills
-      type: string
-      example: 4815000000768039
-    state:
-      description: Name of the state of the customer's billing address.
-      type: string
-      example: New York
-    terms:
-      description: Terms and conditions.
-      type: string
-      example: Term & Conditions
-    amount:
-      description: Amount paid for the payment.
-      type: number
-      format: double
-      example: 234
-    item_custom_fields:
-      type: array
-      description: List of custom fields associated with the line item
-      items:
-        type: object
-        properties:
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    is_reverse_charge_applied:
-      description: Applicable for transactions where you pay reverse charge
-      type: boolean
-      example: true
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    reference_id:
-      description: Unique ID generated by the server for the reference.
-      type: string
-      example: 4815000000000342
-    exchange_rate:
-      description: Exchange rate of the currency, with respect to the base currency.
-      type: number
-      format: double
-      example: 1
-    create-a-bill-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The Bill has been created.
-          readOnly: true
-        bill:
-          $ref: '#/components/schemas/bill-response'
-    status:
-      description: Status of the Bill.
-      type: string
-      example: paid
     create-a-bill-request:
       required:
       - vendor_id
@@ -1326,617 +1916,27 @@ components:
           $ref: '#/components/schemas/source_of_supply'
         destination_of_supply:
           $ref: '#/components/schemas/destination_of_supply'
-    label:
-      description: Label of the Custom Field
+    reference_number:
+      description: Reference number for the Bill.
       type: string
+      example: PO-00003
+    payment_number:
+      description: Number of the payment.
+      type: string
+      example: 2
     tax_percentage:
       description: Percentage of the tax applied.
       type: number
       format: double
       example: 12
-    batches-update:
-      description: Batches for the line item. Create a new batch using <code>batch_number</code> or reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - in_quantity
-        properties:
-          batch_id:
-            description: Unique identifier of a batch. Use when adding inward quantity to an existing batch or updating a batch.
-            type: string
-            example: '6780203000001066789'
-          batch_number:
-            description: Batch number. Required when creating a new batch.
-            type: string
-            example: BTC-TL-890
-          external_batch_number:
-            description: External batch number from the manufacturer. Applicable when creating a new batch.
-            type: string
-            example: MFR-TL-890
-          manufacturer_date:
-            description: Manufacturing date of the batch. Applicable when creating a new batch.
-            type: string
-            example: '2026-05-12'
-          expiry_date:
-            description: Expiration date of the batch. Applicable when creating a new batch.
-            type: string
-            example: '2026-12-24'
-          in_quantity:
-            description: Inward quantity for the batch.
-            type: number
-            format: float
-            example: 2
-          batch_in_id:
-            description: Unique identifier of the batch record. Applicable only when updating an existing batch entry.
-            type: string
-            example: '6780203000001066797'
-          storages:
-            description: Bin/storage locations allocated for stock received against this batch.
-            type: array
-            x-node_available_in:
-            - Batch with Bin tracked items
-            items:
-              type: object
-              required:
-              - storage_id
-              - in_quantity
-              properties:
-                storage_id:
-                  description: Unique identifier of the bin/storage location.
-                  type: string
-                  example: '6780203000001066003'
-                storage_in_id:
-                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
-                  type: string
-                  example: '6780203000001066792'
-                in_quantity:
-                  description: Inward quantity into the bin.
-                  type: number
-                  format: float
-                  example: 2
-    bill-response:
-      type: object
-      properties:
-        bill_id:
-          $ref: '#/components/schemas/bill_id'
-        purchaseorder_id:
-          $ref: '#/components/schemas/purchaseorder_id'
-        vendor_id:
-          $ref: '#/components/schemas/vendor_id'
-        vendor_name:
-          $ref: '#/components/schemas/vendor_name'
-        unused_credits_payable_amount:
-          $ref: '#/components/schemas/unused_credits_payable_amount'
-        status:
-          $ref: '#/components/schemas/status'
-        bill_number:
-          $ref: '#/components/schemas/bill_number'
-        date:
-          $ref: '#/components/schemas/date'
-        due_date:
-          $ref: '#/components/schemas/due_date'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        due_by_days:
-          $ref: '#/components/schemas/due_by_days'
-        currency_id:
-          $ref: '#/components/schemas/currency_id'
-        currency_code:
-          $ref: '#/components/schemas/currency_code'
-        currency_symbol:
-          $ref: '#/components/schemas/currency_symbol'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        exchange_rate:
-          $ref: '#/components/schemas/exchange_rate'
-        is_item_level_tax_calc:
-          $ref: '#/components/schemas/is_item_level_tax_calc'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        line_items:
-          $ref: '#/components/schemas/line_items'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        location_name:
-          $ref: '#/components/schemas/location_name'
-        taxes:
-          $ref: '#/components/schemas/taxes'
-        vendor_credits_applied:
-          $ref: '#/components/schemas/vendor_credits_applied'
-        sub_total:
-          $ref: '#/components/schemas/sub_total'
-        tax_total:
-          $ref: '#/components/schemas/tax_total'
-        balance:
-          $ref: '#/components/schemas/balance'
-        billing_address:
-          $ref: '#/components/schemas/billing_address'
-        payments:
-          $ref: '#/components/schemas/payments'
-        vendor_credits:
-          $ref: '#/components/schemas/vendor_credits'
-        created_time:
-          $ref: '#/components/schemas/created_time'
-        last_modified_time:
-          $ref: '#/components/schemas/last_modified_time'
-        reference_id:
-          $ref: '#/components/schemas/reference_id'
-        notes:
-          $ref: '#/components/schemas/notes'
-        terms:
-          $ref: '#/components/schemas/terms'
-        attachment_name:
-          $ref: '#/components/schemas/attachment_name'
-        open_purchaseorders_count:
-          $ref: '#/components/schemas/open_purchaseorders_count'
-        gst_treatment:
-          $ref: '#/components/schemas/gst_treatment'
-        gst_no:
-          $ref: '#/components/schemas/gst_no'
-        source_of_supply:
-          $ref: '#/components/schemas/source_of_supply'
-        destination_of_supply:
-          $ref: '#/components/schemas/destination_of_supply'
-        is_pre_gst:
-          $ref: '#/components/schemas/is_pre_gst'
-        is_reverse_charge_applied:
-          $ref: '#/components/schemas/is_reverse_charge_applied'
-    line_items:
-      description: The line items for a Bill.
-      type: array
-      items:
-        type: object
-        properties:
-          purchaseorder_item_id:
-            $ref: '#/components/schemas/purchaseorder_item_id'
-          receive_item_id:
-            $ref: '#/components/schemas/receive_item_id'
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          name:
-            $ref: '#/components/schemas/name'
-          account_id:
-            $ref: '#/components/schemas/account_id'
-          account_name:
-            $ref: '#/components/schemas/account_name'
-          description:
-            $ref: '#/components/schemas/description'
-          bcy_rate:
-            $ref: '#/components/schemas/bcy_rate'
-          rate:
-            $ref: '#/components/schemas/rate'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          tax_id:
-            $ref: '#/components/schemas/tax_id'
-          tds_tax_id:
-            $ref: '#/components/schemas/tds_tax_id'
-          tax_name:
-            $ref: '#/components/schemas/tax_name'
-          tax_type:
-            $ref: '#/components/schemas/tax_type'
-          tax_percentage:
-            $ref: '#/components/schemas/tax_percentage'
-          item_total:
-            $ref: '#/components/schemas/item_total'
-          item_order:
-            $ref: '#/components/schemas/item_order'
-          unit:
-            $ref: '#/components/schemas/unit'
-          image_id:
-            $ref: '#/components/schemas/image_id'
-          image_name:
-            $ref: '#/components/schemas/image_name'
-          image_type:
-            $ref: '#/components/schemas/image_type'
-          reverse_charge_tax_id:
-            $ref: '#/components/schemas/reverse_charge_tax_id'
-          reverse_charge_tax_name:
-            $ref: '#/components/schemas/reverse_charge_tax_name'
-          reverse_charge_tax_percentage:
-            $ref: '#/components/schemas/reverse_charge_tax_percentage'
-          reverse_charge_tax_amount:
-            $ref: '#/components/schemas/reverse_charge_tax_amount'
-          hsn_or_sac:
-            $ref: '#/components/schemas/hsn_or_sac'
-          tax_exemption_code:
-            $ref: '#/components/schemas/tax_exemption_code'
-          location_id:
-            $ref: '#/components/schemas/location_id'
-          location_name:
-            $ref: '#/components/schemas/location_name'
-          tax_exemption_id:
-            $ref: '#/components/schemas/tax_exemption_id'
-          serial_numbers:
-            $ref: '#/components/schemas/serial_numbers'
-          batches:
-            $ref: '#/components/schemas/batches-response'
-          storages:
-            $ref: '#/components/schemas/storages-response'
-          item_custom_fields:
-            $ref: '#/components/schemas/item_custom_fields'
-    country:
-      description: Name of the country of the customer's billing address.
-      type: string
-      example: U.S.A
-    date:
-      description: Date of the Bill.
-      type: string
-      example: '2015-05-29'
-    reference_number:
-      description: Reference number for the Bill.
-      type: string
-      example: PO-00003
-    last_modified_time:
-      description: Time at which the bill details were last Modified.
-      type: string
-      example: 2015-05-29 00:00:00+00:00
-    city:
-      description: Name of the city of the customer's billing address.
-      type: string
-      example: New York City
-    reject-request:
-      type: object
-      properties:
-        reason:
-          description: Reason for rejecting the bill. Max-length [500].
-          type: string
-          example: Incorrect vendor details.
-    taxes:
-      description: 'Number of taxes applied on the Purchase Order. Each tax contains: <code>tax_name</code> and <code>tax_amount</code>.'
-      type: array
-      items:
-        type: object
-        properties:
-          tax_name:
-            $ref: '#/components/schemas/tax_name'
-          tax_amount:
-            $ref: '#/components/schemas/tax_amount'
-    vendor_name:
-      description: Name of the vendor.
-      type: string
-      example: Molly
-    created_time:
-      description: Time at which the Bill details were last created.
-      type: string
-      example: 2015-05-29 00:00:00+00:00
-    item_order:
-      description: Order of the line item, starting from 0.
-      type: number
-      format: double
-      example: 0
-    serial_numbers:
-      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
-      type: array
-      items:
-        type: string
-        example: ARMP-0078
     is_single_bill_payment:
       description: Checks whether the payment is for single bills or multiple bills.
       type: boolean
       example: true
-    receive_item_id:
-      description: Unique ID generated by the server for the receive.
-      type: string
-      example: 4815000000044131
-    vendor_credits_applied:
-      description: Vendor credits applied to the Bill.
-      type: number
-      format: double
-      example: 24
-    reverse_charge_tax_percentage:
-      description: Enter reverse charge percentage
-      type: number
-      format: double
-      example: 10
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    hsn_or_sac:
-      description: Add HSN/SAC code for your goods/services
-      type: string
-      example: 80540
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    balance:
-      description: Remaining balance of the Bill.
-      type: number
-      format: double
-      example: 0
-    update-a-bill-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The Bill has been updated.
-          readOnly: true
-        bill:
-          type: object
-          properties:
-            bill_id:
-              $ref: '#/components/schemas/bill_id'
-            purchaseorder_id:
-              $ref: '#/components/schemas/purchaseorder_id'
-            vendor_id:
-              $ref: '#/components/schemas/vendor_id'
-            vendor_name:
-              $ref: '#/components/schemas/vendor_name'
-            unused_credits_payable_amount:
-              $ref: '#/components/schemas/unused_credits_payable_amount'
-            status:
-              $ref: '#/components/schemas/status'
-            bill_number:
-              $ref: '#/components/schemas/bill_number'
-            date:
-              $ref: '#/components/schemas/date'
-            due_date:
-              $ref: '#/components/schemas/due_date'
-            reference_number:
-              $ref: '#/components/schemas/reference_number'
-            due_by_days:
-              $ref: '#/components/schemas/due_by_days'
-            currency_id:
-              $ref: '#/components/schemas/currency_id'
-            currency_code:
-              $ref: '#/components/schemas/currency_code'
-            currency_symbol:
-              $ref: '#/components/schemas/currency_symbol'
-            price_precision:
-              $ref: '#/components/schemas/price_precision'
-            exchange_rate:
-              $ref: '#/components/schemas/exchange_rate'
-            is_item_level_tax_calc:
-              $ref: '#/components/schemas/is_item_level_tax_calc'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            line_items:
-              $ref: '#/components/schemas/line_items'
-            location_id:
-              $ref: '#/components/schemas/location_id'
-            location_name:
-              $ref: '#/components/schemas/location_name'
-            taxes:
-              $ref: '#/components/schemas/taxes'
-            vendor_credits_applied:
-              $ref: '#/components/schemas/vendor_credits_applied'
-            sub_total:
-              $ref: '#/components/schemas/sub_total'
-            tax_total:
-              $ref: '#/components/schemas/tax_total'
-            balance:
-              $ref: '#/components/schemas/balance'
-            billing_address:
-              $ref: '#/components/schemas/billing_address'
-            payments:
-              $ref: '#/components/schemas/payments'
-            vendor_credits:
-              $ref: '#/components/schemas/vendor_credits'
-            created_time:
-              $ref: '#/components/schemas/created_time'
-            last_modified_time:
-              $ref: '#/components/schemas/last_modified_time'
-            reference_id:
-              $ref: '#/components/schemas/reference_id'
-            notes:
-              $ref: '#/components/schemas/notes'
-            terms:
-              $ref: '#/components/schemas/terms'
-            attachment_name:
-              $ref: '#/components/schemas/attachment_name'
-            open_purchaseorders_count:
-              $ref: '#/components/schemas/open_purchaseorders_count'
-            gst_treatment:
-              $ref: '#/components/schemas/gst_treatment'
-            gst_no:
-              $ref: '#/components/schemas/gst_no'
-            source_of_supply:
-              $ref: '#/components/schemas/source_of_supply'
-            destination_of_supply:
-              $ref: '#/components/schemas/destination_of_supply'
-            is_pre_gst:
-              $ref: '#/components/schemas/is_pre_gst'
-            is_reverse_charge_applied:
-              $ref: '#/components/schemas/is_reverse_charge_applied'
-    is_inclusive_tax:
-      description: Indicates whether the item rates are tax inclusive or exclusive
+    is_item_level_tax_calc:
+      description: Checks whether item level tax is calculated or not.
       type: boolean
-      example: false
-    account_name:
-      description: Name of the account.
-      type: string
-      example: Inventory Asset
-    paid_through_account_name:
-      description: Name of the account.
-      type: string
-      example: Petty Cash
-    price_precision:
-      description: The precision level for the price's decimal point in a Bill.
-      type: integer
-      example: 2
-    tax_id:
-      description: Unique ID of the tax applied on the line item.
-      type: string
-      example: 4815000000044043
-    batches:
-      description: Batches for the line item. Create a new batch using <code>batch_number</code> or reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - in_quantity
-        properties:
-          batch_id:
-            description: Unique identifier of a batch. Use when adding inward quantity to an existing batch or updating a batch.
-            type: string
-            example: '6780203000001066789'
-          batch_number:
-            description: Batch number. Required when creating a new batch.
-            type: string
-            example: BTC-TL-890
-          external_batch_number:
-            description: External batch number from the manufacturer. Applicable when creating a new batch.
-            type: string
-            example: MFR-TL-890
-          manufacturer_date:
-            description: Manufacturing date of the batch. Applicable when creating a new batch.
-            type: string
-            example: '2026-05-12'
-          expiry_date:
-            description: Expiration date of the batch. Applicable when creating a new batch.
-            type: string
-            example: '2026-12-24'
-          in_quantity:
-            description: Inward quantity for the batch.
-            type: number
-            format: float
-            example: 2
-          storages:
-            description: Bin/storage locations allocated for stock received against this batch.
-            type: array
-            x-node_available_in:
-            - Batch with Bin tracked items
-            items:
-              type: object
-              required:
-              - storage_id
-              - in_quantity
-              properties:
-                storage_id:
-                  description: Unique identifier of the bin/storage location.
-                  type: string
-                  example: '6780203000001066003'
-                in_quantity:
-                  description: Inward quantity into the bin.
-                  type: number
-                  format: float
-                  example: 2
-    purchaseorder_id:
-      description: Unique ID generated by the server for the Purchase Order.
-      type: string
-      example: 4815000000044972
-    vendor_credit_id:
-      description: Unique ID generated by server for vendor credits
-      type: string
-      example: 4815000000046039
-    storages-update:
-      description: Bin/storage locations allocated for the line item. Applicable only for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - storage_id
-        - in_quantity
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093226'
-          storage_in_id:
-            description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
-            type: string
-            example: '6780203000001066795'
-          in_quantity:
-            description: Inward quantity into the bin.
-            type: number
-            format: float
-            example: 2
-          serial_numbers:
-            description: Serial numbers allocated to this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: TC-IO-09
-    payment_id:
-      description: Unique ID generated by the server. This is used as identifier.
-      type: string
-      example: 4815000000046039
-    value:
-      description: Value of the Custom Field
-      type: string
-      example: Normal
-    zip:
-      description: Zip code of the customer's billing address.
-      type: string
-      example: 10048
-    customfield_id:
-      type: string
-      description: Unique identifier of the custom field
-      example: '46000000012845'
-    unused_credits_payable_amount:
-      description: Unused credit payable amount.
-      type: number
-      format: double
-      example: 0
-    reverse_charge_tax_id:
-      description: Reverse charge tax ID
-      type: string
-      example: 460000000038056
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    unit:
-      description: Unit of the item.
-      type: string
-      example: qty
-    due_date:
-      description: Due date for the Bill.
-      type: string
-      example: '2015-05-29'
-    attachment_name:
-      description: Name of the attached file.
-      type: string
-      example: sample-attachments
-    tax_amount:
-      description: Amount of the tax.
-      type: number
-      format: double
-      example: 29
-    gst_treatment:
-      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
-      type: string
-      example: business_gst
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    sub_total:
-      description: Sub Total of the Bill.
-      type: number
-      format: double
-      example: 30
-    storages:
-      description: Bin/storage locations allocated for the line item. Applicable only for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - storage_id
-        - in_quantity
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093226'
-          in_quantity:
-            description: Inward quantity into the bin.
-            type: number
-            format: float
-            example: 2
-          serial_numbers:
-            description: Serial numbers allocated to this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: TC-IO-09
+      example: true
   parameters:
     organization_id:
       name: organization_id
@@ -1953,7 +1953,7 @@ components:
         implicit:
           authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
           scopes:
-            ZohoInventory.items.CREATE: Create Items
-            ZohoInventory.items.READ: Read Items
-            ZohoInventory.items.UPDATE: Update Items
-            ZohoInventory.items.DELETE: Delete Items
+            ZohoInventory.bills.CREATE: Create Bills
+            ZohoInventory.bills.READ: Read Bills
+            ZohoInventory.bills.UPDATE: Update Bills
+            ZohoInventory.bills.DELETE: Delete Bills

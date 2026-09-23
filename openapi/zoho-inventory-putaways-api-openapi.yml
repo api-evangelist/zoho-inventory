@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: batches Putaways API
-  description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
+  title: Putaways API
+  description: Putaways let you record stock moved into storage locations after inbound operations. Use these APIs to create, update, list, and delete putaway transactions in Zoho Inventory.
   contact: {}
   version: 1.0.0
 servers:
@@ -423,74 +423,41 @@ paths:
         - ZohoInventory.settings.READ
 components:
   schemas:
-    putaway-line-item-response:
+    page_context:
       type: object
+      description: Pagination and list context for the current result set.
       properties:
-        line_item_id:
+        page:
+          type: integer
+          example: 1
+        per_page:
+          type: integer
+          example: 200
+        has_more_page:
+          type: boolean
+        report_name:
+          type: string
+        applied_filter:
+          type: string
+        sort_column:
+          type: string
+        sort_order:
+          type: string
+    putaway-line-storage-node:
+      type: object
+      description: Storage-bin allocation for a putaway line when storage tracking is enabled.
+      properties:
+        storage_id:
           type: integer
           format: int64
-        item_id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        sku:
-          type: string
-        unit:
-          type: string
-        image_document_id:
-          type: integer
-          format: int64
-        description:
-          type: string
-        quantity_transferred:
+          description: Storage location ID.
+        quantity:
           type: number
           format: double
-        track_serial_number:
-          type: boolean
-        track_batch_number:
-          type: boolean
-        serial_numbers:
-          type: array
-          items:
-            $ref: '#/components/schemas/putaway-line-serial-node'
-        batches:
-          type: array
-          items:
-            $ref: '#/components/schemas/putaway-line-batch-node'
-        is_combo_product:
-          type: boolean
-        storages:
-          type: array
-          items:
-            $ref: '#/components/schemas/putaway-line-storage-node'
-        is_storage_location_enabled:
-          type: boolean
-    putaway-document-attachment:
+          description: Quantity put away into this storage for the line.
+    delete-a-putaway-response:
       type: object
-      description: File attached to a putaway (DocumentDetailsForEntity).
-      properties:
-        document_id:
-          type: integer
-          format: int64
-          description: Attachment document ID; use with GET/DELETE `/putaways/{putaway_id}/documents/{document_id}`.
-        file_name:
-          type: string
-          description: Original file name.
-        file_type:
-          type: string
-          description: MIME or file type classification.
-        file_size:
-          type: integer
-          format: int64
-          description: File size in bytes.
-        file_size_formatted:
-          type: string
-          description: Human-readable file size.
-    update-a-putaway-request:
-      $ref: '#/components/schemas/create-a-putaway-request'
-    get-a-putaway-response:
-      type: object
+      description: Returned when a putaway is deleted.
       properties:
         code:
           type: integer
@@ -498,10 +465,8 @@ components:
           readOnly: true
         message:
           type: string
-          example: success
+          example: Putaway deleted successfully.
           readOnly: true
-        putaway:
-          $ref: '#/components/schemas/putaway-response'
     putaway-line-batch-node:
       type: object
       description: One batch allocation on a putaway line when batch tracking is enabled (see server BatchNumberCreate / BatchNumberEdit).
@@ -547,70 +512,6 @@ components:
           type: string
           readOnly: true
           description: On read, batch status when returned by the service.
-    create-a-putaway-request:
-      type: object
-      required:
-      - date
-      - line_items
-      properties:
-        putaway_number:
-          type: string
-          description: Putaway number; optional when auto-generation is enabled.
-        date:
-          type: string
-          description: Transaction date (yyyy-mm-dd).
-        warehouse_id:
-          type: integer
-          format: int64
-          description: Warehouse ID when warehouses are enabled.
-        location_id:
-          type: integer
-          format: int64
-          description: Location (branch) ID when locations are enabled.
-        notes:
-          type: string
-          description: Internal notes for the putaway.
-        line_items:
-          type: array
-          description: 'A putaway can contain multiple line items. Each object must include <code>item_id</code> and <code>quantity_transferred</code>. Optional fields: <code>line_item_id</code> (required on update for existing lines), <code>description</code>, <code>serial_numbers</code>, <code>batches</code>, and <code>storages</code> when serial, batch, or bin storage tracking applies in your organization.'
-          items:
-            $ref: '#/components/schemas/putaway-line-item-request'
-    putaway-line-item-request:
-      type: object
-      required:
-      - item_id
-      - quantity_transferred
-      properties:
-        line_item_id:
-          type: integer
-          format: int64
-          description: Line item ID returned by the server. Required on update when modifying existing line items.
-        item_id:
-          type: integer
-          format: int64
-          description: Item (product) ID for the line. Required for every line item (same role as <code>item_id</code> on transfer order line items).
-        description:
-          type: string
-          description: Line-level description or notes for the item. Optional.
-        quantity_transferred:
-          type: number
-          format: double
-          description: Quantity put away for this line. Required for every line item (same role as <code>quantity_transfer</code> on transfer orders).
-        serial_numbers:
-          type: array
-          description: Serial number details when serial tracking is enabled.
-          items:
-            $ref: '#/components/schemas/putaway-line-serial-node'
-        batches:
-          type: array
-          description: Batch details when batch tracking is enabled.
-          items:
-            $ref: '#/components/schemas/putaway-line-batch-node'
-        storages:
-          type: array
-          description: Storage bin allocations when storage tracking is enabled.
-          items:
-            $ref: '#/components/schemas/putaway-line-storage-node'
     putaway-response:
       type: object
       properties:
@@ -653,7 +554,42 @@ components:
           description: Attachments on the putaway when returned by the service.
           items:
             $ref: '#/components/schemas/putaway-document-attachment'
-    list-putaway-comments-response:
+    putaway-document-attachment:
+      type: object
+      description: File attached to a putaway (DocumentDetailsForEntity).
+      properties:
+        document_id:
+          type: integer
+          format: int64
+          description: Attachment document ID; use with GET/DELETE `/putaways/{putaway_id}/documents/{document_id}`.
+        file_name:
+          type: string
+          description: Original file name.
+        file_type:
+          type: string
+          description: MIME or file type classification.
+        file_size:
+          type: integer
+          format: int64
+          description: File size in bytes.
+        file_size_formatted:
+          type: string
+          description: Human-readable file size.
+    putaway-line-serial-node:
+      type: object
+      description: Serial number row for a putaway line when serial tracking is enabled.
+      properties:
+        serialnumber_id:
+          type: integer
+          format: int64
+          description: Serial number master record ID.
+        serial_number:
+          type: string
+          description: Serial code.
+        status:
+          type: string
+          description: Serial status when returned by the service.
+    get-putaway-settings-response:
       type: object
       properties:
         code:
@@ -663,10 +599,87 @@ components:
         message:
           type: string
           readOnly: true
-        comments:
+        putaway_settings:
+          $ref: '#/components/schemas/putaway-settings'
+    update-a-putaway-request:
+      $ref: '#/components/schemas/create-a-putaway-request'
+    putaway-attachment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          readOnly: true
+        document:
+          $ref: '#/components/schemas/putaway-document-attachment'
+    create-a-putaway-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          readOnly: true
+        putaway:
+          $ref: '#/components/schemas/putaway-response'
+    list-putaways-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        putaways:
           type: array
           items:
-            $ref: '#/components/schemas/putaway-comment'
+            $ref: '#/components/schemas/putaway-list-row'
+        page_context:
+          $ref: '#/components/schemas/page_context'
+    putaway-line-item-request:
+      type: object
+      required:
+      - item_id
+      - quantity_transferred
+      properties:
+        line_item_id:
+          type: integer
+          format: int64
+          description: Line item ID returned by the server. Required on update when modifying existing line items.
+        item_id:
+          type: integer
+          format: int64
+          description: Item (product) ID for the line. Required for every line item (same role as <code>item_id</code> on transfer order line items).
+        description:
+          type: string
+          description: Line-level description or notes for the item. Optional.
+        quantity_transferred:
+          type: number
+          format: double
+          description: Quantity put away for this line. Required for every line item (same role as <code>quantity_transfer</code> on transfer orders).
+        serial_numbers:
+          type: array
+          description: Serial number details when serial tracking is enabled.
+          items:
+            $ref: '#/components/schemas/putaway-line-serial-node'
+        batches:
+          type: array
+          description: Batch details when batch tracking is enabled.
+          items:
+            $ref: '#/components/schemas/putaway-line-batch-node'
+        storages:
+          type: array
+          description: Storage bin allocations when storage tracking is enabled.
+          items:
+            $ref: '#/components/schemas/putaway-line-storage-node'
     putaway-comment:
       type: object
       properties:
@@ -693,7 +706,20 @@ components:
           type: string
         operation_type:
           type: string
-    putaway-attachment-response:
+    get-a-putaway-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        putaway:
+          $ref: '#/components/schemas/putaway-response'
+    list-putaway-comments-response:
       type: object
       properties:
         code:
@@ -703,8 +729,10 @@ components:
         message:
           type: string
           readOnly: true
-        document:
-          $ref: '#/components/schemas/putaway-document-attachment'
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/putaway-comment'
     putaway-settings:
       type: object
       properties:
@@ -717,119 +745,49 @@ components:
         next_number:
           type: string
           description: Next number in the auto-number sequence.
-    list-putaways-response:
+    putaway-line-item-response:
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        putaways:
-          type: array
-          items:
-            $ref: '#/components/schemas/putaway-list-row'
-        page_context:
-          $ref: '#/components/schemas/page_context'
-    get-putaway-settings-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          readOnly: true
-        putaway_settings:
-          $ref: '#/components/schemas/putaway-settings'
-    delete-a-putaway-response:
-      type: object
-      description: Returned when a putaway is deleted.
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Putaway deleted successfully.
-          readOnly: true
-    create-a-putaway-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          readOnly: true
-        putaway:
-          $ref: '#/components/schemas/putaway-response'
-    update-a-putaway-response:
-      $ref: '#/components/schemas/get-a-putaway-response'
-    putaway-line-storage-node:
-      type: object
-      description: Storage-bin allocation for a putaway line when storage tracking is enabled.
-      properties:
-        storage_id:
+        line_item_id:
           type: integer
           format: int64
-          description: Storage location ID.
-        quantity:
+        item_id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        sku:
+          type: string
+        unit:
+          type: string
+        image_document_id:
+          type: integer
+          format: int64
+        description:
+          type: string
+        quantity_transferred:
           type: number
           format: double
-          description: Quantity put away into this storage for the line.
-    delete-a-putaway-document-response:
-      type: object
-      description: Returned when a document is removed from a putaway.
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your file is no longer attached to the Putaway.
-          readOnly: true
-    page_context:
-      type: object
-      description: Pagination and list context for the current result set.
-      properties:
-        page:
-          type: integer
-          example: 1
-        per_page:
-          type: integer
-          example: 200
-        has_more_page:
+        track_serial_number:
           type: boolean
-        report_name:
-          type: string
-        applied_filter:
-          type: string
-        sort_column:
-          type: string
-        sort_order:
-          type: string
-    putaway-line-serial-node:
-      type: object
-      description: Serial number row for a putaway line when serial tracking is enabled.
-      properties:
-        serialnumber_id:
-          type: integer
-          format: int64
-          description: Serial number master record ID.
-        serial_number:
-          type: string
-          description: Serial code.
-        status:
-          type: string
-          description: Serial status when returned by the service.
+        track_batch_number:
+          type: boolean
+        serial_numbers:
+          type: array
+          items:
+            $ref: '#/components/schemas/putaway-line-serial-node'
+        batches:
+          type: array
+          items:
+            $ref: '#/components/schemas/putaway-line-batch-node'
+        is_combo_product:
+          type: boolean
+        storages:
+          type: array
+          items:
+            $ref: '#/components/schemas/putaway-line-storage-node'
+        is_storage_location_enabled:
+          type: boolean
     putaway-list-row:
       type: object
       properties:
@@ -858,6 +816,48 @@ components:
           type: string
         last_modified_time:
           type: string
+    delete-a-putaway-document-response:
+      type: object
+      description: Returned when a document is removed from a putaway.
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your file is no longer attached to the Putaway.
+          readOnly: true
+    create-a-putaway-request:
+      type: object
+      required:
+      - date
+      - line_items
+      properties:
+        putaway_number:
+          type: string
+          description: Putaway number; optional when auto-generation is enabled.
+        date:
+          type: string
+          description: Transaction date (yyyy-mm-dd).
+        warehouse_id:
+          type: integer
+          format: int64
+          description: Warehouse ID when warehouses are enabled.
+        location_id:
+          type: integer
+          format: int64
+          description: Location (branch) ID when locations are enabled.
+        notes:
+          type: string
+          description: Internal notes for the putaway.
+        line_items:
+          type: array
+          description: 'A putaway can contain multiple line items. Each object must include <code>item_id</code> and <code>quantity_transferred</code>. Optional fields: <code>line_item_id</code> (required on update for existing lines), <code>description</code>, <code>serial_numbers</code>, <code>batches</code>, and <code>storages</code> when serial, batch, or bin storage tracking applies in your organization.'
+          items:
+            $ref: '#/components/schemas/putaway-line-item-request'
+    update-a-putaway-response:
+      $ref: '#/components/schemas/get-a-putaway-response'
   parameters:
     organization_id:
       name: organization_id
@@ -874,7 +874,8 @@ components:
         implicit:
           authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
           scopes:
-            ZohoInventory.items.CREATE: Create Items
-            ZohoInventory.items.READ: Read Items
-            ZohoInventory.items.UPDATE: Update Items
-            ZohoInventory.items.DELETE: Delete Items
+            ZohoInventory.putaway.CREATE: Create Putaway
+            ZohoInventory.putaway.READ: Read Putaway
+            ZohoInventory.putaway.UPDATE: Update Putaway
+            ZohoInventory.putaway.DELETE: Delete Putaway
+            ZohoInventory.settings.READ: Read Settings

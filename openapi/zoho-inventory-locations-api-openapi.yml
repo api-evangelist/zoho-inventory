@@ -1,14 +1,16 @@
 openapi: 3.2.0
 info:
-  title: batches Locations API
-  description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
+  title: Locations API
+  description: 'Create locations for each branch and warehouse in your organisation and manage them all in one place.
+
+    In this document, you can learn how to create and manage locations in Zoho Inventory.'
   contact: {}
   version: 1.0.0
 servers:
 - url: https://www.zohoapis.com/inventory/v1
   description: API Endpoint
 tags:
-- name: locations
+- name: Locations
   description: Locations Module
 paths:
   /settings/locations/enable:
@@ -18,7 +20,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - locations
+      - Locations
       operationId: enable_locations
       summary: Enable Locations
       description: Enable Locations for an organisation.
@@ -40,7 +42,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - locations
+      - Locations
       operationId: create_location
       summary: Create a location
       description: Create a location.
@@ -62,7 +64,7 @@ paths:
         - ZohoInventory.settings.CREATE
     get:
       tags:
-      - locations
+      - Locations
       operationId: list_locations
       summary: List all locations
       description: List all the available locations in your zoho inventory.
@@ -109,7 +111,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     get:
       tags:
-      - locations
+      - Locations
       operationId: get_location
       summary: Get a location
       description: Get the details of a location.
@@ -126,10 +128,9 @@ paths:
         - ZohoInventory.settings.READ
     put:
       tags:
-      - locations
+      - Locations
       operationId: update_location
       summary: Update location
-      description: Update location
       requestBody:
         content:
           application/json:
@@ -148,7 +149,7 @@ paths:
         - ZohoInventory.settings.UPDATE
     delete:
       tags:
-      - locations
+      - Locations
       operationId: delete_location
       summary: Delete a location
       description: Delete a location.
@@ -177,7 +178,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - locations
+      - Locations
       operationId: mark_location_as_active
       summary: Mark as Active
       description: Mark location as Active.
@@ -206,7 +207,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - locations
+      - Locations
       operationId: mark_location_as_inactive
       summary: Mark as Inactive
       description: Mark location as Inactive.
@@ -235,7 +236,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - locations
+      - Locations
       operationId: mark_location_as_primary
       summary: Mark as Primary
       description: Mark location as primary.
@@ -278,7 +279,7 @@ paths:
       example: 50
     get:
       tags:
-      - locations
+      - Locations
       operationId: list_users_of_a_location
       summary: List users of a location
       description: List the users associated with a location.
@@ -295,66 +296,7 @@ paths:
         - ZohoInventory.settings.READ
 components:
   schemas:
-    autonumbergenerationgroup_id:
-      description: Autonumber generation group ID
-      type: string
-      example: '982000000870911'
-    attention:
-      description: Attention of the location.
-      type: string
-    state:
-      description: State Name of the location.
-      type: string
-      example: New York
-    is_primary:
-      description: Whether it is primary location or not
-      type: boolean
-      example: true
-    type:
-      description: Type of the location
-      type: string
-      example: general / line_item_only
-    state_code:
-      description: State code of the location.
-      type: string
-      example: NY
-    locations:
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/address'
-        email:
-          $ref: '#/components/schemas/email'
-        is_primary:
-          $ref: '#/components/schemas/is_primary'
-        phone:
-          $ref: '#/components/schemas/phone'
-        status:
-          $ref: '#/components/schemas/status'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        location_name:
-          $ref: '#/components/schemas/location_name'
-        type:
-          $ref: '#/components/schemas/type'
-        parent_location_id:
-          $ref: '#/components/schemas/parent_location_id'
-        associated_series_ids:
-          $ref: '#/components/schemas/associated_series_ids'
-        auto_number_generation_id:
-          $ref: '#/components/schemas/autonumbergenerationgroup_id'
-        associated_users:
-          type: array
-          items:
-            type: object
-            properties:
-              user_id:
-                $ref: '#/components/schemas/user_id'
-              user_name:
-                $ref: '#/components/schemas/user_name'
-        tax_settings_id:
-          $ref: '#/components/schemas/tax_settings_id'
-    get-a-location-response:
+    update-location-response:
       type: object
       properties:
         code:
@@ -363,19 +305,19 @@ components:
           readOnly: true
         message:
           type: string
-          example: success
+          example: Location has been updated.
           readOnly: true
-        location:
-          $ref: '#/components/schemas/location-details'
-    associated_series_ids:
-      type: array
-      description: List of associated series IDs
-      items:
-        type: string
-      example:
-      - '982000000870911'
-      - '982000000870915'
-    create-a-location-request:
+        locations:
+          $ref: '#/components/schemas/locations'
+    is_primary:
+      description: Whether it is primary location or not
+      type: boolean
+      example: true
+    street_address2:
+      description: Street Name of the location.
+      type: string
+      example: McMillan Avenue
+    update-location-request:
       required:
       - location_name
       - tax_settings_id
@@ -403,6 +345,19 @@ components:
           $ref: '#/components/schemas/is_all_users_selected'
         user_ids:
           $ref: '#/components/schemas/user_ids'
+    get-a-location-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        location:
+          $ref: '#/components/schemas/location-details'
     location-user:
       type: object
       properties:
@@ -432,7 +387,48 @@ components:
           description: URL of the user's photo.
           type: string
           example: https://contacts.zoho.com/file?ID=12345
-    update-location-request:
+    mark-as-active-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The location has been marked as active.
+          readOnly: true
+    attention:
+      description: Attention of the location.
+      type: string
+    city:
+      description: City Name of the location.
+      type: string
+      example: New York City
+    country:
+      description: Country Name of the location.
+      type: string
+      example: U.S.A
+    user_id:
+      description: User ID
+      type: string
+      example: '460000000036868'
+    state_code:
+      description: State code of the location.
+      type: string
+      example: NY
+    mark-as-primary-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The location has been marked as primary.
+          readOnly: true
+    create-a-location-request:
       required:
       - location_name
       - tax_settings_id
@@ -460,10 +456,52 @@ components:
           $ref: '#/components/schemas/is_all_users_selected'
         user_ids:
           $ref: '#/components/schemas/user_ids'
-    user_name:
-      description: User Name
+    list-users-of-a-location-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/location-user'
+        page_context:
+          $ref: '#/components/schemas/page-context'
+    state:
+      description: State Name of the location.
       type: string
-      example: John Doe
+      example: New York
+    parent_location_id:
+      description: Parent Location ID
+      type: string
+      example: '460000000041010'
+    street_address1:
+      description: Street Name of the location.
+      type: string
+      example: No:234,90 Church Street
+    create-a-location-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Location has been created.
+          readOnly: true
+        locations:
+          $ref: '#/components/schemas/locations'
+    email:
+      description: Email id for the location
+      type: string
+      example: willsmith@bowmanfurniture.com
     location-details:
       type: object
       properties:
@@ -544,30 +582,112 @@ components:
           description: Label used to identify the location.
           type: string
           example: BR
+    address:
+      type: object
+      properties:
+        city:
+          $ref: '#/components/schemas/city'
+        state:
+          $ref: '#/components/schemas/state'
+        country:
+          $ref: '#/components/schemas/country'
+        attention:
+          $ref: '#/components/schemas/attention'
+        state_code:
+          $ref: '#/components/schemas/state_code'
+        street_address1:
+          $ref: '#/components/schemas/street_address1'
+        street_address2:
+          $ref: '#/components/schemas/street_address2'
+    status:
+      description: 'Status of the locations. Allowed Values: <code>active</code>, <code>inactive</code>'
+      example: active
+    locations:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        email:
+          $ref: '#/components/schemas/email'
+        is_primary:
+          $ref: '#/components/schemas/is_primary'
+        phone:
+          $ref: '#/components/schemas/phone'
+        status:
+          $ref: '#/components/schemas/status'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        location_name:
+          $ref: '#/components/schemas/location_name'
+        type:
+          $ref: '#/components/schemas/type'
+        parent_location_id:
+          $ref: '#/components/schemas/parent_location_id'
+        associated_series_ids:
+          $ref: '#/components/schemas/associated_series_ids'
+        auto_number_generation_id:
+          $ref: '#/components/schemas/autonumbergenerationgroup_id'
+        associated_users:
+          type: array
+          items:
+            type: object
+            properties:
+              user_id:
+                $ref: '#/components/schemas/user_id'
+              user_name:
+                $ref: '#/components/schemas/user_name'
+        tax_settings_id:
+          $ref: '#/components/schemas/tax_settings_id'
+    page-context:
+      type: object
+      properties:
+        page:
+          description: Current page number.
+          type: integer
+          example: 1
+        per_page:
+          description: Number of records returned per page.
+          type: integer
+          example: 50
+        has_more_page:
+          description: Whether more pages of results are available.
+          type: boolean
+          example: false
+        report_name:
+          description: Name of the report.
+          type: string
+          example: Users
+        sort_column:
+          description: Column used to sort the results.
+          type: string
+          example: name
+        sort_order:
+          description: 'Order in which the results are sorted. Allowed Values: <code>A</code> (ascending), <code>D</code> (descending).'
+          type: string
+          example: A
+    tax_settings_id:
+      description: Tax Settings ID
+      type: string
+      example: '460000000038080'
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
     location_id:
       description: Location ID
       type: string
       example: '460000000038080'
-    parent_location_id:
-      description: Parent Location ID
+    user_ids:
+      description: Comma separated user ids.
       type: string
-      example: '460000000041010'
-    status:
-      description: 'Status of the locations. Allowed Values: <code>active</code>, <code>inactive</code>'
-      example: active
-    update-location-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Location has been updated.
-          readOnly: true
-        locations:
-          $ref: '#/components/schemas/locations'
+      example: 460000000036868,460000000036869
+    user_name:
+      description: User Name
+      type: string
+      example: John Doe
+    is_all_users_selected:
+      description: Whether all users are selected or not
+      type: boolean
+      example: false
     enable-location-response:
       type: object
       properties:
@@ -579,7 +699,11 @@ components:
           type: string
           example: We're enabling locations for your organization.
           readOnly: true
-    create-a-location-response:
+    type:
+      description: Type of the location
+      type: string
+      example: general / line_item_only
+    delete-a-location-response:
       type: object
       properties:
         code:
@@ -588,37 +712,20 @@ components:
           readOnly: true
         message:
           type: string
-          example: Location has been created.
+          example: The location has been deleted..
           readOnly: true
-        locations:
-          $ref: '#/components/schemas/locations'
-    location_name:
-      description: Name of the location
-      type: string
-      example: Head Office
-    country:
-      description: Country Name of the location.
-      type: string
-      example: U.S.A
+    associated_series_ids:
+      type: array
+      description: List of associated series IDs
+      items:
+        type: string
+      example:
+      - '982000000870911'
+      - '982000000870915'
     phone:
       description: Mobile number for location
       type: string
       example: +1-925-921-9201
-    mark-as-inactive-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The location has been marked as inactive.
-          readOnly: true
-    is_all_users_selected:
-      description: Whether all users are selected or not
-      type: boolean
-      example: false
     list-all-location-response:
       type: object
       properties:
@@ -666,11 +773,7 @@ components:
                       $ref: '#/components/schemas/user_id'
                     user_name:
                       $ref: '#/components/schemas/user_name'
-    user_ids:
-      description: Comma separated user ids.
-      type: string
-      example: 460000000036868,460000000036869
-    delete-a-location-response:
+    mark-as-inactive-response:
       type: object
       properties:
         code:
@@ -679,118 +782,16 @@ components:
           readOnly: true
         message:
           type: string
-          example: The location has been deleted..
+          example: The location has been marked as inactive.
           readOnly: true
-    city:
-      description: City Name of the location.
+    location_name:
+      description: Name of the location
       type: string
-      example: New York City
-    user_id:
-      description: User ID
+      example: Head Office
+    autonumbergenerationgroup_id:
+      description: Autonumber generation group ID
       type: string
-      example: '460000000036868'
-    list-users-of-a-location-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/location-user'
-        page_context:
-          $ref: '#/components/schemas/page-context'
-    street_address1:
-      description: Street Name of the location.
-      type: string
-      example: No:234,90 Church Street
-    tax_settings_id:
-      description: Tax Settings ID
-      type: string
-      example: '460000000038080'
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    mark-as-primary-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The location has been marked as primary.
-          readOnly: true
-    mark-as-active-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The location has been marked as active.
-          readOnly: true
-    address:
-      type: object
-      properties:
-        city:
-          $ref: '#/components/schemas/city'
-        state:
-          $ref: '#/components/schemas/state'
-        country:
-          $ref: '#/components/schemas/country'
-        attention:
-          $ref: '#/components/schemas/attention'
-        state_code:
-          $ref: '#/components/schemas/state_code'
-        street_address1:
-          $ref: '#/components/schemas/street_address1'
-        street_address2:
-          $ref: '#/components/schemas/street_address2'
-    street_address2:
-      description: Street Name of the location.
-      type: string
-      example: McMillan Avenue
-    page-context:
-      type: object
-      properties:
-        page:
-          description: Current page number.
-          type: integer
-          example: 1
-        per_page:
-          description: Number of records returned per page.
-          type: integer
-          example: 50
-        has_more_page:
-          description: Whether more pages of results are available.
-          type: boolean
-          example: false
-        report_name:
-          description: Name of the report.
-          type: string
-          example: Users
-        sort_column:
-          description: Column used to sort the results.
-          type: string
-          example: name
-        sort_order:
-          description: 'Order in which the results are sorted. Allowed Values: <code>A</code> (ascending), <code>D</code> (descending).'
-          type: string
-          example: A
-    email:
-      description: Email id for the location
-      type: string
-      example: willsmith@bowmanfurniture.com
+      example: '982000000870911'
   parameters:
     organization_id:
       name: organization_id
@@ -807,7 +808,7 @@ components:
         implicit:
           authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
           scopes:
-            ZohoInventory.items.CREATE: Create Items
-            ZohoInventory.items.READ: Read Items
-            ZohoInventory.items.UPDATE: Update Items
-            ZohoInventory.items.DELETE: Delete Items
+            ZohoInventory.settings.CREATE: Create Settings
+            ZohoInventory.settings.UPDATE: Update Settings
+            ZohoInventory.settings.READ: Read Settings
+            ZohoInventory.settings.DELETE: Delete Settings

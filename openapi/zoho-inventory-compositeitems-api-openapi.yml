@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: batches Compositeitems API
-  description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
+  title: Composite Items Compositeitems API
+  description: A form or version of an composite item that differs in some respect from other forms of the same or from a standard. You can create your composite items by associating multiple items and their respective quantities.
   contact: {}
   version: 1.0.0
 servers:
@@ -338,7 +338,7 @@ paths:
       - compositeitems
       operationId: upload_composite_item_image
       summary: Upload Composite Item Images
-      description: 'Uploads an image for a composite item. Accepted image formats: <code>gif</code>, <code>png</code>, <code>jpeg</code>, <code>jpg</code>, <code>bmp</code>, <code>webp</code>. Maximum file size is 7 MB.'
+      description: 'Uploads an image for a composite item. Accepted image formats: gif, png, jpeg, jpg, bmp, webp. Maximum file size is 7 MB.'
       requestBody:
         content:
           multipart/form-data:
@@ -672,77 +672,25 @@ paths:
         - ZohoInventory.compositeitems.CREATE
 components:
   schemas:
-    mark-assembly-as-built-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The assembly has been marked as built.
-          readOnly: true
-        bundle:
-          type: object
-          properties:
-            bundle_id:
-              $ref: '#/components/schemas/bundle_id'
-            reference_number:
-              $ref: '#/components/schemas/reference_number'
-            transaction_number:
-              description: Auto-generated transaction number.
-              type: string
-              example: WO-00001
-            date:
-              $ref: '#/components/schemas/date'
-            description:
-              $ref: '#/components/schemas/description'
-            composite_item_id:
-              $ref: '#/components/schemas/composite_item_id'
-            composite_item_name:
-              $ref: '#/components/schemas/composite_item_name'
-            composite_item_sku:
-              $ref: '#/components/schemas/composite_item_sku'
-            quantity_to_bundle:
-              $ref: '#/components/schemas/quantity_to_bundle'
-            status:
-              description: Status of the assembly.
-              type: string
-              example: built
-            total:
-              description: Total cost of the assembly.
-              type: number
-              format: double
-              example: 85000
-            warehouse_id:
-              description: Warehouse ID associated with the assembly.
-              type: string
-              example: '460000000038080'
-            warehouse_name:
-              description: Warehouse name associated with the assembly.
-              type: string
-              example: Main Warehouse
-            location_id:
-              $ref: '#/components/schemas/location_id'
-            location_name:
-              $ref: '#/components/schemas/location_name'
-            line_items:
-              $ref: '#/components/schemas/line_items'
-            is_completed:
-              $ref: '#/components/schemas/is_completed'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            created_time:
-              $ref: '#/components/schemas/created_time'
-            last_modified_time:
-              $ref: '#/components/schemas/last_modified_time'
-    pricebook_rate:
-      description: Price list applied on the item's selling price.
+    item_tax_preferences:
+      type: array
+      description: List of tax preferences of the item
+      items:
+        type: object
+        properties:
+          tax_id:
+            $ref: '#/components/schemas/tax_id'
+          tax_specification:
+            $ref: '#/components/schemas/tax_specification'
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    initial_stock:
+      description: Initial stock of item
       type: number
       format: double
-      example: 85000
-    mark-assembly-as-confirmed-response:
+      example: 2
+    delete-composite-item-image-response:
       type: object
       properties:
         code:
@@ -751,71 +699,84 @@ components:
           readOnly: true
         message:
           type: string
-          example: The assembly has been marked as confirmed.
+          example: The composite item image has been deleted.
           readOnly: true
-        bundle:
-          type: object
-          properties:
-            bundle_id:
-              $ref: '#/components/schemas/bundle_id'
-            reference_number:
-              $ref: '#/components/schemas/reference_number'
-            transaction_number:
-              description: Auto-generated transaction number.
-              type: string
-              example: WO-00001
-            date:
-              $ref: '#/components/schemas/date'
-            description:
-              $ref: '#/components/schemas/description'
-            composite_item_id:
-              $ref: '#/components/schemas/composite_item_id'
-            composite_item_name:
-              $ref: '#/components/schemas/composite_item_name'
-            composite_item_sku:
-              $ref: '#/components/schemas/composite_item_sku'
-            quantity_to_bundle:
-              $ref: '#/components/schemas/quantity_to_bundle'
-            status:
-              description: Status of the assembly.
-              type: string
-              example: confirmed
-            total:
-              description: Total cost of the assembly.
-              type: number
-              format: double
-              example: 85000
-            warehouse_id:
-              description: Warehouse ID associated with the assembly.
-              type: string
-              example: '460000000038080'
-            warehouse_name:
-              description: Warehouse name associated with the assembly.
-              type: string
-              example: Main Warehouse
-            location_id:
-              $ref: '#/components/schemas/location_id'
-            location_name:
-              $ref: '#/components/schemas/location_name'
-            line_items:
-              $ref: '#/components/schemas/line_items'
-            is_completed:
-              $ref: '#/components/schemas/is_completed'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            created_time:
-              $ref: '#/components/schemas/created_time'
-            last_modified_time:
-              $ref: '#/components/schemas/last_modified_time'
-    upc:
-      description: Unique Product Code, 12 digit unique code of the item
+    update-bundle-request:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/create-bundle-request'
+    actual_available_stock:
+      description: Stock based on Shipments and Receives minus ordered stock
+      type: number
+      format: double
+      example: 2
+    tax_specification:
+      description: Type of tax. It can be <code> intra</code> or <code> inter</code>
       type: string
-      example: 746325287436
-    account_id:
-      description: Unique ID generated by the server for the type of sale of this item
+      example: intra
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    mapped_items:
+      description: Items that are associated with the composite item
+      type: array
+      items:
+        type: object
+        properties:
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          item_order:
+            description: Sort order of the mapped item.
+            type: integer
+            example: 1
+          name:
+            $ref: '#/components/schemas/name'
+          rate:
+            $ref: '#/components/schemas/rate'
+          purchase_rate:
+            $ref: '#/components/schemas/purchase_rate'
+          sku:
+            $ref: '#/components/schemas/sku'
+          image_id:
+            $ref: '#/components/schemas/image_id'
+          image_name:
+            $ref: '#/components/schemas/image_name'
+          purchase_description:
+            $ref: '#/components/schemas/purchase_description'
+          image_type:
+            $ref: '#/components/schemas/image_type'
+          unit:
+            $ref: '#/components/schemas/unit'
+          is_combo_product:
+            $ref: '#/components/schemas/is_combo_product'
+          description:
+            $ref: '#/components/schemas/description'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          stock_on_hand:
+            $ref: '#/components/schemas/stock_on_hand'
+          available_stock:
+            $ref: '#/components/schemas/available_stock'
+          actual_available_stock:
+            $ref: '#/components/schemas/actual_available_stock'
+    label:
+      description: Label of the custom field.
       type: string
-      example: 504366000000000400
-    composite_item:
+      example: VAT ID
+    value:
+      description: Value of the custom field.
+      type: string
+      example: GBGD078
+    updating-a-composite-item-request:
+      required:
+      - name
+      - sku
+      - mapped_items
+      - rate
+      - item_type
+      - product_type
       type: object
       properties:
         composite_item_id:
@@ -892,34 +853,8 @@ components:
           $ref: '#/components/schemas/image_id'
         image_name:
           $ref: '#/components/schemas/image_name'
-        image_type:
-          $ref: '#/components/schemas/image_type'
-        is_taxable:
-          $ref: '#/components/schemas/is_taxable'
-        product_type:
-          $ref: '#/components/schemas/product_type'
         purchase_description:
           $ref: '#/components/schemas/purchase_description'
-        category_id:
-          description: Unique identifier of the category.
-          type: string
-          example: 504366000000053500
-        category_name:
-          description: Name of the category.
-          type: string
-          example: Hardware
-        combo_type:
-          description: 'Type of composite item. Allowed values: <code>assembly</code>, <code>kit</code>.'
-          type: string
-          example: assembly
-        brand:
-          description: Brand name of the composite item.
-          type: string
-          example: Acme Corp
-        manufacturer:
-          description: Manufacturer of the composite item.
-          type: string
-          example: Acme Manufacturing
         custom_fields:
           $ref: '#/components/schemas/custom_fields'
         mapped_items:
@@ -928,22 +863,388 @@ components:
           $ref: '#/components/schemas/item_tax_preferences'
         hsn_or_sac:
           $ref: '#/components/schemas/hsn_or_sac'
-        created_time:
-          $ref: '#/components/schemas/created_time'
-        last_modified_time:
-          $ref: '#/components/schemas/last_modified_time'
-    composite_item_sku:
-      description: Stock Keeping Unit value of the composite item. It should be unique throughout the product
+        product_type:
+          description: Type of the product.
+          type: string
+          example: goods
+        combo_type:
+          description: 'Type of composite item. Allowed values: <code>assembly</code>, <code>kit</code>.'
+          type: string
+          example: assembly
+    description:
+      description: Sample Description.
       type: string
-      example: SKUIS
-    tax_type:
-      description: Type of tax. It can either Tax or Group Tax
+      example: Just a sample description
+    quantity_to_bundle:
+      description: Quantity of Assembly to be Assembled.
+      type: number
+      format: double
+      example: 1
+    isbn:
+      description: International Standard Book Number, 13 digit unique commercial book identifier barcode of the item
       type: string
-      example: tax
-    location_id:
-      description: Location ID
+      example: 368302334
+    source:
+      description: source
       type: string
-      example: '460000000038080'
+      example: user
+    mark-assembly-as-confirmed-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The assembly has been marked as confirmed.
+          readOnly: true
+        bundle:
+          type: object
+          properties:
+            bundle_id:
+              $ref: '#/components/schemas/bundle_id'
+            reference_number:
+              $ref: '#/components/schemas/reference_number'
+            transaction_number:
+              description: Auto-generated transaction number.
+              type: string
+              example: WO-00001
+            date:
+              $ref: '#/components/schemas/date'
+            description:
+              $ref: '#/components/schemas/description'
+            composite_item_id:
+              $ref: '#/components/schemas/composite_item_id'
+            composite_item_name:
+              $ref: '#/components/schemas/composite_item_name'
+            composite_item_sku:
+              $ref: '#/components/schemas/composite_item_sku'
+            quantity_to_bundle:
+              $ref: '#/components/schemas/quantity_to_bundle'
+            status:
+              description: Status of the assembly.
+              type: string
+              example: confirmed
+            total:
+              description: Total cost of the assembly.
+              type: number
+              format: double
+              example: 85000
+            warehouse_id:
+              description: Warehouse ID associated with the assembly.
+              type: string
+              example: '460000000038080'
+            warehouse_name:
+              description: Warehouse name associated with the assembly.
+              type: string
+              example: Main Warehouse
+            location_id:
+              $ref: '#/components/schemas/location_id'
+            location_name:
+              $ref: '#/components/schemas/location_name'
+            line_items:
+              $ref: '#/components/schemas/line_items'
+            is_completed:
+              $ref: '#/components/schemas/is_completed'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            created_time:
+              $ref: '#/components/schemas/created_time'
+            last_modified_time:
+              $ref: '#/components/schemas/last_modified_time'
+    composite_item_name:
+      description: Name of the composite item
+      type: string
+      example: Combo of Apple IPhone and Smartwatch
+    bundling-history-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        bundles:
+          type: array
+          items:
+            type: object
+            properties:
+              bundle_id:
+                $ref: '#/components/schemas/bundle_id'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
+              date:
+                $ref: '#/components/schemas/date'
+              description:
+                $ref: '#/components/schemas/description'
+              composite_item_id:
+                $ref: '#/components/schemas/composite_item_id'
+              composite_item_name:
+                $ref: '#/components/schemas/composite_item_name'
+              composite_item_sku:
+                $ref: '#/components/schemas/composite_item_sku'
+              quantity_to_bundle:
+                $ref: '#/components/schemas/quantity_to_bundle'
+              status:
+                description: Status of the assembly.
+                type: string
+                example: pending
+              total:
+                description: Total cost of the assembly.
+                type: number
+                format: double
+                example: 85000
+              transaction_number:
+                description: Auto-generated transaction number.
+                type: string
+                example: WO-00001
+              warehouse_id:
+                description: Warehouse ID associated with the assembly.
+                type: string
+                example: '460000000038080'
+              warehouse_name:
+                description: Warehouse name associated with the assembly.
+                type: string
+                example: Main Warehouse
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              location_name:
+                $ref: '#/components/schemas/location_name'
+              line_items:
+                $ref: '#/components/schemas/line_items'
+              custom_fields:
+                $ref: '#/components/schemas/custom_fields'
+              created_time:
+                $ref: '#/components/schemas/created_time'
+              last_modified_time:
+                $ref: '#/components/schemas/last_modified_time'
+              created_by_id:
+                description: Unique identifier of the user who created the assembly.
+                type: string
+                example: 504366000000040000
+        page_context:
+          $ref: '#/components/schemas/page_context'
+    item_type:
+      description: Type of item <code>Always inventory</code>
+      type: string
+      example: inventory
+    serial_numbers:
+      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
+      type: array
+      items:
+        type: string
+        example: PKG-003
+    line_item_id:
+      description: Unique ID generated by the server for mapping the associated item with composite item
+      type: string
+      example: 504366000000053250
+    part_number:
+      description: MPN - Manufacturing Part Number, unambiguously identifies a part design
+      type: string
+      example: JHFKE7GK7
+    mark-as-inactive-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The item has been marked as inactive.
+          readOnly: true
+    update-bundle-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Assembly has been updated.
+          readOnly: true
+        bundle:
+          type: object
+          properties:
+            bundle_id:
+              $ref: '#/components/schemas/bundle_id'
+            reference_number:
+              $ref: '#/components/schemas/reference_number'
+            transaction_number:
+              description: Auto-generated transaction number.
+              type: string
+              example: WO-00001
+            date:
+              $ref: '#/components/schemas/date'
+            description:
+              $ref: '#/components/schemas/description'
+            composite_item_id:
+              $ref: '#/components/schemas/composite_item_id'
+            composite_item_name:
+              $ref: '#/components/schemas/composite_item_name'
+            composite_item_sku:
+              $ref: '#/components/schemas/composite_item_sku'
+            quantity_to_bundle:
+              $ref: '#/components/schemas/quantity_to_bundle'
+            status:
+              description: Status of the assembly.
+              type: string
+              example: pending
+            total:
+              description: Total cost of the assembly.
+              type: number
+              format: double
+              example: 85000
+            warehouse_id:
+              description: Warehouse ID associated with the assembly.
+              type: string
+              example: '460000000038080'
+            warehouse_name:
+              description: Warehouse name associated with the assembly.
+              type: string
+              example: Main Warehouse
+            location_id:
+              $ref: '#/components/schemas/location_id'
+            location_name:
+              $ref: '#/components/schemas/location_name'
+            project_id:
+              description: Unique identifier of the associated project.
+              type: string
+              example: 504366000000070000
+            project_name:
+              description: Name of the associated project.
+              type: string
+              example: Assembly Project
+            line_items:
+              $ref: '#/components/schemas/line_items'
+            is_completed:
+              $ref: '#/components/schemas/is_completed'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            created_time:
+              $ref: '#/components/schemas/created_time'
+            last_modified_time:
+              $ref: '#/components/schemas/last_modified_time'
+            created_by_id:
+              description: Unique identifier of the user who created the assembly.
+              type: string
+              example: 504366000000040000
+    delete-bundle-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Assembly has been deleted.
+          readOnly: true
+    mark-assembly-as-built-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The assembly has been marked as built.
+          readOnly: true
+        bundle:
+          type: object
+          properties:
+            bundle_id:
+              $ref: '#/components/schemas/bundle_id'
+            reference_number:
+              $ref: '#/components/schemas/reference_number'
+            transaction_number:
+              description: Auto-generated transaction number.
+              type: string
+              example: WO-00001
+            date:
+              $ref: '#/components/schemas/date'
+            description:
+              $ref: '#/components/schemas/description'
+            composite_item_id:
+              $ref: '#/components/schemas/composite_item_id'
+            composite_item_name:
+              $ref: '#/components/schemas/composite_item_name'
+            composite_item_sku:
+              $ref: '#/components/schemas/composite_item_sku'
+            quantity_to_bundle:
+              $ref: '#/components/schemas/quantity_to_bundle'
+            status:
+              description: Status of the assembly.
+              type: string
+              example: built
+            total:
+              description: Total cost of the assembly.
+              type: number
+              format: double
+              example: 85000
+            warehouse_id:
+              description: Warehouse ID associated with the assembly.
+              type: string
+              example: '460000000038080'
+            warehouse_name:
+              description: Warehouse name associated with the assembly.
+              type: string
+              example: Main Warehouse
+            location_id:
+              $ref: '#/components/schemas/location_id'
+            location_name:
+              $ref: '#/components/schemas/location_name'
+            line_items:
+              $ref: '#/components/schemas/line_items'
+            is_completed:
+              $ref: '#/components/schemas/is_completed'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            created_time:
+              $ref: '#/components/schemas/created_time'
+            last_modified_time:
+              $ref: '#/components/schemas/last_modified_time'
+    page_context:
+      type: object
+      properties:
+        page:
+          description: Current page number.
+          type: integer
+          example: 1
+        per_page:
+          description: Number of records per page.
+          type: integer
+          example: 10
+        has_more_page:
+          description: Whether there are more pages.
+          type: boolean
+          example: true
+        report_name:
+          description: Name of the report.
+          type: string
+          example: Composite Items
+        applied_filter:
+          description: Filter applied on the list.
+          type: string
+          example: Status.All
+        sort_column:
+          description: Column used for sorting.
+          type: string
+          example: name
+        sort_order:
+          description: Order used for sorting.
+          type: string
+          example: A
+    composite_item_id:
+      description: Unique ID generated for the composite item by the server. This is used as identifier
+      type: string
+      example: 504366000000053250
     creating-a-composite-item-request:
       required:
       - name
@@ -1131,160 +1432,6 @@ components:
           description: 'Type of composite item. Allowed values: <code>assembly</code>, <code>kit</code>.'
           type: string
           example: assembly
-    location_name:
-      description: Name of the location
-      type: string
-      example: Head Office
-    available_stock:
-      description: Stock based on Shipments and Receives
-      type: number
-      format: double
-      example: 2
-    isbn:
-      description: International Standard Book Number, 13 digit unique commercial book identifier barcode of the item
-      type: string
-      example: 368302334
-    bundling-history-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        bundles:
-          type: array
-          items:
-            type: object
-            properties:
-              bundle_id:
-                $ref: '#/components/schemas/bundle_id'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
-              date:
-                $ref: '#/components/schemas/date'
-              description:
-                $ref: '#/components/schemas/description'
-              composite_item_id:
-                $ref: '#/components/schemas/composite_item_id'
-              composite_item_name:
-                $ref: '#/components/schemas/composite_item_name'
-              composite_item_sku:
-                $ref: '#/components/schemas/composite_item_sku'
-              quantity_to_bundle:
-                $ref: '#/components/schemas/quantity_to_bundle'
-              status:
-                description: Status of the assembly.
-                type: string
-                example: pending
-              total:
-                description: Total cost of the assembly.
-                type: number
-                format: double
-                example: 85000
-              transaction_number:
-                description: Auto-generated transaction number.
-                type: string
-                example: WO-00001
-              warehouse_id:
-                description: Warehouse ID associated with the assembly.
-                type: string
-                example: '460000000038080'
-              warehouse_name:
-                description: Warehouse name associated with the assembly.
-                type: string
-                example: Main Warehouse
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              location_name:
-                $ref: '#/components/schemas/location_name'
-              line_items:
-                $ref: '#/components/schemas/line_items'
-              custom_fields:
-                $ref: '#/components/schemas/custom_fields'
-              created_time:
-                $ref: '#/components/schemas/created_time'
-              last_modified_time:
-                $ref: '#/components/schemas/last_modified_time'
-              created_by_id:
-                description: Unique identifier of the user who created the assembly.
-                type: string
-                example: 504366000000040000
-        page_context:
-          $ref: '#/components/schemas/page_context'
-    create-bundle-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Assembly has been created.
-          readOnly: true
-        bundle_id:
-          $ref: '#/components/schemas/bundle_id'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        transaction_number:
-          description: Auto-generated transaction number.
-          type: string
-          example: WO-00001
-        date:
-          $ref: '#/components/schemas/date'
-        description:
-          $ref: '#/components/schemas/description'
-        composite_item_id:
-          $ref: '#/components/schemas/composite_item_id'
-        composite_item_name:
-          $ref: '#/components/schemas/composite_item_name'
-        composite_item_sku:
-          $ref: '#/components/schemas/composite_item_sku'
-        quantity_to_bundle:
-          $ref: '#/components/schemas/quantity_to_bundle'
-        status:
-          description: Status of the assembly.
-          type: string
-          example: pending
-        total:
-          description: Total cost of the assembly.
-          type: number
-          format: double
-          example: 85000
-        warehouse_id:
-          description: Warehouse ID associated with the assembly.
-          type: string
-          example: '460000000038080'
-        warehouse_name:
-          description: Warehouse name associated with the assembly.
-          type: string
-          example: Main Warehouse
-        is_completed:
-          $ref: '#/components/schemas/is_completed'
-        line_items:
-          $ref: '#/components/schemas/line_items'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        created_time:
-          $ref: '#/components/schemas/created_time'
-        last_modified_time:
-          $ref: '#/components/schemas/last_modified_time'
-    tax_name:
-      description: Name of the tax applied on selling this item
-      type: string
-      example: VAT
-    purchase_account_name:
-      description: Type of purchase under which the composite item was bought
-      type: string
-      example: Cost of Goods Sold
-    is_combo_product:
-      description: Defines whether the item is composite or not <code>true for composite items</code>
-      type: boolean
-      example: true
     updating-a-composite-item-response:
       type: object
       properties:
@@ -1298,435 +1445,36 @@ components:
           readOnly: true
         composite_item:
           $ref: '#/components/schemas/composite_item'
-    retrieve-bundle-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        bundle:
-          type: object
-          properties:
-            bundle_id:
-              $ref: '#/components/schemas/bundle_id'
-            reference_number:
-              $ref: '#/components/schemas/reference_number'
-            transaction_number:
-              description: Auto-generated transaction number.
-              type: string
-              example: WO-00001
-            date:
-              $ref: '#/components/schemas/date'
-            description:
-              $ref: '#/components/schemas/description'
-            composite_item_id:
-              $ref: '#/components/schemas/composite_item_id'
-            composite_item_name:
-              $ref: '#/components/schemas/composite_item_name'
-            composite_item_sku:
-              $ref: '#/components/schemas/composite_item_sku'
-            quantity_to_bundle:
-              $ref: '#/components/schemas/quantity_to_bundle'
-            status:
-              description: Status of the assembly.
-              type: string
-              example: pending
-            total:
-              description: Total cost of the assembly.
-              type: number
-              format: double
-              example: 85000
-            warehouse_id:
-              description: Warehouse ID associated with the assembly.
-              type: string
-              example: '460000000038080'
-            warehouse_name:
-              description: Warehouse name associated with the assembly.
-              type: string
-              example: Main Warehouse
-            location_id:
-              $ref: '#/components/schemas/location_id'
-            location_name:
-              $ref: '#/components/schemas/location_name'
-            project_id:
-              description: Unique identifier of the associated project.
-              type: string
-              example: 504366000000070000
-            project_name:
-              description: Name of the associated project.
-              type: string
-              example: Assembly Project
-            line_items:
-              $ref: '#/components/schemas/line_items'
-            is_completed:
-              $ref: '#/components/schemas/is_completed'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            created_time:
-              $ref: '#/components/schemas/created_time'
-            last_modified_time:
-              $ref: '#/components/schemas/last_modified_time'
-            created_by_id:
-              description: Unique identifier of the user who created the assembly.
-              type: string
-              example: 504366000000040000
-    purchase_rate:
-      description: Buying price of the item
-      type: number
-      format: double
-      example: 30000
-    finished_product_storages:
-      description: Bin/storage locations to store the finished product. Use when the composite item has bin tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - storage_id
-        - in_quantity
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093225'
-          in_quantity:
-            description: Inward quantity into the bin.
-            type: number
-            format: float
-            example: 1
-          serial_numbers:
-            description: Serial numbers allocated to this bin for the finished product.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: ASM-001
-    sku:
-      description: Stock Keeping Unit value of the item. It should be unique throughout the product
-      type: string
-      example: SKUIS
-    item_tax_preferences:
-      type: array
-      description: List of tax preferences of the item
-      items:
-        type: object
-        properties:
-          tax_id:
-            $ref: '#/components/schemas/tax_id'
-          tax_specification:
-            $ref: '#/components/schemas/tax_specification'
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    part_number:
-      description: MPN - Manufacturing Part Number, unambiguously identifies a part design
-      type: string
-      example: JHFKE7GK7
-    upload-composite-item-image-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The composite item image has been uploaded.
-          readOnly: true
-    image_type:
-      description: Type of the image <code>Only images with gif,png,jpeg,jpg,bmp extensions are allowed</code>
-      type: string
-      example: jpg
-    initial_stock:
-      description: Initial stock of item
-      type: number
-      format: double
-      example: 2
-    description:
-      description: Sample Description.
-      type: string
-      example: Just a sample description
-    line_item_id:
-      description: Unique ID generated by the server for mapping the associated item with composite item
+    vendor_id:
+      description: Unique ID generated by the server for preferred vendor to buy this composite item
       type: string
       example: 504366000000053250
-    name:
-      description: Name of the composite item
+    last_modified_time:
+      description: Search using the Last Modified Time of the Base Currency Adjustment
       type: string
-      example: Combo of Apple IPhone and Smartwatch
+    created_time:
+      description: Time at which the contact was created.
+      type: string
+      example: '2013-08-05'
+    finished_product_serial_numbers:
+      description: Serial numbers to be assigned to the finished product. Use when the composite item has serial tracking enabled.
+      type: array
+      items:
+        type: string
+        example: ASM-001
+    reorder_level:
+      description: Reorder point of the item
+      type: number
+      format: double
+      example: 1
     image_id:
       description: Unique identifier generated by the server for item image
       type: string
       example: 8408722000000019000
-    is_completed:
-      description: Denotes the status of the assemblies. Currently, this has to be true since we didnt support any other status as of now.
-      type: boolean
-      example: true
-    create-bundle-request:
-      required:
-      - reference_number
-      - date
-      - composite_item_id
-      - composite_item_name
-      - quantity_to_bundle
-      - line_items
-      - is_completed
-      type: object
-      properties:
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        date:
-          $ref: '#/components/schemas/date'
-        description:
-          $ref: '#/components/schemas/description'
-        composite_item_id:
-          $ref: '#/components/schemas/composite_item_id'
-        composite_item_name:
-          $ref: '#/components/schemas/composite_item_name'
-        composite_item_sku:
-          $ref: '#/components/schemas/composite_item_sku'
-        quantity_to_bundle:
-          $ref: '#/components/schemas/quantity_to_bundle'
-        status:
-          description: 'Status of the assembly. Allowed values: <code>draft</code>, <code>confirmed</code>, <code>bundled</code>.'
-          type: string
-          example: draft
-        warehouse_id:
-          description: Warehouse ID for the assembly.
-          type: string
-          example: '460000000038080'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        line_items:
-          description: A assemblies can contain multiple line items. Each line item contains <code>item_id</code>,<code>name</code>,<code>description</code>,<code>quantity_consumed</code>,<code>unit</code>,<code>account_id</code>,<code>location_id</code>.
-          type: array
-          items:
-            type: object
-            required:
-            - item_id
-            - name
-            - quantity_consumed
-            - account_id
-            - location_id
-            properties:
-              item_id:
-                $ref: '#/components/schemas/item_id'
-              name:
-                $ref: '#/components/schemas/name'
-              sku:
-                description: SKU of the component item.
-                type: string
-                example: SK123
-              description:
-                $ref: '#/components/schemas/description'
-              quantity_consumed:
-                $ref: '#/components/schemas/quantity_consumed'
-              total_quantity_consumed:
-                description: Total quantity consumed for this component.
-                type: number
-                format: double
-                example: 2
-              unit:
-                $ref: '#/components/schemas/unit'
-              rate:
-                $ref: '#/components/schemas/rate'
-              account_id:
-                $ref: '#/components/schemas/account_id'
-              account_name:
-                $ref: '#/components/schemas/account_name'
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              location_name:
-                $ref: '#/components/schemas/location_name'
-              warehouse_id:
-                description: Warehouse ID for the component item.
-                type: string
-                example: '460000000038080'
-              item_order:
-                description: Sort order of the line item.
-                type: integer
-                example: 1
-              serial_numbers:
-                $ref: '#/components/schemas/serial_numbers'
-              batches:
-                $ref: '#/components/schemas/batches'
-              storages:
-                $ref: '#/components/schemas/storages'
-        finished_product_serial_numbers:
-          $ref: '#/components/schemas/finished_product_serial_numbers'
-        finished_product_batches:
-          $ref: '#/components/schemas/finished_product_batches'
-        finished_product_storages:
-          $ref: '#/components/schemas/finished_product_storages'
-        is_completed:
-          $ref: '#/components/schemas/is_completed'
-        custom_fields:
-          description: Custom fields for the assembly.
-          type: array
-          items:
-            type: object
-            properties:
-              customfield_id:
-                $ref: '#/components/schemas/customfield_id'
-              label:
-                $ref: '#/components/schemas/label'
-              value:
-                $ref: '#/components/schemas/value'
-    quantity:
-      description: Quantity of item associated with the composite item
-      type: number
-      format: double
-      example: 1
-    image_name:
-      description: Name of the image
+    item_id:
+      description: Unique ID generated by the server for the Item. This is used as an identifier.
       type: string
-      example: img1.jpg
-    inventory_account_name:
-      description: Name of inventory type
-      type: string
-      example: Inventory Asset
-    actual_available_stock:
-      description: Stock based on Shipments and Receives minus ordered stock
-      type: number
-      format: double
-      example: 2
-    stock_on_hand:
-      description: Stock based on Invoices and Bills
-      type: number
-      format: double
-      example: 2
-    rate:
-      description: Selling price of the item
-      type: number
-      format: double
-      example: 85000
-    inventory_account_id:
-      description: Unique ID generated by the server for the type of inventory for this item
-      type: string
-      example: 504366000000034000
-    updating-a-composite-item-request:
-      required:
-      - name
-      - sku
-      - mapped_items
-      - rate
-      - item_type
-      - product_type
-      type: object
-      properties:
-        composite_item_id:
-          $ref: '#/components/schemas/composite_item_id'
-        name:
-          $ref: '#/components/schemas/name'
-        unit:
-          $ref: '#/components/schemas/unit'
-        tax_id:
-          $ref: '#/components/schemas/tax_id'
-        description:
-          $ref: '#/components/schemas/description'
-        tax_name:
-          $ref: '#/components/schemas/tax_name'
-        tax_percentage:
-          $ref: '#/components/schemas/tax_percentage'
-        tax_type:
-          $ref: '#/components/schemas/tax_type'
-        purchase_account_id:
-          $ref: '#/components/schemas/purchase_account_id'
-        purchase_account_name:
-          $ref: '#/components/schemas/purchase_account_name'
-        account_id:
-          $ref: '#/components/schemas/account_id'
-        account_name:
-          $ref: '#/components/schemas/account_name'
-        inventory_account_id:
-          $ref: '#/components/schemas/inventory_account_id'
-        inventory_account_name:
-          $ref: '#/components/schemas/inventory_account_name'
-        status:
-          $ref: '#/components/schemas/status'
-        source:
-          $ref: '#/components/schemas/source'
-        is_combo_product:
-          $ref: '#/components/schemas/is_combo_product'
-        item_type:
-          $ref: '#/components/schemas/item_type'
-        rate:
-          $ref: '#/components/schemas/rate'
-        pricebook_rate:
-          $ref: '#/components/schemas/pricebook_rate'
-        purchase_rate:
-          $ref: '#/components/schemas/purchase_rate'
-        reorder_level:
-          $ref: '#/components/schemas/reorder_level'
-        initial_stock:
-          $ref: '#/components/schemas/initial_stock'
-        initial_stock_rate:
-          $ref: '#/components/schemas/initial_stock_rate'
-        vendor_id:
-          $ref: '#/components/schemas/vendor_id'
-        vendor_name:
-          $ref: '#/components/schemas/vendor_name'
-        stock_on_hand:
-          $ref: '#/components/schemas/stock_on_hand'
-        asset_value:
-          $ref: '#/components/schemas/asset_value'
-        available_stock:
-          $ref: '#/components/schemas/available_stock'
-        actual_available_stock:
-          $ref: '#/components/schemas/actual_available_stock'
-        sku:
-          $ref: '#/components/schemas/sku'
-        upc:
-          $ref: '#/components/schemas/upc'
-        ean:
-          $ref: '#/components/schemas/ean'
-        isbn:
-          $ref: '#/components/schemas/isbn'
-        part_number:
-          $ref: '#/components/schemas/part_number'
-        image_id:
-          $ref: '#/components/schemas/image_id'
-        image_name:
-          $ref: '#/components/schemas/image_name'
-        purchase_description:
-          $ref: '#/components/schemas/purchase_description'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        mapped_items:
-          $ref: '#/components/schemas/mapped_items'
-        item_tax_preferences:
-          $ref: '#/components/schemas/item_tax_preferences'
-        hsn_or_sac:
-          $ref: '#/components/schemas/hsn_or_sac'
-        product_type:
-          description: Type of the product.
-          type: string
-          example: goods
-        combo_type:
-          description: 'Type of composite item. Allowed values: <code>assembly</code>, <code>kit</code>.'
-          type: string
-          example: assembly
-    initial_stock_rate:
-      description: Average purchase price of initial stock. This is required for FIFO cost lot tracking and inventory valuation
-      type: number
-      format: double
-      example: 30000
-    mark-as-active-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Re-activation complete! The item is back in business!
-          readOnly: true
+      example: 4815000000044208
     custom_fields:
       description: Custom fields are used to add more information about the item
       type: array
@@ -1739,340 +1487,20 @@ components:
             $ref: '#/components/schemas/value'
           label:
             $ref: '#/components/schemas/label'
-    mapped_items:
-      description: Items that are associated with the composite item
-      type: array
-      items:
-        type: object
-        properties:
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          item_order:
-            description: Sort order of the mapped item.
-            type: integer
-            example: 1
-          name:
-            $ref: '#/components/schemas/name'
-          rate:
-            $ref: '#/components/schemas/rate'
-          purchase_rate:
-            $ref: '#/components/schemas/purchase_rate'
-          sku:
-            $ref: '#/components/schemas/sku'
-          image_id:
-            $ref: '#/components/schemas/image_id'
-          image_name:
-            $ref: '#/components/schemas/image_name'
-          purchase_description:
-            $ref: '#/components/schemas/purchase_description'
-          image_type:
-            $ref: '#/components/schemas/image_type'
-          unit:
-            $ref: '#/components/schemas/unit'
-          is_combo_product:
-            $ref: '#/components/schemas/is_combo_product'
-          description:
-            $ref: '#/components/schemas/description'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          stock_on_hand:
-            $ref: '#/components/schemas/stock_on_hand'
-          available_stock:
-            $ref: '#/components/schemas/available_stock'
-          actual_available_stock:
-            $ref: '#/components/schemas/actual_available_stock'
-    vendor_id:
-      description: Unique ID generated by the server for preferred vendor to buy this composite item
-      type: string
-      example: 504366000000053250
-    product_type:
-      description: Type of the product.
-      type: string
-      example: goods
-    delete-composite-item-image-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The composite item image has been deleted.
-          readOnly: true
-    item_type:
-      description: Type of item <code>Always inventory</code>
-      type: string
-      example: inventory
-    composite_item_name:
-      description: Name of the composite item
-      type: string
-      example: Combo of Apple IPhone and Smartwatch
-    update-bundle-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Assembly has been updated.
-          readOnly: true
-        bundle:
-          type: object
-          properties:
-            bundle_id:
-              $ref: '#/components/schemas/bundle_id'
-            reference_number:
-              $ref: '#/components/schemas/reference_number'
-            transaction_number:
-              description: Auto-generated transaction number.
-              type: string
-              example: WO-00001
-            date:
-              $ref: '#/components/schemas/date'
-            description:
-              $ref: '#/components/schemas/description'
-            composite_item_id:
-              $ref: '#/components/schemas/composite_item_id'
-            composite_item_name:
-              $ref: '#/components/schemas/composite_item_name'
-            composite_item_sku:
-              $ref: '#/components/schemas/composite_item_sku'
-            quantity_to_bundle:
-              $ref: '#/components/schemas/quantity_to_bundle'
-            status:
-              description: Status of the assembly.
-              type: string
-              example: pending
-            total:
-              description: Total cost of the assembly.
-              type: number
-              format: double
-              example: 85000
-            warehouse_id:
-              description: Warehouse ID associated with the assembly.
-              type: string
-              example: '460000000038080'
-            warehouse_name:
-              description: Warehouse name associated with the assembly.
-              type: string
-              example: Main Warehouse
-            location_id:
-              $ref: '#/components/schemas/location_id'
-            location_name:
-              $ref: '#/components/schemas/location_name'
-            project_id:
-              description: Unique identifier of the associated project.
-              type: string
-              example: 504366000000070000
-            project_name:
-              description: Name of the associated project.
-              type: string
-              example: Assembly Project
-            line_items:
-              $ref: '#/components/schemas/line_items'
-            is_completed:
-              $ref: '#/components/schemas/is_completed'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            created_time:
-              $ref: '#/components/schemas/created_time'
-            last_modified_time:
-              $ref: '#/components/schemas/last_modified_time'
-            created_by_id:
-              description: Unique identifier of the user who created the assembly.
-              type: string
-              example: 504366000000040000
-    status:
-      description: Status of the Item
-      type: string
-      example: active
-    deleting-a-composite-item-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The item has been deleted.
-          readOnly: true
-    label:
-      description: Label of the custom field.
-      type: string
-      example: VAT ID
-    tax_percentage:
-      description: Percentage at which the item is taxed
+    pricebook_rate:
+      description: Price list applied on the item's selling price.
       type: number
       format: double
-      example: 13
-    list-all-composite-items-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        composite_items:
-          type: array
-          items:
-            type: object
-            properties:
-              composite_item_id:
-                $ref: '#/components/schemas/composite_item_id'
-              name:
-                $ref: '#/components/schemas/name'
-              status:
-                $ref: '#/components/schemas/status'
-              source:
-                $ref: '#/components/schemas/source'
-              description:
-                $ref: '#/components/schemas/description'
-              rate:
-                $ref: '#/components/schemas/rate'
-              tax_id:
-                $ref: '#/components/schemas/tax_id'
-              tax_name:
-                $ref: '#/components/schemas/tax_name'
-              tax_percentage:
-                $ref: '#/components/schemas/tax_percentage'
-              purchase_description:
-                $ref: '#/components/schemas/purchase_description'
-              purchase_rate:
-                $ref: '#/components/schemas/purchase_rate'
-              is_combo_product:
-                $ref: '#/components/schemas/is_combo_product'
-              item_type:
-                $ref: '#/components/schemas/item_type'
-              product_type:
-                $ref: '#/components/schemas/product_type'
-              is_taxable:
-                $ref: '#/components/schemas/is_taxable'
-              stock_on_hand:
-                $ref: '#/components/schemas/stock_on_hand'
-              available_stock:
-                $ref: '#/components/schemas/available_stock'
-              actual_available_stock:
-                $ref: '#/components/schemas/actual_available_stock'
-              sku:
-                $ref: '#/components/schemas/sku'
-              upc:
-                $ref: '#/components/schemas/upc'
-              ean:
-                $ref: '#/components/schemas/ean'
-              isbn:
-                $ref: '#/components/schemas/isbn'
-              part_number:
-                $ref: '#/components/schemas/part_number'
-              reorder_level:
-                $ref: '#/components/schemas/reorder_level'
-              image_id:
-                $ref: '#/components/schemas/image_id'
-              image_name:
-                $ref: '#/components/schemas/image_name'
-              image_type:
-                $ref: '#/components/schemas/image_type'
-              unit:
-                $ref: '#/components/schemas/unit'
-              category_id:
-                description: Unique identifier of the category.
-                type: string
-                example: 504366000000053500
-              category_name:
-                description: Name of the category.
-                type: string
-                example: Hardware
-              combo_type:
-                description: Type of composite item.
-                type: string
-                example: assembly
-              brand:
-                description: Brand name of the composite item.
-                type: string
-                example: Acme Corp
-              manufacturer:
-                description: Manufacturer of the composite item.
-                type: string
-                example: Acme Manufacturing
-              purchase_account_id:
-                $ref: '#/components/schemas/purchase_account_id'
-              purchase_account_name:
-                $ref: '#/components/schemas/purchase_account_name'
-              account_id:
-                $ref: '#/components/schemas/account_id'
-              account_name:
-                $ref: '#/components/schemas/account_name'
-              custom_fields:
-                $ref: '#/components/schemas/custom_fields'
-              created_time:
-                $ref: '#/components/schemas/created_time'
-              last_modified_time:
-                $ref: '#/components/schemas/last_modified_time'
-        page_context:
-          $ref: '#/components/schemas/page_context'
-    quantity_consumed:
-      description: Quantity of item to be Assembled.
+      example: 85000
+    location_id:
+      description: Location ID
+      type: string
+      example: '460000000038080'
+    stock_on_hand:
+      description: Stock based on Invoices and Bills
       type: number
       format: double
-      example: 1
-    line_items:
-      description: A assemblies can contain multiple line items. Each line item contains <code>item_id</code>,<code>name</code>,<code>description</code>,<code>quantity_consumed</code>,<code>unit</code>,<code>account_id</code>,<code>location_id</code>.
-      type: array
-      items:
-        type: object
-        properties:
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          item_order:
-            description: Sort order of the line item.
-            type: integer
-            example: 1
-          name:
-            $ref: '#/components/schemas/name'
-          description:
-            $ref: '#/components/schemas/description'
-          quantity_consumed:
-            $ref: '#/components/schemas/quantity_consumed'
-          unit:
-            $ref: '#/components/schemas/unit'
-          account_id:
-            $ref: '#/components/schemas/account_id'
-          account_name:
-            $ref: '#/components/schemas/account_name'
-          location_id:
-            $ref: '#/components/schemas/location_id'
-          location_name:
-            $ref: '#/components/schemas/location_name'
-          rate:
-            $ref: '#/components/schemas/rate'
-    date:
-      description: The date on which Assemblies is done
-      type: string
-      format: date
-      example: '2017-01-05'
-    purchase_account_id:
-      description: Unique ID generated by the server for the type of purchase
-      type: string
-      example: 504366000000034000
-    update-bundle-request:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/create-bundle-request'
-    reference_number:
-      description: Reference number for the Assemblies.
-      type: string
-      example: REF-B-00005
+      example: 2
     retrieving-a-composite-item-response:
       type: object
       properties:
@@ -2322,18 +1750,92 @@ components:
           $ref: '#/components/schemas/created_time'
         last_modified_time:
           $ref: '#/components/schemas/last_modified_time'
-    last_modified_time:
-      description: Search using the Last Modified Time of the Base Currency Adjustment
+    vendor_name:
+      description: Name of the preferred vendor
       type: string
-    is_taxable:
-      description: To check if the item is taxable or not <code>true if the item is taxable, else false </code>
+      example: Mr. vendor combo
+    finished_product_storages:
+      description: Bin/storage locations to store the finished product. Use when the composite item has bin tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - storage_id
+        - in_quantity
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093225'
+          in_quantity:
+            description: Inward quantity into the bin.
+            type: number
+            format: float
+            example: 1
+          serial_numbers:
+            description: Serial numbers allocated to this bin for the finished product.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: ASM-001
+    account_id:
+      description: Unique ID generated by the server for the type of sale of this item
+      type: string
+      example: 504366000000000400
+    customfield_id:
+      description: Unique ID generated by the server for the custom field.
+      type: string
+      example: 504366000000053400
+    line_items:
+      description: A assemblies can contain multiple line items. Each line item contains <code>item_id</code>,<code>name</code>,<code>description</code>,<code>quantity_consumed</code>,<code>unit</code>,<code>account_id</code>,<code>location_id</code>.
+      type: array
+      items:
+        type: object
+        properties:
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          item_order:
+            description: Sort order of the line item.
+            type: integer
+            example: 1
+          name:
+            $ref: '#/components/schemas/name'
+          description:
+            $ref: '#/components/schemas/description'
+          quantity_consumed:
+            $ref: '#/components/schemas/quantity_consumed'
+          unit:
+            $ref: '#/components/schemas/unit'
+          account_id:
+            $ref: '#/components/schemas/account_id'
+          account_name:
+            $ref: '#/components/schemas/account_name'
+          location_id:
+            $ref: '#/components/schemas/location_id'
+          location_name:
+            $ref: '#/components/schemas/location_name'
+          rate:
+            $ref: '#/components/schemas/rate'
+    purchase_description:
+      description: Purchase description of the item
+      type: string
+      example: Composite item purchase description
+    is_combo_product:
+      description: Defines whether the item is composite or not <code>true for composite items</code>
       type: boolean
       example: true
-    ean:
-      description: European Article Number, 13 digit barcode number of the item
+    hsn_or_sac:
+      description: HSN Code of the item
       type: string
-      example: 5789414385764
-    delete-bundle-response:
+      example: 85423100
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    creating-a-composite-item-response:
       type: object
       properties:
         code:
@@ -2342,59 +1844,10 @@ components:
           readOnly: true
         message:
           type: string
-          example: Assembly has been deleted.
+          example: The item has been added.
           readOnly: true
-    vendor_name:
-      description: Name of the preferred vendor
-      type: string
-      example: Mr. vendor combo
-    created_time:
-      description: Time at which the contact was created.
-      type: string
-      example: '2013-08-05'
-    tax_specification:
-      description: Type of tax. It can be <code> intra</code> or <code> inter</code>
-      type: string
-      example: intra
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    finished_product_serial_numbers:
-      description: Serial numbers to be assigned to the finished product. Use when the composite item has serial tracking enabled.
-      type: array
-      items:
-        type: string
-        example: ASM-001
-    serial_numbers:
-      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
-      type: array
-      items:
-        type: string
-        example: PKG-003
-    hsn_or_sac:
-      description: HSN Code of the item
-      type: string
-      example: 85423100
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    reorder_level:
-      description: Reorder point of the item
-      type: number
-      format: double
-      example: 1
-    item_id:
-      description: Unique ID generated by the server for the Item. This is used as an identifier.
-      type: string
-      example: 4815000000044208
-    account_name:
-      description: Type of sale under which the composite item is sold
-      type: string
-      example: sales
-    tax_id:
-      description: Unique ID generated by the server for the tax .
-      type: string
-      example: 504366000000053100
+        composite_item:
+          $ref: '#/components/schemas/composite_item'
     finished_product_batches:
       description: Batches to be created for the finished product. Use when the composite item has batch tracking enabled.
       type: array
@@ -2445,6 +1898,639 @@ components:
                   type: number
                   format: float
                   example: 1
+    location_name:
+      description: Name of the location
+      type: string
+      example: Head Office
+    rate:
+      description: Selling price of the item
+      type: number
+      format: double
+      example: 85000
+    is_taxable:
+      description: To check if the item is taxable or not <code>true if the item is taxable, else false </code>
+      type: boolean
+      example: true
+    upc:
+      description: Unique Product Code, 12 digit unique code of the item
+      type: string
+      example: 746325287436
+    product_type:
+      description: Type of the product.
+      type: string
+      example: goods
+    image_type:
+      description: Type of the image <code>Only images with gif,png,jpeg,jpg,bmp extensions are allowed</code>
+      type: string
+      example: jpg
+    purchase_account_name:
+      description: Type of purchase under which the composite item was bought
+      type: string
+      example: Cost of Goods Sold
+    asset_value:
+      description: value of the composite items based on purchase rate
+      type: number
+      format: double
+    ean:
+      description: European Article Number, 13 digit barcode number of the item
+      type: string
+      example: 5789414385764
+    purchase_account_id:
+      description: Unique ID generated by the server for the type of purchase
+      type: string
+      example: 504366000000034000
+    tax_name:
+      description: Name of the tax applied on selling this item
+      type: string
+      example: VAT
+    status:
+      description: Status of the Item
+      type: string
+      example: active
+    name:
+      description: Name of the composite item
+      type: string
+      example: Combo of Apple IPhone and Smartwatch
+    retrieve-bundle-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        bundle:
+          type: object
+          properties:
+            bundle_id:
+              $ref: '#/components/schemas/bundle_id'
+            reference_number:
+              $ref: '#/components/schemas/reference_number'
+            transaction_number:
+              description: Auto-generated transaction number.
+              type: string
+              example: WO-00001
+            date:
+              $ref: '#/components/schemas/date'
+            description:
+              $ref: '#/components/schemas/description'
+            composite_item_id:
+              $ref: '#/components/schemas/composite_item_id'
+            composite_item_name:
+              $ref: '#/components/schemas/composite_item_name'
+            composite_item_sku:
+              $ref: '#/components/schemas/composite_item_sku'
+            quantity_to_bundle:
+              $ref: '#/components/schemas/quantity_to_bundle'
+            status:
+              description: Status of the assembly.
+              type: string
+              example: pending
+            total:
+              description: Total cost of the assembly.
+              type: number
+              format: double
+              example: 85000
+            warehouse_id:
+              description: Warehouse ID associated with the assembly.
+              type: string
+              example: '460000000038080'
+            warehouse_name:
+              description: Warehouse name associated with the assembly.
+              type: string
+              example: Main Warehouse
+            location_id:
+              $ref: '#/components/schemas/location_id'
+            location_name:
+              $ref: '#/components/schemas/location_name'
+            project_id:
+              description: Unique identifier of the associated project.
+              type: string
+              example: 504366000000070000
+            project_name:
+              description: Name of the associated project.
+              type: string
+              example: Assembly Project
+            line_items:
+              $ref: '#/components/schemas/line_items'
+            is_completed:
+              $ref: '#/components/schemas/is_completed'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            created_time:
+              $ref: '#/components/schemas/created_time'
+            last_modified_time:
+              $ref: '#/components/schemas/last_modified_time'
+            created_by_id:
+              description: Unique identifier of the user who created the assembly.
+              type: string
+              example: 504366000000040000
+    deleting-a-composite-item-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The item has been deleted.
+          readOnly: true
+    tax_id:
+      description: Unique ID generated by the server for the tax .
+      type: string
+      example: 504366000000053100
+    composite_item:
+      type: object
+      properties:
+        composite_item_id:
+          $ref: '#/components/schemas/composite_item_id'
+        name:
+          $ref: '#/components/schemas/name'
+        unit:
+          $ref: '#/components/schemas/unit'
+        tax_id:
+          $ref: '#/components/schemas/tax_id'
+        description:
+          $ref: '#/components/schemas/description'
+        tax_name:
+          $ref: '#/components/schemas/tax_name'
+        tax_percentage:
+          $ref: '#/components/schemas/tax_percentage'
+        tax_type:
+          $ref: '#/components/schemas/tax_type'
+        purchase_account_id:
+          $ref: '#/components/schemas/purchase_account_id'
+        purchase_account_name:
+          $ref: '#/components/schemas/purchase_account_name'
+        account_id:
+          $ref: '#/components/schemas/account_id'
+        account_name:
+          $ref: '#/components/schemas/account_name'
+        inventory_account_id:
+          $ref: '#/components/schemas/inventory_account_id'
+        inventory_account_name:
+          $ref: '#/components/schemas/inventory_account_name'
+        status:
+          $ref: '#/components/schemas/status'
+        source:
+          $ref: '#/components/schemas/source'
+        is_combo_product:
+          $ref: '#/components/schemas/is_combo_product'
+        item_type:
+          $ref: '#/components/schemas/item_type'
+        rate:
+          $ref: '#/components/schemas/rate'
+        pricebook_rate:
+          $ref: '#/components/schemas/pricebook_rate'
+        purchase_rate:
+          $ref: '#/components/schemas/purchase_rate'
+        reorder_level:
+          $ref: '#/components/schemas/reorder_level'
+        initial_stock:
+          $ref: '#/components/schemas/initial_stock'
+        initial_stock_rate:
+          $ref: '#/components/schemas/initial_stock_rate'
+        vendor_id:
+          $ref: '#/components/schemas/vendor_id'
+        vendor_name:
+          $ref: '#/components/schemas/vendor_name'
+        stock_on_hand:
+          $ref: '#/components/schemas/stock_on_hand'
+        asset_value:
+          $ref: '#/components/schemas/asset_value'
+        available_stock:
+          $ref: '#/components/schemas/available_stock'
+        actual_available_stock:
+          $ref: '#/components/schemas/actual_available_stock'
+        sku:
+          $ref: '#/components/schemas/sku'
+        upc:
+          $ref: '#/components/schemas/upc'
+        ean:
+          $ref: '#/components/schemas/ean'
+        isbn:
+          $ref: '#/components/schemas/isbn'
+        part_number:
+          $ref: '#/components/schemas/part_number'
+        image_id:
+          $ref: '#/components/schemas/image_id'
+        image_name:
+          $ref: '#/components/schemas/image_name'
+        image_type:
+          $ref: '#/components/schemas/image_type'
+        is_taxable:
+          $ref: '#/components/schemas/is_taxable'
+        product_type:
+          $ref: '#/components/schemas/product_type'
+        purchase_description:
+          $ref: '#/components/schemas/purchase_description'
+        category_id:
+          description: Unique identifier of the category.
+          type: string
+          example: 504366000000053500
+        category_name:
+          description: Name of the category.
+          type: string
+          example: Hardware
+        combo_type:
+          description: 'Type of composite item. Allowed values: <code>assembly</code>, <code>kit</code>.'
+          type: string
+          example: assembly
+        brand:
+          description: Brand name of the composite item.
+          type: string
+          example: Acme Corp
+        manufacturer:
+          description: Manufacturer of the composite item.
+          type: string
+          example: Acme Manufacturing
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        mapped_items:
+          $ref: '#/components/schemas/mapped_items'
+        item_tax_preferences:
+          $ref: '#/components/schemas/item_tax_preferences'
+        hsn_or_sac:
+          $ref: '#/components/schemas/hsn_or_sac'
+        created_time:
+          $ref: '#/components/schemas/created_time'
+        last_modified_time:
+          $ref: '#/components/schemas/last_modified_time'
+    bundle_id:
+      description: Unique ID generated for the Assemblies by the server. This is used as identifier
+      type: string
+      example: 504366000000053250
+    inventory_account_id:
+      description: Unique ID generated by the server for the type of inventory for this item
+      type: string
+      example: 504366000000034000
+    create-bundle-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Assembly has been created.
+          readOnly: true
+        bundle_id:
+          $ref: '#/components/schemas/bundle_id'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        transaction_number:
+          description: Auto-generated transaction number.
+          type: string
+          example: WO-00001
+        date:
+          $ref: '#/components/schemas/date'
+        description:
+          $ref: '#/components/schemas/description'
+        composite_item_id:
+          $ref: '#/components/schemas/composite_item_id'
+        composite_item_name:
+          $ref: '#/components/schemas/composite_item_name'
+        composite_item_sku:
+          $ref: '#/components/schemas/composite_item_sku'
+        quantity_to_bundle:
+          $ref: '#/components/schemas/quantity_to_bundle'
+        status:
+          description: Status of the assembly.
+          type: string
+          example: pending
+        total:
+          description: Total cost of the assembly.
+          type: number
+          format: double
+          example: 85000
+        warehouse_id:
+          description: Warehouse ID associated with the assembly.
+          type: string
+          example: '460000000038080'
+        warehouse_name:
+          description: Warehouse name associated with the assembly.
+          type: string
+          example: Main Warehouse
+        is_completed:
+          $ref: '#/components/schemas/is_completed'
+        line_items:
+          $ref: '#/components/schemas/line_items'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        created_time:
+          $ref: '#/components/schemas/created_time'
+        last_modified_time:
+          $ref: '#/components/schemas/last_modified_time'
+    mark-as-active-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Re-activation complete! The item is back in business!
+          readOnly: true
+    upload-composite-item-image-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The composite item image has been uploaded.
+          readOnly: true
+    is_completed:
+      description: Denotes the status of the assemblies. Currently, this has to be true since we didnt support any other status as of now.
+      type: boolean
+      example: true
+    list-all-composite-items-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        composite_items:
+          type: array
+          items:
+            type: object
+            properties:
+              composite_item_id:
+                $ref: '#/components/schemas/composite_item_id'
+              name:
+                $ref: '#/components/schemas/name'
+              status:
+                $ref: '#/components/schemas/status'
+              source:
+                $ref: '#/components/schemas/source'
+              description:
+                $ref: '#/components/schemas/description'
+              rate:
+                $ref: '#/components/schemas/rate'
+              tax_id:
+                $ref: '#/components/schemas/tax_id'
+              tax_name:
+                $ref: '#/components/schemas/tax_name'
+              tax_percentage:
+                $ref: '#/components/schemas/tax_percentage'
+              purchase_description:
+                $ref: '#/components/schemas/purchase_description'
+              purchase_rate:
+                $ref: '#/components/schemas/purchase_rate'
+              is_combo_product:
+                $ref: '#/components/schemas/is_combo_product'
+              item_type:
+                $ref: '#/components/schemas/item_type'
+              product_type:
+                $ref: '#/components/schemas/product_type'
+              is_taxable:
+                $ref: '#/components/schemas/is_taxable'
+              stock_on_hand:
+                $ref: '#/components/schemas/stock_on_hand'
+              available_stock:
+                $ref: '#/components/schemas/available_stock'
+              actual_available_stock:
+                $ref: '#/components/schemas/actual_available_stock'
+              sku:
+                $ref: '#/components/schemas/sku'
+              upc:
+                $ref: '#/components/schemas/upc'
+              ean:
+                $ref: '#/components/schemas/ean'
+              isbn:
+                $ref: '#/components/schemas/isbn'
+              part_number:
+                $ref: '#/components/schemas/part_number'
+              reorder_level:
+                $ref: '#/components/schemas/reorder_level'
+              image_id:
+                $ref: '#/components/schemas/image_id'
+              image_name:
+                $ref: '#/components/schemas/image_name'
+              image_type:
+                $ref: '#/components/schemas/image_type'
+              unit:
+                $ref: '#/components/schemas/unit'
+              category_id:
+                description: Unique identifier of the category.
+                type: string
+                example: 504366000000053500
+              category_name:
+                description: Name of the category.
+                type: string
+                example: Hardware
+              combo_type:
+                description: Type of composite item.
+                type: string
+                example: assembly
+              brand:
+                description: Brand name of the composite item.
+                type: string
+                example: Acme Corp
+              manufacturer:
+                description: Manufacturer of the composite item.
+                type: string
+                example: Acme Manufacturing
+              purchase_account_id:
+                $ref: '#/components/schemas/purchase_account_id'
+              purchase_account_name:
+                $ref: '#/components/schemas/purchase_account_name'
+              account_id:
+                $ref: '#/components/schemas/account_id'
+              account_name:
+                $ref: '#/components/schemas/account_name'
+              custom_fields:
+                $ref: '#/components/schemas/custom_fields'
+              created_time:
+                $ref: '#/components/schemas/created_time'
+              last_modified_time:
+                $ref: '#/components/schemas/last_modified_time'
+        page_context:
+          $ref: '#/components/schemas/page_context'
+    tax_type:
+      description: Type of tax. It can either Tax or Group Tax
+      type: string
+      example: tax
+    account_name:
+      description: Type of sale under which the composite item is sold
+      type: string
+      example: sales
+    available_stock:
+      description: Stock based on Shipments and Receives
+      type: number
+      format: double
+      example: 2
+    image_name:
+      description: Name of the image
+      type: string
+      example: img1.jpg
+    quantity:
+      description: Quantity of item associated with the composite item
+      type: number
+      format: double
+      example: 1
+    inventory_account_name:
+      description: Name of inventory type
+      type: string
+      example: Inventory Asset
+    unit:
+      description: Unit of Item
+      type: string
+      example: units
+    date:
+      description: The date on which Assemblies is done
+      type: string
+      format: date
+      example: '2017-01-05'
+    create-bundle-request:
+      required:
+      - reference_number
+      - date
+      - composite_item_id
+      - composite_item_name
+      - quantity_to_bundle
+      - line_items
+      - is_completed
+      type: object
+      properties:
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        date:
+          $ref: '#/components/schemas/date'
+        description:
+          $ref: '#/components/schemas/description'
+        composite_item_id:
+          $ref: '#/components/schemas/composite_item_id'
+        composite_item_name:
+          $ref: '#/components/schemas/composite_item_name'
+        composite_item_sku:
+          $ref: '#/components/schemas/composite_item_sku'
+        quantity_to_bundle:
+          $ref: '#/components/schemas/quantity_to_bundle'
+        status:
+          description: 'Status of the assembly. Allowed values: <code>draft</code>, <code>confirmed</code>, <code>bundled</code>.'
+          type: string
+          example: draft
+        warehouse_id:
+          description: Warehouse ID for the assembly.
+          type: string
+          example: '460000000038080'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        line_items:
+          description: A assemblies can contain multiple line items. Each line item contains <code>item_id</code>,<code>name</code>,<code>description</code>,<code>quantity_consumed</code>,<code>unit</code>,<code>account_id</code>,<code>location_id</code>.
+          type: array
+          items:
+            type: object
+            required:
+            - item_id
+            - name
+            - quantity_consumed
+            - account_id
+            - location_id
+            properties:
+              item_id:
+                $ref: '#/components/schemas/item_id'
+              name:
+                $ref: '#/components/schemas/name'
+              sku:
+                description: SKU of the component item.
+                type: string
+                example: SK123
+              description:
+                $ref: '#/components/schemas/description'
+              quantity_consumed:
+                $ref: '#/components/schemas/quantity_consumed'
+              total_quantity_consumed:
+                description: Total quantity consumed for this component.
+                type: number
+                format: double
+                example: 2
+              unit:
+                $ref: '#/components/schemas/unit'
+              rate:
+                $ref: '#/components/schemas/rate'
+              account_id:
+                $ref: '#/components/schemas/account_id'
+              account_name:
+                $ref: '#/components/schemas/account_name'
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              location_name:
+                $ref: '#/components/schemas/location_name'
+              warehouse_id:
+                description: Warehouse ID for the component item.
+                type: string
+                example: '460000000038080'
+              item_order:
+                description: Sort order of the line item.
+                type: integer
+                example: 1
+              serial_numbers:
+                $ref: '#/components/schemas/serial_numbers'
+              batches:
+                $ref: '#/components/schemas/batches'
+              storages:
+                $ref: '#/components/schemas/storages'
+        finished_product_serial_numbers:
+          $ref: '#/components/schemas/finished_product_serial_numbers'
+        finished_product_batches:
+          $ref: '#/components/schemas/finished_product_batches'
+        finished_product_storages:
+          $ref: '#/components/schemas/finished_product_storages'
+        is_completed:
+          $ref: '#/components/schemas/is_completed'
+        custom_fields:
+          description: Custom fields for the assembly.
+          type: array
+          items:
+            type: object
+            properties:
+              customfield_id:
+                $ref: '#/components/schemas/customfield_id'
+              label:
+                $ref: '#/components/schemas/label'
+              value:
+                $ref: '#/components/schemas/value'
+    storages:
+      description: Bin/storage locations consumed for the line item. Applicable only for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - storage_id
+        - out_quantity
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093227'
+          out_quantity:
+            description: Quantity consumed from the bin.
+            type: number
+            format: float
+            example: 1
+          serial_numbers:
+            description: Serial numbers consumed from this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: PKG-002
     batches:
       description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
       type: array
@@ -2483,124 +2569,38 @@ components:
                   type: number
                   format: float
                   example: 1
-    asset_value:
-      description: value of the composite items based on purchase rate
-      type: number
-      format: double
-    mark-as-inactive-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The item has been marked as inactive.
-          readOnly: true
-    source:
-      description: source
-      type: string
-      example: user
-    unit:
-      description: Unit of Item
-      type: string
-      example: units
-    customfield_id:
-      description: Unique ID generated by the server for the custom field.
-      type: string
-      example: 504366000000053400
-    value:
-      description: Value of the custom field.
-      type: string
-      example: GBGD078
-    composite_item_id:
-      description: Unique ID generated for the composite item by the server. This is used as identifier
-      type: string
-      example: 504366000000053250
-    purchase_description:
-      description: Purchase description of the item
-      type: string
-      example: Composite item purchase description
-    bundle_id:
-      description: Unique ID generated for the Assemblies by the server. This is used as identifier
-      type: string
-      example: 504366000000053250
-    quantity_to_bundle:
-      description: Quantity of Assembly to be Assembled.
+    quantity_consumed:
+      description: Quantity of item to be Assembled.
       type: number
       format: double
       example: 1
-    page_context:
-      type: object
-      properties:
-        page:
-          description: Current page number.
-          type: integer
-          example: 1
-        per_page:
-          description: Number of records per page.
-          type: integer
-          example: 10
-        has_more_page:
-          description: Whether there are more pages.
-          type: boolean
-          example: true
-        report_name:
-          description: Name of the report.
-          type: string
-          example: Composite Items
-        applied_filter:
-          description: Filter applied on the list.
-          type: string
-          example: Status.All
-        sort_column:
-          description: Column used for sorting.
-          type: string
-          example: name
-        sort_order:
-          description: Order used for sorting.
-          type: string
-          example: A
-    storages:
-      description: Bin/storage locations consumed for the line item. Applicable only for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - storage_id
-        - out_quantity
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093227'
-          out_quantity:
-            description: Quantity consumed from the bin.
-            type: number
-            format: float
-            example: 1
-          serial_numbers:
-            description: Serial numbers consumed from this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: PKG-002
-    creating-a-composite-item-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The item has been added.
-          readOnly: true
-        composite_item:
-          $ref: '#/components/schemas/composite_item'
+    reference_number:
+      description: Reference number for the Assemblies.
+      type: string
+      example: REF-B-00005
+    composite_item_sku:
+      description: Stock Keeping Unit value of the composite item. It should be unique throughout the product
+      type: string
+      example: SKUIS
+    tax_percentage:
+      description: Percentage at which the item is taxed
+      type: number
+      format: double
+      example: 13
+    initial_stock_rate:
+      description: Average purchase price of initial stock. This is required for FIFO cost lot tracking and inventory valuation
+      type: number
+      format: double
+      example: 30000
+    purchase_rate:
+      description: Buying price of the item
+      type: number
+      format: double
+      example: 30000
+    sku:
+      description: Stock Keeping Unit value of the item. It should be unique throughout the product
+      type: string
+      example: SKUIS
   parameters:
     organization_id:
       name: organization_id
@@ -2617,7 +2617,7 @@ components:
         implicit:
           authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
           scopes:
-            ZohoInventory.items.CREATE: Create Items
-            ZohoInventory.items.READ: Read Items
-            ZohoInventory.items.UPDATE: Update Items
-            ZohoInventory.items.DELETE: Delete Items
+            ZohoInventory.compositeitems.CREATE: Create Compositeitems
+            ZohoInventory.compositeitems.READ: Read Compositeitems
+            ZohoInventory.compositeitems.UPDATE: Update Compositeitems
+            ZohoInventory.compositeitems.DELETE: Delete Compositeitems

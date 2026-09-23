@@ -1,14 +1,14 @@
 openapi: 3.2.0
 info:
-  title: batches Users API
-  description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
+  title: Users API
+  description: Users are various individuals/entities that are a part of an organisation. Each user will have a different role to play, like admin, staff etc., .
   contact: {}
   version: 1.0.0
 servers:
 - url: https://www.zohoapis.com/inventory/v1
   description: API Endpoint
 tags:
-- name: users
+- name: Users
   description: Users Module
 paths:
   /users:
@@ -18,7 +18,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - users
+      - Users
       operationId: create_user
       summary: Create a user
       description: Create a user for your organization.
@@ -40,7 +40,7 @@ paths:
         - ZohoInventory.settings.CREATE
     get:
       tags:
-      - users
+      - Users
       operationId: list_users
       summary: List Users
       description: Get the list of all users in the organization.
@@ -100,7 +100,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     put:
       tags:
-      - users
+      - Users
       operationId: update_user
       summary: Update a user
       description: Update the details of a user.
@@ -122,7 +122,7 @@ paths:
         - ZohoInventory.settings.UPDATE
     get:
       tags:
-      - users
+      - Users
       operationId: get_user
       summary: Get a user
       description: Get the details of a user.
@@ -139,7 +139,7 @@ paths:
         - ZohoInventory.settings.READ
     delete:
       tags:
-      - users
+      - Users
       operationId: delete_user
       summary: Delete a user
       description: Delete a user associated to the organization.
@@ -161,7 +161,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     get:
       tags:
-      - users
+      - Users
       operationId: get_current_user
       summary: Get current user
       description: Get the details of the current user.
@@ -190,7 +190,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - users
+      - Users
       operationId: invite_user
       summary: Invite a user
       description: Send invitation email to a person, you wish to add as a user to your organisation. For example- an accountant.
@@ -219,7 +219,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - users
+      - Users
       operationId: mark_user_as_active
       summary: Mark user as active
       description: Mark an inactive user as active.
@@ -248,7 +248,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - users
+      - Users
       operationId: mark_user_as_inactive
       summary: Mark user as inactive
       description: Mark an active user as inactive.
@@ -265,52 +265,10 @@ paths:
         - ZohoInventory.settings.CREATE
 components:
   schemas:
-    is_claimant:
-      description: To check if user is a claimant
-      type: boolean
-      example: true
-    update-a-user-request:
-      required:
-      - name
-      - email
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/name'
-        email:
-          $ref: '#/components/schemas/email'
-        user_role:
-          $ref: '#/components/schemas/user_role'
-    delete-a-user-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The user has been removed from your organization.
-          readOnly: true
-    role_id:
-      description: Unique ID of the role, the user is playing
+    user_role:
       type: string
-      example: '982000000006005'
-    mark-user-as-active-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The user has been marked as active.
-          readOnly: true
-    is_selected:
-      description: to check is task is selected
-      type: boolean
-      example: true
+      description: The role of the user
+      example: admin
     get-current-user-response:
       type: object
       properties:
@@ -355,18 +313,79 @@ components:
               $ref: '#/components/schemas/created_time'
             custom_fields:
               $ref: '#/components/schemas/custom_fields'
-    photo_url:
-      description: URL to profile photo of user.
+    mark-user-as-active-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The user has been marked as active.
+          readOnly: true
+    invite-a-user-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your invitation has been sent.
+          readOnly: true
+    role_id:
+      description: Unique ID of the role, the user is playing
       type: string
-      example: https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb
-    name:
-      description: name of the user
+      example: '982000000006005'
+    user_id:
+      description: Unique ID of the user
       type: string
-      example: David John
-    status:
-      description: Status of the user, in the project
+      example: '982000000554041'
+    update-a-user-request:
+      required:
+      - name
+      - email
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/name'
+        email:
+          $ref: '#/components/schemas/email'
+        user_role:
+          $ref: '#/components/schemas/user_role'
+    created_time:
+      description: Time of task creation
       type: string
-      example: active
+      example: '2016-06-05'
+    is_selected:
+      description: to check is task is selected
+      type: boolean
+      example: true
+    delete-a-user-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The user has been removed from your organization.
+          readOnly: true
+    custom_fields:
+      description: Additional fields for task
+      type: string
+      example: ''
+    email:
+      description: email address of the user
+      type: string
+      example: johndavid@zilliuminc.com
+    is_claimant:
+      description: To check if user is a claimant
+      type: boolean
+      example: true
     list-users-response:
       type: object
       properties:
@@ -401,28 +420,6 @@ components:
                 $ref: '#/components/schemas/is_current_user'
               photo_url:
                 $ref: '#/components/schemas/photo_url'
-    create-a-user-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your invitation has been sent.
-          readOnly: true
-    invite-a-user-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your invitation has been sent.
-          readOnly: true
     update-a-user-response:
       type: object
       properties:
@@ -434,10 +431,40 @@ components:
           type: string
           example: The user information has been updated.
           readOnly: true
-    user_role:
+    mark-user-as-inactive-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The user has been marked as inactive.
+          readOnly: true
+    status:
+      description: Status of the user, in the project
       type: string
-      description: The role of the user
-      example: admin
+      example: active
+    create-a-user-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your invitation has been sent.
+          readOnly: true
+    photo_url:
+      description: URL to profile photo of user.
+      type: string
+      example: https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb
+    name:
+      description: name of the user
+      type: string
+      example: David John
     user_type:
       description: Type of user
       type: string
@@ -486,6 +513,10 @@ components:
               $ref: '#/components/schemas/created_time'
             custom_fields:
               $ref: '#/components/schemas/custom_fields'
+    is_current_user:
+      description: to check if user is currently a part of task
+      type: boolean
+      example: true
     create-a-user-request:
       required:
       - name
@@ -498,37 +529,6 @@ components:
           $ref: '#/components/schemas/email'
         user_role:
           $ref: '#/components/schemas/user_role'
-    user_id:
-      description: Unique ID of the user
-      type: string
-      example: '982000000554041'
-    mark-user-as-inactive-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The user has been marked as inactive.
-          readOnly: true
-    is_current_user:
-      description: to check if user is currently a part of task
-      type: boolean
-      example: true
-    created_time:
-      description: Time of task creation
-      type: string
-      example: '2016-06-05'
-    custom_fields:
-      description: Additional fields for task
-      type: string
-      example: ''
-    email:
-      description: email address of the user
-      type: string
-      example: johndavid@zilliuminc.com
   parameters:
     organization_id:
       name: organization_id
@@ -545,7 +545,7 @@ components:
         implicit:
           authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
           scopes:
-            ZohoInventory.items.CREATE: Create Items
-            ZohoInventory.items.READ: Read Items
-            ZohoInventory.items.UPDATE: Update Items
-            ZohoInventory.items.DELETE: Delete Items
+            ZohoInventory.settings.CREATE: Create Settings
+            ZohoInventory.settings.UPDATE: Update Settings
+            ZohoInventory.settings.READ: Read Settings
+            ZohoInventory.settings.DELETE: Delete Settings

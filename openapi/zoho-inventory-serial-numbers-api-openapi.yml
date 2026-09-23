@@ -1,14 +1,14 @@
 openapi: 3.2.0
 info:
-  title: batches Serialnumbers API
-  description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
+  title: Serial Numbers Serialnumbers API
+  description: Serial numbers help you track individual units of inventory items by assigning a unique identifier to each unit.
   contact: {}
   version: 1.0.0
 servers:
 - url: https://www.zohoapis.com/inventory/v1
   description: API Endpoint
 tags:
-- name: serialnumbers
+- name: Serial Numbers
   description: Serial Numbers Module
 paths:
   /items/serialnumbers:
@@ -18,7 +18,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     get:
       tags:
-      - serialnumbers
+      - Serial Numbers
       operationId: list_serial_numbers
       summary: List all serial numbers
       description: List all serial numbers available for a given item.
@@ -113,7 +113,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     get:
       tags:
-      - serialnumbers
+      - Serial Numbers
       operationId: retrieve_a_serial_number
       summary: Retrieve a serial number
       description: Fetch the details of a specific serial number.
@@ -130,8 +130,77 @@ paths:
         - ZohoInventory.items.READ
 components:
   schemas:
-    serialnumber:
-      description: Serial number assigned to the unit.
+    is_transacted_out:
+      description: Indicates whether the serial number has been transacted out and is no longer available in stock.
+      type: boolean
+      example: false
+    batch_custom_fields:
+      description: Custom fields configured for the batch the serial number belongs to.
+      type: array
+      x-node_available_in:
+      - Serial with Batch tracked items
+      items:
+        type: object
+        properties:
+          custom_field_id:
+            $ref: '#/components/schemas/custom_field_id'
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    batch_number:
+      description: Batch number the serial number belongs to.
+      type: string
+      example: BATCH-001
+      x-node_available_in:
+      - Serial with Batch tracked items
+    retrieve-a-serial-number-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        serial_number:
+          $ref: '#/components/schemas/serial-number-response'
+    list-serial-numbers-item:
+      description: Details of a serial number as returned in the list serial numbers response.
+      type: object
+      properties:
+        serialnumber_id:
+          $ref: '#/components/schemas/serialnumber_id'
+        serialnumber:
+          $ref: '#/components/schemas/serialnumber'
+        status:
+          $ref: '#/components/schemas/status'
+        is_transacted_out:
+          $ref: '#/components/schemas/is_transacted_out'
+        batch_id:
+          $ref: '#/components/schemas/batch_id'
+        batch_number:
+          $ref: '#/components/schemas/batch_number'
+        batch_custom_fields:
+          $ref: '#/components/schemas/batch_custom_fields'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+    label:
+      description: Label of the custom field.
+      type: string
+      example: Warranty Period
+    value:
+      description: Value of the custom field.
+      type: string
+      example: 2 Years
+    serialnumber_id:
+      description: Unique identifier of the serial number.
+      type: string
+      example: '6780203000000176190'
+    code:
+      description: Code of the serial number. Same value as <code>serialnumber</code>.
       type: string
       example: SN-LAP-001
     serial-number-response:
@@ -154,102 +223,10 @@ components:
           $ref: '#/components/schemas/price'
         custom_fields:
           $ref: '#/components/schemas/custom_fields'
-    batch_number:
-      description: Batch number the serial number belongs to.
-      type: string
-      example: BATCH-001
-      x-node_available_in:
-      - Serial with Batch tracked items
-    batch_id:
-      description: Unique identifier of the batch the serial number belongs to.
-      type: string
-      example: '6780203000000176162'
-      x-node_available_in:
-      - Serial with Batch tracked items
-    is_transacted_out:
-      description: Indicates whether the serial number has been transacted out and is no longer available in stock.
-      type: boolean
-      example: false
-    list-serial-numbers-item:
-      description: Details of a serial number as returned in the list serial numbers response.
-      type: object
-      properties:
-        serialnumber_id:
-          $ref: '#/components/schemas/serialnumber_id'
-        serialnumber:
-          $ref: '#/components/schemas/serialnumber'
-        status:
-          $ref: '#/components/schemas/status'
-        is_transacted_out:
-          $ref: '#/components/schemas/is_transacted_out'
-        batch_id:
-          $ref: '#/components/schemas/batch_id'
-        batch_number:
-          $ref: '#/components/schemas/batch_number'
-        batch_custom_fields:
-          $ref: '#/components/schemas/batch_custom_fields'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-    code:
-      description: Code of the serial number. Same value as <code>serialnumber</code>.
-      type: string
-      example: SN-LAP-001
-    status:
-      description: Status of the serial number. Allowed values <code>active</code> and <code>inactive</code>.
-      type: string
-      example: active
-    label:
-      description: Label of the custom field.
-      type: string
-      example: Warranty Period
     item_id:
       description: Unique identifier of the item the serial number belongs to.
       type: string
       example: '6780203000000167467'
-    batch_custom_fields:
-      description: Custom fields configured for the batch the serial number belongs to.
-      type: array
-      x-node_available_in:
-      - Serial with Batch tracked items
-      items:
-        type: object
-        properties:
-          custom_field_id:
-            $ref: '#/components/schemas/custom_field_id'
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    custom_field_id:
-      description: Unique identifier of the custom field.
-      type: string
-      example: '6780203000000176175'
-    value:
-      description: Value of the custom field.
-      type: string
-      example: 2 Years
-    price:
-      description: Price of the item associated with the serial number.
-      type: number
-      format: float
-      example: 1500
-    retrieve-a-serial-number-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        serial_number:
-          $ref: '#/components/schemas/serial-number-response'
-    serialnumber_id:
-      description: Unique identifier of the serial number.
-      type: string
-      example: '6780203000000176190'
     custom_fields:
       description: Custom fields configured for the serial number.
       type: array
@@ -262,6 +239,29 @@ components:
             $ref: '#/components/schemas/label'
           value:
             $ref: '#/components/schemas/value'
+    batch_id:
+      description: Unique identifier of the batch the serial number belongs to.
+      type: string
+      example: '6780203000000176162'
+      x-node_available_in:
+      - Serial with Batch tracked items
+    serialnumber:
+      description: Serial number assigned to the unit.
+      type: string
+      example: SN-LAP-001
+    status:
+      description: Status of the serial number. Allowed values <code>active</code> and <code>inactive</code>.
+      type: string
+      example: active
+    price:
+      description: Price of the item associated with the serial number.
+      type: number
+      format: float
+      example: 1500
+    custom_field_id:
+      description: Unique identifier of the custom field.
+      type: string
+      example: '6780203000000176175'
     list-all-serial-numbers-response:
       type: object
       properties:
@@ -293,7 +293,4 @@ components:
         implicit:
           authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
           scopes:
-            ZohoInventory.items.CREATE: Create Items
             ZohoInventory.items.READ: Read Items
-            ZohoInventory.items.UPDATE: Update Items
-            ZohoInventory.items.DELETE: Delete Items

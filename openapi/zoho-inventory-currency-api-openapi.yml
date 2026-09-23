@@ -1,14 +1,14 @@
 openapi: 3.2.0
 info:
-  title: batches Currency API
-  description: Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.
+  title: Currency API
+  description: A currency is a generally accepted form of money issued by the government. Each country had its own different currency.
   contact: {}
   version: 1.0.0
 servers:
 - url: https://www.zohoapis.com/inventory/v1
   description: API Endpoint
 tags:
-- name: currency
+- name: Currency
   description: Currency Module
 paths:
   /settings/currencies:
@@ -18,7 +18,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     post:
       tags:
-      - currency
+      - Currency
       operationId: create_currency
       summary: Create a Currency
       description: Create a currency for transaction.
@@ -40,7 +40,7 @@ paths:
         - ZohoInventory.settings.CREATE
     get:
       tags:
-      - currency
+      - Currency
       operationId: list_currencies
       summary: List Currency
       description: Get list of currencies configured.
@@ -93,7 +93,7 @@ paths:
     - $ref: '#/components/parameters/organization_id'
     put:
       tags:
-      - currency
+      - Currency
       operationId: update_currency
       summary: Update a Currency
       description: Update the details of a currency.
@@ -115,7 +115,7 @@ paths:
         - ZohoInventory.settings.UPDATE
     get:
       tags:
-      - currency
+      - Currency
       operationId: get_currency
       summary: Get a Currency
       description: Get the details of a currency.
@@ -132,7 +132,7 @@ paths:
         - ZohoInventory.settings.READ
     delete:
       tags:
-      - currency
+      - Currency
       operationId: delete_currency
       summary: Delete a currency
       description: Delete a currency. Currency that is associated to any transaction cannot be deleted.
@@ -149,15 +149,7 @@ paths:
         - ZohoInventory.settings.DELETE
 components:
   schemas:
-    currency_id:
-      description: A unique ID for the currency.
-      type: string
-      example: '982000000004012'
-    currency_name:
-      description: The name for the currency.
-      type: string
-      example: AUD- Australian Dollar
-    list-currency-response:
+    create-a-currency-response:
       type: object
       properties:
         code:
@@ -166,54 +158,30 @@ components:
           readOnly: true
         message:
           type: string
-          example: List of all currencies are displayed successfully.
+          example: The currency has been added.
           readOnly: true
-        currencies:
+        currency:
+          description: A legal money issued by government of a country
           type: array
           items:
-            type: object
-            properties:
-              currency_id:
-                $ref: '#/components/schemas/currency_id'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              currency_name:
-                $ref: '#/components/schemas/currency_name'
-              currency_symbol:
-                $ref: '#/components/schemas/currency_symbol'
-              price_precision:
-                $ref: '#/components/schemas/price_precision'
-              currency_format:
-                $ref: '#/components/schemas/currency_format'
-              is_base_currency:
-                $ref: '#/components/schemas/is_base_currency'
-              exchange_rate:
-                $ref: '#/components/schemas/exchange_rate'
-              effective_date:
-                $ref: '#/components/schemas/effective_date'
+            $ref: '#/components/schemas/currency-response'
+    price_precision:
+      description: The precision for the price in decimals
+      type: integer
+      example: 2
+    is_base_currency:
+      description: If the specified currency is the base currency of the organization or not.
+      type: boolean
+      example: false
+    effective_date:
+      description: Date from when the currency will be in effect.
+      type: string
+      example: '2016-06-05'
     exchange_rate:
       description: Foreign Exchange rate for the currency.
       type: number
       format: double
       example: 0
-    is_base_currency:
-      description: If the specified currency is the base currency of the organization or not.
-      type: boolean
-      example: false
-    create-a-currency-request:
-      required:
-      - currency_code
-      - currency_symbol
-      type: object
-      properties:
-        currency_code:
-          $ref: '#/components/schemas/currency_code'
-        currency_symbol:
-          $ref: '#/components/schemas/currency_symbol'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        currency_format:
-          $ref: '#/components/schemas/currency_format'
     get-a-currency-response:
       type: object
       properties:
@@ -245,18 +213,6 @@ components:
                 $ref: '#/components/schemas/currency_format'
               is_base_currency:
                 $ref: '#/components/schemas/is_base_currency'
-    currency_code:
-      description: A unique code for the currency. Maximum length [100]
-      type: string
-      example: AUD
-    effective_date:
-      description: Date from when the currency will be in effect.
-      type: string
-      example: '2016-06-05'
-    currency_format:
-      description: The format for the currency to be displayed. Maximum length [100]
-      type: string
-      example: 1,234,567.89
     update-a-currency-response:
       type: object
       properties:
@@ -294,22 +250,22 @@ components:
                 $ref: '#/components/schemas/currency_format'
               is_base_currency:
                 $ref: '#/components/schemas/is_base_currency'
-    create-a-currency-response:
+    update-a-currency-request:
+      required:
+      - currency_code
+      - currency_symbol
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
+        currency_code:
+          description: Unique code representing a currency
           type: string
-          example: The currency has been added.
-          readOnly: true
-        currency:
-          description: A legal money issued by government of a country
-          type: array
-          items:
-            $ref: '#/components/schemas/currency-response'
+          example: CAD
+        currency_symbol:
+          $ref: '#/components/schemas/currency_symbol'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        currency_format:
+          $ref: '#/components/schemas/currency_format'
     currency-response:
       type: object
       properties:
@@ -327,10 +283,24 @@ components:
           $ref: '#/components/schemas/currency_format'
         is_base_currency:
           $ref: '#/components/schemas/is_base_currency'
-    price_precision:
-      description: The precision for the price in decimals
-      type: integer
-      example: 2
+    create-a-currency-request:
+      required:
+      - currency_code
+      - currency_symbol
+      type: object
+      properties:
+        currency_code:
+          $ref: '#/components/schemas/currency_code'
+        currency_symbol:
+          $ref: '#/components/schemas/currency_symbol'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        currency_format:
+          $ref: '#/components/schemas/currency_format'
+    currency_format:
+      description: The format for the currency to be displayed. Maximum length [100]
+      type: string
+      example: 1,234,567.89
     delete-a-currency-response:
       type: object
       properties:
@@ -342,22 +312,52 @@ components:
           type: string
           example: The currency has been deleted.
           readOnly: true
-    update-a-currency-request:
-      required:
-      - currency_code
-      - currency_symbol
+    list-currency-response:
       type: object
       properties:
-        currency_code:
-          description: Unique code representing a currency
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
           type: string
-          example: CAD
-        currency_symbol:
-          $ref: '#/components/schemas/currency_symbol'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        currency_format:
-          $ref: '#/components/schemas/currency_format'
+          example: List of all currencies are displayed successfully.
+          readOnly: true
+        currencies:
+          type: array
+          items:
+            type: object
+            properties:
+              currency_id:
+                $ref: '#/components/schemas/currency_id'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              currency_name:
+                $ref: '#/components/schemas/currency_name'
+              currency_symbol:
+                $ref: '#/components/schemas/currency_symbol'
+              price_precision:
+                $ref: '#/components/schemas/price_precision'
+              currency_format:
+                $ref: '#/components/schemas/currency_format'
+              is_base_currency:
+                $ref: '#/components/schemas/is_base_currency'
+              exchange_rate:
+                $ref: '#/components/schemas/exchange_rate'
+              effective_date:
+                $ref: '#/components/schemas/effective_date'
+    currency_code:
+      description: A unique code for the currency. Maximum length [100]
+      type: string
+      example: AUD
+    currency_id:
+      description: A unique ID for the currency.
+      type: string
+      example: '982000000004012'
+    currency_name:
+      description: The name for the currency.
+      type: string
+      example: AUD- Australian Dollar
     currency_symbol:
       description: A unique symbol for the currency. Maximum length [4]
       type: string
@@ -378,7 +378,7 @@ components:
         implicit:
           authorizationUrl: https://accounts.zoho.com/oauth/v2/auth
           scopes:
-            ZohoInventory.items.CREATE: Create Items
-            ZohoInventory.items.READ: Read Items
-            ZohoInventory.items.UPDATE: Update Items
-            ZohoInventory.items.DELETE: Delete Items
+            ZohoInventory.settings.CREATE: Create Settings
+            ZohoInventory.settings.UPDATE: Update Settings
+            ZohoInventory.settings.READ: Read Settings
+            ZohoInventory.settings.DELETE: Delete Settings
