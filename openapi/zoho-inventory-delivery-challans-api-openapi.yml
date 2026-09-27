@@ -510,39 +510,143 @@ paths:
         - ZohoInventory.deliverychallans.UPDATE
 components:
   schemas:
-    line-item-response:
+    update-shipping-address-request:
       type: object
       properties:
-        line_item_id:
-          description: Unique identifier of the line item.
+        address:
+          description: Address line.
           type: string
-          example: '982000000567002'
+          example: 123 Main Street
+        street2:
+          description: Second address line.
+          type: string
+        city:
+          description: City.
+          type: string
+          example: Chennai
+        state:
+          description: State.
+          type: string
+          example: Tamil Nadu
+        zip:
+          description: Postal or ZIP code.
+          type: string
+          example: '600001'
+        country:
+          description: Country.
+          type: string
+          example: India
+        fax:
+          description: Fax number.
+          type: string
+        phone:
+          description: Phone number.
+          type: string
+          example: +91-44-12345678
+        attention:
+          description: Attention.
+          type: string
+    list-delivery-challans-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        deliverychallans:
+          description: List of delivery challans.
+          type: array
+          items:
+            type: object
+            properties:
+              deliverychallan_id:
+                description: Unique identifier of the delivery challan.
+                type: string
+                example: '982000000567001'
+              customer_name:
+                description: Name of the customer.
+                type: string
+                example: Bowman and Co
+              customer_id:
+                description: Unique identifier of the customer.
+                type: string
+                example: '982000000567001'
+              status:
+                description: Status of the delivery challan.
+                type: string
+                example: open
+              deliverychallan_number:
+                description: Delivery challan number.
+                type: string
+                example: DC-00001
+              reference_number:
+                description: Reference number.
+                type: string
+              date:
+                description: Date of the delivery challan.
+                type: string
+                example: '2024-06-15'
+              currency_id:
+                description: Unique identifier of the currency.
+                type: string
+                example: '982000000000190'
+              currency_code:
+                description: Currency code.
+                type: string
+                example: USD
+              total:
+                description: Total amount.
+                type: number
+                example: 5450
+              bcy_total:
+                description: Total amount in base currency.
+                type: number
+                example: 5450
+              created_time:
+                description: Time at which the delivery challan was created.
+                type: string
+                example: 2024-06-15T10:30:00+0530
+              last_modified_time:
+                description: Time at which the delivery challan was last modified.
+                type: string
+                example: 2024-06-15T10:30:00+0530
+              has_attachment:
+                description: Whether the delivery challan has attachments.
+                type: boolean
+                example: false
+        page_context:
+          $ref: '#/components/schemas/page_context'
+    line-item-request:
+      type: object
+      properties:
         item_id:
           description: Unique identifier of the item.
           type: string
           example: '982000000030049'
         name:
-          description: Name of the item.
+          description: Name of the item. Max-length [200]
           type: string
+          maxLength: 200
           example: Hard Drive
         sku:
-          description: SKU of the item.
+          description: SKU of the item. Max-length [200]
           type: string
-          example: HD-1TB-001
+          maxLength: 200
         description:
-          description: Description of the line item.
+          description: Description of the line item. Max-length [6000]
           type: string
+          maxLength: 6000
           example: 1TB External Hard Drive
         item_order:
-          description: Display order of the line item.
+          description: Display order of the item.
           type: integer
           example: 1
         rate:
           description: Rate of the item.
-          type: number
-          example: 2500
-        bcy_rate:
-          description: Rate in base currency.
           type: number
           example: 2500
         quantity:
@@ -550,176 +654,41 @@ components:
           type: number
           example: 2
         unit:
-          description: Unit of measurement.
+          description: Unit of measurement. Max-length [120]
           type: string
+          maxLength: 120
           example: Nos
         discount:
-          description: Discount applied.
-          type: number
-          example: 0
+          description: Discount for this line item.
+          type: string
         tax_id:
           description: Unique identifier of the tax.
           type: string
           example: '982000000030010'
-        tax_name:
-          description: Name of the tax.
-          type: string
-          example: GST
-        tax_type:
-          description: Type of the tax.
-          type: string
-        tax_percentage:
-          description: Tax percentage.
-          type: number
-          example: 9
-        item_total:
-          description: Total for this line item.
-          type: number
-          example: 5000
-        hsn_or_sac:
-          description: HSN or SAC code (applicable for India edition).
-          type: string
         tax_exemption_id:
           description: Unique identifier of the tax exemption.
           type: string
         tax_exemption_code:
-          description: Tax exemption code.
-          type: string
-        warehouse_id:
-          description: Unique identifier of the warehouse.
-          type: string
-        warehouse_name:
-          description: Name of the warehouse.
-          type: string
-        quantity_invoiced:
-          description: Quantity invoiced for this line item.
-          type: number
-        quantity_returned:
-          description: Quantity returned for this line item.
-          type: number
-        is_combo_product:
-          $ref: '#/components/schemas/is_combo_product'
-        combo_type:
-          $ref: '#/components/schemas/combo_type'
-        mapped_items:
-          $ref: '#/components/schemas/mapped_items'
-        line_item_taxes:
-          type: array
-          items:
-            $ref: '#/components/schemas/line-item-tax'
-        item_custom_fields:
-          $ref: '#/components/schemas/item_custom_fields'
-    update-delivery-challan-request:
-      required:
-      - customer_id
-      type: object
-      properties:
-        customer_id:
-          description: Unique identifier of the customer.
-          type: string
-          example: '982000000567001'
-        currency_id:
-          description: Unique identifier of the currency.
-          type: string
-          example: '982000000000190'
-        deliverychallan_number:
-          description: Delivery challan number. Max-length [50]
+          description: Tax exemption code. Max-length [50]
           type: string
           maxLength: 50
-          example: DC-00001
-        reference_number:
-          description: Reference number. Max-length [50]
-          type: string
-          maxLength: 50
-          example: REF-DC-001
-        template_id:
-          description: Unique identifier of the template.
-          type: string
-          example: '982000000567030'
-        date:
-          description: Date of the delivery challan in YYYY-MM-DD format.
-          type: string
-          example: '2024-06-15'
-        challan_type:
-          description: Type of delivery challan. Max-length [200]
-          type: string
-          maxLength: 200
-          example: job_work
-        discount:
-          description: Discount applied at the entity level.
-          type: string
-        is_discount_before_tax:
-          description: Whether discount is applied before tax.
-          type: boolean
-          example: true
-        discount_type:
-          description: Type of discount.
-          type: string
-        place_of_supply:
-          description: Place of supply state code (applicable for India edition). Max-length [5]
-          type: string
-          maxLength: 5
-        exchange_rate:
-          description: Exchange rate for the currency.
-          type: number
-          example: 1
-        is_inclusive_tax:
-          description: Whether prices are inclusive of tax.
-          type: boolean
-          example: false
-        gst_treatment:
-          description: GST treatment (applicable for India edition).
-          type: string
-        tax_treatment:
-          description: Tax treatment.
-          type: string
-        gst_no:
-          description: GST number (applicable for India edition). Max-length [15]
-          type: string
-          maxLength: 15
-        line_items:
-          description: Line items of the delivery challan.
-          type: array
-          items:
-            $ref: '#/components/schemas/line-item-request-update'
-        notes:
-          description: Customer notes. Max-length [5000]
-          type: string
-          maxLength: 5000
-          example: Deliver to the reception desk
-        terms:
-          description: Terms and conditions. Max-length [10000]
-          type: string
-          maxLength: 10000
-        adjustment:
-          description: Adjustment amount.
-          type: number
-          example: 0
-        adjustment_description:
-          description: Adjustment description. Max-length [200]
-          type: string
-          maxLength: 200
-        tax_id:
-          description: Unique identifier of the tax.
-          type: string
-        tax_authority_id:
-          description: Unique identifier of the tax authority.
-          type: string
-        tax_exemption_id:
-          description: Unique identifier of the tax exemption.
-          type: string
-        shipping_address_id:
-          description: Unique identifier of the shipping address.
+        hsn_or_sac:
+          description: HSN or SAC code (applicable for India edition).
           type: string
         pricebook_id:
           description: Unique identifier of the price book.
           type: string
-        branch_id:
-          description: Unique identifier of the branch.
+        warehouse_id:
+          description: Unique identifier of the warehouse.
           type: string
         location_id:
           description: Unique identifier of the location.
           type: string
+        mapped_items:
+          description: Mapped items of a composite item.
+          type: array
+          items:
+            $ref: '#/components/schemas/mapped_items_create'
     update-delivery-challan-response:
       type: object
       properties:
@@ -733,38 +702,16 @@ components:
           readOnly: true
         deliverychallan:
           $ref: '#/components/schemas/delivery-challan-response'
-    page_context:
-      description: The context of a particular page.
-      type: object
-      properties:
-        page:
-          description: Current page number.
-          type: integer
-          example: 1
-        per_page:
-          description: Number of records per page.
-          type: integer
-          example: 10
-        has_more_page:
-          description: Whether more pages exist.
-          type: boolean
-          example: false
-        report_name:
-          description: Report name.
-          type: string
-          example: Delivery Challans
-        applied_filter:
-          description: Applied filter.
-          type: string
-          example: Status.All
-        sort_column:
-          description: Column used for sorting.
-          type: string
-          example: created_time
-        sort_order:
-          description: Sort order.
-          type: string
-          example: D
+    item_custom_fields:
+      type: array
+      description: List of custom fields associated with the line item
+      items:
+        type: object
+        properties:
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
     delivery-challan-response:
       type: object
       properties:
@@ -916,7 +863,7 @@ components:
           description: Unique identifier of the user who created the delivery challan.
           type: string
           example: '982000000024001'
-    create-delivery-challan-response:
+    list-templates-response:
       type: object
       properties:
         code:
@@ -925,18 +872,72 @@ components:
           readOnly: true
         message:
           type: string
-          example: The delivery challan has been created
+          example: success
           readOnly: true
-        deliverychallan:
-          $ref: '#/components/schemas/delivery-challan-response'
-    mapped_items_create:
-      description: Mapped items of a composite item for creation.
+        templates:
+          type: array
+          items:
+            type: object
+            properties:
+              template_id:
+                description: Unique identifier of the template.
+                type: string
+                example: '982000000567030'
+              template_name:
+                description: Name of the template.
+                type: string
+                example: Standard Template
+              template_type:
+                description: Type of the template.
+                type: string
+                example: standard
+    page_context:
+      description: The context of a particular page.
+      type: object
+      properties:
+        page:
+          description: Current page number.
+          type: integer
+          example: 1
+        per_page:
+          description: Number of records per page.
+          type: integer
+          example: 10
+        has_more_page:
+          description: Whether more pages exist.
+          type: boolean
+          example: false
+        report_name:
+          description: Report name.
+          type: string
+          example: Delivery Challans
+        applied_filter:
+          description: Applied filter.
+          type: string
+          example: Status.All
+        sort_column:
+          description: Column used for sorting.
+          type: string
+          example: created_time
+        sort_order:
+          description: Sort order.
+          type: string
+          example: D
+    combo_type:
+      description: Type of the composite item. Allowed value is <code>assembly</code> and <code>kit</code>.
+      type: string
+      example: kit
+    mapped_items_update:
+      description: Mapped items of a composite item for update.
       type: array
       items:
         type: object
         properties:
           item_id:
             description: Unique identifier of the item.
+            type: string
+          line_item_id:
+            description: Unique identifier of the line item.
             type: string
           name:
             description: Name of the item. Max-length [200]
@@ -967,6 +968,9 @@ components:
                 item_id:
                   description: Unique identifier of the item.
                   type: string
+                line_item_id:
+                  description: Unique identifier of the line item.
+                  type: string
                 name:
                   description: Name of the item. Max-length [200]
                   type: string
@@ -987,225 +991,6 @@ components:
                   description: Unit of measurement. Max-length [120]
                   type: string
                   maxLength: 120
-    list-templates-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        templates:
-          type: array
-          items:
-            type: object
-            properties:
-              template_id:
-                description: Unique identifier of the template.
-                type: string
-                example: '982000000567030'
-              template_name:
-                description: Name of the template.
-                type: string
-                example: Standard Template
-              template_type:
-                description: Type of the template.
-                type: string
-                example: standard
-    line-item-request-update:
-      type: object
-      properties:
-        item_id:
-          description: Unique identifier of the item.
-          type: string
-          example: '982000000030049'
-        line_item_id:
-          description: Unique identifier of the line item.
-          type: string
-        name:
-          description: Name of the item. Max-length [200]
-          type: string
-          maxLength: 200
-          example: Hard Drive
-        sku:
-          description: SKU of the item. Max-length [200]
-          type: string
-          maxLength: 200
-        description:
-          description: Description of the line item. Max-length [6000]
-          type: string
-          maxLength: 6000
-          example: 1TB External Hard Drive
-        item_order:
-          description: Display order of the item.
-          type: integer
-          example: 1
-        rate:
-          description: Rate of the item.
-          type: number
-          example: 2500
-        quantity:
-          description: Quantity.
-          type: number
-          example: 2
-        unit:
-          description: Unit of measurement. Max-length [120]
-          type: string
-          maxLength: 120
-          example: Nos
-        discount:
-          description: Discount for this line item.
-          type: string
-        tax_id:
-          description: Unique identifier of the tax.
-          type: string
-          example: '982000000030010'
-        tax_exemption_id:
-          description: Unique identifier of the tax exemption.
-          type: string
-        tax_exemption_code:
-          description: Tax exemption code. Max-length [50]
-          type: string
-          maxLength: 50
-        hsn_or_sac:
-          description: HSN or SAC code (applicable for India edition).
-          type: string
-        pricebook_id:
-          description: Unique identifier of the price book.
-          type: string
-        warehouse_id:
-          description: Unique identifier of the warehouse.
-          type: string
-        location_id:
-          description: Unique identifier of the location.
-          type: string
-        mapped_items:
-          description: Mapped items of a composite item.
-          type: array
-          items:
-            $ref: '#/components/schemas/mapped_items_update'
-        item_custom_fields:
-          $ref: '#/components/schemas/item_custom_fields'
-    mapped_items:
-      description: Mapped items of a composite item.
-      type: array
-      readOnly: true
-      items:
-        type: object
-        properties:
-          line_item_id:
-            description: Unique identifier of the line item.
-            type: string
-          item_id:
-            description: Unique identifier of the item.
-            type: string
-          name:
-            description: Name of the item.
-            type: string
-          sku:
-            description: SKU of the item.
-            type: string
-          item_order:
-            description: Display order of the item.
-            type: integer
-          quantity:
-            description: Quantity.
-            type: number
-          unit:
-            description: Unit of measurement.
-            type: string
-          warehouse_id:
-            description: Unique identifier of the warehouse.
-            type: string
-          warehouse_name:
-            description: Name of the warehouse.
-            type: string
-          quantity_invoiced:
-            description: Quantity invoiced for this line item.
-            type: number
-          quantity_returned:
-            description: Quantity returned for this line item.
-            type: number
-          combo_type:
-            description: Type of the composite item.
-            type: string
-            enum:
-            - kit
-          is_combo_product:
-            description: Whether the line item is a composite product.
-            type: boolean
-          mapped_items:
-            description: Nested mapped items.
-            type: array
-            items:
-              type: object
-              properties:
-                line_item_id:
-                  description: Unique identifier of the line item.
-                  type: string
-                item_id:
-                  description: Unique identifier of the item.
-                  type: string
-                name:
-                  description: Name of the item.
-                  type: string
-                sku:
-                  description: SKU of the item.
-                  type: string
-                item_order:
-                  description: Display order of the item.
-                  type: integer
-                quantity:
-                  description: Quantity.
-                  type: number
-                unit:
-                  description: Unit of measurement.
-                  type: string
-                warehouse_id:
-                  description: Unique identifier of the warehouse.
-                  type: string
-                warehouse_name:
-                  description: Name of the warehouse.
-                  type: string
-                quantity_invoiced:
-                  description: Quantity invoiced for this line item.
-                  type: number
-                quantity_returned:
-                  description: Quantity returned for this line item.
-                  type: number
-                combo_type:
-                  description: Type of the composite item.
-                  type: string
-                  enum:
-                  - kit
-                is_combo_product:
-                  description: Whether the line item is a composite product.
-                  type: boolean
-    label:
-      description: Label of the Custom Field
-      type: string
-    value:
-      description: Value of the Custom Field
-      type: string
-    combo_type:
-      description: Type of the composite item. Allowed value is <code>assembly</code> and <code>kit</code>.
-      type: string
-      example: kit
-    custom_fields:
-      description: Custom fields associated with the delivery challan.
-      type: array
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
     return-delivery-challan-request:
       type: object
       properties:
@@ -1223,6 +1008,23 @@ components:
                 description: Quantity to return.
                 type: number
                 example: 1
+    label:
+      description: Label of the Custom Field
+      type: string
+    action-delivery-challan-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+    customfield_id:
+      type: string
+      description: Unique ID of the custom field.
     create-delivery-challan-request:
       required:
       - customer_id
@@ -1336,40 +1138,52 @@ components:
           type: string
         custom_fields:
           $ref: '#/components/schemas/custom_fields'
-    delete-delivery-challan-response:
+    address-detail:
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
+        address:
+          description: Address line.
           type: string
-          example: The delivery challan has been deleted
-          readOnly: true
-    customfield_id:
-      type: string
-      description: Unique ID of the custom field.
-    get-delivery-challan-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
+          example: 123 Main Street
+        street2:
+          description: Second address line.
           type: string
-          example: success
-          readOnly: true
-        deliverychallan:
-          $ref: '#/components/schemas/delivery-challan-response'
-    line-item-request:
+        city:
+          description: City.
+          type: string
+          example: Chennai
+        state:
+          description: State.
+          type: string
+          example: Tamil Nadu
+        zip:
+          description: Postal or ZIP code.
+          type: string
+          example: '600001'
+        country:
+          description: Country.
+          type: string
+          example: India
+        fax:
+          description: Fax number.
+          type: string
+        phone:
+          description: Phone number.
+          type: string
+          example: +91-44-12345678
+        attention:
+          description: Attention.
+          type: string
+    line-item-request-update:
       type: object
       properties:
         item_id:
           description: Unique identifier of the item.
           type: string
           example: '982000000030049'
+        line_item_id:
+          description: Unique identifier of the line item.
+          type: string
         name:
           description: Name of the item. Max-length [200]
           type: string
@@ -1431,168 +1245,33 @@ components:
           description: Mapped items of a composite item.
           type: array
           items:
-            $ref: '#/components/schemas/mapped_items_create'
-    update-shipping-address-request:
-      type: object
-      properties:
-        address:
-          description: Address line.
-          type: string
-          example: 123 Main Street
-        street2:
-          description: Second address line.
-          type: string
-        city:
-          description: City.
-          type: string
-          example: Chennai
-        state:
-          description: State.
-          type: string
-          example: Tamil Nadu
-        zip:
-          description: Postal or ZIP code.
-          type: string
-          example: '600001'
-        country:
-          description: Country.
-          type: string
-          example: India
-        fax:
-          description: Fax number.
-          type: string
-        phone:
-          description: Phone number.
-          type: string
-          example: +91-44-12345678
-        attention:
-          description: Attention.
-          type: string
+            $ref: '#/components/schemas/mapped_items_update'
+        item_custom_fields:
+          $ref: '#/components/schemas/item_custom_fields'
     is_combo_product:
       description: Whether the line item is a composite product.
       type: boolean
       readOnly: true
-    address-detail:
-      type: object
-      properties:
-        address:
-          description: Address line.
-          type: string
-          example: 123 Main Street
-        street2:
-          description: Second address line.
-          type: string
-        city:
-          description: City.
-          type: string
-          example: Chennai
-        state:
-          description: State.
-          type: string
-          example: Tamil Nadu
-        zip:
-          description: Postal or ZIP code.
-          type: string
-          example: '600001'
-        country:
-          description: Country.
-          type: string
-          example: India
-        fax:
-          description: Fax number.
-          type: string
-        phone:
-          description: Phone number.
-          type: string
-          example: +91-44-12345678
-        attention:
-          description: Attention.
-          type: string
-    list-delivery-challans-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        deliverychallans:
-          description: List of delivery challans.
-          type: array
-          items:
-            type: object
-            properties:
-              deliverychallan_id:
-                description: Unique identifier of the delivery challan.
-                type: string
-                example: '982000000567001'
-              customer_name:
-                description: Name of the customer.
-                type: string
-                example: Bowman and Co
-              customer_id:
-                description: Unique identifier of the customer.
-                type: string
-                example: '982000000567001'
-              status:
-                description: Status of the delivery challan.
-                type: string
-                example: open
-              deliverychallan_number:
-                description: Delivery challan number.
-                type: string
-                example: DC-00001
-              reference_number:
-                description: Reference number.
-                type: string
-              date:
-                description: Date of the delivery challan.
-                type: string
-                example: '2024-06-15'
-              currency_id:
-                description: Unique identifier of the currency.
-                type: string
-                example: '982000000000190'
-              currency_code:
-                description: Currency code.
-                type: string
-                example: USD
-              total:
-                description: Total amount.
-                type: number
-                example: 5450
-              bcy_total:
-                description: Total amount in base currency.
-                type: number
-                example: 5450
-              created_time:
-                description: Time at which the delivery challan was created.
-                type: string
-                example: 2024-06-15T10:30:00+0530
-              last_modified_time:
-                description: Time at which the delivery challan was last modified.
-                type: string
-                example: 2024-06-15T10:30:00+0530
-              has_attachment:
-                description: Whether the delivery challan has attachments.
-                type: boolean
-                example: false
-        page_context:
-          $ref: '#/components/schemas/page_context'
-    mapped_items_update:
-      description: Mapped items of a composite item for update.
+    custom_fields:
+      description: Custom fields associated with the delivery challan.
+      type: array
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    mapped_items_create:
+      description: Mapped items of a composite item for creation.
       type: array
       items:
         type: object
         properties:
           item_id:
             description: Unique identifier of the item.
-            type: string
-          line_item_id:
-            description: Unique identifier of the line item.
             type: string
           name:
             description: Name of the item. Max-length [200]
@@ -1623,9 +1302,6 @@ components:
                 item_id:
                   description: Unique identifier of the item.
                   type: string
-                line_item_id:
-                  description: Unique identifier of the line item.
-                  type: string
                 name:
                   description: Name of the item. Max-length [200]
                   type: string
@@ -1646,6 +1322,145 @@ components:
                   description: Unit of measurement. Max-length [120]
                   type: string
                   maxLength: 120
+    delete-delivery-challan-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The delivery challan has been deleted
+          readOnly: true
+    get-delivery-challan-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        deliverychallan:
+          $ref: '#/components/schemas/delivery-challan-response'
+    create-delivery-challan-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The delivery challan has been created
+          readOnly: true
+        deliverychallan:
+          $ref: '#/components/schemas/delivery-challan-response'
+    value:
+      description: Value of the Custom Field
+      type: string
+    line-item-response:
+      type: object
+      properties:
+        line_item_id:
+          description: Unique identifier of the line item.
+          type: string
+          example: '982000000567002'
+        item_id:
+          description: Unique identifier of the item.
+          type: string
+          example: '982000000030049'
+        name:
+          description: Name of the item.
+          type: string
+          example: Hard Drive
+        sku:
+          description: SKU of the item.
+          type: string
+          example: HD-1TB-001
+        description:
+          description: Description of the line item.
+          type: string
+          example: 1TB External Hard Drive
+        item_order:
+          description: Display order of the line item.
+          type: integer
+          example: 1
+        rate:
+          description: Rate of the item.
+          type: number
+          example: 2500
+        bcy_rate:
+          description: Rate in base currency.
+          type: number
+          example: 2500
+        quantity:
+          description: Quantity.
+          type: number
+          example: 2
+        unit:
+          description: Unit of measurement.
+          type: string
+          example: Nos
+        discount:
+          description: Discount applied.
+          type: number
+          example: 0
+        tax_id:
+          description: Unique identifier of the tax.
+          type: string
+          example: '982000000030010'
+        tax_name:
+          description: Name of the tax.
+          type: string
+          example: GST
+        tax_type:
+          description: Type of the tax.
+          type: string
+        tax_percentage:
+          description: Tax percentage.
+          type: number
+          example: 9
+        item_total:
+          description: Total for this line item.
+          type: number
+          example: 5000
+        hsn_or_sac:
+          description: HSN or SAC code (applicable for India edition).
+          type: string
+        tax_exemption_id:
+          description: Unique identifier of the tax exemption.
+          type: string
+        tax_exemption_code:
+          description: Tax exemption code.
+          type: string
+        warehouse_id:
+          description: Unique identifier of the warehouse.
+          type: string
+        warehouse_name:
+          description: Name of the warehouse.
+          type: string
+        quantity_invoiced:
+          description: Quantity invoiced for this line item.
+          type: number
+        quantity_returned:
+          description: Quantity returned for this line item.
+          type: number
+        is_combo_product:
+          $ref: '#/components/schemas/is_combo_product'
+        combo_type:
+          $ref: '#/components/schemas/combo_type'
+        mapped_items:
+          $ref: '#/components/schemas/mapped_items'
+        line_item_taxes:
+          type: array
+          items:
+            $ref: '#/components/schemas/line-item-tax'
+        item_custom_fields:
+          $ref: '#/components/schemas/item_custom_fields'
     line-item-tax:
       type: object
       properties:
@@ -1661,36 +1476,213 @@ components:
           description: Tax amount.
           type: number
           example: 225
-    item_custom_fields:
+    update-delivery-challan-request:
+      required:
+      - customer_id
+      type: object
+      properties:
+        customer_id:
+          description: Unique identifier of the customer.
+          type: string
+          example: '982000000567001'
+        currency_id:
+          description: Unique identifier of the currency.
+          type: string
+          example: '982000000000190'
+        deliverychallan_number:
+          description: Delivery challan number. Max-length [50]
+          type: string
+          maxLength: 50
+          example: DC-00001
+        reference_number:
+          description: Reference number. Max-length [50]
+          type: string
+          maxLength: 50
+          example: REF-DC-001
+        template_id:
+          description: Unique identifier of the template.
+          type: string
+          example: '982000000567030'
+        date:
+          description: Date of the delivery challan in YYYY-MM-DD format.
+          type: string
+          example: '2024-06-15'
+        challan_type:
+          description: Type of delivery challan. Max-length [200]
+          type: string
+          maxLength: 200
+          example: job_work
+        discount:
+          description: Discount applied at the entity level.
+          type: string
+        is_discount_before_tax:
+          description: Whether discount is applied before tax.
+          type: boolean
+          example: true
+        discount_type:
+          description: Type of discount.
+          type: string
+        place_of_supply:
+          description: Place of supply state code (applicable for India edition). Max-length [5]
+          type: string
+          maxLength: 5
+        exchange_rate:
+          description: Exchange rate for the currency.
+          type: number
+          example: 1
+        is_inclusive_tax:
+          description: Whether prices are inclusive of tax.
+          type: boolean
+          example: false
+        gst_treatment:
+          description: GST treatment (applicable for India edition).
+          type: string
+        tax_treatment:
+          description: Tax treatment.
+          type: string
+        gst_no:
+          description: GST number (applicable for India edition). Max-length [15]
+          type: string
+          maxLength: 15
+        line_items:
+          description: Line items of the delivery challan.
+          type: array
+          items:
+            $ref: '#/components/schemas/line-item-request-update'
+        notes:
+          description: Customer notes. Max-length [5000]
+          type: string
+          maxLength: 5000
+          example: Deliver to the reception desk
+        terms:
+          description: Terms and conditions. Max-length [10000]
+          type: string
+          maxLength: 10000
+        adjustment:
+          description: Adjustment amount.
+          type: number
+          example: 0
+        adjustment_description:
+          description: Adjustment description. Max-length [200]
+          type: string
+          maxLength: 200
+        tax_id:
+          description: Unique identifier of the tax.
+          type: string
+        tax_authority_id:
+          description: Unique identifier of the tax authority.
+          type: string
+        tax_exemption_id:
+          description: Unique identifier of the tax exemption.
+          type: string
+        shipping_address_id:
+          description: Unique identifier of the shipping address.
+          type: string
+        pricebook_id:
+          description: Unique identifier of the price book.
+          type: string
+        branch_id:
+          description: Unique identifier of the branch.
+          type: string
+        location_id:
+          description: Unique identifier of the location.
+          type: string
+    mapped_items:
+      description: Mapped items of a composite item.
       type: array
-      description: List of custom fields associated with the line item
+      readOnly: true
       items:
         type: object
         properties:
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    action-delivery-challan-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
+          line_item_id:
+            description: Unique identifier of the line item.
+            type: string
+          item_id:
+            description: Unique identifier of the item.
+            type: string
+          name:
+            description: Name of the item.
+            type: string
+          sku:
+            description: SKU of the item.
+            type: string
+          item_order:
+            description: Display order of the item.
+            type: integer
+          quantity:
+            description: Quantity.
+            type: number
+          unit:
+            description: Unit of measurement.
+            type: string
+          warehouse_id:
+            description: Unique identifier of the warehouse.
+            type: string
+          warehouse_name:
+            description: Name of the warehouse.
+            type: string
+          quantity_invoiced:
+            description: Quantity invoiced for this line item.
+            type: number
+          quantity_returned:
+            description: Quantity returned for this line item.
+            type: number
+          combo_type:
+            description: Type of the composite item.
+            type: string
+            enum:
+            - kit
+          is_combo_product:
+            description: Whether the line item is a composite product.
+            type: boolean
+          mapped_items:
+            description: Nested mapped items.
+            type: array
+            items:
+              type: object
+              properties:
+                line_item_id:
+                  description: Unique identifier of the line item.
+                  type: string
+                item_id:
+                  description: Unique identifier of the item.
+                  type: string
+                name:
+                  description: Name of the item.
+                  type: string
+                sku:
+                  description: SKU of the item.
+                  type: string
+                item_order:
+                  description: Display order of the item.
+                  type: integer
+                quantity:
+                  description: Quantity.
+                  type: number
+                unit:
+                  description: Unit of measurement.
+                  type: string
+                warehouse_id:
+                  description: Unique identifier of the warehouse.
+                  type: string
+                warehouse_name:
+                  description: Name of the warehouse.
+                  type: string
+                quantity_invoiced:
+                  description: Quantity invoiced for this line item.
+                  type: number
+                quantity_returned:
+                  description: Quantity returned for this line item.
+                  type: number
+                combo_type:
+                  description: Type of the composite item.
+                  type: string
+                  enum:
+                  - kit
+                is_combo_product:
+                  description: Whether the line item is a composite product.
+                  type: boolean
   parameters:
-    deliverychallan_id:
-      name: deliverychallan_id
-      in: path
-      required: true
-      description: Unique identifier of the delivery challan.
-      schema:
-        type: string
-      example: '982000000567001'
     organization_id:
       name: organization_id
       description: ID of the organization
@@ -1699,6 +1691,14 @@ components:
       schema:
         type: string
       example: '10234695'
+    deliverychallan_id:
+      name: deliverychallan_id
+      in: path
+      required: true
+      description: Unique identifier of the delivery challan.
+      schema:
+        type: string
+      example: '982000000567001'
   securitySchemes:
     Zoho_Auth:
       type: oauth2

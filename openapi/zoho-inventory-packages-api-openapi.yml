@@ -307,18 +307,445 @@ paths:
         - ZohoInventory.packages.READ
 components:
   schemas:
-    total_quantity:
-      description: Total quantity in the package
+    serial_numbers:
+      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
+      type: array
+      items:
+        type: string
+        example: PKG-011
+    creating-a-package-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Package created successfully. It's now time to ship!
+          readOnly: true
+        package:
+          $ref: '#/components/schemas/package'
+    unit:
+      description: Unit of the item in package
       type: string
-      example: 1
+      example: units
+    delivery_method:
+      description: Custom delivery option created for the manual shipment
+      type: string
+      example: LocalCourier
+    package-response:
+      type: object
+      properties:
+        billing_address:
+          $ref: '#/components/schemas/billing_address'
+        contact_persons:
+          $ref: '#/components/schemas/contact_persons'
+        created_time:
+          $ref: '#/components/schemas/created_time'
+        customer_id:
+          $ref: '#/components/schemas/customer_id'
+        customer_name:
+          $ref: '#/components/schemas/customer_name'
+        date:
+          $ref: '#/components/schemas/date'
+        email:
+          $ref: '#/components/schemas/email'
+        is_emailed:
+          $ref: '#/components/schemas/is_emailed'
+        last_modified_time:
+          $ref: '#/components/schemas/last_modified_time'
+        line_items:
+          $ref: '#/components/schemas/line_items'
+        mobile:
+          $ref: '#/components/schemas/mobile'
+        notes:
+          $ref: '#/components/schemas/notes'
+        package_id:
+          $ref: '#/components/schemas/package_id'
+        package_number:
+          $ref: '#/components/schemas/package_number'
+        phone:
+          $ref: '#/components/schemas/phone'
+        salesorder_id:
+          $ref: '#/components/schemas/salesorder_id'
+        salesorder_number:
+          $ref: '#/components/schemas/salesorder_number'
+        shipping_address:
+          $ref: '#/components/schemas/shipping_address'
+        template_id:
+          $ref: '#/components/schemas/template_id'
+        template_name:
+          $ref: '#/components/schemas/template_name'
+        template_type:
+          $ref: '#/components/schemas/template_type'
+        total_quantity:
+          $ref: '#/components/schemas/total_quantity'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+    phone:
+      description: Phone number of the customer
+      type: string
+      example: +1 (999)999-9999
+    storages:
+      description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - storage_id
+        - out_quantity
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093225'
+          out_quantity:
+            description: Quantity removed from the bin.
+            type: number
+            format: float
+            example: 2
+          serial_numbers:
+            description: Serial numbers allocated to this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: PKG-011
+    batches-response:
+      description: Batches tracked for the line item. Returned for items with batch tracking enabled.
+      type: array
+      items:
+        type: object
+        properties:
+          batch_id:
+            description: Unique identifier of the batch.
+            type: string
+            example: '6780203000000214019'
+          batch_number:
+            description: Batch number.
+            type: string
+            example: BTC-TL-890
+          external_batch_number:
+            description: External batch number from the manufacturer.
+            type: string
+            example: MFR-TL-890
+          manufacturer_date:
+            description: Manufacturing date of the batch.
+            type: string
+            example: '2026-05-12'
+          expiry_date:
+            description: Expiration date of the batch.
+            type: string
+            example: '2026-12-24'
+          out_quantity:
+            description: Quantity removed from the batch.
+            type: number
+            format: float
+            example: 2
+          storages:
+            description: Bin/storage locations from which stock was issued for this batch.
+            type: array
+            x-node_available_in:
+            - Batch with Bin tracked items
+            items:
+              type: object
+              properties:
+                storage_id:
+                  description: Unique identifier of the bin/storage location.
+                  type: string
+                  example: '6780203000000093226'
+                storage_name:
+                  description: Display name of the bin/storage location.
+                  type: string
+                  example: Bin A1
+                out_quantity:
+                  description: Quantity removed from the bin.
+                  type: number
+                  format: float
+                  example: 2
+                storage_out_id:
+                  description: Unique identifier of the storage entry on the line item.
+                  type: string
+                  example: '6780203000000997441'
+    quantity:
+      description: Number of quantity of line items in sales order
+      type: number
+      format: float
+      example: 2
+    updating-a-package-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Package Updated Successfully.
+          readOnly: true
+        package:
+          $ref: '#/components/schemas/package'
+    custom_fields:
+      description: Custom fields for a package.
+      type: array
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    show_in_all_pdf:
+      example: null
     delivery_guarantee:
       description: guarantee assured by the courier. <code> For guaranteed on-time deliveries, it is true else it is false</code>
       type: boolean
       example: true
+    is_emailed:
+      description: Package is emailed to the customer or not
+      type: boolean
+      example: false
+    storages-response:
+      description: Bin/storage locations tracked for the line item. Returned for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093225'
+          storage_name:
+            description: Display name of the bin/storage location.
+            type: string
+            example: Bin A2
+          out_quantity:
+            description: Quantity removed from the bin.
+            type: number
+            format: float
+            example: 2
+          storage_out_id:
+            description: Unique identifier of the storage entry on the line item.
+            type: string
+            example: '6780203000000997440'
+          serial_numbers:
+            description: Serial numbers allocated to this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: PKG-011
+    service:
+      description: Type of service selected for shipment
+      type: string
+      example: FEDEX_2_DAY
+    contact_persons:
+      description: Array of contact persons for the customers
+      type: array
+      items:
+        type: object
+        properties:
+          contact_person_id:
+            $ref: '#/components/schemas/contact_person_id'
+    creating-a-package-request:
+      type: object
+      required:
+      - date
+      - line_items
+      properties:
+        package_number:
+          $ref: '#/components/schemas/package_number'
+        date:
+          $ref: '#/components/schemas/date'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        line_items:
+          description: Details of the items in this package
+          type: array
+          items:
+            type: object
+            properties:
+              so_line_item_id:
+                $ref: '#/components/schemas/so_line_item_id'
+              quantity:
+                $ref: '#/components/schemas/quantity'
+              mapped_items:
+                $ref: '#/components/schemas/mapped_items_create'
+              serial_numbers:
+                $ref: '#/components/schemas/serial_numbers'
+              batches:
+                $ref: '#/components/schemas/batches'
+              storages:
+                $ref: '#/components/schemas/storages'
+        notes:
+          $ref: '#/components/schemas/notes'
+    shipment_rate:
+      description: Costs involved for shipment
+      type: number
+      format: float
+      example: 52
+    carrier:
+      description: Carrier used for shipment of package
+      type: string
+      example: FedEx
+    created_time:
+      description: Time at which the package was created
+      type: string
+      format: date
+      example: 2017-01-11 00:00:00+00:00
+    total_quantity:
+      description: Total quantity in the package
+      type: string
+      example: 1
+    date:
+      description: Date on which package is prepared
+      type: string
+      example: '2017-01-11'
+    data_type:
+      description: Data type of the custom field
+      type: string
+      example: check_box
+    customer_name:
+      description: Name of the customer
+      type: string
+      example: Peter James
+    shipment_number:
+      description: shipment number for the package
+      type: string
+      example: SN-00001
+    so_line_item_id:
+      description: Unique ID generated by the server for items in sales order
+      type: string
+      example: 504366000000062000
+    status:
+      description: status of the shipment order
+      type: string
+      example: shipped
+    shipment_order:
+      description: Shipment details of the package
+      type: object
+      properties:
+        carrier:
+          $ref: '#/components/schemas/carrier'
+        delivery_days:
+          $ref: '#/components/schemas/delivery_days'
+        delivery_guarantee:
+          $ref: '#/components/schemas/delivery_guarantee'
+        delivery_method:
+          $ref: '#/components/schemas/delivery_method'
+        delivery_method_id:
+          $ref: '#/components/schemas/delivery_method_id'
+        detailed_status:
+          $ref: '#/components/schemas/detailed_status'
+        notes:
+          $ref: '#/components/schemas/notes'
+        service:
+          $ref: '#/components/schemas/service'
+        shipment_id:
+          $ref: '#/components/schemas/shipment_id'
+        shipment_number:
+          $ref: '#/components/schemas/shipment_number'
+        shipment_rate:
+          $ref: '#/components/schemas/shipment_rate'
+        shipping_date:
+          $ref: '#/components/schemas/shipping_date'
+        status:
+          $ref: '#/components/schemas/status'
+        tracking_number:
+          $ref: '#/components/schemas/tracking_number'
+    customer_id:
+      description: Unique ID generated by the for the customer
+      type: string
+      example: 504366000000062000
+    fax:
+      description: Fax number of the customer address
+      type: string
+      example: 416-765-9871
+    line_items:
+      description: Details of the items in this package
+      type: array
+      items:
+        type: object
+        properties:
+          description:
+            $ref: '#/components/schemas/description'
+          is_invoiced:
+            $ref: '#/components/schemas/is_invoiced'
+          item_custom_fields:
+            $ref: '#/components/schemas/item_custom_fields'
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          item_order:
+            $ref: '#/components/schemas/item_order'
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          name:
+            $ref: '#/components/schemas/name'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          so_line_item_id:
+            $ref: '#/components/schemas/so_line_item_id'
+          sku:
+            $ref: '#/components/schemas/sku'
+          unit:
+            $ref: '#/components/schemas/unit'
+          is_combo_product:
+            $ref: '#/components/schemas/is_combo_product'
+          combo_type:
+            $ref: '#/components/schemas/combo_type'
+          mapped_items:
+            $ref: '#/components/schemas/mapped_items'
+          serial_numbers:
+            $ref: '#/components/schemas/serial_numbers'
+          batches:
+            $ref: '#/components/schemas/batches-response'
+          storages:
+            $ref: '#/components/schemas/storages-response'
+    notes:
+      description: Notes for package
+      type: string
+      example: notes
+    item_id:
+      description: Unique ID generated by the server of the item in package
+      type: string
+      example: 504366000000053200
     is_invoiced:
       description: Sales order item is invoiced to the customer or not
       type: boolean
       example: false
+    shipping_address:
+      description: Customer shipping address
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        city:
+          $ref: '#/components/schemas/city'
+        state:
+          $ref: '#/components/schemas/state'
+        country:
+          $ref: '#/components/schemas/country'
+        zip:
+          $ref: '#/components/schemas/zip'
+        phone:
+          $ref: '#/components/schemas/phone'
+        fax:
+          $ref: '#/components/schemas/fax'
+    item_order:
+      example: null
+    name:
+      description: Name of the packaged item
+      type: string
+      example: Apple Iphone
+    description:
+      description: Description of the item in package
+      type: string
+      example: Mobile Sales description
     mapped_items:
       description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
       type: array
@@ -363,14 +790,105 @@ components:
                   $ref: '#/components/schemas/quantity'
                 combo_type:
                   $ref: '#/components/schemas/combo_type'
-    tracking_number:
-      description: Tracking number of the shipment
+    bulk-print-packages-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+    item_custom_fields:
+      description: Custom field of the item in package
+      type: array
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          data_type:
+            $ref: '#/components/schemas/data_type'
+          is_active:
+            $ref: '#/components/schemas/is_active'
+          label:
+            $ref: '#/components/schemas/label'
+          placeholder:
+            $ref: '#/components/schemas/placeholder'
+          show_in_all_pdf:
+            $ref: '#/components/schemas/show_in_all_pdf'
+          show_on_pdf:
+            $ref: '#/components/schemas/show_on_pdf'
+          value:
+            $ref: '#/components/schemas/value'
+    combo_type:
+      description: Type of the composite item. Allowed values are <code>assembly</code> and <code>kit</code>.
       type: string
-      example: '794656855217'
-    template_id:
-      description: Unique ID generated by the server for the template used for package
+      example: kit
+    package_id:
+      description: Unique ID generated by the server for the package
       type: string
-      example: 14954000000072020
+      example: 504366000000062100
+    updating-a-package-request:
+      type: object
+      required:
+      - date
+      - line_items
+      properties:
+        package_number:
+          $ref: '#/components/schemas/package_number'
+        date:
+          $ref: '#/components/schemas/date'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        line_items:
+          description: Details of the items in this package
+          type: array
+          items:
+            type: object
+            properties:
+              line_item_id:
+                $ref: '#/components/schemas/line_item_id'
+              so_line_item_id:
+                $ref: '#/components/schemas/so_line_item_id'
+              quantity:
+                $ref: '#/components/schemas/quantity'
+              mapped_items:
+                $ref: '#/components/schemas/mapped_items_update'
+              serial_numbers:
+                $ref: '#/components/schemas/serial_numbers'
+              batches:
+                $ref: '#/components/schemas/batches-update'
+              storages:
+                $ref: '#/components/schemas/storages-update'
+        notes:
+          $ref: '#/components/schemas/notes'
+    mapped_items_update:
+      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
+      type: array
+      items:
+        type: object
+        properties:
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          so_line_item_id:
+            $ref: '#/components/schemas/so_line_item_id'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          mapped_items:
+            description: Nested mapped items for kit within kit scenarios.
+            type: array
+            items:
+              type: object
+              properties:
+                line_item_id:
+                  $ref: '#/components/schemas/line_item_id'
+                so_line_item_id:
+                  $ref: '#/components/schemas/so_line_item_id'
+                quantity:
+                  $ref: '#/components/schemas/quantity'
     city:
       description: Name of the city of the customer address
       type: string
@@ -378,14 +896,92 @@ components:
     label:
       description: Label of the Custom Field
       type: string
-    value:
-      description: Value of the custom field
+    package:
+      type: array
+      items:
+        $ref: '#/components/schemas/package-response'
+    mobile:
+      description: Mobile number of the customer
       type: string
-      example: GBGD078
-    description:
-      description: Description of the item in package
+      example: +1 (999)999-9999
+    customfield_id:
+      description: Unique ID of the custom field.
       type: string
-      example: Mobile Sales description
+    line_item_id:
+      description: Unique value generated by the server for an item of sales order in package
+      type: string
+      example: 504366000000062100
+    is_combo_product:
+      description: Indicates whether the line item is a composite product.
+      type: boolean
+      example: true
+    billing_address:
+      description: Customer billing address
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        city:
+          $ref: '#/components/schemas/city'
+        state:
+          $ref: '#/components/schemas/state'
+        country:
+          $ref: '#/components/schemas/country'
+        zip:
+          $ref: '#/components/schemas/zip'
+        phone:
+          $ref: '#/components/schemas/phone'
+        fax:
+          $ref: '#/components/schemas/fax'
+    is_active:
+      example: null
+    show_on_pdf:
+      example: null
+    mapped_items_create:
+      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
+      type: array
+      items:
+        type: object
+        properties:
+          so_line_item_id:
+            $ref: '#/components/schemas/so_line_item_id'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          mapped_items:
+            description: Nested mapped items for kit within kit scenarios.
+            type: array
+            items:
+              type: object
+              properties:
+                so_line_item_id:
+                  $ref: '#/components/schemas/so_line_item_id'
+                quantity:
+                  $ref: '#/components/schemas/quantity'
+    last_modified_time:
+      description: Time at which the package details were last modified.
+      type: string
+      format: date
+      example: 2017-01-11 00:00:00+00:00
+    tracking_number:
+      description: Tracking number of the shipment
+      type: string
+      example: '794656855217'
+    detailed_status:
+      description: Detailed shipment details received from the courier
+      type: string
+      example: Reached a courier facility near Toronto
+    package_number:
+      description: Name of the package
+      type: string
+      example: PA-00001
+    shipment_id:
+      description: Unique ID generated by the server for the shipment
+      type: string
+      example: 14954000000086344
+    delivery_days:
+      description: Number of days taken by the courier for delivering in package
+      type: integer
+      example: 2
     retrieving-a-package-response:
       type: object
       properties:
@@ -450,40 +1046,49 @@ components:
                 $ref: '#/components/schemas/total_quantity'
               custom_fields:
                 $ref: '#/components/schemas/custom_fields'
-    shipment_number:
-      description: shipment number for the package
+    contact_person_id:
+      description: Unique ID generated by the server for contact person
       type: string
-      example: SN-00001
-    shipping_address:
-      description: Customer shipping address
+      example: 504366000000062000
+    template_id:
+      description: Unique ID generated by the server for the template used for package
+      type: string
+      example: 14954000000072020
+    deleting-a-package-response:
       type: object
       properties:
-        address:
-          $ref: '#/components/schemas/address'
-        city:
-          $ref: '#/components/schemas/city'
-        state:
-          $ref: '#/components/schemas/state'
-        country:
-          $ref: '#/components/schemas/country'
-        zip:
-          $ref: '#/components/schemas/zip'
-        phone:
-          $ref: '#/components/schemas/phone'
-        fax:
-          $ref: '#/components/schemas/fax'
-    template_type:
-      description: Type of template
-      type: string
-      example: standard
-    email:
-      description: Email of contact person
-      type: string
-      example: jamespeter@pete.com
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Whooooosh! Package Deleted Successfully.
+          readOnly: true
     address:
       description: Name of the street of the customer address
       type: string
       example: 432, Bayside, Queens
+    sku:
+      description: Stock keeping unit of the item in package
+      type: string
+      example: SKUM
+    email:
+      description: Email of contact person
+      type: string
+      example: jamespeter@pete.com
+    salesorder_id:
+      description: Unique ID generated by the server for sales order
+      type: string
+      example: 504366000000062000
+    country:
+      description: Name of the country of the customer address
+      type: string
+      example: U.S.A
+    state:
+      description: Name of the state of the customer address
+      type: string
+      example: New York
     storages-update:
       description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
       type: array
@@ -514,217 +1119,81 @@ components:
             items:
               type: string
               example: PKG-011
-    shipment_order:
-      description: Shipment details of the package
-      type: object
-      properties:
-        carrier:
-          $ref: '#/components/schemas/carrier'
-        delivery_days:
-          $ref: '#/components/schemas/delivery_days'
-        delivery_guarantee:
-          $ref: '#/components/schemas/delivery_guarantee'
-        delivery_method:
-          $ref: '#/components/schemas/delivery_method'
-        delivery_method_id:
-          $ref: '#/components/schemas/delivery_method_id'
-        detailed_status:
-          $ref: '#/components/schemas/detailed_status'
-        notes:
-          $ref: '#/components/schemas/notes'
-        service:
-          $ref: '#/components/schemas/service'
-        shipment_id:
-          $ref: '#/components/schemas/shipment_id'
-        shipment_number:
-          $ref: '#/components/schemas/shipment_number'
-        shipment_rate:
-          $ref: '#/components/schemas/shipment_rate'
-        shipping_date:
-          $ref: '#/components/schemas/shipping_date'
-        status:
-          $ref: '#/components/schemas/status'
-        tracking_number:
-          $ref: '#/components/schemas/tracking_number'
-    shipment_id:
-      description: Unique ID generated by the server for the shipment
+    template_type:
+      description: Type of template
       type: string
-      example: 14954000000086344
-    serial_numbers:
-      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
+      example: standard
+    template_name:
+      description: Name of the template
+      type: string
+      example: Standard Template
+    delivery_method_id:
+      description: Unique ID generated by the server for delivery method
+      type: string
+      example: 14954000000086028
+    salesorder_number:
+      description: Name of the sales order for which package is created
+      type: string
+      example: SO-00001
+    value:
+      description: Value of the custom field
+      type: string
+      example: GBGD078
+    batches-update:
+      description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
       type: array
       items:
-        type: string
-        example: PKG-011
-    delivery_method:
-      description: Custom delivery option created for the manual shipment
+        type: object
+        required:
+        - batch_id
+        - out_quantity
+        properties:
+          batch_id:
+            description: Unique identifier of an existing batch.
+            type: string
+            example: '6780203000000214019'
+          out_quantity:
+            description: Quantity removed from the batch.
+            type: number
+            format: float
+            example: 2
+          storages:
+            description: Bin/storage locations from which stock was issued for this batch.
+            type: array
+            x-node_available_in:
+            - Batch with Bin tracked items
+            items:
+              type: object
+              required:
+              - storage_id
+              - out_quantity
+              properties:
+                storage_id:
+                  description: Unique identifier of the bin/storage location.
+                  type: string
+                  example: '6780203000000093226'
+                out_quantity:
+                  description: Quantity removed from the bin.
+                  type: number
+                  format: float
+                  example: 2
+                storage_out_id:
+                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
+                  type: string
+                  example: '6780203000000997441'
+    zip:
+      description: Zipcode of the customer address
       type: string
-      example: LocalCourier
-    phone:
-      description: Phone number of the customer
+      example: 11364
+    placeholder:
+      description: Placeholder for the custom field
       type: string
-      example: +1 (999)999-9999
-    line_item_id:
-      description: Unique value generated by the server for an item of sales order in package
-      type: string
-      example: 504366000000062100
-    fax:
-      description: Fax number of the customer address
-      type: string
-      example: 416-765-9871
-    last_modified_time:
-      description: Time at which the package details were last modified.
-      type: string
-      format: date
-      example: 2017-01-11 00:00:00+00:00
-    created_time:
-      description: Time at which the package was created
-      type: string
-      format: date
-      example: 2017-01-11 00:00:00+00:00
-    is_active:
-      example: null
-    customer_name:
-      description: Name of the customer
-      type: string
-      example: Peter James
-    carrier:
-      description: Carrier used for shipment of package
-      type: string
-      example: FedEx
-    show_in_all_pdf:
-      example: null
+      example: cf-504366000000053126
     shipping_date:
       description: Date on which package is shipped
       type: string
       format: date
       example: '2017-01-13'
-    item_id:
-      description: Unique ID generated by the server of the item in package
-      type: string
-      example: 504366000000053200
-    custom_fields:
-      description: Custom fields for a package.
-      type: array
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    show_on_pdf:
-      example: null
-    customfield_id:
-      description: Unique ID of the custom field.
-      type: string
-    zip:
-      description: Zipcode of the customer address
-      type: string
-      example: 11364
-    line_items:
-      description: Details of the items in this package
-      type: array
-      items:
-        type: object
-        properties:
-          description:
-            $ref: '#/components/schemas/description'
-          is_invoiced:
-            $ref: '#/components/schemas/is_invoiced'
-          item_custom_fields:
-            $ref: '#/components/schemas/item_custom_fields'
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          item_order:
-            $ref: '#/components/schemas/item_order'
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          name:
-            $ref: '#/components/schemas/name'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          so_line_item_id:
-            $ref: '#/components/schemas/so_line_item_id'
-          sku:
-            $ref: '#/components/schemas/sku'
-          unit:
-            $ref: '#/components/schemas/unit'
-          is_combo_product:
-            $ref: '#/components/schemas/is_combo_product'
-          combo_type:
-            $ref: '#/components/schemas/combo_type'
-          mapped_items:
-            $ref: '#/components/schemas/mapped_items'
-          serial_numbers:
-            $ref: '#/components/schemas/serial_numbers'
-          batches:
-            $ref: '#/components/schemas/batches-response'
-          storages:
-            $ref: '#/components/schemas/storages-response'
-    is_combo_product:
-      description: Indicates whether the line item is a composite product.
-      type: boolean
-      example: true
-    contact_persons:
-      description: Array of contact persons for the customers
-      type: array
-      items:
-        type: object
-        properties:
-          contact_person_id:
-            $ref: '#/components/schemas/contact_person_id'
-    service:
-      description: Type of service selected for shipment
-      type: string
-      example: FEDEX_2_DAY
-    notes:
-      description: Notes for package
-      type: string
-      example: notes
-    item_custom_fields:
-      description: Custom field of the item in package
-      type: array
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          data_type:
-            $ref: '#/components/schemas/data_type'
-          is_active:
-            $ref: '#/components/schemas/is_active'
-          label:
-            $ref: '#/components/schemas/label'
-          placeholder:
-            $ref: '#/components/schemas/placeholder'
-          show_in_all_pdf:
-            $ref: '#/components/schemas/show_in_all_pdf'
-          show_on_pdf:
-            $ref: '#/components/schemas/show_on_pdf'
-          value:
-            $ref: '#/components/schemas/value'
-    bulk-print-packages-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-    salesorder_number:
-      description: Name of the sales order for which package is created
-      type: string
-      example: SO-00001
-    template_name:
-      description: Name of the template
-      type: string
-      example: Standard Template
     list-all-packages-response:
       type: object
       properties:
@@ -779,439 +1248,6 @@ components:
                 $ref: '#/components/schemas/total_quantity'
               custom_fields:
                 $ref: '#/components/schemas/custom_fields'
-    contact_person_id:
-      description: Unique ID generated by the server for contact person
-      type: string
-      example: 504366000000062000
-    salesorder_id:
-      description: Unique ID generated by the server for sales order
-      type: string
-      example: 504366000000062000
-    detailed_status:
-      description: Detailed shipment details received from the courier
-      type: string
-      example: Reached a courier facility near Toronto
-    customer_id:
-      description: Unique ID generated by the for the customer
-      type: string
-      example: 504366000000062000
-    package_number:
-      description: Name of the package
-      type: string
-      example: PA-00001
-    country:
-      description: Name of the country of the customer address
-      type: string
-      example: U.S.A
-    state:
-      description: Name of the state of the customer address
-      type: string
-      example: New York
-    billing_address:
-      description: Customer billing address
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/address'
-        city:
-          $ref: '#/components/schemas/city'
-        state:
-          $ref: '#/components/schemas/state'
-        country:
-          $ref: '#/components/schemas/country'
-        zip:
-          $ref: '#/components/schemas/zip'
-        phone:
-          $ref: '#/components/schemas/phone'
-        fax:
-          $ref: '#/components/schemas/fax'
-    status:
-      description: status of the shipment order
-      type: string
-      example: shipped
-    name:
-      description: Name of the packaged item
-      type: string
-      example: Apple Iphone
-    package_id:
-      description: Unique ID generated by the server for the package
-      type: string
-      example: 504366000000062100
-    batches-update:
-      description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - batch_id
-        - out_quantity
-        properties:
-          batch_id:
-            description: Unique identifier of an existing batch.
-            type: string
-            example: '6780203000000214019'
-          out_quantity:
-            description: Quantity removed from the batch.
-            type: number
-            format: float
-            example: 2
-          storages:
-            description: Bin/storage locations from which stock was issued for this batch.
-            type: array
-            x-node_available_in:
-            - Batch with Bin tracked items
-            items:
-              type: object
-              required:
-              - storage_id
-              - out_quantity
-              properties:
-                storage_id:
-                  description: Unique identifier of the bin/storage location.
-                  type: string
-                  example: '6780203000000093226'
-                out_quantity:
-                  description: Quantity removed from the bin.
-                  type: number
-                  format: float
-                  example: 2
-                storage_out_id:
-                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
-                  type: string
-                  example: '6780203000000997441'
-    so_line_item_id:
-      description: Unique ID generated by the server for items in sales order
-      type: string
-      example: 504366000000062000
-    updating-a-package-request:
-      type: object
-      required:
-      - date
-      - line_items
-      properties:
-        package_number:
-          $ref: '#/components/schemas/package_number'
-        date:
-          $ref: '#/components/schemas/date'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        line_items:
-          description: Details of the items in this package
-          type: array
-          items:
-            type: object
-            properties:
-              line_item_id:
-                $ref: '#/components/schemas/line_item_id'
-              so_line_item_id:
-                $ref: '#/components/schemas/so_line_item_id'
-              quantity:
-                $ref: '#/components/schemas/quantity'
-              mapped_items:
-                $ref: '#/components/schemas/mapped_items_update'
-              serial_numbers:
-                $ref: '#/components/schemas/serial_numbers'
-              batches:
-                $ref: '#/components/schemas/batches-update'
-              storages:
-                $ref: '#/components/schemas/storages-update'
-        notes:
-          $ref: '#/components/schemas/notes'
-    shipment_rate:
-      description: Costs involved for shipment
-      type: number
-      format: float
-      example: 52
-    is_emailed:
-      description: Package is emailed to the customer or not
-      type: boolean
-      example: false
-    batches-response:
-      description: Batches tracked for the line item. Returned for items with batch tracking enabled.
-      type: array
-      items:
-        type: object
-        properties:
-          batch_id:
-            description: Unique identifier of the batch.
-            type: string
-            example: '6780203000000214019'
-          batch_number:
-            description: Batch number.
-            type: string
-            example: BTC-TL-890
-          external_batch_number:
-            description: External batch number from the manufacturer.
-            type: string
-            example: MFR-TL-890
-          manufacturer_date:
-            description: Manufacturing date of the batch.
-            type: string
-            example: '2026-05-12'
-          expiry_date:
-            description: Expiration date of the batch.
-            type: string
-            example: '2026-12-24'
-          out_quantity:
-            description: Quantity removed from the batch.
-            type: number
-            format: float
-            example: 2
-          storages:
-            description: Bin/storage locations from which stock was issued for this batch.
-            type: array
-            x-node_available_in:
-            - Batch with Bin tracked items
-            items:
-              type: object
-              properties:
-                storage_id:
-                  description: Unique identifier of the bin/storage location.
-                  type: string
-                  example: '6780203000000093226'
-                storage_name:
-                  description: Display name of the bin/storage location.
-                  type: string
-                  example: Bin A1
-                out_quantity:
-                  description: Quantity removed from the bin.
-                  type: number
-                  format: float
-                  example: 2
-                storage_out_id:
-                  description: Unique identifier of the storage entry on the line item.
-                  type: string
-                  example: '6780203000000997441'
-    data_type:
-      description: Data type of the custom field
-      type: string
-      example: check_box
-    package-response:
-      type: object
-      properties:
-        billing_address:
-          $ref: '#/components/schemas/billing_address'
-        contact_persons:
-          $ref: '#/components/schemas/contact_persons'
-        created_time:
-          $ref: '#/components/schemas/created_time'
-        customer_id:
-          $ref: '#/components/schemas/customer_id'
-        customer_name:
-          $ref: '#/components/schemas/customer_name'
-        date:
-          $ref: '#/components/schemas/date'
-        email:
-          $ref: '#/components/schemas/email'
-        is_emailed:
-          $ref: '#/components/schemas/is_emailed'
-        last_modified_time:
-          $ref: '#/components/schemas/last_modified_time'
-        line_items:
-          $ref: '#/components/schemas/line_items'
-        mobile:
-          $ref: '#/components/schemas/mobile'
-        notes:
-          $ref: '#/components/schemas/notes'
-        package_id:
-          $ref: '#/components/schemas/package_id'
-        package_number:
-          $ref: '#/components/schemas/package_number'
-        phone:
-          $ref: '#/components/schemas/phone'
-        salesorder_id:
-          $ref: '#/components/schemas/salesorder_id'
-        salesorder_number:
-          $ref: '#/components/schemas/salesorder_number'
-        shipping_address:
-          $ref: '#/components/schemas/shipping_address'
-        template_id:
-          $ref: '#/components/schemas/template_id'
-        template_name:
-          $ref: '#/components/schemas/template_name'
-        template_type:
-          $ref: '#/components/schemas/template_type'
-        total_quantity:
-          $ref: '#/components/schemas/total_quantity'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-    placeholder:
-      description: Placeholder for the custom field
-      type: string
-      example: cf-504366000000053126
-    storages-response:
-      description: Bin/storage locations tracked for the line item. Returned for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093225'
-          storage_name:
-            description: Display name of the bin/storage location.
-            type: string
-            example: Bin A2
-          out_quantity:
-            description: Quantity removed from the bin.
-            type: number
-            format: float
-            example: 2
-          storage_out_id:
-            description: Unique identifier of the storage entry on the line item.
-            type: string
-            example: '6780203000000997440'
-          serial_numbers:
-            description: Serial numbers allocated to this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: PKG-011
-    mapped_items_create:
-      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
-      type: array
-      items:
-        type: object
-        properties:
-          so_line_item_id:
-            $ref: '#/components/schemas/so_line_item_id'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          mapped_items:
-            description: Nested mapped items for kit within kit scenarios.
-            type: array
-            items:
-              type: object
-              properties:
-                so_line_item_id:
-                  $ref: '#/components/schemas/so_line_item_id'
-                quantity:
-                  $ref: '#/components/schemas/quantity'
-    deleting-a-package-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Whooooosh! Package Deleted Successfully.
-          readOnly: true
-    package:
-      type: array
-      items:
-        $ref: '#/components/schemas/package-response'
-    combo_type:
-      description: Type of the composite item. Allowed values are <code>assembly</code> and <code>kit</code>.
-      type: string
-      example: kit
-    updating-a-package-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Package Updated Successfully.
-          readOnly: true
-        package:
-          $ref: '#/components/schemas/package'
-    creating-a-package-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Package created successfully. It's now time to ship!
-          readOnly: true
-        package:
-          $ref: '#/components/schemas/package'
-    item_order:
-      example: null
-    quantity:
-      description: Number of quantity of line items in sales order
-      type: number
-      format: float
-      example: 2
-    creating-a-package-request:
-      type: object
-      required:
-      - date
-      - line_items
-      properties:
-        package_number:
-          $ref: '#/components/schemas/package_number'
-        date:
-          $ref: '#/components/schemas/date'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        line_items:
-          description: Details of the items in this package
-          type: array
-          items:
-            type: object
-            properties:
-              so_line_item_id:
-                $ref: '#/components/schemas/so_line_item_id'
-              quantity:
-                $ref: '#/components/schemas/quantity'
-              mapped_items:
-                $ref: '#/components/schemas/mapped_items_create'
-              serial_numbers:
-                $ref: '#/components/schemas/serial_numbers'
-              batches:
-                $ref: '#/components/schemas/batches'
-              storages:
-                $ref: '#/components/schemas/storages'
-        notes:
-          $ref: '#/components/schemas/notes'
-    date:
-      description: Date on which package is prepared
-      type: string
-      example: '2017-01-11'
-    unit:
-      description: Unit of the item in package
-      type: string
-      example: units
-    mobile:
-      description: Mobile number of the customer
-      type: string
-      example: +1 (999)999-9999
-    storages:
-      description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - storage_id
-        - out_quantity
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093225'
-          out_quantity:
-            description: Quantity removed from the bin.
-            type: number
-            format: float
-            example: 2
-          serial_numbers:
-            description: Serial numbers allocated to this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: PKG-011
     batches:
       description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
       type: array
@@ -1250,42 +1286,6 @@ components:
                   type: number
                   format: float
                   example: 2
-    delivery_method_id:
-      description: Unique ID generated by the server for delivery method
-      type: string
-      example: 14954000000086028
-    delivery_days:
-      description: Number of days taken by the courier for delivering in package
-      type: integer
-      example: 2
-    mapped_items_update:
-      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
-      type: array
-      items:
-        type: object
-        properties:
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          so_line_item_id:
-            $ref: '#/components/schemas/so_line_item_id'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          mapped_items:
-            description: Nested mapped items for kit within kit scenarios.
-            type: array
-            items:
-              type: object
-              properties:
-                line_item_id:
-                  $ref: '#/components/schemas/line_item_id'
-                so_line_item_id:
-                  $ref: '#/components/schemas/so_line_item_id'
-                quantity:
-                  $ref: '#/components/schemas/quantity'
-    sku:
-      description: Stock keeping unit of the item in package
-      type: string
-      example: SKUM
   parameters:
     organization_id:
       name: organization_id

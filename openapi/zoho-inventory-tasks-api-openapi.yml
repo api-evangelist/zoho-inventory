@@ -687,20 +687,11 @@ paths:
         - ZohoInventory.settings.DELETE
 components:
   schemas:
-    due_date:
-      description: Due date of the task.
+    mail_id:
+      description: Email ID to which the notification has to be sent.
       type: string
-      format: date
-      example: '2025-12-31'
-    contact_name:
-      description: Name of the contact associated with the task.
-      type: string
-      example: Jane Smith
-    file_size_formatted:
-      description: Formatted size of the file attached to the task.
-      type: string
-      example: 200 KB
-    update-tasks-response:
+      example: johndoe@gmail.com
+    update-percentage-task-response:
       type: object
       properties:
         code:
@@ -709,152 +700,125 @@ components:
           readOnly: true
         message:
           type: string
-          example: Task updated
+          example: Task percentage updated
           readOnly: true
-        tasks:
-          type: array
-          items:
-            type: object
-            properties:
-              task_id:
-                $ref: '#/components/schemas/task_id'
-              recurring_task_id:
-                $ref: '#/components/schemas/recurring_task_id'
-              owner_id:
-                $ref: '#/components/schemas/owner_id'
-              owner_ids:
-                $ref: '#/components/schemas/owner_ids'
-              owner_name:
-                $ref: '#/components/schemas/owner_name'
-              owners:
-                $ref: '#/components/schemas/owners'
-              title:
-                $ref: '#/components/schemas/title'
-              due_date:
-                $ref: '#/components/schemas/due_date'
-              due_date_formatted:
-                $ref: '#/components/schemas/due_date_formatted'
-              is_overdue:
-                $ref: '#/components/schemas/is_overdue'
-              contact_type:
-                $ref: '#/components/schemas/contact_type'
-              contact_id:
-                $ref: '#/components/schemas/contact_id'
-              color_code:
-                $ref: '#/components/schemas/color_code'
-              contact_name:
-                $ref: '#/components/schemas/contact_name'
-              parent_task_id:
-                $ref: '#/components/schemas/parent_task_id'
-              related_entity_id:
-                $ref: '#/components/schemas/related_entity_id'
-              related_entity_type:
-                $ref: '#/components/schemas/related_entity_type'
-              related_entity:
-                $ref: '#/components/schemas/related_entity'
-              related_entity_value:
-                $ref: '#/components/schemas/related_entity_value'
-              parent_status:
-                $ref: '#/components/schemas/parent_status'
-              status:
-                $ref: '#/components/schemas/status'
-              custom_status_id:
-                $ref: '#/components/schemas/custom_status_id'
-              billing_type:
-                $ref: '#/components/schemas/billing_type'
-              is_billable:
-                $ref: '#/components/schemas/is_billable'
-              task_rate:
-                $ref: '#/components/schemas/task_rate'
-              completion_percentage:
-                $ref: '#/components/schemas/completion_percentage'
-              is_subtask:
-                $ref: '#/components/schemas/is_subtask'
-              priority:
-                $ref: '#/components/schemas/priority'
-              reminder:
-                $ref: '#/components/schemas/reminder'
-              task_description:
-                $ref: '#/components/schemas/task_description'
-              is_accountant_task:
-                $ref: '#/components/schemas/is_accountant_task'
-              task_number:
-                $ref: '#/components/schemas/task_number'
-              task_number_prefix:
-                $ref: '#/components/schemas/task_number_prefix'
-              task_number_suffix:
-                $ref: '#/components/schemas/task_number_suffix'
-              can_push:
-                $ref: '#/components/schemas/can_push'
-              created_by_id:
-                $ref: '#/components/schemas/created_by_id'
-              last_modified_by_id:
-                $ref: '#/components/schemas/last_modified_by_id'
-              template_id:
-                $ref: '#/components/schemas/template_id'
-              due_after:
-                $ref: '#/components/schemas/due_after'
-              parent_task_name:
-                $ref: '#/components/schemas/parent_task_name'
-              parent_task_number:
-                $ref: '#/components/schemas/parent_task_number'
-              created_by_name:
-                $ref: '#/components/schemas/created_by_name'
-              documents:
-                $ref: '#/components/schemas/documents'
-              custom_fields:
-                $ref: '#/components/schemas/custom_fields'
-              statuses:
-                $ref: '#/components/schemas/statuses'
-              is_system_task:
-                $ref: '#/components/schemas/is_system_task'
-              system_task_type:
-                $ref: '#/components/schemas/system_task_type'
-              comments:
-                $ref: '#/components/schemas/comments'
-              dependencies:
-                $ref: '#/components/schemas/dependencies'
-              entity_tags:
-                $ref: '#/components/schemas/entity_tags'
-    file_type:
-      description: Type of the file attached to the task.
-      type: string
-      example: pdf
-    task_number_suffix:
-      description: Suffix of the task number.
-      type: string
-      example: '-001'
-    mail_attachments:
-      description: List of attachments to be sent along with the email notification.
-      type: array
-      items:
-        type: object
-        properties:
-          attachment_id:
-            description: ID of the attachment to be sent along with the email notification.
-            type: string
-            example: '982000000567128'
-          file_name:
-            description: Name of the file attached to the email notification.
-            type: string
-            example: document.pdf
-    transaction_type:
-      description: Type of transaction associated with the task.
-      type: string
-      example: invoice
-    contact_id:
-      description: ID of the contact associated with the task.
-      type: string
-      example: 982000000567118
-    template_id:
-      description: ID of the template used for the task.
-      type: string
-      example: 982000000567124
-    task_number:
-      description: Unique number assigned to the task.
-      type: string
-      example: T-001
-    mark-completed-task-response:
+        task:
+          type: object
+          properties:
+            task_id:
+              $ref: '#/components/schemas/task_id'
+            recurring_task_id:
+              $ref: '#/components/schemas/recurring_task_id'
+            owner_id:
+              $ref: '#/components/schemas/owner_id'
+            owner_ids:
+              $ref: '#/components/schemas/owner_ids'
+            owner_name:
+              $ref: '#/components/schemas/owner_name'
+            owners:
+              $ref: '#/components/schemas/owners'
+            title:
+              $ref: '#/components/schemas/title'
+            due_date:
+              $ref: '#/components/schemas/due_date'
+            due_date_formatted:
+              $ref: '#/components/schemas/due_date_formatted'
+            is_overdue:
+              $ref: '#/components/schemas/is_overdue'
+            contact_type:
+              $ref: '#/components/schemas/contact_type'
+            contact_id:
+              $ref: '#/components/schemas/contact_id'
+            color_code:
+              $ref: '#/components/schemas/color_code'
+            contact_name:
+              $ref: '#/components/schemas/contact_name'
+            parent_task_id:
+              $ref: '#/components/schemas/parent_task_id'
+            related_entity_id:
+              $ref: '#/components/schemas/related_entity_id'
+            related_entity_type:
+              $ref: '#/components/schemas/related_entity_type'
+            related_entity:
+              $ref: '#/components/schemas/related_entity'
+            related_entity_value:
+              $ref: '#/components/schemas/related_entity_value'
+            parent_status:
+              $ref: '#/components/schemas/parent_status'
+            status:
+              $ref: '#/components/schemas/status'
+            custom_status_id:
+              $ref: '#/components/schemas/custom_status_id'
+            billing_type:
+              $ref: '#/components/schemas/billing_type'
+            is_billable:
+              $ref: '#/components/schemas/is_billable'
+            task_rate:
+              $ref: '#/components/schemas/task_rate'
+            completion_percentage:
+              $ref: '#/components/schemas/completion_percentage'
+            is_subtask:
+              $ref: '#/components/schemas/is_subtask'
+            priority:
+              $ref: '#/components/schemas/priority'
+            reminder:
+              $ref: '#/components/schemas/reminder'
+            task_description:
+              $ref: '#/components/schemas/task_description'
+            is_accountant_task:
+              $ref: '#/components/schemas/is_accountant_task'
+            task_number:
+              $ref: '#/components/schemas/task_number'
+            task_number_prefix:
+              $ref: '#/components/schemas/task_number_prefix'
+            task_number_suffix:
+              $ref: '#/components/schemas/task_number_suffix'
+            can_push:
+              $ref: '#/components/schemas/can_push'
+            created_by_id:
+              $ref: '#/components/schemas/created_by_id'
+            last_modified_by_id:
+              $ref: '#/components/schemas/last_modified_by_id'
+            template_id:
+              $ref: '#/components/schemas/template_id'
+            due_after:
+              $ref: '#/components/schemas/due_after'
+            parent_task_name:
+              $ref: '#/components/schemas/parent_task_name'
+            parent_task_number:
+              $ref: '#/components/schemas/parent_task_number'
+            created_by_name:
+              $ref: '#/components/schemas/created_by_name'
+            documents:
+              $ref: '#/components/schemas/documents'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            statuses:
+              $ref: '#/components/schemas/statuses'
+            is_system_task:
+              $ref: '#/components/schemas/is_system_task'
+            system_task_type:
+              $ref: '#/components/schemas/system_task_type'
+            comments:
+              $ref: '#/components/schemas/comments'
+            dependencies:
+              $ref: '#/components/schemas/dependencies'
+            entity_tags:
+              $ref: '#/components/schemas/entity_tags'
+    add-task-attachment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: File uploaded
+          readOnly: true
+        documents:
+          $ref: '#/components/schemas/documents'
+    mark-open-task-response:
       type: object
       properties:
         code:
@@ -865,19 +829,56 @@ components:
           type: string
           example: Task status updated
           readOnly: true
-    file_name:
-      description: Name of the file attached to the task.
+    billing_type:
+      description: Billing type of the task.
       type: string
-      example: document.pdf
-    description:
-      description: Description of the comment.
+      example: based_on_task_hours
+    task_number:
+      description: Unique number assigned to the task.
       type: string
-      example: This is a sample comment.
-    custom_status_id:
-      description: ID of the custom status of the task.
+      example: T-001
+    is_billable:
+      description: Indicates whether the task is billable.
+      type: boolean
+      example: true
+    commented_by:
+      description: Name of the user who commented on the task.
       type: string
-      example: 982000000567121
-    delete-a-task-response:
+      example: Jane Doe
+    is_accountant_task:
+      description: Indicates whether the task is an accountant task.
+      type: boolean
+      example: false
+    comment:
+      description: Comment on the task.
+      type: object
+      properties:
+        comment_id:
+          $ref: '#/components/schemas/comment_id'
+        description:
+          $ref: '#/components/schemas/description'
+        commented_by_id:
+          $ref: '#/components/schemas/commented_by_id'
+        commented_by:
+          $ref: '#/components/schemas/commented_by'
+        comment_type:
+          $ref: '#/components/schemas/comment_type'
+        date:
+          description: Date when the comment was made.
+          type: string
+          format: date-time
+          example: '2025-01-01T12:00:00Z'
+        date_description:
+          $ref: '#/components/schemas/date_description'
+        time:
+          $ref: '#/components/schemas/time'
+        operation_type:
+          $ref: '#/components/schemas/operation_type'
+        transaction_id:
+          $ref: '#/components/schemas/transaction_id'
+        transaction_type:
+          $ref: '#/components/schemas/transaction_type'
+    delete-task-document-response:
       type: object
       properties:
         code:
@@ -886,12 +887,102 @@ components:
           readOnly: true
         message:
           type: string
-          example: Task deleted
+          example: Attachment deleted
           readOnly: true
-    comment_type:
-      description: Type of the comment.
+    can_push:
+      description: Indicates if the task can be sync to client
+      type: boolean
+      example: true
+    related_entity_id:
+      description: ID of the related entity associated with the task.
       type: string
-      example: internal
+      example: 982000000567120
+    commented_by_id:
+      description: ID of the user who commented on the task.
+      type: string
+      example: 982000000567127
+    custom_fields:
+      type: array
+      description: List of custom fields associated with the task
+      items:
+        type: object
+        properties:
+          customfield_id:
+            type: string
+            description: Unique identifier of the custom field
+            example: '46000000012845'
+          edit_on_store:
+            type: boolean
+            description: Whether the custom field can be edited on store
+            example: 'false'
+          show_in_all_pdf:
+            type: boolean
+            description: Whether to show this custom field in all PDF documents
+            example: 'true'
+          search_entity:
+            type: string
+            description: Entity type to search when this is a lookup field
+            example: contacts
+          value:
+            type: object
+            description: Value of the custom field, could be of any data type
+            example: Value123
+          value_formatted:
+            type: string
+            description: Formatted string representation of the value
+            example: Value123
+          show_in_store:
+            type: boolean
+            description: Whether to show this custom field in store
+            example: 'false'
+          is_active:
+            type: boolean
+            description: Whether the custom field is active
+            example: 'true'
+          order:
+            type: integer
+            description: Display order of the custom field
+            example: '1'
+          label:
+            type: string
+            description: Display name of the custom field
+            example: Project Code
+          api_name:
+            type: string
+            description: API name of the field
+            example: cf_project_code
+          data_type:
+            type: string
+            description: Data type of the custom field
+            example: text
+          is_dependent_field:
+            type: boolean
+            description: Whether the custom field depends on another field
+            example: 'false'
+          show_in_portal:
+            type: boolean
+            description: Whether to show this custom field in the customer portal
+            example: 'true'
+          show_on_pdf:
+            type: boolean
+            description: Whether to show this custom field in PDF documents
+            example: 'true'
+          edit_on_portal:
+            type: boolean
+            description: Whether the custom field can be edited on the customer portal
+            example: 'false'
+    email_account_type:
+      description: Email account type to which the notification has to be sent.
+      type: string
+      example: gmail
+    contact_id:
+      description: ID of the contact associated with the task.
+      type: string
+      example: 982000000567118
+    date_description:
+      description: Description of the date when the comment was made.
+      type: string
+      example: One month ago
     list-tasks-response:
       type: object
       properties:
@@ -972,65 +1063,6 @@ components:
                 $ref: '#/components/schemas/owners'
               entity_tags:
                 $ref: '#/components/schemas/entity_tags'
-    email_folder_id:
-      description: Folder ID of the email account to which the notification has to be sent.
-      type: string
-      example: '982000000567126'
-    add-task-comment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Comments added
-          readOnly: true
-        comment:
-          $ref: '#/components/schemas/comment'
-    entity_tags:
-      description: List of tags associated with the task.
-      type: array
-      items:
-        type: object
-        properties:
-          id:
-            description: ID of the tag.
-            type: string
-            example: 982000000567129
-          name:
-            description: Name of the tag.
-            type: string
-            example: Important
-          color:
-            description: Color code of the tag.
-            type: string
-            example: FFB6C1
-    parent_task_name:
-      description: Name of the parent task.
-      type: string
-      example: Parent Task
-    is_overdue:
-      description: Indicates whether the task is overdue.
-      type: boolean
-      example: true
-    comment_id:
-      description: ID of the comment on the task.
-      type: string
-      example: 982000000567126
-    completion_percentage:
-      description: Completion percentage of the task.
-      type: integer
-      example: 75
-    client_id:
-      description: ID of the client associated with the task.
-      type: string
-      example: 982000000567118
-    email_account_type:
-      description: Email account type to which the notification has to be sent.
-      type: string
-      example: gmail
     update-tasks-request:
       type: array
       description: List of tasks to be updated.
@@ -1153,7 +1185,7 @@ components:
                   description: Color code of the tag.
                   type: string
                   example: FFB6C1
-    delete-tasks-response:
+    mark-ongoing-task-response:
       type: object
       properties:
         code:
@@ -1162,9 +1194,104 @@ components:
           readOnly: true
         message:
           type: string
-          example: Task deleted
+          example: Task status updated
           readOnly: true
-    get-a-task-document-response:
+    email_folder_id:
+      description: Folder ID of the email account to which the notification has to be sent.
+      type: string
+      example: '982000000567126'
+    owner_ids:
+      description: Comma separated list of owner IDs of the task.
+      type: string
+      example: 982000000567116,982000000567117
+    related_sub_entity_id:
+      description: ID of the related sub entity associated with the task.
+      type: string
+      example: 982000000567122
+    file_size:
+      description: Size of the file attached to the task in bytes.
+      type: integer
+      example: 204800
+    parent_task_id:
+      description: ID of the parent task.
+      type: string
+      example: 982000000567119
+    task_id:
+      description: ID of the task.
+      type: string
+      example: 982000000567114
+    document_id:
+      description: ID of the document attached to the task.
+      type: string
+      example: 982000000567125
+    last_modified_by_id:
+      description: ID of the user who last modified the task.
+      type: string
+      example: 982000000567123
+    reminder:
+      description: Details of the reminder set for the task.
+      type: object
+      properties:
+        remind_before:
+          description: Number of days, months or years before the task due date to send a reminder.
+          type: integer
+          example: 2
+        remind_at:
+          description: Specific date to send the reminder.
+          type: string
+          format: date
+          example: '2025-12-29'
+        remind_at_formatted:
+          description: Formatted date to send the reminder.
+          type: string
+          example: 29-12-2025
+        remind_type:
+          description: Type of reminder which can be days, months or years.
+          type: string
+          example: days
+        remind_type_formatted:
+          description: Formatted type of reminder which can be days, months or years.
+          type: string
+          example: Days
+        alert_type:
+          description: Type of alert for the reminder.
+          type: string
+          example: email
+        alert_type_formatted:
+          description: Formatted type of alert for the reminder.
+          type: string
+          example: Email
+    created_time:
+      description: Creation time of the task.
+      type: string
+      format: date-time
+      example: '2025-01-01T10:00:00Z'
+    priority:
+      description: Priority of the task. Allowed values are <code>normal</code>, <code>low</code>, <code>high</code>, <code>lowest</code> and <code>highest</code>
+      type: string
+      example: high
+    status:
+      description: Status of the task.
+      type: string
+      example: open
+    contact_type:
+      description: Type of the contact associated with the task. Allowed values are <code>customer</code> and <code>vendor</code>
+      type: string
+      example: customer
+    task_description:
+      description: Description of the task.
+      type: string
+      example: This is a sample task description.
+    send_email_notification:
+      description: Indicates whether to send email notification for the task.
+      type: boolean
+      example: true
+    task_rate:
+      description: Rate of the task.
+      type: number
+      format: double
+      example: 50
+    list-task-comments-response:
       type: object
       properties:
         code:
@@ -1175,20 +1302,91 @@ components:
           type: string
           example: success
           readOnly: true
-        documents:
-          $ref: '#/components/schemas/document'
-    can_show_in_portal:
-      description: Indicates whether the document can be shown in the customer portal.
-      type: boolean
-      example: true
+        comments:
+          $ref: '#/components/schemas/comments'
+    owners:
+      description: List of owners of the task.
+      type: array
+      items:
+        type: object
+        properties:
+          owner_id:
+            $ref: '#/components/schemas/owner_id'
+          owner_name:
+            $ref: '#/components/schemas/owner_name'
+          owner_mail:
+            description: Email of the owner of the task.
+            type: string
+            example: johndoe@example.com
+          photo_url:
+            description: URL of the photo of the owner of the task.
+            type: string
+            example: https://example.com/photo.jpg
+    due_after:
+      description: Number of days after which the task is due.
+      type: integer
+      example: 7
+    file_type:
+      description: Type of the file attached to the task.
+      type: string
+      example: pdf
     due_date_formatted:
       description: Formatted due date of the task.
       type: string
       example: 31-12-2025
-    is_subtask:
-      description: Indicates whether the task is a subtask.
-      type: boolean
-      example: false
+    client_id:
+      description: ID of the client associated with the task.
+      type: string
+      example: 982000000567118
+    comments:
+      description: List of comments for the task.
+      type: array
+      items:
+        type: object
+        properties:
+          comment_id:
+            $ref: '#/components/schemas/comment_id'
+          description:
+            description: Description of the comment.
+            type: string
+            example: This is a sample comment.
+          commented_by_id:
+            $ref: '#/components/schemas/commented_by_id'
+          commented_by:
+            $ref: '#/components/schemas/commented_by'
+          comment_type:
+            $ref: '#/components/schemas/comment_type'
+          date:
+            description: Date when the comment was made.
+            type: string
+            format: date-time
+            example: '2025-01-01T12:00:00Z'
+          date_description:
+            $ref: '#/components/schemas/date_description'
+          time:
+            $ref: '#/components/schemas/time'
+          operation_type:
+            $ref: '#/components/schemas/operation_type'
+          transaction_id:
+            $ref: '#/components/schemas/transaction_id'
+          transaction_type:
+            $ref: '#/components/schemas/transaction_type'
+    task_number_prefix:
+      description: Prefix of the task number.
+      type: string
+      example: T-
+    related_entity:
+      description: Unique value assigned to each entity.
+      type: integer
+      example: 20
+    created_by_name:
+      description: Name of the user who created the task.
+      type: string
+      example: John Doe
+    description:
+      description: Description of the comment.
+      type: string
+      example: This is a sample comment.
     update-a-task-request:
       type: object
       properties:
@@ -1308,194 +1506,295 @@ components:
                 description: Color code of the tag.
                 type: string
                 example: FFB6C1
-    comments:
-      description: List of comments for the task.
+    parent_task_number:
+      description: Number of the parent task.
+      type: string
+      example: PT-001
+    update-a-task-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Task updated
+          readOnly: true
+        task:
+          type: object
+          properties:
+            task_id:
+              $ref: '#/components/schemas/task_id'
+            recurring_task_id:
+              $ref: '#/components/schemas/recurring_task_id'
+            owner_id:
+              $ref: '#/components/schemas/owner_id'
+            owner_ids:
+              $ref: '#/components/schemas/owner_ids'
+            owner_name:
+              $ref: '#/components/schemas/owner_name'
+            owners:
+              $ref: '#/components/schemas/owners'
+            title:
+              $ref: '#/components/schemas/title'
+            due_date:
+              $ref: '#/components/schemas/due_date'
+            due_date_formatted:
+              $ref: '#/components/schemas/due_date_formatted'
+            is_overdue:
+              $ref: '#/components/schemas/is_overdue'
+            contact_type:
+              $ref: '#/components/schemas/contact_type'
+            contact_id:
+              $ref: '#/components/schemas/contact_id'
+            color_code:
+              $ref: '#/components/schemas/color_code'
+            contact_name:
+              $ref: '#/components/schemas/contact_name'
+            parent_task_id:
+              $ref: '#/components/schemas/parent_task_id'
+            related_entity_id:
+              $ref: '#/components/schemas/related_entity_id'
+            related_entity_type:
+              $ref: '#/components/schemas/related_entity_type'
+            related_entity:
+              $ref: '#/components/schemas/related_entity'
+            related_entity_value:
+              $ref: '#/components/schemas/related_entity_value'
+            parent_status:
+              $ref: '#/components/schemas/parent_status'
+            status:
+              $ref: '#/components/schemas/status'
+            custom_status_id:
+              $ref: '#/components/schemas/custom_status_id'
+            billing_type:
+              $ref: '#/components/schemas/billing_type'
+            is_billable:
+              $ref: '#/components/schemas/is_billable'
+            task_rate:
+              $ref: '#/components/schemas/task_rate'
+            completion_percentage:
+              $ref: '#/components/schemas/completion_percentage'
+            is_subtask:
+              $ref: '#/components/schemas/is_subtask'
+            priority:
+              $ref: '#/components/schemas/priority'
+            reminder:
+              $ref: '#/components/schemas/reminder'
+            task_description:
+              $ref: '#/components/schemas/task_description'
+            is_accountant_task:
+              $ref: '#/components/schemas/is_accountant_task'
+            task_number:
+              $ref: '#/components/schemas/task_number'
+            task_number_prefix:
+              $ref: '#/components/schemas/task_number_prefix'
+            task_number_suffix:
+              $ref: '#/components/schemas/task_number_suffix'
+            can_push:
+              $ref: '#/components/schemas/can_push'
+            created_by_id:
+              $ref: '#/components/schemas/created_by_id'
+            last_modified_by_id:
+              $ref: '#/components/schemas/last_modified_by_id'
+            template_id:
+              $ref: '#/components/schemas/template_id'
+            due_after:
+              $ref: '#/components/schemas/due_after'
+            parent_task_name:
+              $ref: '#/components/schemas/parent_task_name'
+            parent_task_number:
+              $ref: '#/components/schemas/parent_task_number'
+            created_by_name:
+              $ref: '#/components/schemas/created_by_name'
+            documents:
+              $ref: '#/components/schemas/documents'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            statuses:
+              $ref: '#/components/schemas/statuses'
+            is_system_task:
+              $ref: '#/components/schemas/is_system_task'
+            system_task_type:
+              $ref: '#/components/schemas/system_task_type'
+            comments:
+              $ref: '#/components/schemas/comments'
+            dependencies:
+              $ref: '#/components/schemas/dependencies'
+            entity_tags:
+              $ref: '#/components/schemas/entity_tags'
+    parent_task_name:
+      description: Name of the parent task.
+      type: string
+      example: Parent Task
+    dependencies:
+      description: List of dependencies for the task.
       type: array
       items:
         type: object
         properties:
-          comment_id:
-            $ref: '#/components/schemas/comment_id'
-          description:
-            description: Description of the comment.
+          dependency_id:
+            description: ID of the dependency.
             type: string
-            example: This is a sample comment.
-          commented_by_id:
-            $ref: '#/components/schemas/commented_by_id'
-          commented_by:
-            $ref: '#/components/schemas/commented_by'
-          comment_type:
-            $ref: '#/components/schemas/comment_type'
-          date:
-            description: Date when the comment was made.
+            example: 982000000567192
+          dependency_type:
+            description: Type of the dependency.
+            type: integer
+            example: 1
+          depends_on_id:
+            description: ID of the entity on which the current task depends.
             type: string
-            format: date-time
-            example: '2025-01-01T12:00:00Z'
-          date_description:
-            $ref: '#/components/schemas/date_description'
-          time:
-            $ref: '#/components/schemas/time'
-          operation_type:
-            $ref: '#/components/schemas/operation_type'
-          transaction_id:
-            $ref: '#/components/schemas/transaction_id'
-          transaction_type:
-            $ref: '#/components/schemas/transaction_type'
-    task_number_prefix:
-      description: Prefix of the task number.
+            example: 982000000567193
+          depends_on_entity_type:
+            description: Type of the entity on which the current task depends.
+            type: integer
+            example: 20
+    get-a-task-document-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        documents:
+          $ref: '#/components/schemas/document'
+    email_account_id:
+      description: Email account ID to which the notification has to be sent.
       type: string
-      example: T-
-    related_sub_entity_type:
-      description: Type of the related sub entity associated with the task.
+      example: '982000000567127'
+    custom_status_id:
+      description: ID of the custom status of the task.
       type: string
-      example: expense_report
-    created_time:
-      description: Creation time of the task.
-      type: string
-      format: date-time
-      example: '2025-01-01T10:00:00Z'
+      example: 982000000567121
     owner_id:
       description: ID of the owner of the task.
       type: string
       example: 982000000567116
-    reminder:
-      description: Details of the reminder set for the task.
-      type: object
-      properties:
-        remind_before:
-          description: Number of days, months or years before the task due date to send a reminder.
-          type: integer
-          example: 2
-        remind_at:
-          description: Specific date to send the reminder.
-          type: string
-          format: date
-          example: '2025-12-29'
-        remind_at_formatted:
-          description: Formatted date to send the reminder.
-          type: string
-          example: 29-12-2025
-        remind_type:
-          description: Type of reminder which can be days, months or years.
-          type: string
-          example: days
-        remind_type_formatted:
-          description: Formatted type of reminder which can be days, months or years.
-          type: string
-          example: Days
-        alert_type:
-          description: Type of alert for the reminder.
-          type: string
-          example: email
-        alert_type_formatted:
-          description: Formatted type of alert for the reminder.
-          type: string
-          example: Email
-    custom_fields:
-      type: array
-      description: List of custom fields associated with the task
-      items:
-        type: object
-        properties:
-          customfield_id:
-            type: string
-            description: Unique identifier of the custom field
-            example: '46000000012845'
-          edit_on_store:
-            type: boolean
-            description: Whether the custom field can be edited on store
-            example: 'false'
-          show_in_all_pdf:
-            type: boolean
-            description: Whether to show this custom field in all PDF documents
-            example: 'true'
-          search_entity:
-            type: string
-            description: Entity type to search when this is a lookup field
-            example: contacts
-          value:
-            type: object
-            description: Value of the custom field, could be of any data type
-            example: Value123
-          value_formatted:
-            type: string
-            description: Formatted string representation of the value
-            example: Value123
-          show_in_store:
-            type: boolean
-            description: Whether to show this custom field in store
-            example: 'false'
-          is_active:
-            type: boolean
-            description: Whether the custom field is active
-            example: 'true'
-          order:
-            type: integer
-            description: Display order of the custom field
-            example: '1'
-          label:
-            type: string
-            description: Display name of the custom field
-            example: Project Code
-          api_name:
-            type: string
-            description: API name of the field
-            example: cf_project_code
-          data_type:
-            type: string
-            description: Data type of the custom field
-            example: text
-          is_dependent_field:
-            type: boolean
-            description: Whether the custom field depends on another field
-            example: 'false'
-          show_in_portal:
-            type: boolean
-            description: Whether to show this custom field in the customer portal
-            example: 'true'
-          show_on_pdf:
-            type: boolean
-            description: Whether to show this custom field in PDF documents
-            example: 'true'
-          edit_on_portal:
-            type: boolean
-            description: Whether the custom field can be edited on the customer portal
-            example: 'false'
-    system_task_type:
-      description: Type of the system task.
-      type: integer
-      example: 2
-    add-task-comment-request:
-      required:
-      - description
-      type: object
-      properties:
-        description:
-          description: Description of the comment.
-          type: string
-          example: This is a sample comment.
-    document:
-      description: Details of the document attached to the task.
-      type: object
-      properties:
-        can_show_in_portal:
-          $ref: '#/components/schemas/can_show_in_portal'
-        file_name:
-          $ref: '#/components/schemas/file_name'
-        file_type:
-          $ref: '#/components/schemas/file_type'
-        file_size:
-          $ref: '#/components/schemas/file_size'
-        file_size_formatted:
-          $ref: '#/components/schemas/file_size_formatted'
-        document_id:
-          $ref: '#/components/schemas/document_id'
-        attachment_order:
-          $ref: '#/components/schemas/attachment_order'
-    commented_by:
-      description: Name of the user who commented on the task.
+    recurring_task_id:
+      description: ID of the recurring task.
       type: string
-      example: Jane Doe
+      example: 982000000567115
+    update-tasks-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Task updated
+          readOnly: true
+        tasks:
+          type: array
+          items:
+            type: object
+            properties:
+              task_id:
+                $ref: '#/components/schemas/task_id'
+              recurring_task_id:
+                $ref: '#/components/schemas/recurring_task_id'
+              owner_id:
+                $ref: '#/components/schemas/owner_id'
+              owner_ids:
+                $ref: '#/components/schemas/owner_ids'
+              owner_name:
+                $ref: '#/components/schemas/owner_name'
+              owners:
+                $ref: '#/components/schemas/owners'
+              title:
+                $ref: '#/components/schemas/title'
+              due_date:
+                $ref: '#/components/schemas/due_date'
+              due_date_formatted:
+                $ref: '#/components/schemas/due_date_formatted'
+              is_overdue:
+                $ref: '#/components/schemas/is_overdue'
+              contact_type:
+                $ref: '#/components/schemas/contact_type'
+              contact_id:
+                $ref: '#/components/schemas/contact_id'
+              color_code:
+                $ref: '#/components/schemas/color_code'
+              contact_name:
+                $ref: '#/components/schemas/contact_name'
+              parent_task_id:
+                $ref: '#/components/schemas/parent_task_id'
+              related_entity_id:
+                $ref: '#/components/schemas/related_entity_id'
+              related_entity_type:
+                $ref: '#/components/schemas/related_entity_type'
+              related_entity:
+                $ref: '#/components/schemas/related_entity'
+              related_entity_value:
+                $ref: '#/components/schemas/related_entity_value'
+              parent_status:
+                $ref: '#/components/schemas/parent_status'
+              status:
+                $ref: '#/components/schemas/status'
+              custom_status_id:
+                $ref: '#/components/schemas/custom_status_id'
+              billing_type:
+                $ref: '#/components/schemas/billing_type'
+              is_billable:
+                $ref: '#/components/schemas/is_billable'
+              task_rate:
+                $ref: '#/components/schemas/task_rate'
+              completion_percentage:
+                $ref: '#/components/schemas/completion_percentage'
+              is_subtask:
+                $ref: '#/components/schemas/is_subtask'
+              priority:
+                $ref: '#/components/schemas/priority'
+              reminder:
+                $ref: '#/components/schemas/reminder'
+              task_description:
+                $ref: '#/components/schemas/task_description'
+              is_accountant_task:
+                $ref: '#/components/schemas/is_accountant_task'
+              task_number:
+                $ref: '#/components/schemas/task_number'
+              task_number_prefix:
+                $ref: '#/components/schemas/task_number_prefix'
+              task_number_suffix:
+                $ref: '#/components/schemas/task_number_suffix'
+              can_push:
+                $ref: '#/components/schemas/can_push'
+              created_by_id:
+                $ref: '#/components/schemas/created_by_id'
+              last_modified_by_id:
+                $ref: '#/components/schemas/last_modified_by_id'
+              template_id:
+                $ref: '#/components/schemas/template_id'
+              due_after:
+                $ref: '#/components/schemas/due_after'
+              parent_task_name:
+                $ref: '#/components/schemas/parent_task_name'
+              parent_task_number:
+                $ref: '#/components/schemas/parent_task_number'
+              created_by_name:
+                $ref: '#/components/schemas/created_by_name'
+              documents:
+                $ref: '#/components/schemas/documents'
+              custom_fields:
+                $ref: '#/components/schemas/custom_fields'
+              statuses:
+                $ref: '#/components/schemas/statuses'
+              is_system_task:
+                $ref: '#/components/schemas/is_system_task'
+              system_task_type:
+                $ref: '#/components/schemas/system_task_type'
+              comments:
+                $ref: '#/components/schemas/comments'
+              dependencies:
+                $ref: '#/components/schemas/dependencies'
+              entity_tags:
+                $ref: '#/components/schemas/entity_tags'
     documents:
       description: List of files attached to a particular task.
       type: array
@@ -1516,26 +1815,22 @@ components:
             $ref: '#/components/schemas/document_id'
           attachment_order:
             $ref: '#/components/schemas/attachment_order'
-    parent_task_id:
-      description: ID of the parent task.
-      type: string
-      example: 982000000567119
-    parent_status:
-      description: Parent status of the task.
-      type: string
-      example: open
     owner_name:
       description: Name of the owner of the task.
       type: string
       example: John Doe
-    created_time_formatted:
-      description: Formatted creation time of the task.
+    attachment_order:
+      description: Order of the attachment in the task.
+      type: integer
+      example: 1
+    color_code:
+      description: Color code of the task.
       type: string
-      example: 01-01-2025 10:00:00
-    client_name:
-      description: Name of the client associated with the task.
+      example: '#FF5733'
+    task_type:
+      description: Type of the task.
       type: string
-      example: Acme Corporation
+      example: accountant task
     statuses:
       description: List of statuses for the task.
       type: array
@@ -1545,10 +1840,37 @@ components:
       - open
       - closed
       - pending
-    priority:
-      description: Priority of the task. Allowed values are <code>normal</code>, <code>low</code>, <code>high</code>, <code>lowest</code> and <code>highest</code>
+    operation_type:
+      description: Type of operation performed on the task.
       type: string
-      example: high
+      example: Added
+    delete-task-comment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Comments deleted
+          readOnly: true
+    can_show_in_portal:
+      description: Indicates whether the document can be shown in the customer portal.
+      type: boolean
+      example: true
+    completion_percentage:
+      description: Completion percentage of the task.
+      type: integer
+      example: 75
+    related_entity_value:
+      description: Value of the related entity associated with the task.
+      type: string
+      example: INV-001
+    system_task_type:
+      description: Type of the system task.
+      type: integer
+      example: 2
     get-a-task-response:
       type: object
       properties:
@@ -1663,7 +1985,7 @@ components:
               $ref: '#/components/schemas/dependencies'
             entity_tags:
               $ref: '#/components/schemas/entity_tags'
-    mark-ongoing-task-response:
+    mark-completed-task-response:
       type: object
       properties:
         code:
@@ -1674,30 +1996,136 @@ components:
           type: string
           example: Task status updated
           readOnly: true
-    email_account_id:
-      description: Email account ID to which the notification has to be sent.
+    subtask_count:
+      description: Number of subtasks under the task.
+      type: integer
+      example: 3
+    add-a-task-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Task created
+          readOnly: true
+        task:
+          type: object
+          properties:
+            task_id:
+              $ref: '#/components/schemas/task_id'
+            recurring_task_id:
+              $ref: '#/components/schemas/recurring_task_id'
+            owner_id:
+              $ref: '#/components/schemas/owner_id'
+            owner_ids:
+              $ref: '#/components/schemas/owner_ids'
+            owner_name:
+              $ref: '#/components/schemas/owner_name'
+            owners:
+              $ref: '#/components/schemas/owners'
+            title:
+              $ref: '#/components/schemas/title'
+            due_date:
+              $ref: '#/components/schemas/due_date'
+            due_date_formatted:
+              $ref: '#/components/schemas/due_date_formatted'
+            is_overdue:
+              $ref: '#/components/schemas/is_overdue'
+            contact_type:
+              $ref: '#/components/schemas/contact_type'
+            contact_id:
+              $ref: '#/components/schemas/contact_id'
+            color_code:
+              $ref: '#/components/schemas/color_code'
+            contact_name:
+              $ref: '#/components/schemas/contact_name'
+            parent_task_id:
+              $ref: '#/components/schemas/parent_task_id'
+            related_entity_id:
+              $ref: '#/components/schemas/related_entity_id'
+            related_entity_type:
+              $ref: '#/components/schemas/related_entity_type'
+            related_entity:
+              $ref: '#/components/schemas/related_entity'
+            related_entity_value:
+              $ref: '#/components/schemas/related_entity_value'
+            parent_status:
+              $ref: '#/components/schemas/parent_status'
+            status:
+              $ref: '#/components/schemas/status'
+            custom_status_id:
+              $ref: '#/components/schemas/custom_status_id'
+            billing_type:
+              $ref: '#/components/schemas/billing_type'
+            is_billable:
+              $ref: '#/components/schemas/is_billable'
+            task_rate:
+              $ref: '#/components/schemas/task_rate'
+            completion_percentage:
+              $ref: '#/components/schemas/completion_percentage'
+            is_subtask:
+              $ref: '#/components/schemas/is_subtask'
+            priority:
+              $ref: '#/components/schemas/priority'
+            reminder:
+              $ref: '#/components/schemas/reminder'
+            task_description:
+              $ref: '#/components/schemas/task_description'
+            is_accountant_task:
+              $ref: '#/components/schemas/is_accountant_task'
+            task_number:
+              $ref: '#/components/schemas/task_number'
+            task_number_prefix:
+              $ref: '#/components/schemas/task_number_prefix'
+            task_number_suffix:
+              $ref: '#/components/schemas/task_number_suffix'
+            can_push:
+              $ref: '#/components/schemas/can_push'
+            created_by_id:
+              $ref: '#/components/schemas/created_by_id'
+            last_modified_by_id:
+              $ref: '#/components/schemas/last_modified_by_id'
+            template_id:
+              $ref: '#/components/schemas/template_id'
+            due_after:
+              $ref: '#/components/schemas/due_after'
+            parent_task_name:
+              $ref: '#/components/schemas/parent_task_name'
+            parent_task_number:
+              $ref: '#/components/schemas/parent_task_number'
+            created_by_name:
+              $ref: '#/components/schemas/created_by_name'
+            documents:
+              $ref: '#/components/schemas/documents'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            statuses:
+              $ref: '#/components/schemas/statuses'
+            is_system_task:
+              $ref: '#/components/schemas/is_system_task'
+            system_task_type:
+              $ref: '#/components/schemas/system_task_type'
+            comments:
+              $ref: '#/components/schemas/comments'
+            dependencies:
+              $ref: '#/components/schemas/dependencies'
+            entity_tags:
+              $ref: '#/components/schemas/entity_tags'
+    created_by_id:
+      description: ID of the user who created the task.
       type: string
-      example: '982000000567127'
-    mail_id:
-      description: Email ID to which the notification has to be sent.
+      example: 982000000567122
+    file_size_formatted:
+      description: Formatted size of the file attached to the task.
       type: string
-      example: johndoe@gmail.com
-    date_description:
-      description: Description of the date when the comment was made.
+      example: 200 KB
+    title:
+      description: Title of the task.
       type: string
-      example: One month ago
-    time:
-      description: Time when the comment was made.
-      type: string
-      example: 12:00 PM
-    operation_type:
-      description: Type of operation performed on the task.
-      type: string
-      example: Added
-    parent_task_number:
-      description: Number of the parent task.
-      type: string
-      example: PT-001
+      example: Sample Task
     add-a-task-request:
       type: object
       properties:
@@ -1817,77 +2245,29 @@ components:
                 description: Color code of the tag.
                 type: string
                 example: FFB6C1
-    title:
-      description: Title of the task.
+    contact_name:
+      description: Name of the contact associated with the task.
       type: string
-      example: Sample Task
-    task_description:
-      description: Description of the task.
+      example: Jane Smith
+    client_name:
+      description: Name of the client associated with the task.
       type: string
-      example: This is a sample task description.
-    due_after:
-      description: Number of days after which the task is due.
-      type: integer
-      example: 7
-    delete-task-comment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Comments deleted
-          readOnly: true
-    add-task-attachment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: File uploaded
-          readOnly: true
-        documents:
-          $ref: '#/components/schemas/documents'
-    dependencies:
-      description: List of dependencies for the task.
+      example: Acme Corporation
+    mail_attachments:
+      description: List of attachments to be sent along with the email notification.
       type: array
       items:
         type: object
         properties:
-          dependency_id:
-            description: ID of the dependency.
+          attachment_id:
+            description: ID of the attachment to be sent along with the email notification.
             type: string
-            example: 982000000567192
-          dependency_type:
-            description: Type of the dependency.
-            type: integer
-            example: 1
-          depends_on_id:
-            description: ID of the entity on which the current task depends.
+            example: '982000000567128'
+          file_name:
+            description: Name of the file attached to the email notification.
             type: string
-            example: 982000000567193
-          depends_on_entity_type:
-            description: Type of the entity on which the current task depends.
-            type: integer
-            example: 20
-    color_code:
-      description: Color code of the task.
-      type: string
-      example: '#FF5733'
-    status:
-      description: Status of the task.
-      type: string
-      example: open
-    related_entity_id:
-      description: ID of the related entity associated with the task.
-      type: string
-      example: 982000000567120
-    update-a-task-response:
+            example: document.pdf
+    add-task-comment-response:
       type: object
       properties:
         code:
@@ -1896,206 +2276,48 @@ components:
           readOnly: true
         message:
           type: string
-          example: Task updated
+          example: Comments added
           readOnly: true
-        task:
-          type: object
-          properties:
-            task_id:
-              $ref: '#/components/schemas/task_id'
-            recurring_task_id:
-              $ref: '#/components/schemas/recurring_task_id'
-            owner_id:
-              $ref: '#/components/schemas/owner_id'
-            owner_ids:
-              $ref: '#/components/schemas/owner_ids'
-            owner_name:
-              $ref: '#/components/schemas/owner_name'
-            owners:
-              $ref: '#/components/schemas/owners'
-            title:
-              $ref: '#/components/schemas/title'
-            due_date:
-              $ref: '#/components/schemas/due_date'
-            due_date_formatted:
-              $ref: '#/components/schemas/due_date_formatted'
-            is_overdue:
-              $ref: '#/components/schemas/is_overdue'
-            contact_type:
-              $ref: '#/components/schemas/contact_type'
-            contact_id:
-              $ref: '#/components/schemas/contact_id'
-            color_code:
-              $ref: '#/components/schemas/color_code'
-            contact_name:
-              $ref: '#/components/schemas/contact_name'
-            parent_task_id:
-              $ref: '#/components/schemas/parent_task_id'
-            related_entity_id:
-              $ref: '#/components/schemas/related_entity_id'
-            related_entity_type:
-              $ref: '#/components/schemas/related_entity_type'
-            related_entity:
-              $ref: '#/components/schemas/related_entity'
-            related_entity_value:
-              $ref: '#/components/schemas/related_entity_value'
-            parent_status:
-              $ref: '#/components/schemas/parent_status'
-            status:
-              $ref: '#/components/schemas/status'
-            custom_status_id:
-              $ref: '#/components/schemas/custom_status_id'
-            billing_type:
-              $ref: '#/components/schemas/billing_type'
-            is_billable:
-              $ref: '#/components/schemas/is_billable'
-            task_rate:
-              $ref: '#/components/schemas/task_rate'
-            completion_percentage:
-              $ref: '#/components/schemas/completion_percentage'
-            is_subtask:
-              $ref: '#/components/schemas/is_subtask'
-            priority:
-              $ref: '#/components/schemas/priority'
-            reminder:
-              $ref: '#/components/schemas/reminder'
-            task_description:
-              $ref: '#/components/schemas/task_description'
-            is_accountant_task:
-              $ref: '#/components/schemas/is_accountant_task'
-            task_number:
-              $ref: '#/components/schemas/task_number'
-            task_number_prefix:
-              $ref: '#/components/schemas/task_number_prefix'
-            task_number_suffix:
-              $ref: '#/components/schemas/task_number_suffix'
-            can_push:
-              $ref: '#/components/schemas/can_push'
-            created_by_id:
-              $ref: '#/components/schemas/created_by_id'
-            last_modified_by_id:
-              $ref: '#/components/schemas/last_modified_by_id'
-            template_id:
-              $ref: '#/components/schemas/template_id'
-            due_after:
-              $ref: '#/components/schemas/due_after'
-            parent_task_name:
-              $ref: '#/components/schemas/parent_task_name'
-            parent_task_number:
-              $ref: '#/components/schemas/parent_task_number'
-            created_by_name:
-              $ref: '#/components/schemas/created_by_name'
-            documents:
-              $ref: '#/components/schemas/documents'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            statuses:
-              $ref: '#/components/schemas/statuses'
-            is_system_task:
-              $ref: '#/components/schemas/is_system_task'
-            system_task_type:
-              $ref: '#/components/schemas/system_task_type'
-            comments:
-              $ref: '#/components/schemas/comments'
-            dependencies:
-              $ref: '#/components/schemas/dependencies'
-            entity_tags:
-              $ref: '#/components/schemas/entity_tags'
-    related_entity:
-      description: Unique value assigned to each entity.
-      type: integer
-      example: 20
-    related_entity_value:
-      description: Value of the related entity associated with the task.
+        comment:
+          $ref: '#/components/schemas/comment'
+    transaction_type:
+      description: Type of transaction associated with the task.
       type: string
-      example: INV-001
-    file_size:
-      description: Size of the file attached to the task in bytes.
-      type: integer
-      example: 204800
-    task_type:
-      description: Type of the task.
+      example: invoice
+    template_id:
+      description: ID of the template used for the task.
       type: string
-      example: accountant task
-    is_accountant_task:
-      description: Indicates whether the task is an accountant task.
-      type: boolean
-      example: false
-    can_push:
-      description: Indicates if the task can be sync to client
+      example: 982000000567124
+    task_number_suffix:
+      description: Suffix of the task number.
+      type: string
+      example: '-001'
+    comment_id:
+      description: ID of the comment on the task.
+      type: string
+      example: 982000000567126
+    entity_tags:
+      description: List of tags associated with the task.
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            description: ID of the tag.
+            type: string
+            example: 982000000567129
+          name:
+            description: Name of the tag.
+            type: string
+            example: Important
+          color:
+            description: Color code of the tag.
+            type: string
+            example: FFB6C1
+    is_overdue:
+      description: Indicates whether the task is overdue.
       type: boolean
       example: true
-    task_rate:
-      description: Rate of the task.
-      type: number
-      format: double
-      example: 50
-    contact_type:
-      description: Type of the contact associated with the task. Allowed values are <code>customer</code> and <code>vendor</code>
-      type: string
-      example: customer
-    last_modified_by_id:
-      description: ID of the user who last modified the task.
-      type: string
-      example: 982000000567123
-    comment:
-      description: Comment on the task.
-      type: object
-      properties:
-        comment_id:
-          $ref: '#/components/schemas/comment_id'
-        description:
-          $ref: '#/components/schemas/description'
-        commented_by_id:
-          $ref: '#/components/schemas/commented_by_id'
-        commented_by:
-          $ref: '#/components/schemas/commented_by'
-        comment_type:
-          $ref: '#/components/schemas/comment_type'
-        date:
-          description: Date when the comment was made.
-          type: string
-          format: date-time
-          example: '2025-01-01T12:00:00Z'
-        date_description:
-          $ref: '#/components/schemas/date_description'
-        time:
-          $ref: '#/components/schemas/time'
-        operation_type:
-          $ref: '#/components/schemas/operation_type'
-        transaction_id:
-          $ref: '#/components/schemas/transaction_id'
-        transaction_type:
-          $ref: '#/components/schemas/transaction_type'
-    list-task-comments-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        comments:
-          $ref: '#/components/schemas/comments'
-    billing_type:
-      description: Billing type of the task.
-      type: string
-      example: based_on_task_hours
-    attachment_order:
-      description: Order of the attachment in the task.
-      type: integer
-      example: 1
-    subtask_count:
-      description: Number of subtasks under the task.
-      type: integer
-      example: 3
-    task_id:
-      description: ID of the task.
-      type: string
-      example: 982000000567114
     update-percentage-task-request:
       required:
       - completion_percentage
@@ -2103,330 +2325,108 @@ components:
       properties:
         completion_percentage:
           $ref: '#/components/schemas/completion_percentage'
-    transaction_id:
-      description: ID of the transaction associated with the task.
-      type: string
-      example: 982000000567128
-    owner_ids:
-      description: Comma separated list of owner IDs of the task.
-      type: string
-      example: 982000000567116,982000000567117
-    update-percentage-task-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Task percentage updated
-          readOnly: true
-        task:
-          type: object
-          properties:
-            task_id:
-              $ref: '#/components/schemas/task_id'
-            recurring_task_id:
-              $ref: '#/components/schemas/recurring_task_id'
-            owner_id:
-              $ref: '#/components/schemas/owner_id'
-            owner_ids:
-              $ref: '#/components/schemas/owner_ids'
-            owner_name:
-              $ref: '#/components/schemas/owner_name'
-            owners:
-              $ref: '#/components/schemas/owners'
-            title:
-              $ref: '#/components/schemas/title'
-            due_date:
-              $ref: '#/components/schemas/due_date'
-            due_date_formatted:
-              $ref: '#/components/schemas/due_date_formatted'
-            is_overdue:
-              $ref: '#/components/schemas/is_overdue'
-            contact_type:
-              $ref: '#/components/schemas/contact_type'
-            contact_id:
-              $ref: '#/components/schemas/contact_id'
-            color_code:
-              $ref: '#/components/schemas/color_code'
-            contact_name:
-              $ref: '#/components/schemas/contact_name'
-            parent_task_id:
-              $ref: '#/components/schemas/parent_task_id'
-            related_entity_id:
-              $ref: '#/components/schemas/related_entity_id'
-            related_entity_type:
-              $ref: '#/components/schemas/related_entity_type'
-            related_entity:
-              $ref: '#/components/schemas/related_entity'
-            related_entity_value:
-              $ref: '#/components/schemas/related_entity_value'
-            parent_status:
-              $ref: '#/components/schemas/parent_status'
-            status:
-              $ref: '#/components/schemas/status'
-            custom_status_id:
-              $ref: '#/components/schemas/custom_status_id'
-            billing_type:
-              $ref: '#/components/schemas/billing_type'
-            is_billable:
-              $ref: '#/components/schemas/is_billable'
-            task_rate:
-              $ref: '#/components/schemas/task_rate'
-            completion_percentage:
-              $ref: '#/components/schemas/completion_percentage'
-            is_subtask:
-              $ref: '#/components/schemas/is_subtask'
-            priority:
-              $ref: '#/components/schemas/priority'
-            reminder:
-              $ref: '#/components/schemas/reminder'
-            task_description:
-              $ref: '#/components/schemas/task_description'
-            is_accountant_task:
-              $ref: '#/components/schemas/is_accountant_task'
-            task_number:
-              $ref: '#/components/schemas/task_number'
-            task_number_prefix:
-              $ref: '#/components/schemas/task_number_prefix'
-            task_number_suffix:
-              $ref: '#/components/schemas/task_number_suffix'
-            can_push:
-              $ref: '#/components/schemas/can_push'
-            created_by_id:
-              $ref: '#/components/schemas/created_by_id'
-            last_modified_by_id:
-              $ref: '#/components/schemas/last_modified_by_id'
-            template_id:
-              $ref: '#/components/schemas/template_id'
-            due_after:
-              $ref: '#/components/schemas/due_after'
-            parent_task_name:
-              $ref: '#/components/schemas/parent_task_name'
-            parent_task_number:
-              $ref: '#/components/schemas/parent_task_number'
-            created_by_name:
-              $ref: '#/components/schemas/created_by_name'
-            documents:
-              $ref: '#/components/schemas/documents'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            statuses:
-              $ref: '#/components/schemas/statuses'
-            is_system_task:
-              $ref: '#/components/schemas/is_system_task'
-            system_task_type:
-              $ref: '#/components/schemas/system_task_type'
-            comments:
-              $ref: '#/components/schemas/comments'
-            dependencies:
-              $ref: '#/components/schemas/dependencies'
-            entity_tags:
-              $ref: '#/components/schemas/entity_tags'
-    document_id:
-      description: ID of the document attached to the task.
-      type: string
-      example: 982000000567125
-    commented_by_id:
-      description: ID of the user who commented on the task.
-      type: string
-      example: 982000000567127
-    related_sub_entity_id:
-      description: ID of the related sub entity associated with the task.
-      type: string
-      example: 982000000567122
-    created_by_name:
-      description: Name of the user who created the task.
-      type: string
-      example: John Doe
-    related_entity_type:
-      description: Type of the related entity associated with the task.
-      type: string
-      example: invoice
-    add-a-task-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Task created
-          readOnly: true
-        task:
-          type: object
-          properties:
-            task_id:
-              $ref: '#/components/schemas/task_id'
-            recurring_task_id:
-              $ref: '#/components/schemas/recurring_task_id'
-            owner_id:
-              $ref: '#/components/schemas/owner_id'
-            owner_ids:
-              $ref: '#/components/schemas/owner_ids'
-            owner_name:
-              $ref: '#/components/schemas/owner_name'
-            owners:
-              $ref: '#/components/schemas/owners'
-            title:
-              $ref: '#/components/schemas/title'
-            due_date:
-              $ref: '#/components/schemas/due_date'
-            due_date_formatted:
-              $ref: '#/components/schemas/due_date_formatted'
-            is_overdue:
-              $ref: '#/components/schemas/is_overdue'
-            contact_type:
-              $ref: '#/components/schemas/contact_type'
-            contact_id:
-              $ref: '#/components/schemas/contact_id'
-            color_code:
-              $ref: '#/components/schemas/color_code'
-            contact_name:
-              $ref: '#/components/schemas/contact_name'
-            parent_task_id:
-              $ref: '#/components/schemas/parent_task_id'
-            related_entity_id:
-              $ref: '#/components/schemas/related_entity_id'
-            related_entity_type:
-              $ref: '#/components/schemas/related_entity_type'
-            related_entity:
-              $ref: '#/components/schemas/related_entity'
-            related_entity_value:
-              $ref: '#/components/schemas/related_entity_value'
-            parent_status:
-              $ref: '#/components/schemas/parent_status'
-            status:
-              $ref: '#/components/schemas/status'
-            custom_status_id:
-              $ref: '#/components/schemas/custom_status_id'
-            billing_type:
-              $ref: '#/components/schemas/billing_type'
-            is_billable:
-              $ref: '#/components/schemas/is_billable'
-            task_rate:
-              $ref: '#/components/schemas/task_rate'
-            completion_percentage:
-              $ref: '#/components/schemas/completion_percentage'
-            is_subtask:
-              $ref: '#/components/schemas/is_subtask'
-            priority:
-              $ref: '#/components/schemas/priority'
-            reminder:
-              $ref: '#/components/schemas/reminder'
-            task_description:
-              $ref: '#/components/schemas/task_description'
-            is_accountant_task:
-              $ref: '#/components/schemas/is_accountant_task'
-            task_number:
-              $ref: '#/components/schemas/task_number'
-            task_number_prefix:
-              $ref: '#/components/schemas/task_number_prefix'
-            task_number_suffix:
-              $ref: '#/components/schemas/task_number_suffix'
-            can_push:
-              $ref: '#/components/schemas/can_push'
-            created_by_id:
-              $ref: '#/components/schemas/created_by_id'
-            last_modified_by_id:
-              $ref: '#/components/schemas/last_modified_by_id'
-            template_id:
-              $ref: '#/components/schemas/template_id'
-            due_after:
-              $ref: '#/components/schemas/due_after'
-            parent_task_name:
-              $ref: '#/components/schemas/parent_task_name'
-            parent_task_number:
-              $ref: '#/components/schemas/parent_task_number'
-            created_by_name:
-              $ref: '#/components/schemas/created_by_name'
-            documents:
-              $ref: '#/components/schemas/documents'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            statuses:
-              $ref: '#/components/schemas/statuses'
-            is_system_task:
-              $ref: '#/components/schemas/is_system_task'
-            system_task_type:
-              $ref: '#/components/schemas/system_task_type'
-            comments:
-              $ref: '#/components/schemas/comments'
-            dependencies:
-              $ref: '#/components/schemas/dependencies'
-            entity_tags:
-              $ref: '#/components/schemas/entity_tags'
-    recurring_task_id:
-      description: ID of the recurring task.
-      type: string
-      example: 982000000567115
-    owners:
-      description: List of owners of the task.
-      type: array
-      items:
-        type: object
-        properties:
-          owner_id:
-            $ref: '#/components/schemas/owner_id'
-          owner_name:
-            $ref: '#/components/schemas/owner_name'
-          owner_mail:
-            description: Email of the owner of the task.
-            type: string
-            example: johndoe@example.com
-          photo_url:
-            description: URL of the photo of the owner of the task.
-            type: string
-            example: https://example.com/photo.jpg
-    created_by_id:
-      description: ID of the user who created the task.
-      type: string
-      example: 982000000567122
-    delete-task-document-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Attachment deleted
-          readOnly: true
-    mark-open-task-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Task status updated
-          readOnly: true
-    is_billable:
-      description: Indicates whether the task is billable.
-      type: boolean
-      example: true
     is_sub_task:
       description: Indicates whether the task is a sub task.
       type: boolean
       example: false
+    delete-a-task-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Task deleted
+          readOnly: true
+    add-task-comment-request:
+      required:
+      - description
+      type: object
+      properties:
+        description:
+          description: Description of the comment.
+          type: string
+          example: This is a sample comment.
+    delete-tasks-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Task deleted
+          readOnly: true
+    comment_type:
+      description: Type of the comment.
+      type: string
+      example: internal
+    is_subtask:
+      description: Indicates whether the task is a subtask.
+      type: boolean
+      example: false
+    time:
+      description: Time when the comment was made.
+      type: string
+      example: 12:00 PM
+    transaction_id:
+      description: ID of the transaction associated with the task.
+      type: string
+      example: 982000000567128
+    related_entity_type:
+      description: Type of the related entity associated with the task.
+      type: string
+      example: invoice
+    created_time_formatted:
+      description: Formatted creation time of the task.
+      type: string
+      example: 01-01-2025 10:00:00
     parent_id:
       description: ID of the parent task.
       type: string
       example: 982000000567114
-    send_email_notification:
-      description: Indicates whether to send email notification for the task.
-      type: boolean
-      example: true
+    parent_status:
+      description: Parent status of the task.
+      type: string
+      example: open
+    related_sub_entity_type:
+      description: Type of the related sub entity associated with the task.
+      type: string
+      example: expense_report
+    due_date:
+      description: Due date of the task.
+      type: string
+      format: date
+      example: '2025-12-31'
     is_system_task:
       description: Indicates whether the task is a system task.
       type: boolean
       example: false
+    document:
+      description: Details of the document attached to the task.
+      type: object
+      properties:
+        can_show_in_portal:
+          $ref: '#/components/schemas/can_show_in_portal'
+        file_name:
+          $ref: '#/components/schemas/file_name'
+        file_type:
+          $ref: '#/components/schemas/file_type'
+        file_size:
+          $ref: '#/components/schemas/file_size'
+        file_size_formatted:
+          $ref: '#/components/schemas/file_size_formatted'
+        document_id:
+          $ref: '#/components/schemas/document_id'
+        attachment_order:
+          $ref: '#/components/schemas/attachment_order'
+    file_name:
+      description: Name of the file attached to the task.
+      type: string
+      example: document.pdf
   parameters:
     organization_id:
       name: organization_id
