@@ -441,71 +441,25 @@ paths:
         - ZohoInventory.salesorders.UPDATE
 components:
   schemas:
-    is_drop_shipment:
-      description: Denotes if a SalesOrder is a drop shipment
-      type: boolean
-      example: false
-    gst_no:
-      description: 15 digit GST identification number of the customer.
+    quantity_shipped:
+      description: Quantity shipped of the line item.
+      type: number
+      format: double
+      example: 2
+    tax_total:
+      description: Tax total of the Sales Order.
+      type: number
+      format: double
+      example: 29
+    zip:
+      description: Zip code of the customer's shipping address.
       type: string
-      example: 22AAAAA0000A1Z5
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    salesperson_name:
-      description: Name of the Sales Person.
+      example: 11364
+    shipment_number:
+      description: Shipment number of the package.
       type: string
-      example: Lara
-    last_name:
-      description: Last Name of the Contact Person
-      type: string
-      example: John
-    shipment_date:
-      description: Shipment date of the Sales Order.
-      type: string
-      example: '2015-06-02'
-    reject-request:
-      type: object
-      properties:
-        reason:
-          description: Reason for rejecting the sales order. Max-length [500].
-          type: string
-          example: Pricing needs to be revised.
-    packages:
-      description: These are the packages created for Sales Orders. Each package contains - <code>package_id</code>,<code>package_number</code>,<code>status</code>,<code>detailed_status</code>,<code>status_message</code>,<code>shipment_id</code>,<code>shipment_number</code>,<code>shipment_status</code>,<code>carrier</code>,<code>service</code>,<code>tracking_number</code>,<code>shipment_date</code>,<code>delivery_days</code> and <code>delivery_guarantee</code>.
-      type: array
-      items:
-        type: object
-        properties:
-          package_id:
-            $ref: '#/components/schemas/package_id'
-          package_number:
-            $ref: '#/components/schemas/package_number'
-          status:
-            $ref: '#/components/schemas/status'
-          detailed_status:
-            $ref: '#/components/schemas/detailed_status'
-          status_message:
-            $ref: '#/components/schemas/status_message'
-          shipment_id:
-            $ref: '#/components/schemas/shipment_id'
-          shipment_number:
-            $ref: '#/components/schemas/shipment_number'
-          shipment_status:
-            $ref: '#/components/schemas/shipment_status'
-          carrier:
-            $ref: '#/components/schemas/carrier'
-          service:
-            $ref: '#/components/schemas/service'
-          tracking_number:
-            $ref: '#/components/schemas/tracking_number'
-          shipment_date:
-            $ref: '#/components/schemas/shipment_date'
-          delivery_days:
-            $ref: '#/components/schemas/delivery_days'
-          delivery_guarantee:
-            $ref: '#/components/schemas/delivery_guarantee'
-    approval-action-response:
+      example: SH-00004
+    bulk-confirm-salesorders-response:
       type: object
       properties:
         code:
@@ -514,89 +468,191 @@ components:
           readOnly: true
         message:
           type: string
-          example: success
+          example: Sales order status has been changed to Confirmed.
           readOnly: true
-    unit:
-      description: Unit of line item.
-      type: string
-      example: qty
-    terms:
-      description: Terms for the Sales Order.
-      type: string
-      example: Terms and Conditions
-    delivery_method:
-      description: Delivery method of the shipment.
-      type: string
-      example: FedEx
-    is_backorder_allowed:
+        data:
+          type: object
+          properties:
+            email_success_info:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 0
+                    readOnly: true
+                  message:
+                    type: string
+                    example: The status of the sales order has been changed to Open.
+                    readOnly: true
+                  ids:
+                    type: array
+                    items:
+                      type: string
+                      example: 4815000000045208,4815000000045274,4815000000045340
+            email_error_info:
+              type: array
+              items:
+                type: object
+                properties: {}
+    is_pre_gst:
+      description: Applicable for transactions that fall before july 1, 2017
       type: boolean
       example: false
-    phone:
-      description: Phone Number of the Contact Person
-      type: string
-      example: +1-925-921-9201
-    contact_person_name:
-      description: Name of the Contact Person
-      type: string
-      example: David
-    quantity:
-      description: Quantity of the line item.
-      type: number
-      format: double
-      example: 2
-    adjustment_description:
-      description: Description for the adjustment.
-      type: string
-      example: Just an example description.
-    salesperson_id:
-      description: Unique ID generated by the server for the sales person. This is used as an identifier.
-      type: string
-      example: 4815000000044762
-    custom_fields:
-      type: array
-      description: List of custom fields associated with the sales order
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    gst_treatment:
-      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
-      type: string
-      example: business_gst
       x-node_available_in:
       - in
       x-node_unavailable_in: []
-    delivery_guarantee:
-      description: Delivery guarantee of the shipment can be true or false.
-      type: boolean
-      example: true
-    is_emailed:
-      description: Checks whether the Sales Order has been emailed to the customer or not.
-      type: boolean
-      example: true
-    exchange_rate:
-      description: Exchange rate of the currency, with respect to the base currency.
+    reference_number:
+      description: Reference number of the Sales Order
+      type: string
+      example: REF-S-00003
+    tax_percentage:
+      description: Percentage of the tax.
       type: number
       format: double
-      example: 1
-    service:
-      description: Name of the service provided by the carrier.
+      example: 12
+    sales_order-response:
+      type: object
+      properties:
+        salesorder_id:
+          $ref: '#/components/schemas/salesorder_id'
+        salesorder_number:
+          $ref: '#/components/schemas/salesorder_number'
+        date:
+          $ref: '#/components/schemas/date'
+        status:
+          $ref: '#/components/schemas/status'
+        shipment_date:
+          $ref: '#/components/schemas/shipment_date'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        customer_id:
+          $ref: '#/components/schemas/customer_id'
+        customer_name:
+          $ref: '#/components/schemas/customer_name'
+        contact_persons_associated:
+          $ref: '#/components/schemas/contact_persons_associated'
+        currency_id:
+          $ref: '#/components/schemas/currency_id'
+        currency_code:
+          $ref: '#/components/schemas/currency_code'
+        currency_symbol:
+          $ref: '#/components/schemas/currency_symbol'
+        exchange_rate:
+          $ref: '#/components/schemas/exchange_rate'
+        discount_amount:
+          $ref: '#/components/schemas/discount_amount'
+        discount:
+          $ref: '#/components/schemas/discount'
+        is_discount_before_tax:
+          $ref: '#/components/schemas/is_discount_before_tax'
+        discount_type:
+          $ref: '#/components/schemas/discount_type'
+        estimate_id:
+          $ref: '#/components/schemas/estimate_id'
+        delivery_method:
+          $ref: '#/components/schemas/delivery_method'
+        delivery_method_id:
+          $ref: '#/components/schemas/delivery_method_id'
+        line_items:
+          $ref: '#/components/schemas/line_items'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        location_name:
+          $ref: '#/components/schemas/location_name'
+        shipping_charge:
+          $ref: '#/components/schemas/shipping_charge'
+        adjustment:
+          $ref: '#/components/schemas/adjustment'
+        adjustment_description:
+          $ref: '#/components/schemas/adjustment_description'
+        sub_total:
+          $ref: '#/components/schemas/sub_total'
+        tax_total:
+          $ref: '#/components/schemas/tax_total'
+        total:
+          $ref: '#/components/schemas/total'
+        taxes:
+          $ref: '#/components/schemas/taxes'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        pricebook_id:
+          $ref: '#/components/schemas/pricebook_id'
+        shipping_address:
+          $ref: '#/components/schemas/shipping_address'
+        billing_address:
+          $ref: '#/components/schemas/billing_address'
+        notes:
+          $ref: '#/components/schemas/notes'
+        terms:
+          $ref: '#/components/schemas/terms'
+        template_id:
+          $ref: '#/components/schemas/template_id'
+        template_name:
+          $ref: '#/components/schemas/template_name'
+        template_type:
+          $ref: '#/components/schemas/template_type'
+        created_time:
+          $ref: '#/components/schemas/created_time'
+        last_modified_time:
+          $ref: '#/components/schemas/last_modified_time'
+        salesperson_id:
+          $ref: '#/components/schemas/salesperson_id'
+        salesperson_name:
+          $ref: '#/components/schemas/salesperson_name'
+        documents:
+          $ref: '#/components/schemas/documents'
+        is_pre_gst:
+          $ref: '#/components/schemas/is_pre_gst'
+        gst_no:
+          $ref: '#/components/schemas/gst_no'
+        gst_treatment:
+          $ref: '#/components/schemas/gst_treatment'
+        place_of_supply:
+          $ref: '#/components/schemas/place_of_supply'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+    shipping_address:
+      description: Customer's shipping address. It contains - <code>address</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code> and <code>fax</code>.
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        city:
+          $ref: '#/components/schemas/city'
+        state:
+          $ref: '#/components/schemas/state'
+        zip:
+          $ref: '#/components/schemas/zip'
+        country:
+          $ref: '#/components/schemas/country'
+        fax:
+          $ref: '#/components/schemas/fax'
+    created_time:
+      description: Time at which the Sales Order was created.
       type: string
-      example: SMART_POST
-    quantity_invoiced:
-      description: Quantity invoiced of the line item.
-      type: number
-      format: double
-      example: 2
-    contact_person_email:
-      description: Email ID of the Contact Person.
+      example: 2015-05-28 00:00:00+00:00
+    address:
+      description: Name of the street of the customer's shipping address.
       type: string
-      example: willsmith@bowmanfurniture.com
+      example: No:432,Bayside,Queens
+    attachment_name:
+      description: Name of attached file with Sales Order.
+      type: string
+      example: sample.pdf
+    due_date:
+      description: Due date for the Invoice.
+      type: string
+      example: '2015-06-13'
+    customer_name:
+      description: Name of the customer.
+      type: string
+      example: Molly
+    carrier:
+      description: Name of the shipping carrier.
+      type: string
+      example: FedEx
     sat_item_key_code:
       description: Add SAT Item Key Code for your goods/services. Download the <a href= http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_07122022.xls  >CFDI Catalogs.</a>
       type: string
@@ -604,141 +660,6 @@ components:
       x-node_available_in:
       - mx
       x-node_unavailable_in: []
-    tds_tax_id:
-      description: ID of the TDS tax or TDS tax group applied
-      type: string
-      example: '460000000017098'
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    attachment_name:
-      description: Name of attached file with Sales Order.
-      type: string
-      example: sample.pdf
-    billing_address_id:
-      description: Unique Id generated by the server for address in contacts page. To add a billing address to sales order, send the address_id using this node. Else, the default billing address for that contact is used
-      type: string
-      example: 4815000000017005
-    delete-a-sales-order-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The Sales Order has been deleted.
-          readOnly: true
-    is_backordered:
-      description: Denotes if a SalesOrder has been backordered
-      type: boolean
-      example: false
-    file_size:
-      description: this indicates the size of the attached file.
-      type: integer
-      format: int64
-      example: 11957
-    bulk-delete-sales-orders-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The selected sales orders have been deleted
-          readOnly: true
-    tax_id:
-      description: Unique ID generated by the server for the tax. This is used as an identifier.
-      type: string
-      example: 4815000000044043
-    has_unconfirmed_line_item:
-      type: boolean
-      example: true
-    can_send_in_mail:
-      description: Checks whether the sales order can be sent as a mail or not.
-      type: boolean
-      example: true
-    document_id:
-      description: Unique ID generated by the server for the document. This is used as an identifier.
-      type: string
-      example: 16115000000096068
-    purchaseorders:
-      type: array
-      items:
-        type: string
-    currency_symbol:
-      description: The symbol for the selected currency.
-      type: string
-      example: $
-    shipping_address_id:
-      description: Unique Id generated by the server for address in contacts page. To add a shipping address to sales order, send the address_id using this node. Else, the default shipping address for that contact is used
-      type: string
-      example: 4815000000017005
-    carrier:
-      description: Name of the shipping carrier.
-      type: string
-      example: FedEx
-    created_time:
-      description: Time at which the Sales Order was created.
-      type: string
-      example: 2015-05-28 00:00:00+00:00
-    date:
-      description: The date for the Sales Order.
-      type: string
-      example: '2015-05-28'
-    contact_persons_associated_payload:
-      description: Contact Persons associated with the sales order.
-      type: array
-      items:
-        type: object
-        properties:
-          contact_person_id:
-            $ref: '#/components/schemas/contact_person_id'
-          communication_preference:
-            $ref: '#/components/schemas/communication_preference'
-    balance:
-      description: Balance due for the invoice.
-      type: number
-      format: double
-      example: 0
-    customer_name:
-      description: Name of the customer.
-      type: string
-      example: Molly
-    shipment_number:
-      description: Shipment number of the package.
-      type: string
-      example: SH-00004
-    status:
-      description: The current status of the Sales Order.
-      type: string
-      example: fulfilled
-    currency_id:
-      description: Unique ID generated by the server for the currency. This is used as an identifier.
-      type: string
-      example: 4815000000000097
-    is_whatsapp_enabled:
-      description: Used to check if WhatsApp communication preference is enabled for the contact person at transaction level.
-      type: boolean
-      example: true
-      x-node_available_in:
-      - WhatsApp integration
-    adjustment:
-      description: Adjustment on the Sales Order's total.
-      type: number
-      format: double
-      example: 0
-    customer_id:
-      description: Unique ID generated for the customer. This is used as an identifier.
-      type: string
-      example: 4815000000044080
-    fax:
-      description: Fax number of the customer's shipping address.
-      type: string
-      example: 424-524242
     line_items:
       description: A sales order can contain multiple line items. Each line item contains <code>item_id</code>,<code>name</code>,<code>description</code>,<code>rate</code>,<code>quantity</code>,<code>unit</code>,<code>tax_id</code>,<code>tax_name</code>,<code>tax_type</code>,<code>tax_percentage</code>,<code>item_total</code>.
       type: array
@@ -807,333 +728,18 @@ components:
             $ref: '#/components/schemas/unitkey_code'
           item_custom_fields:
             $ref: '#/components/schemas/item_custom_fields'
-    notes:
-      description: Notes for the Sales Order.
-      type: string
-      example: Sample Note
-    pricebook_id:
-      description: Unique ID generated by the server for the Pricebook. This is used as an identifier.
-      type: string
-      example: 4815000000044054
-    item_id:
-      description: Unique ID generated by the server for the item. This is used as an identifier.
-      type: string
-      example: 4815000000044100
-    is_invoiced:
-      description: Checks whether the Sales Order has been invoiced or not.
+    is_backorder_allowed:
       type: boolean
-      example: true
-    communication_preference:
-      description: Preferred modes of communication for the contact person at transaction level.
-      type: object
-      properties:
-        is_email_enabled:
-          $ref: '#/components/schemas/is_email_enabled'
-        is_whatsapp_enabled:
-          $ref: '#/components/schemas/is_whatsapp_enabled'
-    taxes:
-      description: 'Number of taxes applied on sales order. Each tax contains: <code>tax_name</code> and <code>tax_amount</code>.'
-      type: array
-      items:
-        type: object
-        properties:
-          tax_name:
-            $ref: '#/components/schemas/tax_name'
-          tax_amount:
-            $ref: '#/components/schemas/tax_amount'
-    shipping_address:
-      description: Customer's shipping address. It contains - <code>address</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code> and <code>fax</code>.
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/address'
-        city:
-          $ref: '#/components/schemas/city'
-        state:
-          $ref: '#/components/schemas/state'
-        zip:
-          $ref: '#/components/schemas/zip'
-        country:
-          $ref: '#/components/schemas/country'
-        fax:
-          $ref: '#/components/schemas/fax'
-    item_order:
-      description: The order of the line items, starts from <code>0</code> by default.
-      type: integer
-      example: 0
-    first_name:
-      description: First Name of the Contact Person
-      type: string
-      example: David
-    file_type:
-      description: This indicates the type of the file.
-      type: string
-      example: pdf
-    update-a-sales-order-request:
-      required:
-      - salesorder_number
-      - customer_id
-      - line_items
-      type: object
-      properties:
-        salesorder_number:
-          $ref: '#/components/schemas/salesorder_number'
-        date:
-          $ref: '#/components/schemas/date'
-        shipment_date:
-          $ref: '#/components/schemas/shipment_date'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        customer_id:
-          $ref: '#/components/schemas/customer_id'
-        contact_persons_associated:
-          $ref: '#/components/schemas/contact_persons_associated_payload'
-        discount:
-          $ref: '#/components/schemas/discount'
-        is_discount_before_tax:
-          $ref: '#/components/schemas/is_discount_before_tax'
-        discount_type:
-          $ref: '#/components/schemas/discount_type'
-        delivery_method:
-          $ref: '#/components/schemas/delivery_method'
-        shipping_charge:
-          $ref: '#/components/schemas/shipping_charge'
-        adjustment:
-          $ref: '#/components/schemas/adjustment'
-        adjustment_description:
-          $ref: '#/components/schemas/adjustment_description'
-        pricebook_id:
-          $ref: '#/components/schemas/pricebook_id'
-        notes:
-          $ref: '#/components/schemas/notes'
-        salesperson_name:
-          $ref: '#/components/schemas/salesperson_name'
-        terms:
-          $ref: '#/components/schemas/terms'
-        exchange_rate:
-          $ref: '#/components/schemas/exchange_rate'
-        line_items:
-          description: A sales order can contain multiple line items. Each line item contains <code>item_id</code>,<code>name</code>,<code>description</code>,<code>rate</code>,<code>quantity</code>,<code>unit</code>,<code>tax_id</code>,<code>tax_name</code>,<code>tax_type</code>,<code>tax_percentage</code>,<code>item_total</code>.
-          type: array
-          items:
-            type: object
-            properties:
-              line_item_id:
-                $ref: '#/components/schemas/line_item_id'
-              item_id:
-                $ref: '#/components/schemas/item_id'
-              name:
-                $ref: '#/components/schemas/name'
-              description:
-                $ref: '#/components/schemas/description'
-              rate:
-                $ref: '#/components/schemas/rate'
-              quantity:
-                $ref: '#/components/schemas/quantity'
-              unit:
-                $ref: '#/components/schemas/unit'
-              tax_id:
-                $ref: '#/components/schemas/tax_id'
-              tds_tax_id:
-                $ref: '#/components/schemas/tds_tax_id'
-              tax_name:
-                $ref: '#/components/schemas/tax_name'
-              tax_type:
-                $ref: '#/components/schemas/tax_type'
-              tax_percentage:
-                $ref: '#/components/schemas/tax_percentage'
-              item_total:
-                $ref: '#/components/schemas/item_total'
-              mapped_items:
-                $ref: '#/components/schemas/mapped_items_update'
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              hsn_or_sac:
-                $ref: '#/components/schemas/hsn_or_sac'
-              sat_item_key_code:
-                $ref: '#/components/schemas/sat_item_key_code'
-              unitkey_code:
-                $ref: '#/components/schemas/unitkey_code'
-              item_custom_fields:
-                $ref: '#/components/schemas/item_custom_fields'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        billing_address_id:
-          $ref: '#/components/schemas/billing_address_id'
-        shipping_address_id:
-          $ref: '#/components/schemas/shipping_address_id'
-        place_of_supply:
-          $ref: '#/components/schemas/place_of_supply'
-        gst_treatment:
-          $ref: '#/components/schemas/gst_treatment'
-        gst_no:
-          $ref: '#/components/schemas/gst_no'
-    name:
-      description: Name of the line item.
-      type: string
-      example: Laptop-white/15inch/dell
-    tax_percentage:
-      description: Percentage of the tax.
-      type: number
-      format: double
-      example: 12
-    unitkey_code:
-      description: Add SAT Unit Key Code for your goods/services. Download the <a href= http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_07122022.xls  >CFDI Catalogs.</a>
-      type: string
-      example: E48
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
+      example: false
     is_email_enabled:
       description: Used to check if Email communication preference is enabled for the contact person at transaction level.
       type: boolean
       example: true
-    description:
-      description: Description of the line item.
+    sales_channel:
+      description: From which channel the saleorder was obtained
       type: string
-      example: Just a sample description.
-    mapped_items:
-      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
-      type: array
-      items:
-        type: object
-        properties:
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          item_order:
-            $ref: '#/components/schemas/item_order'
-          name:
-            $ref: '#/components/schemas/name'
-          description:
-            $ref: '#/components/schemas/description'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          quantity_invoiced:
-            $ref: '#/components/schemas/quantity_invoiced'
-          quantity_packed:
-            $ref: '#/components/schemas/quantity_packed'
-          quantity_shipped:
-            $ref: '#/components/schemas/quantity_shipped'
-          combo_type:
-            $ref: '#/components/schemas/combo_type'
-          warehouse_id:
-            description: Unique ID of the warehouse from which the mapped item is fulfilled.
-            type: string
-            example: '460000000038080'
-          location_id:
-            $ref: '#/components/schemas/location_id'
-          mapped_items:
-            description: Nested mapped items for kit within kit scenarios.
-            type: array
-            items:
-              type: object
-              properties:
-                item_id:
-                  $ref: '#/components/schemas/item_id'
-                line_item_id:
-                  $ref: '#/components/schemas/line_item_id'
-                item_order:
-                  $ref: '#/components/schemas/item_order'
-                name:
-                  $ref: '#/components/schemas/name'
-                description:
-                  $ref: '#/components/schemas/description'
-                quantity:
-                  $ref: '#/components/schemas/quantity'
-                quantity_invoiced:
-                  $ref: '#/components/schemas/quantity_invoiced'
-                quantity_packed:
-                  $ref: '#/components/schemas/quantity_packed'
-                quantity_shipped:
-                  $ref: '#/components/schemas/quantity_shipped'
-                combo_type:
-                  $ref: '#/components/schemas/combo_type'
-                warehouse_id:
-                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
-                  type: string
-                  example: '460000000038080'
-                location_id:
-                  $ref: '#/components/schemas/location_id'
-    is_discount_before_tax:
-      description: Used to check whether the discount is applied before tax or after tax.
-      type: boolean
-      example: true
-    item_custom_fields:
-      type: array
-      description: List of custom fields associated with the line item
-      items:
-        type: object
-        properties:
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    is_backorder:
-      description: Denotes if a SalesOrder is a backorder
-      type: boolean
-      example: false
-    bulk-confirm-salesorders-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Sales order status has been changed to Confirmed.
-          readOnly: true
-        data:
-          type: object
-          properties:
-            email_success_info:
-              type: array
-              items:
-                type: object
-                properties:
-                  code:
-                    type: integer
-                    example: 0
-                    readOnly: true
-                  message:
-                    type: string
-                    example: The status of the sales order has been changed to Open.
-                    readOnly: true
-                  ids:
-                    type: array
-                    items:
-                      type: string
-                      example: 4815000000045208,4815000000045274,4815000000045340
-            email_error_info:
-              type: array
-              items:
-                type: object
-                properties: {}
-    invoices:
-      description: Invoices created for the Sales Order. Each invoice contains - <code>invoice_id</code>, <code>invoice_number</code>, <code>status</code>, <code>date</code>, <code>due_date</code>, <code>total</code>, <code>balance</code>.
-      type: array
-      items:
-        type: object
-        properties:
-          invoice_id:
-            $ref: '#/components/schemas/invoice_id'
-          invoice_number:
-            $ref: '#/components/schemas/invoice_number'
-          status:
-            $ref: '#/components/schemas/status'
-          date:
-            $ref: '#/components/schemas/date'
-          due_date:
-            $ref: '#/components/schemas/due_date'
-          total:
-            $ref: '#/components/schemas/total'
-          balance:
-            $ref: '#/components/schemas/balance'
-    list-all-sales-orders-response:
+      example: direct_sales
+    approval-action-response:
       type: object
       properties:
         code:
@@ -1144,134 +750,15 @@ components:
           type: string
           example: success
           readOnly: true
-        salesorders:
-          type: array
-          items:
-            type: object
-            properties:
-              salesorder_id:
-                $ref: '#/components/schemas/salesorder_id'
-              customer_name:
-                $ref: '#/components/schemas/customer_name'
-              customer_id:
-                $ref: '#/components/schemas/customer_id'
-              status:
-                $ref: '#/components/schemas/status'
-              salesorder_number:
-                $ref: '#/components/schemas/salesorder_number'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
-              date:
-                $ref: '#/components/schemas/date'
-              shipment_date:
-                $ref: '#/components/schemas/shipment_date'
-              shipment_days:
-                $ref: '#/components/schemas/shipment_days'
-              quantity:
-                $ref: '#/components/schemas/quantity'
-              quantity_invoiced:
-                $ref: '#/components/schemas/quantity_invoiced'
-              quantity_packed:
-                $ref: '#/components/schemas/quantity_packed'
-              quantity_shipped:
-                $ref: '#/components/schemas/quantity_shipped'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              total:
-                $ref: '#/components/schemas/total'
-              bcy_total:
-                $ref: '#/components/schemas/bcy_total'
-              created_time:
-                $ref: '#/components/schemas/created_time'
-              last_modified_time:
-                $ref: '#/components/schemas/last_modified_time'
-              is_emailed:
-                $ref: '#/components/schemas/is_emailed'
-              is_drop_shipment:
-                $ref: '#/components/schemas/is_drop_shipment'
-              is_backorder:
-                $ref: '#/components/schemas/is_backorder'
-              sales_channel:
-                $ref: '#/components/schemas/sales_channel'
-              custom_fields:
-                $ref: '#/components/schemas/custom_fields'
-    shipping_charge:
-      description: Shipping charges that can be applied to the Sales Order.
+    adjustment:
+      description: Adjustment on the Sales Order's total.
       type: number
       format: double
-      example: 7
-    tax_type:
-      description: Denotes the type of the tax. This can either be a single tax or a tax group.
+      example: 0
+    file_size_formatted:
+      description: This indicates the size of the formatted file.
       type: string
-      example: tax
-    combo_type:
-      description: Type of the composite item. Allowed values are <code>assembly</code> and <code>kit</code>.
-      type: string
-      example: kit
-    package_id:
-      description: Unique ID generated by the server for the package. This is used as an identifier.
-      type: string
-      example: 4815000000044905
-    quantity_shipped:
-      description: Quantity shipped of the line item.
-      type: number
-      format: double
-      example: 2
-    mapped_items_update:
-      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
-      type: array
-      items:
-        type: object
-        properties:
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          item_order:
-            $ref: '#/components/schemas/item_order'
-          name:
-            $ref: '#/components/schemas/name'
-          description:
-            $ref: '#/components/schemas/description'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          warehouse_id:
-            description: Unique ID of the warehouse from which the mapped item is fulfilled.
-            type: string
-            example: '460000000038080'
-          location_id:
-            $ref: '#/components/schemas/location_id'
-          mapped_items:
-            description: Nested mapped items for kit within kit scenarios.
-            type: array
-            items:
-              type: object
-              properties:
-                item_id:
-                  $ref: '#/components/schemas/item_id'
-                line_item_id:
-                  $ref: '#/components/schemas/line_item_id'
-                item_order:
-                  $ref: '#/components/schemas/item_order'
-                name:
-                  $ref: '#/components/schemas/name'
-                description:
-                  $ref: '#/components/schemas/description'
-                quantity:
-                  $ref: '#/components/schemas/quantity'
-                warehouse_id:
-                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
-                  type: string
-                  example: '460000000038080'
-                location_id:
-                  $ref: '#/components/schemas/location_id'
-    label:
-      description: Label of the Custom Field
-      type: string
-    city:
-      description: Name of the city of the customer's shipping address.
-      type: string
-      example: New York City
+      example: 116.8 KB
     create-a-sales-order-request:
       required:
       - salesorder_number
@@ -1377,34 +864,287 @@ components:
           $ref: '#/components/schemas/gst_treatment'
         gst_no:
           $ref: '#/components/schemas/gst_no'
-    reference_number:
-      description: Reference number of the Sales Order
-      type: string
-      example: REF-S-00003
-    mobile:
-      description: Mobile Number of the Contact Person
-      type: string
-      example: +1-4054439562
-    image_id:
-      description: Unique ID generated by the server for the item image. This is used an identifier.
+    shipping_charge:
+      description: Shipping charges that can be applied to the Sales Order.
       type: number
       format: double
-      example: 2077500000000002000
-    customfield_id:
+      example: 7
+    terms:
+      description: Terms for the Sales Order.
       type: string
-      description: Unique ID of the custom field.
-    tax_name:
-      description: Name of the tax applied on the line item.
+      example: Terms and Conditions
+    shipping_address_id:
+      description: Unique Id generated by the server for address in contacts page. To add a shipping address to sales order, send the address_id using this node. Else, the default shipping address for that contact is used
       type: string
-      example: Sales Tax
+      example: 4815000000017005
+    package_number:
+      description: Package number of the Sales Order.
+      type: string
+      example: PK-00004
+    contact_person_id:
+      description: Unique ID of the Contact Person
+      type: string
+      example: 982000000567003
+    document_id:
+      description: Unique ID generated by the server for the document. This is used as an identifier.
+      type: string
+      example: 16115000000096068
+    shipment_days:
+      description: Days of Shipment for the Order
+      type: integer
+      example: 2
+    bcy_rate:
+      description: Item rate in the organization's base currency.
+      type: number
+      format: double
+      example: 122
+    is_backorder:
+      description: Denotes if a SalesOrder is a backorder
+      type: boolean
+      example: false
+    item_total:
+      description: Total of line item.
+      type: number
+      format: double
+      example: 244
+    billing_address_id:
+      description: Unique Id generated by the server for address in contacts page. To add a billing address to sales order, send the address_id using this node. Else, the default billing address for that contact is used
+      type: string
+      example: 4815000000017005
+    mark-as-confirmed-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Sales order status has been changed to 'Confirmed'.
+          readOnly: true
+    file_size:
+      description: this indicates the size of the attached file.
+      type: integer
+      format: int64
+      example: 11957
+    unitkey_code:
+      description: Add SAT Unit Key Code for your goods/services. Download the <a href= http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_07122022.xls  >CFDI Catalogs.</a>
+      type: string
+      example: E48
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    custom_fields:
+      type: array
+      description: List of custom fields associated with the sales order
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    file_type:
+      description: This indicates the type of the file.
+      type: string
+      example: pdf
+    state:
+      description: Name of the state of the customer's shipping address.
+      type: string
+      example: New York
+    salesperson_name:
+      description: Name of the Sales Person.
+      type: string
+      example: Lara
+    shipment_id:
+      description: Unique ID generated by the server for the shipment. This is used as an identifier.
+      type: string
+      example: 4815000000044917
+    mark-as-void-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The status of the Sales Order has been changed to void.
+          readOnly: true
+    contact_persons_associated:
+      description: Contact Persons associated with the sales order.
+      type: array
+      items:
+        type: object
+        properties:
+          contact_person_id:
+            $ref: '#/components/schemas/contact_person_id'
+          contact_person_name:
+            $ref: '#/components/schemas/contact_person_name'
+          first_name:
+            $ref: '#/components/schemas/first_name'
+          last_name:
+            $ref: '#/components/schemas/last_name'
+          contact_person_email:
+            $ref: '#/components/schemas/contact_person_email'
+          phone:
+            $ref: '#/components/schemas/phone'
+          mobile:
+            $ref: '#/components/schemas/mobile'
+          communication_preference:
+            $ref: '#/components/schemas/communication_preference'
+    price_precision:
+      description: The precision level for the price's decimal point in a Sales Order.
+      type: integer
+      example: 2
+    balance:
+      description: Balance due for the invoice.
+      type: number
+      format: double
+      example: 0
+    is_emailed:
+      description: Checks whether the Sales Order has been emailed to the customer or not.
+      type: boolean
+      example: true
+    tracking_number:
+      description: Tracking number of shipment.
+      type: string
+      example: TRK214124124
+    unit:
+      description: Unit of line item.
+      type: string
+      example: qty
+    hsn_or_sac:
+      description: Add HSN/SAC code for your goods/services
+      type: string
+      example: 80540
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    template_id:
+      description: Unique ID generated by the server for the Template. This is used as an identifier.
+      type: string
+      example: 4815000000017003
+    mapped_items:
+      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
+      type: array
+      items:
+        type: object
+        properties:
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          item_order:
+            $ref: '#/components/schemas/item_order'
+          name:
+            $ref: '#/components/schemas/name'
+          description:
+            $ref: '#/components/schemas/description'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          quantity_invoiced:
+            $ref: '#/components/schemas/quantity_invoiced'
+          quantity_packed:
+            $ref: '#/components/schemas/quantity_packed'
+          quantity_shipped:
+            $ref: '#/components/schemas/quantity_shipped'
+          combo_type:
+            $ref: '#/components/schemas/combo_type'
+          warehouse_id:
+            description: Unique ID of the warehouse from which the mapped item is fulfilled.
+            type: string
+            example: '460000000038080'
+          location_id:
+            $ref: '#/components/schemas/location_id'
+          mapped_items:
+            description: Nested mapped items for kit within kit scenarios.
+            type: array
+            items:
+              type: object
+              properties:
+                item_id:
+                  $ref: '#/components/schemas/item_id'
+                line_item_id:
+                  $ref: '#/components/schemas/line_item_id'
+                item_order:
+                  $ref: '#/components/schemas/item_order'
+                name:
+                  $ref: '#/components/schemas/name'
+                description:
+                  $ref: '#/components/schemas/description'
+                quantity:
+                  $ref: '#/components/schemas/quantity'
+                quantity_invoiced:
+                  $ref: '#/components/schemas/quantity_invoiced'
+                quantity_packed:
+                  $ref: '#/components/schemas/quantity_packed'
+                quantity_shipped:
+                  $ref: '#/components/schemas/quantity_shipped'
+                combo_type:
+                  $ref: '#/components/schemas/combo_type'
+                warehouse_id:
+                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
+                  type: string
+                  example: '460000000038080'
+                location_id:
+                  $ref: '#/components/schemas/location_id'
+    item_custom_fields:
+      type: array
+      description: List of custom fields associated with the line item
+      items:
+        type: object
+        properties:
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    bulk-delete-sales-orders-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The selected sales orders have been deleted
+          readOnly: true
+    currency_symbol:
+      description: The symbol for the selected currency.
+      type: string
+      example: $
+    fax:
+      description: Fax number of the customer's shipping address.
+      type: string
+      example: 424-524242
+    package_id:
+      description: Unique ID generated by the server for the package. This is used as an identifier.
+      type: string
+      example: 4815000000044905
     image_type:
       description: The type (file format) of the image.
       type: string
       example: jpg
-    line_item_id:
-      description: Unique ID generated by the server for each line item. This is used as an identifier.
+    communication_preference:
+      description: Preferred modes of communication for the contact person at transaction level.
+      type: object
+      properties:
+        is_email_enabled:
+          $ref: '#/components/schemas/is_email_enabled'
+        is_whatsapp_enabled:
+          $ref: '#/components/schemas/is_whatsapp_enabled'
+    rate:
+      description: Rate / Selling Price of the line item.
+      type: number
+      format: double
+      example: 122
+    delivery_method:
+      description: Delivery method of the shipment.
       type: string
-      example: 4815000000044897
+      example: FedEx
     documents:
       description: Sales order can have files attached to them. Each attachment has the following attributes <code>can_send_in_mail</code>, <code>file_name</code>, <code>file_type</code>, <code>file_size_formatted</code>, <code>attachment_order</code>, <code>document_id</code>, <code>file_size</code>.
       type: array
@@ -1425,38 +1165,34 @@ components:
             $ref: '#/components/schemas/document_id'
           file_size:
             $ref: '#/components/schemas/file_size'
-    invoice_id:
-      description: Unique ID generated by the server for the invoice. This is used as an identifier.
+    status:
+      description: The current status of the Sales Order.
       type: string
-      example: 4815000000045091
-    is_combo_product:
-      description: Indicates whether the line item is a composite product.
-      type: boolean
-      example: true
-    billing_address:
-      description: Customer's billing address. It contains - <code>address</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code> and <code>fax</code>.
+      example: fulfilled
+    discount:
+      description: Discount applied to the sales order, which can be either a percentage or a flat amount. For percentage discounts, the value should include the % symbol (e.g., 10%). For example, on Rs.1000, a 10% discount results in Rs.900, while a flat Rs.200 discount results in Rs.800.
+      type: number
+      format: double
+      example: 20.00%
+    create-a-sales-order-response:
       type: object
       properties:
-        address:
-          $ref: '#/components/schemas/address'
-        city:
-          $ref: '#/components/schemas/city'
-        state:
-          $ref: '#/components/schemas/state'
-        zip:
-          $ref: '#/components/schemas/zip'
-        country:
-          $ref: '#/components/schemas/country'
-        fax:
-          $ref: '#/components/schemas/fax'
-    attachment_order:
-      description: This indicates the chronological number of the attachment.
-      type: integer
-      example: 1
-    invoice_number:
-      description: The number of the Invoice.
-      type: string
-      example: INV-001
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        sales_order:
+          $ref: '#/components/schemas/sales_order-response'
+    is_whatsapp_enabled:
+      description: Used to check if WhatsApp communication preference is enabled for the contact person at transaction level.
+      type: boolean
+      example: true
+      x-node_available_in:
+      - WhatsApp integration
     mapped_items_create:
       description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
       type: array
@@ -1501,67 +1237,11 @@ components:
                   example: '460000000038080'
                 location_id:
                   $ref: '#/components/schemas/location_id'
-    last_modified_time:
-      description: Time at which the sales order details were last modified.
+    salesorder_number:
+      description: The Sales Order number. This is unique for each sales order.
       type: string
-      example: 2015-05-28 00:00:00+00:00
-    bcy_rate:
-      description: Item rate in the organization's base currency.
-      type: number
-      format: double
-      example: 122
-    contact_persons_associated:
-      description: Contact Persons associated with the sales order.
-      type: array
-      items:
-        type: object
-        properties:
-          contact_person_id:
-            $ref: '#/components/schemas/contact_person_id'
-          contact_person_name:
-            $ref: '#/components/schemas/contact_person_name'
-          first_name:
-            $ref: '#/components/schemas/first_name'
-          last_name:
-            $ref: '#/components/schemas/last_name'
-          contact_person_email:
-            $ref: '#/components/schemas/contact_person_email'
-          phone:
-            $ref: '#/components/schemas/phone'
-          mobile:
-            $ref: '#/components/schemas/mobile'
-          communication_preference:
-            $ref: '#/components/schemas/communication_preference'
-    estimate_id:
-      description: Unique ID generated by the server from the Estimate created in Zoho Books. This is used as an identifier.
-      type: string
-      example: 4815000000045091
-    quantity_packed:
-      description: Quantity packed of the line item.
-      type: number
-      format: double
-      example: 2
-    tracking_number:
-      description: Tracking number of shipment.
-      type: string
-      example: TRK214124124
-    is_inclusive_tax:
-      description: Used to specify whether the line item rates are inclusive or exclusive of tax.
-      type: boolean
-      example: false
-    location_name:
-      description: Name of the location
-      type: string
-    discount_amount:
-      description: Discount to be applied on the Sales Order.
-      type: number
-      format: double
-      example: 0
-    detailed_status:
-      description: Detailed status.
-      type: string
-      example: Delivered
-    mark-as-void-response:
+      example: SO-00003
+    delete-a-sales-order-response:
       type: object
       properties:
         code:
@@ -1570,92 +1250,398 @@ components:
           readOnly: true
         message:
           type: string
-          example: The status of the Sales Order has been changed to void.
+          example: The Sales Order has been deleted.
           readOnly: true
-    package_number:
-      description: Package number of the Sales Order.
+    update-a-sales-order-request:
+      required:
+      - salesorder_number
+      - customer_id
+      - line_items
+      type: object
+      properties:
+        salesorder_number:
+          $ref: '#/components/schemas/salesorder_number'
+        date:
+          $ref: '#/components/schemas/date'
+        shipment_date:
+          $ref: '#/components/schemas/shipment_date'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        customer_id:
+          $ref: '#/components/schemas/customer_id'
+        contact_persons_associated:
+          $ref: '#/components/schemas/contact_persons_associated_payload'
+        discount:
+          $ref: '#/components/schemas/discount'
+        is_discount_before_tax:
+          $ref: '#/components/schemas/is_discount_before_tax'
+        discount_type:
+          $ref: '#/components/schemas/discount_type'
+        delivery_method:
+          $ref: '#/components/schemas/delivery_method'
+        shipping_charge:
+          $ref: '#/components/schemas/shipping_charge'
+        adjustment:
+          $ref: '#/components/schemas/adjustment'
+        adjustment_description:
+          $ref: '#/components/schemas/adjustment_description'
+        pricebook_id:
+          $ref: '#/components/schemas/pricebook_id'
+        notes:
+          $ref: '#/components/schemas/notes'
+        salesperson_name:
+          $ref: '#/components/schemas/salesperson_name'
+        terms:
+          $ref: '#/components/schemas/terms'
+        exchange_rate:
+          $ref: '#/components/schemas/exchange_rate'
+        line_items:
+          description: A sales order can contain multiple line items. Each line item contains <code>item_id</code>,<code>name</code>,<code>description</code>,<code>rate</code>,<code>quantity</code>,<code>unit</code>,<code>tax_id</code>,<code>tax_name</code>,<code>tax_type</code>,<code>tax_percentage</code>,<code>item_total</code>.
+          type: array
+          items:
+            type: object
+            properties:
+              line_item_id:
+                $ref: '#/components/schemas/line_item_id'
+              item_id:
+                $ref: '#/components/schemas/item_id'
+              name:
+                $ref: '#/components/schemas/name'
+              description:
+                $ref: '#/components/schemas/description'
+              rate:
+                $ref: '#/components/schemas/rate'
+              quantity:
+                $ref: '#/components/schemas/quantity'
+              unit:
+                $ref: '#/components/schemas/unit'
+              tax_id:
+                $ref: '#/components/schemas/tax_id'
+              tds_tax_id:
+                $ref: '#/components/schemas/tds_tax_id'
+              tax_name:
+                $ref: '#/components/schemas/tax_name'
+              tax_type:
+                $ref: '#/components/schemas/tax_type'
+              tax_percentage:
+                $ref: '#/components/schemas/tax_percentage'
+              item_total:
+                $ref: '#/components/schemas/item_total'
+              mapped_items:
+                $ref: '#/components/schemas/mapped_items_update'
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              hsn_or_sac:
+                $ref: '#/components/schemas/hsn_or_sac'
+              sat_item_key_code:
+                $ref: '#/components/schemas/sat_item_key_code'
+              unitkey_code:
+                $ref: '#/components/schemas/unitkey_code'
+              item_custom_fields:
+                $ref: '#/components/schemas/item_custom_fields'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        billing_address_id:
+          $ref: '#/components/schemas/billing_address_id'
+        shipping_address_id:
+          $ref: '#/components/schemas/shipping_address_id'
+        place_of_supply:
+          $ref: '#/components/schemas/place_of_supply'
+        gst_treatment:
+          $ref: '#/components/schemas/gst_treatment'
+        gst_no:
+          $ref: '#/components/schemas/gst_no'
+    reject-request:
+      type: object
+      properties:
+        reason:
+          description: Reason for rejecting the sales order. Max-length [500].
+          type: string
+          example: Pricing needs to be revised.
+    gst_no:
+      description: 15 digit GST identification number of the customer.
       type: string
-      example: PK-00004
-    file_size_formatted:
-      description: This indicates the size of the formatted file.
-      type: string
-      example: 116.8 KB
-    shipment_id:
-      description: Unique ID generated by the server for the shipment. This is used as an identifier.
-      type: string
-      example: 4815000000044917
-    delivery_days:
-      description: The expected days to be taken for the delivery.
-      type: string
-      example: 12
-    shipment_days:
-      description: Days of Shipment for the Order
-      type: integer
-      example: 2
-    status_message:
-      description: Status message of package.
-      type: string
-      example: Delivered
-    contact_person_id:
-      description: Unique ID of the Contact Person
-      type: string
-      example: 982000000567003
-    bcy_total:
-      description: Total in Base Currency of the Organisation
-      type: integer
-      example: 33
-    is_pre_gst:
-      description: Applicable for transactions that fall before july 1, 2017
-      type: boolean
-      example: false
+      example: 22AAAAA0000A1Z5
       x-node_available_in:
       - in
       x-node_unavailable_in: []
-    template_id:
-      description: Unique ID generated by the server for the Template. This is used as an identifier.
+    item_id:
+      description: Unique ID generated by the server for the item. This is used as an identifier.
       type: string
-      example: 4815000000017003
-    currency_code:
-      description: Currency code.
-      type: string
-      example: USD
-    rate:
-      description: Rate / Selling Price of the line item.
-      type: number
-      format: double
-      example: 122
-    place_of_supply:
-      description: Place where the goods/services are supplied to. (If not given, <code>place of contact</code> given for the contact will be taken)
-      type: string
-      example: TN
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    address:
-      description: Name of the street of the customer's shipping address.
-      type: string
-      example: No:432,Bayside,Queens
+      example: 4815000000044100
     sub_total:
       description: Sub total of the Sales Order.
       type: number
       format: double
       example: 244
-    tax_total:
-      description: Tax total of the Sales Order.
+    tax_amount:
+      description: Amount of the tax.
       type: number
       format: double
-      example: 29
-    hsn_or_sac:
-      description: Add HSN/SAC code for your goods/services
+      example: 29.28
+    date:
+      description: The date for the Sales Order.
       type: string
-      example: 80540
+      example: '2015-05-28'
+    customer_id:
+      description: Unique ID generated for the customer. This is used as an identifier.
+      type: string
+      example: 4815000000044080
+    tds_tax_id:
+      description: ID of the TDS tax or TDS tax group applied
+      type: string
+      example: '460000000017098'
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    packages:
+      description: These are the packages created for Sales Orders. Each package contains - <code>package_id</code>,<code>package_number</code>,<code>status</code>,<code>detailed_status</code>,<code>status_message</code>,<code>shipment_id</code>,<code>shipment_number</code>,<code>shipment_status</code>,<code>carrier</code>,<code>service</code>,<code>tracking_number</code>,<code>shipment_date</code>,<code>delivery_days</code> and <code>delivery_guarantee</code>.
+      type: array
+      items:
+        type: object
+        properties:
+          package_id:
+            $ref: '#/components/schemas/package_id'
+          package_number:
+            $ref: '#/components/schemas/package_number'
+          status:
+            $ref: '#/components/schemas/status'
+          detailed_status:
+            $ref: '#/components/schemas/detailed_status'
+          status_message:
+            $ref: '#/components/schemas/status_message'
+          shipment_id:
+            $ref: '#/components/schemas/shipment_id'
+          shipment_number:
+            $ref: '#/components/schemas/shipment_number'
+          shipment_status:
+            $ref: '#/components/schemas/shipment_status'
+          carrier:
+            $ref: '#/components/schemas/carrier'
+          service:
+            $ref: '#/components/schemas/service'
+          tracking_number:
+            $ref: '#/components/schemas/tracking_number'
+          shipment_date:
+            $ref: '#/components/schemas/shipment_date'
+          delivery_days:
+            $ref: '#/components/schemas/delivery_days'
+          delivery_guarantee:
+            $ref: '#/components/schemas/delivery_guarantee'
+    last_modified_time:
+      description: Time at which the sales order details were last modified.
+      type: string
+      example: 2015-05-28 00:00:00+00:00
+    exchange_rate:
+      description: Exchange rate of the currency, with respect to the base currency.
+      type: number
+      format: double
+      example: 1
+    currency_id:
+      description: Unique ID generated by the server for the currency. This is used as an identifier.
+      type: string
+      example: 4815000000000097
+    item_order:
+      description: The order of the line items, starts from <code>0</code> by default.
+      type: integer
+      example: 0
+    quantity:
+      description: Quantity of the line item.
+      type: number
+      format: double
+      example: 2
+    shipment_status:
+      description: Shipment status of the package.
+      type: string
+      example: 3
+    description:
+      description: Description of the line item.
+      type: string
+      example: Just a sample description.
+    total:
+      description: Total amount of the Sales Order.
+      type: number
+      format: double
+      example: 350
+    is_combo_product:
+      description: Indicates whether the line item is a composite product.
+      type: boolean
+      example: true
+    label:
+      description: Label of the Custom Field
+      type: string
+    name:
+      description: Name of the line item.
+      type: string
+      example: Laptop-white/15inch/dell
+    delivery_method_id:
+      description: Unique ID generated by the server for the delivery method. This is used as an identifier.
+      type: string
+      example: 4815000000044822
+    attachment_order:
+      description: This indicates the chronological number of the attachment.
+      type: integer
+      example: 1
+    pricebook_id:
+      description: Unique ID generated by the server for the Pricebook. This is used as an identifier.
+      type: string
+      example: 4815000000044054
+    customfield_id:
+      type: string
+      description: Unique ID of the custom field.
+    list-all-sales-orders-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        salesorders:
+          type: array
+          items:
+            type: object
+            properties:
+              salesorder_id:
+                $ref: '#/components/schemas/salesorder_id'
+              customer_name:
+                $ref: '#/components/schemas/customer_name'
+              customer_id:
+                $ref: '#/components/schemas/customer_id'
+              status:
+                $ref: '#/components/schemas/status'
+              salesorder_number:
+                $ref: '#/components/schemas/salesorder_number'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
+              date:
+                $ref: '#/components/schemas/date'
+              shipment_date:
+                $ref: '#/components/schemas/shipment_date'
+              shipment_days:
+                $ref: '#/components/schemas/shipment_days'
+              quantity:
+                $ref: '#/components/schemas/quantity'
+              quantity_invoiced:
+                $ref: '#/components/schemas/quantity_invoiced'
+              quantity_packed:
+                $ref: '#/components/schemas/quantity_packed'
+              quantity_shipped:
+                $ref: '#/components/schemas/quantity_shipped'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              total:
+                $ref: '#/components/schemas/total'
+              bcy_total:
+                $ref: '#/components/schemas/bcy_total'
+              created_time:
+                $ref: '#/components/schemas/created_time'
+              last_modified_time:
+                $ref: '#/components/schemas/last_modified_time'
+              is_emailed:
+                $ref: '#/components/schemas/is_emailed'
+              is_drop_shipment:
+                $ref: '#/components/schemas/is_drop_shipment'
+              is_backorder:
+                $ref: '#/components/schemas/is_backorder'
+              sales_channel:
+                $ref: '#/components/schemas/sales_channel'
+              custom_fields:
+                $ref: '#/components/schemas/custom_fields'
+    invoice_id:
+      description: Unique ID generated by the server for the invoice. This is used as an identifier.
+      type: string
+      example: 4815000000045091
+    salesorder_id:
+      description: Unique ID generated by the server for the Sales Order. This is used as identifier.
+      type: string
+      example: 4815000000044895
+    gst_treatment:
+      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
+      type: string
+      example: business_gst
       x-node_available_in:
       - in
       x-node_unavailable_in: []
-    discount_type:
-      description: Type of discount. Allowed values are <code>entity_level</code>,<code>item_level</code>. For entity_level type, discount is applied at entity level and the node <code>discount</code> resides outside the <code>line_items</code> node.For item_level type, discount is applied at item level and the node <code>discount</code> resides inside each line_item under the <code>line_items</code> node
+    mobile:
+      description: Mobile Number of the Contact Person
       type: string
-      example: entity_level
+      example: +1-4054439562
+    salesperson_id:
+      description: Unique ID generated by the server for the sales person. This is used as an identifier.
+      type: string
+      example: 4815000000044762
+    file_name:
+      description: This indicates the name of the file.
+      type: string
+      example: sample.pdf
+    template_name:
+      description: Name of the template used for the Sales Order.
+      type: string
+      example: Standard
+    bcy_total:
+      description: Total in Base Currency of the Organisation
+      type: integer
+      example: 33
+    notes:
+      description: Notes for the Sales Order.
+      type: string
+      example: Sample Note
+    detailed_status:
+      description: Detailed status.
+      type: string
+      example: Delivered
+    delivery_guarantee:
+      description: Delivery guarantee of the shipment can be true or false.
+      type: boolean
+      example: true
+    image_name:
+      description: Name of the image of the line item.
+      type: string
+      example: dell.jpg
+    can_send_in_mail:
+      description: Checks whether the sales order can be sent as a mail or not.
+      type: boolean
+      example: true
+    contact_persons_associated_payload:
+      description: Contact Persons associated with the sales order.
+      type: array
+      items:
+        type: object
+        properties:
+          contact_person_id:
+            $ref: '#/components/schemas/contact_person_id'
+          communication_preference:
+            $ref: '#/components/schemas/communication_preference'
+    city:
+      description: Name of the city of the customer's shipping address.
+      type: string
+      example: New York City
+    is_discount_before_tax:
+      description: Used to check whether the discount is applied before tax or after tax.
+      type: boolean
+      example: true
+    is_dropshipped:
+      description: Denotes if a SalesOrder has been dropshipped
+      type: boolean
+      example: false
+    shipment_date:
+      description: Shipment date of the Sales Order.
+      type: string
+      example: '2015-06-02'
+    tax_name:
+      description: Name of the tax applied on the line item.
+      type: string
+      example: Sales Tax
+    tax_id:
+      description: Unique ID generated by the server for the tax. This is used as an identifier.
+      type: string
+      example: 4815000000044043
     retrieve-a-sales-order-response:
       type: object
       properties:
@@ -1792,97 +1778,144 @@ components:
               $ref: '#/components/schemas/gst_treatment'
             place_of_supply:
               $ref: '#/components/schemas/place_of_supply'
-    shipment_status:
-      description: Shipment status of the package.
+    location_name:
+      description: Name of the location
       type: string
-      example: 3
+    currency_code:
+      description: Currency code.
+      type: string
+      example: USD
     location_id:
       description: Location ID
       type: string
       example: '460000000038080'
-    mark-as-confirmed-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Sales order status has been changed to 'Confirmed'.
-          readOnly: true
-    sales_channel:
-      description: From which channel the saleorder was obtained
+    line_item_id:
+      description: Unique ID generated by the server for each line item. This is used as an identifier.
       type: string
-      example: direct_sales
-    salesorder_id:
-      description: Unique ID generated by the server for the Sales Order. This is used as identifier.
+      example: 4815000000044897
+    is_backordered:
+      description: Denotes if a SalesOrder has been backordered
+      type: boolean
+      example: false
+    mapped_items_update:
+      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
+      type: array
+      items:
+        type: object
+        properties:
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          item_order:
+            $ref: '#/components/schemas/item_order'
+          name:
+            $ref: '#/components/schemas/name'
+          description:
+            $ref: '#/components/schemas/description'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          warehouse_id:
+            description: Unique ID of the warehouse from which the mapped item is fulfilled.
+            type: string
+            example: '460000000038080'
+          location_id:
+            $ref: '#/components/schemas/location_id'
+          mapped_items:
+            description: Nested mapped items for kit within kit scenarios.
+            type: array
+            items:
+              type: object
+              properties:
+                item_id:
+                  $ref: '#/components/schemas/item_id'
+                line_item_id:
+                  $ref: '#/components/schemas/line_item_id'
+                item_order:
+                  $ref: '#/components/schemas/item_order'
+                name:
+                  $ref: '#/components/schemas/name'
+                description:
+                  $ref: '#/components/schemas/description'
+                quantity:
+                  $ref: '#/components/schemas/quantity'
+                warehouse_id:
+                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
+                  type: string
+                  example: '460000000038080'
+                location_id:
+                  $ref: '#/components/schemas/location_id'
+    service:
+      description: Name of the service provided by the carrier.
       type: string
-      example: 4815000000044895
-    discount:
-      description: Discount applied to the sales order, which can be either a percentage or a flat amount. For percentage discounts, the value should include the % symbol (e.g., 10%). For example, on Rs.1000, a 10% discount results in Rs.900, while a flat Rs.200 discount results in Rs.800.
+      example: SMART_POST
+    quantity_invoiced:
+      description: Quantity invoiced of the line item.
       type: number
       format: double
-      example: 20.00%
-    price_precision:
-      description: The precision level for the price's decimal point in a Sales Order.
-      type: integer
       example: 2
+    quantity_packed:
+      description: Quantity packed of the line item.
+      type: number
+      format: double
+      example: 2
+    combo_type:
+      description: Type of the composite item. Allowed values are <code>assembly</code> and <code>kit</code>.
+      type: string
+      example: kit
     country:
       description: Name of the country of the customer's shipping address.
       type: string
       example: U.S.A
-    state:
-      description: Name of the state of the customer's shipping address.
+    phone:
+      description: Phone Number of the Contact Person
       type: string
-      example: New York
+      example: +1-925-921-9201
+    place_of_supply:
+      description: Place where the goods/services are supplied to. (If not given, <code>place of contact</code> given for the contact will be taken)
+      type: string
+      example: TN
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    billing_address:
+      description: Customer's billing address. It contains - <code>address</code>, <code>city</code>, <code>state</code>, <code>zip</code>, <code>country</code> and <code>fax</code>.
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        city:
+          $ref: '#/components/schemas/city'
+        state:
+          $ref: '#/components/schemas/state'
+        zip:
+          $ref: '#/components/schemas/zip'
+        country:
+          $ref: '#/components/schemas/country'
+        fax:
+          $ref: '#/components/schemas/fax'
+    last_name:
+      description: Last Name of the Contact Person
+      type: string
+      example: John
     template_type:
       description: Type of the template.
       type: string
       example: standard
-    template_name:
-      description: Name of the template used for the Sales Order.
+    taxes:
+      description: 'Number of taxes applied on sales order. Each tax contains: <code>tax_name</code> and <code>tax_amount</code>.'
+      type: array
+      items:
+        type: object
+        properties:
+          tax_name:
+            $ref: '#/components/schemas/tax_name'
+          tax_amount:
+            $ref: '#/components/schemas/tax_amount'
+    discount_type:
+      description: Type of discount. Allowed values are <code>entity_level</code>,<code>item_level</code>. For entity_level type, discount is applied at entity level and the node <code>discount</code> resides outside the <code>line_items</code> node.For item_level type, discount is applied at item level and the node <code>discount</code> resides inside each line_item under the <code>line_items</code> node
       type: string
-      example: Standard
-    item_total:
-      description: Total of line item.
-      type: number
-      format: double
-      example: 244
-    total:
-      description: Total amount of the Sales Order.
-      type: number
-      format: double
-      example: 350
-    delivery_method_id:
-      description: Unique ID generated by the server for the delivery method. This is used as an identifier.
-      type: string
-      example: 4815000000044822
-    is_dropshipped:
-      description: Denotes if a SalesOrder has been dropshipped
-      type: boolean
-      example: false
-    create-a-sales-order-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        sales_order:
-          $ref: '#/components/schemas/sales_order-response'
-    salesorder_number:
-      description: The Sales Order number. This is unique for each sales order.
-      type: string
-      example: SO-00003
-    image_name:
-      description: Name of the image of the line item.
-      type: string
-      example: dell.jpg
+      example: entity_level
     update-a-sales-order-response:
       type: object
       properties:
@@ -2001,127 +2034,94 @@ components:
               $ref: '#/components/schemas/place_of_supply'
             custom_fields:
               $ref: '#/components/schemas/custom_fields'
+    invoice_number:
+      description: The number of the Invoice.
+      type: string
+      example: INV-001
     value:
       description: Value of the Custom Field
       type: string
-    sales_order-response:
-      type: object
-      properties:
-        salesorder_id:
-          $ref: '#/components/schemas/salesorder_id'
-        salesorder_number:
-          $ref: '#/components/schemas/salesorder_number'
-        date:
-          $ref: '#/components/schemas/date'
-        status:
-          $ref: '#/components/schemas/status'
-        shipment_date:
-          $ref: '#/components/schemas/shipment_date'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        customer_id:
-          $ref: '#/components/schemas/customer_id'
-        customer_name:
-          $ref: '#/components/schemas/customer_name'
-        contact_persons_associated:
-          $ref: '#/components/schemas/contact_persons_associated'
-        currency_id:
-          $ref: '#/components/schemas/currency_id'
-        currency_code:
-          $ref: '#/components/schemas/currency_code'
-        currency_symbol:
-          $ref: '#/components/schemas/currency_symbol'
-        exchange_rate:
-          $ref: '#/components/schemas/exchange_rate'
-        discount_amount:
-          $ref: '#/components/schemas/discount_amount'
-        discount:
-          $ref: '#/components/schemas/discount'
-        is_discount_before_tax:
-          $ref: '#/components/schemas/is_discount_before_tax'
-        discount_type:
-          $ref: '#/components/schemas/discount_type'
-        estimate_id:
-          $ref: '#/components/schemas/estimate_id'
-        delivery_method:
-          $ref: '#/components/schemas/delivery_method'
-        delivery_method_id:
-          $ref: '#/components/schemas/delivery_method_id'
-        line_items:
-          $ref: '#/components/schemas/line_items'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        location_name:
-          $ref: '#/components/schemas/location_name'
-        shipping_charge:
-          $ref: '#/components/schemas/shipping_charge'
-        adjustment:
-          $ref: '#/components/schemas/adjustment'
-        adjustment_description:
-          $ref: '#/components/schemas/adjustment_description'
-        sub_total:
-          $ref: '#/components/schemas/sub_total'
-        tax_total:
-          $ref: '#/components/schemas/tax_total'
-        total:
-          $ref: '#/components/schemas/total'
-        taxes:
-          $ref: '#/components/schemas/taxes'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        pricebook_id:
-          $ref: '#/components/schemas/pricebook_id'
-        shipping_address:
-          $ref: '#/components/schemas/shipping_address'
-        billing_address:
-          $ref: '#/components/schemas/billing_address'
-        notes:
-          $ref: '#/components/schemas/notes'
-        terms:
-          $ref: '#/components/schemas/terms'
-        template_id:
-          $ref: '#/components/schemas/template_id'
-        template_name:
-          $ref: '#/components/schemas/template_name'
-        template_type:
-          $ref: '#/components/schemas/template_type'
-        created_time:
-          $ref: '#/components/schemas/created_time'
-        last_modified_time:
-          $ref: '#/components/schemas/last_modified_time'
-        salesperson_id:
-          $ref: '#/components/schemas/salesperson_id'
-        salesperson_name:
-          $ref: '#/components/schemas/salesperson_name'
-        documents:
-          $ref: '#/components/schemas/documents'
-        is_pre_gst:
-          $ref: '#/components/schemas/is_pre_gst'
-        gst_no:
-          $ref: '#/components/schemas/gst_no'
-        gst_treatment:
-          $ref: '#/components/schemas/gst_treatment'
-        place_of_supply:
-          $ref: '#/components/schemas/place_of_supply'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-    due_date:
-      description: Due date for the Invoice.
+    is_invoiced:
+      description: Checks whether the Sales Order has been invoiced or not.
+      type: boolean
+      example: true
+    estimate_id:
+      description: Unique ID generated by the server from the Estimate created in Zoho Books. This is used as an identifier.
       type: string
-      example: '2015-06-13'
-    zip:
-      description: Zip code of the customer's shipping address.
+      example: 4815000000045091
+    tax_type:
+      description: Denotes the type of the tax. This can either be a single tax or a tax group.
       type: string
-      example: 11364
-    tax_amount:
-      description: Amount of the tax.
+      example: tax
+    is_drop_shipment:
+      description: Denotes if a SalesOrder is a drop shipment
+      type: boolean
+      example: false
+    image_id:
+      description: Unique ID generated by the server for the item image. This is used an identifier.
       type: number
       format: double
-      example: 29.28
-    file_name:
-      description: This indicates the name of the file.
+      example: 2077500000000002000
+    invoices:
+      description: Invoices created for the Sales Order. Each invoice contains - <code>invoice_id</code>, <code>invoice_number</code>, <code>status</code>, <code>date</code>, <code>due_date</code>, <code>total</code>, <code>balance</code>.
+      type: array
+      items:
+        type: object
+        properties:
+          invoice_id:
+            $ref: '#/components/schemas/invoice_id'
+          invoice_number:
+            $ref: '#/components/schemas/invoice_number'
+          status:
+            $ref: '#/components/schemas/status'
+          date:
+            $ref: '#/components/schemas/date'
+          due_date:
+            $ref: '#/components/schemas/due_date'
+          total:
+            $ref: '#/components/schemas/total'
+          balance:
+            $ref: '#/components/schemas/balance'
+    delivery_days:
+      description: The expected days to be taken for the delivery.
       type: string
-      example: sample.pdf
+      example: 12
+    has_unconfirmed_line_item:
+      type: boolean
+      example: true
+    status_message:
+      description: Status message of package.
+      type: string
+      example: Delivered
+    contact_person_name:
+      description: Name of the Contact Person
+      type: string
+      example: David
+    first_name:
+      description: First Name of the Contact Person
+      type: string
+      example: David
+    contact_person_email:
+      description: Email ID of the Contact Person.
+      type: string
+      example: willsmith@bowmanfurniture.com
+    is_inclusive_tax:
+      description: Used to specify whether the line item rates are inclusive or exclusive of tax.
+      type: boolean
+      example: false
+    purchaseorders:
+      type: array
+      items:
+        type: string
+    adjustment_description:
+      description: Description for the adjustment.
+      type: string
+      example: Just an example description.
+    discount_amount:
+      description: Discount to be applied on the Sales Order.
+      type: number
+      format: double
+      example: 0
   parameters:
     organization_id:
       name: organization_id

@@ -1440,31 +1440,201 @@ paths:
         - ZohoInventory.invoices.UPDATE
 components:
   schemas:
-    gst_no:
-      description: 15 digit GST identification number of the customer.
-      type: string
-      example: 22AAAAA0000A1Z5
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    salesperson_name:
-      description: Name of the salesperson. Maximum length [200]
-      type: string
-      example: ' '
-    gateways_associated:
-      description: List of Payment gateways associated
+    gateways_configured:
+      description: List of payment gateways configured
       type: boolean
       example: true
-    last_name:
-      description: Last Name of the Contact Person
+    payment_terms:
+      description: Payment terms in days e.g. 15, 30, 60. Invoice due date will be calculated based on this. Maximum length [100]
+      type: integer
+      example: 15
+    tax_total:
+      description: The total amount of the tax levied
+      type: number
+      format: double
+      example: 22.6
+    zip:
+      description: Zip code of the customer's billing address.
       type: string
-      example: John
-    serial_numbers:
-      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
+      example: 94588
+    to_mail_ids:
+      description: Array of email addresses of the recipients.
       type: array
       items:
         type: string
-        example: ARMP-0078
+      example:
+      - willsmith@bowmanfurniture.com
+    bcc_mails:
+      description: Bcc mail details
+      type: array
+      items:
+        type: string
+      example: ''
+    is_pre_gst:
+      description: Applicable for transactions that fall before july 1, 2017
+      type: boolean
+      example: false
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    reference_number:
+      description: The reference number of the invoice
+      type: string
+      example: ' '
+    payment_reminder_enabled:
+      description: Boolean to check if reminders have been enabled
+      type: boolean
+      example: true
+    tax_percentage:
+      description: The  percentage of tax levied
+      type: number
+      format: float
+      example: 12.5
+    shipping_address:
+      description: Shipping address of the contact
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        city:
+          $ref: '#/components/schemas/city'
+        state:
+          $ref: '#/components/schemas/state'
+        zip:
+          $ref: '#/components/schemas/zip'
+        country:
+          $ref: '#/components/schemas/country'
+        fax:
+          $ref: '#/components/schemas/fax'
+    list-invoice-templates-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        templates:
+          description: Temlpates used
+          type: array
+          items:
+            type: object
+            properties:
+              template_name:
+                $ref: '#/components/schemas/template_name'
+              template_id:
+                $ref: '#/components/schemas/template_id'
+              template_type:
+                $ref: '#/components/schemas/template_type'
+    entity_id:
+      description: Unique ID of the entity associated
+      type: string
+      example: '2000000007037'
+    payment_terms_label:
+      description: Used to override the default payment terms label. Default value for 15 days is "Net 15 Days". Maximum length [100]
+      type: string
+      example: Net 15
+    mark-as-draft-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Status of invoice changed from void to draft
+          readOnly: true
+    add-comment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Comments added.
+          readOnly: true
+    created_time:
+      description: The time of creation of the invoices
+      type: string
+      example: '2013-11-18'
+    email-an-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your invoice has been sent.
+          readOnly: true
+    commented_by_id:
+      description: Sorting by ID of the comment
+      type: string
+      example: 982000000554041
+    expense_id:
+      description: Unique ID of the expenses associated
+      type: string
+      example: ' '
+    list-credits-applied-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        credits:
+          type: array
+          items:
+            type: object
+            properties:
+              creditnote_id:
+                $ref: '#/components/schemas/creditnote_id'
+              creditnotes_invoice_id:
+                $ref: '#/components/schemas/creditnotes_invoice_id'
+              creditnotes_number:
+                $ref: '#/components/schemas/creditnotes_number'
+              credited_date:
+                $ref: '#/components/schemas/credited_date'
+              amount_applied:
+                $ref: '#/components/schemas/amount_applied'
+    address:
+      description: Billing address for the invoice
+      type: string
+      example: 4900 Hopyard Rd, Suite 310
+    attachment_name:
+      description: Name of the file attached
+      type: string
+      example: ' '
+    emailtemplate_documents:
+      description: Email templates used
+      type: array
+      items:
+        type: string
+    avatax_use_code:
+      description: Used to group like customers for exemption purposes. It is a custom value that links customers to a tax rule. Select from Avalara [standard codes][1] or enter a custom code. Maximum length [25]
+      type: string
+      x-node_available_in:
+      - Avalara Integration
+      x-node_unavailable_in: []
+    due_date:
+      description: due date of the invoices. Default date format is yyyy-mm-dd.
+      type: string
+      example: '2013-12-03'
+    customer_name:
+      description: The name of the customer. Maximum length [100]
+      type: string
+      example: Bowman & Co
     apply-credits-response:
       type: object
       properties:
@@ -1476,37 +1646,25 @@ components:
           type: string
           example: Credits have been applied to the invoice(s).
           readOnly: true
-    reject-request:
-      type: object
-      properties:
-        reason:
-          description: Reason for rejecting the invoice. Max-length [500].
-          type: string
-          example: Invoice amount exceeds approved budget.
-    update-attachment-preference-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Invoice information has been updated.
-          readOnly: true
-    emailtemplate_documents:
-      description: Email templates used
-      type: array
-      items:
-        type: string
-    tax_exemption_id:
-      description: ID of the tax exemption.
+    allow_partial_payments:
+      description: Boolean to check if partial payments are allowed for the contact
+      type: boolean
+      example: true
+    sat_item_key_code:
+      description: Add SAT Item Key Code for your goods/services. Download the <a href= http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_07122022.xls  >CFDI Catalogs.</a>
       type: string
-      example: 11149000000061054
+      example: 71121206
       x-node_available_in:
-      - us
-      - in
+      - mx
       x-node_unavailable_in: []
+    from_email:
+      description: Mail sender
+      type: string
+      example: ''
+    is_email_enabled:
+      description: Used to check if Email communication preference is enabled for the contact person at transaction level.
+      type: boolean
+      example: true
     approval-action-response:
       type: object
       properties:
@@ -1518,54 +1676,36 @@ components:
           type: string
           example: success
           readOnly: true
-    update-an-invoice-customfield-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Custom Fields Updated Successfully
-          readOnly: true
-    due_days:
-      description: Specifies the number of day in which the invoice would become overdue
+    has_attachment:
+      description: To check if invoice has an attachment
+      type: boolean
+      example: false
+    adjustment:
+      description: Adjustments made to the invoice.
+      type: number
+      format: double
+      example: 0
+    shipping_charge:
+      description: Shipping charges applied to the invoice. Maximum length [100]
       type: string
-      example: Due in 14 day(s)
-    additional_field1:
-      description: 'Paypal payment method. Allowed Values: <code>standard</code> and <code>adaptive</code>'
+      example: 0
+    shipping_address_id:
+      description: Unique Id generated by the server for address in contacts page. To add a shipping address to invoice, send the address_id using this node. Else, the default shipping address for that contact is used
       type: string
-      example: standard
-    unit:
-      description: Unit of the line item e.g. kgs, Nos. Maximum length [100]
-      type: string
-      example: ' '
+      example: 4815000000017005
     terms:
       description: The terms added below expressing gratitude or for conveying some information.
       type: string
       example: Terms & Conditions apply
-    body:
-      description: The body/content of the mail
+    invoiced_estimate_id:
+      description: ID of the invoice from which the invoice is created.
       type: string
-      example: 'Dear Customer,         <br><br><br><br>Thanks for your business.         <br><br><br><br>The invoice INV-00001 is attached with this email. You can choose the easy way out and <a href= https://invoice.zoho.com/SecurePayment?CInvoiceID=b9800228e011ae86abe71227bdacb3c68e1af685f647dcaed747812e0b9314635e55ac6223925675b371fcbd2d5ae3dc  >pay online for this invoice.</a>         <br><br>Here''s an overview of the invoice for your reference.         <br><br><br><br>Invoice Overview:         <br><br>Invoice  : INV-00001         <br><br>Date : 05 Aug 2013         <br><br>Amount : $541.82         <br><br><br><br>It was great working with you. Looking forward to working with you again.<br><br><br>\nRegards<br>\nZillium Inc<br>\n",'
-    commented_by:
-      description: Individual who made a comment
+      example: ' '
+    invoice_url:
+      description: Url of invoice as a link
       type: string
-      example: John David
-    salesorder_item_id:
-      description: Pass the unique ID(line_item_id) generated by the server for the line item in sales order for this node to associate this invoice with the sales order
-      type: string
-      example: 4815000000017009
-    phone:
-      description: Phone Number of the Contact Person
-      type: string
-      example: +1-925-921-9201
-    contact_person_name:
-      description: Name of the Contact Person
-      type: string
-      example: David
-    delete-an-invoice-response:
+      example: https://invoice.zoho.com/SecurePayment?CInvoiceID=23d84d0cf64f9a72ea0c66fded25a08c8bafd0ab508aff05323a9f80e2cd03fdc5dd568d3d6407bbda969d3e870d740b6fce549a9438c4ea
+    update-attachment-preference-response:
       type: object
       properties:
         code:
@@ -1574,9 +1714,34 @@ components:
           readOnly: true
         message:
           type: string
-          example: The invoice has been deleted.
+          example: Invoice information has been updated.
           readOnly: true
-    storages:
+    show_comment_to_clients:
+      description: Boolean to check if the comment to be shown to the clients
+      type: boolean
+      example: true
+    amount_applied:
+      description: The amount applied to a creditnote
+      type: number
+      format: float
+      example: 12.2
+    bcy_rate:
+      description: base currency rate
+      type: number
+      format: float
+      example: 120
+    cancel-write-off-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The write off done for this invoice has been cancelled.
+          readOnly: true
+    storages-update:
       description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
       type: array
       items:
@@ -1594,6 +1759,10 @@ components:
             type: number
             format: float
             example: 2
+          storage_out_id:
+            description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
+            type: string
+            example: '6780203000000997440'
           serial_numbers:
             description: Serial numbers allocated to this bin.
             type: array
@@ -1602,14 +1771,227 @@ components:
             items:
               type: string
               example: PKG-011
-    expense_id:
-      description: Unique ID of the expenses associated
+    item_total:
+      description: The total amount of the line items
+      type: number
+      format: float
+      example: 120
+    billing_address_id:
+      description: Unique Id generated by the server for address in contacts page. To add a billing address to invoice, send the address_id using this node. Else, the default billing address for that contact is used
+      type: string
+      example: 4815000000017005
+    unitkey_code:
+      description: Add SAT Unit Key Code for your goods/services. Download the <a href= http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_07122022.xls  >CFDI Catalogs.</a>
+      type: string
+      example: E48
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    custom_fields:
+      description: Additional fields added to the invoice
+      type: array
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          show_on_pdf:
+            $ref: '#/components/schemas/show_on_pdf'
+          value:
+            $ref: '#/components/schemas/value'
+          label:
+            $ref: '#/components/schemas/label'
+    cc_mail_ids:
+      description: Array of email addresses of the recipients to be CC'd.
+      type: array
+      items:
+        type: string
+      example:
+      - peterparker@bowmanfurniture.com
+    state:
+      description: State of the customer's billing address.
+      type: string
+      example: CA
+    salesperson_name:
+      description: Name of the salesperson. Maximum length [200]
       type: string
       example: ' '
-    project_id:
-      description: Unique ID of the projet associated to an invoice
+    client_viewed_time:
+      description: Time when client viewed the statement
+      type: string
+      example: ''
+    tax_amount_withheld:
+      description: The tax amount which has been withheld
+      type: number
+      format: float
+      example: 0
+    delete-a-payment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The payment has been deleted.
+          readOnly: true
+    contact_persons_associated:
+      description: Contact Persons associated with the invoice.
+      type: array
+      items:
+        type: object
+        properties:
+          contact_person_id:
+            $ref: '#/components/schemas/contact_person_id'
+          contact_person_name:
+            $ref: '#/components/schemas/contact_person_name'
+          first_name:
+            $ref: '#/components/schemas/first_name'
+          last_name:
+            $ref: '#/components/schemas/last_name'
+          contact_person_email:
+            $ref: '#/components/schemas/contact_person_email'
+          phone:
+            $ref: '#/components/schemas/phone'
+          mobile:
+            $ref: '#/components/schemas/mobile'
+          communication_preference:
+            $ref: '#/components/schemas/communication_preference'
+    reason:
+      description: Description of the attachment
       type: string
       example: ' '
+    comment_type:
+      description: Type of the comment
+      type: string
+      example: system
+    price_precision:
+      description: The precision value on the price
+      type: integer
+      example: 2
+    avatax_exempt_no:
+      description: Exemption certificate number of the customer. Maximum length [25]
+      type: string
+      x-node_available_in:
+      - Avalara Integration
+      x-node_unavailable_in: []
+    salesorder_item_id:
+      description: Pass the unique ID(line_item_id) generated by the server for the line item in sales order for this node to associate this invoice with the sales order
+      type: string
+      example: 4815000000017009
+    attach_pdf:
+      description: check if PDF attachment
+      type: boolean
+      example: true
+    is_emailed:
+      description: Boolean check to see if the mail has been sent
+      type: boolean
+      example: false
+    adjustment_description:
+      description: Customize the adjustment description. E.g. Rounding off.
+      type: string
+      example: ' '
+    balance:
+      description: The unpaid amount
+      type: string
+      example: 40.6
+    from_address:
+      description: Sender's email address
+      type: string
+      example: ''
+    cfdi_reference_type:
+      description: Choose CFDI Reference Type. Allowed values:</br><code>return_of_merchandise</code>, <code>substitution_previous_cfdi</code>, <code>transfer_of_goods</code>, <code>invoice_generated_from_order</code>, <code>cfdi_for_advance</code>.
+      type: string
+      example: return_of_merchandise
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    unit:
+      description: Unit of the line item e.g. kgs, Nos. Maximum length [100]
+      type: string
+      example: ' '
+    hsn_or_sac:
+      description: Add HSN/SAC code for your goods/services
+      type: string
+      example: 80540
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    recurring_invoice_id:
+      description: ID of the recurring invoice from which the invoice is created.
+      type: string
+      example: ' '
+    template_id:
+      description: ID of the pdf template associated with the invoice.
+      type: string
+      example: 982000000000143
+    organization_contact_id:
+      description: ID of the contact's organisation
+      type: string
+      example: '2000000002266'
+    item_custom_fields:
+      type: array
+      description: List of custom fields associated with the line item
+      items:
+        type: object
+        properties:
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    mapped_items:
+      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
+      type: array
+      items:
+        type: object
+        properties:
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          item_order:
+            $ref: '#/components/schemas/item_order'
+          name:
+            $ref: '#/components/schemas/name'
+          description:
+            $ref: '#/components/schemas/description'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          combo_type:
+            $ref: '#/components/schemas/combo_type'
+          warehouse_id:
+            description: Unique ID of the warehouse from which the mapped item is fulfilled.
+            type: string
+            example: '460000000038080'
+          location_id:
+            $ref: '#/components/schemas/location_id'
+          mapped_items:
+            description: Nested mapped items for kit within kit scenarios.
+            type: array
+            items:
+              type: object
+              properties:
+                item_id:
+                  $ref: '#/components/schemas/item_id'
+                line_item_id:
+                  $ref: '#/components/schemas/line_item_id'
+                item_order:
+                  $ref: '#/components/schemas/item_order'
+                name:
+                  $ref: '#/components/schemas/name'
+                description:
+                  $ref: '#/components/schemas/description'
+                quantity:
+                  $ref: '#/components/schemas/quantity'
+                combo_type:
+                  $ref: '#/components/schemas/combo_type'
+                warehouse_id:
+                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
+                  type: string
+                  example: '460000000038080'
+                location_id:
+                  $ref: '#/components/schemas/location_id'
     batches-response:
       description: Batches tracked for the line item. Returned for items with batch tracking enabled.
       type: array
@@ -1666,109 +2048,92 @@ components:
                   description: Unique identifier of the storage entry on the line item.
                   type: string
                   example: '6780203000000997441'
-    commented_by_id:
-      description: Sorting by ID of the comment
+    fax:
+      description: Customer's fax number.
       type: string
-      example: 982000000554041
-    quantity:
-      description: The quantity of line item
-      type: number
-      format: float
-      example: 1
-    list-credits-applied-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        credits:
-          type: array
-          items:
-            type: object
-            properties:
-              creditnote_id:
-                $ref: '#/components/schemas/creditnote_id'
-              creditnotes_invoice_id:
-                $ref: '#/components/schemas/creditnotes_invoice_id'
-              creditnotes_number:
-                $ref: '#/components/schemas/creditnotes_number'
-              credited_date:
-                $ref: '#/components/schemas/credited_date'
-              amount_applied:
-                $ref: '#/components/schemas/amount_applied'
-    adjustment_description:
-      description: Customize the adjustment description. E.g. Rounding off.
+      example: +1-925-924-9600
+    vat_treatment:
+      description: VAT treatment for the invoice. VAT treatment denotes the location of the customer, if the customer resides in UK then the VAT treatment is <code>uk</code>. If the customer is in an EU country & VAT registered, you are resides in Northen Ireland and selling Goods then his VAT treatment is <code>eu_vat_registered</code> and if he resides outside the EU then his VAT treatment is <code> overseas </code>(For Pre Brexit, this can be split as <code>eu_vat_registered</code>, <code>eu_vat_not_registered</code> and <code>non_eu</code>).
       type: string
-      example: ' '
-    salesperson_id:
-      description: ID of the salesperson linked to invoice
-      type: string
-      example: ' '
-    custom_fields:
-      description: Additional fields added to the invoice
-      type: array
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          show_on_pdf:
-            $ref: '#/components/schemas/show_on_pdf'
-          value:
-            $ref: '#/components/schemas/value'
-          label:
-            $ref: '#/components/schemas/label'
-    user_name:
-      description: User name of the contact
-      type: string
-      example: David John
-    payment_options:
-      description: Payment options available for payment
-      type: object
-      properties:
-        payment_gateways:
-          $ref: '#/components/schemas/payment_gateways'
-    amount_applied:
-      description: The amount applied to a creditnote
-      type: number
-      format: float
-      example: 12.2
-    gst_treatment:
-      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
-      type: string
-      example: business_gst
       x-node_available_in:
-      - in
+      - uk
       x-node_unavailable_in: []
-    update-billing-address-response:
+    schedule_time:
+      description: Schedule time for payment
+      type: string
+      example: ''
+    communication_preference:
+      description: Preferred modes of communication for the contact person at transaction level.
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Billing address updated
-          readOnly: true
-    date_description:
-      description: Number of days since the comment was made
-      type: string
-      example: yesterday
-    is_emailed:
-      description: Boolean check to see if the mail has been sent
+        is_email_enabled:
+          $ref: '#/components/schemas/is_email_enabled'
+        is_sms_enabled:
+          $ref: '#/components/schemas/is_sms_enabled'
+        is_whatsapp_enabled:
+          $ref: '#/components/schemas/is_whatsapp_enabled'
+    show_on_pdf:
+      description: Boolean value to check if the custom field is to be dispplayed on the pdf.
       type: boolean
       example: false
-    exchange_rate:
-      description: Exchange rate of the currency.
+    rate:
+      description: Rate of the line item.
+      type: number
+      format: double
+      example: 120
+    documents:
+      description: Documents send along with invoice
+      type: string
+      example: ''
+    tax_treatment:
+      description: VAT treatment for the invoice .Choose whether the contact falls under:</br><code>home_country_mexico</code>,<code>border_region_mexico</code>,<code>non_mexico</code> supported only for <b>MX</b>.
+      type: string
+      example: vat_registered
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    configured:
+      description: Boolean check to see if a payment gateway has been configured
+      type: boolean
+      example: true
+    status:
+      description: 'Search invoices by invoice status.Allowed Values: <code>sent</code>, <code>draft</code>, <code>overdue</code>, <code>paid</code>, <code>void</code>, <code>unpaid</code>, <code>partially_paid</code> and <code>viewed</code>'
+      type: string
+      example: draft
+    discount:
+      description: Discount applied to the invoice, which can be either a percentage or a flat amount. For percentage discounts, the value should include the % symbol (e.g., 10%). For example, on Rs.1000, a 10% discount results in Rs.900, while a flat Rs.200 discount results in Rs.800. Maximum length [100]
       type: number
       format: float
-      example: 1
+      example: 0
+    send_from_org_email_id:
+      description: Boolean to trigger the email from the organization's email address
+      type: boolean
+      example: false
+    cc_mails_str:
+      description: Mail recepients who need to be CC'd
+      type: string
+      example: ''
+    disable-payment-reminder-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Reminders stopped.
+          readOnly: true
+    email:
+      description: contact's email id. Maximum length [100]
+      type: string
+      example: willsmith@bowmanfurniture.com
+    is_whatsapp_enabled:
+      description: Used to check if WhatsApp communication preference is enabled for the contact person at transaction level.
+      type: boolean
+      example: true
+      x-node_available_in:
+      - WhatsApp integration
     storages-response:
       description: Bin/storage locations tracked for the line item. Returned for items with bin tracking enabled.
       type: array
@@ -1800,65 +2165,95 @@ components:
             items:
               type: string
               example: PKG-011
-    client_viewed_time:
-      description: Time when client viewed the statement
+    online_transaction_id:
+      description: Unique ID of an online transaction
       type: string
       example: ''
-    contact_person_email:
-      description: Email ID of the Contact Person.
+    mapped_items_create:
+      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
+      type: array
+      items:
+        type: object
+        properties:
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          salesorder_item_id:
+            $ref: '#/components/schemas/salesorder_item_id'
+          item_order:
+            $ref: '#/components/schemas/item_order'
+          name:
+            $ref: '#/components/schemas/name'
+          description:
+            $ref: '#/components/schemas/description'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          warehouse_id:
+            description: Unique ID of the warehouse from which the mapped item is fulfilled.
+            type: string
+            example: '460000000038080'
+          location_id:
+            $ref: '#/components/schemas/location_id'
+          mapped_items:
+            description: Nested mapped items for kit within kit scenarios.
+            type: array
+            items:
+              type: object
+              properties:
+                item_id:
+                  $ref: '#/components/schemas/item_id'
+                salesorder_item_id:
+                  $ref: '#/components/schemas/salesorder_item_id'
+                item_order:
+                  $ref: '#/components/schemas/item_order'
+                name:
+                  $ref: '#/components/schemas/name'
+                description:
+                  $ref: '#/components/schemas/description'
+                quantity:
+                  $ref: '#/components/schemas/quantity'
+                warehouse_id:
+                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
+                  type: string
+                  example: '460000000038080'
+                location_id:
+                  $ref: '#/components/schemas/location_id'
+    cfdi_usage:
+      description: Choose CFDI Usage. Allowed values:</br><code>acquisition_of_merchandise</code>, <code>return_discount_bonus</code>, <code>general_expense</code>, <code>buildings</code>, <code>furniture_office_equipment</code>, <code>transport_equipment</code>, <code>computer_equipmentdye_molds_tools</code>, <code>telephone_communication</code>, <code>satellite_communication</code>, <code>other_machinery_equipment</code>, <code>hospital_expense</code>, <code>medical_expense_disability</code>, <code>funeral_expense</code>, <code>donation</code>, <code>interest_mortage_loans</code>, <code>contribution_sar</code>, <code>medical_expense_insurance_pormium</code>, <code>school_transportation_expense</code>, <code>deposit_saving_account</code>, <code>payment_educational_service</code>, <code>no_tax_effect</code>, <code>payment</code>, <code>payroll</code>.
       type: string
-      example: willsmith@bowmanfurniture.com
-    sat_item_key_code:
-      description: Add SAT Item Key Code for your goods/services. Download the <a href= http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_07122022.xls  >CFDI Catalogs.</a>
-      type: string
-      example: 71121206
+      example: acquisition_of_merchandise
       x-node_available_in:
       - mx
       x-node_unavailable_in: []
-    tds_tax_id:
-      description: ID of the TDS tax.
+    gst_no:
+      description: 15 digit GST identification number of the customer.
       type: string
-      example: 982000000557012
+      example: 22AAAAA0000A1Z5
       x-node_available_in:
-      - mx
+      - in
       x-node_unavailable_in: []
-    write_off_amount:
-      description: The write off amount. i.e. the amount which is not expected to be returned. Like a bad debt
-      type: number
-      format: float
-      example: 0
-    to_mails_str:
-      description: Mail recepients
+    item_id:
+      description: Unique item id.
       type: string
-      example: ''
-    attachment_name:
-      description: Name of the file attached
+      example: 982000000030049
+    tax_authority_id:
+      description: ID of the tax authority. Tax authority depends on the location of the customer. For example, if the customer is located in NY, then the tax authority is NY tax authority.
       type: string
-      example: ' '
-    billing_address_id:
-      description: Unique Id generated by the server for address in contacts page. To add a billing address to invoice, send the address_id using this node. Else, the default billing address for that contact is used
-      type: string
-      example: 4815000000017005
-    write-off-invoice-response:
+      example: 11149000000061052
+      x-node_available_in:
+      - us
+      x-node_unavailable_in: []
+    reject-request:
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
+        reason:
+          description: Reason for rejecting the invoice. Max-length [500].
           type: string
-          example: Invoice has been written off
-          readOnly: true
-    salutation:
-      description: Salutation of the Contact Person
-      type: string
-      example: Mr
-    payment_made:
-      description: The amount paid
+          example: Invoice amount exceeds approved budget.
+    sub_total:
+      description: The sub total of the all items
       type: number
       format: float
-      example: 26.91
+      example: 153
     create-an-invoice-request:
       required:
       - customer_id
@@ -2017,13 +2412,32 @@ components:
           $ref: '#/components/schemas/place_of_supply'
         cfdi_usage:
           $ref: '#/components/schemas/cfdi_usage'
-    is_sms_enabled:
-      description: Used to check if SMS communication preference is enabled for the contact person at transaction level.
-      type: boolean
-      example: true
-      x-node_available_in:
-      - SMS integration
-    bulk-print-invoices-response:
+    tax_amount:
+      description: The amount of the tax levied
+      type: number
+      format: float
+      example: 19.13
+    comment_id:
+      description: The ID of the comment
+      type: string
+      example: 982000000567019
+    payment_gateways:
+      description: Payment gateways integrated and supported
+      type: array
+      items:
+        type: object
+        properties:
+          configured:
+            $ref: '#/components/schemas/configured'
+          additional_field1:
+            $ref: '#/components/schemas/additional_field1'
+          gateway_name:
+            $ref: '#/components/schemas/gateway_name'
+    last_payment_date:
+      description: The last payment date of the invoice
+      type: string
+      example: ' '
+    list-invoices-response:
       type: object
       properties:
         code:
@@ -2034,475 +2448,89 @@ components:
           type: string
           example: success
           readOnly: true
-    tax_id:
-      description: ID of the tax or tax group applied to the estimate
-      type: string
-      example: 982000000557028
-    mark-an-invoice-as-sent-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Invoice status has been changed to Sent.
-          readOnly: true
-    to_mail_ids:
-      description: Array of email addresses of the recipients.
-      type: array
-      items:
-        type: string
-      example:
-      - willsmith@bowmanfurniture.com
-    can_send_in_mail:
-      description: To check if attachment can be sent in email
-      type: boolean
-      example: true
-    update-shipping-address-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Shipping address updated
-          readOnly: true
-    shipping_address_id:
-      description: Unique Id generated by the server for address in contacts page. To add a shipping address to invoice, send the address_id using this node. Else, the default shipping address for that contact is used
-      type: string
-      example: 4815000000017005
-    is_viewed_by_client:
-      description: Check if invoice is viewed by client
-      type: boolean
-      example: false
-    created_time:
-      description: The time of creation of the invoices
-      type: string
-      example: '2013-11-18'
-    payment_terms_label:
-      description: Used to override the default payment terms label. Default value for 15 days is "Net 15 Days". Maximum length [100]
-      type: string
-      example: Net 15
+        invoices:
+          type: array
+          items:
+            type: object
+            properties:
+              invoice_id:
+                $ref: '#/components/schemas/invoice_id'
+              ach_payment_initiated:
+                $ref: '#/components/schemas/ach_payment_initiated'
+              customer_name:
+                $ref: '#/components/schemas/customer_name'
+              customer_id:
+                $ref: '#/components/schemas/customer_id'
+              status:
+                $ref: '#/components/schemas/status'
+              invoice_number:
+                $ref: '#/components/schemas/invoice_number'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
+              date:
+                $ref: '#/components/schemas/date'
+              due_date:
+                $ref: '#/components/schemas/due_date'
+              due_days:
+                $ref: '#/components/schemas/due_days'
+              currency_id:
+                $ref: '#/components/schemas/currency_id'
+              schedule_time:
+                $ref: '#/components/schemas/schedule_time'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              is_viewed_by_client:
+                $ref: '#/components/schemas/is_viewed_by_client'
+              has_attachment:
+                $ref: '#/components/schemas/has_attachment'
+              client_viewed_time:
+                $ref: '#/components/schemas/client_viewed_time'
+              total:
+                $ref: '#/components/schemas/total'
+              balance:
+                $ref: '#/components/schemas/balance'
+              created_time:
+                $ref: '#/components/schemas/created_time'
+              last_modified_time:
+                $ref: '#/components/schemas/last_modified_time'
+              is_emailed:
+                $ref: '#/components/schemas/is_emailed'
+              reminders_sent:
+                $ref: '#/components/schemas/reminders_sent'
+              last_reminder_sent_date:
+                $ref: '#/components/schemas/last_reminder_sent_date'
+              payment_expected_date:
+                $ref: '#/components/schemas/payment_expected_date'
+              last_payment_date:
+                $ref: '#/components/schemas/last_payment_date'
+              custom_fields:
+                $ref: '#/components/schemas/custom_fields'
+              documents:
+                $ref: '#/components/schemas/documents'
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              location_name:
+                $ref: '#/components/schemas/location_name'
+              salesperson_id:
+                $ref: '#/components/schemas/salesperson_id'
+              salesperson_name:
+                $ref: '#/components/schemas/salesperson_name'
+              shipping_charge:
+                $ref: '#/components/schemas/shipping_charge'
+              adjustment:
+                $ref: '#/components/schemas/adjustment'
+              write_off_amount:
+                $ref: '#/components/schemas/write_off_amount'
+              exchange_rate:
+                $ref: '#/components/schemas/exchange_rate'
     date:
       description: invoice date. Default date format is yyyy-mm-dd.
       type: string
       example: '2013-11-17'
-    gateways_configured:
-      description: List of payment gateways configured
-      type: boolean
-      example: true
-    contact_persons_associated_payload:
-      description: Contact Persons associated with the invoice.
-      type: array
-      items:
-        type: object
-        properties:
-          contact_person_id:
-            $ref: '#/components/schemas/contact_person_id'
-          communication_preference:
-            $ref: '#/components/schemas/communication_preference'
-    balance:
-      description: The unpaid amount
-      type: string
-      example: 40.6
-    customer_name:
-      description: The name of the customer. Maximum length [100]
-      type: string
-      example: Bowman & Co
-    schedule_time:
-      description: Schedule time for payment
-      type: string
-      example: ''
-    deprecated_placeholders_used:
-      description: List of placeholders used in invoice
-      type: array
-      items:
-        type: string
-      example: []
-    status:
-      description: 'Search invoices by invoice status.Allowed Values: <code>sent</code>, <code>draft</code>, <code>overdue</code>, <code>paid</code>, <code>void</code>, <code>unpaid</code>, <code>partially_paid</code> and <code>viewed</code>'
-      type: string
-      example: draft
-    currency_id:
-      description: The currenct id of the currency
-      type: string
-      example: 982000000000190
-    is_whatsapp_enabled:
-      description: Used to check if WhatsApp communication preference is enabled for the contact person at transaction level.
-      type: boolean
-      example: true
-      x-node_available_in:
-      - WhatsApp integration
-    adjustment:
-      description: Adjustments made to the invoice.
-      type: number
-      format: double
-      example: 0
     customer_id:
       description: ID of the customer the invoice has to be created.
       type: string
       example: 982000000567001
-    attach_pdf:
-      description: check if PDF attachment
-      type: boolean
-      example: true
-    invoiced_estimate_id:
-      description: ID of the invoice from which the invoice is created.
-      type: string
-      example: ' '
-    expense_receipt_name:
-      description: Name of the expense receipt associated
-      type: string
-    fax:
-      description: Customer's fax number.
-      type: string
-      example: +1-925-924-9600
-    void-an-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Invoice status has been changed to Void.
-          readOnly: true
-    notes:
-      description: The notes added below expressing gratitude or for conveying some information.
-      type: string
-      example: Looking forward for your business.
-    cfdi_usage:
-      description: Choose CFDI Usage. Allowed values:</br><code>acquisition_of_merchandise</code>, <code>return_discount_bonus</code>, <code>general_expense</code>, <code>buildings</code>, <code>furniture_office_equipment</code>, <code>transport_equipment</code>, <code>computer_equipmentdye_molds_tools</code>, <code>telephone_communication</code>, <code>satellite_communication</code>, <code>other_machinery_equipment</code>, <code>hospital_expense</code>, <code>medical_expense_disability</code>, <code>funeral_expense</code>, <code>donation</code>, <code>interest_mortage_loans</code>, <code>contribution_sar</code>, <code>medical_expense_insurance_pormium</code>, <code>school_transportation_expense</code>, <code>deposit_saving_account</code>, <code>payment_educational_service</code>, <code>no_tax_effect</code>, <code>payment</code>, <code>payroll</code>.
-      type: string
-      example: acquisition_of_merchandise
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    item_id:
-      description: Unique item id.
-      type: string
-      example: 982000000030049
-    allow_partial_payments:
-      description: Boolean to check if partial payments are allowed for the contact
-      type: boolean
-      example: true
-    communication_preference:
-      description: Preferred modes of communication for the contact person at transaction level.
-      type: object
-      properties:
-        is_email_enabled:
-          $ref: '#/components/schemas/is_email_enabled'
-        is_sms_enabled:
-          $ref: '#/components/schemas/is_sms_enabled'
-        is_whatsapp_enabled:
-          $ref: '#/components/schemas/is_whatsapp_enabled'
-    taxes:
-      description: List of the taxes levied
-      type: array
-      items:
-        type: object
-        properties:
-          tax_name:
-            $ref: '#/components/schemas/tax_name'
-          tax_amount:
-            $ref: '#/components/schemas/tax_amount'
-    shipping_address:
-      description: Shipping address of the contact
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/address'
-        city:
-          $ref: '#/components/schemas/city'
-        state:
-          $ref: '#/components/schemas/state'
-        zip:
-          $ref: '#/components/schemas/zip'
-        country:
-          $ref: '#/components/schemas/country'
-        fax:
-          $ref: '#/components/schemas/fax'
-    item_order:
-      description: The order of the line item_order
-      type: integer
-      example: 1
-    first_name:
-      description: First Name of the Contact Person
-      type: string
-      example: David
-    delete-a-comment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The comment has been deleted.
-          readOnly: true
-    invoice_url:
-      description: Url of invoice as a link
-      type: string
-      example: https://invoice.zoho.com/SecurePayment?CInvoiceID=23d84d0cf64f9a72ea0c66fded25a08c8bafd0ab508aff05323a9f80e2cd03fdc5dd568d3d6407bbda969d3e870d740b6fce549a9438c4ea
-    error_list:
-      description: Error List
-      type: array
-      items:
-        type: string
-      example: []
-    add-attachment-to-an-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your file has been successfully attached to the invoice.
-          readOnly: true
-    name:
-      description: The name of the line item. Maximum length [100]
-      type: string
-      example: Hard Drive
-    tax_percentage:
-      description: The  percentage of tax levied
-      type: number
-      format: float
-      example: 12.5
-    create-an-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The invoice has been created.
-          readOnly: true
-        invoice:
-          $ref: '#/components/schemas/invoice-response'
-    subject:
-      description: The subject of the mail
-      type: string
-      example: 'Invoice from Zillium Inc (Invoice#: INV-00001)'
-    custom_body:
-      description: Customized email content
-      type: string
-      example: ' '
-    unitkey_code:
-      description: Add SAT Unit Key Code for your goods/services. Download the <a href= http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catCFDI_V_4_07122022.xls  >CFDI Catalogs.</a>
-      type: string
-      example: E48
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    file_name_without_extension:
-      description: Name of file included
-      type: string
-      example: INV-000004
-    delete-an-attachment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your file is no longer attached to the invoice.
-          readOnly: true
-    is_email_enabled:
-      description: Used to check if Email communication preference is enabled for the contact person at transaction level.
-      type: boolean
-      example: true
-    description:
-      description: The description of the line items. Maximum length [2000]
-      type: string
-      example: 500GB, USB 2.0 interface 1400 rpm, protective hard case.
-    mapped_items:
-      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
-      type: array
-      items:
-        type: object
-        properties:
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          item_order:
-            $ref: '#/components/schemas/item_order'
-          name:
-            $ref: '#/components/schemas/name'
-          description:
-            $ref: '#/components/schemas/description'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          combo_type:
-            $ref: '#/components/schemas/combo_type'
-          warehouse_id:
-            description: Unique ID of the warehouse from which the mapped item is fulfilled.
-            type: string
-            example: '460000000038080'
-          location_id:
-            $ref: '#/components/schemas/location_id'
-          mapped_items:
-            description: Nested mapped items for kit within kit scenarios.
-            type: array
-            items:
-              type: object
-              properties:
-                item_id:
-                  $ref: '#/components/schemas/item_id'
-                line_item_id:
-                  $ref: '#/components/schemas/line_item_id'
-                item_order:
-                  $ref: '#/components/schemas/item_order'
-                name:
-                  $ref: '#/components/schemas/name'
-                description:
-                  $ref: '#/components/schemas/description'
-                quantity:
-                  $ref: '#/components/schemas/quantity'
-                combo_type:
-                  $ref: '#/components/schemas/combo_type'
-                warehouse_id:
-                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
-                  type: string
-                  example: '460000000038080'
-                location_id:
-                  $ref: '#/components/schemas/location_id'
-    email-an-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your invoice has been sent.
-          readOnly: true
-    reason:
-      description: Description of the attachment
-      type: string
-      example: ' '
-    organization_contact_id:
-      description: ID of the contact's organisation
-      type: string
-      example: '2000000002266'
-    update-shipping-address-request:
-      type: object
-      properties:
-        address:
-          description: Shipping address of the customer
-          type: string
-          example: 4900 Hopyard Rd, Suit 310
-        city:
-          description: City of the contact's shipping address
-          type: string
-          example: Pleasanton
-        state:
-          description: State of the Contact's shipping address
-          type: string
-          example: CA
-        zip:
-          description: ZIP code of the contact's shipping address
-          type: string
-          example: 945881
-        country:
-          description: Contact's country for the given shipping address
-          type: string
-          example: USA
-        fax:
-          description: FAX number of the contact
-          type: string
-          example: +1-925-924-9600
-    is_discount_before_tax:
-      description: Check if discount is exclusive of tax
-      type: boolean
-      example: true
-    item_custom_fields:
-      type: array
-      description: List of custom fields associated with the line item
-      items:
-        type: object
-        properties:
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    disable-payment-reminder-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Reminders stopped.
-          readOnly: true
-    delete-a-payment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The payment has been deleted.
-          readOnly: true
-    add-comment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Comments added.
-          readOnly: true
-    shipping_charge:
-      description: Shipping charges applied to the invoice. Maximum length [100]
-      type: string
-      example: 0
-    combo_type:
-      description: Type of the composite item. Allowed values are <code>assembly</code> and <code>kit</code>.
-      type: string
-      example: kit
-    tax_type:
-      description: The type of the tax
-      type: string
-      example: tax
-    time_entry_ids:
-      description: Unique ID's of all the time entries associated to the linked project
-      type: string
-      example: ' '
-    online_transaction_id:
-      description: Unique ID of an online transaction
-      type: string
-      example: ''
-    update-invoice-template-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Invoice information has been updated.
-          readOnly: true
     list-invoice-payments-response:
       type: object
       properties:
@@ -2571,232 +2599,47 @@ components:
                 description: To check if payment is single
                 type: boolean
                 example: true
-    mapped_items_update:
-      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
-      type: array
-      items:
-        type: object
-        properties:
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          line_item_id:
-            $ref: '#/components/schemas/line_item_id'
-          salesorder_item_id:
-            $ref: '#/components/schemas/salesorder_item_id'
-          item_order:
-            $ref: '#/components/schemas/item_order'
-          name:
-            $ref: '#/components/schemas/name'
-          description:
-            $ref: '#/components/schemas/description'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          warehouse_id:
-            description: Unique ID of the warehouse from which the mapped item is fulfilled.
-            type: string
-            example: '460000000038080'
-          location_id:
-            $ref: '#/components/schemas/location_id'
-          mapped_items:
-            description: Nested mapped items for kit within kit scenarios.
-            type: array
-            items:
-              type: object
-              properties:
-                item_id:
-                  $ref: '#/components/schemas/item_id'
-                line_item_id:
-                  $ref: '#/components/schemas/line_item_id'
-                salesorder_item_id:
-                  $ref: '#/components/schemas/salesorder_item_id'
-                item_order:
-                  $ref: '#/components/schemas/item_order'
-                name:
-                  $ref: '#/components/schemas/name'
-                description:
-                  $ref: '#/components/schemas/description'
-                quantity:
-                  $ref: '#/components/schemas/quantity'
-                warehouse_id:
-                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
-                  type: string
-                  example: '460000000038080'
-                location_id:
-                  $ref: '#/components/schemas/location_id'
-    update-a-comment-request:
+    tds_tax_id:
+      description: ID of the TDS tax.
+      type: string
+      example: 982000000557012
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    apply-credits-request:
       type: object
       properties:
-        description:
-          description: The description of the comment.
-          type: string
-          example: This is a comment.
-        show_comment_to_clients:
-          $ref: '#/components/schemas/show_comment_to_clients'
-    ach_payment_initiated:
-      description: To check initiation of ACH Payment
-      type: boolean
-      example: false
-    list-invoice-comments-and-history-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        comments:
-          description: Comments made
+        invoice_payments:
+          description: Invoice payment list
           type: array
           items:
             type: object
             properties:
-              comment_id:
-                description: The ID of the comment
+              payment_id:
+                description: ID of the payment from which credit has to be applied.
                 type: string
-                example: 982000000567019
-              invoice_id:
-                $ref: '#/components/schemas/invoice_id'
-              description:
-                $ref: '#/components/schemas/description'
-              commented_by_id:
-                description: ID of comment made
+                example: 460000000031003
+              amount_applied:
+                description: Amount applied to the invoice.
+                type: number
+                format: float
+                example: 15
+        apply_creditnotes:
+          description: Apply existing credit note of a customer against the invoice
+          type: array
+          items:
+            type: object
+            properties:
+              creditnote_id:
+                description: ID of the credit note from which credit has to be applied.
                 type: string
-                example: 982000000554041
-              commented_by:
-                description: User who added comment
-                type: string
-                example: John David
-              comment_type:
-                description: type of comment made
-                type: string
-                example: system
-              operation_type:
-                description: Tyoe of operation done on invoice
-                type: string
-                example: Added
-              date:
-                description: Date of transaction
-                type: string
-                example: '2013-11-18'
-              date_description:
-                description: Date of description
-                type: string
-                example: yesterday
-              time:
-                description: Time of comment
-                type: string
-                example: 2:38 AM
-              transaction_id:
-                description: Unique ID of transaction made
-                type: string
-                example: '982000000567204'
-              transaction_type:
-                description: Type of transaction
-                type: string
-                example: invoice
-    custom_subject:
-      description: Customized Subject line
-      type: string
-      example: ' '
-    city:
-      description: City of the customer's billing address.
-      type: string
-      example: Pleasanton
-    label:
-      description: The label of the custom field.
-      type: string
-      example: Delivery Date
-    reference_number:
-      description: The reference number of the invoice
-      type: string
-      example: ' '
-    last_payment_date:
-      description: The last payment date of the invoice
-      type: string
-      example: ' '
-    payment_terms:
-      description: Payment terms in days e.g. 15, 30, 60. Invoice due date will be calculated based on this. Maximum length [100]
-      type: integer
-      example: 15
-    mobile:
-      description: Mobile Number of the Contact Person
-      type: string
-      example: +1-4054439562
-    credited_date:
-      description: The date of credit
-      type: string
-      example: '2013-11-18'
-    is_org_email_id:
-      description: To check if the email ID belongs to the organisation
-      type: boolean
-      example: true
-    customfield_id:
-      type: string
-      description: Unique ID of the custom field.
-    update-billing-address-request:
-      type: object
-      properties:
-        address:
-          description: Billing address of the customer
-          type: string
-          example: "B-1104, 11F, \nHorizon International Tower, \nNo. 6, ZhiChun Road, HaiDian District"
-        city:
-          description: City of the customer's billing address
-          type: string
-          example: Beijing
-        state:
-          description: State of the customer's billing address
-          type: string
-          example: Beijing
-        zip:
-          description: ZIP code of the contact's billing address
-          type: string
-          example: 1000881
-        country:
-          description: Country of the contact's billing address
-          type: string
-        fax:
-          description: FAX number of the customer
-          type: string
-          example: +86-10-82637827
-    tax_name:
-      description: The name of the tax
-      type: string
-      example: VAT
-    invoice_id:
-      description: The ID of the invoice
-      type: string
-      example: 982000000567114
-    line_item_id:
-      description: The line item ID
-      type: string
-      example: 982000000567021
-    payment_gateways:
-      description: Payment gateways integrated and supported
-      type: array
-      items:
-        type: object
-        properties:
-          configured:
-            $ref: '#/components/schemas/configured'
-          additional_field1:
-            $ref: '#/components/schemas/additional_field1'
-          gateway_name:
-            $ref: '#/components/schemas/gateway_name'
-    avatax_use_code:
-      description: Used to group like customers for exemption purposes. It is a custom value that links customers to a tax rule. Select from Avalara [standard codes][1] or enter a custom code. Maximum length [25]
-      type: string
-      x-node_available_in:
-      - Avalara Integration
-      x-node_unavailable_in: []
-    documents:
-      description: Documents send along with invoice
-      type: string
-      example: ''
-    get-an-invoice-attachment-response:
+                example: 460000000029003
+              amount_applied:
+                description: Amount applied to the invoice.
+                type: number
+                format: float
+                example: 22.5
+    mark-an-invoice-as-sent-response:
       type: object
       properties:
         code:
@@ -2805,47 +2648,8 @@ components:
           readOnly: true
         message:
           type: string
-          example: success
+          example: Invoice status has been changed to Sent.
           readOnly: true
-    is_combo_product:
-      description: Indicates whether the line item is a composite product.
-      type: boolean
-      example: true
-    payment_reminder_enabled:
-      description: Boolean to check if reminders have been enabled
-      type: boolean
-      example: true
-    creditnotes_number:
-      description: The creditnotes Number
-      type: string
-      example: CN-00001
-    billing_address:
-      description: Billing address of the contact
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/address'
-        city:
-          $ref: '#/components/schemas/city'
-        state:
-          $ref: '#/components/schemas/state'
-        zip:
-          $ref: '#/components/schemas/zip'
-        country:
-          $ref: '#/components/schemas/country'
-        fax:
-          $ref: '#/components/schemas/fax'
-    tax_amount_withheld:
-      description: The tax amount which has been withheld
-      type: number
-      format: float
-      example: 0
-    vat_treatment:
-      description: VAT treatment for the invoice. VAT treatment denotes the location of the customer, if the customer resides in UK then the VAT treatment is <code>uk</code>. If the customer is in an EU country & VAT registered, you are resides in Northen Ireland and selling Goods then his VAT treatment is <code>eu_vat_registered</code> and if he resides outside the EU then his VAT treatment is <code> overseas </code>(For Pre Brexit, this can be split as <code>eu_vat_registered</code>, <code>eu_vat_not_registered</code> and <code>non_eu</code>).
-      type: string
-      x-node_available_in:
-      - uk
-      x-node_unavailable_in: []
     reference_invoice_id:
       description: Associate the reference invoice.
       type: string
@@ -2853,127 +2657,6 @@ components:
       x-node_available_in:
       - mx
       x-node_unavailable_in: []
-    email-an-invoice-request:
-      required:
-      - to_mail_ids
-      type: object
-      properties:
-        send_from_org_email_id:
-          $ref: '#/components/schemas/send_from_org_email_id'
-        to_mail_ids:
-          $ref: '#/components/schemas/to_mail_ids'
-        cc_mail_ids:
-          $ref: '#/components/schemas/cc_mail_ids'
-        subject:
-          $ref: '#/components/schemas/subject'
-        body:
-          $ref: '#/components/schemas/body'
-    invoice_number:
-      description: An unique number given to the invoice. Maximum length [100]
-      type: string
-      example: INV-00003
-    from_address:
-      description: Sender's email address
-      type: string
-      example: ''
-    show_on_pdf:
-      description: Boolean value to check if the custom field is to be dispplayed on the pdf.
-      type: boolean
-      example: false
-    mapped_items_create:
-      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
-      type: array
-      items:
-        type: object
-        properties:
-          item_id:
-            $ref: '#/components/schemas/item_id'
-          salesorder_item_id:
-            $ref: '#/components/schemas/salesorder_item_id'
-          item_order:
-            $ref: '#/components/schemas/item_order'
-          name:
-            $ref: '#/components/schemas/name'
-          description:
-            $ref: '#/components/schemas/description'
-          quantity:
-            $ref: '#/components/schemas/quantity'
-          warehouse_id:
-            description: Unique ID of the warehouse from which the mapped item is fulfilled.
-            type: string
-            example: '460000000038080'
-          location_id:
-            $ref: '#/components/schemas/location_id'
-          mapped_items:
-            description: Nested mapped items for kit within kit scenarios.
-            type: array
-            items:
-              type: object
-              properties:
-                item_id:
-                  $ref: '#/components/schemas/item_id'
-                salesorder_item_id:
-                  $ref: '#/components/schemas/salesorder_item_id'
-                item_order:
-                  $ref: '#/components/schemas/item_order'
-                name:
-                  $ref: '#/components/schemas/name'
-                description:
-                  $ref: '#/components/schemas/description'
-                quantity:
-                  $ref: '#/components/schemas/quantity'
-                warehouse_id:
-                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
-                  type: string
-                  example: '460000000038080'
-                location_id:
-                  $ref: '#/components/schemas/location_id'
-    last_modified_time:
-      description: Date of last modification of the invoice
-      type: string
-      example: '2013-11-18'
-    bcy_rate:
-      description: base currency rate
-      type: number
-      format: float
-      example: 120
-    contact_persons_associated:
-      description: Contact Persons associated with the invoice.
-      type: array
-      items:
-        type: object
-        properties:
-          contact_person_id:
-            $ref: '#/components/schemas/contact_person_id'
-          contact_person_name:
-            $ref: '#/components/schemas/contact_person_name'
-          first_name:
-            $ref: '#/components/schemas/first_name'
-          last_name:
-            $ref: '#/components/schemas/last_name'
-          contact_person_email:
-            $ref: '#/components/schemas/contact_person_email'
-          phone:
-            $ref: '#/components/schemas/phone'
-          mobile:
-            $ref: '#/components/schemas/mobile'
-          communication_preference:
-            $ref: '#/components/schemas/communication_preference'
-    bcc_mails_str:
-      description: Bcc mails content
-      type: string
-      example: ''
-    mark-as-draft-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Status of invoice changed from void to draft
-          readOnly: true
     create-a-comment-request:
       type: object
       properties:
@@ -2985,17 +2668,31 @@ components:
           $ref: '#/components/schemas/payment_expected_date'
         show_comment_to_clients:
           $ref: '#/components/schemas/show_comment_to_clients'
-    bulk-export-invoices-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
+    last_modified_time:
+      description: Date of last modification of the invoice
+      type: string
+      example: '2013-11-18'
+    exchange_rate:
+      description: Exchange rate of the currency.
+      type: number
+      format: float
+      example: 1
+    is_viewed_by_client:
+      description: Check if invoice is viewed by client
+      type: boolean
+      example: false
+    currency_id:
+      description: The currenct id of the currency
+      type: string
+      example: 982000000000190
+    creditnotes_number:
+      description: The creditnotes Number
+      type: string
+      example: CN-00001
+    item_order:
+      description: The order of the line item_order
+      type: integer
+      example: 1
     get-an-invoice-response:
       type: object
       properties:
@@ -3208,53 +2905,25 @@ components:
               $ref: '#/components/schemas/cfdi_usage'
             tax_treatment:
               $ref: '#/components/schemas/tax_treatment'
-    is_inclusive_tax:
-      description: To check if discount is inclusive of tax
-      type: boolean
-      example: false
-    location_name:
-      description: Name of the location
-      type: string
-    discount_amount:
-      description: The discount amount on the line item
+    quantity:
+      description: The quantity of line item
       type: number
       format: float
-      example: 0
-    last_reminder_sent_date:
-      description: The date the last email was sent
+      example: 1
+    deprecated_placeholders_used:
+      description: List of placeholders used in invoice
+      type: array
+      items:
+        type: string
+      example: []
+    description:
+      description: The description of the line items. Maximum length [2000]
       type: string
-      example: ' '
-    gateway_name:
-      description: 'Name of the payment gateway associated with the invoice. E.g. paypal, stripe.Allowed Values: <code>paypal</code>, <code>authorize_net</code>, <code>payflow_pro</code>, <code>stripe</code>, <code>2checkout</code> and <code>braintree</code>'
+      example: 500GB, USB 2.0 interface 1400 rpm, protective hard case.
+    body:
+      description: The body/content of the mail
       type: string
-      example: paypal
-    cc_mails_str:
-      description: Mail recepients who need to be CC'd
-      type: string
-      example: ''
-    show_comment_to_clients:
-      description: Boolean to check if the comment to be shown to the clients
-      type: boolean
-      example: true
-    creditnote_id:
-      description: The ID of creditnote
-      type: string
-      example: 982000000567134
-    cancel-write-off-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The write off done for this invoice has been cancelled.
-          readOnly: true
-    contact_person_id:
-      description: Unique ID of the Contact Person
-      type: string
-      example: 982000000567003
+      example: 'Dear Customer,         <br><br><br><br>Thanks for your business.         <br><br><br><br>The invoice INV-00001 is attached with this email. You can choose the easy way out and <a href= https://invoice.zoho.com/SecurePayment?CInvoiceID=b9800228e011ae86abe71227bdacb3c68e1af685f647dcaed747812e0b9314635e55ac6223925675b371fcbd2d5ae3dc  >pay online for this invoice.</a>         <br><br>Here''s an overview of the invoice for your reference.         <br><br><br><br>Invoice Overview:         <br><br>Invoice  : INV-00001         <br><br>Date : 05 Aug 2013         <br><br>Amount : $541.82         <br><br><br><br>It was great working with you. Looking forward to working with you again.<br><br><br>\nRegards<br>\nZillium Inc<br>\n",'
     custom_fields_update:
       description: Custom fields for an invoice.
       type: array
@@ -3267,7 +2936,16 @@ components:
             example: '46000000012845'
           value:
             $ref: '#/components/schemas/value'
-    list-invoices-response:
+    update-a-comment-request:
+      type: object
+      properties:
+        description:
+          description: The description of the comment.
+          type: string
+          example: This is a comment.
+        show_comment_to_clients:
+          $ref: '#/components/schemas/show_comment_to_clients'
+    list-invoice-comments-and-history-response:
       type: object
       properties:
         code:
@@ -3278,85 +2956,411 @@ components:
           type: string
           example: success
           readOnly: true
-        invoices:
+        comments:
+          description: Comments made
           type: array
           items:
             type: object
             properties:
+              comment_id:
+                description: The ID of the comment
+                type: string
+                example: 982000000567019
               invoice_id:
                 $ref: '#/components/schemas/invoice_id'
-              ach_payment_initiated:
-                $ref: '#/components/schemas/ach_payment_initiated'
-              customer_name:
-                $ref: '#/components/schemas/customer_name'
-              customer_id:
-                $ref: '#/components/schemas/customer_id'
-              status:
-                $ref: '#/components/schemas/status'
-              invoice_number:
-                $ref: '#/components/schemas/invoice_number'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
+              description:
+                $ref: '#/components/schemas/description'
+              commented_by_id:
+                description: ID of comment made
+                type: string
+                example: 982000000554041
+              commented_by:
+                description: User who added comment
+                type: string
+                example: John David
+              comment_type:
+                description: type of comment made
+                type: string
+                example: system
+              operation_type:
+                description: Tyoe of operation done on invoice
+                type: string
+                example: Added
               date:
-                $ref: '#/components/schemas/date'
-              due_date:
-                $ref: '#/components/schemas/due_date'
-              due_days:
-                $ref: '#/components/schemas/due_days'
-              currency_id:
-                $ref: '#/components/schemas/currency_id'
-              schedule_time:
-                $ref: '#/components/schemas/schedule_time'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              is_viewed_by_client:
-                $ref: '#/components/schemas/is_viewed_by_client'
-              has_attachment:
-                $ref: '#/components/schemas/has_attachment'
-              client_viewed_time:
-                $ref: '#/components/schemas/client_viewed_time'
-              total:
-                $ref: '#/components/schemas/total'
-              balance:
-                $ref: '#/components/schemas/balance'
-              created_time:
-                $ref: '#/components/schemas/created_time'
-              last_modified_time:
-                $ref: '#/components/schemas/last_modified_time'
-              is_emailed:
-                $ref: '#/components/schemas/is_emailed'
-              reminders_sent:
-                $ref: '#/components/schemas/reminders_sent'
-              last_reminder_sent_date:
-                $ref: '#/components/schemas/last_reminder_sent_date'
-              payment_expected_date:
-                $ref: '#/components/schemas/payment_expected_date'
-              last_payment_date:
-                $ref: '#/components/schemas/last_payment_date'
-              custom_fields:
-                $ref: '#/components/schemas/custom_fields'
-              documents:
-                $ref: '#/components/schemas/documents'
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              location_name:
-                $ref: '#/components/schemas/location_name'
-              salesperson_id:
-                $ref: '#/components/schemas/salesperson_id'
-              salesperson_name:
-                $ref: '#/components/schemas/salesperson_name'
-              shipping_charge:
-                $ref: '#/components/schemas/shipping_charge'
-              adjustment:
-                $ref: '#/components/schemas/adjustment'
-              write_off_amount:
-                $ref: '#/components/schemas/write_off_amount'
-              exchange_rate:
-                $ref: '#/components/schemas/exchange_rate'
-    entity_id:
-      description: Unique ID of the entity associated
+                description: Date of transaction
+                type: string
+                example: '2013-11-18'
+              date_description:
+                description: Date of description
+                type: string
+                example: yesterday
+              time:
+                description: Time of comment
+                type: string
+                example: 2:38 AM
+              transaction_id:
+                description: Unique ID of transaction made
+                type: string
+                example: '982000000567204'
+              transaction_type:
+                description: Type of transaction
+                type: string
+                example: invoice
+    total:
+      description: The total amount to be paid
       type: string
-      example: '2000000007037'
+      example: 40.6
+    update-billing-address-request:
+      type: object
+      properties:
+        address:
+          description: Billing address of the customer
+          type: string
+          example: "B-1104, 11F, \nHorizon International Tower, \nNo. 6, ZhiChun Road, HaiDian District"
+        city:
+          description: City of the customer's billing address
+          type: string
+          example: Beijing
+        state:
+          description: State of the customer's billing address
+          type: string
+          example: Beijing
+        zip:
+          description: ZIP code of the contact's billing address
+          type: string
+          example: 1000881
+        country:
+          description: Country of the contact's billing address
+          type: string
+        fax:
+          description: FAX number of the customer
+          type: string
+          example: +86-10-82637827
+    gateways_associated:
+      description: List of Payment gateways associated
+      type: boolean
+      example: true
+    is_combo_product:
+      description: Indicates whether the line item is a composite product.
+      type: boolean
+      example: true
+    enable-payment-reminder-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Reminders enabled.
+          readOnly: true
+    payment_made:
+      description: The amount paid
+      type: number
+      format: float
+      example: 26.91
+    project_id:
+      description: Unique ID of the projet associated to an invoice
+      type: string
+      example: ' '
+    update-invoice-template-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Invoice information has been updated.
+          readOnly: true
+    label:
+      description: The label of the custom field.
+      type: string
+      example: Delivery Date
+    name:
+      description: The name of the line item. Maximum length [100]
+      type: string
+      example: Hard Drive
+    user_name:
+      description: User name of the contact
+      type: string
+      example: David John
+    create-an-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The invoice has been created.
+          readOnly: true
+        invoice:
+          $ref: '#/components/schemas/invoice-response'
+    reminders_sent:
+      description: The number of reminders sent
+      type: integer
+      example: 1
+    customfield_id:
+      type: string
+      description: Unique ID of the custom field.
+    update-shipping-address-request:
+      type: object
+      properties:
+        address:
+          description: Shipping address of the customer
+          type: string
+          example: 4900 Hopyard Rd, Suit 310
+        city:
+          description: City of the contact's shipping address
+          type: string
+          example: Pleasanton
+        state:
+          description: State of the Contact's shipping address
+          type: string
+          example: CA
+        zip:
+          description: ZIP code of the contact's shipping address
+          type: string
+          example: 945881
+        country:
+          description: Contact's country for the given shipping address
+          type: string
+          example: USA
+        fax:
+          description: FAX number of the contact
+          type: string
+          example: +1-925-924-9600
+    batches:
+      description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - batch_id
+        - out_quantity
+        properties:
+          batch_id:
+            description: Unique identifier of an existing batch.
+            type: string
+            example: '6780203000000214019'
+          out_quantity:
+            description: Quantity removed from the batch.
+            type: number
+            format: float
+            example: 2
+          storages:
+            description: Bin/storage locations from which stock was issued for this batch.
+            type: array
+            x-node_available_in:
+            - Batch with Bin tracked items
+            items:
+              type: object
+              required:
+              - storage_id
+              - out_quantity
+              properties:
+                storage_id:
+                  description: Unique identifier of the bin/storage location.
+                  type: string
+                  example: '6780203000000093226'
+                out_quantity:
+                  description: Quantity removed from the bin.
+                  type: number
+                  format: float
+                  example: 2
+    invoice_id:
+      description: The ID of the invoice
+      type: string
+      example: 982000000567114
+    add-attachment-to-an-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your file has been successfully attached to the invoice.
+          readOnly: true
+    gst_treatment:
+      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
+      type: string
+      example: business_gst
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    mobile:
+      description: Mobile Number of the Contact Person
+      type: string
+      example: +1-4054439562
+    email-invoices-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Mission accomplished! We've sent all the invoices.
+          readOnly: true
+    update-shipping-address-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Shipping address updated
+          readOnly: true
+    salesperson_id:
+      description: ID of the salesperson linked to invoice
+      type: string
+      example: ' '
+    file_name:
+      description: Name of the file attached
+      type: string
+      example: INV-00001.pdf
+    template_name:
+      description: Name of the invoice template used
+      type: string
+      example: Service - Classic
+    bulk-print-invoices-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+    notes:
+      description: The notes added below expressing gratitude or for conveying some information.
+      type: string
+      example: Looking forward for your business.
+    tax_exemption_id:
+      description: ID of the tax exemption.
+      type: string
+      example: 11149000000061054
+      x-node_available_in:
+      - us
+      - in
+      x-node_unavailable_in: []
+    can_send_in_mail:
+      description: To check if attachment can be sent in email
+      type: boolean
+      example: true
+    serial_numbers:
+      description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
+      type: array
+      items:
+        type: string
+        example: ARMP-0078
+    custom_subject:
+      description: Customized Subject line
+      type: string
+      example: ' '
+    contact_persons_associated_payload:
+      description: Contact Persons associated with the invoice.
+      type: array
+      items:
+        type: object
+        properties:
+          contact_person_id:
+            $ref: '#/components/schemas/contact_person_id'
+          communication_preference:
+            $ref: '#/components/schemas/communication_preference'
+    email-an-invoice-request:
+      required:
+      - to_mail_ids
+      type: object
+      properties:
+        send_from_org_email_id:
+          $ref: '#/components/schemas/send_from_org_email_id'
+        to_mail_ids:
+          $ref: '#/components/schemas/to_mail_ids'
+        cc_mail_ids:
+          $ref: '#/components/schemas/cc_mail_ids'
+        subject:
+          $ref: '#/components/schemas/subject'
+        body:
+          $ref: '#/components/schemas/body'
+    city:
+      description: City of the customer's billing address.
+      type: string
+      example: Pleasanton
+    is_discount_before_tax:
+      description: Check if discount is exclusive of tax
+      type: boolean
+      example: true
+    get-an-invoice-attachment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+    delete-applied-credit-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Credits applied to an invoice have been deleted.
+          readOnly: true
+    payment_options:
+      description: Payment options available for payment
+      type: object
+      properties:
+        payment_gateways:
+          $ref: '#/components/schemas/payment_gateways'
+    additional_field1:
+      description: 'Paypal payment method. Allowed Values: <code>standard</code> and <code>adaptive</code>'
+      type: string
+      example: standard
+    time:
+      description: Time of the comment
+      type: string
+      example: 2:02 AM
+    tax_name:
+      description: The name of the tax
+      type: string
+      example: VAT
+    tax_id:
+      description: ID of the tax or tax group applied to the estimate
+      type: string
+      example: 982000000557028
+    file_name_without_extension:
+      description: Name of file included
+      type: string
+      example: INV-000004
+    void-an-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Invoice status has been changed to Void.
+          readOnly: true
     get-invoice-email-content-response:
       type: object
       properties:
@@ -3480,301 +3484,18 @@ components:
                     $ref: '#/components/schemas/is_org_email_id'
             customer_id:
               $ref: '#/components/schemas/customer_id'
-    is_pre_gst:
-      description: Applicable for transactions that fall before july 1, 2017
-      type: boolean
-      example: false
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    template_id:
-      description: ID of the pdf template associated with the invoice.
+    date_description:
+      description: Number of days since the comment was made
       type: string
-      example: 982000000000143
-    rate:
-      description: Rate of the line item.
-      type: number
-      format: double
-      example: 120
-    currency_code:
-      description: The currency code in which the invoice is created.
-      type: string
-      example: USD
-    tax_authority_id:
-      description: ID of the tax authority. Tax authority depends on the location of the customer. For example, if the customer is located in NY, then the tax authority is NY tax authority.
-      type: string
-      example: 11149000000061052
-      x-node_available_in:
-      - us
-      x-node_unavailable_in: []
-    place_of_supply:
-      description: Place where the goods/services are supplied to. (If not given, <code>place of contact</code> given for the contact will be taken)
-      type: string
-      example: TN
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    address:
-      description: Billing address for the invoice
-      type: string
-      example: 4900 Hopyard Rd, Suite 310
-    avatax_exempt_no:
-      description: Exemption certificate number of the customer. Maximum length [25]
-      type: string
-      x-node_available_in:
-      - Avalara Integration
-      x-node_unavailable_in: []
-    comment_id:
-      description: The ID of the comment
-      type: string
-      example: 982000000567019
-    sub_total:
-      description: The sub total of the all items
-      type: number
-      format: float
-      example: 153
-    list-invoice-templates-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        templates:
-          description: Temlpates used
-          type: array
-          items:
-            type: object
-            properties:
-              template_name:
-                $ref: '#/components/schemas/template_name'
-              template_id:
-                $ref: '#/components/schemas/template_id'
-              template_type:
-                $ref: '#/components/schemas/template_type'
-    tax_total:
-      description: The total amount of the tax levied
-      type: number
-      format: double
-      example: 22.6
-    hsn_or_sac:
-      description: Add HSN/SAC code for your goods/services
-      type: string
-      example: 80540
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    discount_type:
-      description: Type of discount. Allowed values are <code>entity_level</code>,<code>item_level</code>. For entity_level type, discount is applied at entity level and the node <code>discount</code> resides outside the <code>line_items</code> node.For item_level type, discount is applied at item level and the node <code>discount</code> resides inside each line_item under the <code>line_items</code> node.
-      type: string
-      example: item_level
-    creditnotes_invoice_id:
-      description: The creditnotes invoice ID
-      type: string
-      example: '982000000567172'
+      example: yesterday
     location_id:
       description: Location ID
       type: string
       example: '460000000038080'
-    cfdi_reference_type:
-      description: Choose CFDI Reference Type. Allowed values:</br><code>return_of_merchandise</code>, <code>substitution_previous_cfdi</code>, <code>transfer_of_goods</code>, <code>invoice_generated_from_order</code>, <code>cfdi_for_advance</code>.
+    gateway_name:
+      description: 'Name of the payment gateway associated with the invoice. E.g. paypal, stripe.Allowed Values: <code>paypal</code>, <code>authorize_net</code>, <code>payflow_pro</code>, <code>stripe</code>, <code>2checkout</code> and <code>braintree</code>'
       type: string
-      example: return_of_merchandise
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    has_attachment:
-      description: To check if invoice has an attachment
-      type: boolean
-      example: false
-    credits_applied:
-      description: The credits applied
-      type: number
-      format: float
-      example: 22.43
-    email:
-      description: contact's email id. Maximum length [100]
-      type: string
-      example: willsmith@bowmanfurniture.com
-    enable-payment-reminder-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Reminders enabled.
-          readOnly: true
-    discount:
-      description: Discount applied to the invoice, which can be either a percentage or a flat amount. For percentage discounts, the value should include the % symbol (e.g., 10%). For example, on Rs.1000, a 10% discount results in Rs.900, while a flat Rs.200 discount results in Rs.800. Maximum length [100]
-      type: number
-      format: float
-      example: 0
-    price_precision:
-      description: The precision value on the price
-      type: integer
-      example: 2
-    cc_mail_ids:
-      description: Array of email addresses of the recipients to be CC'd.
-      type: array
-      items:
-        type: string
-      example:
-      - peterparker@bowmanfurniture.com
-    country:
-      description: Country of the customer's billing address.
-      type: string
-      example: U.S.A
-    state:
-      description: State of the customer's billing address.
-      type: string
-      example: CA
-    email-invoices-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Mission accomplished! We've sent all the invoices.
-          readOnly: true
-    get-payment-reminder-mail-content-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        data:
-          description: Date of the email
-          type: object
-          properties:
-            bcc_mails:
-              $ref: '#/components/schemas/bcc_mails'
-            gateways_configured:
-              $ref: '#/components/schemas/gateways_configured'
-            gateways_associated:
-              $ref: '#/components/schemas/gateways_associated'
-            bcc_mails_str:
-              $ref: '#/components/schemas/bcc_mails_str'
-            body:
-              description: content of email sent
-              type: string
-              example: '<br>Dear Mr. John,&nbsp;<br><br>You might have missed the payment date and the invoice is now overdue by&nbsp;1&nbsp;days.<br><br>----------------------------------------------------------------------------------------<br><h2>Invoice# : INV-000004 </h2>Dated : 23 Dec 2016<br>----------------------------------------------------------------------------------------<br><b>&nbsp;Due Date &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp;&nbsp;23 Dec 2016</b><br><b>&nbsp;Amount &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp;&nbsp;$139.65</b><br>----------------------------------------------------------------------------------------<br><br><span>Not to worry at all !&nbsp;</span>View your invoice and take the easy way out by making an&nbsp;<a href="https://invoice.zoho.com/portal/Zillium Inc/index#/invoices/invoice/2000000007037 ">online payment</a>.<br><br>If you have already paid, please accept our apologies and kindly ignore this payment reminder.<br><br><br>Regards,<br><br>David John<br>Zillium Inc<br><br><br>'
-            documents:
-              $ref: '#/components/schemas/documents'
-            customer_name:
-              $ref: '#/components/schemas/customer_name'
-            attach_pdf:
-              $ref: '#/components/schemas/attach_pdf'
-            entity_id:
-              $ref: '#/components/schemas/entity_id'
-            cc_mails_list:
-              description: CC'd mail recepients
-              type: array
-              items:
-                type: object
-                properties:
-                  user_name:
-                    $ref: '#/components/schemas/user_name'
-                  email:
-                    $ref: '#/components/schemas/email'
-            file_name_without_extension:
-              $ref: '#/components/schemas/file_name_without_extension'
-            to_mails_str:
-              $ref: '#/components/schemas/to_mails_str'
-            cc_mails_str:
-              $ref: '#/components/schemas/cc_mails_str'
-            from_email:
-              $ref: '#/components/schemas/from_email'
-            from_address:
-              $ref: '#/components/schemas/from_address'
-            deprecated_placeholders_used:
-              $ref: '#/components/schemas/deprecated_placeholders_used'
-            error_list:
-              $ref: '#/components/schemas/error_list'
-            subject:
-              $ref: '#/components/schemas/subject'
-            emailtemplates:
-              description: Email templates used
-              type: array
-              items:
-                type: object
-                properties:
-                  selected:
-                    description: Selected or not
-                    type: boolean
-                    example: true
-                  name:
-                    description: Name of the sender
-                    type: string
-                    example: Default
-                  email_template_id:
-                    description: ID of the email template used
-                    type: string
-                    example: '982000000000067'
-            emailtemplate_documents:
-              $ref: '#/components/schemas/emailtemplate_documents'
-            to_contacts:
-              description: Recepienyts pf the mail
-              type: array
-              items:
-                type: object
-                properties:
-                  first_name:
-                    $ref: '#/components/schemas/first_name'
-                  selected:
-                    $ref: '#/components/schemas/selected'
-                  phone:
-                    $ref: '#/components/schemas/phone'
-                  email:
-                    $ref: '#/components/schemas/email'
-                  last_name:
-                    $ref: '#/components/schemas/last_name'
-                  salutation:
-                    $ref: '#/components/schemas/salutation'
-                  contact_person_id:
-                    $ref: '#/components/schemas/contact_person_id'
-                  mobile:
-                    $ref: '#/components/schemas/mobile'
-            attachment_name:
-              $ref: '#/components/schemas/attachment_name'
-            file_name:
-              $ref: '#/components/schemas/file_name'
-            from_emails:
-              description: senders email address
-              type: array
-              items:
-                type: object
-                properties:
-                  user_name:
-                    $ref: '#/components/schemas/user_name'
-                  selected:
-                    $ref: '#/components/schemas/selected'
-                  email:
-                    $ref: '#/components/schemas/email'
-                  organization_contact_id:
-                    $ref: '#/components/schemas/organization_contact_id'
-                  is_org_email_id:
-                    $ref: '#/components/schemas/is_org_email_id'
-            customer_id:
-              $ref: '#/components/schemas/customer_id'
-    comment_type:
-      description: Type of the comment
-      type: string
-      example: system
+      example: paypal
     update-an-invoice-request:
       required:
       - customer_id
@@ -3935,40 +3656,28 @@ components:
           $ref: '#/components/schemas/cfdi_reference_type'
         reference_invoice_id:
           $ref: '#/components/schemas/reference_invoice_id'
-    storages-update:
-      description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - storage_id
-        - out_quantity
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093225'
-          out_quantity:
-            description: Quantity removed from the bin.
-            type: number
-            format: float
-            example: 2
-          storage_out_id:
-            description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
-            type: string
-            example: '6780203000000997440'
-          serial_numbers:
-            description: Serial numbers allocated to this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: PKG-011
-    recurring_invoice_id:
-      description: ID of the recurring invoice from which the invoice is created.
+    currency_code:
+      description: The currency code in which the invoice is created.
+      type: string
+      example: USD
+    location_name:
+      description: Name of the location
+      type: string
+    expense_receipt_name:
+      description: Name of the expense receipt associated
+      type: string
+    time_entry_ids:
+      description: Unique ID's of all the time entries associated to the linked project
       type: string
       example: ' '
+    line_item_id:
+      description: The line item ID
+      type: string
+      example: 982000000567021
+    creditnote_id:
+      description: The ID of creditnote
+      type: string
+      example: 982000000567134
     update-comment-response:
       type: object
       properties:
@@ -3998,80 +3707,100 @@ components:
           $ref: '#/components/schemas/time'
         comment_type:
           $ref: '#/components/schemas/comment_type'
-    template_name:
-      description: Name of the invoice template used
-      type: string
-      example: Service - Classic
+    is_sms_enabled:
+      description: Used to check if SMS communication preference is enabled for the contact person at transaction level.
+      type: boolean
+      example: true
+      x-node_available_in:
+      - SMS integration
+    error_list:
+      description: Error List
+      type: array
+      items:
+        type: string
+      example: []
+    delete-a-comment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The comment has been deleted.
+          readOnly: true
     selected:
       description: To check if invoice is selected or not
       type: boolean
       example: true
-    item_total:
-      description: The total amount of the line items
-      type: number
-      format: float
-      example: 120
-    template_type:
-      description: The type of template type
+    due_days:
+      description: Specifies the number of day in which the invoice would become overdue
       type: string
-      example: classic
-    total:
-      description: The total amount to be paid
-      type: string
-      example: 40.6
-    time:
-      description: Time of the comment
-      type: string
-      example: 2:02 AM
-    configured:
-      description: Boolean check to see if a payment gateway has been configured
-      type: boolean
-      example: true
-    send_from_org_email_id:
-      description: Boolean to trigger the email from the organization's email address
-      type: boolean
-      example: false
-    reminders_sent:
-      description: The number of reminders sent
-      type: integer
-      example: 1
-    apply-credits-request:
+      example: Due in 14 day(s)
+    update-billing-address-response:
       type: object
       properties:
-        invoice_payments:
-          description: Invoice payment list
-          type: array
-          items:
-            type: object
-            properties:
-              payment_id:
-                description: ID of the payment from which credit has to be applied.
-                type: string
-                example: 460000000031003
-              amount_applied:
-                description: Amount applied to the invoice.
-                type: number
-                format: float
-                example: 15
-        apply_creditnotes:
-          description: Apply existing credit note of a customer against the invoice
-          type: array
-          items:
-            type: object
-            properties:
-              creditnote_id:
-                description: ID of the credit note from which credit has to be applied.
-                type: string
-                example: 460000000029003
-              amount_applied:
-                description: Amount applied to the invoice.
-                type: number
-                format: float
-                example: 22.5
-    value:
-      description: Value of the custom field like VAT Id etc.
-      type: string
-      example: The value of the custom field
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Billing address updated
+          readOnly: true
+    mapped_items_update:
+      description: Items that are associated with the composite item (kit) in the line item. Applicable only when the line item is a kit type composite item.
+      type: array
+      items:
+        type: object
+        properties:
+          item_id:
+            $ref: '#/components/schemas/item_id'
+          line_item_id:
+            $ref: '#/components/schemas/line_item_id'
+          salesorder_item_id:
+            $ref: '#/components/schemas/salesorder_item_id'
+          item_order:
+            $ref: '#/components/schemas/item_order'
+          name:
+            $ref: '#/components/schemas/name'
+          description:
+            $ref: '#/components/schemas/description'
+          quantity:
+            $ref: '#/components/schemas/quantity'
+          warehouse_id:
+            description: Unique ID of the warehouse from which the mapped item is fulfilled.
+            type: string
+            example: '460000000038080'
+          location_id:
+            $ref: '#/components/schemas/location_id'
+          mapped_items:
+            description: Nested mapped items for kit within kit scenarios.
+            type: array
+            items:
+              type: object
+              properties:
+                item_id:
+                  $ref: '#/components/schemas/item_id'
+                line_item_id:
+                  $ref: '#/components/schemas/line_item_id'
+                salesorder_item_id:
+                  $ref: '#/components/schemas/salesorder_item_id'
+                item_order:
+                  $ref: '#/components/schemas/item_order'
+                name:
+                  $ref: '#/components/schemas/name'
+                description:
+                  $ref: '#/components/schemas/description'
+                quantity:
+                  $ref: '#/components/schemas/quantity'
+                warehouse_id:
+                  description: Unique ID of the warehouse from which the mapped item is fulfilled.
+                  type: string
+                  example: '460000000038080'
+                location_id:
+                  $ref: '#/components/schemas/location_id'
     invoice-response:
       type: object
       properties:
@@ -4288,73 +4017,11 @@ components:
           x-node_available_in:
           - mx
           x-node_unavailable_in: []
-    due_date:
-      description: due date of the invoices. Default date format is yyyy-mm-dd.
+    salutation:
+      description: Salutation of the Contact Person
       type: string
-      example: '2013-12-03'
-    batches-update:
-      description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - batch_id
-        - out_quantity
-        properties:
-          batch_id:
-            description: Unique identifier of an existing batch.
-            type: string
-            example: '6780203000000214019'
-          out_quantity:
-            description: Quantity removed from the batch.
-            type: number
-            format: float
-            example: 2
-          storages:
-            description: Bin/storage locations from which stock was issued for this batch.
-            type: array
-            x-node_available_in:
-            - Batch with Bin tracked items
-            items:
-              type: object
-              required:
-              - storage_id
-              - out_quantity
-              properties:
-                storage_id:
-                  description: Unique identifier of the bin/storage location.
-                  type: string
-                  example: '6780203000000093226'
-                out_quantity:
-                  description: Quantity removed from the bin.
-                  type: number
-                  format: float
-                  example: 2
-                storage_out_id:
-                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
-                  type: string
-                  example: '6780203000000997441'
-    zip:
-      description: Zip code of the customer's billing address.
-      type: string
-      example: 94588
-    tax_amount:
-      description: The amount of the tax levied
-      type: number
-      format: float
-      example: 19.13
-    tax_treatment:
-      description: VAT treatment for the invoice .Choose whether the contact falls under:</br><code>home_country_mexico</code>,<code>border_region_mexico</code>,<code>non_mexico</code> supported only for <b>MX</b>.
-      type: string
-      example: vat_registered
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    payment_expected_date:
-      description: The expected date of payment
-      type: string
-      example: ' '
-    delete-applied-credit-response:
+      example: Mr
+    write-off-invoice-response:
       type: object
       properties:
         code:
@@ -4363,12 +4030,218 @@ components:
           readOnly: true
         message:
           type: string
-          example: Credits applied to an invoice have been deleted.
+          example: Invoice has been written off
           readOnly: true
-    from_email:
-      description: Mail sender
+    country:
+      description: Country of the customer's billing address.
       type: string
-      example: ''
+      example: U.S.A
+    combo_type:
+      description: Type of the composite item. Allowed values are <code>assembly</code> and <code>kit</code>.
+      type: string
+      example: kit
+    update-an-invoice-customfield-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Custom Fields Updated Successfully
+          readOnly: true
+    phone:
+      description: Phone Number of the Contact Person
+      type: string
+      example: +1-925-921-9201
+    place_of_supply:
+      description: Place where the goods/services are supplied to. (If not given, <code>place of contact</code> given for the contact will be taken)
+      type: string
+      example: TN
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    payment_expected_date:
+      description: The expected date of payment
+      type: string
+      example: ' '
+    billing_address:
+      description: Billing address of the contact
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        city:
+          $ref: '#/components/schemas/city'
+        state:
+          $ref: '#/components/schemas/state'
+        zip:
+          $ref: '#/components/schemas/zip'
+        country:
+          $ref: '#/components/schemas/country'
+        fax:
+          $ref: '#/components/schemas/fax'
+    last_name:
+      description: Last Name of the Contact Person
+      type: string
+      example: John
+    get-payment-reminder-mail-content-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        data:
+          description: Date of the email
+          type: object
+          properties:
+            bcc_mails:
+              $ref: '#/components/schemas/bcc_mails'
+            gateways_configured:
+              $ref: '#/components/schemas/gateways_configured'
+            gateways_associated:
+              $ref: '#/components/schemas/gateways_associated'
+            bcc_mails_str:
+              $ref: '#/components/schemas/bcc_mails_str'
+            body:
+              description: content of email sent
+              type: string
+              example: '<br>Dear Mr. John,&nbsp;<br><br>You might have missed the payment date and the invoice is now overdue by&nbsp;1&nbsp;days.<br><br>----------------------------------------------------------------------------------------<br><h2>Invoice# : INV-000004 </h2>Dated : 23 Dec 2016<br>----------------------------------------------------------------------------------------<br><b>&nbsp;Due Date &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp;&nbsp;23 Dec 2016</b><br><b>&nbsp;Amount &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp;&nbsp;$139.65</b><br>----------------------------------------------------------------------------------------<br><br><span>Not to worry at all !&nbsp;</span>View your invoice and take the easy way out by making an&nbsp;<a href="https://invoice.zoho.com/portal/Zillium Inc/index#/invoices/invoice/2000000007037 ">online payment</a>.<br><br>If you have already paid, please accept our apologies and kindly ignore this payment reminder.<br><br><br>Regards,<br><br>David John<br>Zillium Inc<br><br><br>'
+            documents:
+              $ref: '#/components/schemas/documents'
+            customer_name:
+              $ref: '#/components/schemas/customer_name'
+            attach_pdf:
+              $ref: '#/components/schemas/attach_pdf'
+            entity_id:
+              $ref: '#/components/schemas/entity_id'
+            cc_mails_list:
+              description: CC'd mail recepients
+              type: array
+              items:
+                type: object
+                properties:
+                  user_name:
+                    $ref: '#/components/schemas/user_name'
+                  email:
+                    $ref: '#/components/schemas/email'
+            file_name_without_extension:
+              $ref: '#/components/schemas/file_name_without_extension'
+            to_mails_str:
+              $ref: '#/components/schemas/to_mails_str'
+            cc_mails_str:
+              $ref: '#/components/schemas/cc_mails_str'
+            from_email:
+              $ref: '#/components/schemas/from_email'
+            from_address:
+              $ref: '#/components/schemas/from_address'
+            deprecated_placeholders_used:
+              $ref: '#/components/schemas/deprecated_placeholders_used'
+            error_list:
+              $ref: '#/components/schemas/error_list'
+            subject:
+              $ref: '#/components/schemas/subject'
+            emailtemplates:
+              description: Email templates used
+              type: array
+              items:
+                type: object
+                properties:
+                  selected:
+                    description: Selected or not
+                    type: boolean
+                    example: true
+                  name:
+                    description: Name of the sender
+                    type: string
+                    example: Default
+                  email_template_id:
+                    description: ID of the email template used
+                    type: string
+                    example: '982000000000067'
+            emailtemplate_documents:
+              $ref: '#/components/schemas/emailtemplate_documents'
+            to_contacts:
+              description: Recepienyts pf the mail
+              type: array
+              items:
+                type: object
+                properties:
+                  first_name:
+                    $ref: '#/components/schemas/first_name'
+                  selected:
+                    $ref: '#/components/schemas/selected'
+                  phone:
+                    $ref: '#/components/schemas/phone'
+                  email:
+                    $ref: '#/components/schemas/email'
+                  last_name:
+                    $ref: '#/components/schemas/last_name'
+                  salutation:
+                    $ref: '#/components/schemas/salutation'
+                  contact_person_id:
+                    $ref: '#/components/schemas/contact_person_id'
+                  mobile:
+                    $ref: '#/components/schemas/mobile'
+            attachment_name:
+              $ref: '#/components/schemas/attachment_name'
+            file_name:
+              $ref: '#/components/schemas/file_name'
+            from_emails:
+              description: senders email address
+              type: array
+              items:
+                type: object
+                properties:
+                  user_name:
+                    $ref: '#/components/schemas/user_name'
+                  selected:
+                    $ref: '#/components/schemas/selected'
+                  email:
+                    $ref: '#/components/schemas/email'
+                  organization_contact_id:
+                    $ref: '#/components/schemas/organization_contact_id'
+                  is_org_email_id:
+                    $ref: '#/components/schemas/is_org_email_id'
+            customer_id:
+              $ref: '#/components/schemas/customer_id'
+    discount_type:
+      description: Type of discount. Allowed values are <code>entity_level</code>,<code>item_level</code>. For entity_level type, discount is applied at entity level and the node <code>discount</code> resides outside the <code>line_items</code> node.For item_level type, discount is applied at item level and the node <code>discount</code> resides inside each line_item under the <code>line_items</code> node.
+      type: string
+      example: item_level
+    taxes:
+      description: List of the taxes levied
+      type: array
+      items:
+        type: object
+        properties:
+          tax_name:
+            $ref: '#/components/schemas/tax_name'
+          tax_amount:
+            $ref: '#/components/schemas/tax_amount'
+    template_type:
+      description: The type of template type
+      type: string
+      example: classic
+    credits_applied:
+      description: The credits applied
+      type: number
+      format: float
+      example: 22.43
+    ach_payment_initiated:
+      description: To check initiation of ACH Payment
+      type: boolean
+      example: false
+    last_reminder_sent_date:
+      description: The date the last email was sent
+      type: string
+      example: ' '
     update-an-invoice-response:
       type: object
       properties:
@@ -4591,11 +4464,116 @@ components:
               $ref: '#/components/schemas/cfdi_reference_type'
             reference_invoice_id:
               $ref: '#/components/schemas/reference_invoice_id'
-    file_name:
-      description: Name of the file attached
+    invoice_number:
+      description: An unique number given to the invoice. Maximum length [100]
       type: string
-      example: INV-00001.pdf
-    batches:
+      example: INV-00003
+    value:
+      description: Value of the custom field like VAT Id etc.
+      type: string
+      example: The value of the custom field
+    tax_type:
+      description: The type of the tax
+      type: string
+      example: tax
+    bcc_mails_str:
+      description: Bcc mails content
+      type: string
+      example: ''
+    custom_body:
+      description: Customized email content
+      type: string
+      example: ' '
+    credited_date:
+      description: The date of credit
+      type: string
+      example: '2013-11-18'
+    to_mails_str:
+      description: Mail recepients
+      type: string
+      example: ''
+    delete-an-attachment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your file is no longer attached to the invoice.
+          readOnly: true
+    bulk-export-invoices-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+    subject:
+      description: The subject of the mail
+      type: string
+      example: 'Invoice from Zillium Inc (Invoice#: INV-00001)'
+    storages:
+      description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - storage_id
+        - out_quantity
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093225'
+          out_quantity:
+            description: Quantity removed from the bin.
+            type: number
+            format: float
+            example: 2
+          serial_numbers:
+            description: Serial numbers allocated to this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: PKG-011
+    creditnotes_invoice_id:
+      description: The creditnotes invoice ID
+      type: string
+      example: '982000000567172'
+    is_org_email_id:
+      description: To check if the email ID belongs to the organisation
+      type: boolean
+      example: true
+    write_off_amount:
+      description: The write off amount. i.e. the amount which is not expected to be returned. Like a bad debt
+      type: number
+      format: float
+      example: 0
+    commented_by:
+      description: Individual who made a comment
+      type: string
+      example: John David
+    first_name:
+      description: First Name of the Contact Person
+      type: string
+      example: David
+    is_inclusive_tax:
+      description: To check if discount is inclusive of tax
+      type: boolean
+      example: false
+    contact_person_name:
+      description: Name of the Contact Person
+      type: string
+      example: David
+    batches-update:
       description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
       type: array
       items:
@@ -4633,12 +4611,34 @@ components:
                   type: number
                   format: float
                   example: 2
-    bcc_mails:
-      description: Bcc mail details
-      type: array
-      items:
-        type: string
-      example: ''
+                storage_out_id:
+                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
+                  type: string
+                  example: '6780203000000997441'
+    contact_person_email:
+      description: Email ID of the Contact Person.
+      type: string
+      example: willsmith@bowmanfurniture.com
+    delete-an-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The invoice has been deleted.
+          readOnly: true
+    contact_person_id:
+      description: Unique ID of the Contact Person
+      type: string
+      example: 982000000567003
+    discount_amount:
+      description: The discount amount on the line item
+      type: number
+      format: float
+      example: 0
   parameters:
     organization_id:
       name: organization_id

@@ -130,71 +130,6 @@ paths:
         - ZohoInventory.items.READ
 components:
   schemas:
-    custom_field_id:
-      description: Unique identifier of the custom field.
-      type: string
-      example: '6780203000000176175'
-    label:
-      description: Label of the custom field.
-      type: string
-      example: Warranty Period
-    price:
-      description: Price of the item associated with the serial number.
-      type: number
-      format: float
-      example: 1500
-    batch_id:
-      description: Unique identifier of the batch the serial number belongs to.
-      type: string
-      example: '6780203000000176162'
-      x-node_available_in:
-      - Serial with Batch tracked items
-    batch_number:
-      description: Batch number the serial number belongs to.
-      type: string
-      example: BATCH-001
-      x-node_available_in:
-      - Serial with Batch tracked items
-    status:
-      description: Status of the serial number. Allowed values <code>active</code> and <code>inactive</code>.
-      type: string
-      example: active
-    serialnumber_id:
-      description: Unique identifier of the serial number.
-      type: string
-      example: '6780203000000176190'
-    custom_fields:
-      description: Custom fields configured for the serial number.
-      type: array
-      items:
-        type: object
-        properties:
-          custom_field_id:
-            $ref: '#/components/schemas/custom_field_id'
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    serial-number-response:
-      description: Details of a serial number.
-      type: object
-      properties:
-        serialnumber_id:
-          $ref: '#/components/schemas/serialnumber_id'
-        serialnumber:
-          $ref: '#/components/schemas/serialnumber'
-        code:
-          $ref: '#/components/schemas/code'
-        status:
-          $ref: '#/components/schemas/status'
-        is_transacted_out:
-          $ref: '#/components/schemas/is_transacted_out'
-        item_id:
-          $ref: '#/components/schemas/item_id'
-        price:
-          $ref: '#/components/schemas/price'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
     list-all-serial-numbers-response:
       type: object
       properties:
@@ -230,27 +165,11 @@ components:
           $ref: '#/components/schemas/batch_custom_fields'
         custom_fields:
           $ref: '#/components/schemas/custom_fields'
-    item_id:
-      description: Unique identifier of the item the serial number belongs to.
-      type: string
-      example: '6780203000000167467'
-    value:
-      description: Value of the custom field.
-      type: string
-      example: 2 Years
-    retrieve-a-serial-number-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        serial_number:
-          $ref: '#/components/schemas/serial-number-response'
+    price:
+      description: Price of the item associated with the serial number.
+      type: number
+      format: float
+      example: 1500
     is_transacted_out:
       description: Indicates whether the serial number has been transacted out and is no longer available in stock.
       type: boolean
@@ -269,14 +188,95 @@ components:
             $ref: '#/components/schemas/label'
           value:
             $ref: '#/components/schemas/value'
-    code:
-      description: Code of the serial number. Same value as <code>serialnumber</code>.
+    label:
+      description: Label of the custom field.
       type: string
-      example: SN-LAP-001
+      example: Warranty Period
+    value:
+      description: Value of the custom field.
+      type: string
+      example: 2 Years
+    status:
+      description: Status of the serial number. Allowed values <code>active</code> and <code>inactive</code>.
+      type: string
+      example: active
+    serialnumber_id:
+      description: Unique identifier of the serial number.
+      type: string
+      example: '6780203000000176190'
+    retrieve-a-serial-number-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        serial_number:
+          $ref: '#/components/schemas/serial-number-response'
     serialnumber:
       description: Serial number assigned to the unit.
       type: string
       example: SN-LAP-001
+    item_id:
+      description: Unique identifier of the item the serial number belongs to.
+      type: string
+      example: '6780203000000167467'
+    custom_field_id:
+      description: Unique identifier of the custom field.
+      type: string
+      example: '6780203000000176175'
+    batch_id:
+      description: Unique identifier of the batch the serial number belongs to.
+      type: string
+      example: '6780203000000176162'
+      x-node_available_in:
+      - Serial with Batch tracked items
+    serial-number-response:
+      description: Details of a serial number.
+      type: object
+      properties:
+        serialnumber_id:
+          $ref: '#/components/schemas/serialnumber_id'
+        serialnumber:
+          $ref: '#/components/schemas/serialnumber'
+        code:
+          $ref: '#/components/schemas/code'
+        status:
+          $ref: '#/components/schemas/status'
+        is_transacted_out:
+          $ref: '#/components/schemas/is_transacted_out'
+        item_id:
+          $ref: '#/components/schemas/item_id'
+        price:
+          $ref: '#/components/schemas/price'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+    code:
+      description: Code of the serial number. Same value as <code>serialnumber</code>.
+      type: string
+      example: SN-LAP-001
+    batch_number:
+      description: Batch number the serial number belongs to.
+      type: string
+      example: BATCH-001
+      x-node_available_in:
+      - Serial with Batch tracked items
+    custom_fields:
+      description: Custom fields configured for the serial number.
+      type: array
+      items:
+        type: object
+        properties:
+          custom_field_id:
+            $ref: '#/components/schemas/custom_field_id'
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
   parameters:
     organization_id:
       name: organization_id

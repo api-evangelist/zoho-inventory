@@ -149,6 +149,141 @@ paths:
         - ZohoInventory.settings.DELETE
 components:
   schemas:
+    currency_id:
+      description: A unique ID for the currency.
+      type: string
+      example: '982000000004012'
+    exchange_rate:
+      description: Foreign Exchange rate for the currency.
+      type: number
+      format: double
+      example: 0
+    delete-a-currency-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The currency has been deleted.
+          readOnly: true
+    update-a-currency-request:
+      required:
+      - currency_code
+      - currency_symbol
+      type: object
+      properties:
+        currency_code:
+          description: Unique code representing a currency
+          type: string
+          example: CAD
+        currency_symbol:
+          $ref: '#/components/schemas/currency_symbol'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        currency_format:
+          $ref: '#/components/schemas/currency_format'
+    currency_format:
+      description: The format for the currency to be displayed. Maximum length [100]
+      type: string
+      example: 1,234,567.89
+    currency_name:
+      description: The name for the currency.
+      type: string
+      example: AUD- Australian Dollar
+    create-a-currency-request:
+      required:
+      - currency_code
+      - currency_symbol
+      type: object
+      properties:
+        currency_code:
+          $ref: '#/components/schemas/currency_code'
+        currency_symbol:
+          $ref: '#/components/schemas/currency_symbol'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        currency_format:
+          $ref: '#/components/schemas/currency_format'
+    effective_date:
+      description: Date from when the currency will be in effect.
+      type: string
+      example: '2016-06-05'
+    currency_symbol:
+      description: A unique symbol for the currency. Maximum length [4]
+      type: string
+      example: $
+    price_precision:
+      description: The precision for the price in decimals
+      type: integer
+      example: 2
+    get-a-currency-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        currency:
+          description: List of currencies
+          type: array
+          items:
+            type: object
+            properties:
+              currency_id:
+                $ref: '#/components/schemas/currency_id'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              currency_name:
+                $ref: '#/components/schemas/currency_name'
+              currency_symbol:
+                $ref: '#/components/schemas/currency_symbol'
+              price_precision:
+                $ref: '#/components/schemas/price_precision'
+              currency_format:
+                $ref: '#/components/schemas/currency_format'
+              is_base_currency:
+                $ref: '#/components/schemas/is_base_currency'
+    list-currency-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: List of all currencies are displayed successfully.
+          readOnly: true
+        currencies:
+          type: array
+          items:
+            type: object
+            properties:
+              currency_id:
+                $ref: '#/components/schemas/currency_id'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              currency_name:
+                $ref: '#/components/schemas/currency_name'
+              currency_symbol:
+                $ref: '#/components/schemas/currency_symbol'
+              price_precision:
+                $ref: '#/components/schemas/price_precision'
+              currency_format:
+                $ref: '#/components/schemas/currency_format'
+              is_base_currency:
+                $ref: '#/components/schemas/is_base_currency'
+              exchange_rate:
+                $ref: '#/components/schemas/exchange_rate'
+              effective_date:
+                $ref: '#/components/schemas/effective_date'
     create-a-currency-response:
       type: object
       properties:
@@ -165,40 +300,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/currency-response'
-    currency_format:
-      description: The format for the currency to be displayed. Maximum length [100]
+    currency_code:
+      description: A unique code for the currency. Maximum length [100]
       type: string
-      example: 1,234,567.89
-    exchange_rate:
-      description: Foreign Exchange rate for the currency.
-      type: number
-      format: double
-      example: 0
-    currency-response:
-      type: object
-      properties:
-        currency_id:
-          $ref: '#/components/schemas/currency_id'
-        currency_code:
-          $ref: '#/components/schemas/currency_code'
-        currency_name:
-          $ref: '#/components/schemas/currency_name'
-        currency_symbol:
-          $ref: '#/components/schemas/currency_symbol'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        currency_format:
-          $ref: '#/components/schemas/currency_format'
-        is_base_currency:
-          $ref: '#/components/schemas/is_base_currency'
-    currency_name:
-      description: The name for the currency.
-      type: string
-      example: AUD- Australian Dollar
-    currency_id:
-      description: A unique ID for the currency.
-      type: string
-      example: '982000000004012'
+      example: AUD
     update-a-currency-response:
       type: object
       properties:
@@ -236,132 +341,27 @@ components:
                 $ref: '#/components/schemas/currency_format'
               is_base_currency:
                 $ref: '#/components/schemas/is_base_currency'
-    currency_code:
-      description: A unique code for the currency. Maximum length [100]
-      type: string
-      example: AUD
-    price_precision:
-      description: The precision for the price in decimals
-      type: integer
-      example: 2
-    create-a-currency-request:
-      required:
-      - currency_code
-      - currency_symbol
-      type: object
-      properties:
-        currency_code:
-          $ref: '#/components/schemas/currency_code'
-        currency_symbol:
-          $ref: '#/components/schemas/currency_symbol'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        currency_format:
-          $ref: '#/components/schemas/currency_format'
-    list-currency-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: List of all currencies are displayed successfully.
-          readOnly: true
-        currencies:
-          type: array
-          items:
-            type: object
-            properties:
-              currency_id:
-                $ref: '#/components/schemas/currency_id'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              currency_name:
-                $ref: '#/components/schemas/currency_name'
-              currency_symbol:
-                $ref: '#/components/schemas/currency_symbol'
-              price_precision:
-                $ref: '#/components/schemas/price_precision'
-              currency_format:
-                $ref: '#/components/schemas/currency_format'
-              is_base_currency:
-                $ref: '#/components/schemas/is_base_currency'
-              exchange_rate:
-                $ref: '#/components/schemas/exchange_rate'
-              effective_date:
-                $ref: '#/components/schemas/effective_date'
-    get-a-currency-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        currency:
-          description: List of currencies
-          type: array
-          items:
-            type: object
-            properties:
-              currency_id:
-                $ref: '#/components/schemas/currency_id'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              currency_name:
-                $ref: '#/components/schemas/currency_name'
-              currency_symbol:
-                $ref: '#/components/schemas/currency_symbol'
-              price_precision:
-                $ref: '#/components/schemas/price_precision'
-              currency_format:
-                $ref: '#/components/schemas/currency_format'
-              is_base_currency:
-                $ref: '#/components/schemas/is_base_currency'
     is_base_currency:
       description: If the specified currency is the base currency of the organization or not.
       type: boolean
       example: false
-    delete-a-currency-response:
+    currency-response:
       type: object
       properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The currency has been deleted.
-          readOnly: true
-    effective_date:
-      description: Date from when the currency will be in effect.
-      type: string
-      example: '2016-06-05'
-    currency_symbol:
-      description: A unique symbol for the currency. Maximum length [4]
-      type: string
-      example: $
-    update-a-currency-request:
-      required:
-      - currency_code
-      - currency_symbol
-      type: object
-      properties:
+        currency_id:
+          $ref: '#/components/schemas/currency_id'
         currency_code:
-          description: Unique code representing a currency
-          type: string
-          example: CAD
+          $ref: '#/components/schemas/currency_code'
+        currency_name:
+          $ref: '#/components/schemas/currency_name'
         currency_symbol:
           $ref: '#/components/schemas/currency_symbol'
         price_precision:
           $ref: '#/components/schemas/price_precision'
         currency_format:
           $ref: '#/components/schemas/currency_format'
+        is_base_currency:
+          $ref: '#/components/schemas/is_base_currency'
   parameters:
     organization_id:
       name: organization_id
