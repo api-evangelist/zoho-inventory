@@ -808,10 +808,7 @@ paths:
         - ZohoInventory.debitnotes.DELETE
 components:
   schemas:
-    tag_option_id:
-      description: ID of the tag option
-      type: string
-    add-a-comment-response:
+    list-vendor-credit-refunds-response:
       type: object
       properties:
         code:
@@ -820,54 +817,39 @@ components:
           readOnly: true
         message:
           type: string
-          example: Comments added.
+          example: success
           readOnly: true
-        comment:
-          type: object
-          properties:
-            comment_id:
-              $ref: '#/components/schemas/comment_id'
-            vendor_credit_id:
-              $ref: '#/components/schemas/vendor_credit_id'
-            description:
-              description: Description of the Comment
-              type: string
-              example: Credits applied to Bill 1
-            commented_by_id:
-              $ref: '#/components/schemas/commented_by_id'
-            commented_by:
-              $ref: '#/components/schemas/commented_by'
-            date:
-              description: Date of the Comment
-              type: string
-              example: '2017-01-18'
-    acquisition_vat_amount:
-      description: Amount of the VAT Acquistion
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    amount:
-      type: number
-      format: double
-      description: Amount that is credited in the bill
-      example: 13
-    tax:
-      type: object
-      properties:
-        tax_name:
-          $ref: '#/components/schemas/tax_name'
-        tax_amount:
-          $ref: '#/components/schemas/tax_amount'
-    reverse_charge_tax_amount:
-      description: Tax amount of the reverse charge
-      type: number
-      format: double
-      example: 100
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
+        vendor_credit_refunds:
+          type: array
+          items:
+            type: object
+            properties:
+              vendor_credit_refund_id:
+                $ref: '#/components/schemas/vendor_credit_refund_id'
+              vendor_credit_id:
+                $ref: '#/components/schemas/vendor_credit_id'
+              date:
+                description: Date of the Vendor Credit Refund
+                type: string
+                example: '2017-01-22'
+              refund_mode:
+                $ref: '#/components/schemas/refund_mode'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
+              amount:
+                $ref: '#/components/schemas/amount'
+              vendor_credit_number:
+                $ref: '#/components/schemas/vendor_credit_number'
+              customer_name:
+                $ref: '#/components/schemas/customer_name'
+              description:
+                description: Description of the Vendor Credit Refund
+                type: string
+                example: Cheque deposit
+              amount_bcy:
+                $ref: '#/components/schemas/amount_bcy'
+              amount_fcy:
+                $ref: '#/components/schemas/amount_fcy'
     update-vendor-credit-request:
       required:
       - vendor_id
@@ -963,31 +945,116 @@ components:
           $ref: '#/components/schemas/documents'
         custom_fields:
           $ref: '#/components/schemas/custom_fields'
-    sku:
-      description: SKU of the Item
-      type: string
-    reference_number:
-      description: Reference number for the refund recorded.
-      type: string
-    tax_percentage:
-      description: Percentage of Tax
-      type: number
-      format: double
-    tax_treatment_code:
-      description: Specify reason for using out of scope.</br>Supported values for <b>UAE</b> are <code>uae_same_tax_group</code>, <code>uae_reimbursed_expense</code> and <code>uae_others</code>.</br> Supported values for <b>Bahrain</b> are <code>bahrain_same_tax_group</code>, <code>bahrain_transfer_of_concern</code>, <code>bahrain_disbursement</code>, <code>bahrain_head_to_branch_transaction</code> and <code>bahrain_others</code>.
-      type: string
-      example: uae_others
-      x-node_available_in:
-      - gcc
-      x-node_unavailable_in: []
-    reverse_charge_vat_summary:
-      description: Summary of the Reverse Charge
+    imported_transactions:
       type: array
       items:
         type: object
         properties:
-          tax:
-            $ref: '#/components/schemas/tax'
+          imported_transaction_id:
+            $ref: '#/components/schemas/imported_transaction_id'
+          date:
+            $ref: '#/components/schemas/date'
+          amount:
+            $ref: '#/components/schemas/amount'
+          payee:
+            $ref: '#/components/schemas/payee'
+          description:
+            $ref: '#/components/schemas/description'
+          reference_number:
+            $ref: '#/components/schemas/reference_number'
+          status:
+            $ref: '#/components/schemas/status'
+          account_id:
+            $ref: '#/components/schemas/account_id'
+    item_total_inclusive_of_tax:
+      description: Total price of the Item inclusive of Tax
+      type: number
+      format: double
+      example: 30
+    quantity:
+      description: Quantity of the line item.
+      type: number
+      format: double
+      example: 1
+    date:
+      description: The date the vendor credit is created. [yyyy-mm-dd]
+      type: string
+      example: '2014-08-28'
+    time:
+      description: Time of the Comment
+      type: string
+      example: 10:52 PM
+    status:
+      type: string
+      example: open
+    reverse_charge_tax_amount:
+      description: Tax amount of the reverse charge
+      type: number
+      format: double
+      example: 100
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    tags:
+      type: array
+      description: List of tags associated with the line item
+      items:
+        type: object
+        properties:
+          tag_id:
+            $ref: '#/components/schemas/tag_id'
+          tag_option_id:
+            $ref: '#/components/schemas/tag_option_id'
+    vendor_credit_refunds:
+      type: array
+      items:
+        type: object
+        properties:
+          vendor_credit_refund_id:
+            $ref: '#/components/schemas/vendor_credit_refund_id'
+          vendor_credit_id:
+            $ref: '#/components/schemas/vendor_credit_id'
+          date:
+            $ref: '#/components/schemas/date'
+          refund_mode:
+            $ref: '#/components/schemas/refund_mode'
+          reference_number:
+            $ref: '#/components/schemas/reference_number'
+          description:
+            $ref: '#/components/schemas/description'
+          amount_bcy:
+            $ref: '#/components/schemas/amount_bcy'
+          amount_fcy:
+            $ref: '#/components/schemas/amount_fcy'
+          filed_in_vat_return_id:
+            $ref: '#/components/schemas/filed_in_vat_return_id'
+          filed_in_vat_return_name:
+            $ref: '#/components/schemas/filed_in_vat_return_name'
+          filed_in_vat_return_type:
+            $ref: '#/components/schemas/filed_in_vat_return_type'
+    acquisition_vat_amount:
+      description: Amount of the VAT Acquistion
+      type: string
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    get-vendor-credit-refund-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        vendor_credit_refund:
+          $ref: '#/components/schemas/vendor_credit_refund'
+    reverse_charge_vat_id:
+      description: ID of the Reverse Charge
+      type: string
       x-node_available_in:
       - uk
       - eu
@@ -996,22 +1063,13 @@ components:
       description: Time of Vendor Credit Creation
       type: string
       example: 2014-08-28T22:53:31-0700
-    commented_by_id:
-      description: ID of the User who caused the comment
-      type: string
-      example: '3000000000741'
-    reverse_charge_vat_percentage:
-      description: Percentage of the Reverse Charge
+    filed_in_vat_return_name:
+      description: Name of the VAT Return the Vendor Credit is filed in
       type: string
       x-node_available_in:
       - uk
-      - eu
       x-node_unavailable_in: []
-    customer_name:
-      description: Vendor associated with the Entity
-      type: string
-      example: Bowman and Co
-    refund-a-vendor-credit-request:
+    update-vendor-credit-refund-request:
       required:
       - date
       - amount
@@ -1019,9 +1077,7 @@ components:
       type: object
       properties:
         date:
-          description: Date of Vendor Credit Refund
-          type: string
-          example: '2014-08-30'
+          $ref: '#/components/schemas/date'
         refund_mode:
           $ref: '#/components/schemas/refund_mode'
         reference_number:
@@ -1034,7 +1090,19 @@ components:
           $ref: '#/components/schemas/account_id'
         description:
           $ref: '#/components/schemas/description'
-    bill_number:
+    operation_type:
+      description: Type of operation that caused the Comment
+      type: string
+      example: Added
+    last_modified_time:
+      description: Last Modified Time of Vendor Credit
+      type: string
+      example: 2014-08-28T22:53:31-0700
+    document_id:
+      description: ID of the Document
+      type: string
+    tax_type:
+      description: Type of the Tax
       type: string
     comments:
       type: array
@@ -1065,115 +1133,38 @@ components:
             $ref: '#/components/schemas/transaction_id'
           transaction_type:
             $ref: '#/components/schemas/transaction_type'
-    tags:
-      type: array
-      description: List of tags associated with the line item
-      items:
-        type: object
-        properties:
-          tag_id:
-            $ref: '#/components/schemas/tag_id'
-          tag_option_id:
-            $ref: '#/components/schemas/tag_option_id'
-    has_attachment:
-      description: Check if Vendor Credit has attachment
-      type: boolean
-      example: false
-    list-refunds-of-a-vendor-credit-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        vendor_credit_refunds:
-          type: array
-          items:
-            type: object
-            properties:
-              vendor_credit_refund_id:
-                $ref: '#/components/schemas/vendor_credit_refund_id'
-              vendor_credit_id:
-                $ref: '#/components/schemas/vendor_credit_id'
-              date:
-                description: Date of the Vendor Credit Refund
-                type: string
-                example: '2017-01-22'
-              refund_mode:
-                $ref: '#/components/schemas/refund_mode'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
-              amount:
-                $ref: '#/components/schemas/amount'
-              vendor_credit_number:
-                $ref: '#/components/schemas/vendor_credit_number'
-              customer_name:
-                $ref: '#/components/schemas/customer_name'
-              description:
-                description: Description of the Vendor Credit Refund
-                type: string
-                example: Cheque deposit
-              amount_bcy:
-                $ref: '#/components/schemas/amount_bcy'
-              amount_fcy:
-                $ref: '#/components/schemas/amount_fcy'
-    amount_bcy:
-      description: Refund Amount in Base Currency
-      type: number
-      format: double
-      example: 13
-    delete-bills-credited-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Credits applied to the bill have been deleted.
-          readOnly: true
-    source_of_supply:
-      description: Place from where the goods/services are supplied. (If not given, <code>place of contact</code> given for the contact will be taken)
+    reverse_charge_tax_id:
+      description: ID of the reverse charge tax
       type: string
-      example: TN
+      example: 460000000057089
       x-node_available_in:
       - in
+      - gcc
       x-node_unavailable_in: []
-    document_id:
-      description: ID of the Document
-      type: string
-    update-vendor-credit-refund-request:
-      required:
-      - date
-      - amount
-      - account_id
+    approve-a-vendor-credit-response:
       type: object
       properties:
-        date:
-          $ref: '#/components/schemas/date'
-        refund_mode:
-          $ref: '#/components/schemas/refund_mode'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        amount:
-          $ref: '#/components/schemas/amount'
-        exchange_rate:
-          $ref: '#/components/schemas/exchange_rate'
-        account_id:
-          $ref: '#/components/schemas/account_id'
-        description:
-          $ref: '#/components/schemas/description'
-    vendor_id:
-      description: ID of the vendor the vendor credit associated with the Vendor Credit
-      type: string
-      example: '460000000020029'
-    bcy_rate:
-      description: Rate of the Item in Base Currency
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: You have approved the vendor credit.
+          readOnly: true
+    convert-to-open-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The status of the vendor credit has been changed to open.
+          readOnly: true
+    balance:
+      description: Balance in the Vendor Credit
       type: number
       format: double
       example: 30
@@ -1207,687 +1198,23 @@ components:
             items:
               type: string
               example: ARMP-0078
-    item_total:
-      description: Total price of the Item
-      type: number
-      format: double
-      example: 30
-    account_id:
-      description: ID of the account, the line item is associated with
+    project_id:
+      description: ID of the project
       type: string
-      example: '460000000020097'
-    transaction_type:
-      description: Transaction Type that caused the Comment
-      type: string
-      example: vendor_credit
-    custom_fields:
-      type: array
-      description: List of custom fields associated with the vendor credit
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
+      example: 90300000087378
     filed_in_vat_return_type:
       description: Type of the VAT Return the Vendor Credit is filed in
       type: string
       x-node_available_in:
       - uk
       x-node_unavailable_in: []
-    refund-a-vendor-credit-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The refund information for this vendor credit has been saved.
-          readOnly: true
-        vendor_credit_refund:
-          $ref: '#/components/schemas/vendor_credit_refund'
-    submit-a-vendor-credit-for-approval-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The vendor credit has been submitted for approval successfully.
-          readOnly: true
-    total_credits_used:
-      type: number
-      format: double
-      example: 0
-    comment_type:
-      description: Type of the comment
-      type: string
-      example: system
-    price_precision:
-      type: integer
-      example: 2
-    bills_credited:
-      type: array
-      items:
-        type: object
-        properties:
-          bill_id:
-            description: ID of the Bill Credited
-            type: string
-            example: '460000000057075'
-          vendor_credit_bill_id:
-            $ref: '#/components/schemas/vendor_credit_bill_id'
-          date:
-            description: Date of the Bill Credit
-            type: string
-            example: '2014-08-30'
-          bill_number:
-            description: Number of the Bill Credited
-            type: string
-          amount:
-            description: Amount that is credited in the bill
-            type: number
-            format: double
-            example: 13
-    balance:
-      description: Balance in the Vendor Credit
-      type: number
-      format: double
-      example: 30
-    reverse_charge_vat_id:
-      description: ID of the Reverse Charge
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    unit:
-      description: Unit of the line item e.g. kgs, Nos.
-      type: string
-      example: Nos
-    imported_transactions:
-      type: array
-      items:
-        type: object
-        properties:
-          imported_transaction_id:
-            $ref: '#/components/schemas/imported_transaction_id'
-          date:
-            $ref: '#/components/schemas/date'
-          amount:
-            $ref: '#/components/schemas/amount'
-          payee:
-            $ref: '#/components/schemas/payee'
-          description:
-            $ref: '#/components/schemas/description'
-          reference_number:
-            $ref: '#/components/schemas/reference_number'
-          status:
-            $ref: '#/components/schemas/status'
-          account_id:
-            $ref: '#/components/schemas/account_id'
-    total_refunded_amount:
-      type: number
-      format: double
-      example: 0
-    account_name:
-      description: Name of the account the line item is associated with
-      type: string
-      example: IT and Internet Expenses
-    hsn_or_sac:
-      description: HSN Code
-      type: string
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    item_custom_fields:
-      type: array
-      description: List of custom fields associated with the line item
-      items:
-        type: object
-        properties:
-          label:
-            $ref: '#/components/schemas/label'
-          value:
-            $ref: '#/components/schemas/value'
-    approve-a-vendor-credit-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: You have approved the vendor credit.
-          readOnly: true
-    vendor_credit-response:
-      type: object
-      properties:
-        vendor_credit_id:
-          $ref: '#/components/schemas/vendor_credit_id'
-        vendor_credit_number:
-          $ref: '#/components/schemas/vendor_credit_number'
-        date:
-          $ref: '#/components/schemas/date'
-        source_of_supply:
-          $ref: '#/components/schemas/source_of_supply'
-        destination_of_supply:
-          $ref: '#/components/schemas/destination_of_supply'
-        place_of_supply:
-          $ref: '#/components/schemas/place_of_supply'
-        gst_no:
-          $ref: '#/components/schemas/gst_no'
-        gst_treatment:
-          $ref: '#/components/schemas/gst_treatment'
-        tax_treatment:
-          $ref: '#/components/schemas/tax_treatment'
-        pricebook_id:
-          $ref: '#/components/schemas/pricebook_id'
-        is_reverse_charge_applied:
-          $ref: '#/components/schemas/is_reverse_charge_applied'
-        status:
-          $ref: '#/components/schemas/status'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        vendor_id:
-          $ref: '#/components/schemas/vendor_id'
-        vendor_name:
-          $ref: '#/components/schemas/vendor_name'
-        currency_id:
-          $ref: '#/components/schemas/currency_id'
-        currency_code:
-          $ref: '#/components/schemas/currency_code'
-        exchange_rate:
-          $ref: '#/components/schemas/exchange_rate'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        vat_treatment:
-          $ref: '#/components/schemas/vat_treatment'
-        filed_in_vat_return_id:
-          $ref: '#/components/schemas/filed_in_vat_return_id'
-        filed_in_vat_return_name:
-          $ref: '#/components/schemas/filed_in_vat_return_name'
-        filed_in_vat_return_type:
-          $ref: '#/components/schemas/filed_in_vat_return_type'
-        is_inclusive_tax:
-          $ref: '#/components/schemas/is_inclusive_tax'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        location_name:
-          $ref: '#/components/schemas/location_name'
-        line_items:
-          description: Line items of a vendor credit.
-          type: object
-          properties:
-            item_id:
-              $ref: '#/components/schemas/item_id'
-            line_item_id:
-              $ref: '#/components/schemas/line_item_id'
-            sku:
-              $ref: '#/components/schemas/sku'
-            account_id:
-              $ref: '#/components/schemas/account_id'
-            product_type:
-              $ref: '#/components/schemas/product_type'
-            location_id:
-              $ref: '#/components/schemas/location_id'
-            location_name:
-              $ref: '#/components/schemas/location_name'
-            reverse_charge_tax_id:
-              $ref: '#/components/schemas/reverse_charge_tax_id'
-            reverse_charge_tax_name:
-              $ref: '#/components/schemas/reverse_charge_tax_name'
-            reverse_charge_tax_percentage:
-              $ref: '#/components/schemas/reverse_charge_tax_percentage'
-            reverse_charge_tax_amount:
-              $ref: '#/components/schemas/reverse_charge_tax_amount'
-            account_name:
-              $ref: '#/components/schemas/account_name'
-            name:
-              $ref: '#/components/schemas/name'
-            description:
-              $ref: '#/components/schemas/description'
-            item_order:
-              $ref: '#/components/schemas/item_order'
-            quantity:
-              $ref: '#/components/schemas/quantity'
-            unit:
-              $ref: '#/components/schemas/unit'
-            bcy_rate:
-              $ref: '#/components/schemas/bcy_rate'
-            rate:
-              $ref: '#/components/schemas/rate'
-            tax_id:
-              $ref: '#/components/schemas/tax_id'
-            tds_tax_id:
-              $ref: '#/components/schemas/tds_tax_id'
-            tax_treatment_code:
-              $ref: '#/components/schemas/tax_treatment_code'
-            tax_exemption_id:
-              $ref: '#/components/schemas/tax_exemption_id'
-            tax_exemption_code:
-              $ref: '#/components/schemas/tax_exemption_code'
-            tax_name:
-              $ref: '#/components/schemas/tax_name'
-            tax_type:
-              $ref: '#/components/schemas/tax_type'
-            tax_percentage:
-              $ref: '#/components/schemas/tax_percentage'
-            item_total:
-              $ref: '#/components/schemas/item_total'
-            item_total_inclusive_of_tax:
-              $ref: '#/components/schemas/item_total_inclusive_of_tax'
-            hsn_or_sac:
-              $ref: '#/components/schemas/hsn_or_sac'
-            acquisition_vat_id:
-              $ref: '#/components/schemas/acquisition_vat_id'
-            acquisition_vat_name:
-              $ref: '#/components/schemas/acquisition_vat_name'
-            acquisition_vat_percentage:
-              $ref: '#/components/schemas/acquisition_vat_percentage'
-            acquisition_vat_amount:
-              $ref: '#/components/schemas/acquisition_vat_amount'
-            reverse_charge_vat_id:
-              $ref: '#/components/schemas/reverse_charge_vat_id'
-            reverse_charge_vat_name:
-              $ref: '#/components/schemas/reverse_charge_vat_name'
-            reverse_charge_vat_percentage:
-              $ref: '#/components/schemas/reverse_charge_vat_percentage'
-            reverse_charge_vat_amount:
-              $ref: '#/components/schemas/reverse_charge_vat_amount'
-            stock_on_hand:
-              $ref: '#/components/schemas/stock_on_hand'
-            tags:
-              $ref: '#/components/schemas/tags'
-            item_custom_fields:
-              $ref: '#/components/schemas/item_custom_fields'
-        acquisition_vat_summary:
-          $ref: '#/components/schemas/acquisition_vat_summary'
-        acquisition_vat_total:
-          $ref: '#/components/schemas/acquisition_vat_total'
-        reverse_charge_vat_summary:
-          $ref: '#/components/schemas/reverse_charge_vat_summary'
-        reverse_charge_vat_total:
-          $ref: '#/components/schemas/reverse_charge_vat_total'
-        documents:
-          $ref: '#/components/schemas/documents'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        sub_total:
-          $ref: '#/components/schemas/sub_total'
-        total:
-          $ref: '#/components/schemas/total'
-        total_credits_used:
-          $ref: '#/components/schemas/total_credits_used'
-        total_refunded_amount:
-          $ref: '#/components/schemas/total_refunded_amount'
-        balance:
-          $ref: '#/components/schemas/balance'
-        notes:
-          $ref: '#/components/schemas/notes'
-        comments:
-          $ref: '#/components/schemas/comments'
-        vendor_credit_refunds:
-          $ref: '#/components/schemas/vendor_credit_refunds'
-        bills_credited:
-          $ref: '#/components/schemas/bills_credited'
-        created_time:
-          $ref: '#/components/schemas/created_time'
-        last_modified_time:
-          $ref: '#/components/schemas/last_modified_time'
-    stock_on_hand:
-      description: Stock on Hand for that Item
-      type: string
-    imported_transaction_id:
-      description: ID of the Imported Transaction
-      type: string
-      example: '460000000013297'
-    vat_treatment:
-      description: VAT treatment for the invoice. VAT treatment denotes the location of the customer, if the customer resides in UK then the VAT treatment is <code>uk</code>. If the vendor is in an EU country & VAT registered, you are resides in Northen Ireland and purchasing Goods then his VAT treatment is <code>eu_vat_registered</code> and if he resides outside the EU then his VAT treatment is <code>overseas</code>(For Pre Brexit, this can be split as <code>eu_vat_registered</code>, <code>eu_vat_not_registered</code> and <code>non_eu</code>).
-      type: string
-      x-node_available_in:
-      - uk
-      x-node_unavailable_in: []
-    rate:
-      description: Rate of the line item.
-      type: number
-      format: double
-      example: 30
-    tax_exemption_code:
-      description: Code of the Tax Exemption associated
-      type: string
-      x-node_available_in:
-      - in
-      - au
-      x-node_unavailable_in: []
-    refund_mode:
-      description: Mode of Refund
-      type: string
-      example: cash
-    documents:
-      type: array
-      description: List of documents associated with the vendor credit
-      items:
-        type: object
-        properties:
-          document_id:
-            $ref: '#/components/schemas/document_id'
-          file_name:
-            $ref: '#/components/schemas/file_name'
-    tax_treatment:
-      description: 'VAT treatment for the vendor credit. Choose whether the vendor falls under: <code>vat_registered</code>,<code>vat_not_registered</code>,<code>gcc_vat_not_registered</code>,<code>gcc_vat_registered</code>,<code>non_gcc</code>.</br><code>dz_vat_registered</code> and <code>dz_vat_not_registered</code> are supported only for <b>UAE</b>.</b></br><code>home_country_mexico</code>,<code>border_region_mexico</code>,<code>non_mexico</code> supported only for <b>MX</b>.'
-      type: string
-      example: vat_registered
-      x-node_available_in:
-      - gcc
-      - mx
-      x-node_unavailable_in: []
-    status:
-      type: string
-      example: open
-    acquisition_vat_total:
-      description: Total of the VAT Acquistion
-      type: number
-      format: double
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    list-vendor-credits-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        vendorcredits:
-          type: array
-          items:
-            type: object
-            properties:
-              vendor_credit_id:
-                $ref: '#/components/schemas/vendor_credit_id'
-              vendor_credit_number:
-                $ref: '#/components/schemas/vendor_credit_number'
-              status:
-                $ref: '#/components/schemas/status'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
-              date:
-                $ref: '#/components/schemas/date'
-              total:
-                $ref: '#/components/schemas/total'
-              balance:
-                $ref: '#/components/schemas/balance'
-              vendor_id:
-                $ref: '#/components/schemas/vendor_id'
-              vendor_name:
-                $ref: '#/components/schemas/vendor_name'
-              currency_id:
-                $ref: '#/components/schemas/currency_id'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              created_time:
-                $ref: '#/components/schemas/created_time'
-              last_modified_time:
-                $ref: '#/components/schemas/last_modified_time'
-              has_attachment:
-                $ref: '#/components/schemas/has_attachment'
-              exchange_rate:
-                $ref: '#/components/schemas/exchange_rate'
-    product_type:
-      description: 'Type of the product.  Allowed Values: <code>goods</code>, <code>digital_service</code> and <code>service</code>.'
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    list-vendor-credit-refunds-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        vendor_credit_refunds:
-          type: array
-          items:
-            type: object
-            properties:
-              vendor_credit_refund_id:
-                $ref: '#/components/schemas/vendor_credit_refund_id'
-              vendor_credit_id:
-                $ref: '#/components/schemas/vendor_credit_id'
-              date:
-                description: Date of the Vendor Credit Refund
-                type: string
-                example: '2017-01-22'
-              refund_mode:
-                $ref: '#/components/schemas/refund_mode'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
-              amount:
-                $ref: '#/components/schemas/amount'
-              vendor_credit_number:
-                $ref: '#/components/schemas/vendor_credit_number'
-              customer_name:
-                $ref: '#/components/schemas/customer_name'
-              description:
-                description: Description of the Vendor Credit Refund
-                type: string
-                example: Cheque deposit
-              amount_bcy:
-                $ref: '#/components/schemas/amount_bcy'
-              amount_fcy:
-                $ref: '#/components/schemas/amount_fcy'
-    gst_no:
-      description: 15 digit GST identification number of the vendor.
-      type: string
-      example: 22AAAAA0000A1Z5
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    is_reverse_charge_applied:
-      description: Applicable for transactions where you pay reverse charge
+    is_update_customer:
+      description: Check if customer should be updated
       type: boolean
-      example: true
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    apply-credits-to-a-bill-request:
-      required:
-      - bills
-      type: object
-      properties:
-        bills:
-          description: Amount applied from vendor credits to specified bills.
-          type: array
-          items:
-            type: object
-            required:
-            - bill_id
-            - amount_applied
-            properties:
-              bill_id:
-                description: Bill Associated with the Vendor Credit
-                type: string
-                example: '460000000057075'
-              amount_applied:
-                description: Amount applied to the bill.
-                type: number
-                format: double
-                example: 10
-    delete-vendor-credit-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The vendor credit has been deleted.
-          readOnly: true
-    sub_total:
-      type: number
-      format: double
-      example: 30
-    item_id:
-      description: ID of the item.
+      example: false
+    pricebook_id:
+      description: ID of the pricebook
       type: string
-      example: '460000000020071'
-    comment_id:
-      description: ID of the Comment
-      type: string
-      example: '3000000002089'
-    tax_amount:
-      description: Amount of the Tax
-      type: number
-      format: double
-    date:
-      description: The date the vendor credit is created. [yyyy-mm-dd]
-      type: string
-      example: '2014-08-28'
-    destination_of_supply:
-      description: Place where the goods/services are supplied to. (If not given, organisation's home state will be taken)
-      type: string
-      example: TN
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    tds_tax_id:
-      description: TDS Tax ID of the Tax associated with the Vendor Credit
-      type: string
-      x-node_available_in:
-      - mx
-      x-node_unavailable_in: []
-    update-vendor-credit-refund-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The refund information has been saved.
-          readOnly: true
-        vendor_credit_refund:
-          $ref: '#/components/schemas/vendor_credit_refund'
-    reverse_charge_vat_amount:
-      description: Percentage of the Reverse Charge
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    last_modified_time:
-      description: Last Modified Time of Vendor Credit
-      type: string
-      example: 2014-08-28T22:53:31-0700
-    exchange_rate:
-      description: Exchange rate of the currency.
-      type: number
-      format: double
-      example: 1
-    vendor_credit_refund_id:
-      description: ID of the Vendor Credit Refund
-      type: string
-      example: '3000000003151'
-    currency_id:
-      description: ID of the Currency Involved in the Vendor Credit
-      type: string
-      example: '3000000000083'
-    item_order:
-      description: Order of the line item
-      type: integer
-      example: 0
-    quantity:
-      description: Quantity of the line item.
-      type: number
-      format: double
-      example: 1
-    vendor_credit_bill_id:
-      description: ID of the Vendor Credited Bill ID
-      type: string
-    description:
-      description: Description of the line item.
-      type: string
-    tag_id:
-      description: ID of the tag
-      type: string
-    total:
-      type: number
-      format: double
-      example: 30
-    list-vendor-credit-comments-and-history-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        comments:
-          type: array
-          items:
-            type: object
-            properties:
-              comment_id:
-                $ref: '#/components/schemas/comment_id'
-              vendor_credit_id:
-                $ref: '#/components/schemas/vendor_credit_id'
-              description:
-                description: Description of the Comment
-                type: string
-                example: Credits applied to Bill 1
-              commented_by_id:
-                $ref: '#/components/schemas/commented_by_id'
-              commented_by:
-                $ref: '#/components/schemas/commented_by'
-              comment_type:
-                $ref: '#/components/schemas/comment_type'
-              date:
-                description: Date of the Comment
-                type: string
-                example: '2017-01-18'
-              date_description:
-                $ref: '#/components/schemas/date_description'
-              time:
-                $ref: '#/components/schemas/time'
-              operation_type:
-                $ref: '#/components/schemas/operation_type'
-              transaction_id:
-                $ref: '#/components/schemas/transaction_id'
-              transaction_type:
-                $ref: '#/components/schemas/transaction_type'
-    reverse_charge_tax_id:
-      description: ID of the reverse charge tax
-      type: string
-      example: 460000000057089
-      x-node_available_in:
-      - in
-      - gcc
-      x-node_unavailable_in: []
     get-vendor-credit-response:
       type: object
       properties:
@@ -2076,7 +1403,80 @@ components:
               $ref: '#/components/schemas/created_time'
             last_modified_time:
               $ref: '#/components/schemas/last_modified_time'
-    list-bills-credited-response:
+    total_credits_used:
+      type: number
+      format: double
+      example: 0
+    apply-credits-to-a-bill-request:
+      required:
+      - bills
+      type: object
+      properties:
+        bills:
+          description: Amount applied from vendor credits to specified bills.
+          type: array
+          items:
+            type: object
+            required:
+            - bill_id
+            - amount_applied
+            properties:
+              bill_id:
+                description: Bill Associated with the Vendor Credit
+                type: string
+                example: '460000000057075'
+              amount_applied:
+                description: Amount applied to the bill.
+                type: number
+                format: double
+                example: 10
+    account_id:
+      description: ID of the account, the line item is associated with
+      type: string
+      example: '460000000020097'
+    transaction_type:
+      description: Transaction Type that caused the Comment
+      type: string
+      example: vendor_credit
+    delete-a-comment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The comment has been deleted.
+          readOnly: true
+    total:
+      type: number
+      format: double
+      example: 30
+    bill_number:
+      type: string
+    hsn_or_sac:
+      description: HSN Code
+      type: string
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    item_total:
+      description: Total price of the Item
+      type: number
+      format: double
+      example: 30
+    reference_number:
+      description: Reference number for the refund recorded.
+      type: string
+    acquisition_vat_name:
+      description: Name of the VAT Acquistion
+      type: string
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    list-vendor-credits-response:
       type: object
       properties:
         code:
@@ -2087,177 +1487,54 @@ components:
           type: string
           example: success
           readOnly: true
-        bills_credited:
+        vendorcredits:
           type: array
           items:
             type: object
             properties:
               vendor_credit_id:
                 $ref: '#/components/schemas/vendor_credit_id'
-              bill_id:
-                $ref: '#/components/schemas/bill_id'
-              vendor_credit_bill_id:
-                $ref: '#/components/schemas/vendor_credit_bill_id'
+              vendor_credit_number:
+                $ref: '#/components/schemas/vendor_credit_number'
+              status:
+                $ref: '#/components/schemas/status'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
               date:
                 $ref: '#/components/schemas/date'
-              bill_number:
-                $ref: '#/components/schemas/bill_number'
-    project_id:
-      description: ID of the project
-      type: string
-      example: 90300000087378
-    label:
-      description: Label of the Custom Field
-      type: string
-    name:
-      description: Name of the line item.
-      type: string
-      example: Premium Plan - Web hosting
-    item_total_inclusive_of_tax:
-      description: Total price of the Item inclusive of Tax
-      type: number
-      format: double
-      example: 30
-    pricebook_id:
-      description: ID of the pricebook
-      type: string
-    customfield_id:
-      description: ID of the Custom Field
-      type: string
-    reverse_charge_vat_total:
-      description: Total of the Reverse Charge
+              total:
+                $ref: '#/components/schemas/total'
+              balance:
+                $ref: '#/components/schemas/balance'
+              vendor_id:
+                $ref: '#/components/schemas/vendor_id'
+              vendor_name:
+                $ref: '#/components/schemas/vendor_name'
+              currency_id:
+                $ref: '#/components/schemas/currency_id'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              created_time:
+                $ref: '#/components/schemas/created_time'
+              last_modified_time:
+                $ref: '#/components/schemas/last_modified_time'
+              has_attachment:
+                $ref: '#/components/schemas/has_attachment'
+              exchange_rate:
+                $ref: '#/components/schemas/exchange_rate'
+    acquisition_vat_total:
+      description: Total of the VAT Acquistion
       type: number
       format: double
       x-node_available_in:
       - uk
       - eu
       x-node_unavailable_in: []
-    create-a-vendor-credit-request:
-      required:
-      - vendor_id
-      type: object
-      properties:
-        vendor_id:
-          $ref: '#/components/schemas/vendor_id'
-        vat_treatment:
-          $ref: '#/components/schemas/vat_treatment'
-        vendor_credit_number:
-          description: Mandatory if auto number generation is disabled.
-          type: string
-          example: DN-00002
-        gst_treatment:
-          $ref: '#/components/schemas/gst_treatment'
-        tax_treatment:
-          $ref: '#/components/schemas/tax_treatment'
-        gst_no:
-          $ref: '#/components/schemas/gst_no'
-        source_of_supply:
-          $ref: '#/components/schemas/source_of_supply'
-        destination_of_supply:
-          $ref: '#/components/schemas/destination_of_supply'
-        place_of_supply:
-          $ref: '#/components/schemas/place_of_supply'
-        pricebook_id:
-          $ref: '#/components/schemas/pricebook_id'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        is_update_customer:
-          $ref: '#/components/schemas/is_update_customer'
-        date:
-          $ref: '#/components/schemas/date'
-        exchange_rate:
-          $ref: '#/components/schemas/exchange_rate'
-        is_inclusive_tax:
-          $ref: '#/components/schemas/is_inclusive_tax'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        line_items:
-          description: Line items of a vendor credit.
-          type: array
-          items:
-            type: object
-            properties:
-              item_id:
-                $ref: '#/components/schemas/item_id'
-              line_item_id:
-                $ref: '#/components/schemas/line_item_id'
-              account_id:
-                $ref: '#/components/schemas/account_id'
-              name:
-                $ref: '#/components/schemas/name'
-              hsn_or_sac:
-                $ref: '#/components/schemas/hsn_or_sac'
-              reverse_charge_tax_id:
-                $ref: '#/components/schemas/reverse_charge_tax_id'
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              description:
-                $ref: '#/components/schemas/description'
-              item_order:
-                $ref: '#/components/schemas/item_order'
-              quantity:
-                $ref: '#/components/schemas/quantity'
-              unit:
-                $ref: '#/components/schemas/unit'
-              rate:
-                $ref: '#/components/schemas/rate'
-              tax_id:
-                $ref: '#/components/schemas/tax_id'
-              tds_tax_id:
-                $ref: '#/components/schemas/tds_tax_id'
-              tax_treatment_code:
-                $ref: '#/components/schemas/tax_treatment_code'
-              tags:
-                $ref: '#/components/schemas/tags'
-              item_custom_fields:
-                $ref: '#/components/schemas/item_custom_fields'
-              project_id:
-                $ref: '#/components/schemas/project_id'
-              project_name:
-                $ref: '#/components/schemas/project_name'
-              serial_numbers:
-                $ref: '#/components/schemas/serial_numbers'
-              batches:
-                $ref: '#/components/schemas/batches'
-              storages:
-                $ref: '#/components/schemas/storages'
-        notes:
-          $ref: '#/components/schemas/notes'
-        documents:
-          $ref: '#/components/schemas/documents'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-    vendor_credit_id:
-      description: ID of the Vendor Credit
-      type: string
-      example: '3000000002075'
-    vendor_credit_refunds:
-      type: array
-      items:
-        type: object
-        properties:
-          vendor_credit_refund_id:
-            $ref: '#/components/schemas/vendor_credit_refund_id'
-          vendor_credit_id:
-            $ref: '#/components/schemas/vendor_credit_id'
-          date:
-            $ref: '#/components/schemas/date'
-          refund_mode:
-            $ref: '#/components/schemas/refund_mode'
-          reference_number:
-            $ref: '#/components/schemas/reference_number'
-          description:
-            $ref: '#/components/schemas/description'
-          amount_bcy:
-            $ref: '#/components/schemas/amount_bcy'
-          amount_fcy:
-            $ref: '#/components/schemas/amount_fcy'
-          filed_in_vat_return_id:
-            $ref: '#/components/schemas/filed_in_vat_return_id'
-          filed_in_vat_return_name:
-            $ref: '#/components/schemas/filed_in_vat_return_name'
-          filed_in_vat_return_type:
-            $ref: '#/components/schemas/filed_in_vat_return_type'
+    amount:
+      type: number
+      format: double
+      description: Amount that is credited in the bill
+      example: 13
     batches:
       description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
       type: array
@@ -2296,17 +1573,11 @@ components:
                   type: number
                   format: float
                   example: 2
-    gst_treatment:
-      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
+    location_id:
+      description: Location ID
       type: string
-      example: business_gst
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    file_name:
-      description: Name of the file
-      type: string
-    delete-vendor-credit-refund-response:
+      example: '460000000038080'
+    list-bills-credited-response:
       type: object
       properties:
         code:
@@ -2315,31 +1586,191 @@ components:
           readOnly: true
         message:
           type: string
-          example: The refund has been successfully deleted.
+          example: success
           readOnly: true
-    notes:
-      description: Notes for the Vendor Credit
+        bills_credited:
+          type: array
+          items:
+            type: object
+            properties:
+              vendor_credit_id:
+                $ref: '#/components/schemas/vendor_credit_id'
+              bill_id:
+                $ref: '#/components/schemas/bill_id'
+              vendor_credit_bill_id:
+                $ref: '#/components/schemas/vendor_credit_bill_id'
+              date:
+                $ref: '#/components/schemas/date'
+              bill_number:
+                $ref: '#/components/schemas/bill_number'
+    tax_treatment_code:
+      description: Specify reason for using out of scope.</br>Supported values for <b>UAE</b> are <code>uae_same_tax_group</code>, <code>uae_reimbursed_expense</code> and <code>uae_others</code>.</br> Supported values for <b>Bahrain</b> are <code>bahrain_same_tax_group</code>, <code>bahrain_transfer_of_concern</code>, <code>bahrain_disbursement</code>, <code>bahrain_head_to_branch_transaction</code> and <code>bahrain_others</code>.
       type: string
-    tax_exemption_id:
-      description: ID of the Tax Exemption associated
-      type: string
+      example: uae_others
       x-node_available_in:
-      - in
-      - au
+      - gcc
       x-node_unavailable_in: []
-    acquisition_vat_name:
-      description: Name of the VAT Acquistion
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
+    tax:
+      type: object
+      properties:
+        tax_name:
+          $ref: '#/components/schemas/tax_name'
+        tax_amount:
+          $ref: '#/components/schemas/tax_amount'
+    item_order:
+      description: Order of the line item
+      type: integer
+      example: 0
     serial_numbers:
       description: Serial numbers for the line item. Applicable only for items with serial tracking enabled.
       type: array
       items:
         type: string
         example: ARMP-0078
+    filed_in_vat_return_id:
+      description: ID of the VAT Return the Vendor Credit is filed in
+      type: string
+      x-node_available_in:
+      - uk
+      x-node_unavailable_in: []
+    bills_credited:
+      type: array
+      items:
+        type: object
+        properties:
+          bill_id:
+            description: ID of the Bill Credited
+            type: string
+            example: '460000000057075'
+          vendor_credit_bill_id:
+            $ref: '#/components/schemas/vendor_credit_bill_id'
+          date:
+            description: Date of the Bill Credit
+            type: string
+            example: '2014-08-30'
+          bill_number:
+            description: Number of the Bill Credited
+            type: string
+          amount:
+            description: Amount that is credited in the bill
+            type: number
+            format: double
+            example: 13
+    value:
+      description: Value of the Custom Field
+      type: string
+    tag_option_id:
+      description: ID of the tag option
+      type: string
+    storages:
+      description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - storage_id
+        - out_quantity
+        properties:
+          storage_id:
+            description: Unique identifier of the bin/storage location.
+            type: string
+            example: '6780203000000093225'
+          out_quantity:
+            description: Quantity removed from the bin.
+            type: number
+            format: float
+            example: 2
+          serial_numbers:
+            description: Serial numbers allocated to this bin.
+            type: array
+            x-node_available_in:
+            - Serial with Bin tracked items
+            items:
+              type: string
+              example: ARMP-0078
+    customer_name:
+      description: Vendor associated with the Entity
+      type: string
+      example: Bowman and Co
+    total_refunded_amount:
+      type: number
+      format: double
+      example: 0
+    tax_exemption_code:
+      description: Code of the Tax Exemption associated
+      type: string
+      x-node_available_in:
+      - in
+      - au
+      x-node_unavailable_in: []
+    currency_id:
+      description: ID of the Currency Involved in the Vendor Credit
+      type: string
+      example: '3000000000083'
+    location_name:
+      description: Name of the location.
+      type: string
+    commented_by_id:
+      description: ID of the User who caused the comment
+      type: string
+      example: '3000000000741'
+    transaction_id:
+      description: Transaction ID that caused the Comment
+      type: string
+      example: '460000000069087'
+    commented_by:
+      description: Name of the User who caused the comment
+      type: string
+      example: rajdeep.a
+    refund_mode:
+      description: Mode of Refund
+      type: string
+      example: cash
+    vendor_credit_bill_id:
+      description: ID of the Vendor Credited Bill ID
+      type: string
+    reverse_charge_vat_summary:
+      description: Summary of the Reverse Charge
+      type: array
+      items:
+        type: object
+        properties:
+          tax:
+            $ref: '#/components/schemas/tax'
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    item_custom_fields:
+      type: array
+      description: List of custom fields associated with the line item
+      items:
+        type: object
+        properties:
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    currency_code:
+      description: Code of the Currency Involved in the Vendor Credit
+      type: string
+      example: USD
+    gst_no:
+      description: 15 digit GST identification number of the vendor.
+      type: string
+      example: 22AAAAA0000A1Z5
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    add-a-comment-request:
+      required:
+      - description
+      type: object
+      properties:
+        description:
+          description: Description of the Comment
+          type: string
+          example: Credits applied to Bill 1
     create-a-vendor-credit-response:
       type: object
       properties:
@@ -2353,16 +1784,63 @@ components:
           readOnly: true
         vendor_credit:
           $ref: '#/components/schemas/vendor_credit-response'
-    add-a-comment-request:
-      required:
-      - description
-      type: object
-      properties:
-        description:
-          description: Description of the Comment
-          type: string
-          example: Credits applied to Bill 1
-    apply-credits-to-a-bill-response:
+    vendor_id:
+      description: ID of the vendor the vendor credit associated with the Vendor Credit
+      type: string
+      example: '460000000020029'
+    customfield_id:
+      description: ID of the Custom Field
+      type: string
+    gst_treatment:
+      description: Choose whether the contact is GST registered/unregistered/consumer/overseas. Allowed values are <code> business_gst </code> , <code> business_none </code> , <code> overseas </code> , <code> consumer </code>.
+      type: string
+      example: business_gst
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    amount_fcy:
+      description: Refund Amount in Foreign Currency
+      type: number
+      format: double
+      example: 13
+    reverse_charge_vat_name:
+      description: Name of the Reverse Charge
+      type: string
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    reverse_charge_vat_total:
+      description: Total of the Reverse Charge
+      type: number
+      format: double
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    price_precision:
+      type: integer
+      example: 2
+    custom_fields:
+      type: array
+      description: List of custom fields associated with the vendor credit
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          label:
+            $ref: '#/components/schemas/label'
+          value:
+            $ref: '#/components/schemas/value'
+    source_of_supply:
+      description: Place from where the goods/services are supplied. (If not given, <code>place of contact</code> given for the contact will be taken)
+      type: string
+      example: TN
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    add-a-comment-response:
       type: object
       properties:
         code:
@@ -2371,97 +1849,42 @@ components:
           readOnly: true
         message:
           type: string
-          example: Credits have been applied to the bill(s).
+          example: Comments added.
           readOnly: true
-        bills:
-          description: Amount applied from vendor credits to specified bills.
-    time:
-      description: Time of the Comment
+        comment:
+          type: object
+          properties:
+            comment_id:
+              $ref: '#/components/schemas/comment_id'
+            vendor_credit_id:
+              $ref: '#/components/schemas/vendor_credit_id'
+            description:
+              description: Description of the Comment
+              type: string
+              example: Credits applied to Bill 1
+            commented_by_id:
+              $ref: '#/components/schemas/commented_by_id'
+            commented_by:
+              $ref: '#/components/schemas/commented_by'
+            date:
+              description: Date of the Comment
+              type: string
+              example: '2017-01-18'
+    notes:
+      description: Notes for the Vendor Credit
       type: string
-      example: 10:52 PM
-    tax_name:
-      description: Name of the Tax
-      type: string
-    tax_id:
-      description: ID of the Tax associated with the Vendor Credit
-      type: string
-    date_description:
-      description: Description of the Date of the Comment
-      type: string
-      example: 32 minutes ago
-    reverse_charge_tax_name:
-      description: Enter the tax name of the reverse charge
-      type: string
-      example: intra
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    location_name:
-      description: Name of the location.
-      type: string
-    currency_code:
-      description: Code of the Currency Involved in the Vendor Credit
-      type: string
-      example: USD
-    location_id:
-      description: Location ID
-      type: string
-      example: '460000000038080'
+    is_inclusive_tax:
+      description: Used to specify whether the line item rates are inclusive or exclusive of tax.
+      type: boolean
+      example: false
+      x-node_available_in: []
+      x-node_unavailable_in:
+      - us
     line_item_id:
       description: ID of the Line Item
       type: string
       example: '460000000020077'
-    reverse_charge_tax_percentage:
-      description: Tax percentage of the reverse charge
-      type: number
-      format: double
-      example: 10
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
-    delete-a-comment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The comment has been deleted.
-          readOnly: true
-    operation_type:
-      description: Type of operation that caused the Comment
-      type: string
-      example: Added
-    acquisition_vat_summary:
-      description: Summary of the VAT Acquistion
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-      type: array
-      items:
-        type: object
-        properties:
-          tax:
-            $ref: '#/components/schemas/tax'
-    is_update_customer:
-      description: Check if customer should be updated
-      type: boolean
-      example: false
-    acquisition_vat_id:
-      description: ID of the VAT Acquistion
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    transaction_id:
-      description: Transaction ID that caused the Comment
-      type: string
-      example: '460000000069087'
-    get-vendor-credit-refund-response:
+    list-refunds-of-a-vendor-credit-response:
       type: object
       properties:
         code:
@@ -2472,59 +1895,37 @@ components:
           type: string
           example: success
           readOnly: true
-        vendor_credit_refund:
-          $ref: '#/components/schemas/vendor_credit_refund'
-    payee:
-      description: Payee of the Transaction
-      type: string
-      example: John Roberts
-    place_of_supply:
-      description: 'The place of supply is where a transaction is considered to have occurred for VAT purposes. For the supply of goods, the place of supply is the location of the goods when the supply occurs. For the supply of services, the place of supply should be where the supplier is established. (If not given, <code>place of contact</code> given for the contact will be taken)<br/>Supported codes for UAE emirates are : </br>Abu Dhabi - <code>AB</code>,</br>Ajman - <code>AJ</code>,</br>Dubai - <code>DU</code>,</br>Fujairah - <code>FU</code>,</br>Ras al-Khaimah - <code>RA</code>,</br>Sharjah - <code>SH</code>,</br>Umm al-Quwain - <code>UM</code>.<br/>Supported codes for the GCC countries are : </br>United Arab Emirates - <code>AE</code>,</br>Saudi Arabia - <code>SA</code>,</br>Bahrain - <code>BH</code>,</br>Kuwait - <code>KW</code>,</br>Oman - <code>OM</code>,</br>Qatar - <code>QA</code>.'
-      type: string
-      example: DU
-      x-node_available_in:
-      - gcc
-      x-node_unavailable_in: []
-    filed_in_vat_return_id:
-      description: ID of the VAT Return the Vendor Credit is filed in
-      type: string
-      x-node_available_in:
-      - uk
-      x-node_unavailable_in: []
-    taxes:
-      type: array
-      items:
-        type: object
-        properties:
-          tax_name:
-            $ref: '#/components/schemas/tax_name'
-          tax_amount:
-            $ref: '#/components/schemas/tax_amount'
-    convert-to-open-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The status of the vendor credit has been changed to open.
-          readOnly: true
-    bill_id:
-      description: Bill Associated with the Vendor Credit
-      type: string
-      example: '460000000057075'
-    value:
-      description: Value of the Custom Field
-      type: string
-    tax_type:
-      description: Type of the Tax
-      type: string
-    vendor_credit_number:
-      description: Number of the Vendor Credit
-      type: string
-      example: DN-00002
+        vendor_credit_refunds:
+          type: array
+          items:
+            type: object
+            properties:
+              vendor_credit_refund_id:
+                $ref: '#/components/schemas/vendor_credit_refund_id'
+              vendor_credit_id:
+                $ref: '#/components/schemas/vendor_credit_id'
+              date:
+                description: Date of the Vendor Credit Refund
+                type: string
+                example: '2017-01-22'
+              refund_mode:
+                $ref: '#/components/schemas/refund_mode'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
+              amount:
+                $ref: '#/components/schemas/amount'
+              vendor_credit_number:
+                $ref: '#/components/schemas/vendor_credit_number'
+              customer_name:
+                $ref: '#/components/schemas/customer_name'
+              description:
+                description: Description of the Vendor Credit Refund
+                type: string
+                example: Cheque deposit
+              amount_bcy:
+                $ref: '#/components/schemas/amount_bcy'
+              amount_fcy:
+                $ref: '#/components/schemas/amount_fcy'
     vendor_credit_refund:
       type: object
       properties:
@@ -2550,6 +1951,505 @@ components:
           $ref: '#/components/schemas/description'
         imported_transactions:
           $ref: '#/components/schemas/imported_transactions'
+    vendor_credit-response:
+      type: object
+      properties:
+        vendor_credit_id:
+          $ref: '#/components/schemas/vendor_credit_id'
+        vendor_credit_number:
+          $ref: '#/components/schemas/vendor_credit_number'
+        date:
+          $ref: '#/components/schemas/date'
+        source_of_supply:
+          $ref: '#/components/schemas/source_of_supply'
+        destination_of_supply:
+          $ref: '#/components/schemas/destination_of_supply'
+        place_of_supply:
+          $ref: '#/components/schemas/place_of_supply'
+        gst_no:
+          $ref: '#/components/schemas/gst_no'
+        gst_treatment:
+          $ref: '#/components/schemas/gst_treatment'
+        tax_treatment:
+          $ref: '#/components/schemas/tax_treatment'
+        pricebook_id:
+          $ref: '#/components/schemas/pricebook_id'
+        is_reverse_charge_applied:
+          $ref: '#/components/schemas/is_reverse_charge_applied'
+        status:
+          $ref: '#/components/schemas/status'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        vendor_id:
+          $ref: '#/components/schemas/vendor_id'
+        vendor_name:
+          $ref: '#/components/schemas/vendor_name'
+        currency_id:
+          $ref: '#/components/schemas/currency_id'
+        currency_code:
+          $ref: '#/components/schemas/currency_code'
+        exchange_rate:
+          $ref: '#/components/schemas/exchange_rate'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        vat_treatment:
+          $ref: '#/components/schemas/vat_treatment'
+        filed_in_vat_return_id:
+          $ref: '#/components/schemas/filed_in_vat_return_id'
+        filed_in_vat_return_name:
+          $ref: '#/components/schemas/filed_in_vat_return_name'
+        filed_in_vat_return_type:
+          $ref: '#/components/schemas/filed_in_vat_return_type'
+        is_inclusive_tax:
+          $ref: '#/components/schemas/is_inclusive_tax'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        location_name:
+          $ref: '#/components/schemas/location_name'
+        line_items:
+          description: Line items of a vendor credit.
+          type: object
+          properties:
+            item_id:
+              $ref: '#/components/schemas/item_id'
+            line_item_id:
+              $ref: '#/components/schemas/line_item_id'
+            sku:
+              $ref: '#/components/schemas/sku'
+            account_id:
+              $ref: '#/components/schemas/account_id'
+            product_type:
+              $ref: '#/components/schemas/product_type'
+            location_id:
+              $ref: '#/components/schemas/location_id'
+            location_name:
+              $ref: '#/components/schemas/location_name'
+            reverse_charge_tax_id:
+              $ref: '#/components/schemas/reverse_charge_tax_id'
+            reverse_charge_tax_name:
+              $ref: '#/components/schemas/reverse_charge_tax_name'
+            reverse_charge_tax_percentage:
+              $ref: '#/components/schemas/reverse_charge_tax_percentage'
+            reverse_charge_tax_amount:
+              $ref: '#/components/schemas/reverse_charge_tax_amount'
+            account_name:
+              $ref: '#/components/schemas/account_name'
+            name:
+              $ref: '#/components/schemas/name'
+            description:
+              $ref: '#/components/schemas/description'
+            item_order:
+              $ref: '#/components/schemas/item_order'
+            quantity:
+              $ref: '#/components/schemas/quantity'
+            unit:
+              $ref: '#/components/schemas/unit'
+            bcy_rate:
+              $ref: '#/components/schemas/bcy_rate'
+            rate:
+              $ref: '#/components/schemas/rate'
+            tax_id:
+              $ref: '#/components/schemas/tax_id'
+            tds_tax_id:
+              $ref: '#/components/schemas/tds_tax_id'
+            tax_treatment_code:
+              $ref: '#/components/schemas/tax_treatment_code'
+            tax_exemption_id:
+              $ref: '#/components/schemas/tax_exemption_id'
+            tax_exemption_code:
+              $ref: '#/components/schemas/tax_exemption_code'
+            tax_name:
+              $ref: '#/components/schemas/tax_name'
+            tax_type:
+              $ref: '#/components/schemas/tax_type'
+            tax_percentage:
+              $ref: '#/components/schemas/tax_percentage'
+            item_total:
+              $ref: '#/components/schemas/item_total'
+            item_total_inclusive_of_tax:
+              $ref: '#/components/schemas/item_total_inclusive_of_tax'
+            hsn_or_sac:
+              $ref: '#/components/schemas/hsn_or_sac'
+            acquisition_vat_id:
+              $ref: '#/components/schemas/acquisition_vat_id'
+            acquisition_vat_name:
+              $ref: '#/components/schemas/acquisition_vat_name'
+            acquisition_vat_percentage:
+              $ref: '#/components/schemas/acquisition_vat_percentage'
+            acquisition_vat_amount:
+              $ref: '#/components/schemas/acquisition_vat_amount'
+            reverse_charge_vat_id:
+              $ref: '#/components/schemas/reverse_charge_vat_id'
+            reverse_charge_vat_name:
+              $ref: '#/components/schemas/reverse_charge_vat_name'
+            reverse_charge_vat_percentage:
+              $ref: '#/components/schemas/reverse_charge_vat_percentage'
+            reverse_charge_vat_amount:
+              $ref: '#/components/schemas/reverse_charge_vat_amount'
+            stock_on_hand:
+              $ref: '#/components/schemas/stock_on_hand'
+            tags:
+              $ref: '#/components/schemas/tags'
+            item_custom_fields:
+              $ref: '#/components/schemas/item_custom_fields'
+        acquisition_vat_summary:
+          $ref: '#/components/schemas/acquisition_vat_summary'
+        acquisition_vat_total:
+          $ref: '#/components/schemas/acquisition_vat_total'
+        reverse_charge_vat_summary:
+          $ref: '#/components/schemas/reverse_charge_vat_summary'
+        reverse_charge_vat_total:
+          $ref: '#/components/schemas/reverse_charge_vat_total'
+        documents:
+          $ref: '#/components/schemas/documents'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        sub_total:
+          $ref: '#/components/schemas/sub_total'
+        total:
+          $ref: '#/components/schemas/total'
+        total_credits_used:
+          $ref: '#/components/schemas/total_credits_used'
+        total_refunded_amount:
+          $ref: '#/components/schemas/total_refunded_amount'
+        balance:
+          $ref: '#/components/schemas/balance'
+        notes:
+          $ref: '#/components/schemas/notes'
+        comments:
+          $ref: '#/components/schemas/comments'
+        vendor_credit_refunds:
+          $ref: '#/components/schemas/vendor_credit_refunds'
+        bills_credited:
+          $ref: '#/components/schemas/bills_credited'
+        created_time:
+          $ref: '#/components/schemas/created_time'
+        last_modified_time:
+          $ref: '#/components/schemas/last_modified_time'
+    tax_treatment:
+      description: 'VAT treatment for the vendor credit. Choose whether the vendor falls under: <code>vat_registered</code>,<code>vat_not_registered</code>,<code>gcc_vat_not_registered</code>,<code>gcc_vat_registered</code>,<code>non_gcc</code>.</br><code>dz_vat_registered</code> and <code>dz_vat_not_registered</code> are supported only for <b>UAE</b>.</b></br><code>home_country_mexico</code>,<code>border_region_mexico</code>,<code>non_mexico</code> supported only for <b>MX</b>.'
+      type: string
+      example: vat_registered
+      x-node_available_in:
+      - gcc
+      - mx
+      x-node_unavailable_in: []
+    delete-vendor-credit-refund-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The refund has been successfully deleted.
+          readOnly: true
+    is_reverse_charge_applied:
+      description: Applicable for transactions where you pay reverse charge
+      type: boolean
+      example: true
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    vendor_credit_number:
+      description: Number of the Vendor Credit
+      type: string
+      example: DN-00002
+    imported_transaction_id:
+      description: ID of the Imported Transaction
+      type: string
+      example: '460000000013297'
+    tag_id:
+      description: ID of the tag
+      type: string
+    refund-a-vendor-credit-request:
+      required:
+      - date
+      - amount
+      - account_id
+      type: object
+      properties:
+        date:
+          description: Date of Vendor Credit Refund
+          type: string
+          example: '2014-08-30'
+        refund_mode:
+          $ref: '#/components/schemas/refund_mode'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        amount:
+          $ref: '#/components/schemas/amount'
+        exchange_rate:
+          $ref: '#/components/schemas/exchange_rate'
+        account_id:
+          $ref: '#/components/schemas/account_id'
+        description:
+          $ref: '#/components/schemas/description'
+    acquisition_vat_percentage:
+      description: Percentage of the VAT Acquistion
+      type: string
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    file_name:
+      description: Name of the file
+      type: string
+    label:
+      description: Label of the Custom Field
+      type: string
+    item_id:
+      description: ID of the item.
+      type: string
+      example: '460000000020071'
+    list-vendor-credit-comments-and-history-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        comments:
+          type: array
+          items:
+            type: object
+            properties:
+              comment_id:
+                $ref: '#/components/schemas/comment_id'
+              vendor_credit_id:
+                $ref: '#/components/schemas/vendor_credit_id'
+              description:
+                description: Description of the Comment
+                type: string
+                example: Credits applied to Bill 1
+              commented_by_id:
+                $ref: '#/components/schemas/commented_by_id'
+              commented_by:
+                $ref: '#/components/schemas/commented_by'
+              comment_type:
+                $ref: '#/components/schemas/comment_type'
+              date:
+                description: Date of the Comment
+                type: string
+                example: '2017-01-18'
+              date_description:
+                $ref: '#/components/schemas/date_description'
+              time:
+                $ref: '#/components/schemas/time'
+              operation_type:
+                $ref: '#/components/schemas/operation_type'
+              transaction_id:
+                $ref: '#/components/schemas/transaction_id'
+              transaction_type:
+                $ref: '#/components/schemas/transaction_type'
+    delete-bills-credited-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Credits applied to the bill have been deleted.
+          readOnly: true
+    acquisition_vat_summary:
+      description: Summary of the VAT Acquistion
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+      type: array
+      items:
+        type: object
+        properties:
+          tax:
+            $ref: '#/components/schemas/tax'
+    batches-update:
+      description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
+      type: array
+      items:
+        type: object
+        required:
+        - batch_id
+        - out_quantity
+        properties:
+          batch_id:
+            description: Unique identifier of an existing batch.
+            type: string
+            example: '6780203000000214019'
+          out_quantity:
+            description: Quantity removed from the batch.
+            type: number
+            format: float
+            example: 2
+          storages:
+            description: Bin/storage locations from which stock was issued for this batch.
+            type: array
+            x-node_available_in:
+            - Batch with Bin tracked items
+            items:
+              type: object
+              required:
+              - storage_id
+              - out_quantity
+              properties:
+                storage_id:
+                  description: Unique identifier of the bin/storage location.
+                  type: string
+                  example: '6780203000000093226'
+                out_quantity:
+                  description: Quantity removed from the bin.
+                  type: number
+                  format: float
+                  example: 2
+                storage_out_id:
+                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
+                  type: string
+                  example: '6780203000000997441'
+    update-vendor-credit-refund-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The refund information has been saved.
+          readOnly: true
+        vendor_credit_refund:
+          $ref: '#/components/schemas/vendor_credit_refund'
+    description:
+      description: Description of the line item.
+      type: string
+    reverse_charge_tax_name:
+      description: Enter the tax name of the reverse charge
+      type: string
+      example: intra
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    reverse_charge_vat_amount:
+      description: Percentage of the Reverse Charge
+      type: string
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    tds_tax_id:
+      description: TDS Tax ID of the Tax associated with the Vendor Credit
+      type: string
+      x-node_available_in:
+      - mx
+      x-node_unavailable_in: []
+    destination_of_supply:
+      description: Place where the goods/services are supplied to. (If not given, organisation's home state will be taken)
+      type: string
+      example: TN
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    tax_exemption_id:
+      description: ID of the Tax Exemption associated
+      type: string
+      x-node_available_in:
+      - in
+      - au
+      x-node_unavailable_in: []
+    refund-a-vendor-credit-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The refund information for this vendor credit has been saved.
+          readOnly: true
+        vendor_credit_refund:
+          $ref: '#/components/schemas/vendor_credit_refund'
+    place_of_supply:
+      description: 'The place of supply is where a transaction is considered to have occurred for VAT purposes. For the supply of goods, the place of supply is the location of the goods when the supply occurs. For the supply of services, the place of supply should be where the supplier is established. (If not given, <code>place of contact</code> given for the contact will be taken)<br/>Supported codes for UAE emirates are : </br>Abu Dhabi - <code>AB</code>,</br>Ajman - <code>AJ</code>,</br>Dubai - <code>DU</code>,</br>Fujairah - <code>FU</code>,</br>Ras al-Khaimah - <code>RA</code>,</br>Sharjah - <code>SH</code>,</br>Umm al-Quwain - <code>UM</code>.<br/>Supported codes for the GCC countries are : </br>United Arab Emirates - <code>AE</code>,</br>Saudi Arabia - <code>SA</code>,</br>Bahrain - <code>BH</code>,</br>Kuwait - <code>KW</code>,</br>Oman - <code>OM</code>,</br>Qatar - <code>QA</code>.'
+      type: string
+      example: DU
+      x-node_available_in:
+      - gcc
+      x-node_unavailable_in: []
+    sku:
+      description: SKU of the Item
+      type: string
+    exchange_rate:
+      description: Exchange rate of the currency.
+      type: number
+      format: double
+      example: 1
+    tax_id:
+      description: ID of the Tax associated with the Vendor Credit
+      type: string
+    stock_on_hand:
+      description: Stock on Hand for that Item
+      type: string
+    documents:
+      type: array
+      description: List of documents associated with the vendor credit
+      items:
+        type: object
+        properties:
+          document_id:
+            $ref: '#/components/schemas/document_id'
+          file_name:
+            $ref: '#/components/schemas/file_name'
+    bcy_rate:
+      description: Rate of the Item in Base Currency
+      type: number
+      format: double
+      example: 30
+    product_type:
+      description: 'Type of the product.  Allowed Values: <code>goods</code>, <code>digital_service</code> and <code>service</code>.'
+      type: string
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    vat_treatment:
+      description: VAT treatment for the invoice. VAT treatment denotes the location of the customer, if the customer resides in UK then the VAT treatment is <code>uk</code>. If the vendor is in an EU country & VAT registered, you are resides in Northen Ireland and purchasing Goods then his VAT treatment is <code>eu_vat_registered</code> and if he resides outside the EU then his VAT treatment is <code>overseas</code>(For Pre Brexit, this can be split as <code>eu_vat_registered</code>, <code>eu_vat_not_registered</code> and <code>non_eu</code>).
+      type: string
+      x-node_available_in:
+      - uk
+      x-node_unavailable_in: []
+    tax_amount:
+      description: Amount of the Tax
+      type: number
+      format: double
+    vendor_name:
+      description: Name of the Vendor Associated with the Vendor Credit
+      type: string
+      example: Bowman and Co
+    amount_bcy:
+      description: Refund Amount in Base Currency
+      type: number
+      format: double
+      example: 13
+    apply-credits-to-a-bill-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Credits have been applied to the bill(s).
+          readOnly: true
+        bills:
+          description: Amount applied from vendor credits to specified bills.
     update-vendor-credit-response:
       type: object
       properties:
@@ -2752,16 +2652,214 @@ components:
               $ref: '#/components/schemas/created_time'
             last_modified_time:
               $ref: '#/components/schemas/last_modified_time'
-    filed_in_vat_return_name:
-      description: Name of the VAT Return the Vendor Credit is filed in
+    submit-a-vendor-credit-for-approval-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The vendor credit has been submitted for approval successfully.
+          readOnly: true
+    project_name:
+      description: Name of the project.
+      type: string
+      example: Sample Project
+    comment_type:
+      description: Type of the comment
+      type: string
+      example: system
+    unit:
+      description: Unit of the line item e.g. kgs, Nos.
+      type: string
+      example: Nos
+    account_name:
+      description: Name of the account the line item is associated with
+      type: string
+      example: IT and Internet Expenses
+    delete-vendor-credit-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The vendor credit has been deleted.
+          readOnly: true
+    tax_percentage:
+      description: Percentage of Tax
+      type: number
+      format: double
+    create-a-vendor-credit-request:
+      required:
+      - vendor_id
+      type: object
+      properties:
+        vendor_id:
+          $ref: '#/components/schemas/vendor_id'
+        vat_treatment:
+          $ref: '#/components/schemas/vat_treatment'
+        vendor_credit_number:
+          description: Mandatory if auto number generation is disabled.
+          type: string
+          example: DN-00002
+        gst_treatment:
+          $ref: '#/components/schemas/gst_treatment'
+        tax_treatment:
+          $ref: '#/components/schemas/tax_treatment'
+        gst_no:
+          $ref: '#/components/schemas/gst_no'
+        source_of_supply:
+          $ref: '#/components/schemas/source_of_supply'
+        destination_of_supply:
+          $ref: '#/components/schemas/destination_of_supply'
+        place_of_supply:
+          $ref: '#/components/schemas/place_of_supply'
+        pricebook_id:
+          $ref: '#/components/schemas/pricebook_id'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        is_update_customer:
+          $ref: '#/components/schemas/is_update_customer'
+        date:
+          $ref: '#/components/schemas/date'
+        exchange_rate:
+          $ref: '#/components/schemas/exchange_rate'
+        is_inclusive_tax:
+          $ref: '#/components/schemas/is_inclusive_tax'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        line_items:
+          description: Line items of a vendor credit.
+          type: array
+          items:
+            type: object
+            properties:
+              item_id:
+                $ref: '#/components/schemas/item_id'
+              line_item_id:
+                $ref: '#/components/schemas/line_item_id'
+              account_id:
+                $ref: '#/components/schemas/account_id'
+              name:
+                $ref: '#/components/schemas/name'
+              hsn_or_sac:
+                $ref: '#/components/schemas/hsn_or_sac'
+              reverse_charge_tax_id:
+                $ref: '#/components/schemas/reverse_charge_tax_id'
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              description:
+                $ref: '#/components/schemas/description'
+              item_order:
+                $ref: '#/components/schemas/item_order'
+              quantity:
+                $ref: '#/components/schemas/quantity'
+              unit:
+                $ref: '#/components/schemas/unit'
+              rate:
+                $ref: '#/components/schemas/rate'
+              tax_id:
+                $ref: '#/components/schemas/tax_id'
+              tds_tax_id:
+                $ref: '#/components/schemas/tds_tax_id'
+              tax_treatment_code:
+                $ref: '#/components/schemas/tax_treatment_code'
+              tags:
+                $ref: '#/components/schemas/tags'
+              item_custom_fields:
+                $ref: '#/components/schemas/item_custom_fields'
+              project_id:
+                $ref: '#/components/schemas/project_id'
+              project_name:
+                $ref: '#/components/schemas/project_name'
+              serial_numbers:
+                $ref: '#/components/schemas/serial_numbers'
+              batches:
+                $ref: '#/components/schemas/batches'
+              storages:
+                $ref: '#/components/schemas/storages'
+        notes:
+          $ref: '#/components/schemas/notes'
+        documents:
+          $ref: '#/components/schemas/documents'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+    bill_id:
+      description: Bill Associated with the Vendor Credit
+      type: string
+      example: '460000000057075'
+    payee:
+      description: Payee of the Transaction
+      type: string
+      example: John Roberts
+    date_description:
+      description: Description of the Date of the Comment
+      type: string
+      example: 32 minutes ago
+    acquisition_vat_id:
+      description: ID of the VAT Acquistion
       type: string
       x-node_available_in:
       - uk
+      - eu
       x-node_unavailable_in: []
-    vendor_name:
-      description: Name of the Vendor Associated with the Vendor Credit
+    comment_id:
+      description: ID of the Comment
       type: string
-      example: Bowman and Co
+      example: '3000000002089'
+    taxes:
+      type: array
+      items:
+        type: object
+        properties:
+          tax_name:
+            $ref: '#/components/schemas/tax_name'
+          tax_amount:
+            $ref: '#/components/schemas/tax_amount'
+    rate:
+      description: Rate of the line item.
+      type: number
+      format: double
+      example: 30
+    reverse_charge_vat_percentage:
+      description: Percentage of the Reverse Charge
+      type: string
+      x-node_available_in:
+      - uk
+      - eu
+      x-node_unavailable_in: []
+    name:
+      description: Name of the line item.
+      type: string
+      example: Premium Plan - Web hosting
+    reverse_charge_tax_percentage:
+      description: Tax percentage of the reverse charge
+      type: number
+      format: double
+      example: 10
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    vendor_credit_refund_id:
+      description: ID of the Vendor Credit Refund
+      type: string
+      example: '3000000003151'
+    has_attachment:
+      description: Check if Vendor Credit has attachment
+      type: boolean
+      example: false
+    tax_name:
+      description: Name of the Tax
+      type: string
+    sub_total:
+      type: number
+      format: double
+      example: 30
     void-vendor-credit-response:
       type: object
       properties:
@@ -2773,108 +2871,10 @@ components:
           type: string
           example: The vendor credit has been voided.
           readOnly: true
-    storages:
-      description: Bin/storage locations allocated (or consumed, for assemblies) for the line item. Applicable only for items with bin tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - storage_id
-        - out_quantity
-        properties:
-          storage_id:
-            description: Unique identifier of the bin/storage location.
-            type: string
-            example: '6780203000000093225'
-          out_quantity:
-            description: Quantity removed from the bin.
-            type: number
-            format: float
-            example: 2
-          serial_numbers:
-            description: Serial numbers allocated to this bin.
-            type: array
-            x-node_available_in:
-            - Serial with Bin tracked items
-            items:
-              type: string
-              example: ARMP-0078
-    commented_by:
-      description: Name of the User who caused the comment
+    vendor_credit_id:
+      description: ID of the Vendor Credit
       type: string
-      example: rajdeep.a
-    acquisition_vat_percentage:
-      description: Percentage of the VAT Acquistion
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    is_inclusive_tax:
-      description: Used to specify whether the line item rates are inclusive or exclusive of tax.
-      type: boolean
-      example: false
-      x-node_available_in: []
-      x-node_unavailable_in:
-      - us
-    batches-update:
-      description: Batch details for the line item. Reference an existing batch using <code>batch_id</code>. Applicable only for items with batch tracking enabled.
-      type: array
-      items:
-        type: object
-        required:
-        - batch_id
-        - out_quantity
-        properties:
-          batch_id:
-            description: Unique identifier of an existing batch.
-            type: string
-            example: '6780203000000214019'
-          out_quantity:
-            description: Quantity removed from the batch.
-            type: number
-            format: float
-            example: 2
-          storages:
-            description: Bin/storage locations from which stock was issued for this batch.
-            type: array
-            x-node_available_in:
-            - Batch with Bin tracked items
-            items:
-              type: object
-              required:
-              - storage_id
-              - out_quantity
-              properties:
-                storage_id:
-                  description: Unique identifier of the bin/storage location.
-                  type: string
-                  example: '6780203000000093226'
-                out_quantity:
-                  description: Quantity removed from the bin.
-                  type: number
-                  format: float
-                  example: 2
-                storage_out_id:
-                  description: Unique identifier of the storage record. Applicable only when updating an existing storage entry.
-                  type: string
-                  example: '6780203000000997441'
-    reverse_charge_vat_name:
-      description: Name of the Reverse Charge
-      type: string
-      x-node_available_in:
-      - uk
-      - eu
-      x-node_unavailable_in: []
-    amount_fcy:
-      description: Refund Amount in Foreign Currency
-      type: number
-      format: double
-      example: 13
-    project_name:
-      description: Name of the project.
-      type: string
-      example: Sample Project
+      example: '3000000002075'
   parameters:
     organization_id:
       name: organization_id

@@ -682,391 +682,10 @@ paths:
         - ZohoInventory.invoices.UPDATE
 components:
   schemas:
-    gateways_configured:
+    show_comment_to_clients:
+      description: Boolean to check if the comment to be shown to the clients
       type: boolean
       example: true
-    zip:
-      type: string
-      example: 94134
-    per_page:
-      description: Per page values
-      type: integer
-      example: 200
-    list-a-retainer-invoices-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        retainerinvoices:
-          type: array
-          items:
-            type: object
-            properties:
-              retainerinvoice_id:
-                $ref: '#/components/schemas/retainerinvoice_id'
-              customer_name:
-                $ref: '#/components/schemas/customer_name'
-              retainerinvoice_number:
-                $ref: '#/components/schemas/retainerinvoice_number'
-              customer_id:
-                $ref: '#/components/schemas/customer_id'
-              status:
-                $ref: '#/components/schemas/status'
-              reference_number:
-                $ref: '#/components/schemas/reference_number'
-              project_or_estimate_name:
-                $ref: '#/components/schemas/project_or_estimate_name'
-              date:
-                $ref: '#/components/schemas/date'
-              currency_id:
-                $ref: '#/components/schemas/currency_id'
-              currency_code:
-                $ref: '#/components/schemas/currency_code'
-              is_viewed_by_client:
-                $ref: '#/components/schemas/is_viewed_by_client'
-              client_viewed_time:
-                $ref: '#/components/schemas/client_viewed_time'
-              total:
-                $ref: '#/components/schemas/total'
-              balance:
-                $ref: '#/components/schemas/balance'
-              created_time:
-                $ref: '#/components/schemas/created_time'
-              last_modified_time:
-                $ref: '#/components/schemas/last_modified_time'
-              is_emailed:
-                $ref: '#/components/schemas/is_emailed'
-              last_payment_date:
-                $ref: '#/components/schemas/last_payment_date'
-              has_attachment:
-                $ref: '#/components/schemas/has_attachment'
-        page_context:
-          type: object
-          properties:
-            page:
-              $ref: '#/components/schemas/page'
-            per_page:
-              $ref: '#/components/schemas/per_page'
-            has_more_page:
-              $ref: '#/components/schemas/has_more_page'
-            report_name:
-              $ref: '#/components/schemas/report_name'
-            applied_filter:
-              $ref: '#/components/schemas/applied_filter'
-            sort_column:
-              $ref: '#/components/schemas/sort_column'
-            sort_order:
-              $ref: '#/components/schemas/sort_order'
-    to_mail_ids:
-      description: Array of email address of the recipients.
-      type: array
-      items:
-        type: string
-      example:
-      - willsmith@bowmanfurniture.com
-    retainerinvoice-response:
-      type: object
-      properties:
-        retainerinvoice_id:
-          $ref: '#/components/schemas/retainerinvoice_id'
-        retainerinvoice_number:
-          $ref: '#/components/schemas/retainerinvoice_number'
-        date:
-          $ref: '#/components/schemas/date'
-        status:
-          $ref: '#/components/schemas/status'
-        is_pre_gst:
-          $ref: '#/components/schemas/is_pre_gst'
-        place_of_supply:
-          $ref: '#/components/schemas/place_of_supply'
-        project_id:
-          $ref: '#/components/schemas/project_id'
-        project_name:
-          $ref: '#/components/schemas/project_name'
-        last_payment_date:
-          $ref: '#/components/schemas/last_payment_date'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        customer_id:
-          $ref: '#/components/schemas/customer_id'
-        customer_name:
-          $ref: '#/components/schemas/customer_name'
-        contact_persons_associated:
-          $ref: '#/components/schemas/contact_persons_associated'
-        currency_id:
-          $ref: '#/components/schemas/currency_id'
-        currency_code:
-          $ref: '#/components/schemas/currency_code'
-        currency_symbol:
-          $ref: '#/components/schemas/currency_symbol'
-        exchange_rate:
-          $ref: '#/components/schemas/exchange_rate'
-        is_viewed_by_client:
-          $ref: '#/components/schemas/is_viewed_by_client'
-        client_viewed_time:
-          $ref: '#/components/schemas/client_viewed_time'
-        is_inclusive_tax:
-          $ref: '#/components/schemas/is_inclusive_tax'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        location_name:
-          $ref: '#/components/schemas/location_name'
-        line_items:
-          description: Line items of a retainer invoice.
-          type: array
-          items:
-            type: object
-            properties:
-              line_item_id:
-                $ref: '#/components/schemas/line_item_id'
-              description:
-                $ref: '#/components/schemas/description'
-              item_order:
-                $ref: '#/components/schemas/item_order'
-              rate:
-                $ref: '#/components/schemas/rate'
-              bcy_rate:
-                $ref: '#/components/schemas/bcy_rate'
-              tax_id:
-                $ref: '#/components/schemas/tax_id'
-              tax_name:
-                $ref: '#/components/schemas/tax_name'
-              tax_type:
-                $ref: '#/components/schemas/tax_type'
-              tax_percentage:
-                $ref: '#/components/schemas/tax_percentage'
-              item_total:
-                $ref: '#/components/schemas/item_total'
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              location_name:
-                $ref: '#/components/schemas/location_name'
-        sub_total:
-          $ref: '#/components/schemas/sub_total'
-        total:
-          $ref: '#/components/schemas/total'
-        taxes:
-          $ref: '#/components/schemas/taxes'
-        payment_made:
-          $ref: '#/components/schemas/payment_made'
-        payment_drawn:
-          $ref: '#/components/schemas/payment_drawn'
-        balance:
-          $ref: '#/components/schemas/balance'
-        allow_partial_payments:
-          $ref: '#/components/schemas/allow_partial_payments'
-        price_precision:
-          $ref: '#/components/schemas/price_precision'
-        payment_options:
-          $ref: '#/components/schemas/payment_options'
-        is_emailed:
-          $ref: '#/components/schemas/is_emailed'
-        documents:
-          $ref: '#/components/schemas/documents'
-        billing_address:
-          $ref: '#/components/schemas/billing_address'
-        shipping_address:
-          $ref: '#/components/schemas/shipping_address'
-        notes:
-          $ref: '#/components/schemas/notes'
-        terms:
-          $ref: '#/components/schemas/terms'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        template_id:
-          $ref: '#/components/schemas/template_id'
-        template_name:
-          $ref: '#/components/schemas/template_name'
-        page_width:
-          $ref: '#/components/schemas/page_width'
-        page_height:
-          $ref: '#/components/schemas/page_height'
-        orientation:
-          $ref: '#/components/schemas/orientation'
-        template_type:
-          $ref: '#/components/schemas/template_type'
-        created_time:
-          $ref: '#/components/schemas/created_time'
-        last_modified_time:
-          $ref: '#/components/schemas/last_modified_time'
-        created_by_id:
-          $ref: '#/components/schemas/created_by_id'
-        attachment_name:
-          $ref: '#/components/schemas/attachment_name'
-        can_send_in_mail:
-          $ref: '#/components/schemas/can_send_in_mail'
-    get-a-retainer-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        retainerinvoice:
-          type: object
-          properties:
-            retainerinvoice_id:
-              $ref: '#/components/schemas/retainerinvoice_id'
-            retainerinvoice_number:
-              $ref: '#/components/schemas/retainerinvoice_number'
-            date:
-              $ref: '#/components/schemas/date'
-            status:
-              $ref: '#/components/schemas/status'
-            is_pre_gst:
-              $ref: '#/components/schemas/is_pre_gst'
-            place_of_supply:
-              $ref: '#/components/schemas/place_of_supply'
-            project_id:
-              $ref: '#/components/schemas/project_id'
-            project_name:
-              $ref: '#/components/schemas/project_name'
-            last_payment_date:
-              $ref: '#/components/schemas/last_payment_date'
-            reference_number:
-              $ref: '#/components/schemas/reference_number'
-            customer_id:
-              $ref: '#/components/schemas/customer_id'
-            customer_name:
-              $ref: '#/components/schemas/customer_name'
-            contact_persons_associated:
-              $ref: '#/components/schemas/contact_persons_associated'
-            currency_id:
-              $ref: '#/components/schemas/currency_id'
-            currency_code:
-              $ref: '#/components/schemas/currency_code'
-            currency_symbol:
-              $ref: '#/components/schemas/currency_symbol'
-            exchange_rate:
-              $ref: '#/components/schemas/exchange_rate'
-            is_viewed_by_client:
-              $ref: '#/components/schemas/is_viewed_by_client'
-            client_viewed_time:
-              $ref: '#/components/schemas/client_viewed_time'
-            is_inclusive_tax:
-              $ref: '#/components/schemas/is_inclusive_tax'
-            location_id:
-              $ref: '#/components/schemas/location_id'
-            location_name:
-              $ref: '#/components/schemas/location_name'
-            line_items:
-              description: Line items of a retainer invoice.
-              type: array
-              items:
-                type: object
-                properties:
-                  line_item_id:
-                    $ref: '#/components/schemas/line_item_id'
-                  description:
-                    $ref: '#/components/schemas/description'
-                  item_order:
-                    $ref: '#/components/schemas/item_order'
-                  rate:
-                    $ref: '#/components/schemas/rate'
-                  bcy_rate:
-                    $ref: '#/components/schemas/bcy_rate'
-                  tax_id:
-                    $ref: '#/components/schemas/tax_id'
-                  tax_name:
-                    $ref: '#/components/schemas/tax_name'
-                  tax_type:
-                    $ref: '#/components/schemas/tax_type'
-                  tax_percentage:
-                    $ref: '#/components/schemas/tax_percentage'
-                  item_total:
-                    $ref: '#/components/schemas/item_total'
-                  location_id:
-                    $ref: '#/components/schemas/location_id'
-                  location_name:
-                    $ref: '#/components/schemas/location_name'
-            sub_total:
-              $ref: '#/components/schemas/sub_total'
-            total:
-              $ref: '#/components/schemas/total'
-            taxes:
-              $ref: '#/components/schemas/taxes'
-            payment_made:
-              $ref: '#/components/schemas/payment_made'
-            payment_drawn:
-              $ref: '#/components/schemas/payment_drawn'
-            balance:
-              $ref: '#/components/schemas/balance'
-            allow_partial_payments:
-              $ref: '#/components/schemas/allow_partial_payments'
-            price_precision:
-              $ref: '#/components/schemas/price_precision'
-            payment_options:
-              $ref: '#/components/schemas/payment_options'
-            is_emailed:
-              $ref: '#/components/schemas/is_emailed'
-            documents:
-              $ref: '#/components/schemas/documents'
-            billing_address:
-              $ref: '#/components/schemas/billing_address'
-            shipping_address:
-              $ref: '#/components/schemas/shipping_address'
-            notes:
-              $ref: '#/components/schemas/notes'
-            terms:
-              $ref: '#/components/schemas/terms'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-            template_id:
-              $ref: '#/components/schemas/template_id'
-            template_name:
-              $ref: '#/components/schemas/template_name'
-            page_width:
-              $ref: '#/components/schemas/page_width'
-            page_height:
-              $ref: '#/components/schemas/page_height'
-            orientation:
-              $ref: '#/components/schemas/orientation'
-            template_type:
-              $ref: '#/components/schemas/template_type'
-            created_time:
-              $ref: '#/components/schemas/created_time'
-            last_modified_time:
-              $ref: '#/components/schemas/last_modified_time'
-            created_by_id:
-              $ref: '#/components/schemas/created_by_id'
-            attachment_name:
-              $ref: '#/components/schemas/attachment_name'
-            can_send_in_mail:
-              $ref: '#/components/schemas/can_send_in_mail'
-    mark-a-retainer-invoice-as-sent-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Retainer Invoice status has been changed to Sent.
-          readOnly: true
-    is_pre_gst:
-      description: Applicable for transactions that fall before july 1, 2017
-      type: string
-      example: false
-    reference_number:
-      description: The reference number of the retainer invoice. Max-length [100]
-      type: string
-      example: ' '
-    tax_percentage:
-      description: The  percentage of tax levied
-      type: number
-      format: float
-      example: 12.5
     shipping_address:
       type: object
       properties:
@@ -1082,172 +701,23 @@ components:
           $ref: '#/components/schemas/country'
         fax:
           $ref: '#/components/schemas/fax'
-    mark-as-draft-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Status of retainer invoice changed from void to draft.
-          readOnly: true
-    add-comment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Comments added.
-          readOnly: true
-    created_time:
-      description: The time of creation of the retainer invoice
+    date:
+      description: The date of creation of the retainer invoice.
       type: string
-      example: 2013-11-18T02:31:51-0800
-    commented_by_id:
+      example: '2013-11-17'
+    time:
       type: string
-      example: 982000000554041
-    address:
+      example: 2:38 AM
+    status:
+      description: 'retainer invoice status.Allowed Values: <code>sent</code>, <code>draft</code>, <code>overdue</code>, <code>paid</code>, <code>void</code>, <code>unpaid</code>, <code>partially_paid</code> and <code>viewed</code>'
       type: string
-      example: Suite 125, McMillan Avenue
-    attachment_name:
-      type: string
-      example: new file
-    create-a-retainerinvoice-request:
-      required:
-      - customer_id
-      - line_items
-      type: object
-      properties:
-        customer_id:
-          $ref: '#/components/schemas/customer_id'
-        reference_number:
-          $ref: '#/components/schemas/reference_number'
-        date:
-          $ref: '#/components/schemas/date'
-        contact_persons_associated:
-          $ref: '#/components/schemas/contact_persons_associated_payload'
-        custom_fields:
-          $ref: '#/components/schemas/custom_fields'
-        notes:
-          $ref: '#/components/schemas/notes'
-        terms:
-          $ref: '#/components/schemas/terms'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        line_items:
-          description: Line items of a retainer invoice.
-          type: array
-          items:
-            type: object
-            properties:
-              description:
-                $ref: '#/components/schemas/description'
-              item_order:
-                $ref: '#/components/schemas/item_order'
-              rate:
-                $ref: '#/components/schemas/rate'
-        payment_options:
-          $ref: '#/components/schemas/payment_options'
-        template_id:
-          $ref: '#/components/schemas/template_id'
-        place_of_supply:
-          $ref: '#/components/schemas/place_of_supply'
-    has_more_page:
-      description: Check if has more pages
-      type: boolean
-      example: false
-    list-retainer-invoice-comments-and-history-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        comments:
-          type: array
-          items:
-            type: object
-            properties:
-              comment_id:
-                $ref: '#/components/schemas/comment_id'
-              retainerinvoice_id:
-                $ref: '#/components/schemas/retainerinvoice_id'
-              description:
-                $ref: '#/components/schemas/description'
-              commented_by_id:
-                $ref: '#/components/schemas/commented_by_id'
-              commented_by:
-                $ref: '#/components/schemas/commented_by'
-              comment_type:
-                $ref: '#/components/schemas/comment_type'
-              operation_type:
-                $ref: '#/components/schemas/operation_type'
-              date:
-                $ref: '#/components/schemas/date'
-              date_description:
-                $ref: '#/components/schemas/date_description'
-              time:
-                $ref: '#/components/schemas/time'
-              transaction_id:
-                $ref: '#/components/schemas/transaction_id'
-              transaction_type:
-                $ref: '#/components/schemas/transaction_type'
-    customer_name:
-      description: The name of the customer. Max-length [100]
-      type: string
-      example: Bowman & Co
-    allow_partial_payments:
-      description: Boolean to check if partial payments are allowed for the contact
-      type: boolean
-      example: true
+      example: draft
     payment_drawn:
       description: The amount drawn
       type: number
       format: float
       example: 26.91
-    is_email_enabled:
-      description: Used to check if Email communication preference is enabled for the contact person at transaction level.
-      type: boolean
-      example: true
-    has_attachment:
-      description: Boolean retainer invoice has attachment
-      type: boolean
-      example: true
-    terms:
-      description: The terms added below expressing gratitude or for conveying some information.
-      type: string
-      example: Terms & Conditions apply
-    sort_column:
-      description: 'Sort retainer invoices.Allowed Values: <code>customer_name</code>, <code>retainer invoice_number</code>, <code>date</code>, <code> due_date</code>, <code>total</code>, <code>balance</code> and  <code>created_time</code>'
-      type: string
-      example: created_time
-    show_comment_to_clients:
-      description: Boolean to check if the comment to be shown to the clients
-      type: boolean
-      example: true
-    bcy_rate:
-      description: base currency rate
-      type: number
-      format: float
-      example: 120
-    item_total:
-      description: The total amount of the line items
-      type: number
-      format: float
-      example: 120
-    transaction_type:
-      type: string
-      example: retainer_payment
-    email-a-retainer-invoice-response:
+    create-a-retainerinvoice-response:
       type: object
       properties:
         code:
@@ -1256,36 +726,25 @@ components:
           readOnly: true
         message:
           type: string
-          example: Your retainer invoice has been sent.
+          example: The retainer invoice has been created.
           readOnly: true
-    custom_fields:
-      description: Custom fields for a retainer invoice.
-      type: array
-      items:
-        type: object
-        properties:
-          customfield_id:
-            $ref: '#/components/schemas/customfield_id'
-          show_on_pdf:
-            $ref: '#/components/schemas/show_on_pdf'
-          value:
-            $ref: '#/components/schemas/value'
-          label:
-            $ref: '#/components/schemas/label'
-    cc_mail_ids:
-      description: Array of email address of the recipients to be cced.
-      type: array
-      items:
-        type: string
-      example:
-      - peterparker@bowmanfurniture.com
-    state:
+        retainerinvoice:
+          $ref: '#/components/schemas/retainerinvoice-response'
+    customer_id:
+      description: ID of the customer the retainer invoice has to be created.
       type: string
-      example: CA
-    client_viewed_time:
-      description: client viewed time for retainer invoice in client portal.
+      example: 982000000567001
+    gateways_configured:
       type: boolean
       example: true
+    configured:
+      description: Boolean check to see if a payment gateway ahs been configured
+      type: boolean
+      example: true
+    created_time:
+      description: The time of creation of the retainer invoice
+      type: string
+      example: 2013-11-18T02:31:51-0800
     update-a-retainerinvoice-response:
       type: object
       properties:
@@ -1428,89 +887,19 @@ components:
               $ref: '#/components/schemas/attachment_name'
             can_send_in_mail:
               $ref: '#/components/schemas/can_send_in_mail'
-    contact_persons_associated:
-      description: Contact Persons associated with the retainer invoice.
-      type: array
-      items:
-        type: object
-        properties:
-          contact_person_id:
-            $ref: '#/components/schemas/contact_person_id'
-          contact_person_name:
-            $ref: '#/components/schemas/contact_person_name'
-          first_name:
-            $ref: '#/components/schemas/first_name'
-          last_name:
-            $ref: '#/components/schemas/last_name'
-          contact_person_email:
-            $ref: '#/components/schemas/contact_person_email'
-          phone:
-            $ref: '#/components/schemas/phone'
-          mobile:
-            $ref: '#/components/schemas/mobile'
-          communication_preference:
-            $ref: '#/components/schemas/communication_preference'
-    email_template_id:
-      description: Get the email content based on a specific email template. If this param is not inputted, then the content will be based on the email template associated with the customer. If no template is associated with the customer, then default template will be used.
+    created_by_id:
       type: string
-    comment_type:
-      type: string
-      example: system
-    price_precision:
-      description: The precision value on the price
-      type: integer
-      example: 2
-    balance:
-      description: The unpaid amount
-      type: string
-      example: 40.6
-    is_emailed:
-      description: Boolean check to if the email was sent
-      type: string
-      example: false
-    applied_filter:
-      description: The filer applied for sorting
-      type: string
-      example: Status.All
-    template_id:
-      description: ID of the pdf template associated with the retainer invoice.
-      type: string
-      example: 982000000000143
-    currency_symbol:
-      description: The currency symbol in which the retainer invoice is created.
-      type: string
-      example: USD
-    fax:
-      type: string
-      example: +86-10-82637827
-    communication_preference:
-      description: Preferred modes of communication for the contact person at transaction level.
+      example: 14909000000072000
+    update-comment-request:
       type: object
       properties:
-        is_email_enabled:
-          $ref: '#/components/schemas/is_email_enabled'
-        is_whatsapp_enabled:
-          $ref: '#/components/schemas/is_whatsapp_enabled'
-    show_on_pdf:
-      description: Boolean value to check if the custom field is to be dispplayed on the pdf.
-      type: boolean
-      example: false
-    rate:
-      description: Rate of the line item.
-      type: number
-      format: double
-      example: 120
-    documents:
-      description: documents attached to the retainer invoice
-      type: array
-      items:
-        type: string
-      example: []
-    configured:
-      description: Boolean check to see if a payment gateway ahs been configured
-      type: boolean
-      example: true
-    void-a-retainer-invoice-response:
+        description:
+          description: The comment on a retainer invoice
+          type: string
+          example: This is a comment.
+        show_comment_to_clients:
+          $ref: '#/components/schemas/show_comment_to_clients'
+    submit-a-retainer-invoice-for-approval-response:
       type: object
       properties:
         code:
@@ -1519,27 +908,9 @@ components:
           readOnly: true
         message:
           type: string
-          example: Retainer Invoice status has been changed to 'Void'.
+          example: The Retainer Invoice has been successfully submitted for approval.
           readOnly: true
-    status:
-      description: 'retainer invoice status.Allowed Values: <code>sent</code>, <code>draft</code>, <code>overdue</code>, <code>paid</code>, <code>void</code>, <code>unpaid</code>, <code>partially_paid</code> and <code>viewed</code>'
-      type: string
-      example: draft
-    send_from_org_email_id:
-      description: Boolean to trigger the email from the organization's email address
-      type: boolean
-      example: false
-    email:
-      description: contact's email id. Maximum length [100]
-      type: string
-      example: willsmith@bowmanfurniture.com
-    is_whatsapp_enabled:
-      description: Used to check if WhatsApp communication preference is enabled for the contact person at transaction level.
-      type: boolean
-      example: true
-      x-node_available_in:
-      - WhatsApp integration
-    update-a-retainerinvoice-request:
+    create-a-retainerinvoice-request:
       required:
       - customer_id
       - line_items
@@ -1579,318 +950,25 @@ components:
           $ref: '#/components/schemas/template_id'
         place_of_supply:
           $ref: '#/components/schemas/place_of_supply'
-        project_id:
-          $ref: '#/components/schemas/project_id'
-    sub_total:
-      description: The sub total of the all items
-      type: number
-      format: float
-      example: 153
-    comment_id:
-      description: ID of the comment
+    operation_type:
       type: string
-      example: 982000000567019
-    tax_amount:
-      description: The amount of the tax levied
-      type: number
-      format: float
-      example: 19.13
-    last_payment_date:
-      description: The last payment date of the retainer invoice
-      type: string
-      example: ' '
-    payment_gateways:
-      description: Online payment gateways through which payment can be made.
-      type: array
-      items:
-        type: object
-        properties:
-          configured:
-            $ref: '#/components/schemas/configured'
-          additional_field1:
-            $ref: '#/components/schemas/additional_field1'
-          gateway_name:
-            $ref: '#/components/schemas/gateway_name'
-    date:
-      description: The date of creation of the retainer invoice.
-      type: string
-      example: '2013-11-17'
-    customer_id:
-      description: ID of the customer the retainer invoice has to be created.
-      type: string
-      example: 982000000567001
-    retainerinvoice_id:
-      description: ID of the retainerinvoice
-      type: string
-      example: 982000000567114
-    report_name:
-      description: The report name
-      type: string
-      example: Retainer Invoices
-    orientation:
-      type: string
-      example: portrait
+      example: Added
     last_modified_time:
       description: The time of last modification of the retainer invoice
       type: string
       example: 2013-11-18T02:31:51-0800
-    is_viewed_by_client:
-      description: Boolean is retainer invoice viewed by client in client portal.
+    allow_partial_payments:
+      description: Boolean to check if partial payments are allowed for the contact
       type: boolean
       example: true
-    exchange_rate:
-      description: Exchange rate of the currency.
-      type: number
-      format: float
-      example: 1
-    currency_id:
-      description: The currenct id of the currency
-      type: string
-      example: 982000000000190
-    list-retainer-invoice-templates-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        templates:
-          type: array
-          items:
-            type: object
-            properties:
-              template_name:
-                $ref: '#/components/schemas/template_name'
-              template_id:
-                $ref: '#/components/schemas/template_id'
-              template_type:
-                $ref: '#/components/schemas/template_type'
-    item_order:
-      description: The order of the line item_order
-      type: integer
-      example: 1
-    body:
-      description: The body of the mail
-      type: string
-      example: 'Dear Customer,         <br><br><br><br>Thanks for your business.         <br><br><br><br>The retainer invoice RET-00001 is attached with this email.<br><br>Here''s an overview of the invoice for your reference.         <br><br><br><br>Invoice Overview:         <br><br>Invoice  : INV-00001         <br><br>Date : 05 Aug 2013         <br><br>Amount : $541.82         <br><br><br><br>It was great working with you. Looking forward to working with you again.<br><br><br>\nRegards<br>\nZillium Inc<br>\n",'
-    description:
-      description: The description of the line items. Max-length [2000]
-      type: string
-      example: 500GB, USB 2.0 interface 1400 rpm, protective hard case.
-    deprecated_placeholders_used:
-      type: array
-      items:
-        type: string
-      example: []
-    update-billing-address-request:
-      type: object
-      properties:
-        address:
-          description: address of the customer
-          type: string
-          example: "B-1104, 11F, \nHorizon International Tower, \nNo. 6, ZhiChun Road, HaiDian District"
-        city:
-          description: city of the customer
-          type: string
-          example: Beijing
-        state:
-          description: state of the customer
-          type: string
-          example: Beijing
-        zip:
-          description: zip of the customer
-          type: string
-          example: 1000881
-        country:
-          description: country of the customer
-          type: string
-        fax:
-          description: fax of the customer
-          type: string
-          example: +86-10-82637827
-    total:
-      description: The total amount to be paid
+    balance:
+      description: The unpaid amount
       type: string
       example: 40.6
-    project_or_estimate_name:
-      type: string
-      example: new project
-    email-a-retainer-invoice-request:
-      required:
-      - to_mail_ids
-      type: object
-      properties:
-        send_from_org_email_id:
-          $ref: '#/components/schemas/send_from_org_email_id'
-        to_mail_ids:
-          $ref: '#/components/schemas/to_mail_ids'
-        cc_mail_ids:
-          $ref: '#/components/schemas/cc_mail_ids'
-        subject:
-          $ref: '#/components/schemas/subject'
-        body:
-          $ref: '#/components/schemas/body'
-    payment_made:
-      description: The amount paid
-      type: number
-      format: float
-      example: 26.91
     project_id:
       description: ID of the project
       type: string
       example: 982000000567154
-    label:
-      description: The label of the custom field.
-      type: string
-      example: Delivery Date
-    add-comment-request:
-      type: object
-      properties:
-        description:
-          description: The description of the comment. Max-length [2000]
-          type: string
-          example: comment added
-        payment_expected_date:
-          $ref: '#/components/schemas/payment_expected_date'
-        show_comment_to_clients:
-          $ref: '#/components/schemas/show_comment_to_clients'
-    user_name:
-      type: array
-      items:
-        type: string
-      example: John Smith
-    sort_order:
-      description: The order for sorting
-      type: string
-      example: D
-    customfield_id:
-      type: string
-      description: Unique ID of the custom field.
-    approve-a-retainer-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: You have approved the Retainer Invoice.
-          readOnly: true
-    retainerinvoice_number:
-      description: 'number of the retainer invoice.Variants: <code>retainerinvoice_number_startswith</code> and <code>retainerinvoice_number_contains</code>. Max-length [100]'
-      type: string
-      example: RET-00003
-    page:
-      description: Number of pages
-      type: integer
-      example: 1
-    page_height:
-      type: string
-      example: 11.69in
-    mobile:
-      description: Mobile Number of the Contact Person
-      type: string
-      example: +1-4054439562
-    file_name:
-      type: string
-      example: RET-00001.pdf
-    template_name:
-      type: string
-      example: Service - Classic
-    notes:
-      description: The notes added below expressing gratitude or for conveying some information.
-      type: string
-      example: Looking forward for your business.
-    can_send_in_mail:
-      type: boolean
-      description: Indicates whether the retainer invoice can be sent in mail
-      example: true
-    contact_persons_associated_payload:
-      description: Contact Persons associated with the retainer invoice.
-      type: array
-      items:
-        type: object
-        properties:
-          contact_person_id:
-            $ref: '#/components/schemas/contact_person_id'
-          communication_preference:
-            $ref: '#/components/schemas/communication_preference'
-    city:
-      type: string
-      example: San Francisco
-    payment_options:
-      description: Payment options for the retainer invoice, online payment gateways and bank accounts. Will be displayed in the pdf.
-      type: object
-      properties:
-        payment_gateways:
-          $ref: '#/components/schemas/payment_gateways'
-    additional_field1:
-      description: 'Paypal payment method. Allowed Values: <code>standard</code> and <code>adaptive</code>'
-      type: string
-      example: standard
-    time:
-      type: string
-      example: 2:38 AM
-    delete-a-retainer-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The retainer invoice has been deleted.
-          readOnly: true
-    tax_id:
-      description: ID of the tax or tax group applied to the estimate
-      type: string
-      example: 982000000557028
-    tax_name:
-      description: The name of the tax
-      type: string
-      example: VAT
-    get-a-retainer-invoice-attachment-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-    date_description:
-      type: string
-      example: yesterday
-    location_name:
-      description: Name of the location.
-      type: string
-    location_id:
-      description: Location ID
-      type: string
-      example: '460000000038080'
-    gateway_name:
-      description: 'Name of the payment gateway associated with the retainer invoice. E.g. paypal, stripe.Allowed Values: <code>paypal</code>, <code>authorize_net</code>, <code>payflow_pro</code>, <code>stripe</code>, <code>2checkout</code> and <code>braintree</code>'
-      type: string
-      example: paypal
-    currency_code:
-      description: The currency code in which the retainer invoice is created.
-      type: string
-      example: USD
-    line_item_id:
-      description: The line item id
-      type: string
-      example: 982000000567021
-    page_width:
-      type: string
-      example: 8.27in
     update-comment-response:
       type: object
       properties:
@@ -1923,11 +1001,281 @@ components:
               $ref: '#/components/schemas/time'
             comment_type:
               $ref: '#/components/schemas/comment_type'
-    error_list:
-      type: array
-      items:
-        type: string
-      example: []
+    address:
+      type: string
+      example: Suite 125, McMillan Avenue
+    update-billing-address-request:
+      type: object
+      properties:
+        address:
+          description: address of the customer
+          type: string
+          example: "B-1104, 11F, \nHorizon International Tower, \nNo. 6, ZhiChun Road, HaiDian District"
+        city:
+          description: city of the customer
+          type: string
+          example: Beijing
+        state:
+          description: state of the customer
+          type: string
+          example: Beijing
+        zip:
+          description: zip of the customer
+          type: string
+          example: 1000881
+        country:
+          description: country of the customer
+          type: string
+        fax:
+          description: fax of the customer
+          type: string
+          example: +86-10-82637827
+    last_name:
+      description: Last name of the Contact Person
+      type: string
+      example: John
+    template_type:
+      description: The type of template type
+      type: string
+      example: classic
+    list-retainer-invoice-comments-and-history-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        comments:
+          type: array
+          items:
+            type: object
+            properties:
+              comment_id:
+                $ref: '#/components/schemas/comment_id'
+              retainerinvoice_id:
+                $ref: '#/components/schemas/retainerinvoice_id'
+              description:
+                $ref: '#/components/schemas/description'
+              commented_by_id:
+                $ref: '#/components/schemas/commented_by_id'
+              commented_by:
+                $ref: '#/components/schemas/commented_by'
+              comment_type:
+                $ref: '#/components/schemas/comment_type'
+              operation_type:
+                $ref: '#/components/schemas/operation_type'
+              date:
+                $ref: '#/components/schemas/date'
+              date_description:
+                $ref: '#/components/schemas/date_description'
+              time:
+                $ref: '#/components/schemas/time'
+              transaction_id:
+                $ref: '#/components/schemas/transaction_id'
+              transaction_type:
+                $ref: '#/components/schemas/transaction_type'
+    currency_symbol:
+      description: The currency symbol in which the retainer invoice is created.
+      type: string
+      example: USD
+    is_whatsapp_enabled:
+      description: Used to check if WhatsApp communication preference is enabled for the contact person at transaction level.
+      type: boolean
+      example: true
+      x-node_available_in:
+      - WhatsApp integration
+    mark-a-retainer-invoice-as-sent-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Retainer Invoice status has been changed to Sent.
+          readOnly: true
+    is_pre_gst:
+      description: Applicable for transactions that fall before july 1, 2017
+      type: string
+      example: false
+    get-a-retainer-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        retainerinvoice:
+          type: object
+          properties:
+            retainerinvoice_id:
+              $ref: '#/components/schemas/retainerinvoice_id'
+            retainerinvoice_number:
+              $ref: '#/components/schemas/retainerinvoice_number'
+            date:
+              $ref: '#/components/schemas/date'
+            status:
+              $ref: '#/components/schemas/status'
+            is_pre_gst:
+              $ref: '#/components/schemas/is_pre_gst'
+            place_of_supply:
+              $ref: '#/components/schemas/place_of_supply'
+            project_id:
+              $ref: '#/components/schemas/project_id'
+            project_name:
+              $ref: '#/components/schemas/project_name'
+            last_payment_date:
+              $ref: '#/components/schemas/last_payment_date'
+            reference_number:
+              $ref: '#/components/schemas/reference_number'
+            customer_id:
+              $ref: '#/components/schemas/customer_id'
+            customer_name:
+              $ref: '#/components/schemas/customer_name'
+            contact_persons_associated:
+              $ref: '#/components/schemas/contact_persons_associated'
+            currency_id:
+              $ref: '#/components/schemas/currency_id'
+            currency_code:
+              $ref: '#/components/schemas/currency_code'
+            currency_symbol:
+              $ref: '#/components/schemas/currency_symbol'
+            exchange_rate:
+              $ref: '#/components/schemas/exchange_rate'
+            is_viewed_by_client:
+              $ref: '#/components/schemas/is_viewed_by_client'
+            client_viewed_time:
+              $ref: '#/components/schemas/client_viewed_time'
+            is_inclusive_tax:
+              $ref: '#/components/schemas/is_inclusive_tax'
+            location_id:
+              $ref: '#/components/schemas/location_id'
+            location_name:
+              $ref: '#/components/schemas/location_name'
+            line_items:
+              description: Line items of a retainer invoice.
+              type: array
+              items:
+                type: object
+                properties:
+                  line_item_id:
+                    $ref: '#/components/schemas/line_item_id'
+                  description:
+                    $ref: '#/components/schemas/description'
+                  item_order:
+                    $ref: '#/components/schemas/item_order'
+                  rate:
+                    $ref: '#/components/schemas/rate'
+                  bcy_rate:
+                    $ref: '#/components/schemas/bcy_rate'
+                  tax_id:
+                    $ref: '#/components/schemas/tax_id'
+                  tax_name:
+                    $ref: '#/components/schemas/tax_name'
+                  tax_type:
+                    $ref: '#/components/schemas/tax_type'
+                  tax_percentage:
+                    $ref: '#/components/schemas/tax_percentage'
+                  item_total:
+                    $ref: '#/components/schemas/item_total'
+                  location_id:
+                    $ref: '#/components/schemas/location_id'
+                  location_name:
+                    $ref: '#/components/schemas/location_name'
+            sub_total:
+              $ref: '#/components/schemas/sub_total'
+            total:
+              $ref: '#/components/schemas/total'
+            taxes:
+              $ref: '#/components/schemas/taxes'
+            payment_made:
+              $ref: '#/components/schemas/payment_made'
+            payment_drawn:
+              $ref: '#/components/schemas/payment_drawn'
+            balance:
+              $ref: '#/components/schemas/balance'
+            allow_partial_payments:
+              $ref: '#/components/schemas/allow_partial_payments'
+            price_precision:
+              $ref: '#/components/schemas/price_precision'
+            payment_options:
+              $ref: '#/components/schemas/payment_options'
+            is_emailed:
+              $ref: '#/components/schemas/is_emailed'
+            documents:
+              $ref: '#/components/schemas/documents'
+            billing_address:
+              $ref: '#/components/schemas/billing_address'
+            shipping_address:
+              $ref: '#/components/schemas/shipping_address'
+            notes:
+              $ref: '#/components/schemas/notes'
+            terms:
+              $ref: '#/components/schemas/terms'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+            template_id:
+              $ref: '#/components/schemas/template_id'
+            template_name:
+              $ref: '#/components/schemas/template_name'
+            page_width:
+              $ref: '#/components/schemas/page_width'
+            page_height:
+              $ref: '#/components/schemas/page_height'
+            orientation:
+              $ref: '#/components/schemas/orientation'
+            template_type:
+              $ref: '#/components/schemas/template_type'
+            created_time:
+              $ref: '#/components/schemas/created_time'
+            last_modified_time:
+              $ref: '#/components/schemas/last_modified_time'
+            created_by_id:
+              $ref: '#/components/schemas/created_by_id'
+            attachment_name:
+              $ref: '#/components/schemas/attachment_name'
+            can_send_in_mail:
+              $ref: '#/components/schemas/can_send_in_mail'
+    state:
+      type: string
+      example: CA
+    payment_expected_date:
+      type: string
+      description: The date on which the payment is expected to be received for the retainer invoice.
+      example: ' '
+    salutation:
+      description: Salutation of the Contact Person
+      type: string
+      example: Mr
+    project_or_estimate_name:
+      type: string
+      example: new project
+    zip:
+      type: string
+      example: 94134
+    transaction_type:
+      type: string
+      example: retainer_payment
+    has_more_page:
+      description: Check if has more pages
+      type: boolean
+      example: false
+    page:
+      description: Number of pages
+      type: integer
+      example: 1
+    fax:
+      type: string
+      example: +86-10-82637827
     delete-a-comment-response:
       type: object
       properties:
@@ -1939,13 +1287,11 @@ components:
           type: string
           example: The comment has been deleted.
           readOnly: true
-    operation_type:
+    total:
+      description: The total amount to be paid
       type: string
-      example: Added
-    selected:
-      type: string
-      example: false
-    update-retainer-invoice-template-response:
+      example: 40.6
+    get-a-retainer-invoice-attachment-response:
       type: object
       properties:
         code:
@@ -1954,9 +1300,39 @@ components:
           readOnly: true
         message:
           type: string
-          example: Retainer Invoice information has been updated.
+          example: success
           readOnly: true
-    update-billing-address-response:
+    city:
+      type: string
+      example: San Francisco
+    item_total:
+      description: The total amount of the line items
+      type: number
+      format: float
+      example: 120
+    email_template_id:
+      description: Get the email content based on a specific email template. If this param is not inputted, then the content will be based on the email template associated with the customer. If no template is associated with the customer, then default template will be used.
+      type: string
+    reference_number:
+      description: The reference number of the retainer invoice. Max-length [100]
+      type: string
+      example: ' '
+    contact_persons_associated_payload:
+      description: Contact Persons associated with the retainer invoice.
+      type: array
+      items:
+        type: object
+        properties:
+          contact_person_id:
+            $ref: '#/components/schemas/contact_person_id'
+          communication_preference:
+            $ref: '#/components/schemas/communication_preference'
+    deprecated_placeholders_used:
+      type: array
+      items:
+        type: string
+      example: []
+    add-comment-response:
       type: object
       properties:
         code:
@@ -1965,40 +1341,15 @@ components:
           readOnly: true
         message:
           type: string
-          example: Billing address updated
+          example: Comments added.
           readOnly: true
-    salutation:
-      description: Salutation of the Contact Person
+    email:
+      description: contact's email id. Maximum length [100]
       type: string
-      example: Mr
-    country:
+      example: willsmith@bowmanfurniture.com
+    orientation:
       type: string
-      example: U.S.A
-    transaction_id:
-      type: string
-      example: '982000000567204'
-    add-attachment-to-a-retainer-invoice-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your file has been attached.
-          readOnly: true
-    phone:
-      description: Phone Number of the Contact Person
-      type: string
-      example: +1-925-921-9201
-    place_of_supply:
-      description: Place where the goods/services are supplied to. (If not given, <code>place of contact</code> given for the contact will be taken)
-      type: string
-      example: TN
-      x-node_available_in:
-      - in
-      x-node_unavailable_in: []
+      example: portrait
     billing_address:
       type: object
       properties:
@@ -2016,25 +1367,15 @@ components:
           $ref: '#/components/schemas/country'
         fax:
           $ref: '#/components/schemas/fax'
-    add-attachment-to-a-retainer-invoice-request:
-      type: object
-      properties:
-        can_send_in_mail:
-          $ref: '#/components/schemas/can_send_in_mail'
-        attachment:
-          $ref: '#/components/schemas/attachment'
-    payment_expected_date:
+    client_viewed_time:
+      description: client viewed time for retainer invoice in client portal.
+      type: boolean
+      example: true
+    location_id:
+      description: Location ID
       type: string
-      description: The date on which the payment is expected to be received for the retainer invoice.
-      example: ' '
-    last_name:
-      description: Last name of the Contact Person
-      type: string
-      example: John
-    street2:
-      type: string
-      example: McMillan Avenue
-    create-a-retainerinvoice-response:
+      example: '460000000038080'
+    add-attachment-to-a-retainer-invoice-response:
       type: object
       properties:
         code:
@@ -2043,33 +1384,101 @@ components:
           readOnly: true
         message:
           type: string
-          example: The retainer invoice has been created.
+          example: Your file has been attached.
           readOnly: true
-        retainerinvoice:
-          $ref: '#/components/schemas/retainerinvoice-response'
-    template_type:
-      description: The type of template type
+    terms:
+      description: The terms added below expressing gratitude or for conveying some information.
       type: string
-      example: classic
-    taxes:
-      description: List of the taxes levied
-      type: array
-      items:
-        type: object
-        properties:
-          tax_name:
-            $ref: '#/components/schemas/tax_name'
-          tax_amount:
-            $ref: '#/components/schemas/tax_amount'
+      example: Terms & Conditions apply
+    delete-a-retainer-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The retainer invoice has been deleted.
+          readOnly: true
+    item_order:
+      description: The order of the line item_order
+      type: integer
+      example: 1
+    update-retainer-invoice-template-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Retainer Invoice information has been updated.
+          readOnly: true
+    payment_options:
+      description: Payment options for the retainer invoice, online payment gateways and bank accounts. Will be displayed in the pdf.
+      type: object
+      properties:
+        payment_gateways:
+          $ref: '#/components/schemas/payment_gateways'
     value:
       type: string
       description: The value of the custom field
       example: value1
-    tax_type:
-      description: The type of the tax
+    retainerinvoice_number:
+      description: 'number of the retainer invoice.Variants: <code>retainerinvoice_number_startswith</code> and <code>retainerinvoice_number_contains</code>. Max-length [100]'
       type: string
-      example: tax
-    delete-an-attachment-response:
+      example: RET-00003
+    show_on_pdf:
+      description: Boolean value to check if the custom field is to be dispplayed on the pdf.
+      type: boolean
+      example: false
+    report_name:
+      description: The report name
+      type: string
+      example: Retainer Invoices
+    to_mail_ids:
+      description: Array of email address of the recipients.
+      type: array
+      items:
+        type: string
+      example:
+      - willsmith@bowmanfurniture.com
+    cc_mail_ids:
+      description: Array of email address of the recipients to be cced.
+      type: array
+      items:
+        type: string
+      example:
+      - peterparker@bowmanfurniture.com
+    customer_name:
+      description: The name of the customer. Max-length [100]
+      type: string
+      example: Bowman & Co
+    page_height:
+      type: string
+      example: 11.69in
+    currency_id:
+      description: The currenct id of the currency
+      type: string
+      example: 982000000000190
+    location_name:
+      description: Name of the location.
+      type: string
+    commented_by_id:
+      type: string
+      example: 982000000554041
+    country:
+      type: string
+      example: U.S.A
+    transaction_id:
+      type: string
+      example: '982000000567204'
+    commented_by:
+      type: string
+      example: John David
+    approve-a-retainer-invoice-response:
       type: object
       properties:
         code:
@@ -2078,8 +1487,23 @@ components:
           readOnly: true
         message:
           type: string
-          example: Your file is no longer attached to the invoice.
+          example: You have approved the Retainer Invoice.
           readOnly: true
+    communication_preference:
+      description: Preferred modes of communication for the contact person at transaction level.
+      type: object
+      properties:
+        is_email_enabled:
+          $ref: '#/components/schemas/is_email_enabled'
+        is_whatsapp_enabled:
+          $ref: '#/components/schemas/is_whatsapp_enabled'
+    currency_code:
+      description: The currency code in which the retainer invoice is created.
+      type: string
+      example: USD
+    template_name:
+      type: string
+      example: Service - Classic
     get-retainer-invoice-email-content-response:
       type: object
       properties:
@@ -2141,11 +1565,11 @@ components:
                 $ref: '#/components/schemas/email'
         customer_id:
           $ref: '#/components/schemas/customer_id'
-    subject:
-      description: The subject of the mail
-      type: string
-      example: 'Retainer Invoice from Zillium Inc (Retainer Invoice#: RET-00001)'
-    submit-a-retainer-invoice-for-approval-response:
+    send_from_org_email_id:
+      description: Boolean to trigger the email from the organization's email address
+      type: boolean
+      example: false
+    list-a-retainer-invoices-response:
       type: object
       properties:
         code:
@@ -2154,49 +1578,625 @@ components:
           readOnly: true
         message:
           type: string
-          example: The Retainer Invoice has been successfully submitted for approval.
+          example: success
           readOnly: true
-    commented_by:
+        retainerinvoices:
+          type: array
+          items:
+            type: object
+            properties:
+              retainerinvoice_id:
+                $ref: '#/components/schemas/retainerinvoice_id'
+              customer_name:
+                $ref: '#/components/schemas/customer_name'
+              retainerinvoice_number:
+                $ref: '#/components/schemas/retainerinvoice_number'
+              customer_id:
+                $ref: '#/components/schemas/customer_id'
+              status:
+                $ref: '#/components/schemas/status'
+              reference_number:
+                $ref: '#/components/schemas/reference_number'
+              project_or_estimate_name:
+                $ref: '#/components/schemas/project_or_estimate_name'
+              date:
+                $ref: '#/components/schemas/date'
+              currency_id:
+                $ref: '#/components/schemas/currency_id'
+              currency_code:
+                $ref: '#/components/schemas/currency_code'
+              is_viewed_by_client:
+                $ref: '#/components/schemas/is_viewed_by_client'
+              client_viewed_time:
+                $ref: '#/components/schemas/client_viewed_time'
+              total:
+                $ref: '#/components/schemas/total'
+              balance:
+                $ref: '#/components/schemas/balance'
+              created_time:
+                $ref: '#/components/schemas/created_time'
+              last_modified_time:
+                $ref: '#/components/schemas/last_modified_time'
+              is_emailed:
+                $ref: '#/components/schemas/is_emailed'
+              last_payment_date:
+                $ref: '#/components/schemas/last_payment_date'
+              has_attachment:
+                $ref: '#/components/schemas/has_attachment'
+        page_context:
+          type: object
+          properties:
+            page:
+              $ref: '#/components/schemas/page'
+            per_page:
+              $ref: '#/components/schemas/per_page'
+            has_more_page:
+              $ref: '#/components/schemas/has_more_page'
+            report_name:
+              $ref: '#/components/schemas/report_name'
+            applied_filter:
+              $ref: '#/components/schemas/applied_filter'
+            sort_column:
+              $ref: '#/components/schemas/sort_column'
+            sort_order:
+              $ref: '#/components/schemas/sort_order'
+    mobile:
+      description: Mobile Number of the Contact Person
       type: string
-      example: John David
+      example: +1-4054439562
+    customfield_id:
+      type: string
+      description: Unique ID of the custom field.
     first_name:
       description: First Name of the Contact Person
       type: string
       example: David
+    sort_column:
+      description: 'Sort retainer invoices.Allowed Values: <code>customer_name</code>, <code>retainer invoice_number</code>, <code>date</code>, <code> due_date</code>, <code>total</code>, <code>balance</code> and  <code>created_time</code>'
+      type: string
+      example: created_time
+    applied_filter:
+      description: The filer applied for sorting
+      type: string
+      example: Status.All
+    payment_gateways:
+      description: Online payment gateways through which payment can be made.
+      type: array
+      items:
+        type: object
+        properties:
+          configured:
+            $ref: '#/components/schemas/configured'
+          additional_field1:
+            $ref: '#/components/schemas/additional_field1'
+          gateway_name:
+            $ref: '#/components/schemas/gateway_name'
+    price_precision:
+      description: The precision value on the price
+      type: integer
+      example: 2
+    custom_fields:
+      description: Custom fields for a retainer invoice.
+      type: array
+      items:
+        type: object
+        properties:
+          customfield_id:
+            $ref: '#/components/schemas/customfield_id'
+          show_on_pdf:
+            $ref: '#/components/schemas/show_on_pdf'
+          value:
+            $ref: '#/components/schemas/value'
+          label:
+            $ref: '#/components/schemas/label'
+    add-attachment-to-a-retainer-invoice-request:
+      type: object
+      properties:
+        can_send_in_mail:
+          $ref: '#/components/schemas/can_send_in_mail'
+        attachment:
+          $ref: '#/components/schemas/attachment'
+    notes:
+      description: The notes added below expressing gratitude or for conveying some information.
+      type: string
+      example: Looking forward for your business.
     is_inclusive_tax:
       type: boolean
       example: false
-    contact_person_name:
-      description: Name of the Contact Person
-      type: string
-      example: David
-    contact_person_email:
-      description: Email ID of the Contact Person.
-      type: string
-      example: willsmith@bowmanfurniture.com
-    update-comment-request:
+    mark-as-draft-response:
       type: object
       properties:
-        description:
-          description: The comment on a retainer invoice
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
           type: string
-          example: This is a comment.
-        show_comment_to_clients:
-          $ref: '#/components/schemas/show_comment_to_clients'
-    created_by_id:
+          example: Status of retainer invoice changed from void to draft.
+          readOnly: true
+    line_item_id:
+      description: The line item id
       type: string
-      example: 14909000000072000
-    attachment:
-      description: The file to be attached. It has to be sent in multipart/formdata
+      example: 982000000567021
+    page_width:
       type: string
-      format: binary
+      example: 8.27in
+    error_list:
+      type: array
+      items:
+        type: string
+      example: []
     contact_person_id:
       description: Unique ID of the Contact Person
       type: string
       example: 982000000567003
+    can_send_in_mail:
+      type: boolean
+      description: Indicates whether the retainer invoice can be sent in mail
+      example: true
+    sort_order:
+      description: The order for sorting
+      type: string
+      example: D
+    gateway_name:
+      description: 'Name of the payment gateway associated with the retainer invoice. E.g. paypal, stripe.Allowed Values: <code>paypal</code>, <code>authorize_net</code>, <code>payflow_pro</code>, <code>stripe</code>, <code>2checkout</code> and <code>braintree</code>'
+      type: string
+      example: paypal
+    sub_total:
+      description: The sub total of the all items
+      type: number
+      format: float
+      example: 153
+    retainerinvoice_id:
+      description: ID of the retainerinvoice
+      type: string
+      example: 982000000567114
+    phone:
+      description: Phone Number of the Contact Person
+      type: string
+      example: +1-925-921-9201
+    last_payment_date:
+      description: The last payment date of the retainer invoice
+      type: string
+      example: ' '
+    payment_made:
+      description: The amount paid
+      type: number
+      format: float
+      example: 26.91
+    is_email_enabled:
+      description: Used to check if Email communication preference is enabled for the contact person at transaction level.
+      type: boolean
+      example: true
+    file_name:
+      type: string
+      example: RET-00001.pdf
+    label:
+      description: The label of the custom field.
+      type: string
+      example: Delivery Date
+    subject:
+      description: The subject of the mail
+      type: string
+      example: 'Retainer Invoice from Zillium Inc (Retainer Invoice#: RET-00001)'
+    attachment:
+      description: The file to be attached. It has to be sent in multipart/formdata
+      type: string
+      format: binary
+    attachment_name:
+      type: string
+      example: new file
+    description:
+      description: The description of the line items. Max-length [2000]
+      type: string
+      example: 500GB, USB 2.0 interface 1400 rpm, protective hard case.
+    body:
+      description: The body of the mail
+      type: string
+      example: 'Dear Customer,         <br><br><br><br>Thanks for your business.         <br><br><br><br>The retainer invoice RET-00001 is attached with this email.<br><br>Here''s an overview of the invoice for your reference.         <br><br><br><br>Invoice Overview:         <br><br>Invoice  : INV-00001         <br><br>Date : 05 Aug 2013         <br><br>Amount : $541.82         <br><br><br><br>It was great working with you. Looking forward to working with you again.<br><br><br>\nRegards<br>\nZillium Inc<br>\n",'
+    contact_persons_associated:
+      description: Contact Persons associated with the retainer invoice.
+      type: array
+      items:
+        type: object
+        properties:
+          contact_person_id:
+            $ref: '#/components/schemas/contact_person_id'
+          contact_person_name:
+            $ref: '#/components/schemas/contact_person_name'
+          first_name:
+            $ref: '#/components/schemas/first_name'
+          last_name:
+            $ref: '#/components/schemas/last_name'
+          contact_person_email:
+            $ref: '#/components/schemas/contact_person_email'
+          phone:
+            $ref: '#/components/schemas/phone'
+          mobile:
+            $ref: '#/components/schemas/mobile'
+          communication_preference:
+            $ref: '#/components/schemas/communication_preference'
+    place_of_supply:
+      description: Place where the goods/services are supplied to. (If not given, <code>place of contact</code> given for the contact will be taken)
+      type: string
+      example: TN
+      x-node_available_in:
+      - in
+      x-node_unavailable_in: []
+    is_emailed:
+      description: Boolean check to if the email was sent
+      type: string
+      example: false
+    exchange_rate:
+      description: Exchange rate of the currency.
+      type: number
+      format: float
+      example: 1
+    email-a-retainer-invoice-request:
+      required:
+      - to_mail_ids
+      type: object
+      properties:
+        send_from_org_email_id:
+          $ref: '#/components/schemas/send_from_org_email_id'
+        to_mail_ids:
+          $ref: '#/components/schemas/to_mail_ids'
+        cc_mail_ids:
+          $ref: '#/components/schemas/cc_mail_ids'
+        subject:
+          $ref: '#/components/schemas/subject'
+        body:
+          $ref: '#/components/schemas/body'
+    tax_id:
+      description: ID of the tax or tax group applied to the estimate
+      type: string
+      example: 982000000557028
+    selected:
+      type: string
+      example: false
+    contact_person_email:
+      description: Email ID of the Contact Person.
+      type: string
+      example: willsmith@bowmanfurniture.com
+    documents:
+      description: documents attached to the retainer invoice
+      type: array
+      items:
+        type: string
+      example: []
+    bcy_rate:
+      description: base currency rate
+      type: number
+      format: float
+      example: 120
+    tax_amount:
+      description: The amount of the tax levied
+      type: number
+      format: float
+      example: 19.13
+    delete-an-attachment-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your file is no longer attached to the invoice.
+          readOnly: true
+    per_page:
+      description: Per page values
+      type: integer
+      example: 200
+    add-comment-request:
+      type: object
+      properties:
+        description:
+          description: The description of the comment. Max-length [2000]
+          type: string
+          example: comment added
+        payment_expected_date:
+          $ref: '#/components/schemas/payment_expected_date'
+        show_comment_to_clients:
+          $ref: '#/components/schemas/show_comment_to_clients'
     project_name:
       description: Name of the project
       type: string
+    comment_type:
+      type: string
+      example: system
+    street2:
+      type: string
+      example: McMillan Avenue
+    tax_percentage:
+      description: The  percentage of tax levied
+      type: number
+      format: float
+      example: 12.5
+    void-a-retainer-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Retainer Invoice status has been changed to 'Void'.
+          readOnly: true
+    date_description:
+      type: string
+      example: yesterday
+    update-billing-address-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Billing address updated
+          readOnly: true
+    comment_id:
+      description: ID of the comment
+      type: string
+      example: 982000000567019
+    update-a-retainerinvoice-request:
+      required:
+      - customer_id
+      - line_items
+      type: object
+      properties:
+        customer_id:
+          $ref: '#/components/schemas/customer_id'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        date:
+          $ref: '#/components/schemas/date'
+        contact_persons_associated:
+          $ref: '#/components/schemas/contact_persons_associated_payload'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        notes:
+          $ref: '#/components/schemas/notes'
+        terms:
+          $ref: '#/components/schemas/terms'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        line_items:
+          description: Line items of a retainer invoice.
+          type: array
+          items:
+            type: object
+            properties:
+              description:
+                $ref: '#/components/schemas/description'
+              item_order:
+                $ref: '#/components/schemas/item_order'
+              rate:
+                $ref: '#/components/schemas/rate'
+        payment_options:
+          $ref: '#/components/schemas/payment_options'
+        template_id:
+          $ref: '#/components/schemas/template_id'
+        place_of_supply:
+          $ref: '#/components/schemas/place_of_supply'
+        project_id:
+          $ref: '#/components/schemas/project_id'
+    contact_person_name:
+      description: Name of the Contact Person
+      type: string
+      example: David
+    taxes:
+      description: List of the taxes levied
+      type: array
+      items:
+        type: object
+        properties:
+          tax_name:
+            $ref: '#/components/schemas/tax_name'
+          tax_amount:
+            $ref: '#/components/schemas/tax_amount'
+    rate:
+      description: Rate of the line item.
+      type: number
+      format: double
+      example: 120
+    list-retainer-invoice-templates-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        templates:
+          type: array
+          items:
+            type: object
+            properties:
+              template_name:
+                $ref: '#/components/schemas/template_name'
+              template_id:
+                $ref: '#/components/schemas/template_id'
+              template_type:
+                $ref: '#/components/schemas/template_type'
+    user_name:
+      type: array
+      items:
+        type: string
+      example: John Smith
+    additional_field1:
+      description: 'Paypal payment method. Allowed Values: <code>standard</code> and <code>adaptive</code>'
+      type: string
+      example: standard
+    retainerinvoice-response:
+      type: object
+      properties:
+        retainerinvoice_id:
+          $ref: '#/components/schemas/retainerinvoice_id'
+        retainerinvoice_number:
+          $ref: '#/components/schemas/retainerinvoice_number'
+        date:
+          $ref: '#/components/schemas/date'
+        status:
+          $ref: '#/components/schemas/status'
+        is_pre_gst:
+          $ref: '#/components/schemas/is_pre_gst'
+        place_of_supply:
+          $ref: '#/components/schemas/place_of_supply'
+        project_id:
+          $ref: '#/components/schemas/project_id'
+        project_name:
+          $ref: '#/components/schemas/project_name'
+        last_payment_date:
+          $ref: '#/components/schemas/last_payment_date'
+        reference_number:
+          $ref: '#/components/schemas/reference_number'
+        customer_id:
+          $ref: '#/components/schemas/customer_id'
+        customer_name:
+          $ref: '#/components/schemas/customer_name'
+        contact_persons_associated:
+          $ref: '#/components/schemas/contact_persons_associated'
+        currency_id:
+          $ref: '#/components/schemas/currency_id'
+        currency_code:
+          $ref: '#/components/schemas/currency_code'
+        currency_symbol:
+          $ref: '#/components/schemas/currency_symbol'
+        exchange_rate:
+          $ref: '#/components/schemas/exchange_rate'
+        is_viewed_by_client:
+          $ref: '#/components/schemas/is_viewed_by_client'
+        client_viewed_time:
+          $ref: '#/components/schemas/client_viewed_time'
+        is_inclusive_tax:
+          $ref: '#/components/schemas/is_inclusive_tax'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        location_name:
+          $ref: '#/components/schemas/location_name'
+        line_items:
+          description: Line items of a retainer invoice.
+          type: array
+          items:
+            type: object
+            properties:
+              line_item_id:
+                $ref: '#/components/schemas/line_item_id'
+              description:
+                $ref: '#/components/schemas/description'
+              item_order:
+                $ref: '#/components/schemas/item_order'
+              rate:
+                $ref: '#/components/schemas/rate'
+              bcy_rate:
+                $ref: '#/components/schemas/bcy_rate'
+              tax_id:
+                $ref: '#/components/schemas/tax_id'
+              tax_name:
+                $ref: '#/components/schemas/tax_name'
+              tax_type:
+                $ref: '#/components/schemas/tax_type'
+              tax_percentage:
+                $ref: '#/components/schemas/tax_percentage'
+              item_total:
+                $ref: '#/components/schemas/item_total'
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              location_name:
+                $ref: '#/components/schemas/location_name'
+        sub_total:
+          $ref: '#/components/schemas/sub_total'
+        total:
+          $ref: '#/components/schemas/total'
+        taxes:
+          $ref: '#/components/schemas/taxes'
+        payment_made:
+          $ref: '#/components/schemas/payment_made'
+        payment_drawn:
+          $ref: '#/components/schemas/payment_drawn'
+        balance:
+          $ref: '#/components/schemas/balance'
+        allow_partial_payments:
+          $ref: '#/components/schemas/allow_partial_payments'
+        price_precision:
+          $ref: '#/components/schemas/price_precision'
+        payment_options:
+          $ref: '#/components/schemas/payment_options'
+        is_emailed:
+          $ref: '#/components/schemas/is_emailed'
+        documents:
+          $ref: '#/components/schemas/documents'
+        billing_address:
+          $ref: '#/components/schemas/billing_address'
+        shipping_address:
+          $ref: '#/components/schemas/shipping_address'
+        notes:
+          $ref: '#/components/schemas/notes'
+        terms:
+          $ref: '#/components/schemas/terms'
+        custom_fields:
+          $ref: '#/components/schemas/custom_fields'
+        template_id:
+          $ref: '#/components/schemas/template_id'
+        template_name:
+          $ref: '#/components/schemas/template_name'
+        page_width:
+          $ref: '#/components/schemas/page_width'
+        page_height:
+          $ref: '#/components/schemas/page_height'
+        orientation:
+          $ref: '#/components/schemas/orientation'
+        template_type:
+          $ref: '#/components/schemas/template_type'
+        created_time:
+          $ref: '#/components/schemas/created_time'
+        last_modified_time:
+          $ref: '#/components/schemas/last_modified_time'
+        created_by_id:
+          $ref: '#/components/schemas/created_by_id'
+        attachment_name:
+          $ref: '#/components/schemas/attachment_name'
+        can_send_in_mail:
+          $ref: '#/components/schemas/can_send_in_mail'
+    template_id:
+      description: ID of the pdf template associated with the retainer invoice.
+      type: string
+      example: 982000000000143
+    is_viewed_by_client:
+      description: Boolean is retainer invoice viewed by client in client portal.
+      type: boolean
+      example: true
+    email-a-retainer-invoice-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your retainer invoice has been sent.
+          readOnly: true
+    has_attachment:
+      description: Boolean retainer invoice has attachment
+      type: boolean
+      example: true
+    tax_name:
+      description: The name of the tax
+      type: string
+      example: VAT
+    tax_type:
+      description: The type of the tax
+      type: string
+      example: tax
   parameters:
     organization_id:
       name: organization_id
