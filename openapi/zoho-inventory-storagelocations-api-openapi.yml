@@ -799,218 +799,6 @@ paths:
         - ZohoInventory.warehouses.UPDATE
 components:
   schemas:
-    enable-storage-locations-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The bin locations have been enabled.
-          readOnly: true
-    mark-storage-locations-as-inactive-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin locations updated.
-          readOnly: true
-    configure-item-default-storage-location-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Default Preferred Bin Location Mapping configured for the item.
-          readOnly: true
-    storage_location_status:
-      description: 'Status of the bin location. Allowed Values: <code>active</code>, <code>inactive</code>'
-      type: string
-      example: active
-    update-a-storage-location-request:
-      required:
-      - storage_zone_id
-      - name
-      type: object
-      properties:
-        storage_zone_id:
-          $ref: '#/components/schemas/storage_zone_id'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        name:
-          $ref: '#/components/schemas/storage_location_name'
-        description:
-          $ref: '#/components/schemas/storage_location_description'
-    location_id:
-      description: Unique identifier of the location.
-      type: string
-      example: '130426000000054001'
-    create-a-storage-zone-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin location has been Created.
-          readOnly: true
-        storage_zone:
-          $ref: '#/components/schemas/storage_zone'
-    mark-storage-locations-as-active-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin locations updated.
-          readOnly: true
-    list-all-storage-zones-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        storage_zones:
-          type: array
-          items:
-            $ref: '#/components/schemas/storage_zone'
-    create-a-storage-location-request:
-      required:
-      - storage_zone_id
-      - name
-      type: object
-      properties:
-        storage_zone_id:
-          $ref: '#/components/schemas/storage_zone_id'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        name:
-          $ref: '#/components/schemas/storage_location_name'
-        description:
-          $ref: '#/components/schemas/storage_location_description'
-    storage_location_name:
-      description: Name of the bin location.
-      type: string
-      maxLength: 50
-      example: A-R1-B01
-    storage_zone_status:
-      description: 'Status of the zone. Allowed Values: <code>active</code>, <code>inactive</code>'
-      type: string
-      example: active
-    configure-item-default-storage-location-request:
-      type: object
-      properties:
-        default_storage_location_mapping:
-          description: List of default bin location assignments per location for the item.
-          type: array
-          items:
-            type: object
-            required:
-            - storage_id
-            properties:
-              location_id:
-                $ref: '#/components/schemas/location_id'
-              storage_id:
-                $ref: '#/components/schemas/storage_id'
-    mark-storage-zones-as-active-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Storage Zones updated successfully.
-          readOnly: true
-    storage_location:
-      description: Details of a bin location.
-      type: object
-      properties:
-        storage_id:
-          $ref: '#/components/schemas/storage_id'
-        name:
-          $ref: '#/components/schemas/storage_location_name'
-        description:
-          $ref: '#/components/schemas/storage_location_description'
-        status:
-          $ref: '#/components/schemas/storage_location_status'
-        zone_id:
-          $ref: '#/components/schemas/storage_zone_id'
-        zone_name:
-          $ref: '#/components/schemas/zone_name'
-        storage_zone_id:
-          $ref: '#/components/schemas/storage_zone_id'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        balance_quantity:
-          description: Current available quantity in the bin.
-          type: number
-          format: double
-          example: 120.5
-        batches:
-          description: Batch details available in this bin (returned when show_batches=true).
-          type: array
-          items:
-            $ref: '#/components/schemas/bin_batch'
-    update-a-storage-location-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin location updated.
-          readOnly: true
-        storage_location:
-          $ref: '#/components/schemas/storage_location'
-    get-item-storage-location-mappings-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        storage_locations_product_mapping:
-          type: array
-          items:
-            $ref: '#/components/schemas/storage_location_product_mapping'
-    mark-storage-zones-as-inactive-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Storage Zones updated successfully.
-          readOnly: true
     location_structure:
       description: Defines a single level in the zone hierarchy used to generate bin locations.
       type: object
@@ -1046,6 +834,202 @@ components:
           minimum: 1
           maximum: 200000
           example: 10
+    update-item-storage-location-mappings-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin location mapped with item.
+          readOnly: true
+    mark-storage-locations-as-inactive-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin locations updated.
+          readOnly: true
+    mark-storage-zones-as-inactive-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Storage Zones updated successfully.
+          readOnly: true
+    storage_zone_status:
+      description: 'Status of the zone. Allowed Values: <code>active</code>, <code>inactive</code>'
+      type: string
+      example: active
+    get-item-storage-location-mappings-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        storage_locations_product_mapping:
+          type: array
+          items:
+            $ref: '#/components/schemas/storage_location_product_mapping'
+    disable-storage-locations-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The bin locations have been disabled.
+          readOnly: true
+    bulk-delete-storage-locations-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin locations deleted.
+          readOnly: true
+    update-a-storage-zone-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin location has been Updated.
+          readOnly: true
+        storage_zone:
+          $ref: '#/components/schemas/storage_zone'
+    bin_batch:
+      type: object
+      properties:
+        batch_id:
+          description: Unique identifier of the batch.
+          type: string
+          example: '130426000000812001'
+        batch_number:
+          description: Display number of the batch.
+          type: string
+          example: BATCH-001
+    list-all-storage-zones-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        storage_zones:
+          type: array
+          items:
+            $ref: '#/components/schemas/storage_zone'
+    get-a-storage-zone-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        storage_zone:
+          $ref: '#/components/schemas/storage_zone'
+    storage_location_status:
+      description: 'Status of the bin location. Allowed Values: <code>active</code>, <code>inactive</code>'
+      type: string
+      example: active
+    create-a-storage-zone-request:
+      required:
+      - zone_name
+      type: object
+      properties:
+        zone_name:
+          $ref: '#/components/schemas/zone_name'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        location_structures:
+          description: Ordered list of hierarchy levels that define the naming pattern for bin locations in this zone. Maximum 50 levels.
+          type: array
+          minItems: 1
+          maxItems: 50
+          items:
+            type: object
+            required:
+            - location_name
+            - alias_name
+            - level
+            - count
+            properties:
+              location_name:
+                description: Name of this hierarchy level (e.g. Row, Rack, Bin).
+                type: string
+                maxLength: 50
+                example: Row
+              delimiter:
+                description: Single character used to separate levels in the bin location name.
+                type: string
+                maxLength: 1
+                example: '-'
+              alias_name:
+                description: Abbreviation used as prefix in the auto-generated location name for this level.
+                type: string
+                maxLength: 50
+                example: R
+              level:
+                description: Position of this level in the hierarchy (1 to 10).
+                type: integer
+                minimum: 1
+                maximum: 10
+                example: 1
+              count:
+                description: Number of units at this level (1 to 200000).
+                type: integer
+                minimum: 1
+                maximum: 200000
+                example: 10
+    default_storage_location_mapping:
+      description: Default bin location assignment for a product per location.
+      type: object
+      properties:
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        storage_id:
+          $ref: '#/components/schemas/storage_id'
+    storage_location_name:
+      description: Name of the bin location.
+      type: string
+      maxLength: 50
+      example: A-R1-B01
+    storage_id:
+      description: Unique ID generated by the server for the bin location.
+      type: string
+      example: '130426000000801001'
     update-a-storage-zone-request:
       required:
       - zone_name
@@ -1099,7 +1083,7 @@ components:
                 minimum: 1
                 maximum: 200000
                 example: 10
-    get-a-storage-location-response:
+    create-a-storage-zone-response:
       type: object
       properties:
         code:
@@ -1108,51 +1092,79 @@ components:
           readOnly: true
         message:
           type: string
-          example: success
+          example: Bin location has been Created.
           readOnly: true
-        storage_location:
-          $ref: '#/components/schemas/storage_location'
-    get-item-default-storage-location-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        default_storage_location_mapping:
-          type: array
-          items:
-            $ref: '#/components/schemas/default_storage_location_mapping'
-    update-item-storage-location-mappings-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin location mapped with item.
-          readOnly: true
-    bulk-delete-storage-locations-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin locations deleted.
-          readOnly: true
-    storage_id:
-      description: Unique ID generated by the server for the bin location.
+        storage_zone:
+          $ref: '#/components/schemas/storage_zone'
+    storage_zone_id:
+      description: Unique ID generated by the server for the zone.
       type: string
-      example: '130426000000801001'
+      example: '130426000000798001'
+    zone_name:
+      description: Name of the zone.
+      type: string
+      example: Zone A
+    delete-a-storage-location-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin Location Structure deleted successfully.
+          readOnly: true
+    mark-storage-zones-as-active-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Storage Zones updated successfully.
+          readOnly: true
+    delete-a-storage-zone-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin Location Structure deleted successfully.
+          readOnly: true
+    update-a-storage-location-request:
+      required:
+      - storage_zone_id
+      - name
+      type: object
+      properties:
+        storage_zone_id:
+          $ref: '#/components/schemas/storage_zone_id'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        name:
+          $ref: '#/components/schemas/storage_location_name'
+        description:
+          $ref: '#/components/schemas/storage_location_description'
+    create-a-storage-location-request:
+      required:
+      - storage_zone_id
+      - name
+      type: object
+      properties:
+        storage_zone_id:
+          $ref: '#/components/schemas/storage_zone_id'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        name:
+          $ref: '#/components/schemas/storage_location_name'
+        description:
+          $ref: '#/components/schemas/storage_location_description'
     list-all-storage-locations-response:
       type: object
       properties:
@@ -1183,6 +1195,102 @@ components:
             report_name:
               type: string
               example: StorageListQuery
+    get-item-default-storage-location-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        default_storage_location_mapping:
+          type: array
+          items:
+            $ref: '#/components/schemas/default_storage_location_mapping'
+    get-a-storage-location-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        storage_location:
+          $ref: '#/components/schemas/storage_location'
+    mark-storage-locations-as-active-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin locations updated.
+          readOnly: true
+    enable-storage-locations-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The bin locations have been enabled.
+          readOnly: true
+    update-a-storage-location-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Bin location updated.
+          readOnly: true
+        storage_location:
+          $ref: '#/components/schemas/storage_location'
+    storage_zone:
+      description: Details of a zone that contains multiple bin locations.
+      type: object
+      properties:
+        storage_zone_id:
+          $ref: '#/components/schemas/storage_zone_id'
+        zone_name:
+          $ref: '#/components/schemas/zone_name'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        status:
+          $ref: '#/components/schemas/storage_zone_status'
+        location_structures:
+          description: Ordered list of hierarchy levels that define how bin locations are generated in this zone.
+          type: array
+          items:
+            $ref: '#/components/schemas/location_structure'
+    storage_location_product_mapping:
+      description: A mapping between a product and a bin location.
+      type: object
+      properties:
+        product_id:
+          description: Unique identifier of the product (item).
+          type: string
+          example: '130426000000056001'
+        storage_id:
+          $ref: '#/components/schemas/storage_id'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+    location_id:
+      description: Unique identifier of the location.
+      type: string
+      example: '130426000000054001'
     map-storage-locations-to-item-request:
       type: object
       properties:
@@ -1204,164 +1312,11 @@ components:
                 example: '130426000000056001'
               storage_id:
                 $ref: '#/components/schemas/storage_id'
-    storage_zone_id:
-      description: Unique ID generated by the server for the zone.
-      type: string
-      example: '130426000000798001'
-    disable-storage-locations-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The bin locations have been disabled.
-          readOnly: true
-    create-a-storage-zone-request:
-      required:
-      - zone_name
-      type: object
-      properties:
-        zone_name:
-          $ref: '#/components/schemas/zone_name'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        location_structures:
-          description: Ordered list of hierarchy levels that define the naming pattern for bin locations in this zone. Maximum 50 levels.
-          type: array
-          minItems: 1
-          maxItems: 50
-          items:
-            type: object
-            required:
-            - location_name
-            - alias_name
-            - level
-            - count
-            properties:
-              location_name:
-                description: Name of this hierarchy level (e.g. Row, Rack, Bin).
-                type: string
-                maxLength: 50
-                example: Row
-              delimiter:
-                description: Single character used to separate levels in the bin location name.
-                type: string
-                maxLength: 1
-                example: '-'
-              alias_name:
-                description: Abbreviation used as prefix in the auto-generated location name for this level.
-                type: string
-                maxLength: 50
-                example: R
-              level:
-                description: Position of this level in the hierarchy (1 to 10).
-                type: integer
-                minimum: 1
-                maximum: 10
-                example: 1
-              count:
-                description: Number of units at this level (1 to 200000).
-                type: integer
-                minimum: 1
-                maximum: 200000
-                example: 10
-    storage_zone:
-      description: Details of a zone that contains multiple bin locations.
-      type: object
-      properties:
-        storage_zone_id:
-          $ref: '#/components/schemas/storage_zone_id'
-        zone_name:
-          $ref: '#/components/schemas/zone_name'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        status:
-          $ref: '#/components/schemas/storage_zone_status'
-        location_structures:
-          description: Ordered list of hierarchy levels that define how bin locations are generated in this zone.
-          type: array
-          items:
-            $ref: '#/components/schemas/location_structure'
-    get-a-storage-zone-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        storage_zone:
-          $ref: '#/components/schemas/storage_zone'
     storage_location_description:
       description: Description of the bin location.
       type: string
       maxLength: 1000
       example: Row 1, Bin 01 in Zone A
-    update-a-storage-zone-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin location has been Updated.
-          readOnly: true
-        storage_zone:
-          $ref: '#/components/schemas/storage_zone'
-    zone_name:
-      description: Name of the zone.
-      type: string
-      example: Zone A
-    bin_batch:
-      type: object
-      properties:
-        batch_id:
-          description: Unique identifier of the batch.
-          type: string
-          example: '130426000000812001'
-        batch_number:
-          description: Display number of the batch.
-          type: string
-          example: BATCH-001
-    storage_location_product_mapping:
-      description: A mapping between a product and a bin location.
-      type: object
-      properties:
-        product_id:
-          description: Unique identifier of the product (item).
-          type: string
-          example: '130426000000056001'
-        storage_id:
-          $ref: '#/components/schemas/storage_id'
-        location_id:
-          $ref: '#/components/schemas/location_id'
-    delete-a-storage-zone-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Bin Location Structure deleted successfully.
-          readOnly: true
-    default_storage_location_mapping:
-      description: Default bin location assignment for a product per location.
-      type: object
-      properties:
-        location_id:
-          $ref: '#/components/schemas/location_id'
-        storage_id:
-          $ref: '#/components/schemas/storage_id'
     create-a-storage-location-response:
       type: object
       properties:
@@ -1375,7 +1330,37 @@ components:
           readOnly: true
         storage_location:
           $ref: '#/components/schemas/storage_location'
-    delete-a-storage-location-response:
+    storage_location:
+      description: Details of a bin location.
+      type: object
+      properties:
+        storage_id:
+          $ref: '#/components/schemas/storage_id'
+        name:
+          $ref: '#/components/schemas/storage_location_name'
+        description:
+          $ref: '#/components/schemas/storage_location_description'
+        status:
+          $ref: '#/components/schemas/storage_location_status'
+        zone_id:
+          $ref: '#/components/schemas/storage_zone_id'
+        zone_name:
+          $ref: '#/components/schemas/zone_name'
+        storage_zone_id:
+          $ref: '#/components/schemas/storage_zone_id'
+        location_id:
+          $ref: '#/components/schemas/location_id'
+        balance_quantity:
+          description: Current available quantity in the bin.
+          type: number
+          format: double
+          example: 120.5
+        batches:
+          description: Batch details available in this bin (returned when show_batches=true).
+          type: array
+          items:
+            $ref: '#/components/schemas/bin_batch'
+    configure-item-default-storage-location-response:
       type: object
       properties:
         code:
@@ -1384,8 +1369,23 @@ components:
           readOnly: true
         message:
           type: string
-          example: Bin Location Structure deleted successfully.
+          example: Default Preferred Bin Location Mapping configured for the item.
           readOnly: true
+    configure-item-default-storage-location-request:
+      type: object
+      properties:
+        default_storage_location_mapping:
+          description: List of default bin location assignments per location for the item.
+          type: array
+          items:
+            type: object
+            required:
+            - storage_id
+            properties:
+              location_id:
+                $ref: '#/components/schemas/location_id'
+              storage_id:
+                $ref: '#/components/schemas/storage_id'
   parameters:
     organization_id:
       name: organization_id

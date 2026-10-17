@@ -265,90 +265,6 @@ paths:
         - ZohoInventory.settings.CREATE
 components:
   schemas:
-    user_type:
-      description: Type of user
-      type: string
-      example: zoho
-    get-current-user-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: success
-          readOnly: true
-        user:
-          type: object
-          properties:
-            user_id:
-              $ref: '#/components/schemas/user_id'
-            name:
-              $ref: '#/components/schemas/name'
-            email_ids:
-              description: EmailIDs of an user
-              type: array
-              items:
-                type: object
-                properties:
-                  email:
-                    $ref: '#/components/schemas/email'
-                  is_selected:
-                    $ref: '#/components/schemas/is_selected'
-            status:
-              $ref: '#/components/schemas/status'
-            user_role:
-              $ref: '#/components/schemas/user_role'
-            user_type:
-              $ref: '#/components/schemas/user_type'
-            role_id:
-              $ref: '#/components/schemas/role_id'
-            photo_url:
-              $ref: '#/components/schemas/photo_url'
-            is_claimant:
-              $ref: '#/components/schemas/is_claimant'
-            created_time:
-              $ref: '#/components/schemas/created_time'
-            custom_fields:
-              $ref: '#/components/schemas/custom_fields'
-    email:
-      description: email address of the user
-      type: string
-      example: johndavid@zilliuminc.com
-    status:
-      description: Status of the user, in the project
-      type: string
-      example: active
-    is_current_user:
-      description: to check if user is currently a part of task
-      type: boolean
-      example: true
-    custom_fields:
-      description: Additional fields for task
-      type: string
-      example: ''
-    is_selected:
-      description: to check is task is selected
-      type: boolean
-      example: true
-    created_time:
-      description: Time of task creation
-      type: string
-      example: '2016-06-05'
-    update-a-user-request:
-      required:
-      - name
-      - email
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/name'
-        email:
-          $ref: '#/components/schemas/email'
-        user_role:
-          $ref: '#/components/schemas/user_role'
     update-a-user-response:
       type: object
       properties:
@@ -371,56 +287,10 @@ components:
           type: string
           example: The user has been removed from your organization.
           readOnly: true
-    create-a-user-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your invitation has been sent.
-          readOnly: true
-    mark-user-as-active-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The user has been marked as active.
-          readOnly: true
-    user_role:
+    custom_fields:
+      description: Additional fields for task
       type: string
-      description: The role of the user
-      example: admin
-    photo_url:
-      description: URL to profile photo of user.
-      type: string
-      example: https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb
-    role_id:
-      description: Unique ID of the role, the user is playing
-      type: string
-      example: '982000000006005'
-    create-a-user-request:
-      required:
-      - name
-      - email
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/name'
-        email:
-          $ref: '#/components/schemas/email'
-        user_role:
-          $ref: '#/components/schemas/user_role'
-    user_id:
-      description: Unique ID of the user
-      type: string
-      example: '982000000554041'
+      example: ''
     list-users-response:
       type: object
       properties:
@@ -455,36 +325,6 @@ components:
                 $ref: '#/components/schemas/is_current_user'
               photo_url:
                 $ref: '#/components/schemas/photo_url'
-    name:
-      description: name of the user
-      type: string
-      example: David John
-    mark-user-as-inactive-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The user has been marked as inactive.
-          readOnly: true
-    is_claimant:
-      description: To check if user is a claimant
-      type: boolean
-      example: true
-    invite-a-user-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: Your invitation has been sent.
-          readOnly: true
     get-a-user-response:
       type: object
       properties:
@@ -529,6 +369,166 @@ components:
               $ref: '#/components/schemas/created_time'
             custom_fields:
               $ref: '#/components/schemas/custom_fields'
+    status:
+      description: Status of the user, in the project
+      type: string
+      example: active
+    name:
+      description: name of the user
+      type: string
+      example: David John
+    is_claimant:
+      description: To check if user is a claimant
+      type: boolean
+      example: true
+    created_time:
+      description: Time of task creation
+      type: string
+      example: '2016-06-05'
+    user_id:
+      description: Unique ID of the user
+      type: string
+      example: '982000000554041'
+    create-a-user-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your invitation has been sent.
+          readOnly: true
+    user_role:
+      type: string
+      description: The role of the user
+      example: admin
+    photo_url:
+      description: URL to profile photo of user.
+      type: string
+      example: https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb
+    get-current-user-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: success
+          readOnly: true
+        user:
+          type: object
+          properties:
+            user_id:
+              $ref: '#/components/schemas/user_id'
+            name:
+              $ref: '#/components/schemas/name'
+            email_ids:
+              description: EmailIDs of an user
+              type: array
+              items:
+                type: object
+                properties:
+                  email:
+                    $ref: '#/components/schemas/email'
+                  is_selected:
+                    $ref: '#/components/schemas/is_selected'
+            status:
+              $ref: '#/components/schemas/status'
+            user_role:
+              $ref: '#/components/schemas/user_role'
+            user_type:
+              $ref: '#/components/schemas/user_type'
+            role_id:
+              $ref: '#/components/schemas/role_id'
+            photo_url:
+              $ref: '#/components/schemas/photo_url'
+            is_claimant:
+              $ref: '#/components/schemas/is_claimant'
+            created_time:
+              $ref: '#/components/schemas/created_time'
+            custom_fields:
+              $ref: '#/components/schemas/custom_fields'
+    mark-user-as-active-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The user has been marked as active.
+          readOnly: true
+    invite-a-user-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: Your invitation has been sent.
+          readOnly: true
+    update-a-user-request:
+      required:
+      - name
+      - email
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/name'
+        email:
+          $ref: '#/components/schemas/email'
+        user_role:
+          $ref: '#/components/schemas/user_role'
+    role_id:
+      description: Unique ID of the role, the user is playing
+      type: string
+      example: '982000000006005'
+    mark-user-as-inactive-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The user has been marked as inactive.
+          readOnly: true
+    is_current_user:
+      description: to check if user is currently a part of task
+      type: boolean
+      example: true
+    user_type:
+      description: Type of user
+      type: string
+      example: zoho
+    email:
+      description: email address of the user
+      type: string
+      example: johndavid@zilliuminc.com
+    is_selected:
+      description: to check is task is selected
+      type: boolean
+      example: true
+    create-a-user-request:
+      required:
+      - name
+      - email
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/name'
+        email:
+          $ref: '#/components/schemas/email'
+        user_role:
+          $ref: '#/components/schemas/user_role'
   parameters:
     organization_id:
       name: organization_id

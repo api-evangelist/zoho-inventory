@@ -202,63 +202,19 @@ paths:
       - Zoho_Auth:
         - ZohoInventory.contacts.CREATE
 components:
+  parameters:
+    organization_id:
+      name: organization_id
+      description: ID of the organization
+      in: query
+      required: true
+      schema:
+        type: string
+      example: '10234695'
   schemas:
-    first_name:
-      description: First Name of the contact. Maximum length allowed [100]
-      type: string
-      example: Will
-    delete-a-contact-person-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: The contact person has been deleted.
-          readOnly: true
-    is_added_in_portal:
-      description: tells whether the contact person has portal access or not
-      type: boolean
-      example: true
-    email:
-      description: Email ID of the contact person. Maximum length allowed [100]
-      type: string
-      example: willsmith@bowmanfurniture.com
-    contact_person-response:
-      type: object
-      properties:
-        contact_id:
-          $ref: '#/components/schemas/contact_id'
-        contact_person_id:
-          $ref: '#/components/schemas/contact_person_id'
-        salutation:
-          $ref: '#/components/schemas/salutation'
-        first_name:
-          $ref: '#/components/schemas/first_name'
-        last_name:
-          $ref: '#/components/schemas/last_name'
-        email:
-          $ref: '#/components/schemas/email'
-        phone:
-          $ref: '#/components/schemas/phone'
-        mobile:
-          $ref: '#/components/schemas/mobile'
-        is_primary_contact:
-          $ref: '#/components/schemas/is_primary_contact'
-        skype:
-          $ref: '#/components/schemas/skype'
-        designation:
-          $ref: '#/components/schemas/designation'
-        department:
-          $ref: '#/components/schemas/department'
-        is_added_in_portal:
-          $ref: '#/components/schemas/is_added_in_portal'
-        communication_preference:
-          $ref: '#/components/schemas/communication_preference'
-    create-a-contact-person-request:
+    update-a-contact-person-request:
       required:
+      - contact_id
       - first_name
       type: object
       properties:
@@ -286,29 +242,6 @@ components:
           $ref: '#/components/schemas/enable_portal'
         communication_preference:
           $ref: '#/components/schemas/communication_preference'
-    department:
-      description: department to which the contact person belongs. Maximum length [50]
-      type: string
-      example: Sales
-    enable_portal:
-      description: option to enable or disable portal access the contact person. allowed values <code>true</code>,<code>false</code>
-      type: boolean
-      example: true
-    mark-as-primary-contact-person-response:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 0
-          readOnly: true
-        message:
-          type: string
-          example: This contact person has been marked as your primary contact person.
-          readOnly: true
-    contact_id:
-      description: ID of the contact person
-      type: string
-      example: 460000000026049
     get-a-contact-person-response:
       type: object
       properties:
@@ -351,9 +284,123 @@ components:
               $ref: '#/components/schemas/is_added_in_portal'
             communication_preference:
               $ref: '#/components/schemas/communication_preference'
-    update-a-contact-person-request:
+    department:
+      description: department to which the contact person belongs. Maximum length [50]
+      type: string
+      example: Sales
+    mark-as-primary-contact-person-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: This contact person has been marked as your primary contact person.
+          readOnly: true
+    contact_id:
+      description: ID of the contact person
+      type: string
+      example: 460000000026049
+    communication_preference:
+      description: Preferred modes of communication for the contact person.
+      type: object
+      properties:
+        is_sms_enabled:
+          $ref: '#/components/schemas/is_sms_enabled'
+        is_whatsapp_enabled:
+          $ref: '#/components/schemas/is_whatsapp_enabled'
+    contact_person_id:
+      description: The ID of the contact person
+      type: string
+      example: 460000000026051
+    first_name:
+      description: First Name of the contact. Maximum length allowed [100]
+      type: string
+      example: Will
+    contact_person-response:
+      type: object
+      properties:
+        contact_id:
+          $ref: '#/components/schemas/contact_id'
+        contact_person_id:
+          $ref: '#/components/schemas/contact_person_id'
+        salutation:
+          $ref: '#/components/schemas/salutation'
+        first_name:
+          $ref: '#/components/schemas/first_name'
+        last_name:
+          $ref: '#/components/schemas/last_name'
+        email:
+          $ref: '#/components/schemas/email'
+        phone:
+          $ref: '#/components/schemas/phone'
+        mobile:
+          $ref: '#/components/schemas/mobile'
+        is_primary_contact:
+          $ref: '#/components/schemas/is_primary_contact'
+        skype:
+          $ref: '#/components/schemas/skype'
+        designation:
+          $ref: '#/components/schemas/designation'
+        department:
+          $ref: '#/components/schemas/department'
+        is_added_in_portal:
+          $ref: '#/components/schemas/is_added_in_portal'
+        communication_preference:
+          $ref: '#/components/schemas/communication_preference'
+    is_whatsapp_enabled:
+      description: Used to check if WhatsApp communication preference is enabled for the contact person.
+      type: boolean
+      example: true
+      x-node_available_in:
+      - WhatsApp integration
+    is_added_in_portal:
+      description: tells whether the contact person has portal access or not
+      type: boolean
+      example: true
+    enable_portal:
+      description: option to enable or disable portal access the contact person. allowed values <code>true</code>,<code>false</code>
+      type: boolean
+      example: true
+    create-a-contact-person-response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 0
+          readOnly: true
+        message:
+          type: string
+          example: The contact person has been Created
+          readOnly: true
+        contact_person:
+          type: array
+          items:
+            $ref: '#/components/schemas/contact_person-response'
+    designation:
+      description: designation of the contact person in the organisation. Maximum length [50]
+      type: string
+      example: Sales Engineer
+    phone:
+      description: Phone number of the contact person. Maximum length [50]
+      type: string
+      example: +1-925-921-9201
+    mobile:
+      description: Mobile/Cell number of the contact person. Maximum length [50]
+      type: string
+      example: +1-4054439562
+    last_name:
+      description: Last Name of the contact. Maximum length allowed [100]
+      type: string
+      example: Smith
+    skype:
+      description: skype address of the contact person. Maximum length [50]
+      type: string
+      example: zoho
+    create-a-contact-person-request:
       required:
-      - contact_id
       - first_name
       type: object
       properties:
@@ -381,7 +428,19 @@ components:
           $ref: '#/components/schemas/enable_portal'
         communication_preference:
           $ref: '#/components/schemas/communication_preference'
-    update-a-contact-person-response:
+    is_primary_contact:
+      description: To mark contact person as primary for communication.
+      type: boolean
+      example: true
+    email:
+      description: Email ID of the contact person. Maximum length allowed [100]
+      type: string
+      example: willsmith@bowmanfurniture.com
+    salutation:
+      description: Salutation for the contact. Maximum length allowed [25]
+      type: string
+      example: Mr
+    delete-a-contact-person-response:
       type: object
       properties:
         code:
@@ -390,49 +449,8 @@ components:
           readOnly: true
         message:
           type: string
-          example: The contactperson details has been updated.
+          example: The contact person has been deleted.
           readOnly: true
-        contact_person:
-          type: array
-          items:
-            type: object
-            properties:
-              contact_id:
-                $ref: '#/components/schemas/contact_id'
-              contact_person_id:
-                $ref: '#/components/schemas/contact_person_id'
-              salutation:
-                $ref: '#/components/schemas/salutation'
-              first_name:
-                $ref: '#/components/schemas/first_name'
-              last_name:
-                $ref: '#/components/schemas/last_name'
-              email:
-                $ref: '#/components/schemas/email'
-              phone:
-                $ref: '#/components/schemas/phone'
-              mobile:
-                $ref: '#/components/schemas/mobile'
-              is_primary_contact:
-                $ref: '#/components/schemas/is_primary_contact'
-              skype:
-                $ref: '#/components/schemas/skype'
-              designation:
-                $ref: '#/components/schemas/designation'
-              department:
-                $ref: '#/components/schemas/department'
-              is_added_in_portal:
-                $ref: '#/components/schemas/is_added_in_portal'
-              communication_preference:
-                $ref: '#/components/schemas/communication_preference'
-    contact_person_id:
-      description: The ID of the contact person
-      type: string
-      example: 460000000026051
-    phone:
-      description: Phone number of the contact person. Maximum length [50]
-      type: string
-      example: +1-925-921-9201
     list-contact-persons-response:
       type: object
       properties:
@@ -477,17 +495,7 @@ components:
                 $ref: '#/components/schemas/department'
               is_added_in_portal:
                 $ref: '#/components/schemas/is_added_in_portal'
-    last_name:
-      description: Last Name of the contact. Maximum length allowed [100]
-      type: string
-      example: Smith
-    is_whatsapp_enabled:
-      description: Used to check if WhatsApp communication preference is enabled for the contact person.
-      type: boolean
-      example: true
-      x-node_available_in:
-      - WhatsApp integration
-    create-a-contact-person-response:
+    update-a-contact-person-response:
       type: object
       properties:
         code:
@@ -496,55 +504,47 @@ components:
           readOnly: true
         message:
           type: string
-          example: The contact person has been Created
+          example: The contactperson details has been updated.
           readOnly: true
         contact_person:
           type: array
           items:
-            $ref: '#/components/schemas/contact_person-response'
-    communication_preference:
-      description: Preferred modes of communication for the contact person.
-      type: object
-      properties:
-        is_sms_enabled:
-          $ref: '#/components/schemas/is_sms_enabled'
-        is_whatsapp_enabled:
-          $ref: '#/components/schemas/is_whatsapp_enabled'
-    is_primary_contact:
-      description: To mark contact person as primary for communication.
-      type: boolean
-      example: true
-    salutation:
-      description: Salutation for the contact. Maximum length allowed [25]
-      type: string
-      example: Mr
+            type: object
+            properties:
+              contact_id:
+                $ref: '#/components/schemas/contact_id'
+              contact_person_id:
+                $ref: '#/components/schemas/contact_person_id'
+              salutation:
+                $ref: '#/components/schemas/salutation'
+              first_name:
+                $ref: '#/components/schemas/first_name'
+              last_name:
+                $ref: '#/components/schemas/last_name'
+              email:
+                $ref: '#/components/schemas/email'
+              phone:
+                $ref: '#/components/schemas/phone'
+              mobile:
+                $ref: '#/components/schemas/mobile'
+              is_primary_contact:
+                $ref: '#/components/schemas/is_primary_contact'
+              skype:
+                $ref: '#/components/schemas/skype'
+              designation:
+                $ref: '#/components/schemas/designation'
+              department:
+                $ref: '#/components/schemas/department'
+              is_added_in_portal:
+                $ref: '#/components/schemas/is_added_in_portal'
+              communication_preference:
+                $ref: '#/components/schemas/communication_preference'
     is_sms_enabled:
       description: Used to check if SMS communication preference is enabled for the contact person.
       type: boolean
       example: true
       x-node_available_in:
       - SMS integration
-    skype:
-      description: skype address of the contact person. Maximum length [50]
-      type: string
-      example: zoho
-    designation:
-      description: designation of the contact person in the organisation. Maximum length [50]
-      type: string
-      example: Sales Engineer
-    mobile:
-      description: Mobile/Cell number of the contact person. Maximum length [50]
-      type: string
-      example: +1-4054439562
-  parameters:
-    organization_id:
-      name: organization_id
-      description: ID of the organization
-      in: query
-      required: true
-      schema:
-        type: string
-      example: '10234695'
   securitySchemes:
     Zoho_Auth:
       type: oauth2
