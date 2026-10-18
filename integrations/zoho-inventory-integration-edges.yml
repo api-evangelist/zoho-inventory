@@ -3,6 +3,7 @@ method: searched
 source:
 - https://zapier.com/apps/zoho-inventory/integrations
 checked:
+- google-workspace/integrations/google-workspace-integration-edges.yml
 - https://composio.dev/toolkits/zoho-inventory
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
@@ -509,6 +510,23 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Google Workspace (own)
+  partner: google-workspace
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://workspace.google.com/marketplace/app/zoho_inventory/1038108775484
+  mirror_of: google-workspace/integrations/google-workspace-integration-edges.yml
+  apps:
+  - Zoho Inventory
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Google Workspace app
 templates:
 - title: Subscribe new Zoho Inventory contacts to Mailchimp
   url: https://zapier.com/apps/mailchimp/integrations/zoho-inventory/88247/subscribe-new-zoho-inventory-contacts-to-mailchimp
