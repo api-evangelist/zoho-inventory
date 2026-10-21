@@ -19,6 +19,9 @@ checked:
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/zoho-inventory/integrations
 - zendesk/integrations/zendesk-integration-edges.yml
+- https://advertising.amazon.com/partners/directory
+- https://sellercentral.amazon.com/gspn
+- https://sellercentral.amazon.com/selling-partner-appstore
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -576,6 +579,21 @@ edges:
   direction: third-party
   category: Project Management
   partner_url: https://trello.com/
+- partner_name: Amazon Selling Partner Appstore
+  partner: amazon-seller-central
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sp.solution.11af28a4-c120-4c8a-861a-90266a1ae695
+  mirror_of: amazon-seller-central/integrations/amazon-seller-central-integration-edges.yml
+  apps:
+  - Zoho Inventory
+  detected: '2026-10-21'
+  detected_by: sweep-amazon-sp-api-appstore.py
 templates:
 - title: Subscribe new Zoho Inventory contacts to Mailchimp
   url: https://zapier.com/apps/mailchimp/integrations/zoho-inventory/88247/subscribe-new-zoho-inventory-contacts-to-mailchimp
