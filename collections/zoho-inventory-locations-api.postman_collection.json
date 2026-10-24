@@ -1,149 +1,1138 @@
 {
+  "info": {
+    "_postman_id": "1a06f24d-5669-4753-8c2d-810722208c21",
+    "name": "Locations API",
+    "description": "Create locations for each branch and warehouse in your organisation and manage them all in one place.\nIn this document, you can learn how to create and manage locations in Zoho Inventory.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:32:10.000Z",
+    "updatedAt": "2026-10-22T02:32:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1a06f24d-5669-4753-8c2d-810722208c21"
+  },
   "item": [
     {
-      "id": "5be28dc5-465c-4d44-86d4-b0c63f4acfa6",
-      "name": "locations",
-      "description": {
-        "content": "Locations Module",
-        "type": "text/plain"
-      },
+      "name": "settings",
       "item": [
         {
-          "id": "214bac7b-5286-4765-a097-f735ab48d46f",
-          "name": "Enable Locations",
-          "request": {
-            "name": "Enable Locations",
-            "description": {
-              "content": "Enable Locations for an organisation.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "settings",
-                "locations",
-                "enable"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "locations",
+          "item": [
             {
-              "id": "9999adf4-62a2-41e4-90d9-2a1af5d7507e",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "settings",
-                    "locations",
-                    "enable"
+              "name": "enable",
+              "item": [
+                {
+                  "name": "Enable Locations",
+                  "id": "8d3d465a-3011-4bdb-a6f2-0291b9ceefd5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/locations/enable?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "locations",
+                        "enable"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Enable Locations for an organisation."
+                  },
+                  "response": [
+                    {
+                      "id": "43e41528-9b7e-43c2-a0fb-19ed9b6791c9",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/locations/enable?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "locations",
+                            "enable"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:32:11.000Z",
+                      "updatedAt": "2026-10-22T02:32:11.000Z",
+                      "uid": "35240-43e41528-9b7e-43c2-a0fb-19ed9b6791c9"
+                    }
                   ],
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-8d3d465a-3011-4bdb-a6f2-0291b9ceefd5"
+                }
+              ],
+              "id": "4433eace-2998-4b33-8747-4744cdaf1d3b",
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-4433eace-2998-4b33-8747-4744cdaf1d3b"
+            }
+          ],
+          "id": "e20e66ae-3a8c-4157-a364-8d56e688dff1",
+          "createdAt": "2026-10-22T02:32:11.000Z",
+          "updatedAt": "2026-10-22T02:32:11.000Z",
+          "uid": "35240-e20e66ae-3a8c-4157-a364-8d56e688dff1"
+        }
+      ],
+      "id": "cc59c38e-6eee-4c7f-a72a-916d3cf5473c",
+      "createdAt": "2026-10-22T02:32:11.000Z",
+      "updatedAt": "2026-10-22T02:32:11.000Z",
+      "uid": "35240-cc59c38e-6eee-4c7f-a72a-916d3cf5473c"
+    },
+    {
+      "name": "locations",
+      "item": [
+        {
+          "name": "{location_id}",
+          "item": [
+            {
+              "name": "active",
+              "item": [
+                {
+                  "name": "Mark as Active",
+                  "id": "fa61df12-7b0e-4ca0-b3c8-095a01b773cf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/:location_id/active?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        ":location_id",
+                        "active"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1e3da381-3b99-44b1-88db-caed49e7f830",
+                          "key": "location_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the location."
+                        }
+                      ]
+                    },
+                    "description": "Mark location as Active."
+                  },
+                  "response": [
+                    {
+                      "id": "378bd2f8-caea-48bb-aee6-bbfe28cbf547",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/locations/:location_id/active?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "locations",
+                            ":location_id",
+                            "active"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "location_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:32:11.000Z",
+                      "updatedAt": "2026-10-22T02:32:11.000Z",
+                      "uid": "35240-378bd2f8-caea-48bb-aee6-bbfe28cbf547"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-fa61df12-7b0e-4ca0-b3c8-095a01b773cf"
+                }
+              ],
+              "id": "93bc77d9-b929-4a2a-a592-6d10971b12eb",
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-93bc77d9-b929-4a2a-a592-6d10971b12eb"
+            },
+            {
+              "name": "inactive",
+              "item": [
+                {
+                  "name": "Mark as Inactive",
+                  "id": "6c9d24ac-0757-45db-90c0-917aa1c3d521",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/:location_id/inactive?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        ":location_id",
+                        "inactive"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "8f139503-f181-4c90-9f10-201288bcc32b",
+                          "key": "location_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the location."
+                        }
+                      ]
+                    },
+                    "description": "Mark location as Inactive."
+                  },
+                  "response": [
+                    {
+                      "id": "5374820a-db5a-446e-9156-81ba8b0a2da0",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/locations/:location_id/inactive?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "locations",
+                            ":location_id",
+                            "inactive"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "location_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:32:11.000Z",
+                      "updatedAt": "2026-10-22T02:32:11.000Z",
+                      "uid": "35240-5374820a-db5a-446e-9156-81ba8b0a2da0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-6c9d24ac-0757-45db-90c0-917aa1c3d521"
+                }
+              ],
+              "id": "a19a8c3d-2bfd-4411-af7a-772b6386691a",
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-a19a8c3d-2bfd-4411-af7a-772b6386691a"
+            },
+            {
+              "name": "markasprimary",
+              "item": [
+                {
+                  "name": "Mark as Primary",
+                  "id": "67f2a1cd-c00f-40ec-872d-bdc45b0d5952",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/:location_id/markasprimary?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        ":location_id",
+                        "markasprimary"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a8d538fb-3e2d-4da6-84cc-9b6126d95e94",
+                          "key": "location_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the location."
+                        }
+                      ]
+                    },
+                    "description": "Mark location as primary."
+                  },
+                  "response": [
+                    {
+                      "id": "3655d0c9-25ea-4116-8863-191cbf0954b4",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/locations/:location_id/markasprimary?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "locations",
+                            ":location_id",
+                            "markasprimary"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "location_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:32:11.000Z",
+                      "updatedAt": "2026-10-22T02:32:11.000Z",
+                      "uid": "35240-3655d0c9-25ea-4116-8863-191cbf0954b4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-67f2a1cd-c00f-40ec-872d-bdc45b0d5952"
+                }
+              ],
+              "id": "9f204b50-1821-4819-99f8-d5bd625f1980",
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-9f204b50-1821-4819-99f8-d5bd625f1980"
+            },
+            {
+              "name": "users",
+              "item": [
+                {
+                  "name": "List users of a location",
+                  "id": "e6790c6a-24f1-4a51-8e9e-48f2ad93456f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/:location_id/users?organization_id=<string>&page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        ":location_id",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page number for paginated results.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of records to return per page.",
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "25477806-09fc-4c21-9b3c-f2b417148cfb",
+                          "key": "location_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the location."
+                        }
+                      ]
+                    },
+                    "description": "List the users associated with a location."
+                  },
+                  "response": [
+                    {
+                      "id": "73091638-9ad5-4eb6-95ec-8acfcf4b3894",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/locations/:location_id/users?organization_id=<string>&page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "locations",
+                            ":location_id",
+                            "users"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Page number for paginated results.",
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Number of records to return per page.",
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "location_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"users\": [\n    {\n      \"user_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"user_role\": \"<string>\",\n      \"status\": \"<string>\",\n      \"photo_url\": \"<string>\"\n    },\n    {\n      \"user_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"user_role\": \"<string>\",\n      \"status\": \"<string>\",\n      \"photo_url\": \"<string>\"\n    }\n  ],\n  \"page_context\": {\n    \"page\": \"<integer>\",\n    \"per_page\": \"<integer>\",\n    \"has_more_page\": \"<boolean>\",\n    \"report_name\": \"<string>\",\n    \"sort_column\": \"<string>\",\n    \"sort_order\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:32:11.000Z",
+                      "updatedAt": "2026-10-22T02:32:11.000Z",
+                      "uid": "35240-73091638-9ad5-4eb6-95ec-8acfcf4b3894"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-e6790c6a-24f1-4a51-8e9e-48f2ad93456f"
+                }
+              ],
+              "id": "9e34d20d-ffde-49a7-b3eb-2ecdf346d7c0",
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-9e34d20d-ffde-49a7-b3eb-2ecdf346d7c0"
+            },
+            {
+              "name": "Get a location",
+              "id": "8296af7b-5a76-4384-a09e-ce296a24ecb2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/locations/:location_id?organization_id=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "locations",
+                    ":location_id"
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ID of the organization",
                       "key": "organization_id",
-                      "value": "10234695"
+                      "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "id": "ab7a2b84-22fe-4182-a6bd-cea39dd8ca87",
+                      "key": "location_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the location."
+                    }
+                  ]
                 },
+                "description": "Get the details of a location."
+              },
+              "response": [
+                {
+                  "id": "6716e460-6234-4be9-8259-2a7d85094e5e",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/:location_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        ":location_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "location_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"location\": {\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"parent_location_id\": \"<string>\",\n    \"address\": {\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"attention\": \"<string>\",\n      \"state_code\": \"<string>\",\n      \"street_address1\": \"<string>\",\n      \"street_address2\": \"<string>\"\n    },\n    \"phone\": \"<string>\",\n    \"fax\": \"<string>\",\n    \"email\": \"<string>\",\n    \"website\": \"<string>\",\n    \"tax_settings_id\": \"<string>\",\n    \"tax_reg_no\": \"<string>\",\n    \"is_primary_location\": \"<boolean>\",\n    \"is_location_active\": \"<boolean>\",\n    \"autonumbergenerationgroup_id\": \"<string>\",\n    \"autonumbergenerationgroup_name\": \"<string>\",\n    \"associated_series_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"is_all_users_selected\": \"<boolean>\",\n    \"associated_users\": [\n      {\n        \"user_id\": \"<string>\",\n        \"user_name\": \"<string>\"\n      },\n      {\n        \"user_id\": \"<string>\",\n        \"user_name\": \"<string>\"\n      }\n    ],\n    \"location_identification_number\": \"<string>\",\n    \"location_identification_label\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-6716e460-6234-4be9-8259-2a7d85094e5e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-8296af7b-5a76-4384-a09e-ce296a24ecb2"
+            },
+            {
+              "name": "Update location",
+              "id": "dc5fcfae-20e5-4f45-bc82-93b86b6b0714",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
-                "body": {}
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location_name\": \"<string>\",\n  \"tax_settings_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"state_code\": \"<string>\",\n    \"street_address1\": \"<string>\",\n    \"street_address2\": \"<string>\"\n  },\n  \"parent_location_id\": \"<string>\",\n  \"associated_series_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"auto_number_generation_id\": \"<string>\",\n  \"is_all_users_selected\": \"<boolean>\",\n  \"user_ids\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/locations/:location_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "locations",
+                    ":location_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "78c502cf-a79a-4bb4-b27f-e5ef494bae27",
+                      "key": "location_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the location."
+                    }
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "02e7ad00-bb39-46e5-b653-8be7d5a41871",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"location_name\": \"<string>\",\n  \"tax_settings_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"state_code\": \"<string>\",\n    \"street_address1\": \"<string>\",\n    \"street_address2\": \"<string>\"\n  },\n  \"parent_location_id\": \"<string>\",\n  \"associated_series_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"auto_number_generation_id\": \"<string>\",\n  \"is_all_users_selected\": \"<boolean>\",\n  \"user_ids\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/:location_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        ":location_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "location_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"locations\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"attention\": \"<string>\",\n      \"state_code\": \"<string>\",\n      \"street_address1\": \"<string>\",\n      \"street_address2\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"is_primary\": \"<boolean>\",\n    \"phone\": \"<string>\",\n    \"status\": {\n      \"description\": \"Status of the locations. Allowed Values: <code>active</code>, <code>inactive</code>\",\n      \"example\": \"active\"\n    },\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"parent_location_id\": \"<string>\",\n    \"associated_series_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"auto_number_generation_id\": \"<string>\",\n    \"associated_users\": [\n      {\n        \"user_id\": \"<string>\",\n        \"user_name\": \"<string>\"\n      },\n      {\n        \"user_id\": \"<string>\",\n        \"user_name\": \"<string>\"\n      }\n    ],\n    \"tax_settings_id\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-02e7ad00-bb39-46e5-b653-8be7d5a41871"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"We're enabling locations for your organization.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-dc5fcfae-20e5-4f45-bc82-93b86b6b0714"
+            },
+            {
+              "name": "Delete a location",
+              "id": "611baf17-96c5-4b29-b358-73f4e2e992b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/locations/:location_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "locations",
+                    ":location_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "47350188-18a2-4c3f-a3aa-1c3ee50326ee",
+                      "key": "location_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the location."
+                    }
+                  ]
+                },
+                "description": "Delete a location."
+              },
+              "response": [
+                {
+                  "id": "bc982959-7c64-413e-911b-a5ec65acfbfa",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/locations/:location_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "locations",
+                        ":location_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "location_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:32:11.000Z",
+                  "updatedAt": "2026-10-22T02:32:11.000Z",
+                  "uid": "35240-bc982959-7c64-413e-911b-a5ec65acfbfa"
+                }
+              ],
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-611baf17-96c5-4b29-b358-73f4e2e992b9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "576b0035-9d8e-42d8-b8a0-eb5138b85e6d",
+          "createdAt": "2026-10-22T02:32:11.000Z",
+          "updatedAt": "2026-10-22T02:32:11.000Z",
+          "uid": "35240-576b0035-9d8e-42d8-b8a0-eb5138b85e6d"
         },
         {
-          "id": "d29febfb-5e6a-415e-8ca1-ea3bc768a7c5",
           "name": "Create a location",
+          "id": "65c024a3-82ed-44d9-942f-ec46269c9830",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create a location",
-            "description": {
-              "content": "Create a location.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
                 {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
+                  "key": "scope",
+                  "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
                 }
-              ],
-              "variable": []
+              ]
             },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -154,1159 +1143,241 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"location_name\": \"<string>\",\n  \"tax_settings_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"state_code\": \"<string>\",\n    \"street_address1\": \"<string>\",\n    \"street_address2\": \"<string>\"\n  },\n  \"parent_location_id\": \"<string>\",\n  \"associated_series_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"auto_number_generation_id\": \"<string>\",\n  \"is_all_users_selected\": \"<boolean>\",\n  \"user_ids\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/locations?organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "locations"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Create a location."
           },
           "response": [
             {
-              "id": "d0b38ae5-9251-4ed4-b5cf-7ee89cd8bb61",
+              "id": "ceaa5d77-4aa6-417d-9fc9-496e2a2d2d54",
               "name": "Created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"location_name\": \"Head Office\",\n  \"tax_settings_id\": \"460000000038080\",\n  \"type\": \"general / line_item_only\",\n  \"email\": \"willsmith@bowmanfurniture.com\",\n  \"phone\": \"+1-925-921-9201\",\n  \"address\": {\n    \"city\": \"New York City\",\n    \"state\": \"New York\",\n    \"country\": \"U.S.A\",\n    \"attention\": \"<string>\",\n    \"state_code\": \"NY\",\n    \"street_address1\": \"No:234,90 Church Street\",\n    \"street_address2\": \"McMillan Avenue\"\n  },\n  \"parent_location_id\": \"460000000041010\",\n  \"associated_series_ids\": [\n    \"982000000870911\",\n    \"982000000870915\"\n  ],\n  \"auto_number_generation_id\": \"982000000870911\",\n  \"is_all_users_selected\": false,\n  \"user_ids\": \"460000000036868,460000000036869\"\n}",
+                  "raw": "{\n  \"location_name\": \"<string>\",\n  \"tax_settings_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"state_code\": \"<string>\",\n    \"street_address1\": \"<string>\",\n    \"street_address2\": \"<string>\"\n  },\n  \"parent_location_id\": \"<string>\",\n  \"associated_series_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"auto_number_generation_id\": \"<string>\",\n  \"is_all_users_selected\": \"<boolean>\",\n  \"user_ids\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/locations?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "locations"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"Location has been created.\",\n  \"locations\": {\n    \"address\": {\n      \"city\": \"New York City\",\n      \"state\": \"New York\",\n      \"country\": \"U.S.A\",\n      \"attention\": \"<string>\",\n      \"state_code\": \"NY\",\n      \"street_address1\": \"No:234,90 Church Street\",\n      \"street_address2\": \"McMillan Avenue\"\n    },\n    \"email\": \"willsmith@bowmanfurniture.com\",\n    \"is_primary\": true,\n    \"phone\": \"+1-925-921-9201\",\n    \"status\": {},\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"Head Office\",\n    \"type\": \"general / line_item_only\",\n    \"parent_location_id\": \"460000000041010\",\n    \"associated_series_ids\": [\n      \"982000000870911\",\n      \"982000000870915\"\n    ],\n    \"auto_number_generation_id\": \"982000000870911\",\n    \"associated_users\": [\n      {\n        \"user_id\": \"460000000036868\",\n        \"user_name\": \"John Doe\"\n      },\n      {\n        \"user_id\": \"460000000036868\",\n        \"user_name\": \"John Doe\"\n      }\n    ],\n    \"tax_settings_id\": \"460000000038080\"\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"locations\": {\n    \"address\": {\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"attention\": \"<string>\",\n      \"state_code\": \"<string>\",\n      \"street_address1\": \"<string>\",\n      \"street_address2\": \"<string>\"\n    },\n    \"email\": \"<string>\",\n    \"is_primary\": \"<boolean>\",\n    \"phone\": \"<string>\",\n    \"status\": {\n      \"description\": \"Status of the locations. Allowed Values: <code>active</code>, <code>inactive</code>\",\n      \"example\": \"active\"\n    },\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"parent_location_id\": \"<string>\",\n    \"associated_series_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"auto_number_generation_id\": \"<string>\",\n    \"associated_users\": [\n      {\n        \"user_id\": \"<string>\",\n        \"user_name\": \"<string>\"\n      },\n      {\n        \"user_id\": \"<string>\",\n        \"user_name\": \"<string>\"\n      }\n    ],\n    \"tax_settings_id\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-ceaa5d77-4aa6-417d-9fc9-496e2a2d2d54"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:32:11.000Z",
+          "updatedAt": "2026-10-22T02:32:11.000Z",
+          "uid": "35240-65c024a3-82ed-44d9-942f-ec46269c9830"
         },
         {
-          "id": "413e1928-2f30-4e57-a411-948772f24132",
           "name": "List all locations",
+          "id": "4491535c-7561-4e0c-87e7-9acdc5391e25",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List all locations",
-            "description": {
-              "content": "List all the available locations in your zoho inventory.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
                 {
-                  "disabled": false,
-                  "key": "is_hierarchical_response",
-                  "value": "<boolean>",
-                  "description": "When set to <code>true</code>, returns the locations in a parent-child hierarchical structure instead of a flat list."
+                  "key": "scope",
+                  "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                  "type": "string"
                 },
                 {
-                  "disabled": false,
-                  "key": "location_type",
-                  "value": "<string>",
-                  "description": "Filter locations by type. Allowed Values: <code>general</code> and <code>line_item_only</code>."
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
                 },
                 {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
                 }
-              ],
-              "variable": []
+              ]
             },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
+            "url": {
+              "raw": "{{baseUrl}}/locations?is_hierarchical_response=<boolean>&location_type=general&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "locations"
+              ],
+              "query": [
                 {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                  "description": "When set to <code>true</code>, returns the locations in a parent-child hierarchical structure instead of a flat list.",
+                  "key": "is_hierarchical_response",
+                  "value": "<boolean>"
                 },
                 {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                  "description": "Filter locations by type. Allowed Values: <code>general</code> and <code>line_item_only</code>.",
+                  "key": "location_type",
+                  "value": "general"
                 },
                 {
-                  "key": "grant_type",
-                  "value": "implicit"
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
                 }
               ]
-            }
+            },
+            "description": "List all the available locations in your zoho inventory."
           },
           "response": [
             {
-              "id": "e8049a76-95c3-481b-823e-b4af538afc21",
+              "id": "20fd39fe-13d6-4f29-9921-f2f3d924cc6c",
               "name": "OK",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "locations"
-                  ],
+                  "raw": "{{baseUrl}}/locations?is_hierarchical_response=<boolean>&location_type=general&organization_id=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "locations"
+                  ],
                   "query": [
                     {
+                      "description": "When set to <code>true</code>, returns the locations in a parent-child hierarchical structure instead of a flat list.",
                       "key": "is_hierarchical_response",
-                      "value": "false"
+                      "value": "<boolean>"
                     },
                     {
+                      "description": "Filter locations by type. Allowed Values: <code>general</code> and <code>line_item_only</code>.",
                       "key": "location_type",
                       "value": "general"
                     },
                     {
+                      "description": "(Required) ID of the organization",
                       "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"locations\": [\n    {\n      \"type\": \"general / line_item_only\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"address\": {\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"country\": \"U.S.A\",\n        \"attention\": \"<string>\",\n        \"state_code\": \"NY\",\n        \"street_address1\": \"No:234,90 Church Street\",\n        \"street_address2\": \"McMillan Avenue\"\n      },\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"Head Office\",\n      \"tax_settings_id\": \"460000000038080\",\n      \"parent_location_id\": \"460000000041010\",\n      \"associated_series_ids\": [\n        \"982000000870911\",\n        \"982000000870915\"\n      ],\n      \"auto_number_generation_id\": \"982000000870911\",\n      \"is_all_users_selected\": false,\n      \"associated_users\": [\n        {\n          \"user_id\": \"460000000036868\",\n          \"user_name\": \"John Doe\"\n        },\n        {\n          \"user_id\": \"460000000036868\",\n          \"user_name\": \"John Doe\"\n        }\n      ]\n    },\n    {\n      \"type\": \"general / line_item_only\",\n      \"email\": \"willsmith@bowmanfurniture.com\",\n      \"phone\": \"+1-925-921-9201\",\n      \"address\": {\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"country\": \"U.S.A\",\n        \"attention\": \"<string>\",\n        \"state_code\": \"NY\",\n        \"street_address1\": \"No:234,90 Church Street\",\n        \"street_address2\": \"McMillan Avenue\"\n      },\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"Head Office\",\n      \"tax_settings_id\": \"460000000038080\",\n      \"parent_location_id\": \"460000000041010\",\n      \"associated_series_ids\": [\n        \"982000000870911\",\n        \"982000000870915\"\n      ],\n      \"auto_number_generation_id\": \"982000000870911\",\n      \"is_all_users_selected\": false,\n      \"associated_users\": [\n        {\n          \"user_id\": \"460000000036868\",\n          \"user_name\": \"John Doe\"\n        },\n        {\n          \"user_id\": \"460000000036868\",\n          \"user_name\": \"John Doe\"\n        }\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "df23b028-46a2-41b8-9a47-465d1e2dcd15",
-          "name": "Get a location",
-          "request": {
-            "name": "Get a location",
-            "description": {
-              "content": "Get the details of a location.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations",
-                ":location_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "location_id",
-                  "description": "(Required) Unique identifier of the location."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "97d3c1a5-a429-4258-b786-efc3e6ca7769",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations",
-                    ":location_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "location_id",
-                      "description": "(Required) Unique identifier of the location."
+                      "value": "<string>"
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"location\": {\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"Head Office\",\n    \"type\": \"general / line_item_only\",\n    \"parent_location_id\": \"460000000041010\",\n    \"address\": {\n      \"city\": \"New York City\",\n      \"state\": \"New York\",\n      \"country\": \"U.S.A\",\n      \"attention\": \"<string>\",\n      \"state_code\": \"NY\",\n      \"street_address1\": \"No:234,90 Church Street\",\n      \"street_address2\": \"McMillan Avenue\"\n    },\n    \"phone\": \"+1-925-921-9201\",\n    \"fax\": \"+1-925-921-9202\",\n    \"email\": \"willsmith@bowmanfurniture.com\",\n    \"website\": \"www.bowmanfurniture.com\",\n    \"tax_settings_id\": \"460000000038080\",\n    \"tax_reg_no\": \"29AAAAA0000A1Z5\",\n    \"is_primary_location\": true,\n    \"is_location_active\": true,\n    \"autonumbergenerationgroup_id\": \"982000000870911\",\n    \"autonumbergenerationgroup_name\": \"Default Series\",\n    \"associated_series_ids\": [\n      \"982000000870911\",\n      \"982000000870915\"\n    ],\n    \"customer_id\": \"460000000038090\",\n    \"customer_name\": \"Bowman Furniture\",\n    \"vendor_id\": \"460000000038092\",\n    \"vendor_name\": \"Bowman Furniture\",\n    \"is_all_users_selected\": false,\n    \"associated_users\": [\n      {\n        \"user_id\": \"460000000036868\",\n        \"user_name\": \"John Doe\"\n      },\n      {\n        \"user_id\": \"460000000036868\",\n        \"user_name\": \"John Doe\"\n      }\n    ],\n    \"location_identification_number\": \"BR-001\",\n    \"location_identification_label\": \"BR\"\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"locations\": [\n    {\n      \"type\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"attention\": \"<string>\",\n        \"state_code\": \"<string>\",\n        \"street_address1\": \"<string>\",\n        \"street_address2\": \"<string>\"\n      },\n      \"location_id\": \"<string>\",\n      \"location_name\": \"<string>\",\n      \"tax_settings_id\": \"<string>\",\n      \"parent_location_id\": \"<string>\",\n      \"associated_series_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"auto_number_generation_id\": \"<string>\",\n      \"is_all_users_selected\": \"<boolean>\",\n      \"associated_users\": [\n        {\n          \"user_id\": \"<string>\",\n          \"user_name\": \"<string>\"\n        },\n        {\n          \"user_id\": \"<string>\",\n          \"user_name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"address\": {\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"attention\": \"<string>\",\n        \"state_code\": \"<string>\",\n        \"street_address1\": \"<string>\",\n        \"street_address2\": \"<string>\"\n      },\n      \"location_id\": \"<string>\",\n      \"location_name\": \"<string>\",\n      \"tax_settings_id\": \"<string>\",\n      \"parent_location_id\": \"<string>\",\n      \"associated_series_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"auto_number_generation_id\": \"<string>\",\n      \"is_all_users_selected\": \"<boolean>\",\n      \"associated_users\": [\n        {\n          \"user_id\": \"<string>\",\n          \"user_name\": \"<string>\"\n        },\n        {\n          \"user_id\": \"<string>\",\n          \"user_name\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:32:11.000Z",
+              "updatedAt": "2026-10-22T02:32:11.000Z",
+              "uid": "35240-20fd39fe-13d6-4f29-9921-f2f3d924cc6c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2c45c16d-574c-4c83-9be9-0c3c601dfded",
-          "name": "Update location",
-          "request": {
-            "name": "Update location",
-            "description": {
-              "content": "Update location",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations",
-                ":location_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "location_id",
-                  "description": "(Required) Unique identifier of the location."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"location_name\": \"<string>\",\n  \"tax_settings_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"state_code\": \"<string>\",\n    \"street_address1\": \"<string>\",\n    \"street_address2\": \"<string>\"\n  },\n  \"parent_location_id\": \"<string>\",\n  \"associated_series_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"auto_number_generation_id\": \"<string>\",\n  \"is_all_users_selected\": \"<boolean>\",\n  \"user_ids\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "e2025716-9cc6-494b-a5ad-47aaa0589f2b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations",
-                    ":location_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "location_id",
-                      "description": "(Required) Unique identifier of the location."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"location_name\": \"Head Office\",\n  \"tax_settings_id\": \"460000000038080\",\n  \"type\": \"general / line_item_only\",\n  \"email\": \"willsmith@bowmanfurniture.com\",\n  \"phone\": \"+1-925-921-9201\",\n  \"address\": {\n    \"city\": \"New York City\",\n    \"state\": \"New York\",\n    \"country\": \"U.S.A\",\n    \"attention\": \"<string>\",\n    \"state_code\": \"NY\",\n    \"street_address1\": \"No:234,90 Church Street\",\n    \"street_address2\": \"McMillan Avenue\"\n  },\n  \"parent_location_id\": \"460000000041010\",\n  \"associated_series_ids\": [\n    \"982000000870911\",\n    \"982000000870915\"\n  ],\n  \"auto_number_generation_id\": \"982000000870911\",\n  \"is_all_users_selected\": false,\n  \"user_ids\": \"460000000036868,460000000036869\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"Location has been updated.\",\n  \"locations\": {\n    \"address\": {\n      \"city\": \"New York City\",\n      \"state\": \"New York\",\n      \"country\": \"U.S.A\",\n      \"attention\": \"<string>\",\n      \"state_code\": \"NY\",\n      \"street_address1\": \"No:234,90 Church Street\",\n      \"street_address2\": \"McMillan Avenue\"\n    },\n    \"email\": \"willsmith@bowmanfurniture.com\",\n    \"is_primary\": true,\n    \"phone\": \"+1-925-921-9201\",\n    \"status\": {},\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"Head Office\",\n    \"type\": \"general / line_item_only\",\n    \"parent_location_id\": \"460000000041010\",\n    \"associated_series_ids\": [\n      \"982000000870911\",\n      \"982000000870915\"\n    ],\n    \"auto_number_generation_id\": \"982000000870911\",\n    \"associated_users\": [\n      {\n        \"user_id\": \"460000000036868\",\n        \"user_name\": \"John Doe\"\n      },\n      {\n        \"user_id\": \"460000000036868\",\n        \"user_name\": \"John Doe\"\n      }\n    ],\n    \"tax_settings_id\": \"460000000038080\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f54d1439-6a96-42d3-a014-8cdf2d692c35",
-          "name": "Delete a location",
-          "request": {
-            "name": "Delete a location",
-            "description": {
-              "content": "Delete a location.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations",
-                ":location_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "location_id",
-                  "description": "(Required) Unique identifier of the location."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "a8b93146-8049-46fc-951c-206b119bd04b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations",
-                    ":location_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "location_id",
-                      "description": "(Required) Unique identifier of the location."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The location has been deleted..\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e26fb441-9ceb-4bf4-b83c-b93f572cddba",
-          "name": "Mark as Active",
-          "request": {
-            "name": "Mark as Active",
-            "description": {
-              "content": "Mark location as Active.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations",
-                ":location_id",
-                "active"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "location_id",
-                  "description": "(Required) Unique identifier of the location."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "a956892a-98cf-4e59-9159-fea9222a0aa2",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations",
-                    ":location_id",
-                    "active"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "location_id",
-                      "description": "(Required) Unique identifier of the location."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The location has been marked as active.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "302cb08f-8b76-48d5-9a65-129c2317be88",
-          "name": "Mark as Inactive",
-          "request": {
-            "name": "Mark as Inactive",
-            "description": {
-              "content": "Mark location as Inactive.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations",
-                ":location_id",
-                "inactive"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "location_id",
-                  "description": "(Required) Unique identifier of the location."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "5b17f396-00e9-4600-8d6b-a907cfe83abb",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations",
-                    ":location_id",
-                    "inactive"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "location_id",
-                      "description": "(Required) Unique identifier of the location."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The location has been marked as inactive.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "772c2c28-d4e0-41a4-8613-98f21eceaa7d",
-          "name": "Mark as Primary",
-          "request": {
-            "name": "Mark as Primary",
-            "description": {
-              "content": "Mark location as primary.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations",
-                ":location_id",
-                "markasprimary"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "location_id",
-                  "description": "(Required) Unique identifier of the location."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "95939aa2-e869-44e2-9686-2337445fe72b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations",
-                    ":location_id",
-                    "markasprimary"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "location_id",
-                      "description": "(Required) Unique identifier of the location."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The location has been marked as primary.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b02261e5-fe98-456c-9ce8-6a6179592a70",
-          "name": "List users of a location",
-          "request": {
-            "name": "List users of a location",
-            "description": {
-              "content": "List the users associated with a location.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "locations",
-                ":location_id",
-                "users"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>",
-                  "description": "Page number for paginated results."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "<integer>",
-                  "description": "Number of records to return per page."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "location_id",
-                  "description": "(Required) Unique identifier of the location."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "afa1f1c4-b774-4ccb-b18e-d0f76dfb125a",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "locations",
-                    ":location_id",
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "location_id",
-                      "description": "(Required) Unique identifier of the location."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"users\": [\n    {\n      \"user_id\": \"460000000036868\",\n      \"name\": \"John Doe\",\n      \"email\": \"john.doe@bowmanfurniture.com\",\n      \"mobile\": \"+1-925-921-9201\",\n      \"user_role\": \"admin\",\n      \"status\": \"active\",\n      \"photo_url\": \"https://contacts.zoho.com/file?ID=12345\"\n    },\n    {\n      \"user_id\": \"460000000036868\",\n      \"name\": \"John Doe\",\n      \"email\": \"john.doe@bowmanfurniture.com\",\n      \"mobile\": \"+1-925-921-9201\",\n      \"user_role\": \"admin\",\n      \"status\": \"active\",\n      \"photo_url\": \"https://contacts.zoho.com/file?ID=12345\"\n    }\n  ],\n  \"page_context\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"has_more_page\": false,\n    \"report_name\": \"Users\",\n    \"sort_column\": \"name\",\n    \"sort_order\": \"A\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:32:11.000Z",
+          "updatedAt": "2026-10-22T02:32:11.000Z",
+          "uid": "35240-4491535c-7561-4e0c-87e7-9acdc5391e25"
         }
       ],
-      "event": []
+      "id": "bba16ea5-d004-4de0-80f5-aa6068aae08d",
+      "createdAt": "2026-10-22T02:32:11.000Z",
+      "updatedAt": "2026-10-22T02:32:11.000Z",
+      "uid": "35240-bba16ea5-d004-4de0-80f5-aa6068aae08d"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://www.zohoapis.com/inventory/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "c8daeb9e-ae38-4b61-b856-c6b34d833117",
-    "name": "batches locations API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,0 +1,756 @@
+{
+  "info": {
+    "_postman_id": "836d17a7-e0be-4d92-8cc9-5b2e050f01b6",
+    "name": "Shipment Orders Shipmentorders API",
+    "description": "A document used by an organization to specify what items or packages are to be transferred from a storage location or warehouse to what person and to what new location is called a shipment order. It is typically sent along with a shipment of goods so that the person receiving them(your customer) can verify that the document correctly reflects the items that they actually received.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:34:48.000Z",
+    "updatedAt": "2026-10-22T02:34:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-836d17a7-e0be-4d92-8cc9-5b2e050f01b6"
+  },
+  "item": [
+    {
+      "name": "shipmentorders",
+      "item": [
+        {
+          "name": "{shipmentorder_id}",
+          "item": [
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "delivered",
+                  "item": [
+                    {
+                      "name": "Mark as Delivered",
+                      "id": "3de00313-5b01-4c8e-929a-925d998c0653",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.shipmentorders.CREATE ZohoInventory.shipmentorders.READ ZohoInventory.shipmentorders.UPDATE ZohoInventory.shipmentorders.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id/status/delivered?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shipmentorders",
+                            ":shipmentorder_id",
+                            "status",
+                            "delivered"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "f04f6567-385b-4569-bea2-cfd970eadd75",
+                              "key": "shipmentorder_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the shipment order."
+                            }
+                          ]
+                        },
+                        "description": "Change the status of the Shipment to delivered."
+                      },
+                      "response": [
+                        {
+                          "id": "d8ed8469-140c-4b80-beb7-310e94cc8c0d",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id/status/delivered?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "shipmentorders",
+                                ":shipmentorder_id",
+                                "status",
+                                "delivered"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "shipmentorder_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:34:49.000Z",
+                          "updatedAt": "2026-10-22T02:34:49.000Z",
+                          "uid": "35240-d8ed8469-140c-4b80-beb7-310e94cc8c0d"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:34:49.000Z",
+                      "updatedAt": "2026-10-22T02:34:49.000Z",
+                      "uid": "35240-3de00313-5b01-4c8e-929a-925d998c0653"
+                    }
+                  ],
+                  "id": "2daf2b6f-f880-492d-8063-02b78cce4c17",
+                  "createdAt": "2026-10-22T02:34:49.000Z",
+                  "updatedAt": "2026-10-22T02:34:49.000Z",
+                  "uid": "35240-2daf2b6f-f880-492d-8063-02b78cce4c17"
+                }
+              ],
+              "id": "b841caa9-5161-4c53-bbb3-0b8db2d07a9d",
+              "createdAt": "2026-10-22T02:34:49.000Z",
+              "updatedAt": "2026-10-22T02:34:49.000Z",
+              "uid": "35240-b841caa9-5161-4c53-bbb3-0b8db2d07a9d"
+            },
+            {
+              "name": "Retrieve a Shipment Order",
+              "id": "02f8bd55-9ec5-4ffa-a1fa-3bca39a3dfff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.shipmentorders.CREATE ZohoInventory.shipmentorders.READ ZohoInventory.shipmentorders.UPDATE ZohoInventory.shipmentorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipmentorders",
+                    ":shipmentorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "1d4b1e83-2db1-4f2e-9626-7ceb8b1217c7",
+                      "key": "shipmentorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the shipment order."
+                    }
+                  ]
+                },
+                "description": "Retrieves details for an existing Shipment Orders."
+              },
+              "response": [
+                {
+                  "id": "3aec8efc-9ba5-4de2-832b-21e2b29a1e98",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shipmentorders",
+                        ":shipmentorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "shipmentorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"shipment_order\": {\n    \"salesorder_id\": \"<string>\",\n    \"salesorder_number\": \"<string>\",\n    \"shipment_id\": \"<string>\",\n    \"shipment_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"detailed_status\": \"<string>\",\n    \"status_message\": \"<string>\",\n    \"carrier\": \"<string>\",\n    \"service\": \"<string>\",\n    \"delivery_days\": \"<integer>\",\n    \"delivery_guarantee\": \"<boolean>\",\n    \"reference_number\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"<string>\"\n      },\n      {\n        \"contact_person_id\": \"<string>\"\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"discount_amount\": \"<double>\",\n    \"discount\": \"<double>\",\n    \"is_discount_before_tax\": \"<boolean>\",\n    \"discount_type\": \"<string>\",\n    \"estimate_id\": \"<string>\",\n    \"delivery_method\": \"<string>\",\n    \"delivery_method_id\": \"<string>\",\n    \"tracking_number\": \"<string>\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\"\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\"\n      }\n    ],\n    \"shipping_charge\": \"<double>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"is_emailed\": \"<boolean>\",\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"shipmentorder_custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:34:49.000Z",
+                  "updatedAt": "2026-10-22T02:34:49.000Z",
+                  "uid": "35240-3aec8efc-9ba5-4de2-832b-21e2b29a1e98"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:49.000Z",
+              "updatedAt": "2026-10-22T02:34:49.000Z",
+              "uid": "35240-02f8bd55-9ec5-4ffa-a1fa-3bca39a3dfff"
+            },
+            {
+              "name": "Update a Shipment Order",
+              "id": "fca6029b-fc82-49f9-9c6f-25c93e8628ae",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.shipmentorders.CREATE ZohoInventory.shipmentorders.READ ZohoInventory.shipmentorders.UPDATE ZohoInventory.shipmentorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shipment_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"delivery_method\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"contact_persons\": [\n    {\n      \"contact_person_id\": \"<string>\"\n    },\n    {\n      \"contact_person_id\": \"<string>\"\n    }\n  ],\n  \"tracking_number\": \"<string>\",\n  \"shipping_charge\": \"<double>\",\n  \"exchange_rate\": \"<double>\",\n  \"template_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"shipmentorder_custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id?package_ids=<string>&salesorder_id=<string>&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipmentorders",
+                    ":shipmentorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Array of package_id(s) to be shipped",
+                      "key": "package_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Unique ID generated by the server for the Sales Order. This is used as identifier.",
+                      "key": "salesorder_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "4a520033-f096-4933-afa5-9ae7bef48d48",
+                      "key": "shipmentorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the shipment order."
+                    }
+                  ]
+                },
+                "description": "Update details of an existing Shipment Order in Zoho Inventory."
+              },
+              "response": [
+                {
+                  "id": "b5368ebe-be18-48f9-bb9b-a9363b826f12",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"shipment_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"delivery_method\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"contact_persons\": [\n    {\n      \"contact_person_id\": \"<string>\"\n    },\n    {\n      \"contact_person_id\": \"<string>\"\n    }\n  ],\n  \"tracking_number\": \"<string>\",\n  \"shipping_charge\": \"<double>\",\n  \"exchange_rate\": \"<double>\",\n  \"template_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"shipmentorder_custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id?package_ids=<string>&salesorder_id=<string>&organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shipmentorders",
+                        ":shipmentorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Array of package_id(s) to be shipped",
+                          "key": "package_ids",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique ID generated by the server for the Sales Order. This is used as identifier.",
+                          "key": "salesorder_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "shipmentorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"shipmentorder\": {\n    \"salesorder_id\": \"<string>\",\n    \"salesorder_number\": \"<string>\",\n    \"shipment_id\": \"<string>\",\n    \"shipment_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"detailed_status\": \"<string>\",\n    \"status_message\": \"<string>\",\n    \"carrier\": \"<string>\",\n    \"service\": \"<string>\",\n    \"delivery_days\": \"<integer>\",\n    \"delivery_guarantee\": \"<boolean>\",\n    \"reference_number\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"<string>\"\n      },\n      {\n        \"contact_person_id\": \"<string>\"\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"discount_amount\": \"<double>\",\n    \"discount\": \"<double>\",\n    \"is_discount_before_tax\": \"<boolean>\",\n    \"discount_type\": \"<string>\",\n    \"estimate_id\": \"<string>\",\n    \"delivery_method\": \"<string>\",\n    \"delivery_method_id\": \"<string>\",\n    \"tracking_number\": \"<string>\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\"\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\"\n      }\n    ],\n    \"shipping_charge\": \"<double>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"is_emailed\": \"<boolean>\",\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"shipmentorder_custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:34:49.000Z",
+                  "updatedAt": "2026-10-22T02:34:49.000Z",
+                  "uid": "35240-b5368ebe-be18-48f9-bb9b-a9363b826f12"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:49.000Z",
+              "updatedAt": "2026-10-22T02:34:49.000Z",
+              "uid": "35240-fca6029b-fc82-49f9-9c6f-25c93e8628ae"
+            },
+            {
+              "name": "Delete a Shipment Order",
+              "id": "14bc0ff2-7816-4cbb-8ca1-5606f84f0a3f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.shipmentorders.CREATE ZohoInventory.shipmentorders.READ ZohoInventory.shipmentorders.UPDATE ZohoInventory.shipmentorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipmentorders",
+                    ":shipmentorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "c911324f-4173-4915-8cec-483f84c8a779",
+                      "key": "shipmentorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the shipment order."
+                    }
+                  ]
+                },
+                "description": "Deletes an existing Shipment Order."
+              },
+              "response": [
+                {
+                  "id": "4c8ccd7d-2a05-486e-bb19-db6c4b980b55",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shipmentorders/:shipmentorder_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shipmentorders",
+                        ":shipmentorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "shipmentorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:49.000Z",
+                  "updatedAt": "2026-10-22T02:34:49.000Z",
+                  "uid": "35240-4c8ccd7d-2a05-486e-bb19-db6c4b980b55"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:49.000Z",
+              "updatedAt": "2026-10-22T02:34:49.000Z",
+              "uid": "35240-14bc0ff2-7816-4cbb-8ca1-5606f84f0a3f"
+            }
+          ],
+          "id": "1cf8d796-ebf5-4d1f-803e-55edb2c62f0c",
+          "createdAt": "2026-10-22T02:34:49.000Z",
+          "updatedAt": "2026-10-22T02:34:49.000Z",
+          "uid": "35240-1cf8d796-ebf5-4d1f-803e-55edb2c62f0c"
+        },
+        {
+          "name": "Create a Shipment Order",
+          "id": "5d5e65be-9a37-4694-94d4-7e79ffc2cae7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.shipmentorders.CREATE ZohoInventory.shipmentorders.READ ZohoInventory.shipmentorders.UPDATE ZohoInventory.shipmentorders.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shipment_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"delivery_method\": \"<string>\",\n  \"tracking_number\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"contact_persons\": [\n    {\n      \"contact_person_id\": \"<string>\"\n    },\n    {\n      \"contact_person_id\": \"<string>\"\n    }\n  ],\n  \"shipping_charge\": \"<double>\",\n  \"exchange_rate\": \"<double>\",\n  \"template_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"shipmentorder_custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/shipmentorders?package_ids=[object Object]&package_ids=[object Object]&salesorder_id=<string>&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shipmentorders"
+              ],
+              "query": [
+                {
+                  "description": "Array of  package_id(s) to be shipped",
+                  "key": "package_ids",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "Array of  package_id(s) to be shipped",
+                  "key": "package_ids",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "Unique ID generated by the server for the Sales Order. This is used as identifier.",
+                  "key": "salesorder_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "A new shipment order can a be created. To create shipment, URL parameter's package_ids and salesorder_id are mandatory."
+          },
+          "response": [
+            {
+              "id": "c3b791fb-fb25-40dd-8749-0140b6704774",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shipment_number\": \"<string>\",\n  \"date\": \"<string>\",\n  \"delivery_method\": \"<string>\",\n  \"tracking_number\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"contact_persons\": [\n    {\n      \"contact_person_id\": \"<string>\"\n    },\n    {\n      \"contact_person_id\": \"<string>\"\n    }\n  ],\n  \"shipping_charge\": \"<double>\",\n  \"exchange_rate\": \"<double>\",\n  \"template_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"shipmentorder_custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/shipmentorders?package_ids=[object Object]&salesorder_id=<string>&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipmentorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Array of  package_id(s) to be shipped",
+                      "key": "package_ids",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "Unique ID generated by the server for the Sales Order. This is used as identifier.",
+                      "key": "salesorder_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"shipment_order\": {\n    \"salesorder_id\": \"<string>\",\n    \"salesorder_number\": \"<string>\",\n    \"shipment_id\": \"<string>\",\n    \"shipment_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"detailed_status\": \"<string>\",\n    \"status_message\": \"<string>\",\n    \"carrier\": \"<string>\",\n    \"service\": \"<string>\",\n    \"delivery_days\": \"<integer>\",\n    \"delivery_guarantee\": \"<boolean>\",\n    \"reference_number\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"<string>\"\n      },\n      {\n        \"contact_person_id\": \"<string>\"\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"discount_amount\": \"<double>\",\n    \"discount\": \"<double>\",\n    \"is_discount_before_tax\": \"<boolean>\",\n    \"discount_type\": \"<string>\",\n    \"estimate_id\": \"<string>\",\n    \"delivery_method\": \"<string>\",\n    \"delivery_method_id\": \"<string>\",\n    \"tracking_number\": \"<string>\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\"\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\"\n      }\n    ],\n    \"shipping_charge\": \"<double>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"is_emailed\": \"<boolean>\",\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"shipmentorder_custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:34:49.000Z",
+              "updatedAt": "2026-10-22T02:34:49.000Z",
+              "uid": "35240-c3b791fb-fb25-40dd-8749-0140b6704774"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:49.000Z",
+          "updatedAt": "2026-10-22T02:34:49.000Z",
+          "uid": "35240-5d5e65be-9a37-4694-94d4-7e79ffc2cae7"
+        }
+      ],
+      "id": "66688fb9-2d7a-43c6-a2a0-694052dbb337",
+      "createdAt": "2026-10-22T02:34:49.000Z",
+      "updatedAt": "2026-10-22T02:34:49.000Z",
+      "uid": "35240-66688fb9-2d7a-43c6-a2a0-694052dbb337"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
+    }
+  ]
+}

@@ -1,698 +1,723 @@
 {
+  "info": {
+    "_postman_id": "e24a316c-48d2-481e-a5a1-edde48ccb24f",
+    "name": "Currency API",
+    "description": "A currency is a generally accepted form of money issued by the government. Each country had its own different currency.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:31:11.000Z",
+    "updatedAt": "2026-10-22T02:31:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e24a316c-48d2-481e-a5a1-edde48ccb24f"
+  },
   "item": [
     {
-      "id": "b466e751-1239-46a4-a78d-afd2a3e1c706",
-      "name": "currency",
-      "description": {
-        "content": "Currency Module",
-        "type": "text/plain"
-      },
+      "name": "settings",
       "item": [
         {
-          "id": "d31179ce-d923-4c39-9e08-68d6311e1ef4",
-          "name": "Create a Currency",
-          "request": {
-            "name": "Create a Currency",
-            "description": {
-              "content": "Create a currency for transaction.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "settings",
-                "currencies"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"currency_code\": \"<string>\",\n  \"currency_symbol\": \"<string>\",\n  \"price_precision\": \"<integer>\",\n  \"currency_format\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "currencies",
+          "item": [
             {
-              "id": "da5e3330-c44c-4f17-8da6-c4c6a1d90710",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "settings",
-                    "currencies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "{currency_id}",
+              "item": [
+                {
+                  "name": "Update a Currency",
+                  "id": "929a2b59-caa4-4dbc-9866-65d502f88bab",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"currency_code\": \"<string>\",\n  \"currency_symbol\": \"<string>\",\n  \"price_precision\": \"<integer>\",\n  \"currency_format\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/currencies/:currency_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "currencies",
+                        ":currency_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "d5919072-dbc8-40e1-be52-bdae0959d8f6",
+                          "key": "currency_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the currency."
+                        }
+                      ]
+                    },
+                    "description": "Update the details of a currency."
+                  },
+                  "response": [
                     {
-                      "key": "organization_id",
-                      "value": "10234695"
+                      "id": "7830f8a8-3afc-4b16-8663-26e26621b3f3",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"currency_code\": \"<string>\",\n  \"currency_symbol\": \"<string>\",\n  \"price_precision\": \"<integer>\",\n  \"currency_format\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/currencies/:currency_id?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "currencies",
+                            ":currency_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "currency_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"currency\": [\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\"\n    },\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:31:11.000Z",
+                      "updatedAt": "2026-10-22T02:31:11.000Z",
+                      "uid": "35240-7830f8a8-3afc-4b16-8663-26e26621b3f3"
                     }
                   ],
-                  "variable": []
+                  "createdAt": "2026-10-22T02:31:11.000Z",
+                  "updatedAt": "2026-10-22T02:31:11.000Z",
+                  "uid": "35240-929a2b59-caa4-4dbc-9866-65d502f88bab"
                 },
+                {
+                  "name": "Get a Currency",
+                  "id": "2c01f6c7-feb0-4a4f-87ef-4d47b5e49065",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/currencies/:currency_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "currencies",
+                        ":currency_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "368700d1-6374-4a27-88a3-899bd87eebb8",
+                          "key": "currency_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the currency."
+                        }
+                      ]
+                    },
+                    "description": "Get the details of a currency."
+                  },
+                  "response": [
+                    {
+                      "id": "8a7334cb-4fa0-4ca0-a71c-88a323dd8c1f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/currencies/:currency_id?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "currencies",
+                            ":currency_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "currency_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"currency\": [\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\"\n    },\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:31:11.000Z",
+                      "updatedAt": "2026-10-22T02:31:11.000Z",
+                      "uid": "35240-8a7334cb-4fa0-4ca0-a71c-88a323dd8c1f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:31:11.000Z",
+                  "updatedAt": "2026-10-22T02:31:11.000Z",
+                  "uid": "35240-2c01f6c7-feb0-4a4f-87ef-4d47b5e49065"
+                },
+                {
+                  "name": "Delete a currency",
+                  "id": "799ede9d-504a-4b48-9bfc-689ecc4e46da",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/currencies/:currency_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "currencies",
+                        ":currency_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0c5afa0b-d69f-4f74-a19e-7e6465c9bf3f",
+                          "key": "currency_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the currency."
+                        }
+                      ]
+                    },
+                    "description": "Delete a currency. Currency that is associated to any transaction cannot be deleted."
+                  },
+                  "response": [
+                    {
+                      "id": "4c262539-352d-4fee-88f4-dcec09831cf3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settings/currencies/:currency_id?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settings",
+                            "currencies",
+                            ":currency_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "currency_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:31:11.000Z",
+                      "updatedAt": "2026-10-22T02:31:11.000Z",
+                      "uid": "35240-4c262539-352d-4fee-88f4-dcec09831cf3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:31:11.000Z",
+                  "updatedAt": "2026-10-22T02:31:11.000Z",
+                  "uid": "35240-799ede9d-504a-4b48-9bfc-689ecc4e46da"
+                }
+              ],
+              "id": "40116fb3-ff77-488c-b95a-46012027c223",
+              "createdAt": "2026-10-22T02:31:11.000Z",
+              "updatedAt": "2026-10-22T02:31:11.000Z",
+              "uid": "35240-40116fb3-ff77-488c-b95a-46012027c223"
+            },
+            {
+              "name": "Create a Currency",
+              "id": "0845cd27-3054-4362-9399-6405392db9de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"currency_code\": \"AUD\",\n  \"currency_symbol\": \"$\",\n  \"price_precision\": 2,\n  \"currency_format\": \"1,234,567.89\"\n}",
+                  "raw": "{\n  \"currency_code\": \"<string>\",\n  \"currency_symbol\": \"<string>\",\n  \"price_precision\": \"<integer>\",\n  \"currency_format\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The currency has been added.\",\n  \"currency\": [\n    {\n      \"currency_id\": \"982000000004012\",\n      \"currency_code\": \"AUD\",\n      \"currency_name\": \"AUD- Australian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false\n    },\n    {\n      \"currency_id\": \"982000000004012\",\n      \"currency_code\": \"AUD\",\n      \"currency_name\": \"AUD- Australian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2e490720-84e6-4bcf-8ee3-5f3b49c6eb2d",
-          "name": "List Currency",
-          "request": {
-            "name": "List Currency",
-            "description": {
-              "content": "Get list of currencies configured.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "settings",
-                "currencies"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "filter_by",
-                  "value": "<string>",
-                  "description": "Filter currencies excluding base currency. Allowed Values: <code>Currencies.ExcludeBaseCurrency</code>"
                 },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number to be fetched. Default value is 1."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "200",
-                  "description": "Number of records to be fetched per page. Default value is 200."
-                },
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "5ab2dbe9-ed15-48c8-8962-5b98393dd194",
-              "name": "OK",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/settings/currencies?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "settings",
                     "currencies"
                   ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Create a currency for transaction."
+              },
+              "response": [
+                {
+                  "id": "e530784e-6724-41fd-af39-415eac6e3b56",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"currency_code\": \"<string>\",\n  \"currency_symbol\": \"<string>\",\n  \"price_precision\": \"<integer>\",\n  \"currency_format\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/currencies?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "currencies"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"currency\": [\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\"\n    },\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:31:11.000Z",
+                  "updatedAt": "2026-10-22T02:31:11.000Z",
+                  "uid": "35240-e530784e-6724-41fd-af39-415eac6e3b56"
+                }
+              ],
+              "createdAt": "2026-10-22T02:31:11.000Z",
+              "updatedAt": "2026-10-22T02:31:11.000Z",
+              "uid": "35240-0845cd27-3054-4362-9399-6405392db9de"
+            },
+            {
+              "name": "List Currency",
+              "id": "df514118-efeb-4873-99af-ce28bf6915b6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settings/currencies?filter_by=<string>&page=1&per_page=200&organization_id=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "settings",
+                    "currencies"
+                  ],
                   "query": [
                     {
+                      "description": "Filter currencies excluding base currency. Allowed Values: <code>Currencies.ExcludeBaseCurrency</code>",
                       "key": "filter_by",
-                      "value": ""
+                      "value": "<string>"
                     },
                     {
+                      "description": "Page number to be fetched. Default value is 1.",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of records to be fetched per page. Default value is 200.",
                       "key": "per_page",
                       "value": "200"
                     },
                     {
+                      "description": "(Required) ID of the organization",
                       "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"List of all currencies are displayed successfully.\",\n  \"currencies\": [\n    {\n      \"currency_id\": \"982000000004012\",\n      \"currency_code\": \"AUD\",\n      \"currency_name\": \"AUD- Australian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false,\n      \"exchange_rate\": 0,\n      \"effective_date\": \"2016-06-05\"\n    },\n    {\n      \"currency_id\": \"982000000004012\",\n      \"currency_code\": \"AUD\",\n      \"currency_name\": \"AUD- Australian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false,\n      \"exchange_rate\": 0,\n      \"effective_date\": \"2016-06-05\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b429a74c-537c-4d3c-bef5-1f1bd4422a4c",
-          "name": "Update a Currency",
-          "request": {
-            "name": "Update a Currency",
-            "description": {
-              "content": "Update the details of a currency.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "settings",
-                "currencies",
-                ":currency_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "currency_id",
-                  "description": "(Required) Unique identifier of the currency."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"currency_code\": \"<string>\",\n  \"currency_symbol\": \"<string>\",\n  \"price_precision\": \"<integer>\",\n  \"currency_format\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "0a4a6184-ecf1-4593-99b3-1da416637793",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "settings",
-                    "currencies",
-                    ":currency_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "currency_id",
-                      "description": "(Required) Unique identifier of the currency."
+                      "value": "<string>"
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"currency_code\": \"CAD\",\n  \"currency_symbol\": \"$\",\n  \"price_precision\": 2,\n  \"currency_format\": \"1,234,567.89\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "description": "Get list of currencies configured."
               },
-              "status": "Created",
-              "code": 201,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "54f7f38e-321f-4a0a-b748-1de5f22044ae",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/settings/currencies?filter_by=<string>&page=1&per_page=200&organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settings",
+                        "currencies"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter currencies excluding base currency. Allowed Values: <code>Currencies.ExcludeBaseCurrency</code>",
+                          "key": "filter_by",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page number to be fetched. Default value is 1.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of records to be fetched per page. Default value is 200.",
+                          "key": "per_page",
+                          "value": "200"
+                        },
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"currencies\": [\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\",\n      \"exchange_rate\": \"<double>\",\n      \"effective_date\": \"<string>\"\n    },\n    {\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"currency_name\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"currency_format\": \"<string>\",\n      \"is_base_currency\": \"<boolean>\",\n      \"exchange_rate\": \"<double>\",\n      \"effective_date\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:31:11.000Z",
+                  "updatedAt": "2026-10-22T02:31:11.000Z",
+                  "uid": "35240-54f7f38e-321f-4a0a-b748-1de5f22044ae"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"Currency information has been saved.\",\n  \"currency\": [\n    {\n      \"currency_id\": \"982000000004006\",\n      \"currency_code\": \"CAD\",\n      \"currency_name\": \"CAD- Canadian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false\n    },\n    {\n      \"currency_id\": \"982000000004006\",\n      \"currency_code\": \"CAD\",\n      \"currency_name\": \"CAD- Canadian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:31:11.000Z",
+              "updatedAt": "2026-10-22T02:31:11.000Z",
+              "uid": "35240-df514118-efeb-4873-99af-ce28bf6915b6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7e4279c1-d5bc-4dac-9cf7-cc4814282c7a",
-          "name": "Get a Currency",
-          "request": {
-            "name": "Get a Currency",
-            "description": {
-              "content": "Get the details of a currency.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "settings",
-                "currencies",
-                ":currency_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "currency_id",
-                  "description": "(Required) Unique identifier of the currency."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "4ac71acc-1a6f-4161-b0e1-3fae18d5317d",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "settings",
-                    "currencies",
-                    ":currency_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "currency_id",
-                      "description": "(Required) Unique identifier of the currency."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"currency\": [\n    {\n      \"currency_id\": \"982000000004012\",\n      \"currency_code\": \"AUD\",\n      \"currency_name\": \"AUD- Australian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false\n    },\n    {\n      \"currency_id\": \"982000000004012\",\n      \"currency_code\": \"AUD\",\n      \"currency_name\": \"AUD- Australian Dollar\",\n      \"currency_symbol\": \"$\",\n      \"price_precision\": 2,\n      \"currency_format\": \"1,234,567.89\",\n      \"is_base_currency\": false\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6c83d319-0327-4216-97ce-137bddf1a765",
-          "name": "Delete a currency",
-          "request": {
-            "name": "Delete a currency",
-            "description": {
-              "content": "Delete a currency. Currency that is associated to any transaction cannot be deleted.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "settings",
-                "currencies",
-                ":currency_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "currency_id",
-                  "description": "(Required) Unique identifier of the currency."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "6afcb7ce-2506-4464-a022-905a2e6ae575",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "settings",
-                    "currencies",
-                    ":currency_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "currency_id",
-                      "description": "(Required) Unique identifier of the currency."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The currency has been deleted.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "25feb3e1-9010-45b0-8cea-498f91cd5653",
+          "createdAt": "2026-10-22T02:31:11.000Z",
+          "updatedAt": "2026-10-22T02:31:11.000Z",
+          "uid": "35240-25feb3e1-9010-45b0-8cea-498f91cd5653"
         }
       ],
-      "event": []
+      "id": "91a5cde8-06e2-48a6-ae2b-ebc095107d82",
+      "createdAt": "2026-10-22T02:31:11.000Z",
+      "updatedAt": "2026-10-22T02:31:11.000Z",
+      "uid": "35240-91a5cde8-06e2-48a6-ae2b-ebc095107d82"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://www.zohoapis.com/inventory/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "25863dd5-adb9-4bf2-96ff-89a38e2d6b8f",
-    "name": "batches currency API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

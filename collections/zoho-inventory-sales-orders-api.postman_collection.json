@@ -1,0 +1,2057 @@
+{
+  "info": {
+    "_postman_id": "8ad3c622-2894-4e39-9301-89e75e657988",
+    "name": "Sales Orders Salesorders API",
+    "description": "A sales order is a financial document that confirms an impending sale. It details the exact quantity, price and delivery details of the products or services being sold. Perform the simple operations mentioned below to create and manage your Sales Orders.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:34:28.000Z",
+    "updatedAt": "2026-10-22T02:34:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8ad3c622-2894-4e39-9301-89e75e657988"
+  },
+  "item": [
+    {
+      "name": "salesorders",
+      "item": [
+        {
+          "name": "{salesorder_id}",
+          "item": [
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "confirmed",
+                  "item": [
+                    {
+                      "name": "Mark as Confirmed",
+                      "id": "42133719-d97a-43e7-beef-eff04089ac82",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/salesorders/:salesorder_id/status/confirmed?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "salesorders",
+                            ":salesorder_id",
+                            "status",
+                            "confirmed"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "6a4ff04f-9b3e-4c52-9c62-5ff8610a4b87",
+                              "key": "salesorder_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the sales order."
+                            }
+                          ]
+                        },
+                        "description": "Changes the status of a Sales Order to Confirmed."
+                      },
+                      "response": [
+                        {
+                          "id": "dc952d4d-3916-4430-84fa-83462434c2fb",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/salesorders/:salesorder_id/status/confirmed?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "salesorders",
+                                ":salesorder_id",
+                                "status",
+                                "confirmed"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "salesorder_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:34:29.000Z",
+                          "updatedAt": "2026-10-22T02:34:29.000Z",
+                          "uid": "35240-dc952d4d-3916-4430-84fa-83462434c2fb"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:34:29.000Z",
+                      "updatedAt": "2026-10-22T02:34:29.000Z",
+                      "uid": "35240-42133719-d97a-43e7-beef-eff04089ac82"
+                    }
+                  ],
+                  "id": "a9b25dda-b3dc-4a58-bdb2-a9b77de44258",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-a9b25dda-b3dc-4a58-bdb2-a9b77de44258"
+                },
+                {
+                  "name": "void",
+                  "item": [
+                    {
+                      "name": "Mark as Void",
+                      "id": "e209e290-102f-43bc-82b7-36d4d75314c4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/salesorders/:salesorder_id/status/void?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "salesorders",
+                            ":salesorder_id",
+                            "status",
+                            "void"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "2ec6b147-6d36-4ad0-9e39-ef240153c57b",
+                              "key": "salesorder_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the sales order."
+                            }
+                          ]
+                        },
+                        "description": "Changes the status of a Sales Order to Void."
+                      },
+                      "response": [
+                        {
+                          "id": "1610f12c-2246-45c7-9ea0-a85a73203fcc",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/salesorders/:salesorder_id/status/void?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "salesorders",
+                                ":salesorder_id",
+                                "status",
+                                "void"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "salesorder_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:34:29.000Z",
+                          "updatedAt": "2026-10-22T02:34:29.000Z",
+                          "uid": "35240-1610f12c-2246-45c7-9ea0-a85a73203fcc"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:34:29.000Z",
+                      "updatedAt": "2026-10-22T02:34:29.000Z",
+                      "uid": "35240-e209e290-102f-43bc-82b7-36d4d75314c4"
+                    }
+                  ],
+                  "id": "fe8e34bf-a46d-4c5f-a4ac-c6d5046d0ff7",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-fe8e34bf-a46d-4c5f-a4ac-c6d5046d0ff7"
+                }
+              ],
+              "id": "f5418e8f-fcbb-42b3-b243-c870c9bc61a7",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-f5418e8f-fcbb-42b3-b243-c870c9bc61a7"
+            },
+            {
+              "name": "submit",
+              "item": [
+                {
+                  "name": "Submit a sales order for approval",
+                  "id": "288a9cf4-a1f9-47f3-9cc2-77eae36f8c16",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/:salesorder_id/submit?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        ":salesorder_id",
+                        "submit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0f2c3048-8030-4755-830d-d4b046666f84",
+                          "key": "salesorder_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the sales order."
+                        }
+                      ]
+                    },
+                    "description": "Submit a sales order for approval workflow."
+                  },
+                  "response": [
+                    {
+                      "id": "e5e8d530-9b7f-4b53-8c90-723e994f97de",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/salesorders/:salesorder_id/submit?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "salesorders",
+                            ":salesorder_id",
+                            "submit"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "salesorder_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:29.000Z",
+                      "updatedAt": "2026-10-22T02:34:29.000Z",
+                      "uid": "35240-e5e8d530-9b7f-4b53-8c90-723e994f97de"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-288a9cf4-a1f9-47f3-9cc2-77eae36f8c16"
+                }
+              ],
+              "id": "9275156f-8ab4-4de6-9452-8fc81d5be009",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-9275156f-8ab4-4de6-9452-8fc81d5be009"
+            },
+            {
+              "name": "approve",
+              "item": [
+                {
+                  "name": "final",
+                  "item": [
+                    {
+                      "name": "Final approval of a sales order",
+                      "id": "7040882a-7149-452a-b927-4451a2c81dcc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/salesorders/:salesorder_id/approve/final?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "salesorders",
+                            ":salesorder_id",
+                            "approve",
+                            "final"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "6d2d9ebc-fadf-4130-8b2b-ff488a877f5e",
+                              "key": "salesorder_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique ID of the sales order."
+                            }
+                          ]
+                        },
+                        "description": "Perform the final approval of a sales order (admin only)."
+                      },
+                      "response": [
+                        {
+                          "id": "1c0500df-8d93-4bb7-aeec-77c00113c618",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/salesorders/:salesorder_id/approve/final?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "salesorders",
+                                ":salesorder_id",
+                                "approve",
+                                "final"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "salesorder_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:34:29.000Z",
+                          "updatedAt": "2026-10-22T02:34:29.000Z",
+                          "uid": "35240-1c0500df-8d93-4bb7-aeec-77c00113c618"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:34:29.000Z",
+                      "updatedAt": "2026-10-22T02:34:29.000Z",
+                      "uid": "35240-7040882a-7149-452a-b927-4451a2c81dcc"
+                    }
+                  ],
+                  "id": "feffea1b-ea39-4c49-bd48-d1121ed3d961",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-feffea1b-ea39-4c49-bd48-d1121ed3d961"
+                },
+                {
+                  "name": "Approve a sales order",
+                  "id": "5900a31f-6d20-47d3-a709-555d15adb204",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/:salesorder_id/approve?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        ":salesorder_id",
+                        "approve"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7075ed9a-a0e6-46cf-9350-d0529aad5ffd",
+                          "key": "salesorder_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the sales order."
+                        }
+                      ]
+                    },
+                    "description": "Approve a submitted sales order."
+                  },
+                  "response": [
+                    {
+                      "id": "f854d39a-a110-4041-bc8e-5a83cd11d87f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/salesorders/:salesorder_id/approve?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "salesorders",
+                            ":salesorder_id",
+                            "approve"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "salesorder_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:29.000Z",
+                      "updatedAt": "2026-10-22T02:34:29.000Z",
+                      "uid": "35240-f854d39a-a110-4041-bc8e-5a83cd11d87f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-5900a31f-6d20-47d3-a709-555d15adb204"
+                }
+              ],
+              "id": "ada22963-32b1-4f33-b2e9-ceb75a26ec46",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-ada22963-32b1-4f33-b2e9-ceb75a26ec46"
+            },
+            {
+              "name": "reject",
+              "item": [
+                {
+                  "name": "Reject a sales order",
+                  "id": "90bd5fe0-f46f-4f6b-9aa2-522cbf1c88ea",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"reason\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/:salesorder_id/reject?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        ":salesorder_id",
+                        "reject"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6d338cce-2589-4bb2-9729-71cf5e8b092d",
+                          "key": "salesorder_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the sales order."
+                        }
+                      ]
+                    },
+                    "description": "Reject a submitted sales order."
+                  },
+                  "response": [
+                    {
+                      "id": "3df4f156-1d05-46c1-9cc7-cc47e3a288b0",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/salesorders/:salesorder_id/reject?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "salesorders",
+                            ":salesorder_id",
+                            "reject"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "salesorder_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:29.000Z",
+                      "updatedAt": "2026-10-22T02:34:29.000Z",
+                      "uid": "35240-3df4f156-1d05-46c1-9cc7-cc47e3a288b0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-90bd5fe0-f46f-4f6b-9aa2-522cbf1c88ea"
+                }
+              ],
+              "id": "1c030247-faa7-4a45-8f20-0b4053635973",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-1c030247-faa7-4a45-8f20-0b4053635973"
+            },
+            {
+              "name": "Retrieve a Sales Order",
+              "id": "24edb8fe-8177-4928-9d88-05b0adcebbd7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders/:salesorder_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders",
+                    ":salesorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "058cc0b2-d61b-4bc4-ab63-933e3d86233c",
+                      "key": "salesorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the sales order."
+                    }
+                  ]
+                },
+                "description": "Retrieves the details for an existing Sales Order."
+              },
+              "response": [
+                {
+                  "id": "f99c8ae4-3052-42eb-be3f-5f9423457a67",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/:salesorder_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        ":salesorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "salesorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"salesorder\": {\n    \"salesorder_id\": \"<string>\",\n    \"documents\": [\n      {\n        \"can_send_in_mail\": \"<boolean>\",\n        \"file_name\": \"<string>\",\n        \"file_type\": \"<string>\",\n        \"file_size_formatted\": \"<string>\",\n        \"attachment_order\": \"<integer>\",\n        \"document_id\": \"<string>\",\n        \"file_size\": \"<long>\"\n      },\n      {\n        \"can_send_in_mail\": \"<boolean>\",\n        \"file_name\": \"<string>\",\n        \"file_type\": \"<string>\",\n        \"file_size_formatted\": \"<string>\",\n        \"attachment_order\": \"<integer>\",\n        \"document_id\": \"<string>\",\n        \"file_size\": \"<long>\"\n      }\n    ],\n    \"salesorder_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"shipment_date\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"discount_amount\": \"<double>\",\n    \"discount\": \"<double>\",\n    \"is_discount_before_tax\": \"<boolean>\",\n    \"discount_type\": \"<string>\",\n    \"estimate_id\": \"<string>\",\n    \"delivery_method\": \"<string>\",\n    \"delivery_method_id\": \"<string>\",\n    \"is_inclusive_tax\": \"<boolean>\",\n    \"sales_channel\": \"<string>\",\n    \"is_dropshipped\": \"<boolean>\",\n    \"is_backordered\": \"<boolean>\",\n    \"is_backorder_allowed\": \"<boolean>\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_invoiced\": \"<double>\",\n        \"quantity_packed\": \"<double>\",\n        \"quantity_shipped\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\",\n        \"is_combo_product\": \"<boolean>\",\n        \"combo_type\": \"<string>\",\n        \"mapped_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"sat_item_key_code\": \"<string>\",\n        \"unitkey_code\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_invoiced\": \"<double>\",\n        \"quantity_packed\": \"<double>\",\n        \"quantity_shipped\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\",\n        \"is_combo_product\": \"<boolean>\",\n        \"combo_type\": \"<string>\",\n        \"mapped_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"sat_item_key_code\": \"<string>\",\n        \"unitkey_code\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"shipping_charge\": \"<double>\",\n    \"adjustment\": \"<double>\",\n    \"pricebook_id\": \"<string>\",\n    \"adjustment_description\": \"<string>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"is_emailed\": \"<boolean>\",\n    \"has_unconfirmed_line_item\": \"<boolean>\",\n    \"packages\": [\n      {\n        \"package_id\": \"<string>\",\n        \"package_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"detailed_status\": \"<string>\",\n        \"status_message\": \"<string>\",\n        \"shipment_id\": \"<string>\",\n        \"shipment_number\": \"<string>\",\n        \"shipment_status\": \"<string>\",\n        \"carrier\": \"<string>\",\n        \"service\": \"<string>\",\n        \"tracking_number\": \"<string>\",\n        \"shipment_date\": \"<string>\",\n        \"delivery_days\": \"<string>\",\n        \"delivery_guarantee\": \"<boolean>\"\n      },\n      {\n        \"package_id\": \"<string>\",\n        \"package_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"detailed_status\": \"<string>\",\n        \"status_message\": \"<string>\",\n        \"shipment_id\": \"<string>\",\n        \"shipment_number\": \"<string>\",\n        \"shipment_status\": \"<string>\",\n        \"carrier\": \"<string>\",\n        \"service\": \"<string>\",\n        \"tracking_number\": \"<string>\",\n        \"shipment_date\": \"<string>\",\n        \"delivery_days\": \"<string>\",\n        \"delivery_guarantee\": \"<boolean>\"\n      }\n    ],\n    \"invoices\": [\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      },\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      }\n    ],\n    \"purchaseorders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"billing_address\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"fax\": \"<string>\"\n    },\n    \"shipping_address\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"fax\": \"<string>\"\n    },\n    \"notes\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\",\n    \"attachment_name\": \"<string>\",\n    \"can_send_in_mail\": \"<boolean>\",\n    \"salesperson_id\": \"<string>\",\n    \"salesperson_name\": \"<string>\",\n    \"is_pre_gst\": \"<boolean>\",\n    \"gst_no\": \"<string>\",\n    \"gst_treatment\": \"<string>\",\n    \"place_of_supply\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-f99c8ae4-3052-42eb-be3f-5f9423457a67"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-24edb8fe-8177-4928-9d88-05b0adcebbd7"
+            },
+            {
+              "name": "Update a Sales Order",
+              "id": "a34d9aaa-33a6-4900-b8f2-b8b3f071fa4d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"salesorder_number\": \"<string>\",\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"shipment_date\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"reference_number\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"discount\": \"<double>\",\n  \"is_discount_before_tax\": \"<boolean>\",\n  \"discount_type\": \"<string>\",\n  \"delivery_method\": \"<string>\",\n  \"shipping_charge\": \"<double>\",\n  \"adjustment\": \"<double>\",\n  \"adjustment_description\": \"<string>\",\n  \"pricebook_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"salesperson_name\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"location_id\": \"<string>\",\n  \"billing_address_id\": \"<string>\",\n  \"shipping_address_id\": \"<string>\",\n  \"place_of_supply\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders/:salesorder_id?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders",
+                    ":salesorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ignore auto sales order number generation for this sales order. This mandates the sales order number. Allowed values are <code> true </code> , <code> false </code>.",
+                      "key": "ignore_auto_number_generation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "8db2a5f0-79e2-4535-887a-d7415917f932",
+                      "key": "salesorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the sales order."
+                    }
+                  ]
+                },
+                "description": "Updates a new Sales Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto sales order number generation for this sales order. This mandates the Sales Order number to be entered. Allowed Values true and false."
+              },
+              "response": [
+                {
+                  "id": "f215af98-140c-4a61-9ae2-2d340786fea0",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"salesorder_number\": \"<string>\",\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"line_item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"line_item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"shipment_date\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"reference_number\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"discount\": \"<double>\",\n  \"is_discount_before_tax\": \"<boolean>\",\n  \"discount_type\": \"<string>\",\n  \"delivery_method\": \"<string>\",\n  \"shipping_charge\": \"<double>\",\n  \"adjustment\": \"<double>\",\n  \"adjustment_description\": \"<string>\",\n  \"pricebook_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"salesperson_name\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"location_id\": \"<string>\",\n  \"billing_address_id\": \"<string>\",\n  \"shipping_address_id\": \"<string>\",\n  \"place_of_supply\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/:salesorder_id?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        ":salesorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Ignore auto sales order number generation for this sales order. This mandates the sales order number. Allowed values are <code> true </code> , <code> false </code>.",
+                          "key": "ignore_auto_number_generation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "salesorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"sales_order\": {\n    \"salesorder_id\": \"<string>\",\n    \"salesorder_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"shipment_date\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"discount_amount\": \"<double>\",\n    \"discount\": \"<double>\",\n    \"is_discount_before_tax\": \"<boolean>\",\n    \"discount_type\": \"<string>\",\n    \"estimate_id\": \"<string>\",\n    \"delivery_method\": \"<string>\",\n    \"delivery_method_id\": \"<string>\",\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_invoiced\": \"<double>\",\n        \"quantity_packed\": \"<double>\",\n        \"quantity_shipped\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\",\n        \"is_combo_product\": \"<boolean>\",\n        \"combo_type\": \"<string>\",\n        \"mapped_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"sat_item_key_code\": \"<string>\",\n        \"unitkey_code\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_invoiced\": \"<double>\",\n        \"quantity_packed\": \"<double>\",\n        \"quantity_shipped\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\",\n        \"is_combo_product\": \"<boolean>\",\n        \"combo_type\": \"<string>\",\n        \"mapped_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"sat_item_key_code\": \"<string>\",\n        \"unitkey_code\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"shipping_charge\": \"<double>\",\n    \"adjustment\": \"<double>\",\n    \"adjustment_description\": \"<string>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"pricebook_id\": \"<string>\",\n    \"packages\": [\n      {\n        \"package_id\": \"<string>\",\n        \"package_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"detailed_status\": \"<string>\",\n        \"status_message\": \"<string>\",\n        \"shipment_id\": \"<string>\",\n        \"shipment_number\": \"<string>\",\n        \"shipment_status\": \"<string>\",\n        \"carrier\": \"<string>\",\n        \"service\": \"<string>\",\n        \"tracking_number\": \"<string>\",\n        \"shipment_date\": \"<string>\",\n        \"delivery_days\": \"<string>\",\n        \"delivery_guarantee\": \"<boolean>\"\n      },\n      {\n        \"package_id\": \"<string>\",\n        \"package_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"detailed_status\": \"<string>\",\n        \"status_message\": \"<string>\",\n        \"shipment_id\": \"<string>\",\n        \"shipment_number\": \"<string>\",\n        \"shipment_status\": \"<string>\",\n        \"carrier\": \"<string>\",\n        \"service\": \"<string>\",\n        \"tracking_number\": \"<string>\",\n        \"shipment_date\": \"<string>\",\n        \"delivery_days\": \"<string>\",\n        \"delivery_guarantee\": \"<boolean>\"\n      }\n    ],\n    \"invoices\": [\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      },\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      }\n    ],\n    \"shipping_address\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"fax\": \"<string>\"\n    },\n    \"billing_address\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"fax\": \"<string>\"\n    },\n    \"notes\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\",\n    \"attachment_name\": \"<string>\",\n    \"can_send_in_mail\": \"<boolean>\",\n    \"salesperson_id\": \"<string>\",\n    \"salesperson_name\": \"<string>\",\n    \"is_pre_gst\": \"<boolean>\",\n    \"gst_no\": \"<string>\",\n    \"gst_treatment\": \"<string>\",\n    \"place_of_supply\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-f215af98-140c-4a61-9ae2-2d340786fea0"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-a34d9aaa-33a6-4900-b8f2-b8b3f071fa4d"
+            },
+            {
+              "name": "Delete a Sales Order",
+              "id": "ad44a0a1-2e24-4ebb-8170-722af2405901",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders/:salesorder_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders",
+                    ":salesorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "96799cce-088f-42da-8323-0a10c076d645",
+                      "key": "salesorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the sales order."
+                    }
+                  ]
+                },
+                "description": "Deletes an existing Sales Order from Zoho Inventory."
+              },
+              "response": [
+                {
+                  "id": "02d64ed7-774d-4461-a7ec-a691bc72a226",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/:salesorder_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        ":salesorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "salesorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-02d64ed7-774d-4461-a7ec-a691bc72a226"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-ad44a0a1-2e24-4ebb-8170-722af2405901"
+            }
+          ],
+          "id": "c0f5a051-5ca9-4bdf-a05d-f5e25a2c92f4",
+          "createdAt": "2026-10-22T02:34:29.000Z",
+          "updatedAt": "2026-10-22T02:34:29.000Z",
+          "uid": "35240-c0f5a051-5ca9-4bdf-a05d-f5e25a2c92f4"
+        },
+        {
+          "name": "status",
+          "item": [
+            {
+              "name": "confirmed",
+              "item": [
+                {
+                  "name": "Bulk confirm Sales Orders",
+                  "id": "19c39494-c333-400c-9ceb-d9dd874706ae",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/status/confirmed?salesorder_ids=<string>&organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        "status",
+                        "confirmed"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) <code>List of sales order ids separated by comma</code>",
+                          "key": "salesorder_ids",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Mark existing Sales Orders as confirmed in Zoho Inventory"
+                  },
+                  "response": [
+                    {
+                      "id": "c879f02c-d10b-4dc0-9c58-d9b4b577a029",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/salesorders/status/confirmed?salesorder_ids=<string>&organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "salesorders",
+                            "status",
+                            "confirmed"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) <code>List of sales order ids separated by comma</code>",
+                              "key": "salesorder_ids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"data\": {\n    \"email_success_info\": [\n      {\n        \"code\": \"<integer>\",\n        \"message\": \"<string>\",\n        \"ids\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"code\": \"<integer>\",\n        \"message\": \"<string>\",\n        \"ids\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-10-22T02:34:29.000Z",
+                      "updatedAt": "2026-10-22T02:34:29.000Z",
+                      "uid": "35240-c879f02c-d10b-4dc0-9c58-d9b4b577a029"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-19c39494-c333-400c-9ceb-d9dd874706ae"
+                }
+              ],
+              "id": "919e3447-b147-4bc5-a9ff-e4a2610ff211",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-919e3447-b147-4bc5-a9ff-e4a2610ff211"
+            }
+          ],
+          "id": "9fbf09af-3f8e-4c37-a65c-a5033ebab931",
+          "createdAt": "2026-10-22T02:34:29.000Z",
+          "updatedAt": "2026-10-22T02:34:29.000Z",
+          "uid": "35240-9fbf09af-3f8e-4c37-a65c-a5033ebab931"
+        },
+        {
+          "name": "submit",
+          "item": [
+            {
+              "name": "Bulk submit sales orders for approval",
+              "id": "0ae82cce-f76a-448a-b729-e9ade674b964",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders/submit?organization_id=<string>&salesorder_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders",
+                    "submit"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of sales order IDs to submit for approval.",
+                      "key": "salesorder_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Submit multiple sales orders for approval workflow at once."
+              },
+              "response": [
+                {
+                  "id": "88032196-6b41-47e1-aac4-6029854f0ade",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/submit?organization_id=<string>&salesorder_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        "submit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of sales order IDs to submit for approval.",
+                          "key": "salesorder_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-88032196-6b41-47e1-aac4-6029854f0ade"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-0ae82cce-f76a-448a-b729-e9ade674b964"
+            }
+          ],
+          "id": "47142659-88e1-43e7-bf91-3a77772e92f2",
+          "createdAt": "2026-10-22T02:34:29.000Z",
+          "updatedAt": "2026-10-22T02:34:29.000Z",
+          "uid": "35240-47142659-88e1-43e7-bf91-3a77772e92f2"
+        },
+        {
+          "name": "approve",
+          "item": [
+            {
+              "name": "Bulk approve sales orders",
+              "id": "2a214007-75e7-41f5-82e1-1eab35c8f094",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders/approve?organization_id=<string>&salesorder_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders",
+                    "approve"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of sales order IDs to approve.",
+                      "key": "salesorder_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Approve multiple submitted sales orders at once."
+              },
+              "response": [
+                {
+                  "id": "27a1236d-f815-4c3e-8ce0-ba53b4caab4b",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/salesorders/approve?organization_id=<string>&salesorder_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "salesorders",
+                        "approve"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of sales order IDs to approve.",
+                          "key": "salesorder_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:29.000Z",
+                  "updatedAt": "2026-10-22T02:34:29.000Z",
+                  "uid": "35240-27a1236d-f815-4c3e-8ce0-ba53b4caab4b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-2a214007-75e7-41f5-82e1-1eab35c8f094"
+            }
+          ],
+          "id": "0d67ffd9-c93f-4c3b-99a3-eae10b93c36d",
+          "createdAt": "2026-10-22T02:34:29.000Z",
+          "updatedAt": "2026-10-22T02:34:29.000Z",
+          "uid": "35240-0d67ffd9-c93f-4c3b-99a3-eae10b93c36d"
+        },
+        {
+          "name": "Create a Sales Order",
+          "id": "c41dc9eb-4402-4c55-a827-6c2fe77dd6ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salesorder_number\": \"<string>\",\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"shipment_date\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"reference_number\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"discount\": \"<double>\",\n  \"is_discount_before_tax\": \"<boolean>\",\n  \"discount_type\": \"<string>\",\n  \"shipping_charge\": \"<double>\",\n  \"delivery_method\": \"<string>\",\n  \"adjustment\": \"<double>\",\n  \"pricebook_id\": \"<string>\",\n  \"salesperson_id\": \"<string>\",\n  \"adjustment_description\": \"<string>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"exchange_rate\": \"<double>\",\n  \"template_id\": \"<string>\",\n  \"documents\": [\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    },\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    }\n  ],\n  \"billing_address_id\": \"<string>\",\n  \"shipping_address_id\": \"<string>\",\n  \"place_of_supply\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/salesorders?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "salesorders"
+              ],
+              "query": [
+                {
+                  "description": "Ignore auto sales order number generation for this sales order. This mandates the sales order number. Allowed values are <code> true </code> , <code> false </code>.",
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a new Sales Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto sales order number generation for this sales order. This mandates the Sales Order number to be entered. Allowed Values true and false."
+          },
+          "response": [
+            {
+              "id": "89b10db4-d4f3-4fac-874a-911a234b7a7f",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"salesorder_number\": \"<string>\",\n  \"customer_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"item_total\": \"<double>\",\n      \"mapped_items\": [\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"item_id\": \"<string>\",\n          \"item_order\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"quantity\": \"<double>\",\n          \"warehouse_id\": \"<string>\",\n          \"location_id\": \"<string>\",\n          \"mapped_items\": [\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            },\n            {\n              \"item_id\": \"<string>\",\n              \"item_order\": \"<integer>\",\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"quantity\": \"<double>\",\n              \"warehouse_id\": \"<string>\",\n              \"location_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"location_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"sat_item_key_code\": \"<string>\",\n      \"unitkey_code\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"shipment_date\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"reference_number\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"discount\": \"<double>\",\n  \"is_discount_before_tax\": \"<boolean>\",\n  \"discount_type\": \"<string>\",\n  \"shipping_charge\": \"<double>\",\n  \"delivery_method\": \"<string>\",\n  \"adjustment\": \"<double>\",\n  \"pricebook_id\": \"<string>\",\n  \"salesperson_id\": \"<string>\",\n  \"adjustment_description\": \"<string>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"exchange_rate\": \"<double>\",\n  \"template_id\": \"<string>\",\n  \"documents\": [\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    },\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    }\n  ],\n  \"billing_address_id\": \"<string>\",\n  \"shipping_address_id\": \"<string>\",\n  \"place_of_supply\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ignore auto sales order number generation for this sales order. This mandates the sales order number. Allowed values are <code> true </code> , <code> false </code>.",
+                      "key": "ignore_auto_number_generation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"sales_order\": {\n    \"salesorder_id\": \"<string>\",\n    \"salesorder_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"shipment_date\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"discount_amount\": \"<double>\",\n    \"discount\": \"<double>\",\n    \"is_discount_before_tax\": \"<boolean>\",\n    \"discount_type\": \"<string>\",\n    \"estimate_id\": \"<string>\",\n    \"delivery_method\": \"<string>\",\n    \"delivery_method_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_invoiced\": \"<double>\",\n        \"quantity_packed\": \"<double>\",\n        \"quantity_shipped\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\",\n        \"is_combo_product\": \"<boolean>\",\n        \"combo_type\": \"<string>\",\n        \"mapped_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"sat_item_key_code\": \"<string>\",\n        \"unitkey_code\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_invoiced\": \"<double>\",\n        \"quantity_packed\": \"<double>\",\n        \"quantity_shipped\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"item_total\": \"<double>\",\n        \"is_invoiced\": \"<boolean>\",\n        \"is_combo_product\": \"<boolean>\",\n        \"combo_type\": \"<string>\",\n        \"mapped_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"quantity\": \"<double>\",\n            \"quantity_invoiced\": \"<double>\",\n            \"quantity_packed\": \"<double>\",\n            \"quantity_shipped\": \"<double>\",\n            \"combo_type\": \"<string>\",\n            \"warehouse_id\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"mapped_items\": [\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              },\n              {\n                \"item_id\": \"<string>\",\n                \"line_item_id\": \"<string>\",\n                \"item_order\": \"<integer>\",\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"quantity\": \"<double>\",\n                \"quantity_invoiced\": \"<double>\",\n                \"quantity_packed\": \"<double>\",\n                \"quantity_shipped\": \"<double>\",\n                \"combo_type\": \"<string>\",\n                \"warehouse_id\": \"<string>\",\n                \"location_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"sat_item_key_code\": \"<string>\",\n        \"unitkey_code\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"shipping_charge\": \"<double>\",\n    \"adjustment\": \"<double>\",\n    \"adjustment_description\": \"<string>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"pricebook_id\": \"<string>\",\n    \"shipping_address\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"fax\": \"<string>\"\n    },\n    \"billing_address\": {\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"fax\": \"<string>\"\n    },\n    \"notes\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\",\n    \"salesperson_id\": \"<string>\",\n    \"salesperson_name\": \"<string>\",\n    \"documents\": [\n      {\n        \"can_send_in_mail\": \"<boolean>\",\n        \"file_name\": \"<string>\",\n        \"file_type\": \"<string>\",\n        \"file_size_formatted\": \"<string>\",\n        \"attachment_order\": \"<integer>\",\n        \"document_id\": \"<string>\",\n        \"file_size\": \"<long>\"\n      },\n      {\n        \"can_send_in_mail\": \"<boolean>\",\n        \"file_name\": \"<string>\",\n        \"file_type\": \"<string>\",\n        \"file_size_formatted\": \"<string>\",\n        \"attachment_order\": \"<integer>\",\n        \"document_id\": \"<string>\",\n        \"file_size\": \"<long>\"\n      }\n    ],\n    \"is_pre_gst\": \"<boolean>\",\n    \"gst_no\": \"<string>\",\n    \"gst_treatment\": \"<string>\",\n    \"place_of_supply\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-89b10db4-d4f3-4fac-874a-911a234b7a7f"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:29.000Z",
+          "updatedAt": "2026-10-22T02:34:29.000Z",
+          "uid": "35240-c41dc9eb-4402-4c55-a827-6c2fe77dd6ff"
+        },
+        {
+          "name": "List all Sales Orders",
+          "id": "71278ba0-0721-4d13-a0fe-af4f0fcf5431",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/salesorders?page=1&per_page=200&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "salesorders"
+              ],
+              "query": [
+                {
+                  "description": "Page number to be fetched. Default value is 1.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Number of records to be fetched per page. Default value is 200.",
+                  "key": "per_page",
+                  "value": "200"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Lists all the available Sales Orders in Zoho Inventory."
+          },
+          "response": [
+            {
+              "id": "4cf52a18-b3a8-4afa-a914-49e58fe2400f",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders?page=1&per_page=200&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number to be fetched. Default value is 1.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of records to be fetched per page. Default value is 200.",
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"salesorders\": [\n    {\n      \"salesorder_id\": \"<string>\",\n      \"customer_name\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"salesorder_number\": \"<string>\",\n      \"reference_number\": \"<string>\",\n      \"date\": \"<string>\",\n      \"shipment_date\": \"<string>\",\n      \"shipment_days\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"quantity_invoiced\": \"<double>\",\n      \"quantity_packed\": \"<double>\",\n      \"quantity_shipped\": \"<double>\",\n      \"currency_code\": \"<string>\",\n      \"total\": \"<double>\",\n      \"bcy_total\": \"<integer>\",\n      \"created_time\": \"<string>\",\n      \"last_modified_time\": \"<string>\",\n      \"is_emailed\": \"<boolean>\",\n      \"is_drop_shipment\": \"<boolean>\",\n      \"is_backorder\": \"<boolean>\",\n      \"sales_channel\": \"<string>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"salesorder_id\": \"<string>\",\n      \"customer_name\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"salesorder_number\": \"<string>\",\n      \"reference_number\": \"<string>\",\n      \"date\": \"<string>\",\n      \"shipment_date\": \"<string>\",\n      \"shipment_days\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"quantity_invoiced\": \"<double>\",\n      \"quantity_packed\": \"<double>\",\n      \"quantity_shipped\": \"<double>\",\n      \"currency_code\": \"<string>\",\n      \"total\": \"<double>\",\n      \"bcy_total\": \"<integer>\",\n      \"created_time\": \"<string>\",\n      \"last_modified_time\": \"<string>\",\n      \"is_emailed\": \"<boolean>\",\n      \"is_drop_shipment\": \"<boolean>\",\n      \"is_backorder\": \"<boolean>\",\n      \"sales_channel\": \"<string>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-4cf52a18-b3a8-4afa-a914-49e58fe2400f"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:29.000Z",
+          "updatedAt": "2026-10-22T02:34:29.000Z",
+          "uid": "35240-71278ba0-0721-4d13-a0fe-af4f0fcf5431"
+        },
+        {
+          "name": "Bulk delete Sales Orders",
+          "id": "545a9944-4ad5-4e2f-8ad0-67da06532424",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.salesorders.CREATE ZohoInventory.salesorders.READ ZohoInventory.salesorders.UPDATE ZohoInventory.salesorders.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/salesorders?organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "salesorders"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Bulk delete the selected Sales Orders."
+          },
+          "response": [
+            {
+              "id": "537c7b4e-76c5-4b28-be4d-c5f0b8b2a2d2",
+              "name": "OK",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/salesorders?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "salesorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:34:29.000Z",
+              "updatedAt": "2026-10-22T02:34:29.000Z",
+              "uid": "35240-537c7b4e-76c5-4b28-be4d-c5f0b8b2a2d2"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:29.000Z",
+          "updatedAt": "2026-10-22T02:34:29.000Z",
+          "uid": "35240-545a9944-4ad5-4e2f-8ad0-67da06532424"
+        }
+      ],
+      "id": "d2279447-f559-4883-8f73-2d253eb0bf54",
+      "createdAt": "2026-10-22T02:34:29.000Z",
+      "updatedAt": "2026-10-22T02:34:29.000Z",
+      "uid": "35240-d2279447-f559-4883-8f73-2d253eb0bf54"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
+    }
+  ]
+}

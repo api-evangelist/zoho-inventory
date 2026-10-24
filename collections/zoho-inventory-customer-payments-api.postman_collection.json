@@ -1,39 +1,449 @@
 {
+  "info": {
+    "_postman_id": "dc0170dd-2a7b-4d69-9d92-0971851d7b44",
+    "name": "Customer Payments API",
+    "description": "A payment object describes details regarding a particular customer payment. There can be multiple payments for a single invoice. Multiple invoices can be paid in a single payment as well.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:31:17.000Z",
+    "updatedAt": "2026-10-22T02:31:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dc0170dd-2a7b-4d69-9d92-0971851d7b44"
+  },
   "item": [
     {
-      "id": "ec9af8a3-b314-40a9-8e65-9a9c6d55d698",
-      "name": "customer-payments",
-      "description": {
-        "content": "Customer-Payments Module",
-        "type": "text/plain"
-      },
+      "name": "customerpayments",
       "item": [
         {
-          "id": "71aa67e8-fd8e-4aa2-8d0d-293a76071ce7",
-          "name": "Create a payment",
-          "request": {
-            "name": "Create a payment",
-            "description": {
-              "content": "Create a new payment.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "customerpayments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{payment_id}",
+          "item": [
+            {
+              "name": "Update a payment",
+              "id": "205243ec-848a-40f4-a3bb-55cee08bdb04",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.customerpayments.CREATE ZohoInventory.customerpayments.UPDATE ZohoInventory.customerpayments.READ ZohoInventory.customerpayments.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_id\": \"<string>\",\n  \"payment_mode\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"invoices\": [\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    },\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    }\n  ],\n  \"date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"description\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"payment_form\": \"<string>\",\n  \"bank_charges\": \"<double>\",\n  \"account_id\": \"<string>\",\n  \"tax_account_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customerpayments/:payment_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customerpayments",
+                    ":payment_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "00938357-2abd-4a40-ab67-88bc20406c1d",
+                      "key": "payment_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the payment."
+                    }
+                  ]
+                },
+                "description": "Update an existing payment information."
+              },
+              "response": [
                 {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
+                  "id": "04fcf3ea-2fa3-4f54-ba9a-c8026204b496",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"customer_id\": \"<string>\",\n  \"payment_mode\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"invoices\": [\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    },\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    }\n  ],\n  \"date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"description\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"payment_form\": \"<string>\",\n  \"bank_charges\": \"<double>\",\n  \"account_id\": \"<string>\",\n  \"tax_account_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customerpayments/:payment_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customerpayments",
+                        ":payment_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"payment\": {\n    \"payment_id\": \"<string>\",\n    \"payment_mode\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"amount_refunded\": \"<double>\",\n    \"bank_charges\": \"<double>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"description\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"tax_amount_withheld\": \"<double>\",\n    \"invoices\": [\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"date\": {\n          \"description\": \"Date on which the invoice was raised.\",\n          \"example\": \"2016-06-05\"\n        },\n        \"invoice_amount\": \"<double>\",\n        \"amount_applied\": \"<double>\",\n        \"balance_amount\": \"<double>\"\n      },\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"date\": {\n          \"description\": \"Date on which the invoice was raised.\",\n          \"example\": \"2016-06-05\"\n        },\n        \"invoice_amount\": \"<double>\",\n        \"amount_applied\": \"<double>\",\n        \"balance_amount\": \"<double>\"\n      }\n    ],\n    \"exchange_rate\": 1,\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"account_id\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"tax_account_id\": \"<string>\",\n    \"tax_account_name\": \"<string>\",\n    \"unused_amount\": \"<double>\",\n    \"last_four_digits\": \"<integer>\",\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"index\": \"<integer>\",\n        \"value\": \"<string>\",\n        \"label\": \"<string>\",\n        \"data_type\": \"<string>\"\n      },\n      {\n        \"index\": \"<integer>\",\n        \"value\": \"<string>\",\n        \"label\": \"<string>\",\n        \"data_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-10-22T02:31:18.000Z",
+                  "updatedAt": "2026-10-22T02:31:18.000Z",
+                  "uid": "35240-04fcf3ea-2fa3-4f54-ba9a-c8026204b496"
                 }
               ],
-              "variable": []
+              "createdAt": "2026-10-22T02:31:18.000Z",
+              "updatedAt": "2026-10-22T02:31:18.000Z",
+              "uid": "35240-205243ec-848a-40f4-a3bb-55cee08bdb04"
             },
+            {
+              "name": "Retrieve a payment",
+              "id": "c01342f1-1012-4c71-912a-34532acb677a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.customerpayments.CREATE ZohoInventory.customerpayments.UPDATE ZohoInventory.customerpayments.READ ZohoInventory.customerpayments.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customerpayments/:payment_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customerpayments",
+                    ":payment_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "aed50791-7178-4d6c-8264-df949537c565",
+                      "key": "payment_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the payment."
+                    }
+                  ]
+                },
+                "description": "Details of an existing payment."
+              },
+              "response": [
+                {
+                  "id": "a53038a9-d51c-4576-ae2b-9b56a9f431d4",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customerpayments/:payment_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customerpayments",
+                        ":payment_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"payment\": {\n    \"payment_id\": \"<string>\",\n    \"payment_mode\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"amount_refunded\": \"<double>\",\n    \"bank_charges\": \"<double>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"description\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"tax_amount_withheld\": \"<double>\",\n    \"invoices\": [\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"date\": {\n          \"description\": \"Date on which the invoice was raised.\",\n          \"example\": \"2016-06-05\"\n        },\n        \"invoice_amount\": \"<double>\",\n        \"amount_applied\": \"<double>\",\n        \"balance_amount\": \"<double>\"\n      },\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"date\": {\n          \"description\": \"Date on which the invoice was raised.\",\n          \"example\": \"2016-06-05\"\n        },\n        \"invoice_amount\": \"<double>\",\n        \"amount_applied\": \"<double>\",\n        \"balance_amount\": \"<double>\"\n      }\n    ],\n    \"exchange_rate\": 1,\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"account_id\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"tax_account_id\": \"<string>\",\n    \"tax_account_name\": \"<string>\",\n    \"unused_amount\": \"<double>\",\n    \"last_four_digits\": \"<integer>\",\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"index\": \"<integer>\",\n        \"value\": \"<string>\",\n        \"label\": \"<string>\",\n        \"data_type\": \"<string>\"\n      },\n      {\n        \"index\": \"<integer>\",\n        \"value\": \"<string>\",\n        \"label\": \"<string>\",\n        \"data_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-10-22T02:31:18.000Z",
+                  "updatedAt": "2026-10-22T02:31:18.000Z",
+                  "uid": "35240-a53038a9-d51c-4576-ae2b-9b56a9f431d4"
+                }
+              ],
+              "createdAt": "2026-10-22T02:31:18.000Z",
+              "updatedAt": "2026-10-22T02:31:18.000Z",
+              "uid": "35240-c01342f1-1012-4c71-912a-34532acb677a"
+            },
+            {
+              "name": "Delete a payment",
+              "id": "98cb3b6f-5562-4352-b0d9-97c42f56c824",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.customerpayments.CREATE ZohoInventory.customerpayments.UPDATE ZohoInventory.customerpayments.READ ZohoInventory.customerpayments.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customerpayments/:payment_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customerpayments",
+                    ":payment_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "56adffaf-4188-4665-acda-915479bfa9af",
+                      "key": "payment_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the payment."
+                    }
+                  ]
+                },
+                "description": "Delete an existing payment."
+              },
+              "response": [
+                {
+                  "id": "c25cbce8-6098-4541-8d1b-6c64d5ff8a50",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customerpayments/:payment_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customerpayments",
+                        ":payment_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "payment_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:31:18.000Z",
+                  "updatedAt": "2026-10-22T02:31:18.000Z",
+                  "uid": "35240-c25cbce8-6098-4541-8d1b-6c64d5ff8a50"
+                }
+              ],
+              "createdAt": "2026-10-22T02:31:18.000Z",
+              "updatedAt": "2026-10-22T02:31:18.000Z",
+              "uid": "35240-98cb3b6f-5562-4352-b0d9-97c42f56c824"
+            }
+          ],
+          "id": "060ad32b-76d4-4c0e-be32-bd59fd513822",
+          "createdAt": "2026-10-22T02:31:18.000Z",
+          "updatedAt": "2026-10-22T02:31:18.000Z",
+          "uid": "35240-060ad32b-76d4-4c0e-be32-bd59fd513822"
+        },
+        {
+          "name": "Create a payment",
+          "id": "7c1f00df-68df-400a-8f17-23a788196f41",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.customerpayments.CREATE ZohoInventory.customerpayments.UPDATE ZohoInventory.customerpayments.READ ZohoInventory.customerpayments.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -44,872 +454,510 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"customer_id\": \"<string>\",\n  \"payment_mode\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"invoices\": [\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    },\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    }\n  ],\n  \"date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"description\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"payment_form\": \"<string>\",\n  \"bank_charges\": \"<double>\",\n  \"account_id\": \"<string>\",\n  \"tax_account_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customerpayments?organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customerpayments"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Create a new payment."
           },
           "response": [
             {
-              "id": "7ace7d9a-0ebe-4529-a8d5-15aaeea413c1",
+              "id": "5cbf8a95-3f2a-4b52-a9ef-a55a6bfe1f6f",
               "name": "Created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "customerpayments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"customer_id\": \"903000000000099\",\n  \"payment_mode\": \"cash\",\n  \"amount\": 450,\n  \"invoices\": [\n    {\n      \"invoice_id\": \"90300000079426\",\n      \"amount_applied\": 450,\n      \"tax_amount_withheld\": 0\n    },\n    {\n      \"invoice_id\": \"90300000079426\",\n      \"amount_applied\": 450,\n      \"tax_amount_withheld\": 0\n    }\n  ],\n  \"date\": \"2016-06-05\",\n  \"reference_number\": \"INV-384\",\n  \"description\": \"Payment has been added to INV-384\",\n  \"exchange_rate\": 1,\n  \"payment_form\": \"cash\",\n  \"bank_charges\": 10,\n  \"account_id\": \"450000000000353\",\n  \"tax_account_id\": \"\",\n  \"location_id\": \"460000000038080\",\n  \"custom_fields\": [\n    {\n      \"label\": \"label\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"label\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"customer_id\": \"<string>\",\n  \"payment_mode\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"invoices\": [\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    },\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    }\n  ],\n  \"date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"description\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"payment_form\": \"<string>\",\n  \"bank_charges\": \"<double>\",\n  \"account_id\": \"<string>\",\n  \"tax_account_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/customerpayments?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customerpayments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The payment has been created.\",\n  \"payment\": {\n    \"payment_id\": \"9030000079467\",\n    \"payment_mode\": \"cash\",\n    \"amount\": 450,\n    \"amount_refunded\": 50,\n    \"bank_charges\": 10,\n    \"date\": \"2016-06-05\",\n    \"status\": \"success\",\n    \"reference_number\": \"INV-384\",\n    \"description\": \"Payment has been added to INV-384\",\n    \"customer_id\": \"903000000000099\",\n    \"customer_name\": \"Bowman Furniture\",\n    \"email\": \"benjamin.george@bowmanfurniture.com\",\n    \"tax_amount_withheld\": 0,\n    \"invoices\": [\n      {\n        \"invoice_id\": \"90300000079426\",\n        \"invoice_number\": \"INV-384\",\n        \"date\": {},\n        \"invoice_amount\": 450,\n        \"amount_applied\": 450,\n        \"balance_amount\": 0\n      },\n      {\n        \"invoice_id\": \"90300000079426\",\n        \"invoice_number\": \"INV-384\",\n        \"date\": {},\n        \"invoice_amount\": 450,\n        \"amount_applied\": 450,\n        \"balance_amount\": 0\n      }\n    ],\n    \"exchange_rate\": 1,\n    \"currency_id\": \"3000000002321\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"account_id\": \"450000000000353\",\n    \"account_name\": \"Petty Cash\",\n    \"tax_account_id\": \"\",\n    \"tax_account_name\": \"\",\n    \"unused_amount\": 0,\n    \"last_four_digits\": 1111,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"custom_fields\": [\n      {\n        \"index\": 1,\n        \"value\": \"<string>\",\n        \"label\": \"label\",\n        \"data_type\": \"text\"\n      },\n      {\n        \"index\": 1,\n        \"value\": \"<string>\",\n        \"label\": \"label\",\n        \"data_type\": \"text\"\n      }\n    ]\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"payment\": {\n    \"payment_id\": \"<string>\",\n    \"payment_mode\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"amount_refunded\": \"<double>\",\n    \"bank_charges\": \"<double>\",\n    \"date\": \"<string>\",\n    \"status\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"description\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"customer_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"tax_amount_withheld\": \"<double>\",\n    \"invoices\": [\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"date\": {\n          \"description\": \"Date on which the invoice was raised.\",\n          \"example\": \"2016-06-05\"\n        },\n        \"invoice_amount\": \"<double>\",\n        \"amount_applied\": \"<double>\",\n        \"balance_amount\": \"<double>\"\n      },\n      {\n        \"invoice_id\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"date\": {\n          \"description\": \"Date on which the invoice was raised.\",\n          \"example\": \"2016-06-05\"\n        },\n        \"invoice_amount\": \"<double>\",\n        \"amount_applied\": \"<double>\",\n        \"balance_amount\": \"<double>\"\n      }\n    ],\n    \"exchange_rate\": 1,\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"account_id\": \"<string>\",\n    \"account_name\": \"<string>\",\n    \"tax_account_id\": \"<string>\",\n    \"tax_account_name\": \"<string>\",\n    \"unused_amount\": \"<double>\",\n    \"last_four_digits\": \"<integer>\",\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"index\": \"<integer>\",\n        \"value\": \"<string>\",\n        \"label\": \"<string>\",\n        \"data_type\": \"<string>\"\n      },\n      {\n        \"index\": \"<integer>\",\n        \"value\": \"<string>\",\n        \"label\": \"<string>\",\n        \"data_type\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-10-22T02:31:18.000Z",
+              "updatedAt": "2026-10-22T02:31:18.000Z",
+              "uid": "35240-5cbf8a95-3f2a-4b52-a9ef-a55a6bfe1f6f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:31:18.000Z",
+          "updatedAt": "2026-10-22T02:31:18.000Z",
+          "uid": "35240-7c1f00df-68df-400a-8f17-23a788196f41"
         },
         {
-          "id": "7a83a349-09ea-4b30-adec-1dd7e6ad54f8",
           "name": "List Customer Payments",
+          "id": "cec06784-b69e-45e0-9c5d-b579163359d5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List Customer Payments",
-            "description": {
-              "content": "List all the payments made by your customer.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "customerpayments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
                 {
-                  "disabled": false,
-                  "key": "customer_name",
-                  "value": "<string>",
-                  "description": "Search payments by customer name. Variants: <code>customer_name_startswith</code> and <code>customer_name_contains</code>. Maximum length [100]"
+                  "key": "scope",
+                  "value": "ZohoInventory.customerpayments.CREATE ZohoInventory.customerpayments.UPDATE ZohoInventory.customerpayments.READ ZohoInventory.customerpayments.DELETE",
+                  "type": "string"
                 },
                 {
-                  "disabled": false,
-                  "key": "reference_number",
-                  "value": "<string>",
-                  "description": "Search payments by reference number. Variants: <code>reference_number_startswith</code> and <code>reference_number_contains</code>. Maximum length [100]"
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
                 },
                 {
-                  "disabled": false,
-                  "key": "date",
-                  "value": "<string>",
-                  "description": "Date on which payment is made. Date Format [yyyy-mm-dd]"
-                },
-                {
-                  "disabled": false,
-                  "key": "amount",
-                  "value": "<double>",
-                  "description": "Search payments by payment amount. Variants: <code>amount_less_than</code>, <code>amount_less_equals</code>, <code>amount_greater_than</code> and <code>amount_greater_equals</code>"
-                },
-                {
-                  "disabled": false,
-                  "key": "notes",
-                  "value": "<string>",
-                  "description": "Search payments by customer notes. Variants: <code>notes_startswith</code> and <code>notes_contains</code>"
-                },
-                {
-                  "disabled": false,
-                  "key": "payment_mode",
-                  "value": "<string>",
-                  "description": "Search payments by payment mode. Variants: <code>payment_mode_startswith</code> and <code>payment_mode_contains</code>"
-                },
-                {
-                  "disabled": false,
-                  "key": "filter_by",
-                  "value": "<string>",
-                  "description": "Filter payments by mode.Allowed Values: <code>PaymentMode.All</code>, <code>PaymentMode.Check</code>, <code>PaymentMode.Cash</code>, <code>PaymentMode.BankTransfer</code>, <code>PaymentMode.Paypal</code>, <code>PaymentMode.CreditCard</code>, <code>PaymentMode.GoogleCheckout</code>, <code>PaymentMode.Credit</code>, <code>PaymentMode.Authorizenet</code>, <code>PaymentMode.BankRemittance</code>, <code>PaymentMode.Payflowpro</code>, <code>PaymentMode.Stripe</code>, <code>PaymentMode.TwoCheckout</code>, <code>PaymentMode.Braintree</code> and <code>PaymentMode.Others</code>"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort_column",
-                  "value": "<string>",
-                  "description": "Sort based on selected column"
-                },
-                {
-                  "disabled": false,
-                  "key": "search_text",
-                  "value": "<string>",
-                  "description": "Search payments by reference number or customer name or payment description. Maximum length [100]"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number to be fetched. Default value is 1."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "200",
-                  "description": "Number of records to be fetched per page. Default value is 200."
-                },
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
                 }
-              ],
-              "variable": []
+              ]
             },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
+            "url": {
+              "raw": "{{baseUrl}}/customerpayments?customer_name=<string>&reference_number=<string>&date=<string>&amount=<double>&notes=<string>&payment_mode=<string>&filter_by=<string>&sort_column=<string>&search_text=<string>&page=1&per_page=200&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customerpayments"
+              ],
+              "query": [
                 {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
+                  "description": "Search payments by customer name. Variants: <code>customer_name_startswith</code> and <code>customer_name_contains</code>. Maximum length [100]",
+                  "key": "customer_name",
+                  "value": "<string>"
                 },
                 {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
+                  "description": "Search payments by reference number. Variants: <code>reference_number_startswith</code> and <code>reference_number_contains</code>. Maximum length [100]",
+                  "key": "reference_number",
+                  "value": "<string>"
                 },
                 {
-                  "key": "grant_type",
-                  "value": "implicit"
+                  "description": "Date on which payment is made. Date Format [yyyy-mm-dd]",
+                  "key": "date",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Search payments by payment amount. Variants: <code>amount_less_than</code>, <code>amount_less_equals</code>, <code>amount_greater_than</code> and <code>amount_greater_equals</code>",
+                  "key": "amount",
+                  "value": "<double>"
+                },
+                {
+                  "description": "Search payments by customer notes. Variants: <code>notes_startswith</code> and <code>notes_contains</code>",
+                  "key": "notes",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Search payments by payment mode. Variants: <code>payment_mode_startswith</code> and <code>payment_mode_contains</code>",
+                  "key": "payment_mode",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter payments by mode.Allowed Values: <code>PaymentMode.All</code>, <code>PaymentMode.Check</code>, <code>PaymentMode.Cash</code>, <code>PaymentMode.BankTransfer</code>, <code>PaymentMode.Paypal</code>, <code>PaymentMode.CreditCard</code>, <code>PaymentMode.GoogleCheckout</code>, <code>PaymentMode.Credit</code>, <code>PaymentMode.Authorizenet</code>, <code>PaymentMode.BankRemittance</code>, <code>PaymentMode.Payflowpro</code>, <code>PaymentMode.Stripe</code>, <code>PaymentMode.TwoCheckout</code>, <code>PaymentMode.Braintree</code> and <code>PaymentMode.Others</code>",
+                  "key": "filter_by",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sort based on selected column",
+                  "key": "sort_column",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Search payments by reference number or customer name or payment description. Maximum length [100]",
+                  "key": "search_text",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page number to be fetched. Default value is 1.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Number of records to be fetched per page. Default value is 200.",
+                  "key": "per_page",
+                  "value": "200"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
                 }
               ]
-            }
+            },
+            "description": "List all the payments made by your customer."
           },
           "response": [
             {
-              "id": "5baec75c-2825-4adb-b2d8-36e6bac26850",
+              "id": "1a543572-d4d2-4a91-bd39-79c640c4ca25",
               "name": "OK",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "customerpayments"
-                  ],
+                  "raw": "{{baseUrl}}/customerpayments?customer_name=<string>&reference_number=<string>&date=<string>&amount=<double>&notes=<string>&payment_mode=<string>&filter_by=<string>&sort_column=<string>&search_text=<string>&page=1&per_page=200&organization_id=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "customerpayments"
+                  ],
                   "query": [
                     {
+                      "description": "Search payments by customer name. Variants: <code>customer_name_startswith</code> and <code>customer_name_contains</code>. Maximum length [100]",
                       "key": "customer_name",
-                      "value": "Bowman Furniture"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Search payments by reference number. Variants: <code>reference_number_startswith</code> and <code>reference_number_contains</code>. Maximum length [100]",
                       "key": "reference_number",
-                      "value": "INV-384"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Date on which payment is made. Date Format [yyyy-mm-dd]",
                       "key": "date",
-                      "value": "2016-06-05"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Search payments by payment amount. Variants: <code>amount_less_than</code>, <code>amount_less_equals</code>, <code>amount_greater_than</code> and <code>amount_greater_equals</code>",
                       "key": "amount",
-                      "value": "450"
+                      "value": "<double>"
                     },
                     {
+                      "description": "Search payments by customer notes. Variants: <code>notes_startswith</code> and <code>notes_contains</code>",
                       "key": "notes",
-                      "value": ""
+                      "value": "<string>"
                     },
                     {
+                      "description": "Search payments by payment mode. Variants: <code>payment_mode_startswith</code> and <code>payment_mode_contains</code>",
                       "key": "payment_mode",
-                      "value": "cash"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Filter payments by mode.Allowed Values: <code>PaymentMode.All</code>, <code>PaymentMode.Check</code>, <code>PaymentMode.Cash</code>, <code>PaymentMode.BankTransfer</code>, <code>PaymentMode.Paypal</code>, <code>PaymentMode.CreditCard</code>, <code>PaymentMode.GoogleCheckout</code>, <code>PaymentMode.Credit</code>, <code>PaymentMode.Authorizenet</code>, <code>PaymentMode.BankRemittance</code>, <code>PaymentMode.Payflowpro</code>, <code>PaymentMode.Stripe</code>, <code>PaymentMode.TwoCheckout</code>, <code>PaymentMode.Braintree</code> and <code>PaymentMode.Others</code>",
                       "key": "filter_by",
-                      "value": ""
+                      "value": "<string>"
                     },
                     {
+                      "description": "Sort based on selected column",
                       "key": "sort_column",
-                      "value": "created_time"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Search payments by reference number or customer name or payment description. Maximum length [100]",
                       "key": "search_text",
-                      "value": ""
+                      "value": "<string>"
                     },
                     {
+                      "description": "Page number to be fetched. Default value is 1.",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of records to be fetched per page. Default value is 200.",
                       "key": "per_page",
                       "value": "200"
                     },
                     {
+                      "description": "(Required) ID of the organization",
                       "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"customerpayments\": [\n    {\n      \"payment_id\": \"9030000079467\",\n      \"payment_number\": \"2\",\n      \"invoice_number\": \"INV-384\",\n      \"date\": \"2016-06-05\",\n      \"payment_mode\": \"cash\",\n      \"amount\": 450,\n      \"bcy_amount\": \"string\",\n      \"unused_amount\": 0,\n      \"account_id\": \"450000000000353\",\n      \"account_name\": \"Petty Cash\",\n      \"description\": \"Payment has been added to INV-384\",\n      \"reference_number\": \"INV-384\",\n      \"customer_id\": \"903000000000099\",\n      \"customer_name\": \"Bowman Furniture\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"string\"\n    },\n    {\n      \"payment_id\": \"9030000079467\",\n      \"payment_number\": \"2\",\n      \"invoice_number\": \"INV-384\",\n      \"date\": \"2016-06-05\",\n      \"payment_mode\": \"cash\",\n      \"amount\": 450,\n      \"bcy_amount\": \"string\",\n      \"unused_amount\": 0,\n      \"account_id\": \"450000000000353\",\n      \"account_name\": \"Petty Cash\",\n      \"description\": \"Payment has been added to INV-384\",\n      \"reference_number\": \"INV-384\",\n      \"customer_id\": \"903000000000099\",\n      \"customer_name\": \"Bowman Furniture\",\n      \"location_id\": \"460000000038080\",\n      \"location_name\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9169fa66-77ef-4ec9-9719-d4bfad3a52f5",
-          "name": "Update custom field in existing customerpayments",
-          "request": {
-            "name": "Update custom field in existing customerpayments",
-            "description": {
-              "content": "Update the value of the custom field in existing customerpayments.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "customerpayment",
-                ":customer_payment_id",
-                "customfields"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "customer_payment_id",
-                  "description": "(Required) Unique identifier of the customer payment."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "[\n  {\n    \"customfield_id\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"customfield_id\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "10045d9c-424a-463c-86ea-1e02646d3dda",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "customerpayment",
-                    ":customer_payment_id",
-                    "customfields"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "customer_payment_id",
-                      "description": "(Required) Unique identifier of the customer payment."
+                      "value": "<string>"
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "[\n  {\n    \"customfield_id\": \"46000000012845\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"customfield_id\": \"46000000012845\",\n    \"value\": \"<string>\"\n  }\n]",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"Custom Fields Updated Successfully\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"customerpayments\": [\n    {\n      \"payment_id\": \"<string>\",\n      \"payment_number\": \"<string>\",\n      \"invoice_number\": \"<string>\",\n      \"date\": \"<string>\",\n      \"payment_mode\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"bcy_amount\": \"<string>\",\n      \"unused_amount\": \"<double>\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"reference_number\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"customer_name\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"location_name\": \"<string>\"\n    },\n    {\n      \"payment_id\": \"<string>\",\n      \"payment_number\": \"<string>\",\n      \"invoice_number\": \"<string>\",\n      \"date\": \"<string>\",\n      \"payment_mode\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"bcy_amount\": \"<string>\",\n      \"unused_amount\": \"<double>\",\n      \"account_id\": \"<string>\",\n      \"account_name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"reference_number\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"customer_name\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"location_name\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:31:18.000Z",
+              "updatedAt": "2026-10-22T02:31:18.000Z",
+              "uid": "35240-1a543572-d4d2-4a91-bd39-79c640c4ca25"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ec4d76ab-ea84-47c3-95c9-da4cf52e348e",
-          "name": "Update a payment",
-          "request": {
-            "name": "Update a payment",
-            "description": {
-              "content": "Update an existing payment information. ",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "customerpayments",
-                ":payment_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "payment_id",
-                  "description": "(Required) Unique identifier of the payment."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"customer_id\": \"<string>\",\n  \"payment_mode\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"invoices\": [\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    },\n    {\n      \"invoice_id\": \"<string>\",\n      \"amount_applied\": \"<double>\",\n      \"tax_amount_withheld\": \"<double>\"\n    }\n  ],\n  \"date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"description\": \"<string>\",\n  \"exchange_rate\": 1,\n  \"payment_form\": \"<string>\",\n  \"bank_charges\": \"<double>\",\n  \"account_id\": \"<string>\",\n  \"tax_account_id\": \"<string>\",\n  \"location_id\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "59b1bac7-47f2-4f51-bcf2-84f4fb3d4a22",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "customerpayments",
-                    ":payment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "payment_id",
-                      "description": "(Required) Unique identifier of the payment."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"customer_id\": \"903000000000099\",\n  \"payment_mode\": \"cash\",\n  \"amount\": 450,\n  \"invoices\": [\n    {\n      \"invoice_id\": \"90300000079426\",\n      \"amount_applied\": 450,\n      \"tax_amount_withheld\": 0\n    },\n    {\n      \"invoice_id\": \"90300000079426\",\n      \"amount_applied\": 450,\n      \"tax_amount_withheld\": 0\n    }\n  ],\n  \"date\": \"2016-06-05\",\n  \"reference_number\": \"INV-384\",\n  \"description\": \"Payment has been added to INV-384\",\n  \"exchange_rate\": 1,\n  \"payment_form\": \"cash\",\n  \"bank_charges\": 10,\n  \"account_id\": \"450000000000353\",\n  \"tax_account_id\": \"\",\n  \"location_id\": \"460000000038080\",\n  \"custom_fields\": [\n    {\n      \"label\": \"label\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"label\": \"label\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The payment details have been updated.\",\n  \"payment\": {\n    \"payment_id\": \"9030000079467\",\n    \"payment_mode\": \"cash\",\n    \"amount\": 450,\n    \"amount_refunded\": 50,\n    \"bank_charges\": 10,\n    \"date\": \"2016-06-05\",\n    \"status\": \"success\",\n    \"reference_number\": \"INV-384\",\n    \"description\": \"Payment has been added to INV-384\",\n    \"customer_id\": \"903000000000099\",\n    \"customer_name\": \"Bowman Furniture\",\n    \"email\": \"benjamin.george@bowmanfurniture.com\",\n    \"tax_amount_withheld\": 0,\n    \"invoices\": [\n      {\n        \"invoice_id\": \"90300000079426\",\n        \"invoice_number\": \"INV-384\",\n        \"date\": {},\n        \"invoice_amount\": 450,\n        \"amount_applied\": 450,\n        \"balance_amount\": 0\n      },\n      {\n        \"invoice_id\": \"90300000079426\",\n        \"invoice_number\": \"INV-384\",\n        \"date\": {},\n        \"invoice_amount\": 450,\n        \"amount_applied\": 450,\n        \"balance_amount\": 0\n      }\n    ],\n    \"exchange_rate\": 1,\n    \"currency_id\": \"3000000002321\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"account_id\": \"450000000000353\",\n    \"account_name\": \"Petty Cash\",\n    \"tax_account_id\": \"\",\n    \"tax_account_name\": \"\",\n    \"unused_amount\": 0,\n    \"last_four_digits\": 1111,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"custom_fields\": [\n      {\n        \"index\": 1,\n        \"value\": \"<string>\",\n        \"label\": \"label\",\n        \"data_type\": \"text\"\n      },\n      {\n        \"index\": 1,\n        \"value\": \"<string>\",\n        \"label\": \"label\",\n        \"data_type\": \"text\"\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9e4a47a5-a92f-4ecc-966e-7c76bb8437b7",
-          "name": "Retrieve a payment",
-          "request": {
-            "name": "Retrieve a payment",
-            "description": {
-              "content": "Details of an existing payment. ",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "customerpayments",
-                ":payment_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "payment_id",
-                  "description": "(Required) Unique identifier of the payment."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "abae91c8-e99d-442c-a4b4-b2b418a7b94c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "customerpayments",
-                    ":payment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "payment_id",
-                      "description": "(Required) Unique identifier of the payment."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"payment\": {\n    \"payment_id\": \"9030000079467\",\n    \"payment_mode\": \"cash\",\n    \"amount\": 450,\n    \"amount_refunded\": 50,\n    \"bank_charges\": 10,\n    \"date\": \"2016-06-05\",\n    \"status\": \"success\",\n    \"reference_number\": \"INV-384\",\n    \"description\": \"Payment has been added to INV-384\",\n    \"customer_id\": \"903000000000099\",\n    \"customer_name\": \"Bowman Furniture\",\n    \"email\": \"benjamin.george@bowmanfurniture.com\",\n    \"tax_amount_withheld\": 0,\n    \"invoices\": [\n      {\n        \"invoice_id\": \"90300000079426\",\n        \"invoice_number\": \"INV-384\",\n        \"date\": {},\n        \"invoice_amount\": 450,\n        \"amount_applied\": 450,\n        \"balance_amount\": 0\n      },\n      {\n        \"invoice_id\": \"90300000079426\",\n        \"invoice_number\": \"INV-384\",\n        \"date\": {},\n        \"invoice_amount\": 450,\n        \"amount_applied\": 450,\n        \"balance_amount\": 0\n      }\n    ],\n    \"exchange_rate\": 1,\n    \"currency_id\": \"3000000002321\",\n    \"currency_code\": \"USD\",\n    \"currency_symbol\": \"$\",\n    \"account_id\": \"450000000000353\",\n    \"account_name\": \"Petty Cash\",\n    \"tax_account_id\": \"\",\n    \"tax_account_name\": \"\",\n    \"unused_amount\": 0,\n    \"last_four_digits\": 1111,\n    \"location_id\": \"460000000038080\",\n    \"location_name\": \"string\",\n    \"custom_fields\": [\n      {\n        \"index\": 1,\n        \"value\": \"<string>\",\n        \"label\": \"label\",\n        \"data_type\": \"text\"\n      },\n      {\n        \"index\": 1,\n        \"value\": \"<string>\",\n        \"label\": \"label\",\n        \"data_type\": \"text\"\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "43606aa8-7e9a-4d43-8163-d2cc53e534ca",
-          "name": "Delete a payment",
-          "request": {
-            "name": "Delete a payment",
-            "description": {
-              "content": "Delete an existing payment.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "customerpayments",
-                ":payment_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "payment_id",
-                  "description": "(Required) Unique identifier of the payment."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "8272515e-d665-4518-bb8e-423841775704",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "customerpayments",
-                    ":payment_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "payment_id",
-                      "description": "(Required) Unique identifier of the payment."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The payment has been deleted.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:31:18.000Z",
+          "updatedAt": "2026-10-22T02:31:18.000Z",
+          "uid": "35240-cec06784-b69e-45e0-9c5d-b579163359d5"
         }
       ],
-      "event": []
+      "id": "58e8df3a-d61a-47eb-b5f7-5b40698e2690",
+      "createdAt": "2026-10-22T02:31:18.000Z",
+      "updatedAt": "2026-10-22T02:31:18.000Z",
+      "uid": "35240-58e8df3a-d61a-47eb-b5f7-5b40698e2690"
+    },
+    {
+      "name": "customerpayment",
+      "item": [
+        {
+          "name": "{customer_payment_id}",
+          "item": [
+            {
+              "name": "customfields",
+              "item": [
+                {
+                  "name": "Update custom field in existing customerpayments",
+                  "id": "1aaec5bc-f128-459d-a013-725bda96a7e0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.customerpayments.CREATE ZohoInventory.customerpayments.UPDATE ZohoInventory.customerpayments.READ ZohoInventory.customerpayments.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"customfield_id\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"customfield_id\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/customerpayment/:customer_payment_id/customfields?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customerpayment",
+                        ":customer_payment_id",
+                        "customfields"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5c6113a4-4e1f-4a12-a81b-993490b21af8",
+                          "key": "customer_payment_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the customer payment."
+                        }
+                      ]
+                    },
+                    "description": "Update the value of the custom field in existing customerpayments."
+                  },
+                  "response": [
+                    {
+                      "id": "3519496d-580a-4f2b-9ea3-e22a52eb78b8",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"customfield_id\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"customfield_id\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/customerpayment/:customer_payment_id/customfields?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "customerpayment",
+                            ":customer_payment_id",
+                            "customfields"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "customer_payment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:31:18.000Z",
+                      "updatedAt": "2026-10-22T02:31:18.000Z",
+                      "uid": "35240-3519496d-580a-4f2b-9ea3-e22a52eb78b8"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:31:18.000Z",
+                  "updatedAt": "2026-10-22T02:31:18.000Z",
+                  "uid": "35240-1aaec5bc-f128-459d-a013-725bda96a7e0"
+                }
+              ],
+              "id": "078ae411-3218-45e7-b1ee-6d098ea3ded6",
+              "createdAt": "2026-10-22T02:31:18.000Z",
+              "updatedAt": "2026-10-22T02:31:18.000Z",
+              "uid": "35240-078ae411-3218-45e7-b1ee-6d098ea3ded6"
+            }
+          ],
+          "id": "0fb3511d-39ea-4a15-bc67-8bdc809a4a64",
+          "createdAt": "2026-10-22T02:31:18.000Z",
+          "updatedAt": "2026-10-22T02:31:18.000Z",
+          "uid": "35240-0fb3511d-39ea-4a15-bc67-8bdc809a4a64"
+        }
+      ],
+      "id": "9177438f-da67-4087-a511-f6c2246e0dfa",
+      "createdAt": "2026-10-22T02:31:18.000Z",
+      "updatedAt": "2026-10-22T02:31:18.000Z",
+      "uid": "35240-9177438f-da67-4087-a511-f6c2246e0dfa"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://www.zohoapis.com/inventory/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "82c75185-3283-4c7f-8aa1-adb4d16fa8dc",
-    "name": "batches customer-payments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,39 +1,1011 @@
 {
+  "info": {
+    "_postman_id": "eb8a1bef-3f3e-4350-902c-0678a1ead34c",
+    "name": "Purchase Receives Purchasereceives API",
+    "description": "A new purchase receive can a be created.To create Purchase receive, URL parameter purchaseorder_id is needed.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:32:44.000Z",
+    "updatedAt": "2026-10-22T02:32:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eb8a1bef-3f3e-4350-902c-0678a1ead34c"
+  },
   "item": [
     {
-      "id": "e923c471-bcf9-4fde-90a0-b2216fe457d4",
       "name": "purchasereceives",
-      "description": {
-        "content": "PurchaseReceives Module",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "d877a830-8c70-45d7-b284-53a11c7fce9b",
-          "name": "Create a purchase receive",
-          "request": {
-            "name": "Create a purchase receive",
-            "description": {
-              "content": "A new purchase receive can a be created.To create Purchase receive, URL parameter <code>purchaseorder_id</code> is needed.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{purchasereceive_id}",
+          "item": [
+            {
+              "name": "submit",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
+                  "name": "Submit a purchase receive for approval",
+                  "id": "0662cb8c-39bb-4cfe-94e7-8875c6844584",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/submit?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchasereceives",
+                        ":purchasereceive_id",
+                        "submit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c7a1d82c-d338-4cd9-8bd7-14e489e308e2",
+                          "key": "purchasereceive_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the purchase receive."
+                        }
+                      ]
+                    },
+                    "description": "Submit a purchase receive for approval workflow."
+                  },
+                  "response": [
+                    {
+                      "id": "acf85bdf-b859-4747-ab62-f31da2f9d69c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/submit?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchasereceives",
+                            ":purchasereceive_id",
+                            "submit"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "purchasereceive_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:32:45.000Z",
+                      "updatedAt": "2026-10-22T02:32:45.000Z",
+                      "uid": "35240-acf85bdf-b859-4747-ab62-f31da2f9d69c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:32:45.000Z",
+                  "updatedAt": "2026-10-22T02:32:45.000Z",
+                  "uid": "35240-0662cb8c-39bb-4cfe-94e7-8875c6844584"
                 }
               ],
-              "variable": []
+              "id": "cdc512c7-0348-4bc5-b06d-a5ffb9cf6c90",
+              "createdAt": "2026-10-22T02:32:45.000Z",
+              "updatedAt": "2026-10-22T02:32:45.000Z",
+              "uid": "35240-cdc512c7-0348-4bc5-b06d-a5ffb9cf6c90"
             },
+            {
+              "name": "approve",
+              "item": [
+                {
+                  "name": "final",
+                  "item": [
+                    {
+                      "name": "Final approval of a purchase receive",
+                      "id": "544e56d3-0b70-4986-870e-cc10a5e29bd5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/approve/final?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchasereceives",
+                            ":purchasereceive_id",
+                            "approve",
+                            "final"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "80ada7e2-9e69-4c73-8ca4-5716be41b6c3",
+                              "key": "purchasereceive_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique ID of the purchase receive."
+                            }
+                          ]
+                        },
+                        "description": "Perform the final approval of a purchase receive (admin only)."
+                      },
+                      "response": [
+                        {
+                          "id": "43a9f94b-f14a-4b80-a6c7-09214bc21d56",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/approve/final?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "purchasereceives",
+                                ":purchasereceive_id",
+                                "approve",
+                                "final"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "purchasereceive_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:32:45.000Z",
+                          "updatedAt": "2026-10-22T02:32:45.000Z",
+                          "uid": "35240-43a9f94b-f14a-4b80-a6c7-09214bc21d56"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:32:45.000Z",
+                      "updatedAt": "2026-10-22T02:32:45.000Z",
+                      "uid": "35240-544e56d3-0b70-4986-870e-cc10a5e29bd5"
+                    }
+                  ],
+                  "id": "d2aee9d7-2d42-464a-b175-ae8d19e09865",
+                  "createdAt": "2026-10-22T02:32:45.000Z",
+                  "updatedAt": "2026-10-22T02:32:45.000Z",
+                  "uid": "35240-d2aee9d7-2d42-464a-b175-ae8d19e09865"
+                },
+                {
+                  "name": "Approve a purchase receive",
+                  "id": "56167931-196d-457d-a1b6-af929be99923",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/approve?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchasereceives",
+                        ":purchasereceive_id",
+                        "approve"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a1fe5350-9c64-46d7-b3b7-32e0e6b78045",
+                          "key": "purchasereceive_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the purchase receive."
+                        }
+                      ]
+                    },
+                    "description": "Approve a submitted purchase receive."
+                  },
+                  "response": [
+                    {
+                      "id": "b8779fca-5425-46b8-9efd-b19b7f082d96",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/approve?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchasereceives",
+                            ":purchasereceive_id",
+                            "approve"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "purchasereceive_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:32:45.000Z",
+                      "updatedAt": "2026-10-22T02:32:45.000Z",
+                      "uid": "35240-b8779fca-5425-46b8-9efd-b19b7f082d96"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:32:45.000Z",
+                  "updatedAt": "2026-10-22T02:32:45.000Z",
+                  "uid": "35240-56167931-196d-457d-a1b6-af929be99923"
+                }
+              ],
+              "id": "763d86e4-b3f6-4de3-8ff9-cc3b3fab5569",
+              "createdAt": "2026-10-22T02:32:45.000Z",
+              "updatedAt": "2026-10-22T02:32:45.000Z",
+              "uid": "35240-763d86e4-b3f6-4de3-8ff9-cc3b3fab5569"
+            },
+            {
+              "name": "reject",
+              "item": [
+                {
+                  "name": "Reject a purchase receive",
+                  "id": "53344726-4619-497c-952d-08c7eeb14b2b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"reason\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/reject?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchasereceives",
+                        ":purchasereceive_id",
+                        "reject"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "d2508e79-4e23-4be8-b307-11d39cfa68c0",
+                          "key": "purchasereceive_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the purchase receive."
+                        }
+                      ]
+                    },
+                    "description": "Reject a submitted purchase receive."
+                  },
+                  "response": [
+                    {
+                      "id": "d9a4176a-4963-435e-bedb-a4dcd2487745",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id/reject?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchasereceives",
+                            ":purchasereceive_id",
+                            "reject"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "purchasereceive_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:32:45.000Z",
+                      "updatedAt": "2026-10-22T02:32:45.000Z",
+                      "uid": "35240-d9a4176a-4963-435e-bedb-a4dcd2487745"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:32:45.000Z",
+                  "updatedAt": "2026-10-22T02:32:45.000Z",
+                  "uid": "35240-53344726-4619-497c-952d-08c7eeb14b2b"
+                }
+              ],
+              "id": "e978b96b-8e5b-4bcc-b1fe-89e6cffe7e0b",
+              "createdAt": "2026-10-22T02:32:45.000Z",
+              "updatedAt": "2026-10-22T02:32:45.000Z",
+              "uid": "35240-e978b96b-8e5b-4bcc-b1fe-89e6cffe7e0b"
+            },
+            {
+              "name": "Retrieve a Purchase Receive",
+              "id": "f615b0ce-d3f2-450c-a7f4-f8dc6b073702",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchasereceives",
+                    ":purchasereceive_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "e6aa819f-6472-47ed-b12b-ea185df87dad",
+                      "key": "purchasereceive_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the purchase receive."
+                    }
+                  ]
+                },
+                "description": "Fetches a Purchase Receive from Zoho Inventory."
+              },
+              "response": [
+                {
+                  "id": "8c7e61a1-e775-4066-a9ca-203e751a8b52",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchasereceives",
+                        ":purchasereceive_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "purchasereceive_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"purchase_receive\": {\n    \"purchaseorder_id\": \"<string>\",\n    \"purchaseorder_number\": \"<string>\",\n    \"receive_id\": \"<string>\",\n    \"receive_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"<string>\"\n      },\n      {\n        \"contact_person_id\": \"<string>\"\n      }\n    ],\n    \"notes\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"quantity\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"serial_numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"quantity\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"serial_numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:32:45.000Z",
+                  "updatedAt": "2026-10-22T02:32:45.000Z",
+                  "uid": "35240-8c7e61a1-e775-4066-a9ca-203e751a8b52"
+                }
+              ],
+              "createdAt": "2026-10-22T02:32:45.000Z",
+              "updatedAt": "2026-10-22T02:32:45.000Z",
+              "uid": "35240-f615b0ce-d3f2-450c-a7f4-f8dc6b073702"
+            },
+            {
+              "name": "Update a Purchase Receive",
+              "id": "67ee4dd7-ff2a-42f3-ad66-02a5a9f98aff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"receive_number\": \"<string>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchasereceives",
+                    ":purchasereceive_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "37aa2cd3-b7a4-4a84-90f4-0c9af520dcd3",
+                      "key": "purchasereceive_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the purchase receive."
+                    }
+                  ]
+                },
+                "description": "Update a existing Purchase Receive from Zoho Inventory."
+              },
+              "response": [
+                {
+                  "id": "0d706504-e633-4e1f-bb96-143053c48d70",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"receive_number\": \"<string>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchasereceives",
+                        ":purchasereceive_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "purchasereceive_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"purchase_receive\": {\n    \"purchaseorder_id\": \"<string>\",\n    \"purchaseorder_number\": \"<string>\",\n    \"receive_id\": \"<string>\",\n    \"receive_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"<string>\"\n      },\n      {\n        \"contact_person_id\": \"<string>\"\n      }\n    ],\n    \"notes\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"quantity\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"serial_numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"quantity\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"serial_numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:32:45.000Z",
+                  "updatedAt": "2026-10-22T02:32:45.000Z",
+                  "uid": "35240-0d706504-e633-4e1f-bb96-143053c48d70"
+                }
+              ],
+              "createdAt": "2026-10-22T02:32:45.000Z",
+              "updatedAt": "2026-10-22T02:32:45.000Z",
+              "uid": "35240-67ee4dd7-ff2a-42f3-ad66-02a5a9f98aff"
+            },
+            {
+              "name": "Delete a Purchase Receive",
+              "id": "1e0cb08f-149f-4a89-b3aa-02e6c2a9b3bd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchasereceives",
+                    ":purchasereceive_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "67222375-c7dc-4d9b-8d26-25baea613cb0",
+                      "key": "purchasereceive_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the purchase receive."
+                    }
+                  ]
+                },
+                "description": "Deletes a Purchase Receive from Zoho Inventory."
+              },
+              "response": [
+                {
+                  "id": "e9ba451c-c0e3-4836-8a63-75cc315bca5e",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchasereceives/:purchasereceive_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchasereceives",
+                        ":purchasereceive_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "purchasereceive_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:32:45.000Z",
+                  "updatedAt": "2026-10-22T02:32:45.000Z",
+                  "uid": "35240-e9ba451c-c0e3-4836-8a63-75cc315bca5e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:32:45.000Z",
+              "updatedAt": "2026-10-22T02:32:45.000Z",
+              "uid": "35240-1e0cb08f-149f-4a89-b3aa-02e6c2a9b3bd"
+            }
+          ],
+          "id": "9890fba5-e528-4382-a228-f712453c4787",
+          "createdAt": "2026-10-22T02:32:45.000Z",
+          "updatedAt": "2026-10-22T02:32:45.000Z",
+          "uid": "35240-9890fba5-e528-4382-a228-f712453c4787"
+        },
+        {
+          "name": "Create a purchase receive",
+          "id": "f3461462-8675-4394-ac75-40e406fb06c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.purchasereceives.CREATE ZohoInventory.purchasereceives.READ ZohoInventory.purchasereceives.UPDATE ZohoInventory.purchasereceives.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -44,1036 +1016,114 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
             "body": {
               "mode": "raw",
               "raw": "{\n  \"receive_number\": \"<string>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/purchasereceives?organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "purchasereceives"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "A new purchase receive can a be created.To create Purchase receive, URL parameter purchaseorder_id is needed."
           },
           "response": [
             {
-              "id": "45ffe322-bc4a-4007-b225-052a6bb03645",
+              "id": "261d94d7-67fa-441e-9585-23f9a85537a4",
               "name": "Created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"receive_number\": \"PR-00002\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"quantity\": 2,\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"TC-IO-09\",\n        \"TC-IO-09\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"quantity\": 2,\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"TC-IO-09\",\n        \"TC-IO-09\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"date\": \"2015-05-28\",\n  \"notes\": \"Sample Note.\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"receive_number\": \"<string>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purchasereceives?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchasereceives"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"purchase_receive\": {\n    \"purchaseorder_id\": \"string\",\n    \"purchaseorder_number\": \"PO-00002\",\n    \"receive_id\": \"string\",\n    \"receive_number\": \"PR-00002\",\n    \"date\": \"2015-05-28\",\n    \"vendor_id\": \"string\",\n    \"vendor_name\": \"Molly\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"string\"\n      },\n      {\n        \"contact_person_id\": \"string\"\n      }\n    ],\n    \"notes\": \"Sample Note.\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"quantity\": 2,\n        \"unit\": \"qty\",\n        \"serial_numbers\": [\n          \"TC-IO-09\",\n          \"TC-IO-09\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"quantity\": 2,\n        \"unit\": \"qty\",\n        \"serial_numbers\": [\n          \"TC-IO-09\",\n          \"TC-IO-09\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"item_custom_fields\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"created_time\": \"2015-05-28 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-28 00:00:00+00:00\"\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"purchase_receive\": {\n    \"purchaseorder_id\": \"<string>\",\n    \"purchaseorder_number\": \"<string>\",\n    \"receive_id\": \"<string>\",\n    \"receive_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"<string>\"\n      },\n      {\n        \"contact_person_id\": \"<string>\"\n      }\n    ],\n    \"notes\": \"<string>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"quantity\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"serial_numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"quantity\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"serial_numbers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"<string>\",\n            \"batch_number\": \"<string>\",\n            \"external_batch_number\": \"<string>\",\n            \"manufacturer_date\": \"<string>\",\n            \"expiry_date\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"batch_in_id\": \"<string>\",\n            \"storages\": [\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              },\n              {\n                \"storage_id\": \"<string>\",\n                \"storage_name\": \"<string>\",\n                \"in_quantity\": \"<float>\",\n                \"storage_in_id\": \"<string>\"\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"<string>\",\n            \"storage_name\": \"<string>\",\n            \"in_quantity\": \"<float>\",\n            \"storage_in_id\": \"<string>\",\n            \"serial_numbers\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:32:45.000Z",
+              "updatedAt": "2026-10-22T02:32:45.000Z",
+              "uid": "35240-261d94d7-67fa-441e-9585-23f9a85537a4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "69f7d011-9a34-4530-9ccf-a580247e535f",
-          "name": "Retrieve a Purchase Receive",
-          "request": {
-            "name": "Retrieve a Purchase Receive",
-            "description": {
-              "content": "Fetches a Purchase Receive from Zoho Inventory.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives",
-                ":purchasereceive_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "purchasereceive_id",
-                  "description": "(Required) Unique identifier of the purchase receive."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "88a7c272-4c70-447d-8b6c-04bfca3e6d1c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives",
-                    ":purchasereceive_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "purchasereceive_id",
-                      "description": "(Required) Unique identifier of the purchase receive."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"purchase_receive\": {\n    \"purchaseorder_id\": \"string\",\n    \"purchaseorder_number\": \"PO-00002\",\n    \"receive_id\": \"string\",\n    \"receive_number\": \"PR-00002\",\n    \"date\": \"2015-05-28\",\n    \"vendor_id\": \"string\",\n    \"vendor_name\": \"Molly\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"string\"\n      },\n      {\n        \"contact_person_id\": \"string\"\n      }\n    ],\n    \"notes\": \"Sample Note.\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"quantity\": 2,\n        \"unit\": \"qty\",\n        \"serial_numbers\": [\n          \"TC-IO-09\",\n          \"TC-IO-09\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"quantity\": 2,\n        \"unit\": \"qty\",\n        \"serial_numbers\": [\n          \"TC-IO-09\",\n          \"TC-IO-09\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"created_time\": \"2015-05-28 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-28 00:00:00+00:00\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8ee8097d-347f-45be-83d3-3253d50b9c87",
-          "name": "Update a Purchase Receive",
-          "request": {
-            "name": "Update a Purchase Receive",
-            "description": {
-              "content": "Update a existing Purchase Receive from Zoho Inventory.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives",
-                ":purchasereceive_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "purchasereceive_id",
-                  "description": "(Required) Unique identifier of the purchase receive."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"receive_number\": \"<string>\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"quantity\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"serial_numbers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": \"<float>\",\n          \"batch_id\": \"<string>\",\n          \"batch_number\": \"<string>\",\n          \"external_batch_number\": \"<string>\",\n          \"manufacturer_date\": \"<string>\",\n          \"expiry_date\": \"<string>\",\n          \"batch_in_id\": \"<string>\",\n          \"storages\": [\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            },\n            {\n              \"storage_id\": \"<string>\",\n              \"in_quantity\": \"<float>\",\n              \"storage_in_id\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"storage_id\": \"<string>\",\n          \"in_quantity\": \"<float>\",\n          \"storage_in_id\": \"<string>\",\n          \"serial_numbers\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "105eded6-aafa-4c9a-8510-b8f7ac3c9b3c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives",
-                    ":purchasereceive_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "purchasereceive_id",
-                      "description": "(Required) Unique identifier of the purchase receive."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"receive_number\": \"PR-00002\",\n  \"line_items\": [\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"quantity\": 2,\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"TC-IO-09\",\n        \"TC-IO-09\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ]\n    },\n    {\n      \"line_item_id\": \"<string>\",\n      \"item_id\": \"<string>\",\n      \"name\": \"Laptop-white/15inch/dell\",\n      \"description\": \"Just a sample description.\",\n      \"item_order\": 0,\n      \"quantity\": 2,\n      \"unit\": \"qty\",\n      \"serial_numbers\": [\n        \"TC-IO-09\",\n        \"TC-IO-09\"\n      ],\n      \"batches\": [\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        },\n        {\n          \"in_quantity\": 2,\n          \"batch_id\": \"6780203000001066789\",\n          \"batch_number\": \"BTC-TL-890\",\n          \"external_batch_number\": \"MFR-TL-890\",\n          \"manufacturer_date\": \"2026-05-12\",\n          \"expiry_date\": \"2026-12-24\",\n          \"batch_in_id\": \"6780203000001066797\",\n          \"storages\": [\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            },\n            {\n              \"storage_id\": \"6780203000001066003\",\n              \"in_quantity\": 2,\n              \"storage_in_id\": \"6780203000001066792\"\n            }\n          ]\n        }\n      ],\n      \"storages\": [\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        },\n        {\n          \"storage_id\": \"6780203000000093226\",\n          \"in_quantity\": 2,\n          \"storage_in_id\": \"6780203000001066795\",\n          \"serial_numbers\": [\n            \"TC-IO-09\",\n            \"TC-IO-09\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"date\": \"2015-05-28\",\n  \"notes\": \"Sample Note.\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    },\n    {\n      \"customfield_id\": \"46000000012845\",\n      \"label\": \"<string>\",\n      \"value\": \"Normal\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"purchase_receive\": {\n    \"purchaseorder_id\": \"string\",\n    \"purchaseorder_number\": \"PO-00002\",\n    \"receive_id\": \"string\",\n    \"receive_number\": \"PR-00002\",\n    \"date\": \"2015-05-28\",\n    \"vendor_id\": \"string\",\n    \"vendor_name\": \"Molly\",\n    \"contact_persons\": [\n      {\n        \"contact_person_id\": \"string\"\n      },\n      {\n        \"contact_person_id\": \"string\"\n      }\n    ],\n    \"notes\": \"Sample Note.\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      },\n      {\n        \"customfield_id\": \"46000000012845\",\n        \"label\": \"<string>\",\n        \"value\": \"Normal\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"quantity\": 2,\n        \"unit\": \"qty\",\n        \"serial_numbers\": [\n          \"TC-IO-09\",\n          \"TC-IO-09\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"line_item_id\": \"<string>\",\n        \"item_id\": \"<string>\",\n        \"name\": \"Laptop-white/15inch/dell\",\n        \"description\": \"Just a sample description.\",\n        \"item_order\": 0,\n        \"quantity\": 2,\n        \"unit\": \"qty\",\n        \"serial_numbers\": [\n          \"TC-IO-09\",\n          \"TC-IO-09\"\n        ],\n        \"batches\": [\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          },\n          {\n            \"batch_id\": \"6780203000001066789\",\n            \"batch_number\": \"BTC-TL-890\",\n            \"external_batch_number\": \"MFR-TL-890\",\n            \"manufacturer_date\": \"2026-05-12\",\n            \"expiry_date\": \"2026-12-24\",\n            \"in_quantity\": 2,\n            \"batch_in_id\": \"6780203000001066797\",\n            \"storages\": [\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"storage_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"in_quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"storage_in_id\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ]\n          }\n        ],\n        \"storages\": [\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"storage_id\": \"6780203000000093226\",\n            \"storage_name\": \"Bin A2\",\n            \"in_quantity\": 2,\n            \"storage_in_id\": \"6780203000001066795\",\n            \"serial_numbers\": [\n              \"TC-IO-09\",\n              \"TC-IO-09\"\n            ],\n            \"item_custom_fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"billing_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"shipping_address\": [\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      },\n      {\n        \"address\": \"No:234,90 Church Street\",\n        \"city\": \"New York City\",\n        \"state\": \"New York\",\n        \"zip\": \"string\",\n        \"country\": \"U.S.A\",\n        \"fax\": \"324-524242\"\n      }\n    ],\n    \"created_time\": \"2015-05-28 00:00:00+00:00\",\n    \"last_modified_time\": \"2015-05-28 00:00:00+00:00\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "06ba4bcb-2db5-41dc-a20e-294f538d5b2b",
-          "name": "Delete a Purchase Receive",
-          "request": {
-            "name": "Delete a Purchase Receive",
-            "description": {
-              "content": "Deletes a Purchase Receive from Zoho Inventory.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives",
-                ":purchasereceive_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "purchasereceive_id",
-                  "description": "(Required) Unique identifier of the purchase receive."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "475e456e-631d-4498-b89e-eb8304ccf4a7",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives",
-                    ":purchasereceive_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "purchasereceive_id",
-                      "description": "(Required) Unique identifier of the purchase receive."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The Purchase Receive has been deleted.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dfd9c221-931f-4e68-97aa-588181280bb8",
-          "name": "Submit a purchase receive for approval",
-          "request": {
-            "name": "Submit a purchase receive for approval",
-            "description": {
-              "content": "Submit a purchase receive for approval workflow.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives",
-                ":purchasereceive_id",
-                "submit"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "purchasereceive_id",
-                  "description": "(Required) Unique ID of the purchase receive."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "62cedd33-7bd8-4dd1-94dc-eb85c56f6440",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives",
-                    ":purchasereceive_id",
-                    "submit"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "purchasereceive_id",
-                      "description": "(Required) Unique ID of the purchase receive."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e97e177e-f009-4dad-be3c-8213aa4406a2",
-          "name": "Approve a purchase receive",
-          "request": {
-            "name": "Approve a purchase receive",
-            "description": {
-              "content": "Approve a submitted purchase receive.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives",
-                ":purchasereceive_id",
-                "approve"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "purchasereceive_id",
-                  "description": "(Required) Unique ID of the purchase receive."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "e4b84e78-d859-4599-8380-55e22317815b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives",
-                    ":purchasereceive_id",
-                    "approve"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "purchasereceive_id",
-                      "description": "(Required) Unique ID of the purchase receive."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0c17d9df-10d8-48f5-a253-9d71d20aa25e",
-          "name": "Final approval of a purchase receive",
-          "request": {
-            "name": "Final approval of a purchase receive",
-            "description": {
-              "content": "Perform the final approval of a purchase receive (admin only).",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives",
-                ":purchasereceive_id",
-                "approve",
-                "final"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "purchasereceive_id",
-                  "description": "(Required) Unique ID of the purchase receive."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "e524a219-41e7-4cdf-990c-677e7c7f33c3",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives",
-                    ":purchasereceive_id",
-                    "approve",
-                    "final"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "purchasereceive_id",
-                      "description": "(Required) Unique ID of the purchase receive."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "deb5c8e7-0bdc-4c70-bdd7-9baf4f401f6d",
-          "name": "Reject a purchase receive",
-          "request": {
-            "name": "Reject a purchase receive",
-            "description": {
-              "content": "Reject a submitted purchase receive.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "purchasereceives",
-                ":purchasereceive_id",
-                "reject"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "purchasereceive_id",
-                  "description": "(Required) Unique ID of the purchase receive."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"reason\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "6fabaae5-5644-4f7a-a627-3c1488b85105",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "purchasereceives",
-                    ":purchasereceive_id",
-                    "reject"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "purchasereceive_id",
-                      "description": "(Required) Unique ID of the purchase receive."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"reason\": \"Items received do not match the purchase order.\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:32:45.000Z",
+          "updatedAt": "2026-10-22T02:32:45.000Z",
+          "uid": "35240-f3461462-8675-4394-ac75-40e406fb06c3"
         }
       ],
-      "event": []
+      "id": "0060c9c6-4231-4bed-814c-e88cb9b9d183",
+      "createdAt": "2026-10-22T02:32:45.000Z",
+      "updatedAt": "2026-10-22T02:32:45.000Z",
+      "uid": "35240-0060c9c6-4231-4bed-814c-e88cb9b9d183"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://www.zohoapis.com/inventory/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "983f5347-af46-48e9-8f2a-f217356ff101",
-    "name": "batches purchasereceives API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

@@ -1,0 +1,1811 @@
+{
+  "info": {
+    "_postman_id": "53811cda-2dde-48c0-a2c1-33e73e07447c",
+    "name": "Purchase Orders Purchaseorders API",
+    "description": "A purchase order is an official document that you issue to your vendors, indicating relevant information about what you want to buy, the quantity, the price agreed for that particular product or service.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:34:22.000Z",
+    "updatedAt": "2026-10-22T02:34:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-53811cda-2dde-48c0-a2c1-33e73e07447c"
+  },
+  "item": [
+    {
+      "name": "purchaseorders",
+      "item": [
+        {
+          "name": "{purchaseorder_id}",
+          "item": [
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "issued",
+                  "item": [
+                    {
+                      "name": "Mark as Issued",
+                      "id": "e05c74f9-9256-477d-8016-b6e2de4e800f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/status/issued?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchaseorders",
+                            ":purchaseorder_id",
+                            "status",
+                            "issued"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "3b895b75-7cf5-4407-aa8e-d14387d2f537",
+                              "key": "purchaseorder_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the purchase order."
+                            }
+                          ]
+                        },
+                        "description": "Marks a Purchase Order as Issued."
+                      },
+                      "response": [
+                        {
+                          "id": "895c103c-d16d-46e5-a4c3-d92b763de705",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/status/issued?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "purchaseorders",
+                                ":purchaseorder_id",
+                                "status",
+                                "issued"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "purchaseorder_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:34:22.000Z",
+                          "updatedAt": "2026-10-22T02:34:22.000Z",
+                          "uid": "35240-895c103c-d16d-46e5-a4c3-d92b763de705"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:34:22.000Z",
+                      "updatedAt": "2026-10-22T02:34:22.000Z",
+                      "uid": "35240-e05c74f9-9256-477d-8016-b6e2de4e800f"
+                    }
+                  ],
+                  "id": "92fcf7de-73fc-44c1-bf8e-6b9ca4419a61",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-92fcf7de-73fc-44c1-bf8e-6b9ca4419a61"
+                },
+                {
+                  "name": "cancelled",
+                  "item": [
+                    {
+                      "name": "Mark as Cancelled",
+                      "id": "ca423e00-3a18-418d-beee-3897266fa934",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/status/cancelled?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchaseorders",
+                            ":purchaseorder_id",
+                            "status",
+                            "cancelled"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "851bfb74-67d2-468e-a47a-4cb84ed10a1e",
+                              "key": "purchaseorder_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the purchase order."
+                            }
+                          ]
+                        },
+                        "description": "Marks a Purchase Order as Cancelled."
+                      },
+                      "response": [
+                        {
+                          "id": "247ad3eb-a3b6-4a7f-a17c-ee6c0a3ca185",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/status/cancelled?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "purchaseorders",
+                                ":purchaseorder_id",
+                                "status",
+                                "cancelled"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "purchaseorder_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:34:22.000Z",
+                          "updatedAt": "2026-10-22T02:34:22.000Z",
+                          "uid": "35240-247ad3eb-a3b6-4a7f-a17c-ee6c0a3ca185"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:34:22.000Z",
+                      "updatedAt": "2026-10-22T02:34:22.000Z",
+                      "uid": "35240-ca423e00-3a18-418d-beee-3897266fa934"
+                    }
+                  ],
+                  "id": "2897bee6-f12f-4d3d-ab1c-d1b4bf15fd2b",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-2897bee6-f12f-4d3d-ab1c-d1b4bf15fd2b"
+                }
+              ],
+              "id": "605391bd-e86b-40ca-9d9f-485314a05703",
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-605391bd-e86b-40ca-9d9f-485314a05703"
+            },
+            {
+              "name": "submit",
+              "item": [
+                {
+                  "name": "Submit a purchase order for approval",
+                  "id": "af65f51a-a5dc-413a-b766-5f0db67174c2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/submit?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":purchaseorder_id",
+                        "submit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "d3397d5d-df72-4944-9589-3397b3228053",
+                          "key": "purchaseorder_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the purchase order."
+                        }
+                      ]
+                    },
+                    "description": "Submit a purchase order for approval workflow."
+                  },
+                  "response": [
+                    {
+                      "id": "1e64bce3-d44a-4baa-b5fa-45b9a81c37ca",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/submit?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchaseorders",
+                            ":purchaseorder_id",
+                            "submit"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "purchaseorder_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:22.000Z",
+                      "updatedAt": "2026-10-22T02:34:22.000Z",
+                      "uid": "35240-1e64bce3-d44a-4baa-b5fa-45b9a81c37ca"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-af65f51a-a5dc-413a-b766-5f0db67174c2"
+                }
+              ],
+              "id": "e27c4640-d88d-49bf-8382-2ddde82f8a71",
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-e27c4640-d88d-49bf-8382-2ddde82f8a71"
+            },
+            {
+              "name": "approve",
+              "item": [
+                {
+                  "name": "final",
+                  "item": [
+                    {
+                      "name": "Final-approve a purchase order",
+                      "id": "c9368b4c-20b9-4370-99b3-ec93c6760c9c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                              "type": "string"
+                            },
+                            {
+                              "key": "authUrl",
+                              "value": "https://accounts.zoho.com/oauth/v2/auth",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "implicit",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/approve/final?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchaseorders",
+                            ":purchaseorder_id",
+                            "approve",
+                            "final"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "087d665d-ba84-4539-a5aa-64d2c76b5034",
+                              "key": "purchaseorder_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique ID of the purchase order."
+                            }
+                          ]
+                        },
+                        "description": "Mark a submitted purchase order as final approved, bypassing the remaining approval sequence."
+                      },
+                      "response": [
+                        {
+                          "id": "7a35ab4d-8c1f-424c-a638-9010a098375b",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/approve/final?organization_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "purchaseorders",
+                                ":purchaseorder_id",
+                                "approve",
+                                "final"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ID of the organization",
+                                  "key": "organization_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "purchaseorder_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:34:22.000Z",
+                          "updatedAt": "2026-10-22T02:34:22.000Z",
+                          "uid": "35240-7a35ab4d-8c1f-424c-a638-9010a098375b"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:34:22.000Z",
+                      "updatedAt": "2026-10-22T02:34:22.000Z",
+                      "uid": "35240-c9368b4c-20b9-4370-99b3-ec93c6760c9c"
+                    }
+                  ],
+                  "id": "fbfc6d45-65df-4eb0-9e86-2542b0806a03",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-fbfc6d45-65df-4eb0-9e86-2542b0806a03"
+                },
+                {
+                  "name": "Approve a purchase order",
+                  "id": "694bbfb5-8c2b-48c0-ad0d-32ec4e52c3e9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/approve?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":purchaseorder_id",
+                        "approve"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "12f4ea44-8baf-41dd-a884-57f8cc89c991",
+                          "key": "purchaseorder_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the purchase order."
+                        }
+                      ]
+                    },
+                    "description": "Approve a submitted purchase order."
+                  },
+                  "response": [
+                    {
+                      "id": "b83d07f0-58ae-452d-ae8e-33ef8cbf8f0f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/approve?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchaseorders",
+                            ":purchaseorder_id",
+                            "approve"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "purchaseorder_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:22.000Z",
+                      "updatedAt": "2026-10-22T02:34:22.000Z",
+                      "uid": "35240-b83d07f0-58ae-452d-ae8e-33ef8cbf8f0f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-694bbfb5-8c2b-48c0-ad0d-32ec4e52c3e9"
+                }
+              ],
+              "id": "071ba616-9f97-41c8-80a5-e864d7c4e66a",
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-071ba616-9f97-41c8-80a5-e864d7c4e66a"
+            },
+            {
+              "name": "reject",
+              "item": [
+                {
+                  "name": "Reject a purchase order",
+                  "id": "a3bfeb02-691c-4382-ba08-47b1c85a87c3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"reason\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/reject?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":purchaseorder_id",
+                        "reject"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "dc960ddf-d19f-4880-85b7-dca4c40c99ad",
+                          "key": "purchaseorder_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique ID of the purchase order."
+                        }
+                      ]
+                    },
+                    "description": "Reject a submitted purchase order."
+                  },
+                  "response": [
+                    {
+                      "id": "0a2ba065-d497-4387-b0bd-85ae3eb3ce79",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id/reject?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "purchaseorders",
+                            ":purchaseorder_id",
+                            "reject"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "purchaseorder_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:22.000Z",
+                      "updatedAt": "2026-10-22T02:34:22.000Z",
+                      "uid": "35240-0a2ba065-d497-4387-b0bd-85ae3eb3ce79"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-a3bfeb02-691c-4382-ba08-47b1c85a87c3"
+                }
+              ],
+              "id": "739b5953-1577-4d2c-80d0-6f46a7d89626",
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-739b5953-1577-4d2c-80d0-6f46a7d89626"
+            },
+            {
+              "name": "Retrieve a Purchase Order",
+              "id": "9898b04f-97aa-4d96-b43b-a287f91cb14f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "d42fdcda-5966-4fd0-8c0b-b1cfc74b5b8d",
+                      "key": "purchaseorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "description": "Retrieves the details for an existing Purchase Order."
+              },
+              "response": [
+                {
+                  "id": "bb3c0776-d9b0-44d3-9ca4-8f1a334be4e8",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":purchaseorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "purchaseorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"purchase_order\": {\n    \"purchaseorder_id\": \"<string>\",\n    \"purchaseorder_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"expected_delivery_date\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"status\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"delivery_date\": \"<string>\",\n    \"salesorder_id\": \"<string>\",\n    \"is_drop_shipment\": \"<boolean>\",\n    \"is_backorder\": \"<boolean>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_received\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"item_total\": \"<double>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"<string>\",\n        \"reverse_charge_tax_percentage\": \"<double>\",\n        \"reverse_charge_tax_amount\": \"<double>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_received\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"item_total\": \"<double>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"<string>\",\n        \"reverse_charge_tax_percentage\": \"<double>\",\n        \"reverse_charge_tax_amount\": \"<double>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"pricebook_id\": \"<string>\",\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"notes\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"ship_via\": \"<string>\",\n    \"ship_via_id\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"delivery_org_address_id\": \"<string>\",\n    \"delivery_customer_id\": \"<string>\",\n    \"delivery_customer_name\": \"<string>\",\n    \"delivery_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"attachment_name\": \"<string>\",\n    \"can_send_in_mail\": \"<boolean>\",\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\",\n    \"purchasereceives\": [\n      {\n        \"receive_id\": \"<string>\",\n        \"receive_number\": \"<string>\",\n        \"date\": \"<string>\",\n        \"notes\": \"<string>\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"receive_id\": \"<string>\",\n        \"receive_number\": \"<string>\",\n        \"date\": \"<string>\",\n        \"notes\": \"<string>\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"bills\": [\n      {\n        \"bill_id\": \"<string>\",\n        \"bill_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      },\n      {\n        \"bill_id\": \"<string>\",\n        \"bill_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      }\n    ],\n    \"gst_treatment\": \"<string>\",\n    \"gst_no\": \"<string>\",\n    \"source_of_supply\": \"<string>\",\n    \"destination_of_supply\": \"<string>\",\n    \"is_pre_gst\": \"<boolean>\",\n    \"is_reverse_charge_applied\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-bb3c0776-d9b0-44d3-9ca4-8f1a334be4e8"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-9898b04f-97aa-4d96-b43b-a287f91cb14f"
+            },
+            {
+              "name": "Update a Purchase Order",
+              "id": "0558d98a-ee1f-4006-a7b1-dc0f08a0d965",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"purchaseorder_number\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"expected_delivery_date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"ship_via\": \"<string>\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": \"<boolean>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"attention\": \"<string>\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>.",
+                      "key": "ignore_auto_number_generation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "67ba204f-577c-488f-80a4-1621f3c62822",
+                      "key": "purchaseorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "description": "Updates a new Purchase Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto Purchase order number generation for this Purchase Order. This mandates the Purchase Order number to be entered. Allowed Values true and false."
+              },
+              "response": [
+                {
+                  "id": "bad22eee-76ab-413f-911f-446a8c332875",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"purchaseorder_number\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"line_item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"expected_delivery_date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"ship_via\": \"<string>\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": \"<boolean>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"attention\": \"<string>\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":purchaseorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>.",
+                          "key": "ignore_auto_number_generation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "purchaseorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"purchase_order\": {\n    \"purchaseorder_id\": \"<string>\",\n    \"purchaseorder_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"expected_delivery_date\": \"<string>\",\n    \"reference_number\": \"<string>\",\n    \"status\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"delivery_date\": \"<string>\",\n    \"salesorder_id\": \"<string>\",\n    \"is_drop_shipment\": \"<boolean>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_received\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"item_total\": \"<double>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"<string>\",\n        \"reverse_charge_tax_percentage\": \"<double>\",\n        \"reverse_charge_tax_amount\": \"<double>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_received\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"item_total\": \"<double>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"<string>\",\n        \"reverse_charge_tax_percentage\": \"<double>\",\n        \"reverse_charge_tax_amount\": \"<double>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"sub_total\": \"<double>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"pricebook_id\": \"<string>\",\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"notes\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"ship_via\": \"<string>\",\n    \"ship_via_id\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"delivery_org_address_id\": \"<string>\",\n    \"delivery_customer_id\": \"<string>\",\n    \"delivery_customer_name\": \"<string>\",\n    \"delivery_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"attachment_name\": \"<string>\",\n    \"can_send_in_mail\": \"<boolean>\",\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\",\n    \"purchasereceives\": [\n      {\n        \"receive_id\": \"<string>\",\n        \"receive_number\": \"<string>\",\n        \"date\": \"<string>\",\n        \"notes\": \"<string>\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"receive_id\": \"<string>\",\n        \"receive_number\": \"<string>\",\n        \"date\": \"<string>\",\n        \"notes\": \"<string>\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"bills\": [\n      {\n        \"bill_id\": \"<string>\",\n        \"bill_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      },\n      {\n        \"bill_id\": \"<string>\",\n        \"bill_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      }\n    ],\n    \"gst_treatment\": \"<string>\",\n    \"gst_no\": \"<string>\",\n    \"source_of_supply\": \"<string>\",\n    \"destination_of_supply\": \"<string>\",\n    \"is_pre_gst\": \"<boolean>\",\n    \"is_reverse_charge_applied\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-bad22eee-76ab-413f-911f-446a8c332875"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-0558d98a-ee1f-4006-a7b1-dc0f08a0d965"
+            },
+            {
+              "name": "Delete a Purchase Order",
+              "id": "4757a942-994d-4891-a7bd-10ef7c60b2f4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders",
+                    ":purchaseorder_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "ca0f5faa-ee93-4d15-a68f-bcea0e2c5c31",
+                      "key": "purchaseorder_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the purchase order."
+                    }
+                  ]
+                },
+                "description": "Deletes a Purchase Order from Zoho Inventory."
+              },
+              "response": [
+                {
+                  "id": "afe178d2-daf5-4472-867b-9652786ea89c",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/:purchaseorder_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        ":purchaseorder_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "purchaseorder_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-afe178d2-daf5-4472-867b-9652786ea89c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-4757a942-994d-4891-a7bd-10ef7c60b2f4"
+            }
+          ],
+          "id": "16b8148c-7a1a-45b7-861e-430ec616b99e",
+          "createdAt": "2026-10-22T02:34:22.000Z",
+          "updatedAt": "2026-10-22T02:34:22.000Z",
+          "uid": "35240-16b8148c-7a1a-45b7-861e-430ec616b99e"
+        },
+        {
+          "name": "submit",
+          "item": [
+            {
+              "name": "Bulk submit purchase orders for approval",
+              "id": "7902435d-1ae7-4c20-9791-7693f0a49514",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders/submit?organization_id=<string>&purchaseorder_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders",
+                    "submit"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of purchase order IDs to submit for approval.",
+                      "key": "purchaseorder_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Submit multiple purchase orders for approval workflow at once."
+              },
+              "response": [
+                {
+                  "id": "e8f60e0d-6613-4ba5-a102-b5d417672a64",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/submit?organization_id=<string>&purchaseorder_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        "submit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of purchase order IDs to submit for approval.",
+                          "key": "purchaseorder_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-e8f60e0d-6613-4ba5-a102-b5d417672a64"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-7902435d-1ae7-4c20-9791-7693f0a49514"
+            }
+          ],
+          "id": "18ccd84d-eb1f-4b92-a66b-611d630fb0c9",
+          "createdAt": "2026-10-22T02:34:22.000Z",
+          "updatedAt": "2026-10-22T02:34:22.000Z",
+          "uid": "35240-18ccd84d-eb1f-4b92-a66b-611d630fb0c9"
+        },
+        {
+          "name": "approve",
+          "item": [
+            {
+              "name": "Bulk approve purchase orders",
+              "id": "41b31765-534b-4bcc-836e-5e66542a0dee",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders/approve?organization_id=<string>&purchaseorder_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders",
+                    "approve"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of purchase order IDs to approve.",
+                      "key": "purchaseorder_ids",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Approve multiple submitted purchase orders at once."
+              },
+              "response": [
+                {
+                  "id": "107aa17b-77fb-4b89-80e8-8747da9011f0",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/purchaseorders/approve?organization_id=<string>&purchaseorder_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "purchaseorders",
+                        "approve"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of purchase order IDs to approve.",
+                          "key": "purchaseorder_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:22.000Z",
+                  "updatedAt": "2026-10-22T02:34:22.000Z",
+                  "uid": "35240-107aa17b-77fb-4b89-80e8-8747da9011f0"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-41b31765-534b-4bcc-836e-5e66542a0dee"
+            }
+          ],
+          "id": "1b367c75-04e7-4628-b45c-8970f6cbc593",
+          "createdAt": "2026-10-22T02:34:22.000Z",
+          "updatedAt": "2026-10-22T02:34:22.000Z",
+          "uid": "35240-1b367c75-04e7-4628-b45c-8970f6cbc593"
+        },
+        {
+          "name": "Create a Purchase Order",
+          "id": "208e1c7d-b0e7-45fa-8432-fd2928c32e87",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchaseorder_number\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"delivery_date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"ship_via\": \"<string>\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": \"<boolean>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"is_backorder\": \"<boolean>\",\n  \"template_id\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"attention\": \"<string>\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"documents\": [\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    },\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    }\n  ],\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/purchaseorders?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "purchaseorders"
+              ],
+              "query": [
+                {
+                  "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>.",
+                  "key": "ignore_auto_number_generation",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a new Purchase Order in Zoho Inventory. Description about extra parameter ignore_auto_number_generation - Ignore auto purchase order number generation for this Purchase order. This mandates the Purchase Order number to be entered. Allowed Values true and false."
+          },
+          "response": [
+            {
+              "id": "999dcc43-42e7-49ee-beaf-29af5a36e2b5",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"purchaseorder_number\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"line_items\": [\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"item_id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"item_order\": \"<integer>\",\n      \"bcy_rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"quantity\": \"<double>\",\n      \"quantity_received\": \"<double>\",\n      \"unit\": \"<string>\",\n      \"item_total\": \"<double>\",\n      \"tax_id\": \"<string>\",\n      \"tds_tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_type\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"image_id\": \"<double>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"reverse_charge_tax_id\": \"<string>\",\n      \"hsn_or_sac\": \"<string>\",\n      \"tax_exemption_code\": \"<string>\",\n      \"location_id\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"salesorder_item_id\": \"<string>\",\n      \"item_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"date\": \"<string>\",\n  \"delivery_date\": \"<string>\",\n  \"reference_number\": \"<string>\",\n  \"ship_via\": \"<string>\",\n  \"salesorder_id\": \"<string>\",\n  \"is_drop_shipment\": \"<boolean>\",\n  \"is_inclusive_tax\": \"<boolean>\",\n  \"is_backorder\": \"<boolean>\",\n  \"template_id\": \"<string>\",\n  \"contact_persons_associated\": [\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"contact_person_id\": \"<string>\",\n      \"communication_preference\": {\n        \"is_email_enabled\": \"<boolean>\",\n        \"is_whatsapp_enabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"attention\": \"<string>\",\n  \"delivery_org_address_id\": \"<string>\",\n  \"delivery_customer_id\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"terms\": \"<string>\",\n  \"exchange_rate\": \"<double>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"location_id\": \"<string>\",\n  \"documents\": [\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    },\n    {\n      \"can_send_in_mail\": \"<boolean>\",\n      \"file_name\": \"<string>\",\n      \"file_type\": \"<string>\",\n      \"file_size_formatted\": \"<string>\",\n      \"attachment_order\": \"<integer>\",\n      \"document_id\": \"<string>\",\n      \"file_size\": \"<long>\"\n    }\n  ],\n  \"gst_treatment\": \"<string>\",\n  \"tax_treatment\": \"<string>\",\n  \"gst_no\": \"<string>\",\n  \"source_of_supply\": \"<string>\",\n  \"destination_of_supply\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders?ignore_auto_number_generation=<boolean>&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ignore auto purchase order number generation for this purchase order. This mandates the purchase order number. Allowed values are <code> true </code> , <code> false </code>.",
+                      "key": "ignore_auto_number_generation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"purchase_order\": {\n    \"purchaseorder_id\": \"<string>\",\n    \"documents\": [\n      {\n        \"can_send_in_mail\": \"<boolean>\",\n        \"file_name\": \"<string>\",\n        \"file_type\": \"<string>\",\n        \"file_size_formatted\": \"<string>\",\n        \"attachment_order\": \"<integer>\",\n        \"document_id\": \"<string>\",\n        \"file_size\": \"<long>\"\n      },\n      {\n        \"can_send_in_mail\": \"<boolean>\",\n        \"file_name\": \"<string>\",\n        \"file_type\": \"<string>\",\n        \"file_size_formatted\": \"<string>\",\n        \"attachment_order\": \"<integer>\",\n        \"document_id\": \"<string>\",\n        \"file_size\": \"<long>\"\n      }\n    ],\n    \"purchaseorder_number\": \"<string>\",\n    \"date\": \"<string>\",\n    \"expected_delivery_date\": \"<string>\",\n    \"date_formatted\": \"<string>\",\n    \"expected_delivery_date_formatted\": \"<string>\",\n    \"delivery_date_formatted\": \"<string>\",\n    \"status_formatted\": \"<string>\",\n    \"billed_status\": \"<integer>\",\n    \"is_emailed\": \"<boolean>\",\n    \"is_inclusive_tax\": \"<boolean>\",\n    \"is_backorder\": \"<boolean>\",\n    \"reference_number\": \"<string>\",\n    \"status\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"contact_persons_associated\": [\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      },\n      {\n        \"contact_person_id\": \"<string>\",\n        \"contact_person_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"last_name\": \"<string>\",\n        \"contact_person_email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"mobile\": \"<string>\",\n        \"communication_preference\": {\n          \"is_email_enabled\": \"<boolean>\",\n          \"is_whatsapp_enabled\": \"<boolean>\"\n        }\n      }\n    ],\n    \"comments\": [\n      {\n        \"comment_id\": \"<string>\",\n        \"purchaseorder_id\": \"<string>\",\n        \"commented_by\": \"<string>\",\n        \"comment_type\": \"<string>\",\n        \"date_description\": \"<string>\",\n        \"time\": \"<string>\",\n        \"operation_type\": \"<string>\",\n        \"transaction_id\": \"<string>\",\n        \"transaction_type\": \"<string>\"\n      },\n      {\n        \"comment_id\": \"<string>\",\n        \"purchaseorder_id\": \"<string>\",\n        \"commented_by\": \"<string>\",\n        \"comment_type\": \"<string>\",\n        \"date_description\": \"<string>\",\n        \"time\": \"<string>\",\n        \"operation_type\": \"<string>\",\n        \"transaction_id\": \"<string>\",\n        \"transaction_type\": \"<string>\"\n      }\n    ],\n    \"currency_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"currency_symbol\": \"<string>\",\n    \"exchange_rate\": \"<double>\",\n    \"delivery_date\": \"<string>\",\n    \"salesorder_id\": \"<string>\",\n    \"is_drop_shipment\": \"<boolean>\",\n    \"custom_fields\": [\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"customfield_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"line_items\": [\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_received\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"item_total\": \"<double>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"<string>\",\n        \"reverse_charge_tax_percentage\": \"<double>\",\n        \"reverse_charge_tax_amount\": \"<double>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"item_id\": \"<string>\",\n        \"line_item_id\": \"<string>\",\n        \"account_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"item_order\": \"<integer>\",\n        \"bcy_rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"quantity_received\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"item_total\": \"<double>\",\n        \"tax_id\": \"<string>\",\n        \"tds_tax_id\": \"<string>\",\n        \"tax_name\": \"<string>\",\n        \"tax_type\": \"<string>\",\n        \"tax_percentage\": \"<double>\",\n        \"image_id\": \"<double>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"reverse_charge_tax_id\": \"<string>\",\n        \"reverse_charge_tax_name\": \"<string>\",\n        \"reverse_charge_tax_percentage\": \"<double>\",\n        \"reverse_charge_tax_amount\": \"<double>\",\n        \"hsn_or_sac\": \"<string>\",\n        \"tax_exemption_code\": \"<string>\",\n        \"location_id\": \"<string>\",\n        \"location_name\": \"<string>\",\n        \"tax_exemption_id\": \"<string>\",\n        \"salesorder_item_id\": \"<string>\",\n        \"item_custom_fields\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"location_id\": \"<string>\",\n    \"location_name\": \"<string>\",\n    \"sub_total\": \"<double>\",\n    \"sub_total_formatted\": \"<string>\",\n    \"tax_total\": \"<double>\",\n    \"total\": \"<double>\",\n    \"taxes\": [\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      },\n      {\n        \"tax_name\": \"<string>\",\n        \"tax_amount\": \"<double>\"\n      }\n    ],\n    \"price_precision\": \"<integer>\",\n    \"pricebook_id\": \"<string>\",\n    \"billing_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"notes\": \"<string>\",\n    \"terms\": \"<string>\",\n    \"ship_via\": \"<string>\",\n    \"ship_via_id\": \"<string>\",\n    \"attention\": \"<string>\",\n    \"delivery_org_address_id\": \"<string>\",\n    \"delivery_customer_id\": \"<string>\",\n    \"delivery_customer_name\": \"<string>\",\n    \"delivery_address\": [\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"country\": \"<string>\",\n        \"fax\": \"<string>\"\n      }\n    ],\n    \"attachment_name\": \"<string>\",\n    \"can_send_in_mail\": \"<boolean>\",\n    \"template_id\": \"<string>\",\n    \"template_name\": \"<string>\",\n    \"template_type\": \"<string>\",\n    \"created_time\": \"<string>\",\n    \"last_modified_time\": \"<string>\",\n    \"purchasereceives\": [\n      {\n        \"receive_id\": \"<string>\",\n        \"receive_number\": \"<string>\",\n        \"date\": \"<string>\",\n        \"notes\": \"<string>\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"receive_id\": \"<string>\",\n        \"receive_number\": \"<string>\",\n        \"date\": \"<string>\",\n        \"notes\": \"<string>\",\n        \"line_items\": [\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"item_id\": \"<string>\",\n            \"line_item_id\": \"<string>\",\n            \"account_id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"description\": \"<string>\",\n            \"item_order\": \"<integer>\",\n            \"bcy_rate\": \"<double>\",\n            \"purchase_rate\": \"<double>\",\n            \"quantity\": \"<double>\",\n            \"quantity_received\": \"<double>\",\n            \"unit\": \"<string>\",\n            \"item_total\": \"<double>\",\n            \"tax_id\": \"<string>\",\n            \"tds_tax_id\": \"<string>\",\n            \"tax_name\": \"<string>\",\n            \"tax_type\": \"<string>\",\n            \"tax_percentage\": \"<double>\",\n            \"image_id\": \"<double>\",\n            \"image_name\": \"<string>\",\n            \"image_type\": \"<string>\",\n            \"reverse_charge_tax_id\": \"<string>\",\n            \"reverse_charge_tax_name\": \"<string>\",\n            \"reverse_charge_tax_percentage\": \"<double>\",\n            \"reverse_charge_tax_amount\": \"<double>\",\n            \"hsn_or_sac\": \"<string>\",\n            \"tax_exemption_code\": \"<string>\",\n            \"location_id\": \"<string>\",\n            \"location_name\": \"<string>\",\n            \"tax_exemption_id\": \"<string>\",\n            \"salesorder_item_id\": \"<string>\",\n            \"item_custom_fields\": [\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"label\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"bills\": [\n      {\n        \"bill_id\": \"<string>\",\n        \"bill_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      },\n      {\n        \"bill_id\": \"<string>\",\n        \"bill_number\": \"<string>\",\n        \"status\": \"<string>\",\n        \"date\": \"<string>\",\n        \"due_date\": \"<string>\",\n        \"total\": \"<double>\",\n        \"balance\": \"<double>\"\n      }\n    ],\n    \"gst_treatment\": \"<string>\",\n    \"gst_no\": \"<string>\",\n    \"source_of_supply\": \"<string>\",\n    \"destination_of_supply\": \"<string>\",\n    \"is_pre_gst\": \"<boolean>\",\n    \"is_reverse_charge_applied\": \"<boolean>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-999dcc43-42e7-49ee-beaf-29af5a36e2b5"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:22.000Z",
+          "updatedAt": "2026-10-22T02:34:22.000Z",
+          "uid": "35240-208e1c7d-b0e7-45fa-8432-fd2928c32e87"
+        },
+        {
+          "name": "List all Purchase Orders",
+          "id": "1e9020a4-26e5-487d-a6bb-0e2cd51758ba",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.purchaseorders.CREATE ZohoInventory.purchaseorders.READ ZohoInventory.purchaseorders.UPDATE ZohoInventory.purchaseorders.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/purchaseorders?page=1&per_page=200&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "purchaseorders"
+              ],
+              "query": [
+                {
+                  "description": "Page number to be fetched. Default value is 1.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Number of records to be fetched per page. Default value is 200.",
+                  "key": "per_page",
+                  "value": "200"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Lists all the Purchase Orders present in Zoho Inventory."
+          },
+          "response": [
+            {
+              "id": "c4df510d-7b37-4299-8790-7254d249ead1",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/purchaseorders?page=1&per_page=200&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purchaseorders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number to be fetched. Default value is 1.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of records to be fetched per page. Default value is 200.",
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"purchaseorders\": [\n    {\n      \"purchaseorder_id\": \"<string>\",\n      \"vendor_id\": \"<string>\",\n      \"vendor_name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"purchaseorder_number\": \"<string>\",\n      \"reference_number\": \"<string>\",\n      \"date\": \"<string>\",\n      \"delivery_date\": \"<string>\",\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"total\": \"<double>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"created_time\": \"<string>\",\n      \"last_modified_time\": \"<string>\",\n      \"is_drop_shipment\": \"<boolean>\",\n      \"is_backorder\": \"<boolean>\",\n      \"receives\": [\n        {\n          \"receive_id\": \"<string>\",\n          \"receive_number\": \"<string>\"\n        },\n        {\n          \"receive_id\": \"<string>\",\n          \"receive_number\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"purchaseorder_id\": \"<string>\",\n      \"vendor_id\": \"<string>\",\n      \"vendor_name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"purchaseorder_number\": \"<string>\",\n      \"reference_number\": \"<string>\",\n      \"date\": \"<string>\",\n      \"delivery_date\": \"<string>\",\n      \"currency_id\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"price_precision\": \"<integer>\",\n      \"total\": \"<double>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"created_time\": \"<string>\",\n      \"last_modified_time\": \"<string>\",\n      \"is_drop_shipment\": \"<boolean>\",\n      \"is_backorder\": \"<boolean>\",\n      \"receives\": [\n        {\n          \"receive_id\": \"<string>\",\n          \"receive_number\": \"<string>\"\n        },\n        {\n          \"receive_id\": \"<string>\",\n          \"receive_number\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:34:22.000Z",
+              "updatedAt": "2026-10-22T02:34:22.000Z",
+              "uid": "35240-c4df510d-7b37-4299-8790-7254d249ead1"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:22.000Z",
+          "updatedAt": "2026-10-22T02:34:22.000Z",
+          "uid": "35240-1e9020a4-26e5-487d-a6bb-0e2cd51758ba"
+        }
+      ],
+      "id": "365e30fa-59a4-419e-8b50-4986f4359daf",
+      "createdAt": "2026-10-22T02:34:22.000Z",
+      "updatedAt": "2026-10-22T02:34:22.000Z",
+      "uid": "35240-365e30fa-59a4-419e-8b50-4986f4359daf"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
+    }
+  ]
+}

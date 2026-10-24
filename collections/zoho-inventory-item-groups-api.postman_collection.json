@@ -1,0 +1,960 @@
+{
+  "info": {
+    "_postman_id": "88846d66-907e-4f60-b300-8e02e5ef5aa0",
+    "name": "Item Groups Itemgroups API",
+    "description": "Item Group are the products that you sell or services that you render to various clients and can be purchased from various vendors in a business. Create and manage the item groups your business deals with and also create price lists for specific item and clients.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:34:09.000Z",
+    "updatedAt": "2026-10-22T02:34:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-88846d66-907e-4f60-b300-8e02e5ef5aa0"
+  },
+  "item": [
+    {
+      "name": "itemgroups",
+      "item": [
+        {
+          "name": "{itemgroup_id}",
+          "item": [
+            {
+              "name": "active",
+              "item": [
+                {
+                  "name": "Mark as Active",
+                  "id": "9192058d-2787-49e2-9255-3380fbc3cdc7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/itemgroups/:itemgroup_id/active?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "itemgroups",
+                        ":itemgroup_id",
+                        "active"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6a6a48bb-4cb1-4725-9645-427385a9aa50",
+                          "key": "itemgroup_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the item group."
+                        }
+                      ]
+                    },
+                    "description": "Marks an Item group as Active."
+                  },
+                  "response": [
+                    {
+                      "id": "3f79eb66-af99-4641-b486-b03fc45f6ba3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/itemgroups/:itemgroup_id/active?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "itemgroups",
+                            ":itemgroup_id",
+                            "active"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "itemgroup_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:09.000Z",
+                      "updatedAt": "2026-10-22T02:34:09.000Z",
+                      "uid": "35240-3f79eb66-af99-4641-b486-b03fc45f6ba3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:09.000Z",
+                  "updatedAt": "2026-10-22T02:34:09.000Z",
+                  "uid": "35240-9192058d-2787-49e2-9255-3380fbc3cdc7"
+                }
+              ],
+              "id": "cac269d9-0495-4fea-ae25-2f89caaaa83c",
+              "createdAt": "2026-10-22T02:34:09.000Z",
+              "updatedAt": "2026-10-22T02:34:09.000Z",
+              "uid": "35240-cac269d9-0495-4fea-ae25-2f89caaaa83c"
+            },
+            {
+              "name": "inactive",
+              "item": [
+                {
+                  "name": "Mark as Inactive",
+                  "id": "4ee49077-f671-4476-b0a2-7d9967e19942",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/itemgroups/:itemgroup_id/inactive?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "itemgroups",
+                        ":itemgroup_id",
+                        "inactive"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c0c3e583-046b-4358-a46e-29082cce9e21",
+                          "key": "itemgroup_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the item group."
+                        }
+                      ]
+                    },
+                    "description": "Marks as Item Group as Inactive."
+                  },
+                  "response": [
+                    {
+                      "id": "fa67833c-dc89-41e1-8374-e51a509dfaef",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/itemgroups/:itemgroup_id/inactive?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "itemgroups",
+                            ":itemgroup_id",
+                            "inactive"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "itemgroup_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:34:09.000Z",
+                      "updatedAt": "2026-10-22T02:34:09.000Z",
+                      "uid": "35240-fa67833c-dc89-41e1-8374-e51a509dfaef"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:09.000Z",
+                  "updatedAt": "2026-10-22T02:34:09.000Z",
+                  "uid": "35240-4ee49077-f671-4476-b0a2-7d9967e19942"
+                }
+              ],
+              "id": "5174f56e-2640-4d86-83c9-4fcaa8b0816a",
+              "createdAt": "2026-10-22T02:34:09.000Z",
+              "updatedAt": "2026-10-22T02:34:09.000Z",
+              "uid": "35240-5174f56e-2640-4d86-83c9-4fcaa8b0816a"
+            },
+            {
+              "name": "Retrieve an Item Group",
+              "id": "241e1130-1772-4d09-9b8e-41fba269b3b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/itemgroups/:itemgroup_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "407503db-9898-4f6e-80d3-2444cf52e09f",
+                      "key": "itemgroup_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "description": "Fetches the details for an existing Item Group."
+              },
+              "response": [
+                {
+                  "id": "f729e691-64a7-4ee6-a9a4-71330218db96",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/itemgroups/:itemgroup_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "itemgroups",
+                        ":itemgroup_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "itemgroup_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"group_id\": \"<string>\",\n  \"group_name\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"description\": \"<string>\",\n  \"is_taxable\": \"<boolean>\",\n  \"tax_id\": \"<string>\",\n  \"tax_name\": \"<string>\",\n  \"tax_percentage\": \"<double>\",\n  \"tax_type\": \"<string>\",\n  \"attribute_id1\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"status\": \"<string>\",\n  \"source\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"image_name\": \"<string>\",\n  \"image_type\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"items\": {\n    \"item_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"<string>\",\n    \"rate\": \"<double>\",\n    \"purchase_rate\": \"<double>\",\n    \"reorder_level\": \"<double>\",\n    \"initial_stock\": \"<double>\",\n    \"initial_stock_rate\": \"<double>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"stock_on_hand\": \"<double>\",\n    \"sku\": \"<string>\",\n    \"upc\": \"<long>\",\n    \"ean\": \"<long>\",\n    \"isbn\": \"<string>\",\n    \"part_number\": \"<string>\",\n    \"attribute_option_id1\": \"<string>\",\n    \"attribute_option_name1\": \"<long>\",\n    \"image_id\": \"<string>\",\n    \"image_name\": \"<string>\",\n    \"image_type\": \"<string>\"\n  },\n  \"attributes\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"options\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  },\n  \"options\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:34:09.000Z",
+                  "updatedAt": "2026-10-22T02:34:09.000Z",
+                  "uid": "35240-f729e691-64a7-4ee6-a9a4-71330218db96"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:09.000Z",
+              "updatedAt": "2026-10-22T02:34:09.000Z",
+              "uid": "35240-241e1130-1772-4d09-9b8e-41fba269b3b2"
+            },
+            {
+              "name": "Update an Item Group",
+              "id": "6c309618-bea2-4538-a54b-d1ea834e9242",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group_name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rate\": \"<double>\",\n  \"purchase_rate\": \"<double>\",\n  \"sku\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/itemgroups/:itemgroup_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "8ca1992a-2b6d-4b7f-b4d2-5bc823ad7a95",
+                      "key": "itemgroup_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "description": "Updates the details of an existing Item Group."
+              },
+              "response": [
+                {
+                  "id": "06f9e688-0c24-4e0d-9be2-35e3f4a8fad7",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"group_name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rate\": \"<double>\",\n  \"purchase_rate\": \"<double>\",\n  \"sku\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/itemgroups/:itemgroup_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "itemgroups",
+                        ":itemgroup_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "itemgroup_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"group_id\": \"<string>\",\n  \"group_name\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"description\": \"<string>\",\n  \"is_taxable\": \"<boolean>\",\n  \"tax_id\": \"<string>\",\n  \"tax_name\": \"<string>\",\n  \"tax_percentage\": \"<double>\",\n  \"tax_type\": \"<string>\",\n  \"attribute_id1\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"source\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"image_name\": \"<string>\",\n  \"image_type\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:09.000Z",
+                  "updatedAt": "2026-10-22T02:34:09.000Z",
+                  "uid": "35240-06f9e688-0c24-4e0d-9be2-35e3f4a8fad7"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:09.000Z",
+              "updatedAt": "2026-10-22T02:34:09.000Z",
+              "uid": "35240-6c309618-bea2-4538-a54b-d1ea834e9242"
+            },
+            {
+              "name": "Delete an Item Group",
+              "id": "444c9629-231a-4b3b-8e79-6d2d88a43a7b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/itemgroups/:itemgroup_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "itemgroups",
+                    ":itemgroup_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "b51f0832-34c5-488b-b79f-5f0500419c5e",
+                      "key": "itemgroup_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the item group."
+                    }
+                  ]
+                },
+                "description": "Deletes an existing Item Group from Zoho Inventory."
+              },
+              "response": [
+                {
+                  "id": "2ac7c6ae-3da0-49f2-8f4d-1fb3eb6362de",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/itemgroups/:itemgroup_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "itemgroups",
+                        ":itemgroup_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "itemgroup_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:34:09.000Z",
+                  "updatedAt": "2026-10-22T02:34:09.000Z",
+                  "uid": "35240-2ac7c6ae-3da0-49f2-8f4d-1fb3eb6362de"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:09.000Z",
+              "updatedAt": "2026-10-22T02:34:09.000Z",
+              "uid": "35240-444c9629-231a-4b3b-8e79-6d2d88a43a7b"
+            }
+          ],
+          "id": "ae944537-ba47-4481-8596-fe1920aec210",
+          "createdAt": "2026-10-22T02:34:09.000Z",
+          "updatedAt": "2026-10-22T02:34:09.000Z",
+          "uid": "35240-ae944537-ba47-4481-8596-fe1920aec210"
+        },
+        {
+          "name": "Create an Item Group",
+          "id": "eb501038-af20-4920-9934-ac3923f857ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"group_name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"reorder_level\": \"<double>\",\n      \"initial_stock\": \"<double>\",\n      \"initial_stock_rate\": \"<double>\",\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"upc\": \"<long>\",\n      \"ean\": \"<long>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"reorder_level\": \"<double>\",\n      \"initial_stock\": \"<double>\",\n      \"initial_stock_rate\": \"<double>\",\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"upc\": \"<long>\",\n      \"ean\": \"<long>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"attributes\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/itemgroups?organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "itemgroups"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "A new Item Group can a be created. While creating items, user can attach image for product group by passing form-data parameter image i.e., -F image=bag_s.jpg."
+          },
+          "response": [
+            {
+              "id": "7a391613-bf0f-420b-92aa-591abb0c6416",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"group_name\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tax_id\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"reorder_level\": \"<double>\",\n      \"initial_stock\": \"<double>\",\n      \"initial_stock_rate\": \"<double>\",\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"upc\": \"<long>\",\n      \"ean\": \"<long>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"rate\": \"<double>\",\n      \"purchase_rate\": \"<double>\",\n      \"reorder_level\": \"<double>\",\n      \"initial_stock\": \"<double>\",\n      \"initial_stock_rate\": \"<double>\",\n      \"vendor_id\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"upc\": \"<long>\",\n      \"ean\": \"<long>\",\n      \"isbn\": \"<string>\",\n      \"part_number\": \"<string>\",\n      \"attribute_option_name1\": \"<long>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"attributes\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"options\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/itemgroups?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "itemgroups"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"group_id\": \"<string>\",\n  \"group_name\": \"<string>\",\n  \"documents\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"brand\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"unit\": \"<string>\",\n  \"description\": \"<string>\",\n  \"is_taxable\": \"<boolean>\",\n  \"tax_id\": \"<string>\",\n  \"tax_name\": \"<string>\",\n  \"tax_percentage\": \"<double>\",\n  \"tax_type\": \"<string>\",\n  \"attribute_id1\": \"<string>\",\n  \"attribute_name1\": \"<string>\",\n  \"status\": \"<string>\",\n  \"source\": \"<string>\",\n  \"image_id\": \"<string>\",\n  \"image_name\": \"<string>\",\n  \"image_type\": \"<string>\",\n  \"custom_fields\": [\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"customfield_id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"items\": {\n    \"item_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"<string>\",\n    \"rate\": \"<double>\",\n    \"purchase_rate\": \"<double>\",\n    \"reorder_level\": \"<double>\",\n    \"initial_stock\": \"<double>\",\n    \"initial_stock_rate\": \"<double>\",\n    \"vendor_id\": \"<string>\",\n    \"vendor_name\": \"<string>\",\n    \"stock_on_hand\": \"<double>\",\n    \"sku\": \"<string>\",\n    \"upc\": \"<long>\",\n    \"ean\": \"<long>\",\n    \"isbn\": \"<string>\",\n    \"part_number\": \"<string>\",\n    \"attribute_option_id1\": \"<string>\",\n    \"attribute_option_name1\": \"<long>\",\n    \"image_id\": \"<string>\",\n    \"image_name\": \"<string>\",\n    \"image_type\": \"<string>\",\n    \"actual_available_stock\": \"<number>\",\n    \"available_stock\": \"<number>\"\n  },\n  \"attributes\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"options\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-10-22T02:34:09.000Z",
+              "updatedAt": "2026-10-22T02:34:09.000Z",
+              "uid": "35240-7a391613-bf0f-420b-92aa-591abb0c6416"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:09.000Z",
+          "updatedAt": "2026-10-22T02:34:09.000Z",
+          "uid": "35240-eb501038-af20-4920-9934-ac3923f857ae"
+        },
+        {
+          "name": "List all Item Groups",
+          "id": "87a1d911-aff2-414c-ba5d-09687ce13a6c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/itemgroups?page=1&per_page=200&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "itemgroups"
+              ],
+              "query": [
+                {
+                  "description": "Page number to be fetched. Default value is 1.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Number of records to be fetched per page. Default value is 200.",
+                  "key": "per_page",
+                  "value": "200"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Lists all the Item Groups that are present in the Zoho Inventory organization."
+          },
+          "response": [
+            {
+              "id": "d8123509-3e5b-4912-881a-944ab329a9e5",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/itemgroups?page=1&per_page=200&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "itemgroups"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number to be fetched. Default value is 1.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of records to be fetched per page. Default value is 200.",
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"itemgroups\": [\n    {\n      \"group_id\": \"<string>\",\n      \"group_name\": \"<string>\",\n      \"product_type\": \"<string>\",\n      \"brand\": \"<string>\",\n      \"manufacturer\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"description\": \"<string>\",\n      \"is_taxable\": \"<boolean>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"tax_type\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"attribute_id1\": \"<string>\",\n      \"attribute_name1\": \"<string>\",\n      \"status\": \"<string>\",\n      \"source\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"items\": {\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"status\": \"<string>\",\n        \"rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"reorder_level\": \"<double>\",\n        \"initial_stock\": \"<double>\",\n        \"initial_stock_rate\": \"<double>\",\n        \"vendor_id\": \"<string>\",\n        \"vendor_name\": \"<string>\",\n        \"stock_on_hand\": \"<double>\",\n        \"sku\": \"<string>\",\n        \"upc\": \"<long>\",\n        \"ean\": \"<long>\",\n        \"isbn\": \"<string>\",\n        \"part_number\": \"<string>\",\n        \"attribute_option_id1\": \"<string>\",\n        \"attribute_option_name1\": \"<long>\",\n        \"image_id\": \"<string>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"available_stock\": \"<number>\",\n        \"actual_available_stock\": \"<number>\"\n      },\n      \"created_time\": \"<string>\",\n      \"last_modified_time\": \"<string>\"\n    },\n    {\n      \"group_id\": \"<string>\",\n      \"group_name\": \"<string>\",\n      \"product_type\": \"<string>\",\n      \"brand\": \"<string>\",\n      \"manufacturer\": \"<string>\",\n      \"unit\": \"<string>\",\n      \"description\": \"<string>\",\n      \"is_taxable\": \"<boolean>\",\n      \"tax_id\": \"<string>\",\n      \"tax_name\": \"<string>\",\n      \"tax_percentage\": \"<double>\",\n      \"tax_type\": \"<string>\",\n      \"tax_exemption_id\": \"<string>\",\n      \"attribute_id1\": \"<string>\",\n      \"attribute_name1\": \"<string>\",\n      \"status\": \"<string>\",\n      \"source\": \"<string>\",\n      \"image_id\": \"<string>\",\n      \"image_name\": \"<string>\",\n      \"image_type\": \"<string>\",\n      \"custom_fields\": [\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"customfield_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"items\": {\n        \"item_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"status\": \"<string>\",\n        \"rate\": \"<double>\",\n        \"purchase_rate\": \"<double>\",\n        \"reorder_level\": \"<double>\",\n        \"initial_stock\": \"<double>\",\n        \"initial_stock_rate\": \"<double>\",\n        \"vendor_id\": \"<string>\",\n        \"vendor_name\": \"<string>\",\n        \"stock_on_hand\": \"<double>\",\n        \"sku\": \"<string>\",\n        \"upc\": \"<long>\",\n        \"ean\": \"<long>\",\n        \"isbn\": \"<string>\",\n        \"part_number\": \"<string>\",\n        \"attribute_option_id1\": \"<string>\",\n        \"attribute_option_name1\": \"<long>\",\n        \"image_id\": \"<string>\",\n        \"image_name\": \"<string>\",\n        \"image_type\": \"<string>\",\n        \"available_stock\": \"<number>\",\n        \"actual_available_stock\": \"<number>\"\n      },\n      \"created_time\": \"<string>\",\n      \"last_modified_time\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:34:09.000Z",
+              "updatedAt": "2026-10-22T02:34:09.000Z",
+              "uid": "35240-d8123509-3e5b-4912-881a-944ab329a9e5"
+            }
+          ],
+          "createdAt": "2026-10-22T02:34:09.000Z",
+          "updatedAt": "2026-10-22T02:34:09.000Z",
+          "uid": "35240-87a1d911-aff2-414c-ba5d-09687ce13a6c"
+        }
+      ],
+      "id": "1c37a7ed-073c-4f42-bdfc-4d51fb0af2f8",
+      "createdAt": "2026-10-22T02:34:09.000Z",
+      "updatedAt": "2026-10-22T02:34:09.000Z",
+      "uid": "35240-1c37a7ed-073c-4f42-bdfc-4d51fb0af2f8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
+    }
+  ]
+}

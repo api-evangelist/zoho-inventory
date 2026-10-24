@@ -1,0 +1,380 @@
+{
+  "info": {
+    "_postman_id": "fb2f4da4-8ab0-4500-8f09-ea99c1430e9a",
+    "name": "Serial Numbers Serialnumbers API",
+    "description": "Serial numbers help you track individual units of inventory items by assigning a unique identifier to each unit.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:34:42.000Z",
+    "updatedAt": "2026-10-22T02:34:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fb2f4da4-8ab0-4500-8f09-ea99c1430e9a"
+  },
+  "item": [
+    {
+      "name": "items",
+      "item": [
+        {
+          "name": "serialnumbers",
+          "item": [
+            {
+              "name": "{serial_number_id}",
+              "item": [
+                {
+                  "name": "Retrieve a serial number",
+                  "id": "e2b1534c-33e7-47be-9af3-c48d37f0f291",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.items.READ",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/items/serialnumbers/:serial_number_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        "serialnumbers",
+                        ":serial_number_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "8481ba12-54e1-4944-a692-15d608413f21",
+                          "key": "serial_number_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the serial number."
+                        }
+                      ]
+                    },
+                    "description": "Fetch the details of a specific serial number."
+                  },
+                  "response": [
+                    {
+                      "id": "dcc173c6-d7fc-448c-8c0e-44cede48bdd3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/items/serialnumbers/:serial_number_id?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "items",
+                            "serialnumbers",
+                            ":serial_number_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "serial_number_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"serial_number\": {\n    \"serialnumber_id\": \"<string>\",\n    \"serialnumber\": \"<string>\",\n    \"code\": \"<string>\",\n    \"status\": \"<string>\",\n    \"is_transacted_out\": \"<boolean>\",\n    \"item_id\": \"<string>\",\n    \"price\": \"<float>\",\n    \"custom_fields\": [\n      {\n        \"custom_field_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"custom_field_id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-10-22T02:34:42.000Z",
+                      "updatedAt": "2026-10-22T02:34:42.000Z",
+                      "uid": "35240-dcc173c6-d7fc-448c-8c0e-44cede48bdd3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:34:42.000Z",
+                  "updatedAt": "2026-10-22T02:34:42.000Z",
+                  "uid": "35240-e2b1534c-33e7-47be-9af3-c48d37f0f291"
+                }
+              ],
+              "id": "3c651ad9-4232-46ab-b9a3-eb320996c9d1",
+              "createdAt": "2026-10-22T02:34:42.000Z",
+              "updatedAt": "2026-10-22T02:34:42.000Z",
+              "uid": "35240-3c651ad9-4232-46ab-b9a3-eb320996c9d1"
+            },
+            {
+              "name": "List all serial numbers",
+              "id": "86ebc78a-139f-42ea-aa4e-73241147ddc3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.items.READ",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/items/serialnumbers?item_id=<string>&show_transacted_out=<boolean>&warehouse_id=<string>&location_id=<string>&batch_id=<string>&item_name=<string>&sort_column=serialnumber&sort_order=A&page=1&per_page=200&organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "items",
+                    "serialnumbers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique identifier of the item to fetch serial numbers for.",
+                      "key": "item_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include serial numbers that have already been transacted out. Allowed values <code>true</code> and <code>false</code>.",
+                      "key": "show_transacted_out",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter serial numbers by warehouse ID.",
+                      "key": "warehouse_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter serial numbers by location ID.",
+                      "key": "location_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter serial numbers by batch ID. Use for items with both serial and batch tracking enabled.",
+                      "key": "batch_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search serial numbers by item name.",
+                      "key": "item_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Column to sort the response by. Allowed value <code>serialnumber</code>.",
+                      "key": "sort_column",
+                      "value": "serialnumber"
+                    },
+                    {
+                      "description": "Order of sorting. Allowed values <code>A</code> for ascending and <code>D</code> for descending.",
+                      "key": "sort_order",
+                      "value": "A"
+                    },
+                    {
+                      "description": "Page number to be fetched. Default value is 1.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of records to be fetched per page. Default value is 200.",
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List all serial numbers available for a given item."
+              },
+              "response": [
+                {
+                  "id": "8889823a-fd3d-475d-8e8b-00be53b39e7c",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/items/serialnumbers?item_id=<string>&show_transacted_out=<boolean>&warehouse_id=<string>&location_id=<string>&batch_id=<string>&item_name=<string>&sort_column=serialnumber&sort_order=A&page=1&per_page=200&organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "items",
+                        "serialnumbers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Unique identifier of the item to fetch serial numbers for.",
+                          "key": "item_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include serial numbers that have already been transacted out. Allowed values <code>true</code> and <code>false</code>.",
+                          "key": "show_transacted_out",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter serial numbers by warehouse ID.",
+                          "key": "warehouse_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter serial numbers by location ID.",
+                          "key": "location_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter serial numbers by batch ID. Use for items with both serial and batch tracking enabled.",
+                          "key": "batch_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search serial numbers by item name.",
+                          "key": "item_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Column to sort the response by. Allowed value <code>serialnumber</code>.",
+                          "key": "sort_column",
+                          "value": "serialnumber"
+                        },
+                        {
+                          "description": "Order of sorting. Allowed values <code>A</code> for ascending and <code>D</code> for descending.",
+                          "key": "sort_order",
+                          "value": "A"
+                        },
+                        {
+                          "description": "Page number to be fetched. Default value is 1.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of records to be fetched per page. Default value is 200.",
+                          "key": "per_page",
+                          "value": "200"
+                        },
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"serial_numbers\": [\n    {\n      \"serialnumber_id\": \"<string>\",\n      \"serialnumber\": \"<string>\",\n      \"status\": \"<string>\",\n      \"is_transacted_out\": \"<boolean>\",\n      \"batch_id\": \"<string>\",\n      \"batch_number\": \"<string>\",\n      \"batch_custom_fields\": [\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"custom_fields\": [\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"serialnumber_id\": \"<string>\",\n      \"serialnumber\": \"<string>\",\n      \"status\": \"<string>\",\n      \"is_transacted_out\": \"<boolean>\",\n      \"batch_id\": \"<string>\",\n      \"batch_number\": \"<string>\",\n      \"batch_custom_fields\": [\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"custom_fields\": [\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"custom_field_id\": \"<string>\",\n          \"label\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:34:42.000Z",
+                  "updatedAt": "2026-10-22T02:34:42.000Z",
+                  "uid": "35240-8889823a-fd3d-475d-8e8b-00be53b39e7c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:34:42.000Z",
+              "updatedAt": "2026-10-22T02:34:42.000Z",
+              "uid": "35240-86ebc78a-139f-42ea-aa4e-73241147ddc3"
+            }
+          ],
+          "id": "e59a7e33-c7e8-4aaa-81d0-f227b128b161",
+          "createdAt": "2026-10-22T02:34:42.000Z",
+          "updatedAt": "2026-10-22T02:34:42.000Z",
+          "uid": "35240-e59a7e33-c7e8-4aaa-81d0-f227b128b161"
+        }
+      ],
+      "id": "528dfd71-9e63-4b21-9ac9-331b5bc8bef8",
+      "createdAt": "2026-10-22T02:34:42.000Z",
+      "updatedAt": "2026-10-22T02:34:42.000Z",
+      "uid": "35240-528dfd71-9e63-4b21-9ac9-331b5bc8bef8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
+    }
+  ]
+}

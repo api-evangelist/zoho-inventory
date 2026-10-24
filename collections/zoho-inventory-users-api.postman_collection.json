@@ -1,1184 +1,1231 @@
 {
+  "info": {
+    "_postman_id": "2f671425-6bba-48b1-836f-247d62ffe764",
+    "name": "Users API",
+    "description": "Users are various individuals/entities that are a part of an organisation. Each user will have a different role to play, like admin, staff etc., .",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:33:47.000Z",
+    "updatedAt": "2026-10-22T02:33:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2f671425-6bba-48b1-836f-247d62ffe764"
+  },
   "item": [
     {
-      "id": "7bf73deb-105c-49a4-8f50-854b7c610468",
       "name": "users",
-      "description": {
-        "content": "Users Module",
-        "type": "text/plain"
-      },
       "item": [
         {
-          "id": "167a5573-e6cf-4075-9a56-5c3ae66ce811",
-          "name": "Create a user",
-          "request": {
-            "name": "Create a user",
-            "description": {
-              "content": "Create a user for your organization.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"user_role\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "{user_id}",
+          "item": [
             {
-              "id": "adefe017-7e26-4c14-9d96-4c0584f3354b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+              "name": "invite",
+              "item": [
+                {
+                  "name": "Invite a user",
+                  "id": "10f32c57-7500-4d50-8343-8e6ce3800e5f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"David John\",\n  \"email\": \"johndavid@zilliuminc.com\",\n  \"user_role\": \"admin\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"Your invitation has been sent.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e001f87b-c550-48c4-ae08-fc88d64e01b8",
-          "name": "List Users",
-          "request": {
-            "name": "List Users",
-            "description": {
-              "content": "Get the list of all users in the organization.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "filter_by",
-                  "value": "<string>",
-                  "description": "Criteria used to filter"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort_column",
-                  "value": "<string>",
-                  "description": "Sort users. Allowed Values: <code>name, email, user_role and status</code>"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number to be fetched. Default value is 1."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "200",
-                  "description": "Number of records to be fetched per page. Default value is 200."
-                },
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "fa82e00c-914f-45a0-9c8a-f2392b1b4930",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "filter_by",
-                      "value": ""
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
                     },
-                    {
-                      "key": "sort_column",
-                      "value": "name"
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/invite?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "invite"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0224b458-b959-42a2-b8a2-47b50b78826c",
+                          "key": "user_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user."
+                        }
+                      ]
                     },
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "200"
-                    },
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "description": "Send invitation email to a person, you wish to add as a user to your organisation. For example- an accountant."
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"users\": [\n    {\n      \"user_id\": \"982000000554041\",\n      \"role_id\": \"982000000006005\",\n      \"name\": \"David John\",\n      \"email\": \"johndavid@zilliuminc.com\",\n      \"user_role\": \"admin\",\n      \"user_type\": \"zoho\",\n      \"status\": \"active\",\n      \"is_current_user\": true,\n      \"photo_url\": \"https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb\"\n    },\n    {\n      \"user_id\": \"982000000554041\",\n      \"role_id\": \"982000000006005\",\n      \"name\": \"David John\",\n      \"email\": \"johndavid@zilliuminc.com\",\n      \"user_role\": \"admin\",\n      \"user_type\": \"zoho\",\n      \"status\": \"active\",\n      \"is_current_user\": true,\n      \"photo_url\": \"https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e8ec5b90-097a-4262-9941-a8339e720e71",
-          "name": "Update a user",
-          "request": {
-            "name": "Update a user",
-            "description": {
-              "content": "Update the details of a user.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                ":user_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "user_id",
-                  "description": "(Required) Unique identifier of the user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"user_role\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "80cad144-4805-47d2-ad9d-6da96c4b09ff",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users",
-                    ":user_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "response": [
                     {
-                      "key": "organization_id",
-                      "value": "10234695"
+                      "id": "fce469e1-cece-40b0-8c32-86e495688df7",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/invite?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "invite"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:33:48.000Z",
+                      "updatedAt": "2026-10-22T02:33:48.000Z",
+                      "uid": "35240-fce469e1-cece-40b0-8c32-86e495688df7"
                     }
                   ],
-                  "variable": [
+                  "createdAt": "2026-10-22T02:33:48.000Z",
+                  "updatedAt": "2026-10-22T02:33:48.000Z",
+                  "uid": "35240-10f32c57-7500-4d50-8343-8e6ce3800e5f"
+                }
+              ],
+              "id": "e678bc24-e1fb-49cc-bd1d-7dc84a48b6e7",
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-e678bc24-e1fb-49cc-bd1d-7dc84a48b6e7"
+            },
+            {
+              "name": "active",
+              "item": [
+                {
+                  "name": "Mark user as active",
+                  "id": "61f9d1e4-8f01-411d-88e8-f9f3ee964eac",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/active?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "active"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "48bb4a10-2338-497a-b88a-ba461e5f514f",
+                          "key": "user_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user."
+                        }
+                      ]
+                    },
+                    "description": "Mark an inactive user as active."
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "user_id",
-                      "description": "(Required) Unique identifier of the user."
+                      "id": "64fb9366-38ed-4a84-9e37-b41bd3c7caa3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/active?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "active"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:33:48.000Z",
+                      "updatedAt": "2026-10-22T02:33:48.000Z",
+                      "uid": "35240-64fb9366-38ed-4a84-9e37-b41bd3c7caa3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:33:48.000Z",
+                  "updatedAt": "2026-10-22T02:33:48.000Z",
+                  "uid": "35240-61f9d1e4-8f01-411d-88e8-f9f3ee964eac"
+                }
+              ],
+              "id": "70cb348a-1b0a-4941-add4-3f0269d6edc4",
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-70cb348a-1b0a-4941-add4-3f0269d6edc4"
+            },
+            {
+              "name": "inactive",
+              "item": [
+                {
+                  "name": "Mark user as inactive",
+                  "id": "d93bb4f4-e3f6-4035-994d-026a14a32cfd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                          "type": "string"
+                        },
+                        {
+                          "key": "authUrl",
+                          "value": "https://accounts.zoho.com/oauth/v2/auth",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "implicit",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/inactive?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "inactive"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "69356176-6827-43a7-86f6-6b8e94bb3199",
+                          "key": "user_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user."
+                        }
+                      ]
+                    },
+                    "description": "Mark an active user as inactive."
+                  },
+                  "response": [
+                    {
+                      "id": "04ac5b3b-86aa-4cf5-9840-6e465caadd59",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/inactive?organization_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "inactive"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ID of the organization",
+                              "key": "organization_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:33:48.000Z",
+                      "updatedAt": "2026-10-22T02:33:48.000Z",
+                      "uid": "35240-04ac5b3b-86aa-4cf5-9840-6e465caadd59"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:33:48.000Z",
+                  "updatedAt": "2026-10-22T02:33:48.000Z",
+                  "uid": "35240-d93bb4f4-e3f6-4035-994d-026a14a32cfd"
+                }
+              ],
+              "id": "bfb0c29b-d647-44c0-9559-83d6460a0e67",
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-bfb0c29b-d647-44c0-9559-83d6460a0e67"
+            },
+            {
+              "name": "Update a user",
+              "id": "cffbd4d5-b384-4ea9-9899-d5156f153ac5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
                 "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"David John\",\n  \"email\": \"johndavid@zilliuminc.com\",\n  \"user_role\": \"admin\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"user_role\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The user information has been updated.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ad1a2079-be13-4cf7-bdd8-9e866f0c49c7",
-          "name": "Get a user",
-          "request": {
-            "name": "Get a user",
-            "description": {
-              "content": "Get the details of a user.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                ":user_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "user_id",
-                  "description": "(Required) Unique identifier of the user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
                 },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "3a235371-e252-4f1b-883a-4bec9abb39a8",
-              "name": "OK",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/users/:user_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "users",
                     ":user_id"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) ID of the organization",
                       "key": "organization_id",
-                      "value": "10234695"
+                      "value": "<string>"
                     }
                   ],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
+                      "id": "c8974c5f-3627-4436-b40a-5bd679f72ea5",
                       "key": "user_id",
+                      "value": "<string>",
                       "description": "(Required) Unique identifier of the user."
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
+                "description": "Update the details of a user."
+              },
+              "response": [
+                {
+                  "id": "73cfd59a-468d-458d-b0a0-3cb447e02ca1",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"user_role\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:33:48.000Z",
+                  "updatedAt": "2026-10-22T02:33:48.000Z",
+                  "uid": "35240-73cfd59a-468d-458d-b0a0-3cb447e02ca1"
+                }
+              ],
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-cffbd4d5-b384-4ea9-9899-d5156f153ac5"
+            },
+            {
+              "name": "Get a user",
+              "id": "491f9476-7207-4292-a64e-54675dd23c4f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"user\": {\n    \"user_id\": \"982000000554041\",\n    \"name\": \"David John\",\n    \"email_ids\": [\n      {\n        \"email\": \"johndavid@zilliuminc.com\",\n        \"is_selected\": true\n      },\n      {\n        \"email\": \"johndavid@zilliuminc.com\",\n        \"is_selected\": true\n      }\n    ],\n    \"status\": \"active\",\n    \"user_role\": \"admin\",\n    \"user_type\": \"zoho\",\n    \"role_id\": \"982000000006005\",\n    \"photo_url\": \"https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb\",\n    \"is_claimant\": true,\n    \"created_time\": \"2016-06-05\",\n    \"custom_fields\": \"\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3da7fe62-557f-4d8d-aa2a-b2dfdf304af1",
-          "name": "Delete a user",
-          "request": {
-            "name": "Delete a user",
-            "description": {
-              "content": "Delete a user associated to the organization.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                ":user_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "user_id",
-                  "description": "(Required) Unique identifier of the user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "ef6ba8c0-c709-459c-b6b2-9c1e89a43a0b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users",
-                    ":user_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "user_id",
-                      "description": "(Required) Unique identifier of the user."
-                    }
-                  ]
-                },
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "DELETE",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "a3065aea-3594-49f2-8b19-af963eaee7a1",
+                      "key": "user_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the user."
+                    }
+                  ]
+                },
+                "description": "Get the details of a user."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "b3ce3c17-ce34-43b8-8954-259c953e61e2",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email_ids\": [\n      {\n        \"email\": \"<string>\",\n        \"is_selected\": \"<boolean>\"\n      },\n      {\n        \"email\": \"<string>\",\n        \"is_selected\": \"<boolean>\"\n      }\n    ],\n    \"status\": \"<string>\",\n    \"user_role\": \"<string>\",\n    \"user_type\": \"<string>\",\n    \"role_id\": \"<string>\",\n    \"photo_url\": \"<string>\",\n    \"is_claimant\": \"<boolean>\",\n    \"created_time\": \"<string>\",\n    \"custom_fields\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:33:48.000Z",
+                  "updatedAt": "2026-10-22T02:33:48.000Z",
+                  "uid": "35240-b3ce3c17-ce34-43b8-8954-259c953e61e2"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The user has been removed from your organization.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-491f9476-7207-4292-a64e-54675dd23c4f"
+            },
+            {
+              "name": "Delete a user",
+              "id": "498ecaa2-d61b-4c2a-8b68-bacc8366b94b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user_id?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "54ed7c95-2cfc-4d15-a562-3f7ba207e95b",
+                      "key": "user_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the user."
+                    }
+                  ]
+                },
+                "description": "Delete a user associated to the organization."
+              },
+              "response": [
+                {
+                  "id": "5d4b17ca-e908-4781-8b10-82c3ce247842",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:33:48.000Z",
+                  "updatedAt": "2026-10-22T02:33:48.000Z",
+                  "uid": "35240-5d4b17ca-e908-4781-8b10-82c3ce247842"
+                }
+              ],
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-498ecaa2-d61b-4c2a-8b68-bacc8366b94b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "ceaad5a6-cb3e-475d-85c5-207d150bd03e",
+          "createdAt": "2026-10-22T02:33:48.000Z",
+          "updatedAt": "2026-10-22T02:33:48.000Z",
+          "uid": "35240-ceaad5a6-cb3e-475d-85c5-207d150bd03e"
         },
         {
-          "id": "f46c63c3-81f1-44ad-b109-fed576039532",
-          "name": "Get current user",
-          "request": {
-            "name": "Get current user",
-            "description": {
-              "content": "Get the details of the current user.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                "me"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "me",
+          "item": [
             {
-              "id": "6b47f198-0c20-4cc7-885e-4a9c32c1cc76",
-              "name": "OK",
-              "originalRequest": {
+              "name": "Get current user",
+              "id": "251e9883-1912-4258-ab72-51247ac1d12b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://accounts.zoho.com/oauth/v2/auth",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "implicit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/users/me?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "users",
                     "me"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) ID of the organization",
                       "key": "organization_id",
-                      "value": "10234695"
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get the details of the current user."
+              },
+              "response": [
+                {
+                  "id": "154d2395-b27f-4073-a499-84290e8b631d",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/me?organization_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        "me"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ID of the organization",
+                          "key": "organization_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email_ids\": [\n      {\n        \"email\": \"<string>\",\n        \"is_selected\": \"<boolean>\"\n      },\n      {\n        \"email\": \"<string>\",\n        \"is_selected\": \"<boolean>\"\n      }\n    ],\n    \"status\": \"<string>\",\n    \"user_role\": \"<string>\",\n    \"user_type\": \"<string>\",\n    \"role_id\": \"<string>\",\n    \"photo_url\": \"<string>\",\n    \"is_claimant\": \"<boolean>\",\n    \"created_time\": \"<string>\",\n    \"custom_fields\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:33:48.000Z",
+                  "updatedAt": "2026-10-22T02:33:48.000Z",
+                  "uid": "35240-154d2395-b27f-4073-a499-84290e8b631d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-251e9883-1912-4258-ab72-51247ac1d12b"
+            }
+          ],
+          "id": "9d43b44d-25f9-40f3-9140-59ca86f8914d",
+          "createdAt": "2026-10-22T02:33:48.000Z",
+          "updatedAt": "2026-10-22T02:33:48.000Z",
+          "uid": "35240-9d43b44d-25f9-40f3-9140-59ca86f8914d"
+        },
+        {
+          "name": "Create a user",
+          "id": "cb6fcc16-d31e-470a-a670-4f50c447945d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                  "type": "string"
                 },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"user_role\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users?organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Create a user for your organization."
+          },
+          "response": [
+            {
+              "id": "79efc607-a628-4b56-a666-0c847c4539e2",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"user_role\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users?organization_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-79efc607-a628-4b56-a666-0c847c4539e2"
+            }
+          ],
+          "createdAt": "2026-10-22T02:33:48.000Z",
+          "updatedAt": "2026-10-22T02:33:48.000Z",
+          "uid": "35240-cb6fcc16-d31e-470a-a670-4f50c447945d"
+        },
+        {
+          "name": "List Users",
+          "id": "db77b3ba-83fd-4f6d-bfb2-c2c37d50cf01",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "ZohoInventory.settings.CREATE ZohoInventory.settings.UPDATE ZohoInventory.settings.READ ZohoInventory.settings.DELETE",
+                  "type": "string"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.zoho.com/oauth/v2/auth",
+                  "type": "string"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users?filter_by=<string>&sort_column=<string>&page=1&per_page=200&organization_id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "description": "Criteria used to filter",
+                  "key": "filter_by",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sort users. Allowed Values: <code>name, email, user_role and status</code>",
+                  "key": "sort_column",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page number to be fetched. Default value is 1.",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Number of records to be fetched per page. Default value is 200.",
+                  "key": "per_page",
+                  "value": "200"
+                },
+                {
+                  "description": "(Required) ID of the organization",
+                  "key": "organization_id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get the list of all users in the organization."
+          },
+          "response": [
+            {
+              "id": "2509a401-13fb-45d7-862f-25aa4eaa2e56",
+              "name": "OK",
+              "originalRequest": {
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"success\",\n  \"user\": {\n    \"user_id\": \"982000000554041\",\n    \"name\": \"David John\",\n    \"email_ids\": [\n      {\n        \"email\": \"johndavid@zilliuminc.com\",\n        \"is_selected\": true\n      },\n      {\n        \"email\": \"johndavid@zilliuminc.com\",\n        \"is_selected\": true\n      }\n    ],\n    \"status\": \"active\",\n    \"user_role\": \"admin\",\n    \"user_type\": \"zoho\",\n    \"role_id\": \"982000000006005\",\n    \"photo_url\": \"https://contacts.zoho.com/file?ID=d27344a22bad8bb83a03722b4aa5bc6967c3135f24307fe40db8572782432fd6aae0110f8bb9c4c79e8e0f0cca5904aecfacbf079f13b48c295bacc89ae91fca&fs=thumb\",\n    \"is_claimant\": true,\n    \"created_time\": \"2016-06-05\",\n    \"custom_fields\": \"\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3594f1a4-3591-43b7-9a80-e53a66f82cf2",
-          "name": "Invite a user",
-          "request": {
-            "name": "Invite a user",
-            "description": {
-              "content": "Send invitation email to a person, you wish to add as a user to your organisation. For example- an accountant.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                ":user_id",
-                "invite"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "user_id",
-                  "description": "(Required) Unique identifier of the user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "9d6cefb8-e641-49fd-9ada-4906490a6718",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "users",
-                    ":user_id",
-                    "invite"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "user_id",
-                      "description": "(Required) Unique identifier of the user."
-                    }
-                  ]
-                },
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"Your invitation has been sent.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "75596d7d-c2f5-4601-b940-9b55b31ab660",
-          "name": "Mark user as active",
-          "request": {
-            "name": "Mark user as active",
-            "description": {
-              "content": "Mark an inactive user as active.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                ":user_id",
-                "active"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "user_id",
-                  "description": "(Required) Unique identifier of the user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "fa3408e0-059e-4d37-8490-c3d4cb333221",
-              "name": "OK",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "users",
-                    ":user_id",
-                    "active"
-                  ],
+                  "raw": "{{baseUrl}}/users?filter_by=<string>&sort_column=<string>&page=1&per_page=200&organization_id=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "user_id",
-                      "description": "(Required) Unique identifier of the user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The user has been marked as active.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "18869c6f-38cb-467a-ba1f-b1770589fe9e",
-          "name": "Mark user as inactive",
-          "request": {
-            "name": "Mark user as inactive",
-            "description": {
-              "content": "Mark an active user as inactive.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "users",
-                ":user_id",
-                "inactive"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "organization_id",
-                  "value": "<string>",
-                  "description": "(Required) ID of the organization"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "user_id",
-                  "description": "(Required) Unique identifier of the user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "ZohoInventory.items.CREATE ZohoInventory.items.READ ZohoInventory.items.UPDATE ZohoInventory.items.DELETE"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://accounts.zoho.com/oauth/v2/auth"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "implicit"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "37ea07c0-3c2d-4447-a969-38ea5660c750",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
                   "path": [
-                    "users",
-                    ":user_id",
-                    "inactive"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
+                    "users"
                   ],
                   "query": [
                     {
-                      "key": "organization_id",
-                      "value": "10234695"
-                    }
-                  ],
-                  "variable": [
+                      "description": "Criteria used to filter",
+                      "key": "filter_by",
+                      "value": "<string>"
+                    },
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "user_id",
-                      "description": "(Required) Unique identifier of the user."
+                      "description": "Sort users. Allowed Values: <code>name, email, user_role and status</code>",
+                      "key": "sort_column",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number to be fetched. Default value is 1.",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of records to be fetched per page. Default value is 200.",
+                      "key": "per_page",
+                      "value": "200"
+                    },
+                    {
+                      "description": "(Required) ID of the organization",
+                      "key": "organization_id",
+                      "value": "<string>"
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": 0,\n  \"message\": \"The user has been marked as inactive.\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"users\": [\n    {\n      \"user_id\": \"<string>\",\n      \"role_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"user_role\": \"<string>\",\n      \"user_type\": \"<string>\",\n      \"status\": \"<string>\",\n      \"is_current_user\": \"<boolean>\",\n      \"photo_url\": \"<string>\"\n    },\n    {\n      \"user_id\": \"<string>\",\n      \"role_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"user_role\": \"<string>\",\n      \"user_type\": \"<string>\",\n      \"status\": \"<string>\",\n      \"is_current_user\": \"<boolean>\",\n      \"photo_url\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:33:48.000Z",
+              "updatedAt": "2026-10-22T02:33:48.000Z",
+              "uid": "35240-2509a401-13fb-45d7-862f-25aa4eaa2e56"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:33:48.000Z",
+          "updatedAt": "2026-10-22T02:33:48.000Z",
+          "uid": "35240-db77b3ba-83fd-4f6d-bfb2-c2c37d50cf01"
         }
       ],
-      "event": []
+      "id": "841b9b31-ff71-4151-81ec-e10b35b37257",
+      "createdAt": "2026-10-22T02:33:48.000Z",
+      "updatedAt": "2026-10-22T02:33:48.000Z",
+      "uid": "35240-841b9b31-ff71-4151-81ec-e10b35b37257"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://www.zohoapis.com/inventory/v1",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://www.zohoapis.com/inventory/v1"
     }
-  ],
-  "info": {
-    "_postman_id": "a8b21a22-c422-43d8-919c-92ed1e755d6c",
-    "name": "batches users API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Batches help you track inventory items by batch numbers, manufacturing dates, and expiration dates.",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
